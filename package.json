@@ -1,0 +1,19 @@
+{
+  "name": "rfjs",
+  "version": "0.2.0",
+  "description": "RazorFlow Dashboard Framework - JavaScript Edition",
+  "scripts": {
+    "test": "grunt test",
+    "dev": "node tools/devserver"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://AmeenAhmed@bitbucket.org/razorflow/rfjs.git"
+  },
+  "dependencies": {
+    "express": "~3.4.8"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  }
+}

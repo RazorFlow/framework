@@ -26,6 +26,7 @@ Alternatively, run these in different terminals.
        - razordoc
        - rfImageGen
        - genprops
+       - devserver
      - build [ This folder is temporary and will be ignored ]
        - js
        - css
