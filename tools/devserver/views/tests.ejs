@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <% for(var i=-1; ++i<vendorScripts.length;) { %>
+            <script type="text/javascript" data-main="assets/js/core/main" src="/assets/vendor/js/<%=vendorScripts[i]%>"></script>
+        <% } %>
+        <script type="text/javascript" src="/assets/vendor/test/jasmine.js"></script>
+        <script type="text/javascript" src="/assets/vendor/test/jasmine-html.js"></script>
+        <script type="text/javascript" src="/assets/vendor/test/boot.js"></script>
+        <link rel="stylesheet" href="/assets/vendor/test/jasmine.css" />
+        <script>
+        require.config({
+        baseUrl: '/assets/js'
+      });
+        </script>
+    </head>
+    <body>
+        <% for(var i=-1; ++i<testScripts.length;) { %> 
+            <script type="text/javascript" src="/testScripts/<%=testScripts[i]%>"></script>
+        <% } %>
+    </body>
+</html>
