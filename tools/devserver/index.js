@@ -5,6 +5,7 @@ var path = require('path');
 var rootPath = path.resolve(__dirname, '../../');
 
 app.use('/assets', express.static(rootPath + '/src'));
+app.use('/build', express.static(rootPath + '/build'));
 app.use('/testScripts', express.static(rootPath + '/tests'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
