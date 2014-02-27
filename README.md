@@ -32,4 +32,4 @@ Alternatively, run these in different terminals.
        - css
        - fonts
        - tmp
-     - tests
+     - tests # unit tests go here
