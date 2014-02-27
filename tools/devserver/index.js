@@ -14,6 +14,11 @@ app.get('/', function(req, res) {
     res.render('index.ejs', {vendorScripts: vendorScripts});
 });
 
+app.get('/dev', function(req, res) {
+    var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
+    res.render('dev.ejs', {vendorScripts: vendorScripts});
+});
+
 app.get('/tests', function(req, res) {
     var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
     var testScripts = fs.readdirSync(rootPath + '/tests');

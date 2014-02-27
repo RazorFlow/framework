@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <% for(var i=-1; ++i<vendorScripts.length;) { %>
+            <script type="text/javascript" src="/assets/vendor/js/<%=vendorScripts[i]%>"></script>
+        <% } %>
+    <script type="text/javascript">
+        require.config({
+            baseUrl: '/assets/js'
+        });
+        require(["core/main"], function (rf) {
+            StandaloneDashboard(function (db) {
+                db.setDashboardTitle('KPI Types Supported in RazorFlow');
+
+                var c1 = new KPIComponent();
+                c1.setLocation(0, 0, 4, 4);
+                c1.setCaption('Average Monthly Sales');
+                c1.setValue(513.22, {
+                    numberPrefix: '$'
+                });
+                db.addComponent(c1);
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div id="dbTarget" style='position: relative;' class='rf rf-click rf-lg'>
+</div>
+</body>
+</html>
