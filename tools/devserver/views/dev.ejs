@@ -23,6 +23,10 @@
 //                    numberPrefix: '$'
 //                });
                 db.addComponent(c1);
+
+                setTimeout(function () {
+                    c1.setValue(55);
+                }, 1000);
             });
         });
     </script>
