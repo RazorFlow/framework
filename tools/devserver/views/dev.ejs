@@ -17,12 +17,19 @@
                 db.setDashboardTitle('KPI Types Supported in RazorFlow');
 
                 var c1 = new KPIComponent();
-//                c1.setLocation(0, 0, 4, 4);
+                c1.setDimensions(4, 4);
                 c1.setCaption('Average Monthly Sales');
                 c1.setValue(513.22);
 //                    numberPrefix: '$'
 //                });
                 db.addComponent(c1);
+
+                var c2 = new KPIComponent();
+                c2.setDimensions(4, 4);
+                c2.setCaption('Average Monthly Cost');
+                c2.setValue(345);
+
+                db.addComponent(c2);
 
                 setTimeout(function () {
                     c1.setValue(55);

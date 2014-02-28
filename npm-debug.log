@@ -1,0 +1,1948 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.12
+4 verbose read json /Users/ameen/repos/rfjs/package.json
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/ameen/repos/rfjs',
+6 verbose install   [ 'express',
+6 verbose install     'ejs',
+6 verbose install     'grunt',
+6 verbose install     'grunt-contrib-requirejs',
+6 verbose install     'grunt-contrib-jst',
+6 verbose install     'grunt-contrib-watch',
+6 verbose install     'grunt-contrib-jshint',
+6 verbose install     'grunt-contrib-less' ] ]
+7 verbose from cache /Users/ameen/repos/rfjs/package.json
+8 info preinstall rfjs@0.2.0
+9 verbose read json /Users/ameen/repos/rfjs/node_modules/ejs/package.json
+10 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt/package.json
+11 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jshint/package.json
+12 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less/package.json
+13 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-requirejs/package.json
+14 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-watch/package.json
+15 verbose from cache /Users/ameen/repos/rfjs/package.json
+16 verbose readDependencies using package.json deps
+17 verbose from cache /Users/ameen/repos/rfjs/node_modules/ejs/package.json
+18 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt/package.json
+19 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jshint/package.json
+20 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less/package.json
+21 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-requirejs/package.json
+22 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-watch/package.json
+23 verbose already installed skipping grunt@~0.4.2 /Users/ameen/repos/rfjs
+24 verbose already installed skipping grunt-contrib-requirejs@~0.4.1 /Users/ameen/repos/rfjs
+25 verbose cache add [ 'grunt-contrib-jst@*', null ]
+26 verbose cache add name=undefined spec="grunt-contrib-jst@*" args=["grunt-contrib-jst@*",null]
+27 verbose parsed url { protocol: null,
+27 verbose parsed url   slashes: null,
+27 verbose parsed url   auth: null,
+27 verbose parsed url   host: null,
+27 verbose parsed url   port: null,
+27 verbose parsed url   hostname: null,
+27 verbose parsed url   hash: null,
+27 verbose parsed url   search: null,
+27 verbose parsed url   query: null,
+27 verbose parsed url   pathname: 'grunt-contrib-jst@*',
+27 verbose parsed url   path: 'grunt-contrib-jst@*',
+27 verbose parsed url   href: 'grunt-contrib-jst@*' }
+28 verbose cache add name="grunt-contrib-jst" spec="*" args=["grunt-contrib-jst","*"]
+29 verbose parsed url { protocol: null,
+29 verbose parsed url   slashes: null,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: null,
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: null,
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: '*',
+29 verbose parsed url   path: '*',
+29 verbose parsed url   href: '*' }
+30 verbose addNamed [ 'grunt-contrib-jst', '*' ]
+31 verbose addNamed [ null, '' ]
+32 verbose already installed skipping grunt-contrib-jshint@~0.4.0 /Users/ameen/repos/rfjs
+33 verbose already installed skipping grunt-contrib-watch@* /Users/ameen/repos/rfjs
+34 silly lockFile d9b53581-grunt-contrib-jst grunt-contrib-jst@*
+35 verbose lock grunt-contrib-jst@* /Users/ameen/.npm/d9b53581-grunt-contrib-jst.lock
+36 verbose cache add [ 'grunt-contrib-less@>= 0.1', null ]
+37 verbose cache add name=undefined spec="grunt-contrib-less@>= 0.1" args=["grunt-contrib-less@>= 0.1",null]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: 'grunt-contrib-less@%3E=%200.1',
+38 verbose parsed url   path: 'grunt-contrib-less@%3E=%200.1',
+38 verbose parsed url   href: 'grunt-contrib-less@%3E=%200.1' }
+39 verbose cache add name="grunt-contrib-less" spec=">= 0.1" args=["grunt-contrib-less",">= 0.1"]
+40 verbose parsed url { protocol: null,
+40 verbose parsed url   slashes: null,
+40 verbose parsed url   auth: null,
+40 verbose parsed url   host: null,
+40 verbose parsed url   port: null,
+40 verbose parsed url   hostname: null,
+40 verbose parsed url   hash: null,
+40 verbose parsed url   search: null,
+40 verbose parsed url   query: null,
+40 verbose parsed url   pathname: '%3E=%200.1',
+40 verbose parsed url   path: '%3E=%200.1',
+40 verbose parsed url   href: '%3E=%200.1' }
+41 verbose addNamed [ 'grunt-contrib-less', '>= 0.1' ]
+42 verbose addNamed [ null, '>=0.1.0-' ]
+43 silly lockFile a75c61d7-grunt-contrib-less-0-1 grunt-contrib-less@>= 0.1
+44 verbose lock grunt-contrib-less@>= 0.1 /Users/ameen/.npm/a75c61d7-grunt-contrib-less-0-1.lock
+45 silly addNameRange { name: 'grunt-contrib-jst', range: '', hasData: false }
+46 verbose cache add [ 'express@~3.4.8', null ]
+47 verbose cache add name=undefined spec="express@~3.4.8" args=["express@~3.4.8",null]
+48 verbose parsed url { protocol: null,
+48 verbose parsed url   slashes: null,
+48 verbose parsed url   auth: null,
+48 verbose parsed url   host: null,
+48 verbose parsed url   port: null,
+48 verbose parsed url   hostname: null,
+48 verbose parsed url   hash: null,
+48 verbose parsed url   search: null,
+48 verbose parsed url   query: null,
+48 verbose parsed url   pathname: 'express@~3.4.8',
+48 verbose parsed url   path: 'express@~3.4.8',
+48 verbose parsed url   href: 'express@~3.4.8' }
+49 verbose cache add name="express" spec="~3.4.8" args=["express","~3.4.8"]
+50 verbose parsed url { protocol: null,
+50 verbose parsed url   slashes: null,
+50 verbose parsed url   auth: null,
+50 verbose parsed url   host: null,
+50 verbose parsed url   port: null,
+50 verbose parsed url   hostname: null,
+50 verbose parsed url   hash: null,
+50 verbose parsed url   search: null,
+50 verbose parsed url   query: null,
+50 verbose parsed url   pathname: '~3.4.8',
+50 verbose parsed url   path: '~3.4.8',
+50 verbose parsed url   href: '~3.4.8' }
+51 verbose addNamed [ 'express', '~3.4.8' ]
+52 verbose addNamed [ null, '>=3.4.8- <3.5.0-' ]
+53 silly lockFile 655fa913-express-3-4-8 express@~3.4.8
+54 verbose lock express@~3.4.8 /Users/ameen/.npm/655fa913-express-3-4-8.lock
+55 silly addNameRange { name: 'grunt-contrib-less', range: '>=0.1.0-', hasData: false }
+56 verbose already installed skipping ejs@~0.8.5 /Users/ameen/repos/rfjs
+57 silly addNameRange { name: 'express', range: '>=3.4.8- <3.5.0-', hasData: false }
+58 verbose url raw grunt-contrib-jst
+59 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-jst' ]
+60 verbose url resolved https://registry.npmjs.org/grunt-contrib-jst
+61 info trying registry request attempt 1 at 11:46:50
+62 verbose etag "ARDHJ01P8NHSHHAB4JRSKGLSC"
+63 http GET https://registry.npmjs.org/grunt-contrib-jst
+64 verbose url raw express
+65 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+66 verbose url resolved https://registry.npmjs.org/express
+67 info trying registry request attempt 1 at 11:46:50
+68 verbose etag "4Z1IVYRE0BAIUNMN402DM480R"
+69 http GET https://registry.npmjs.org/express
+70 verbose url raw grunt-contrib-less
+71 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-less' ]
+72 verbose url resolved https://registry.npmjs.org/grunt-contrib-less
+73 info trying registry request attempt 1 at 11:46:50
+74 verbose etag "AOIFLJQWHKD4GAAYTFADDEEKG"
+75 http GET https://registry.npmjs.org/grunt-contrib-less
+76 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+77 http 304 https://registry.npmjs.org/grunt-contrib-less
+78 silly registry.get cb [ 304,
+78 silly registry.get   { date: 'Fri, 28 Feb 2014 06:16:48 GMT',
+78 silly registry.get     server: 'Apache',
+78 silly registry.get     connection: 'Keep-Alive',
+78 silly registry.get     'keep-alive': 'timeout=10, max=50',
+78 silly registry.get     etag: '"AOIFLJQWHKD4GAAYTFADDEEKG"',
+78 silly registry.get     'cache-control': 'max-age=1',
+78 silly registry.get     vary: 'Accept' } ]
+79 verbose etag grunt-contrib-less from cache
+80 silly addNameRange number 2 { name: 'grunt-contrib-less', range: '>=0.1.0-', hasData: true }
+81 silly addNameRange versions [ 'grunt-contrib-less',
+81 silly addNameRange   [ '0.1.0',
+81 silly addNameRange     '0.2.0',
+81 silly addNameRange     '0.2.1',
+81 silly addNameRange     '0.2.2',
+81 silly addNameRange     '0.3.0',
+81 silly addNameRange     '0.3.1',
+81 silly addNameRange     '0.3.2',
+81 silly addNameRange     '0.5.0',
+81 silly addNameRange     '0.5.1',
+81 silly addNameRange     '0.5.2',
+81 silly addNameRange     '0.6.0',
+81 silly addNameRange     '0.6.1',
+81 silly addNameRange     '0.6.2',
+81 silly addNameRange     '0.6.3',
+81 silly addNameRange     '0.6.4',
+81 silly addNameRange     '0.6.5',
+81 silly addNameRange     '0.7.0',
+81 silly addNameRange     '0.8.0',
+81 silly addNameRange     '0.8.1',
+81 silly addNameRange     '0.8.2',
+81 silly addNameRange     '0.8.3',
+81 silly addNameRange     '0.9.0',
+81 silly addNameRange     '0.5.0-rc7' ] ]
+82 verbose addNamed [ 'grunt-contrib-less', '0.9.0' ]
+83 verbose addNamed [ '0.9.0', '0.9.0' ]
+84 silly lockFile 74990697-grunt-contrib-less-0-9-0 grunt-contrib-less@0.9.0
+85 verbose lock grunt-contrib-less@0.9.0 /Users/ameen/.npm/74990697-grunt-contrib-less-0-9-0.lock
+86 verbose read json /Users/ameen/.npm/grunt-contrib-less/0.9.0/package/package.json
+87 silly lockFile 74990697-grunt-contrib-less-0-9-0 grunt-contrib-less@0.9.0
+88 silly lockFile 74990697-grunt-contrib-less-0-9-0 grunt-contrib-less@0.9.0
+89 silly lockFile a75c61d7-grunt-contrib-less-0-1 grunt-contrib-less@>= 0.1
+90 silly lockFile a75c61d7-grunt-contrib-less-0-1 grunt-contrib-less@>= 0.1
+91 http 200 https://registry.npmjs.org/express
+92 silly registry.get cb [ 200,
+92 silly registry.get   { date: 'Fri, 28 Feb 2014 06:16:48 GMT',
+92 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+92 silly registry.get     etag: '"BZ5SAU82WRP4KUHR8CAPU6UAF"',
+92 silly registry.get     'content-type': 'application/json',
+92 silly registry.get     via: '1.1 varnish',
+92 silly registry.get     'cache-control': 'max-age=1',
+92 silly registry.get     'content-length': '158212',
+92 silly registry.get     'accept-ranges': 'bytes',
+92 silly registry.get     age: '219',
+92 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-sv61-SJC3',
+92 silly registry.get     'x-cache': 'HIT, HIT',
+92 silly registry.get     'x-cache-hits': '1, 1',
+92 silly registry.get     'x-timer': 'S1393537112.390447140,VS0,VS-203,VE-189,VE31096590',
+92 silly registry.get     vary: 'Accept',
+92 silly registry.get     'keep-alive': 'timeout=10, max=50',
+92 silly registry.get     connection: 'Keep-Alive' } ]
+93 silly addNameRange number 2 { name: 'express', range: '>=3.4.8- <3.5.0-', hasData: true }
+94 silly addNameRange versions [ 'express',
+94 silly addNameRange   [ '0.14.0',
+94 silly addNameRange     '0.14.1',
+94 silly addNameRange     '1.0.0',
+94 silly addNameRange     '1.0.1',
+94 silly addNameRange     '1.0.2',
+94 silly addNameRange     '1.0.3',
+94 silly addNameRange     '1.0.4',
+94 silly addNameRange     '1.0.5',
+94 silly addNameRange     '1.0.6',
+94 silly addNameRange     '1.0.7',
+94 silly addNameRange     '1.0.8',
+94 silly addNameRange     '2.0.0',
+94 silly addNameRange     '2.1.0',
+94 silly addNameRange     '2.1.1',
+94 silly addNameRange     '2.2.0',
+94 silly addNameRange     '2.2.1',
+94 silly addNameRange     '2.2.2',
+94 silly addNameRange     '2.3.0',
+94 silly addNameRange     '2.3.1',
+94 silly addNameRange     '2.3.2',
+94 silly addNameRange     '2.3.3',
+94 silly addNameRange     '2.3.4',
+94 silly addNameRange     '2.3.5',
+94 silly addNameRange     '2.3.6',
+94 silly addNameRange     '2.3.7',
+94 silly addNameRange     '2.3.8',
+94 silly addNameRange     '2.3.9',
+94 silly addNameRange     '2.3.10',
+94 silly addNameRange     '2.3.11',
+94 silly addNameRange     '2.3.12',
+94 silly addNameRange     '2.4.0',
+94 silly addNameRange     '2.4.1',
+94 silly addNameRange     '2.4.2',
+94 silly addNameRange     '2.4.3',
+94 silly addNameRange     '2.4.4',
+94 silly addNameRange     '2.4.5',
+94 silly addNameRange     '2.4.6',
+94 silly addNameRange     '2.4.7',
+94 silly addNameRange     '2.5.0',
+94 silly addNameRange     '2.5.1',
+94 silly addNameRange     '2.5.2',
+94 silly addNameRange     '2.5.3',
+94 silly addNameRange     '2.5.4',
+94 silly addNameRange     '2.5.5',
+94 silly addNameRange     '2.5.6',
+94 silly addNameRange     '2.5.7',
+94 silly addNameRange     '2.5.8',
+94 silly addNameRange     '2.5.9',
+94 silly addNameRange     '2.5.10',
+94 silly addNameRange     '2.5.11',
+94 silly addNameRange     '3.0.0',
+94 silly addNameRange     '3.0.1',
+94 silly addNameRange     '3.0.2',
+94 silly addNameRange     '3.0.3',
+94 silly addNameRange     '3.0.4',
+94 silly addNameRange     '3.0.5',
+94 silly addNameRange     '3.0.6',
+94 silly addNameRange     '3.1.0',
+94 silly addNameRange     '3.1.1',
+94 silly addNameRange     '3.1.2',
+94 silly addNameRange     '3.2.0',
+94 silly addNameRange     '3.2.1',
+94 silly addNameRange     '3.2.2',
+94 silly addNameRange     '3.2.3',
+94 silly addNameRange     '3.2.4',
+94 silly addNameRange     '3.2.5',
+94 silly addNameRange     '3.2.6',
+94 silly addNameRange     '3.3.0',
+94 silly addNameRange     '3.3.1',
+94 silly addNameRange     '3.3.2',
+94 silly addNameRange     '3.3.3',
+94 silly addNameRange     '3.3.4',
+94 silly addNameRange     '3.3.5',
+94 silly addNameRange     '3.3.6',
+94 silly addNameRange     '1.0.0-beta',
+94 silly addNameRange     '1.0.0-beta2',
+94 silly addNameRange     '1.0.0-rc',
+94 silly addNameRange     '1.0.0-rc2',
+94 silly addNameRange     '1.0.0-rc3',
+94 silly addNameRange     '1.0.0-rc4',
+94 silly addNameRange     '2.0.0-beta',
+94 silly addNameRange     '2.0.0-beta2',
+94 silly addNameRange     '2.0.0-beta3',
+94 silly addNameRange     '2.0.0-rc',
+94 silly addNameRange     '2.0.0-rc2',
+94 silly addNameRange     '2.0.0-rc3',
+94 silly addNameRange     '3.0.0-alpha1',
+94 silly addNameRange     '3.0.0-alpha2',
+94 silly addNameRange     '3.0.0-alpha3',
+94 silly addNameRange     '3.0.0-alpha4',
+94 silly addNameRange     '3.0.0-alpha5',
+94 silly addNameRange     '3.0.0-beta1',
+94 silly addNameRange     '3.0.0-beta2',
+94 silly addNameRange     '3.0.0-beta3',
+94 silly addNameRange     '3.0.0-beta4',
+94 silly addNameRange     '3.0.0-beta6',
+94 silly addNameRange     '3.0.0-beta7',
+94 silly addNameRange     '3.0.0-rc1',
+94 silly addNameRange     '3.0.0-rc2',
+94 silly addNameRange     '3.0.0-rc3',
+94 silly addNameRange     '3.0.0-rc4',
+94 silly addNameRange     '3.0.0-rc5',
+94 silly addNameRange     '3.3.7',
+94 silly addNameRange     '3.3.8',
+94 silly addNameRange     '3.4.0',
+94 silly addNameRange     '3.4.1',
+94 silly addNameRange     '3.4.2',
+94 silly addNameRange     '3.4.3',
+94 silly addNameRange     '3.4.4',
+94 silly addNameRange     '3.4.5',
+94 silly addNameRange     '3.4.6',
+94 silly addNameRange     '3.4.7',
+94 silly addNameRange     '3.4.8' ] ]
+95 verbose addNamed [ 'express', '3.4.8' ]
+96 verbose addNamed [ '3.4.8', '3.4.8' ]
+97 silly lockFile 15cb8528-express-3-4-8 express@3.4.8
+98 verbose lock express@3.4.8 /Users/ameen/.npm/15cb8528-express-3-4-8.lock
+99 verbose read json /Users/ameen/.npm/express/3.4.8/package/package.json
+100 silly lockFile 15cb8528-express-3-4-8 express@3.4.8
+101 silly lockFile 15cb8528-express-3-4-8 express@3.4.8
+102 silly lockFile 655fa913-express-3-4-8 express@~3.4.8
+103 silly lockFile 655fa913-express-3-4-8 express@~3.4.8
+104 info trying registry request attempt 2 at 11:47:01
+105 verbose etag "ARDHJ01P8NHSHHAB4JRSKGLSC"
+106 http GET https://registry.npmjs.org/grunt-contrib-jst
+107 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+108 info trying registry request attempt 3 at 11:48:02
+109 verbose etag "ARDHJ01P8NHSHHAB4JRSKGLSC"
+110 http GET https://registry.npmjs.org/grunt-contrib-jst
+111 silly registry.get cb [ 304, undefined ]
+112 verbose etag grunt-contrib-jst from cache
+113 silly addNameRange number 2 { name: 'grunt-contrib-jst', range: '', hasData: true }
+114 silly addNameRange versions [ 'grunt-contrib-jst',
+114 silly addNameRange   [ '0.2.0',
+114 silly addNameRange     '0.2.1',
+114 silly addNameRange     '0.2.2',
+114 silly addNameRange     '0.2.3',
+114 silly addNameRange     '0.2.4',
+114 silly addNameRange     '0.3.0',
+114 silly addNameRange     '0.3.1',
+114 silly addNameRange     '0.3.2',
+114 silly addNameRange     '0.4.1',
+114 silly addNameRange     '0.5.0',
+114 silly addNameRange     '0.5.1',
+114 silly addNameRange     '0.4.0-rc7',
+114 silly addNameRange     '0.4.1-rc7' ] ]
+115 verbose addNamed [ 'grunt-contrib-jst', '0.5.1' ]
+116 verbose addNamed [ '0.5.1', '0.5.1' ]
+117 silly lockFile e8bef50c-grunt-contrib-jst-0-5-1 grunt-contrib-jst@0.5.1
+118 verbose lock grunt-contrib-jst@0.5.1 /Users/ameen/.npm/e8bef50c-grunt-contrib-jst-0-5-1.lock
+119 verbose read json /Users/ameen/.npm/grunt-contrib-jst/0.5.1/package/package.json
+120 silly lockFile e8bef50c-grunt-contrib-jst-0-5-1 grunt-contrib-jst@0.5.1
+121 silly lockFile e8bef50c-grunt-contrib-jst-0-5-1 grunt-contrib-jst@0.5.1
+122 silly lockFile d9b53581-grunt-contrib-jst grunt-contrib-jst@*
+123 silly lockFile d9b53581-grunt-contrib-jst grunt-contrib-jst@*
+124 silly resolved [ { name: 'grunt-contrib-less',
+124 silly resolved     description: 'Compile LESS files to CSS.',
+124 silly resolved     version: '0.9.0',
+124 silly resolved     homepage: 'https://github.com/gruntjs/grunt-contrib-less',
+124 silly resolved     author: { name: 'Grunt Team', url: 'http://gruntjs.com/' },
+124 silly resolved     repository:
+124 silly resolved      { type: 'git',
+124 silly resolved        url: 'git://github.com/gruntjs/grunt-contrib-less.git' },
+124 silly resolved     bugs: { url: 'https://github.com/gruntjs/grunt-contrib-less/issues' },
+124 silly resolved     licenses: [ [Object] ],
+124 silly resolved     engines: { node: '>= 0.8.0' },
+124 silly resolved     scripts: { test: 'grunt test' },
+124 silly resolved     dependencies:
+124 silly resolved      { less: '~1.6.0',
+124 silly resolved        'grunt-lib-contrib': '~0.6.1',
+124 silly resolved        chalk: '~0.4.0' },
+124 silly resolved     devDependencies:
+124 silly resolved      { 'grunt-contrib-jshint': '~0.6.2',
+124 silly resolved        'grunt-contrib-nodeunit': '~0.2.0',
+124 silly resolved        'grunt-contrib-clean': '~0.5.0',
+124 silly resolved        'grunt-contrib-internal': '~0.4.5',
+124 silly resolved        grunt: '~0.4.0' },
+124 silly resolved     peerDependencies: { grunt: '~0.4.0' },
+124 silly resolved     keywords: [ 'gruntplugin' ],
+124 silly resolved     files: [ 'tasks', 'LICENSE-MIT' ],
+124 silly resolved     readme: '# grunt-contrib-less v0.9.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-less.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-less)\n\n> Compile LESS files to CSS.\n\n\n\n## Getting Started\nThis plugin requires Grunt `~0.4.0`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-contrib-less --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-contrib-less\');\n```\n\n*This plugin was designed to work with Grunt 0.4.x. If you\'re still using grunt v0.3.x it\'s strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can\'t please use [v0.3.2](https://github.com/gruntjs/grunt-contrib-less/tree/grunt-0.3-stable).*\n\n\n## Less task\n_Run this task with the `grunt less` command._\n\nTask targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.\n### Options\n\n#### paths\nType: `String|Array`\n\nDefault: Directory of input file.\n\nSpecifies directories to scan for @import directives when parsing. Default value is the directory of the source, which is probably what you want.\n\n#### rootpath\nType: `String`\n\nDefault: `""`\n\nA path to add on to the start of every url resource.\n\n#### compress\nType: `Boolean`\n\nDefault: `false`\n\nCompress output by removing some whitespaces.\n\n#### cleancss\nType: `Boolean`\n\nDefault: `false`\n\nCompress output using [clean-css](https://npmjs.org/package/clean-css).\n\n#### ieCompat\nType: `Boolean`\n\nDefault: `true`\n\nEnforce the css output is compatible with Internet Explorer 8.\n\nFor example, the [data-uri](https://github.com/cloudhead/less.js/pull/1086) function encodes a file in base64 encoding and embeds it into the generated CSS files as a data-URI. Because Internet Explorer 8 limits `data-uri`s to 32KB, the [ieCompat](https://github.com/cloudhead/less.js/pull/1190) option prevents `less` from exceeding this.\n\n#### optimization\nType: `Integer`\n\nDefault: `null`\n\nSet the parser\'s optimization level. The lower the number, the less nodes it will create in the tree. This could matter for debugging, or if you want to access the individual nodes in the tree.\n\n#### strictImports\nType: `Boolean`\n\nDefault: `false`\n\nForce evaluation of imports.\n\n#### strictMath\nType: `Boolean`\n\nDefault: `false`\n\nWhen enabled, math is required to be in parenthesis.\n\n#### strictUnits\nType: `Boolean`\n\nDefault: `false`\n\nWhen enabled, less will validate the units used (e.g. 4px/2px = 2, not 2px and 4em/2px throws an error).\n\n#### syncImport\nType: `Boolean`\n\nDefault: `false`\n\nRead @import\'ed files synchronously from disk.\n\n#### dumpLineNumbers\nType: `String`\n\nDefault: `false`\n\nConfigures -sass-debug-info support.\n\nAccepts following values: `comments`, `mediaquery`, `all`.\n\n#### relativeUrls\nType: `Boolean`\n\nDefault: `false`\n\nRewrite urls to be relative. false: do not modify urls.\n\n#### customFunctions\nType: `Object`\n\nDefault: none\n\nDefine custom functions to be available within your LESS stylesheets. The function\'s name must be lowercase and\nreturn a primitive type (not an object or array). In the function definition, the first argument is the less\nobject, and subsequent arguments are from the less function call. Values passed to the function are not simple\nprimitive types, rather types defined within less. See the LESS documentation for more information on the available types.\n\n#### report\nChoices: `false` `\'min\'` `\'gzip\'`\n\nDefault: `false`\n\nEither do not report anything, report only minification result, or report minification and gzip results. This is useful to see exactly how well Less is performing, but using `\'gzip\'` can add 5-10x runtime task execution.\n\nExample ouput using `\'gzip\'`:\n\n```\nOriginal: 198444 bytes.\nMinified: 101615 bytes.\nGzipped:  20084 bytes.\n```\n\n#### sourceMap\nType: `Boolean`\n\nDefault: `false`\n\nEnable source maps.\n\n#### sourceMapFilename\nType: `String`\n\nDefault: none\n\nWrite the source map to a separate file with the given filename.\n\n#### sourceMapURL\nType: `String`\n\nDefault: none\n\nOverride the default url that points to the sourcemap from the compiled css file.\n\n#### sourceMapBasepath\nType: `String`\n\nDefault: none\n\nSets the base path for the less file paths in the source map.\n\n#### sourceMapRootpath\nType: `String`\n\nDefault: none\n\nAdds this path onto the less file paths in the source map.\n\n#### outputSourceFiles\nType: `Boolean`\n\nDefault: false\n\nPuts the less files into the map instead of referencing them.\n\n### Usage Examples\n\n```js\nless: {\n  development: {\n    options: {\n      paths: ["assets/css"]\n    },\n    files: {\n      "path/to/result.css": "path/to/source.less"\n    }\n  },\n  production: {\n    options: {\n      paths: ["assets/css"],\n      cleancss: true\n    },\n    files: {\n      "path/to/result.css": "path/to/source.less"\n    }\n  }\n}\n```\n\n\n## Release History\n\n * 2014-01-07   v0.9.0   Bump to less 1.6\n * 2013-12-06   v0.8.3   Support sourceMapURL\n * 2013-11-14   v0.8.2   Support outputSourceFiles\n * 2013-10-24   v0.8.1   Support sourceMapFilename, sourceMapBasepath and sourceMapRootpath\n * 2013-10-22   v0.8.0   Upgrade to LESS 1.5 Support strictUnits option Support sourceMap option Add customFunctions option for defining custom functions within LESS Output the source file name on error yuicompress option now cleancss (Less changed underlying dependency)\n * 2013-08-08   v0.7.0   Downgrade no source files warning to only in verbose mode\n * 2013-08-08   v0.6.5   Support strictMath option Support rootpath parse option\n * 2013-07-09   v0.6.4   Support relativeUrls option\n * 2013-07-06   v0.6.3   Add report option for minification and gzip results\n * 2013-07-03   v0.6.2   support syncImport\n * 2013-06-12   v0.6.1   Support ieCompat\n * 2013-06-09   v0.6.0   Bump less to 1.4.0\n * 2013-05-23   v0.5.2   Improve error handling.\n * 2013-04-25   v0.5.1   Gracefully handle configuration without sources.\n * 2013-02-15   v0.5.0   First official release for Grunt 0.4.0.\n * 2013-01-23   v0.5.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions. Remove experimental wildcard destination support. Switching to this.files api.\n * 2012-10-18   v0.3.2   Add support for dumpLineNumbers.\n * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.\n * 2012-09-24   v0.3.0   Global options depreciated Revert normalize linefeeds.\n * 2012-09-16   v0.2.2   Support all less options Normalize linefeeds Default path to dirname of src file.\n * 2012-09-10   v0.2.0   Refactored from grunt-contrib into individual repo.\n\n---\n\nTask submitted by [Tyler Kellen](http://goingslowly.com/)\n\n*This file was generated on Tue Jan 07 2014 14:32:15.*\n',
+124 silly resolved     readmeFilename: 'README.md',
+124 silly resolved     _id: 'grunt-contrib-less@0.9.0',
+124 silly resolved     _from: 'grunt-contrib-less@>= 0.1' },
+124 silly resolved   { name: 'express',
+124 silly resolved     description: 'Sinatra inspired web development framework',
+124 silly resolved     version: '3.4.8',
+124 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+124 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+124 silly resolved     dependencies:
+124 silly resolved      { connect: '2.12.0',
+124 silly resolved        commander: '1.3.2',
+124 silly resolved        'range-parser': '0.0.4',
+124 silly resolved        mkdirp: '0.3.5',
+124 silly resolved        cookie: '0.1.0',
+124 silly resolved        'buffer-crc32': '0.2.1',
+124 silly resolved        fresh: '0.2.0',
+124 silly resolved        methods: '0.1.0',
+124 silly resolved        send: '0.1.4',
+124 silly resolved        'cookie-signature': '1.0.1',
+124 silly resolved        'merge-descriptors': '0.0.1',
+124 silly resolved        debug: '>= 0.7.3 < 1' },
+124 silly resolved     devDependencies:
+124 silly resolved      { ejs: '~0.8.4',
+124 silly resolved        mocha: '~1.15.1',
+124 silly resolved        jade: '~0.30.0',
+124 silly resolved        hjs: '~0.0.6',
+124 silly resolved        stylus: '~0.40.0',
+124 silly resolved        should: '~2.1.1',
+124 silly resolved        'connect-redis': '~1.4.5',
+124 silly resolved        marked: '0.2.10',
+124 silly resolved        supertest: '~0.8.1' },
+124 silly resolved     keywords:
+124 silly resolved      [ 'express',
+124 silly resolved        'framework',
+124 silly resolved        'sinatra',
+124 silly resolved        'web',
+124 silly resolved        'rest',
+124 silly resolved        'restful',
+124 silly resolved        'router',
+124 silly resolved        'app',
+124 silly resolved        'api' ],
+124 silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/express' },
+124 silly resolved     main: 'index',
+124 silly resolved     bin: { express: './bin/express' },
+124 silly resolved     scripts: { prepublish: 'npm prune', test: 'make test' },
+124 silly resolved     engines: { node: '>= 0.8.0' },
+124 silly resolved     license: 'MIT',
+124 silly resolved     readme: '[![express logo](http://f.cl.ly/items/0V2S1n0K1i3y1c122g04/Screen%20Shot%202012-04-11%20at%209.59.42%20AM.png)](http://expressjs.com/)\n\n  Fast, unopinionated, minimalist web framework for [node](http://nodejs.org).\n\n  [![Build Status](https://secure.travis-ci.org/visionmedia/express.png)](http://travis-ci.org/visionmedia/express) [![Gittip](http://img.shields.io/gittip/visionmedia.png)](https://www.gittip.com/visionmedia/)\n\n```js\nvar express = require(\'express\');\nvar app = express();\n\napp.get(\'/\', function(req, res){\n  res.send(\'Hello World\');\n});\n\napp.listen(3000);\n```\n\n## Installation\n\n    $ npm install -g express\n\n## Quick Start\n\n The quickest way to get started with express is to utilize the executable `express(1)` to generate an application as shown below:\n\n Create the app:\n\n    $ npm install -g express\n    $ express /tmp/foo && cd /tmp/foo\n\n Install dependencies:\n\n    $ npm install\n\n Start the server:\n\n    $ node app\n\n## Features\n\n  * Built on [Connect](http://github.com/senchalabs/connect)\n  * Robust routing\n  * HTTP helpers (redirection, caching, etc)\n  * View system supporting 14+ template engines\n  * Content negotiation\n  * Focus on high performance\n  * Environment based configuration\n  * Executable for generating applications quickly\n  * High test coverage\n\n## Philosophy\n\n  The Express philosophy is to provide small, robust tooling for HTTP servers, making\n  it a great solution for single page applications, web sites, hybrids, or public\n  HTTP APIs.\n\n  Built on Connect, you can use _only_ what you need, and nothing more. Applications\n  can be as big or as small as you like, even a single file. Express does\n  not force you to use any specific ORM or template engine. With support for over\n  14 template engines via [Consolidate.js](http://github.com/visionmedia/consolidate.js),\n  you can quickly craft your perfect framework.\n\n## More Information\n\n  * [Website and Documentation](http://expressjs.com/) stored at [visionmedia/expressjs.com](https://github.com/visionmedia/expressjs.com)\n  * Join #express on freenode\n  * [Google Group](http://groups.google.com/group/express-js) for discussion\n  * Follow [tjholowaychuk](http://twitter.com/tjholowaychuk) on twitter for updates\n  * Visit the [Wiki](http://github.com/visionmedia/express/wiki)\n  * [Русскоязычная документация](http://jsman.ru/express/)\n  * Run express examples [online](https://runnable.com/express)\n\n## Viewing Examples\n\nClone the Express repo, then install the dev dependencies to install all the example / test suite dependencies:\n\n    $ git clone git://github.com/visionmedia/express.git --depth 1\n    $ cd express\n    $ npm install\n\nThen run whichever tests you want:\n\n    $ node examples/content-negotiation\n\nYou can also view live examples here:\n\n<a href="https://runnable.com/express" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>\n\n## Running Tests\n\nTo run the test suite, first invoke the following command within the repo, installing the development dependencies:\n\n    $ npm install\n\nThen run the tests:\n\n    $ make test\n\n## Contributors\n\n  https://github.com/visionmedia/express/graphs/contributors\n\n## License\n\n(The MIT License)\n\nCopyright (c) 2009-2012 TJ Holowaychuk &lt;tj@vision-media.ca&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+124 silly resolved     readmeFilename: 'Readme.md',
+124 silly resolved     bugs: { url: 'https://github.com/visionmedia/express/issues' },
+124 silly resolved     _id: 'express@3.4.8',
+124 silly resolved     _from: 'express@~3.4.8' },
+124 silly resolved   { name: 'grunt-contrib-jst',
+124 silly resolved     description: 'Precompile Underscore templates to JST file.',
+124 silly resolved     version: '0.5.1',
+124 silly resolved     homepage: 'https://github.com/gruntjs/grunt-contrib-jst',
+124 silly resolved     author: { name: 'Grunt Team', url: 'http://gruntjs.com/' },
+124 silly resolved     repository:
+124 silly resolved      { type: 'git',
+124 silly resolved        url: 'git://github.com/gruntjs/grunt-contrib-jst.git' },
+124 silly resolved     bugs: { url: 'https://github.com/gruntjs/grunt-contrib-jst/issues' },
+124 silly resolved     licenses: [ [Object] ],
+124 silly resolved     main: 'Gruntfile.js',
+124 silly resolved     engines: { node: '>= 0.8.0' },
+124 silly resolved     scripts: { test: 'grunt test' },
+124 silly resolved     dependencies: { lodash: '~1.0.0', 'grunt-lib-contrib': '~0.5.1' },
+124 silly resolved     devDependencies:
+124 silly resolved      { 'grunt-contrib-jshint': '~0.6.0',
+124 silly resolved        'grunt-contrib-nodeunit': '~0.2.0',
+124 silly resolved        'grunt-contrib-clean': '~0.4.1',
+124 silly resolved        'grunt-contrib-internal': '~0.4.5',
+124 silly resolved        grunt: '~0.4.0' },
+124 silly resolved     peerDependencies: { grunt: '~0.4.0' },
+124 silly resolved     keywords: [ 'gruntplugin' ],
+124 silly resolved     contributors: [ [Object], [Object], [Object], [Object], [Object] ],
+124 silly resolved     readme: '# grunt-contrib-jst [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jst.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jst)\n\n> Precompile Underscore templates to JST file.\n\n\n\n## Getting Started\nThis plugin requires Grunt `~0.4.0`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-contrib-jst --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-contrib-jst\');\n```\n\n*This plugin was designed to work with Grunt 0.4.x. If you\'re still using grunt v0.3.x it\'s strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can\'t please use [v0.3.1](https://github.com/gruntjs/grunt-contrib-jst/tree/grunt-0.3-stable).*\n\n\n\n## Jst task\n_Run this task with the `grunt jst` command._\n\nTask targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.\n\n_This plugin uses [the Lo-Dash library](http://lodash.com/) to generate JavaScript template functions. Some developers generate template functions dynamically during development. If you are doing so, please be aware that the functions generated by this plugin may differ from those created at run-time. For instance, [the Underscore.js library](http://underscorejs.org/) will throw an exception if templates reference undefined top-level values, while Lo-Dash will silently insert an empty string in their place._\n### Options\n\n#### separator\nType: `String`\nDefault: linefeed + linefeed\n\nConcatenated files will be joined on this string.\n\n#### namespace\nType: `String`\nDefault: \'JST\'\n\nThe namespace in which the precompiled templates will be assigned. Use dot notation (e.g. App.Templates) for nested namespaces or false for no namespace wrapping. When false with amd option set true, templates will be returned directly from the AMD wrapper.\n\n#### processName\nType: `function`\nDefault: null\n\nThis option accepts a function which takes one argument (the template filepath) and returns a string which will be used as the key for the precompiled template object.  The example below stores all templates on the default JST namespace in capital letters.\n\n```js\noptions: {\n  processName: function(filename) {\n    return filename.toUpperCase();\n  }\n}\n```\n\n#### templateSettings\nType: `Object`\nDefault: null\n\nThe settings passed to underscore when compiling templates.\n\n```js\njst: {\n  compile: {\n    options: {\n      templateSettings: {\n        interpolate : /\\{\\{(.+?)\\}\\}/g\n      }\n    },\n    files: {\n      "path/to/compiled/templates.js": ["path/to/source/**/*.html"]\n    }\n  }\n}\n```\n\n#### prettify\nType: `boolean`\nDefault: false\n\nWhen doing a quick once-over of your compiled template file, it\'s nice to see\nan easy-to-read format that has one line per template. This will accomplish\nthat.\n\n```js\noptions: {\n  prettify: true\n}\n```\n\n#### amd\nType: `boolean`\nDefault: false\n\nWraps the output file with an AMD define function and returns the compiled template namespace unless namespace has been explicitly set to false in which case the template function will be returned directly.\n\n```js\ndefine(function() {\n    //...//\n    return this[\'[template namespace]\'];\n});\n```\n\nExample:\n```js\noptions: {\n  amd: true\n}\n```\n\n#### processContent\nType: `function`\n\nThis option accepts a function which takes one argument (the file content) and\nreturns a string which will be used as template string.\nThe example below strips whitespace characters from the beginning and the end of\neach line.\n\n```js\noptions: {\n  processContent: function(src) {\n    return src.replace(/(^\\s+|\\s+$)/gm, \'\');\n  }\n}\n```\n\n### Usage Examples\n\n```js\njst: {\n  compile: {\n    options: {\n      templateSettings: {\n        interpolate : /\\{\\{(.+?)\\}\\}/g\n      }\n    },\n    files: {\n      "path/to/compiled/templates.js": ["path/to/source/**/*.html"]\n    }\n  }\n}\n```\n\n\n## Release History\n\n * 2013-07-14   v0.5.1   Display filepath when fails to compile.\n * 2013-03-06   v0.5.0   When `namespace` is false and `amd` is true, return templates directly from AMD wrapper. Rename `amdwrapper` option to `amd` to match grunt-contrib-handlebars.\n * 2013-02-15   v0.4.1   First official release for Grunt 0.4.0.\n * 2012-01-29   v0.4.1rc7   Correct line endings for lodash output on windows.\n * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.\n * 2013-01-09   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.files api.\n * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.\n * 2012-08-23   v0.3.0   Options no longer accepted from global config key.\n * 2012-08-16   v0.2.3   Support for nested namespaces.\n * 2012-08-12   v0.2.2   Added processName functionality & escaping single quotes in filenames.\n * 2012-08-10   v0.2.0   Refactored from grunt-contrib into individual repo.\n\n---\n\nTask submitted by [Tim Branyen](http://tbranyen.com)\n\n*This file was generated on Sun Jul 14 2013 19:23:02.*\n',
+124 silly resolved     readmeFilename: 'README.md',
+124 silly resolved     _id: 'grunt-contrib-jst@0.5.1',
+124 silly resolved     _from: 'grunt-contrib-jst@*' } ]
+125 info install grunt-contrib-less@0.9.0 into /Users/ameen/repos/rfjs
+126 info install express@3.4.8 into /Users/ameen/repos/rfjs
+127 info install grunt-contrib-jst@0.5.1 into /Users/ameen/repos/rfjs
+128 info installOne grunt-contrib-less@0.9.0
+129 info installOne express@3.4.8
+130 info installOne grunt-contrib-jst@0.5.1
+131 verbose from cache /Users/ameen/.npm/express/3.4.8/package/package.json
+132 info /Users/ameen/repos/rfjs/node_modules/express unbuild
+133 verbose read json /Users/ameen/repos/rfjs/node_modules/express/package.json
+134 verbose from cache /Users/ameen/.npm/grunt-contrib-jst/0.5.1/package/package.json
+135 info /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst unbuild
+136 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/package.json
+137 verbose from cache /Users/ameen/.npm/grunt-contrib-less/0.9.0/package/package.json
+138 info /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less unbuild
+139 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less/package.json
+140 verbose tar unpack /Users/ameen/.npm/express/3.4.8/package.tgz
+141 silly lockFile 061e3340--repos-rfjs-node-modules-express tar:///Users/ameen/repos/rfjs/node_modules/express
+142 verbose lock tar:///Users/ameen/repos/rfjs/node_modules/express /Users/ameen/.npm/061e3340--repos-rfjs-node-modules-express.lock
+143 silly lockFile 56c03109-en-npm-express-3-4-8-package-tgz tar:///Users/ameen/.npm/express/3.4.8/package.tgz
+144 verbose lock tar:///Users/ameen/.npm/express/3.4.8/package.tgz /Users/ameen/.npm/56c03109-en-npm-express-3-4-8-package-tgz.lock
+145 verbose tar unpack /Users/ameen/.npm/grunt-contrib-jst/0.5.1/package.tgz
+146 silly lockFile 61fc4b72-s-node-modules-grunt-contrib-jst tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst
+147 verbose lock tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst /Users/ameen/.npm/61fc4b72-s-node-modules-grunt-contrib-jst.lock
+148 silly lockFile 74932e5b-nt-contrib-jst-0-5-1-package-tgz tar:///Users/ameen/.npm/grunt-contrib-jst/0.5.1/package.tgz
+149 verbose lock tar:///Users/ameen/.npm/grunt-contrib-jst/0.5.1/package.tgz /Users/ameen/.npm/74932e5b-nt-contrib-jst-0-5-1-package-tgz.lock
+150 silly gunzTarPerm modes [ '755', '644' ]
+151 silly gunzTarPerm modes [ '755', '644' ]
+152 verbose tar unpack /Users/ameen/.npm/grunt-contrib-less/0.9.0/package.tgz
+153 silly lockFile c669700d--node-modules-grunt-contrib-less tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-less
+154 verbose lock tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-less /Users/ameen/.npm/c669700d--node-modules-grunt-contrib-less.lock
+155 silly lockFile c77d0582-t-contrib-less-0-9-0-package-tgz tar:///Users/ameen/.npm/grunt-contrib-less/0.9.0/package.tgz
+156 verbose lock tar:///Users/ameen/.npm/grunt-contrib-less/0.9.0/package.tgz /Users/ameen/.npm/c77d0582-t-contrib-less-0-9-0-package-tgz.lock
+157 silly gunzTarPerm modes [ '755', '644' ]
+158 silly gunzTarPerm extractEntry package.json
+159 silly gunzTarPerm extractEntry package.json
+160 silly gunzTarPerm extractEntry .npmignore
+161 silly gunzTarPerm extractEntry LICENSE
+162 silly gunzTarPerm extractEntry .npmignore
+163 silly gunzTarPerm extractEntry README.md
+164 silly gunzTarPerm extractEntry package.json
+165 silly gunzTarPerm extractEntry README.md
+166 silly gunzTarPerm extractEntry LICENSE-MIT
+167 silly gunzTarPerm extractEntry index.js
+168 silly gunzTarPerm extractEntry History.md
+169 silly gunzTarPerm extractEntry Gruntfile.js
+170 silly gunzTarPerm extractEntry AUTHORS
+171 silly gunzTarPerm extractEntry tasks/less.js
+172 silly gunzTarPerm extractEntry Makefile
+173 silly gunzTarPerm extractEntry CHANGELOG
+174 silly gunzTarPerm extractEntry CONTRIBUTING.md
+175 silly gunzTarPerm extractEntry .jshintrc
+176 silly gunzTarPerm extractEntry LICENSE-MIT
+177 silly gunzTarPerm extractEntry .gitattributes
+178 silly gunzTarPerm extractEntry docs/jst-examples.md
+179 silly gunzTarPerm extractEntry docs/jst-options.md
+180 silly gunzTarPerm extractEntry docs/jst-overview.md
+181 silly gunzTarPerm extractEntry docs/overview.md
+182 silly gunzTarPerm extractEntry .travis.yml
+183 silly gunzTarPerm extractEntry tasks/jst.js
+184 silly gunzTarPerm extractEntry test/jst_test.js
+185 silly gunzTarPerm extractEntry test/expected/amd_wrapper.js
+186 silly gunzTarPerm extractEntry test/expected/amd_wrapper_no_ns.js
+187 silly gunzTarPerm extractEntry test/expected/jst.js
+188 silly gunzTarPerm extractEntry test/expected/local_scope.js
+189 silly gunzTarPerm extractEntry test/expected/ns_nested.js
+190 silly gunzTarPerm extractEntry test/expected/pretty.js
+191 silly gunzTarPerm extractEntry test/expected/pretty_amd.js
+192 silly gunzTarPerm extractEntry test/expected/process_content.js
+193 silly gunzTarPerm extractEntry test/expected/uglyfile.js
+194 silly gunzTarPerm extractEntry test/fixtures/indent_template.html
+195 silly gunzTarPerm extractEntry test/fixtures/it's-a-bad-filename.html
+196 silly gunzTarPerm extractEntry test/fixtures/template.html
+197 silly gunzTarPerm extractEntry test/fixtures/template_local_scope.html
+198 silly gunzTarPerm extractEntry .travis.yml
+199 silly gunzTarPerm extractEntry benchmarks/middleware.js
+200 silly gunzTarPerm extractEntry benchmarks/Makefile
+201 silly gunzTarPerm extractEntry benchmarks/run
+202 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less/package.json
+203 silly lockFile c669700d--node-modules-grunt-contrib-less tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-less
+204 silly lockFile c669700d--node-modules-grunt-contrib-less tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-less
+205 silly lockFile c77d0582-t-contrib-less-0-9-0-package-tgz tar:///Users/ameen/.npm/grunt-contrib-less/0.9.0/package.tgz
+206 silly lockFile c77d0582-t-contrib-less-0-9-0-package-tgz tar:///Users/ameen/.npm/grunt-contrib-less/0.9.0/package.tgz
+207 info preinstall grunt-contrib-less@0.9.0
+208 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less/package.json
+209 verbose readDependencies using package.json deps
+210 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-less/package.json
+211 verbose readDependencies using package.json deps
+212 verbose cache add [ 'less@~1.6.0', null ]
+213 verbose cache add name=undefined spec="less@~1.6.0" args=["less@~1.6.0",null]
+214 verbose parsed url { protocol: null,
+214 verbose parsed url   slashes: null,
+214 verbose parsed url   auth: null,
+214 verbose parsed url   host: null,
+214 verbose parsed url   port: null,
+214 verbose parsed url   hostname: null,
+214 verbose parsed url   hash: null,
+214 verbose parsed url   search: null,
+214 verbose parsed url   query: null,
+214 verbose parsed url   pathname: 'less@~1.6.0',
+214 verbose parsed url   path: 'less@~1.6.0',
+214 verbose parsed url   href: 'less@~1.6.0' }
+215 verbose cache add name="less" spec="~1.6.0" args=["less","~1.6.0"]
+216 verbose parsed url { protocol: null,
+216 verbose parsed url   slashes: null,
+216 verbose parsed url   auth: null,
+216 verbose parsed url   host: null,
+216 verbose parsed url   port: null,
+216 verbose parsed url   hostname: null,
+216 verbose parsed url   hash: null,
+216 verbose parsed url   search: null,
+216 verbose parsed url   query: null,
+216 verbose parsed url   pathname: '~1.6.0',
+216 verbose parsed url   path: '~1.6.0',
+216 verbose parsed url   href: '~1.6.0' }
+217 verbose addNamed [ 'less', '~1.6.0' ]
+218 verbose addNamed [ null, '>=1.6.0- <1.7.0-' ]
+219 silly lockFile f8bb0e1f-less-1-6-0 less@~1.6.0
+220 verbose lock less@~1.6.0 /Users/ameen/.npm/f8bb0e1f-less-1-6-0.lock
+221 verbose cache add [ 'grunt-lib-contrib@~0.6.1', null ]
+222 verbose cache add name=undefined spec="grunt-lib-contrib@~0.6.1" args=["grunt-lib-contrib@~0.6.1",null]
+223 verbose parsed url { protocol: null,
+223 verbose parsed url   slashes: null,
+223 verbose parsed url   auth: null,
+223 verbose parsed url   host: null,
+223 verbose parsed url   port: null,
+223 verbose parsed url   hostname: null,
+223 verbose parsed url   hash: null,
+223 verbose parsed url   search: null,
+223 verbose parsed url   query: null,
+223 verbose parsed url   pathname: 'grunt-lib-contrib@~0.6.1',
+223 verbose parsed url   path: 'grunt-lib-contrib@~0.6.1',
+223 verbose parsed url   href: 'grunt-lib-contrib@~0.6.1' }
+224 verbose cache add name="grunt-lib-contrib" spec="~0.6.1" args=["grunt-lib-contrib","~0.6.1"]
+225 verbose parsed url { protocol: null,
+225 verbose parsed url   slashes: null,
+225 verbose parsed url   auth: null,
+225 verbose parsed url   host: null,
+225 verbose parsed url   port: null,
+225 verbose parsed url   hostname: null,
+225 verbose parsed url   hash: null,
+225 verbose parsed url   search: null,
+225 verbose parsed url   query: null,
+225 verbose parsed url   pathname: '~0.6.1',
+225 verbose parsed url   path: '~0.6.1',
+225 verbose parsed url   href: '~0.6.1' }
+226 verbose addNamed [ 'grunt-lib-contrib', '~0.6.1' ]
+227 verbose addNamed [ null, '>=0.6.1- <0.7.0-' ]
+228 silly lockFile a97902f4-grunt-lib-contrib-0-6-1 grunt-lib-contrib@~0.6.1
+229 verbose lock grunt-lib-contrib@~0.6.1 /Users/ameen/.npm/a97902f4-grunt-lib-contrib-0-6-1.lock
+230 silly addNameRange { name: 'less', range: '>=1.6.0- <1.7.0-', hasData: false }
+231 verbose cache add [ 'chalk@~0.4.0', null ]
+232 verbose cache add name=undefined spec="chalk@~0.4.0" args=["chalk@~0.4.0",null]
+233 verbose parsed url { protocol: null,
+233 verbose parsed url   slashes: null,
+233 verbose parsed url   auth: null,
+233 verbose parsed url   host: null,
+233 verbose parsed url   port: null,
+233 verbose parsed url   hostname: null,
+233 verbose parsed url   hash: null,
+233 verbose parsed url   search: null,
+233 verbose parsed url   query: null,
+233 verbose parsed url   pathname: 'chalk@~0.4.0',
+233 verbose parsed url   path: 'chalk@~0.4.0',
+233 verbose parsed url   href: 'chalk@~0.4.0' }
+234 verbose cache add name="chalk" spec="~0.4.0" args=["chalk","~0.4.0"]
+235 verbose parsed url { protocol: null,
+235 verbose parsed url   slashes: null,
+235 verbose parsed url   auth: null,
+235 verbose parsed url   host: null,
+235 verbose parsed url   port: null,
+235 verbose parsed url   hostname: null,
+235 verbose parsed url   hash: null,
+235 verbose parsed url   search: null,
+235 verbose parsed url   query: null,
+235 verbose parsed url   pathname: '~0.4.0',
+235 verbose parsed url   path: '~0.4.0',
+235 verbose parsed url   href: '~0.4.0' }
+236 verbose addNamed [ 'chalk', '~0.4.0' ]
+237 verbose addNamed [ null, '>=0.4.0- <0.5.0-' ]
+238 silly lockFile bc9fb696-chalk-0-4-0 chalk@~0.4.0
+239 verbose lock chalk@~0.4.0 /Users/ameen/.npm/bc9fb696-chalk-0-4-0.lock
+240 silly addNameRange { name: 'grunt-lib-contrib',
+240 silly addNameRange   range: '>=0.6.1- <0.7.0-',
+240 silly addNameRange   hasData: false }
+241 silly addNameRange { name: 'chalk', range: '>=0.4.0- <0.5.0-', hasData: false }
+242 verbose url raw less
+243 verbose url resolving [ 'https://registry.npmjs.org/', './less' ]
+244 verbose url resolved https://registry.npmjs.org/less
+245 info trying registry request attempt 1 at 11:48:03
+246 verbose etag "878I6A8Q0NMQDA8G74N9CWM7O"
+247 http GET https://registry.npmjs.org/less
+248 verbose url raw grunt-lib-contrib
+249 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-lib-contrib' ]
+250 verbose url resolved https://registry.npmjs.org/grunt-lib-contrib
+251 info trying registry request attempt 1 at 11:48:03
+252 verbose etag "188IKYWAGXP85P3IO9G0XHB5F"
+253 http GET https://registry.npmjs.org/grunt-lib-contrib
+254 verbose url raw chalk
+255 verbose url resolving [ 'https://registry.npmjs.org/', './chalk' ]
+256 verbose url resolved https://registry.npmjs.org/chalk
+257 info trying registry request attempt 1 at 11:48:03
+258 verbose etag "EX3AAUMMS4BR0MQLRVR1R319K"
+259 http GET https://registry.npmjs.org/chalk
+260 silly gunzTarPerm extractEntry bin/express
+261 silly gunzTarPerm extractEntry lib/application.js
+262 silly gunzTarPerm extractEntry lib/express.js
+263 silly gunzTarPerm extractEntry lib/middleware.js
+264 silly gunzTarPerm extractEntry lib/request.js
+265 silly gunzTarPerm extractEntry lib/response.js
+266 silly gunzTarPerm extractEntry lib/utils.js
+267 silly gunzTarPerm extractEntry lib/view.js
+268 silly gunzTarPerm extractEntry lib/router/index.js
+269 silly gunzTarPerm extractEntry lib/router/route.js
+270 silly gunzTarPerm extractEntry Readme.md
+271 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/package.json
+272 silly lockFile 61fc4b72-s-node-modules-grunt-contrib-jst tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst
+273 silly lockFile 61fc4b72-s-node-modules-grunt-contrib-jst tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst
+274 silly lockFile 74932e5b-nt-contrib-jst-0-5-1-package-tgz tar:///Users/ameen/.npm/grunt-contrib-jst/0.5.1/package.tgz
+275 silly lockFile 74932e5b-nt-contrib-jst-0-5-1-package-tgz tar:///Users/ameen/.npm/grunt-contrib-jst/0.5.1/package.tgz
+276 info preinstall grunt-contrib-jst@0.5.1
+277 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/package.json
+278 verbose readDependencies using package.json deps
+279 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/package.json
+280 verbose readDependencies using package.json deps
+281 verbose cache add [ 'lodash@~1.0.0', null ]
+282 verbose cache add name=undefined spec="lodash@~1.0.0" args=["lodash@~1.0.0",null]
+283 verbose parsed url { protocol: null,
+283 verbose parsed url   slashes: null,
+283 verbose parsed url   auth: null,
+283 verbose parsed url   host: null,
+283 verbose parsed url   port: null,
+283 verbose parsed url   hostname: null,
+283 verbose parsed url   hash: null,
+283 verbose parsed url   search: null,
+283 verbose parsed url   query: null,
+283 verbose parsed url   pathname: 'lodash@~1.0.0',
+283 verbose parsed url   path: 'lodash@~1.0.0',
+283 verbose parsed url   href: 'lodash@~1.0.0' }
+284 verbose cache add name="lodash" spec="~1.0.0" args=["lodash","~1.0.0"]
+285 verbose parsed url { protocol: null,
+285 verbose parsed url   slashes: null,
+285 verbose parsed url   auth: null,
+285 verbose parsed url   host: null,
+285 verbose parsed url   port: null,
+285 verbose parsed url   hostname: null,
+285 verbose parsed url   hash: null,
+285 verbose parsed url   search: null,
+285 verbose parsed url   query: null,
+285 verbose parsed url   pathname: '~1.0.0',
+285 verbose parsed url   path: '~1.0.0',
+285 verbose parsed url   href: '~1.0.0' }
+286 verbose addNamed [ 'lodash', '~1.0.0' ]
+287 verbose addNamed [ null, '>=1.0.0- <1.1.0-' ]
+288 silly lockFile ef97c9dd-lodash-1-0-0 lodash@~1.0.0
+289 verbose lock lodash@~1.0.0 /Users/ameen/.npm/ef97c9dd-lodash-1-0-0.lock
+290 verbose cache add [ 'grunt-lib-contrib@~0.5.1', null ]
+291 verbose cache add name=undefined spec="grunt-lib-contrib@~0.5.1" args=["grunt-lib-contrib@~0.5.1",null]
+292 verbose parsed url { protocol: null,
+292 verbose parsed url   slashes: null,
+292 verbose parsed url   auth: null,
+292 verbose parsed url   host: null,
+292 verbose parsed url   port: null,
+292 verbose parsed url   hostname: null,
+292 verbose parsed url   hash: null,
+292 verbose parsed url   search: null,
+292 verbose parsed url   query: null,
+292 verbose parsed url   pathname: 'grunt-lib-contrib@~0.5.1',
+292 verbose parsed url   path: 'grunt-lib-contrib@~0.5.1',
+292 verbose parsed url   href: 'grunt-lib-contrib@~0.5.1' }
+293 verbose cache add name="grunt-lib-contrib" spec="~0.5.1" args=["grunt-lib-contrib","~0.5.1"]
+294 verbose parsed url { protocol: null,
+294 verbose parsed url   slashes: null,
+294 verbose parsed url   auth: null,
+294 verbose parsed url   host: null,
+294 verbose parsed url   port: null,
+294 verbose parsed url   hostname: null,
+294 verbose parsed url   hash: null,
+294 verbose parsed url   search: null,
+294 verbose parsed url   query: null,
+294 verbose parsed url   pathname: '~0.5.1',
+294 verbose parsed url   path: '~0.5.1',
+294 verbose parsed url   href: '~0.5.1' }
+295 verbose addNamed [ 'grunt-lib-contrib', '~0.5.1' ]
+296 verbose addNamed [ null, '>=0.5.1- <0.6.0-' ]
+297 silly lockFile 7e43b67d-grunt-lib-contrib-0-5-1 grunt-lib-contrib@~0.5.1
+298 verbose lock grunt-lib-contrib@~0.5.1 /Users/ameen/.npm/7e43b67d-grunt-lib-contrib-0-5-1.lock
+299 silly addNameRange { name: 'lodash', range: '>=1.0.0- <1.1.0-', hasData: false }
+300 silly addNameRange { name: 'grunt-lib-contrib',
+300 silly addNameRange   range: '>=0.5.1- <0.6.0-',
+300 silly addNameRange   hasData: false }
+301 verbose url raw grunt-lib-contrib
+302 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-lib-contrib' ]
+303 verbose url resolved https://registry.npmjs.org/grunt-lib-contrib
+304 info trying registry request attempt 1 at 11:48:04
+305 verbose etag "188IKYWAGXP85P3IO9G0XHB5F"
+306 http GET https://registry.npmjs.org/grunt-lib-contrib
+307 verbose url raw lodash
+308 verbose url resolving [ 'https://registry.npmjs.org/', './lodash' ]
+309 verbose url resolved https://registry.npmjs.org/lodash
+310 info trying registry request attempt 1 at 11:48:04
+311 verbose etag "7H2IDQOX5X7HWFB2WAXHA0RQT"
+312 http GET https://registry.npmjs.org/lodash
+313 verbose read json /Users/ameen/repos/rfjs/node_modules/express/package.json
+314 silly lockFile 061e3340--repos-rfjs-node-modules-express tar:///Users/ameen/repos/rfjs/node_modules/express
+315 silly lockFile 061e3340--repos-rfjs-node-modules-express tar:///Users/ameen/repos/rfjs/node_modules/express
+316 silly lockFile 56c03109-en-npm-express-3-4-8-package-tgz tar:///Users/ameen/.npm/express/3.4.8/package.tgz
+317 silly lockFile 56c03109-en-npm-express-3-4-8-package-tgz tar:///Users/ameen/.npm/express/3.4.8/package.tgz
+318 info preinstall express@3.4.8
+319 verbose from cache /Users/ameen/repos/rfjs/node_modules/express/package.json
+320 verbose readDependencies using package.json deps
+321 verbose from cache /Users/ameen/repos/rfjs/node_modules/express/package.json
+322 verbose readDependencies using package.json deps
+323 verbose cache add [ 'range-parser@0.0.4', null ]
+324 verbose cache add name=undefined spec="range-parser@0.0.4" args=["range-parser@0.0.4",null]
+325 verbose parsed url { protocol: null,
+325 verbose parsed url   slashes: null,
+325 verbose parsed url   auth: null,
+325 verbose parsed url   host: null,
+325 verbose parsed url   port: null,
+325 verbose parsed url   hostname: null,
+325 verbose parsed url   hash: null,
+325 verbose parsed url   search: null,
+325 verbose parsed url   query: null,
+325 verbose parsed url   pathname: 'range-parser@0.0.4',
+325 verbose parsed url   path: 'range-parser@0.0.4',
+325 verbose parsed url   href: 'range-parser@0.0.4' }
+326 verbose cache add name="range-parser" spec="0.0.4" args=["range-parser","0.0.4"]
+327 verbose parsed url { protocol: null,
+327 verbose parsed url   slashes: null,
+327 verbose parsed url   auth: null,
+327 verbose parsed url   host: null,
+327 verbose parsed url   port: null,
+327 verbose parsed url   hostname: null,
+327 verbose parsed url   hash: null,
+327 verbose parsed url   search: null,
+327 verbose parsed url   query: null,
+327 verbose parsed url   pathname: '0.0.4',
+327 verbose parsed url   path: '0.0.4',
+327 verbose parsed url   href: '0.0.4' }
+328 verbose addNamed [ 'range-parser', '0.0.4' ]
+329 verbose addNamed [ '0.0.4', '0.0.4' ]
+330 silly lockFile 0760c556-range-parser-0-0-4 range-parser@0.0.4
+331 verbose lock range-parser@0.0.4 /Users/ameen/.npm/0760c556-range-parser-0-0-4.lock
+332 verbose cache add [ 'mkdirp@0.3.5', null ]
+333 verbose cache add name=undefined spec="mkdirp@0.3.5" args=["mkdirp@0.3.5",null]
+334 verbose parsed url { protocol: null,
+334 verbose parsed url   slashes: null,
+334 verbose parsed url   auth: null,
+334 verbose parsed url   host: null,
+334 verbose parsed url   port: null,
+334 verbose parsed url   hostname: null,
+334 verbose parsed url   hash: null,
+334 verbose parsed url   search: null,
+334 verbose parsed url   query: null,
+334 verbose parsed url   pathname: 'mkdirp@0.3.5',
+334 verbose parsed url   path: 'mkdirp@0.3.5',
+334 verbose parsed url   href: 'mkdirp@0.3.5' }
+335 verbose cache add name="mkdirp" spec="0.3.5" args=["mkdirp","0.3.5"]
+336 verbose parsed url { protocol: null,
+336 verbose parsed url   slashes: null,
+336 verbose parsed url   auth: null,
+336 verbose parsed url   host: null,
+336 verbose parsed url   port: null,
+336 verbose parsed url   hostname: null,
+336 verbose parsed url   hash: null,
+336 verbose parsed url   search: null,
+336 verbose parsed url   query: null,
+336 verbose parsed url   pathname: '0.3.5',
+336 verbose parsed url   path: '0.3.5',
+336 verbose parsed url   href: '0.3.5' }
+337 verbose addNamed [ 'mkdirp', '0.3.5' ]
+338 verbose addNamed [ '0.3.5', '0.3.5' ]
+339 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+340 verbose lock mkdirp@0.3.5 /Users/ameen/.npm/67d2df2a-mkdirp-0-3-5.lock
+341 verbose cache add [ 'cookie@0.1.0', null ]
+342 verbose cache add name=undefined spec="cookie@0.1.0" args=["cookie@0.1.0",null]
+343 verbose parsed url { protocol: null,
+343 verbose parsed url   slashes: null,
+343 verbose parsed url   auth: null,
+343 verbose parsed url   host: null,
+343 verbose parsed url   port: null,
+343 verbose parsed url   hostname: null,
+343 verbose parsed url   hash: null,
+343 verbose parsed url   search: null,
+343 verbose parsed url   query: null,
+343 verbose parsed url   pathname: 'cookie@0.1.0',
+343 verbose parsed url   path: 'cookie@0.1.0',
+343 verbose parsed url   href: 'cookie@0.1.0' }
+344 verbose cache add name="cookie" spec="0.1.0" args=["cookie","0.1.0"]
+345 verbose parsed url { protocol: null,
+345 verbose parsed url   slashes: null,
+345 verbose parsed url   auth: null,
+345 verbose parsed url   host: null,
+345 verbose parsed url   port: null,
+345 verbose parsed url   hostname: null,
+345 verbose parsed url   hash: null,
+345 verbose parsed url   search: null,
+345 verbose parsed url   query: null,
+345 verbose parsed url   pathname: '0.1.0',
+345 verbose parsed url   path: '0.1.0',
+345 verbose parsed url   href: '0.1.0' }
+346 verbose addNamed [ 'cookie', '0.1.0' ]
+347 verbose addNamed [ '0.1.0', '0.1.0' ]
+348 silly lockFile b55e145e-cookie-0-1-0 cookie@0.1.0
+349 verbose lock cookie@0.1.0 /Users/ameen/.npm/b55e145e-cookie-0-1-0.lock
+350 verbose cache add [ 'buffer-crc32@0.2.1', null ]
+351 verbose cache add name=undefined spec="buffer-crc32@0.2.1" args=["buffer-crc32@0.2.1",null]
+352 verbose parsed url { protocol: null,
+352 verbose parsed url   slashes: null,
+352 verbose parsed url   auth: null,
+352 verbose parsed url   host: null,
+352 verbose parsed url   port: null,
+352 verbose parsed url   hostname: null,
+352 verbose parsed url   hash: null,
+352 verbose parsed url   search: null,
+352 verbose parsed url   query: null,
+352 verbose parsed url   pathname: 'buffer-crc32@0.2.1',
+352 verbose parsed url   path: 'buffer-crc32@0.2.1',
+352 verbose parsed url   href: 'buffer-crc32@0.2.1' }
+353 verbose cache add name="buffer-crc32" spec="0.2.1" args=["buffer-crc32","0.2.1"]
+354 verbose parsed url { protocol: null,
+354 verbose parsed url   slashes: null,
+354 verbose parsed url   auth: null,
+354 verbose parsed url   host: null,
+354 verbose parsed url   port: null,
+354 verbose parsed url   hostname: null,
+354 verbose parsed url   hash: null,
+354 verbose parsed url   search: null,
+354 verbose parsed url   query: null,
+354 verbose parsed url   pathname: '0.2.1',
+354 verbose parsed url   path: '0.2.1',
+354 verbose parsed url   href: '0.2.1' }
+355 verbose addNamed [ 'buffer-crc32', '0.2.1' ]
+356 verbose addNamed [ '0.2.1', '0.2.1' ]
+357 silly lockFile 057d0d26-buffer-crc32-0-2-1 buffer-crc32@0.2.1
+358 verbose lock buffer-crc32@0.2.1 /Users/ameen/.npm/057d0d26-buffer-crc32-0-2-1.lock
+359 verbose cache add [ 'fresh@0.2.0', null ]
+360 verbose cache add name=undefined spec="fresh@0.2.0" args=["fresh@0.2.0",null]
+361 verbose parsed url { protocol: null,
+361 verbose parsed url   slashes: null,
+361 verbose parsed url   auth: null,
+361 verbose parsed url   host: null,
+361 verbose parsed url   port: null,
+361 verbose parsed url   hostname: null,
+361 verbose parsed url   hash: null,
+361 verbose parsed url   search: null,
+361 verbose parsed url   query: null,
+361 verbose parsed url   pathname: 'fresh@0.2.0',
+361 verbose parsed url   path: 'fresh@0.2.0',
+361 verbose parsed url   href: 'fresh@0.2.0' }
+362 verbose cache add name="fresh" spec="0.2.0" args=["fresh","0.2.0"]
+363 verbose parsed url { protocol: null,
+363 verbose parsed url   slashes: null,
+363 verbose parsed url   auth: null,
+363 verbose parsed url   host: null,
+363 verbose parsed url   port: null,
+363 verbose parsed url   hostname: null,
+363 verbose parsed url   hash: null,
+363 verbose parsed url   search: null,
+363 verbose parsed url   query: null,
+363 verbose parsed url   pathname: '0.2.0',
+363 verbose parsed url   path: '0.2.0',
+363 verbose parsed url   href: '0.2.0' }
+364 verbose addNamed [ 'fresh', '0.2.0' ]
+365 verbose addNamed [ '0.2.0', '0.2.0' ]
+366 silly lockFile 1a4cf0d3-fresh-0-2-0 fresh@0.2.0
+367 verbose lock fresh@0.2.0 /Users/ameen/.npm/1a4cf0d3-fresh-0-2-0.lock
+368 verbose cache add [ 'methods@0.1.0', null ]
+369 verbose cache add name=undefined spec="methods@0.1.0" args=["methods@0.1.0",null]
+370 verbose parsed url { protocol: null,
+370 verbose parsed url   slashes: null,
+370 verbose parsed url   auth: null,
+370 verbose parsed url   host: null,
+370 verbose parsed url   port: null,
+370 verbose parsed url   hostname: null,
+370 verbose parsed url   hash: null,
+370 verbose parsed url   search: null,
+370 verbose parsed url   query: null,
+370 verbose parsed url   pathname: 'methods@0.1.0',
+370 verbose parsed url   path: 'methods@0.1.0',
+370 verbose parsed url   href: 'methods@0.1.0' }
+371 verbose cache add name="methods" spec="0.1.0" args=["methods","0.1.0"]
+372 verbose parsed url { protocol: null,
+372 verbose parsed url   slashes: null,
+372 verbose parsed url   auth: null,
+372 verbose parsed url   host: null,
+372 verbose parsed url   port: null,
+372 verbose parsed url   hostname: null,
+372 verbose parsed url   hash: null,
+372 verbose parsed url   search: null,
+372 verbose parsed url   query: null,
+372 verbose parsed url   pathname: '0.1.0',
+372 verbose parsed url   path: '0.1.0',
+372 verbose parsed url   href: '0.1.0' }
+373 verbose addNamed [ 'methods', '0.1.0' ]
+374 verbose addNamed [ '0.1.0', '0.1.0' ]
+375 silly lockFile 81f018b6-methods-0-1-0 methods@0.1.0
+376 verbose lock methods@0.1.0 /Users/ameen/.npm/81f018b6-methods-0-1-0.lock
+377 verbose cache add [ 'send@0.1.4', null ]
+378 verbose cache add name=undefined spec="send@0.1.4" args=["send@0.1.4",null]
+379 verbose parsed url { protocol: null,
+379 verbose parsed url   slashes: null,
+379 verbose parsed url   auth: null,
+379 verbose parsed url   host: null,
+379 verbose parsed url   port: null,
+379 verbose parsed url   hostname: null,
+379 verbose parsed url   hash: null,
+379 verbose parsed url   search: null,
+379 verbose parsed url   query: null,
+379 verbose parsed url   pathname: 'send@0.1.4',
+379 verbose parsed url   path: 'send@0.1.4',
+379 verbose parsed url   href: 'send@0.1.4' }
+380 verbose cache add name="send" spec="0.1.4" args=["send","0.1.4"]
+381 verbose parsed url { protocol: null,
+381 verbose parsed url   slashes: null,
+381 verbose parsed url   auth: null,
+381 verbose parsed url   host: null,
+381 verbose parsed url   port: null,
+381 verbose parsed url   hostname: null,
+381 verbose parsed url   hash: null,
+381 verbose parsed url   search: null,
+381 verbose parsed url   query: null,
+381 verbose parsed url   pathname: '0.1.4',
+381 verbose parsed url   path: '0.1.4',
+381 verbose parsed url   href: '0.1.4' }
+382 verbose addNamed [ 'send', '0.1.4' ]
+383 verbose addNamed [ '0.1.4', '0.1.4' ]
+384 silly lockFile 555fd08a-send-0-1-4 send@0.1.4
+385 verbose lock send@0.1.4 /Users/ameen/.npm/555fd08a-send-0-1-4.lock
+386 verbose cache add [ 'cookie-signature@1.0.1', null ]
+387 verbose cache add name=undefined spec="cookie-signature@1.0.1" args=["cookie-signature@1.0.1",null]
+388 verbose parsed url { protocol: null,
+388 verbose parsed url   slashes: null,
+388 verbose parsed url   auth: null,
+388 verbose parsed url   host: null,
+388 verbose parsed url   port: null,
+388 verbose parsed url   hostname: null,
+388 verbose parsed url   hash: null,
+388 verbose parsed url   search: null,
+388 verbose parsed url   query: null,
+388 verbose parsed url   pathname: 'cookie-signature@1.0.1',
+388 verbose parsed url   path: 'cookie-signature@1.0.1',
+388 verbose parsed url   href: 'cookie-signature@1.0.1' }
+389 verbose cache add name="cookie-signature" spec="1.0.1" args=["cookie-signature","1.0.1"]
+390 verbose parsed url { protocol: null,
+390 verbose parsed url   slashes: null,
+390 verbose parsed url   auth: null,
+390 verbose parsed url   host: null,
+390 verbose parsed url   port: null,
+390 verbose parsed url   hostname: null,
+390 verbose parsed url   hash: null,
+390 verbose parsed url   search: null,
+390 verbose parsed url   query: null,
+390 verbose parsed url   pathname: '1.0.1',
+390 verbose parsed url   path: '1.0.1',
+390 verbose parsed url   href: '1.0.1' }
+391 verbose addNamed [ 'cookie-signature', '1.0.1' ]
+392 verbose addNamed [ '1.0.1', '1.0.1' ]
+393 silly lockFile d4a1eba1-cookie-signature-1-0-1 cookie-signature@1.0.1
+394 verbose lock cookie-signature@1.0.1 /Users/ameen/.npm/d4a1eba1-cookie-signature-1-0-1.lock
+395 verbose cache add [ 'merge-descriptors@0.0.1', null ]
+396 verbose cache add name=undefined spec="merge-descriptors@0.0.1" args=["merge-descriptors@0.0.1",null]
+397 verbose parsed url { protocol: null,
+397 verbose parsed url   slashes: null,
+397 verbose parsed url   auth: null,
+397 verbose parsed url   host: null,
+397 verbose parsed url   port: null,
+397 verbose parsed url   hostname: null,
+397 verbose parsed url   hash: null,
+397 verbose parsed url   search: null,
+397 verbose parsed url   query: null,
+397 verbose parsed url   pathname: 'merge-descriptors@0.0.1',
+397 verbose parsed url   path: 'merge-descriptors@0.0.1',
+397 verbose parsed url   href: 'merge-descriptors@0.0.1' }
+398 verbose cache add name="merge-descriptors" spec="0.0.1" args=["merge-descriptors","0.0.1"]
+399 verbose parsed url { protocol: null,
+399 verbose parsed url   slashes: null,
+399 verbose parsed url   auth: null,
+399 verbose parsed url   host: null,
+399 verbose parsed url   port: null,
+399 verbose parsed url   hostname: null,
+399 verbose parsed url   hash: null,
+399 verbose parsed url   search: null,
+399 verbose parsed url   query: null,
+399 verbose parsed url   pathname: '0.0.1',
+399 verbose parsed url   path: '0.0.1',
+399 verbose parsed url   href: '0.0.1' }
+400 verbose addNamed [ 'merge-descriptors', '0.0.1' ]
+401 verbose addNamed [ '0.0.1', '0.0.1' ]
+402 silly lockFile 5220b296-merge-descriptors-0-0-1 merge-descriptors@0.0.1
+403 verbose lock merge-descriptors@0.0.1 /Users/ameen/.npm/5220b296-merge-descriptors-0-0-1.lock
+404 verbose cache add [ 'debug@>= 0.7.3 < 1', null ]
+405 verbose cache add name=undefined spec="debug@>= 0.7.3 < 1" args=["debug@>= 0.7.3 < 1",null]
+406 verbose parsed url { protocol: null,
+406 verbose parsed url   slashes: null,
+406 verbose parsed url   auth: null,
+406 verbose parsed url   host: null,
+406 verbose parsed url   port: null,
+406 verbose parsed url   hostname: null,
+406 verbose parsed url   hash: null,
+406 verbose parsed url   search: null,
+406 verbose parsed url   query: null,
+406 verbose parsed url   pathname: 'debug@%3E=%200.7.3%20%3C%201',
+406 verbose parsed url   path: 'debug@%3E=%200.7.3%20%3C%201',
+406 verbose parsed url   href: 'debug@%3E=%200.7.3%20%3C%201' }
+407 verbose cache add name="debug" spec=">= 0.7.3 < 1" args=["debug",">= 0.7.3 < 1"]
+408 verbose parsed url { protocol: null,
+408 verbose parsed url   slashes: null,
+408 verbose parsed url   auth: null,
+408 verbose parsed url   host: null,
+408 verbose parsed url   port: null,
+408 verbose parsed url   hostname: null,
+408 verbose parsed url   hash: null,
+408 verbose parsed url   search: null,
+408 verbose parsed url   query: null,
+408 verbose parsed url   pathname: '%3E=%200.7.3%20%3C%201',
+408 verbose parsed url   path: '%3E=%200.7.3%20%3C%201',
+408 verbose parsed url   href: '%3E=%200.7.3%20%3C%201' }
+409 verbose addNamed [ 'debug', '>= 0.7.3 < 1' ]
+410 verbose addNamed [ null, '>=0.7.3 <1.0.0-' ]
+411 silly lockFile a781479f-debug-0-7-3-1 debug@>= 0.7.3 < 1
+412 verbose lock debug@>= 0.7.3 < 1 /Users/ameen/.npm/a781479f-debug-0-7-3-1.lock
+413 verbose cache add [ 'connect@2.12.0', null ]
+414 verbose cache add name=undefined spec="connect@2.12.0" args=["connect@2.12.0",null]
+415 verbose parsed url { protocol: null,
+415 verbose parsed url   slashes: null,
+415 verbose parsed url   auth: null,
+415 verbose parsed url   host: null,
+415 verbose parsed url   port: null,
+415 verbose parsed url   hostname: null,
+415 verbose parsed url   hash: null,
+415 verbose parsed url   search: null,
+415 verbose parsed url   query: null,
+415 verbose parsed url   pathname: 'connect@2.12.0',
+415 verbose parsed url   path: 'connect@2.12.0',
+415 verbose parsed url   href: 'connect@2.12.0' }
+416 verbose cache add name="connect" spec="2.12.0" args=["connect","2.12.0"]
+417 verbose parsed url { protocol: null,
+417 verbose parsed url   slashes: null,
+417 verbose parsed url   auth: null,
+417 verbose parsed url   host: null,
+417 verbose parsed url   port: null,
+417 verbose parsed url   hostname: null,
+417 verbose parsed url   hash: null,
+417 verbose parsed url   search: null,
+417 verbose parsed url   query: null,
+417 verbose parsed url   pathname: '2.12.0',
+417 verbose parsed url   path: '2.12.0',
+417 verbose parsed url   href: '2.12.0' }
+418 verbose addNamed [ 'connect', '2.12.0' ]
+419 verbose addNamed [ '2.12.0', '2.12.0' ]
+420 silly lockFile a4bed1c7-connect-2-12-0 connect@2.12.0
+421 verbose lock connect@2.12.0 /Users/ameen/.npm/a4bed1c7-connect-2-12-0.lock
+422 verbose cache add [ 'commander@1.3.2', null ]
+423 verbose cache add name=undefined spec="commander@1.3.2" args=["commander@1.3.2",null]
+424 verbose parsed url { protocol: null,
+424 verbose parsed url   slashes: null,
+424 verbose parsed url   auth: null,
+424 verbose parsed url   host: null,
+424 verbose parsed url   port: null,
+424 verbose parsed url   hostname: null,
+424 verbose parsed url   hash: null,
+424 verbose parsed url   search: null,
+424 verbose parsed url   query: null,
+424 verbose parsed url   pathname: 'commander@1.3.2',
+424 verbose parsed url   path: 'commander@1.3.2',
+424 verbose parsed url   href: 'commander@1.3.2' }
+425 verbose cache add name="commander" spec="1.3.2" args=["commander","1.3.2"]
+426 verbose parsed url { protocol: null,
+426 verbose parsed url   slashes: null,
+426 verbose parsed url   auth: null,
+426 verbose parsed url   host: null,
+426 verbose parsed url   port: null,
+426 verbose parsed url   hostname: null,
+426 verbose parsed url   hash: null,
+426 verbose parsed url   search: null,
+426 verbose parsed url   query: null,
+426 verbose parsed url   pathname: '1.3.2',
+426 verbose parsed url   path: '1.3.2',
+426 verbose parsed url   href: '1.3.2' }
+427 verbose addNamed [ 'commander', '1.3.2' ]
+428 verbose addNamed [ '1.3.2', '1.3.2' ]
+429 silly lockFile 2016e061-commander-1-3-2 commander@1.3.2
+430 verbose lock commander@1.3.2 /Users/ameen/.npm/2016e061-commander-1-3-2.lock
+431 silly addNameRange { name: 'debug', range: '>=0.7.3 <1.0.0-', hasData: false }
+432 verbose url raw range-parser/0.0.4
+433 verbose url resolving [ 'https://registry.npmjs.org/', './range-parser/0.0.4' ]
+434 verbose url resolved https://registry.npmjs.org/range-parser/0.0.4
+435 info trying registry request attempt 1 at 11:48:04
+436 verbose etag "D9RP9ACBJJ5Z0JXIRGO5SS9ZL"
+437 http GET https://registry.npmjs.org/range-parser/0.0.4
+438 verbose url raw cookie/0.1.0
+439 verbose url resolving [ 'https://registry.npmjs.org/', './cookie/0.1.0' ]
+440 verbose url resolved https://registry.npmjs.org/cookie/0.1.0
+441 info trying registry request attempt 1 at 11:48:04
+442 verbose etag "EH8FXT0F3XG3RUYCIMSRRJLSM"
+443 http GET https://registry.npmjs.org/cookie/0.1.0
+444 verbose url raw mkdirp/0.3.5
+445 verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp/0.3.5' ]
+446 verbose url resolved https://registry.npmjs.org/mkdirp/0.3.5
+447 info trying registry request attempt 1 at 11:48:04
+448 verbose etag "1EH7J2TYKE2QQF0IGCLBHV8PA"
+449 http GET https://registry.npmjs.org/mkdirp/0.3.5
+450 verbose url raw buffer-crc32/0.2.1
+451 verbose url resolving [ 'https://registry.npmjs.org/', './buffer-crc32/0.2.1' ]
+452 verbose url resolved https://registry.npmjs.org/buffer-crc32/0.2.1
+453 info trying registry request attempt 1 at 11:48:04
+454 verbose etag "97M233244D4KZ3MQWUD76DZHT"
+455 http GET https://registry.npmjs.org/buffer-crc32/0.2.1
+456 verbose url raw fresh/0.2.0
+457 verbose url resolving [ 'https://registry.npmjs.org/', './fresh/0.2.0' ]
+458 verbose url resolved https://registry.npmjs.org/fresh/0.2.0
+459 info trying registry request attempt 1 at 11:48:04
+460 verbose etag "985WALRDP1P2W9BTYWTF778F9"
+461 http GET https://registry.npmjs.org/fresh/0.2.0
+462 verbose url raw methods/0.1.0
+463 verbose url resolving [ 'https://registry.npmjs.org/', './methods/0.1.0' ]
+464 verbose url resolved https://registry.npmjs.org/methods/0.1.0
+465 info trying registry request attempt 1 at 11:48:04
+466 verbose etag "6APMFC5X7H2FLK4DM8JIDYRTP"
+467 http GET https://registry.npmjs.org/methods/0.1.0
+468 verbose url raw cookie-signature/1.0.1
+469 verbose url resolving [ 'https://registry.npmjs.org/', './cookie-signature/1.0.1' ]
+470 verbose url resolved https://registry.npmjs.org/cookie-signature/1.0.1
+471 info trying registry request attempt 1 at 11:48:04
+472 verbose etag "6SNNBLB580A2HZF7EAI7DVU9W"
+473 http GET https://registry.npmjs.org/cookie-signature/1.0.1
+474 verbose url raw send/0.1.4
+475 verbose url resolving [ 'https://registry.npmjs.org/', './send/0.1.4' ]
+476 verbose url resolved https://registry.npmjs.org/send/0.1.4
+477 info trying registry request attempt 1 at 11:48:04
+478 verbose etag "6HZF0ANGPY13Z9DJBHSZ53SHY"
+479 http GET https://registry.npmjs.org/send/0.1.4
+480 verbose url raw merge-descriptors/0.0.1
+481 verbose url resolving [ 'https://registry.npmjs.org/', './merge-descriptors/0.0.1' ]
+482 verbose url resolved https://registry.npmjs.org/merge-descriptors/0.0.1
+483 info trying registry request attempt 1 at 11:48:04
+484 verbose etag "9PN5ENTJ5XQZSWMQRQQ4LOB43"
+485 http GET https://registry.npmjs.org/merge-descriptors/0.0.1
+486 verbose url raw debug
+487 verbose url resolving [ 'https://registry.npmjs.org/', './debug' ]
+488 verbose url resolved https://registry.npmjs.org/debug
+489 info trying registry request attempt 1 at 11:48:04
+490 verbose etag "7BC52P0UE3IMYG73EKH8BIKU3"
+491 http GET https://registry.npmjs.org/debug
+492 verbose url raw connect/2.12.0
+493 verbose url resolving [ 'https://registry.npmjs.org/', './connect/2.12.0' ]
+494 verbose url resolved https://registry.npmjs.org/connect/2.12.0
+495 info trying registry request attempt 1 at 11:48:04
+496 verbose etag "9S3REZGVLFYYALU3TS1W9W067"
+497 http GET https://registry.npmjs.org/connect/2.12.0
+498 verbose url raw commander/1.3.2
+499 verbose url resolving [ 'https://registry.npmjs.org/', './commander/1.3.2' ]
+500 verbose url resolved https://registry.npmjs.org/commander/1.3.2
+501 info trying registry request attempt 1 at 11:48:04
+502 verbose etag "BM3G1FHV8SMEAGQA7YO9P70R9"
+503 http GET https://registry.npmjs.org/commander/1.3.2
+504 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+505 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+506 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+507 http 304 https://registry.npmjs.org/lodash
+508 silly registry.get cb [ 304,
+508 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:02 GMT',
+508 silly registry.get     server: 'Apache',
+508 silly registry.get     connection: 'Keep-Alive',
+508 silly registry.get     'keep-alive': 'timeout=10, max=50',
+508 silly registry.get     etag: '"7H2IDQOX5X7HWFB2WAXHA0RQT"',
+508 silly registry.get     'cache-control': 'max-age=1',
+508 silly registry.get     vary: 'Accept' } ]
+509 verbose etag lodash from cache
+510 silly addNameRange number 2 { name: 'lodash', range: '>=1.0.0- <1.1.0-', hasData: true }
+511 silly addNameRange versions [ 'lodash',
+511 silly addNameRange   [ '0.1.0',
+511 silly addNameRange     '0.2.0',
+511 silly addNameRange     '0.2.1',
+511 silly addNameRange     '0.2.2',
+511 silly addNameRange     '0.3.0',
+511 silly addNameRange     '0.3.1',
+511 silly addNameRange     '0.3.2',
+511 silly addNameRange     '0.4.0',
+511 silly addNameRange     '0.4.1',
+511 silly addNameRange     '0.4.2',
+511 silly addNameRange     '0.5.0-rc.1',
+511 silly addNameRange     '0.5.0',
+511 silly addNameRange     '0.5.1',
+511 silly addNameRange     '0.5.2',
+511 silly addNameRange     '0.6.0',
+511 silly addNameRange     '0.6.1',
+511 silly addNameRange     '0.7.0',
+511 silly addNameRange     '0.8.0',
+511 silly addNameRange     '0.8.1',
+511 silly addNameRange     '0.8.2',
+511 silly addNameRange     '0.9.0',
+511 silly addNameRange     '0.9.1',
+511 silly addNameRange     '0.9.2',
+511 silly addNameRange     '0.10.0',
+511 silly addNameRange     '1.0.0-rc.1',
+511 silly addNameRange     '1.0.0-rc.2',
+511 silly addNameRange     '1.0.0-rc.3',
+511 silly addNameRange     '1.0.0',
+511 silly addNameRange     '1.0.1',
+511 silly addNameRange     '1.1.0',
+511 silly addNameRange     '1.1.1',
+511 silly addNameRange     '1.2.0',
+511 silly addNameRange     '1.2.1',
+511 silly addNameRange     '1.3.0',
+511 silly addNameRange     '1.3.1',
+511 silly addNameRange     '2.0.0',
+511 silly addNameRange     '2.1.0',
+511 silly addNameRange     '2.2.0',
+511 silly addNameRange     '2.2.1',
+511 silly addNameRange     '2.3.0',
+511 silly addNameRange     '2.4.0',
+511 silly addNameRange     '2.4.1' ] ]
+512 verbose addNamed [ 'lodash', '1.0.1' ]
+513 verbose addNamed [ '1.0.1', '1.0.1' ]
+514 silly lockFile e2e1e8db-lodash-1-0-1 lodash@1.0.1
+515 verbose lock lodash@1.0.1 /Users/ameen/.npm/e2e1e8db-lodash-1-0-1.lock
+516 verbose read json /Users/ameen/.npm/lodash/1.0.1/package/package.json
+517 silly lockFile e2e1e8db-lodash-1-0-1 lodash@1.0.1
+518 silly lockFile e2e1e8db-lodash-1-0-1 lodash@1.0.1
+519 silly lockFile ef97c9dd-lodash-1-0-0 lodash@~1.0.0
+520 silly lockFile ef97c9dd-lodash-1-0-0 lodash@~1.0.0
+521 http 304 https://registry.npmjs.org/grunt-lib-contrib
+522 silly registry.get cb [ 304,
+522 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:02 GMT',
+522 silly registry.get     server: 'Apache',
+522 silly registry.get     connection: 'Keep-Alive',
+522 silly registry.get     'keep-alive': 'timeout=10, max=50',
+522 silly registry.get     etag: '"188IKYWAGXP85P3IO9G0XHB5F"',
+522 silly registry.get     'cache-control': 'max-age=1',
+522 silly registry.get     vary: 'Accept' } ]
+523 verbose etag grunt-lib-contrib from cache
+524 silly addNameRange number 2 { name: 'grunt-lib-contrib',
+524 silly addNameRange   range: '>=0.5.1- <0.6.0-',
+524 silly addNameRange   hasData: true }
+525 silly addNameRange versions [ 'grunt-lib-contrib',
+525 silly addNameRange   [ '0.3.0',
+525 silly addNameRange     '0.3.1',
+525 silly addNameRange     '0.4.0',
+525 silly addNameRange     '0.5.1',
+525 silly addNameRange     '0.5.2',
+525 silly addNameRange     '0.5.3',
+525 silly addNameRange     '0.6.0',
+525 silly addNameRange     '0.6.1' ] ]
+526 verbose addNamed [ 'grunt-lib-contrib', '0.5.3' ]
+527 verbose addNamed [ '0.5.3', '0.5.3' ]
+528 silly lockFile 6417cf82-grunt-lib-contrib-0-5-3 grunt-lib-contrib@0.5.3
+529 verbose lock grunt-lib-contrib@0.5.3 /Users/ameen/.npm/6417cf82-grunt-lib-contrib-0-5-3.lock
+530 verbose read json /Users/ameen/.npm/grunt-lib-contrib/0.5.3/package/package.json
+531 silly lockFile 6417cf82-grunt-lib-contrib-0-5-3 grunt-lib-contrib@0.5.3
+532 silly lockFile 6417cf82-grunt-lib-contrib-0-5-3 grunt-lib-contrib@0.5.3
+533 silly lockFile 7e43b67d-grunt-lib-contrib-0-5-1 grunt-lib-contrib@~0.5.1
+534 silly lockFile 7e43b67d-grunt-lib-contrib-0-5-1 grunt-lib-contrib@~0.5.1
+535 silly resolved [ { name: 'lodash',
+535 silly resolved     version: '1.0.1',
+535 silly resolved     description: 'An alternative to Underscore.js, delivering consistency, customization, performance, and extra features.',
+535 silly resolved     homepage: 'http://lodash.com',
+535 silly resolved     main: './dist/lodash',
+535 silly resolved     keywords:
+535 silly resolved      [ 'browser',
+535 silly resolved        'client',
+535 silly resolved        'functional',
+535 silly resolved        'performance',
+535 silly resolved        'server',
+535 silly resolved        'speed',
+535 silly resolved        'util' ],
+535 silly resolved     licenses: [ [Object] ],
+535 silly resolved     author:
+535 silly resolved      { name: 'John-David Dalton',
+535 silly resolved        email: 'john.david.dalton@gmail.com',
+535 silly resolved        url: 'http://allyoucanleet.com/' },
+535 silly resolved     bugs: { url: 'https://github.com/bestiejs/lodash/issues' },
+535 silly resolved     repository: { type: 'git', url: 'https://github.com/bestiejs/lodash.git' },
+535 silly resolved     bin: { lodash: './build.js' },
+535 silly resolved     directories: { doc: './doc', test: './test' },
+535 silly resolved     engines: [ 'node', 'rhino' ],
+535 silly resolved     jam: { main: './lodash.js' },
+535 silly resolved     scripts:
+535 silly resolved      { build: 'node ./build.js',
+535 silly resolved        test: 'node ./test/test.js ./dist/lodash.js && node ./test/test.js ./dist/lodash.min.js && node ./test/test-build.js' },
+535 silly resolved     readme: '# Lo-Dash <sup>v1.0.1</sup>\n[![build status](https://secure.travis-ci.org/bestiejs/lodash.png)](http://travis-ci.org/bestiejs/lodash)\n\nAn alternative to Underscore.js, delivering consistency, [customization](https://github.com/bestiejs/lodash#custom-builds), [performance](http://lodash.com/benchmarks), and [extra features](https://github.com/bestiejs/lodash#features).\n\n## Download\n\n* Lo-Dash builds (for modern environments):<br>\n[Development](https://raw.github.com/bestiejs/lodash/v1.0.1/dist/lodash.js) and\n[Production](https://raw.github.com/bestiejs/lodash/v1.0.1/dist/lodash.min.js)\n\n* Lo-Dash compatibility builds (for legacy and modern environments):<br>\n[Development](https://raw.github.com/bestiejs/lodash/v1.0.1/dist/lodash.compat.js) and\n[Production](https://raw.github.com/bestiejs/lodash/v1.0.1/dist/lodash.compat.min.js)\n\n* Underscore compatibility builds:<br>\n[Development](https://raw.github.com/bestiejs/lodash/v1.0.1/dist/lodash.underscore.js) and\n[Production](https://raw.github.com/bestiejs/lodash/v1.0.1/dist/lodash.underscore.min.js)\n\n* CDN copies of ≤ v1.0.1’s builds are available on [cdnjs](http://cdnjs.com/) thanks to [CloudFlare](http://www.cloudflare.com/):<br>\n[Lo-Dash dev](http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.js),\n[Lo-Dash prod](http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.min.js),<br>\n[Lo-Dash compat-dev](http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.compat.js),\n[Lo-Dash compat-prod](http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.compat.min.js),<br>\n[Underscore compat-dev](http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.underscore.js), and\n[Underscore compat-prod](http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.underscore.min.js)\n\n* For optimal file size, [create a custom build](https://github.com/bestiejs/lodash#custom-builds) with only the features you need\n\n## Dive in\n\nWe’ve got [API docs](http://lodash.com/docs), [benchmarks](http://lodash.com/benchmarks), and [unit tests](http://lodash.com/tests).\n\nFor a list of upcoming features, check out our [roadmap](https://github.com/bestiejs/lodash/wiki/Roadmap).\n\n## Resources\n\nFor more information check out these articles, screencasts, and other videos over Lo-Dash:\n\n * Posts\n  - [Say “Hello” to Lo-Dash](http://kitcambridge.be/blog/say-hello-to-lo-dash/)\n\n * Videos\n  - [Introducing Lo-Dash](https://vimeo.com/44154599)\n  - [Lo-Dash optimizations and custom builds](https://vimeo.com/44154601)\n  - [Lo-Dash’s origin and why it’s a better utility belt](https://vimeo.com/44154600)\n  - [Unit testing in Lo-Dash](https://vimeo.com/45865290)\n  - [Lo-Dash’s approach to native method use](https://vimeo.com/48576012)\n  - [CascadiaJS: Lo-Dash for a better utility belt](http://www.youtube.com/watch?v=dpPy4f_SeEk)\n\n## Features\n\n * AMD loader support ([RequireJS](http://requirejs.org/), [curl.js](https://github.com/cujojs/curl), etc.)\n * [_(…)](http://lodash.com/docs#_) supports intuitive chaining\n * [_.at](http://lodash.com/docs#at) for cherry-picking collection values\n * [_.bindKey](http://lodash.com/docs#bindKey) for binding [*“lazy”* defined](http://michaux.ca/articles/lazy-function-definition-pattern) methods\n * [_.cloneDeep](http://lodash.com/docs#cloneDeep) for deep cloning arrays and objects\n * [_.contains](http://lodash.com/docs#contains) accepts a `fromIndex` argument\n * [_.forEach](http://lodash.com/docs#forEach) is chainable and supports exiting iteration early\n * [_.forIn](http://lodash.com/docs#forIn) for iterating over an object’s own and inherited properties\n * [_.forOwn](http://lodash.com/docs#forOwn) for iterating over an object’s own properties\n * [_.isPlainObject](http://lodash.com/docs#isPlainObject) checks if values are created by the `Object` constructor\n * [_.merge](http://lodash.com/docs#merge) for a deep [_.extend](http://lodash.com/docs#extend)\n * [_.partial](http://lodash.com/docs#partial) and [_.partialRight](http://lodash.com/docs#partialRight) for partial application without `this` binding\n * [_.template](http://lodash.com/docs#template) supports [*“imports”* options](http://lodash.com/docs#templateSettings_imports), [ES6 template delimiters](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-7.8.6), and [sourceURLs](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl)\n * [_.where](http://lodash.com/docs#where) supports deep object comparisons\n * [_.clone](http://lodash.com/docs#clone), [_.omit](http://lodash.com/docs#omit), [_.pick](http://lodash.com/docs#pick),\n   [and more…](http://lodash.com/docs "_.assign, _.cloneDeep, _.first, _.initial, _.isEqual, _.last, _.merge, _.rest") accept `callback` and `thisArg` arguments\n * [_.contains](http://lodash.com/docs#contains), [_.size](http://lodash.com/docs#size), [_.toArray](http://lodash.com/docs#toArray),\n   [and more…](http://lodash.com/docs "_.at, _.countBy, _.every, _.filter, _.find, _.forEach, _.groupBy, _.invoke, _.map, _.max, _.min, _.pluck, _.reduce, _.reduceRight, _.reject, _.shuffle, _.some, _.sortBy, _.where") accept strings\n * [_.filter](http://lodash.com/docs#filter), [_.find](http://lodash.com/docs#find), [_.map](http://lodash.com/docs#map),\n   [and more…](http://lodash.com/docs "_.countBy, _.every, _.first, _.groupBy, _.initial, _.last, _.max, _.min, _.reject, _.rest, _.some, _.sortBy, _.sortedIndex, _.uniq") support *“_.pluck”* and *“_.where”* `callback` shorthands\n\n## Support\n\nLo-Dash has been tested in at least Chrome 5~24, Firefox 1~18, IE 6-10, Opera 9.25-12, Safari 3-6, Node.js 0.4.8-0.8.20, Narwhal 0.3.2, PhantomJS 1.8.1, RingoJS 0.9, and Rhino 1.7RC5.\n\n## Custom builds\n\nCustom builds make it easy to create lightweight versions of Lo-Dash containing only the methods you need.\nTo top it off, we handle all method dependency and alias mapping for you.\n\n * Backbone builds, with only methods required by Backbone, may be created using the `backbone` modifier argument.\n```bash\nlodash backbone\n```\n\n * CSP builds, supporting default [Content Security Policy](https://dvcs.w3.org/hg/content-security-policy/raw-file/tip/csp-specification.dev.html) restrictions, may be created using the `csp` modifier argument.\n   The `csp` modifier is an alais of the `mobile` modifier. Lo-Dash may be used in Chrome extensions by using either the `csp`, `mobile`, or `underscore` build and using precompiled templates, or loading Lo-Dash in a [sandbox](http://developer.chrome.com/stable/extensions/sandboxingEval.html).\n```bash\nlodash csp\n```\n\n * Legacy builds, tailored for older environments without [ES5 support](http://es5.github.com/), may be created using the `legacy` modifier argument.\n```bash\nlodash legacy\n```\n\n * Modern builds, tailored for newer environments with ES5 support, may be created using the `modern` modifier argument.\n```bash\nlodash modern\n```\n\n * Mobile builds, without method compilation and most bug fixes for old browsers, may be created using the `mobile` modifier argument.\n```bash\nlodash mobile\n```\n\n * Strict builds, with `_.bindAll`, `_.defaults`, and `_.extend` in [strict mode](http://es5.github.com/#C), may be created using the `strict` modifier argument.\n```bash\nlodash strict\n```\n\n * Underscore builds, tailored for projects already using Underscore, may be created using the `underscore` modifier argument.\n```bash\nlodash underscore\n```\n\nCustom builds may be created using the following commands:\n\n * Use the `category` argument to pass comma separated categories of methods to include in the build.<br>\n   Valid categories (case-insensitive) are *“arrays”*, *“chaining”*, *“collections”*, *“functions”*, *“objects”*, and *“utilities”*.\n```bash\nlodash category=collections,functions\nlodash category="collections, functions"\n```\n\n * Use the `exports` argument to pass comma separated names of ways to export the `LoDash` function.<br>\n   Valid exports are *“amd”*, *“commonjs”*, *“global”*, *“node”*, and *“none”*.\n```bash\nlodash exports=amd,commonjs,node\nlodash exports="amd, commonjs, node"\n```\n\n * Use the `iife` argument to specify code to replace the immediately-invoked function expression that wraps Lo-Dash.\n```bash\nlodash iife="!function(window,undefined){%output%}(this)"\n```\n\n * Use the `include` argument to pass comma separated method/category names to include in the build.\n```bash\nlodash include=each,filter,map\nlodash include="each, filter, map"\n```\n\n * Use the `minus` argument to pass comma separated method/category names to remove from those included in the build.\n```bash\nlodash underscore minus=result,shuffle\nlodash underscore minus="result, shuffle"\n```\n\n * Use the `plus` argument to pass comma separated method/category names to add to those included in the build.\n```bash\nlodash backbone plus=random,template\nlodash backbone plus="random, template"\n```\n\n * Use the `template` argument to pass the file path pattern used to match template files to precompile.\n```bash\nlodash template="./*.jst"\n```\n\n * Use the `settings` argument to pass the template settings used when precompiling templates.\n```bash\nlodash settings="{interpolate:/\\{\\{([\\s\\S]+?)\\}\\}/g}"\n```\n\n * Use the `moduleId` argument to specify the AMD module ID of Lo-Dash, which defaults to “lodash”, used by precompiled templates.\n```bash\nlodash moduleId="underscore"\n```\n\nAll arguments, except `legacy` with `csp`, `mobile`, `modern`, or `underscore`, may be combined.<br>\nUnless specified by `-o` or `--output`, all files created are saved to the current working directory.\n\nThe following options are also supported:\n\n * `-c`, `--stdout` ......... Write output to standard output\n * `-d`, `--debug` ........... Write only the non-minified development output\n * `-h`, `--help` ............. Display help information\n * `-m`, `--minify` ......... Write only the minified production output\n * `-o`, `--output` ......... Write output to a given path/filename\n * `-p`, `--source-map` .. Generate a source map for the minified output, using an optional source map URL\n * `-s`, `--silent` ......... Skip status updates normally logged to the console\n * `-V`, `--version` ....... Output current version of Lo-Dash\n\nThe `lodash` command-line utility is available when Lo-Dash is installed as a global package (i.e. `npm install -g lodash`).\n\n## Installation and usage\n\nIn browsers:\n\n```html\n<script src="lodash.js"></script>\n```\n\nUsing [`npm`](http://npmjs.org/):\n\n```bash\nnpm install lodash\n\nnpm install -g lodash\nnpm link lodash\n```\n\nTo avoid potential issues, update `npm` before installing Lo-Dash:\n\n```bash\nnpm install npm -g\n```\n\nIn [Node.js](http://nodejs.org/) and [RingoJS v0.8.0+](http://ringojs.org/):\n\n```js\nvar _ = require(\'lodash\');\n\n// or as a drop-in replacement for Underscore\nvar _ = require(\'lodash/lodash.underscore\');\n```\n\n**Note:** If Lo-Dash is installed globally, run [`npm link lodash`](http://blog.nodejs.org/2011/03/23/npm-1-0-global-vs-local-installation/) in your project’s root directory before requiring it.\n\nIn [RingoJS v0.7.0-](http://ringojs.org/):\n\n```js\nvar _ = require(\'lodash\')._;\n```\n\nIn [Rhino](http://www.mozilla.org/rhino/):\n\n```js\nload(\'lodash.js\');\n```\n\nIn an AMD loader like [RequireJS](http://requirejs.org/):\n\n```js\nrequire({\n  \'paths\': {\n    \'underscore\': \'path/to/lodash\'\n  }\n},\n[\'underscore\'], function(_) {\n  console.log(_.VERSION);\n});\n```\n\n## Release Notes\n\n### <sup>v1.0.1</sup>\n\n * Add support for specifying source map URLs in `-p`/`--source-map` build options\n * Ensured the second argument passed to `_.assign` is not treated as a `callback`\n * Ensured `-p`/`--source-map` build options correctly set the `sourceMappingURL`\n * Made `-p`/`--source-map` build options set source map *“sources”* keys based on the builds performed\n * Made `_.defer` use `setImmediate`, in Node.js, when available\n * Made `_.where` search arrays for values regardless of their index position\n * Removed dead code from `_.template`\n\nThe full changelog is available [here](https://github.com/bestiejs/lodash/wiki/Changelog).\n\n## BestieJS\n\nLo-Dash is part of the BestieJS *“Best in Class”* module collection. This means we promote solid browser/environment support, ES5 precedents, unit testing, and plenty of documentation.\n\n## Author\n\n* [John-David Dalton](http://allyoucanleet.com/)\n  [![twitter/jdalton](http://gravatar.com/avatar/299a3d891ff1920b69c364d061007043?s=70)](https://twitter.com/jdalton "Follow @jdalton on Twitter")\n\n## Contributors\n\n* [Kit Cambridge](http://kitcambridge.github.com/)\n  [![twitter/kitcambridge](http://gravatar.com/avatar/6662a1d02f351b5ef2f8b4d815804661?s=70)](https://twitter.com/kitcambridge "Follow @kitcambridge on Twitter")\n* [Mathias Bynens](http://mathiasbynens.be/)\n  [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter")\n',
+535 silly resolved     readmeFilename: 'README.md',
+535 silly resolved     _id: 'lodash@1.0.1',
+535 silly resolved     _from: 'lodash@~1.0.0' },
+535 silly resolved   { name: 'grunt-lib-contrib',
+535 silly resolved     description: 'Common functionality shared across grunt-contrib tasks.',
+535 silly resolved     version: '0.5.3',
+535 silly resolved     homepage: 'http://github.com/gruntjs/grunt-lib-contrib',
+535 silly resolved     author: { name: 'Grunt Team', url: 'http://gruntjs.com/' },
+535 silly resolved     repository:
+535 silly resolved      { type: 'git',
+535 silly resolved        url: 'git://github.com/gruntjs/grunt-lib-contrib.git' },
+535 silly resolved     bugs: { url: 'https://github.com/gruntjs/grunt-lib-contrib/issues' },
+535 silly resolved     licenses: [ [Object] ],
+535 silly resolved     engines: { node: '>= 0.8.0' },
+535 silly resolved     scripts: { test: 'grunt test' },
+535 silly resolved     devDependencies:
+535 silly resolved      { 'grunt-contrib-jshint': '~0.1.1',
+535 silly resolved        'grunt-contrib-nodeunit': '~0.1.2',
+535 silly resolved        grunt: '~0.4.0' },
+535 silly resolved     main: 'lib/contrib',
+535 silly resolved     dependencies: { 'zlib-browserify': '0.0.1' },
+535 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+535 silly resolved     readme: '# grunt-lib-contrib [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-lib-contrib.png?branch=master)](http://travis-ci.org/gruntjs/grunt-lib-contrib)\n\n> Common functionality shared across grunt-contrib tasks.\n\nThe purpose of grunt-lib-contrib is to explore solutions to common problems task writers encounter, and to ease the upgrade path for contrib tasks.\n\n**These APIs should be considered highly unstable. Depend on them at your own risk!**\n\n_Over time, some of the functionality provided here may be incorporated directly into grunt for mainstream use. Until then, you may require `grunt-lib-contrib` as a dependency in your projects, but be very careful to specify an exact version number instead of a range, as backwards-incompatible changes are likely to be introduced._\n\n### Helper Functions\n\n#### getNamespaceDeclaration(ns)\n\nThis helper is used to build JS namespace declarations.\n\n#### optsToArgs(options)\n\nConvert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.\n\n```js\n// Example\n{\n  fooBar: \'a\',        // [\'--foo-bar\', \'a\']\n  fooBar: 1,          // [\'--foo-bar\', \'1\']\n  fooBar: true,       // [\'--foo-bar\']\n  fooBar: false,      //\n  fooBar: [\'a\', \'b\']  // [\'--foo-bar\', \'a\', \'--foo-bar\', \'b\']\n}\n```\n\n#### stripPath(pth, strip)\n\nStrip a path from a path. normalize both paths for best results.\n\n#### minMaxInfo(min, max)\n\nHelper for logging compressed, uncompressed and gzipped sizes of strings.\n\n```js\nvar max = grunt.file.read(\'max.js\');\nvar min = minify(max);\nminMaxInfo(min, max);\n```\n\nWould print:\n\n```\nUncompressed size: 495 bytes.\nCompressed size: 36 bytes gzipped (396 bytes minified).\n```\n\n--\n\n*Lib submitted by [Tyler Kellen](https://goingslowly.com/).*',
+535 silly resolved     readmeFilename: 'README.md',
+535 silly resolved     _id: 'grunt-lib-contrib@0.5.3',
+535 silly resolved     _from: 'grunt-lib-contrib@~0.5.1' } ]
+536 info install lodash@1.0.1 into /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst
+537 info install grunt-lib-contrib@0.5.3 into /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst
+538 info installOne lodash@1.0.1
+539 info installOne grunt-lib-contrib@0.5.3
+540 verbose from cache /Users/ameen/.npm/lodash/1.0.1/package/package.json
+541 info /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash unbuild
+542 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash/package.json
+543 verbose from cache /Users/ameen/.npm/grunt-lib-contrib/0.5.3/package/package.json
+544 info /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib unbuild
+545 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib/package.json
+546 verbose tar unpack /Users/ameen/.npm/lodash/1.0.1/package.tgz
+547 silly lockFile e0425509--contrib-jst-node-modules-lodash tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash
+548 verbose lock tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash /Users/ameen/.npm/e0425509--contrib-jst-node-modules-lodash.lock
+549 silly lockFile 19018ba2-een-npm-lodash-1-0-1-package-tgz tar:///Users/ameen/.npm/lodash/1.0.1/package.tgz
+550 verbose lock tar:///Users/ameen/.npm/lodash/1.0.1/package.tgz /Users/ameen/.npm/19018ba2-een-npm-lodash-1-0-1-package-tgz.lock
+551 verbose tar unpack /Users/ameen/.npm/grunt-lib-contrib/0.5.3/package.tgz
+552 silly lockFile bf0efac2-t-node-modules-grunt-lib-contrib tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib
+553 verbose lock tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib /Users/ameen/.npm/bf0efac2-t-node-modules-grunt-lib-contrib.lock
+554 silly lockFile c699d163-nt-lib-contrib-0-5-3-package-tgz tar:///Users/ameen/.npm/grunt-lib-contrib/0.5.3/package.tgz
+555 verbose lock tar:///Users/ameen/.npm/grunt-lib-contrib/0.5.3/package.tgz /Users/ameen/.npm/c699d163-nt-lib-contrib-0-5-3-package-tgz.lock
+556 silly gunzTarPerm modes [ '755', '644' ]
+557 silly gunzTarPerm modes [ '755', '644' ]
+558 silly gunzTarPerm extractEntry package.json
+559 silly gunzTarPerm extractEntry package.json
+560 silly gunzTarPerm extractEntry README.md
+561 silly gunzTarPerm extractEntry index.js
+562 silly gunzTarPerm extractEntry .npmignore
+563 silly gunzTarPerm extractEntry README.md
+564 silly gunzTarPerm extractEntry build.js
+565 silly gunzTarPerm extractEntry Gruntfile.js
+566 silly gunzTarPerm extractEntry AUTHORS
+567 silly gunzTarPerm extractEntry CHANGELOG
+568 silly gunzTarPerm extractEntry .jshintrc
+569 silly gunzTarPerm extractEntry LICENSE-MIT
+570 silly gunzTarPerm extractEntry .gitattributes
+571 silly gunzTarPerm extractEntry lodash.js
+572 silly gunzTarPerm extractEntry doc/README.md
+573 silly gunzTarPerm extractEntry lib/contrib.js
+574 silly gunzTarPerm extractEntry .travis.yml
+575 silly gunzTarPerm extractEntry test/lib_test.js
+576 silly gunzTarPerm extractEntry build/minify.js
+577 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib/package.json
+578 silly lockFile bf0efac2-t-node-modules-grunt-lib-contrib tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib
+579 silly lockFile bf0efac2-t-node-modules-grunt-lib-contrib tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib
+580 silly lockFile c699d163-nt-lib-contrib-0-5-3-package-tgz tar:///Users/ameen/.npm/grunt-lib-contrib/0.5.3/package.tgz
+581 silly lockFile c699d163-nt-lib-contrib-0-5-3-package-tgz tar:///Users/ameen/.npm/grunt-lib-contrib/0.5.3/package.tgz
+582 info preinstall grunt-lib-contrib@0.5.3
+583 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib/package.json
+584 verbose readDependencies using package.json deps
+585 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/grunt-lib-contrib/package.json
+586 verbose readDependencies using package.json deps
+587 silly gunzTarPerm extractEntry build/post-compile.js
+588 silly gunzTarPerm extractEntry build/pre-compile.js
+589 verbose cache add [ 'zlib-browserify@0.0.1', null ]
+590 verbose cache add name=undefined spec="zlib-browserify@0.0.1" args=["zlib-browserify@0.0.1",null]
+591 verbose parsed url { protocol: null,
+591 verbose parsed url   slashes: null,
+591 verbose parsed url   auth: null,
+591 verbose parsed url   host: null,
+591 verbose parsed url   port: null,
+591 verbose parsed url   hostname: null,
+591 verbose parsed url   hash: null,
+591 verbose parsed url   search: null,
+591 verbose parsed url   query: null,
+591 verbose parsed url   pathname: 'zlib-browserify@0.0.1',
+591 verbose parsed url   path: 'zlib-browserify@0.0.1',
+591 verbose parsed url   href: 'zlib-browserify@0.0.1' }
+592 verbose cache add name="zlib-browserify" spec="0.0.1" args=["zlib-browserify","0.0.1"]
+593 verbose parsed url { protocol: null,
+593 verbose parsed url   slashes: null,
+593 verbose parsed url   auth: null,
+593 verbose parsed url   host: null,
+593 verbose parsed url   port: null,
+593 verbose parsed url   hostname: null,
+593 verbose parsed url   hash: null,
+593 verbose parsed url   search: null,
+593 verbose parsed url   query: null,
+593 verbose parsed url   pathname: '0.0.1',
+593 verbose parsed url   path: '0.0.1',
+593 verbose parsed url   href: '0.0.1' }
+594 verbose addNamed [ 'zlib-browserify', '0.0.1' ]
+595 verbose addNamed [ '0.0.1', '0.0.1' ]
+596 silly lockFile 84e77944-zlib-browserify-0-0-1 zlib-browserify@0.0.1
+597 verbose lock zlib-browserify@0.0.1 /Users/ameen/.npm/84e77944-zlib-browserify-0-0-1.lock
+598 verbose url raw zlib-browserify/0.0.1
+599 verbose url resolving [ 'https://registry.npmjs.org/', './zlib-browserify/0.0.1' ]
+600 verbose url resolved https://registry.npmjs.org/zlib-browserify/0.0.1
+601 info trying registry request attempt 1 at 11:48:05
+602 verbose etag "7KKV182X0GJH1Z2NM470PRFM8"
+603 http GET https://registry.npmjs.org/zlib-browserify/0.0.1
+604 silly gunzTarPerm extractEntry LICENSE.txt
+605 silly gunzTarPerm extractEntry dist/lodash.compat.js
+606 silly gunzTarPerm extractEntry dist/lodash.compat.min.js
+607 silly gunzTarPerm extractEntry dist/lodash.js
+608 silly gunzTarPerm extractEntry dist/lodash.min.js
+609 silly gunzTarPerm extractEntry dist/lodash.underscore.js
+610 silly gunzTarPerm extractEntry dist/lodash.underscore.min.js
+611 silly gunzTarPerm extractEntry perf/perf.js
+612 silly gunzTarPerm extractEntry test/test-build.js
+613 silly gunzTarPerm extractEntry test/test.js
+614 silly gunzTarPerm extractEntry test/template/a.jst
+615 silly gunzTarPerm extractEntry test/template/b.jst
+616 silly gunzTarPerm extractEntry test/template/c.jst
+617 silly gunzTarPerm extractEntry test/template/d.tpl
+618 silly gunzTarPerm extractEntry vendor/benchmark.js/README.md
+619 silly gunzTarPerm extractEntry vendor/benchmark.js/benchmark.js
+620 silly gunzTarPerm extractEntry vendor/benchmark.js/LICENSE.txt
+621 silly gunzTarPerm extractEntry vendor/platform.js/README.md
+622 silly gunzTarPerm extractEntry vendor/platform.js/platform.js
+623 silly gunzTarPerm extractEntry vendor/platform.js/LICENSE.txt
+624 silly gunzTarPerm extractEntry vendor/qunit/README.md
+625 silly gunzTarPerm extractEntry vendor/qunit/qunit/qunit.js
+626 silly gunzTarPerm extractEntry vendor/qunit-clib/README.md
+627 silly gunzTarPerm extractEntry vendor/qunit-clib/qunit-clib.js
+628 silly gunzTarPerm extractEntry vendor/qunit-clib/LICENSE.txt
+629 silly gunzTarPerm extractEntry vendor/tar/README.md
+630 silly gunzTarPerm extractEntry vendor/tar/tar.js
+631 silly gunzTarPerm extractEntry vendor/tar/lib/buffer-entry.js
+632 silly gunzTarPerm extractEntry vendor/tar/lib/entry-writer.js
+633 silly gunzTarPerm extractEntry vendor/tar/lib/entry.js
+634 silly gunzTarPerm extractEntry vendor/tar/lib/extended-header-writer.js
+635 silly gunzTarPerm extractEntry vendor/tar/lib/extended-header.js
+636 silly gunzTarPerm extractEntry vendor/tar/lib/extract.js
+637 silly gunzTarPerm extractEntry vendor/tar/lib/global-header-writer.js
+638 silly gunzTarPerm extractEntry vendor/tar/lib/header.js
+639 silly gunzTarPerm extractEntry vendor/tar/lib/pack.js
+640 silly gunzTarPerm extractEntry vendor/tar/lib/parse.js
+641 silly gunzTarPerm extractEntry vendor/tar/vendor/block-stream/README.md
+642 silly gunzTarPerm extractEntry vendor/tar/vendor/block-stream/LICENCE
+643 silly gunzTarPerm extractEntry vendor/tar/vendor/block-stream/block-stream.js
+644 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/README.md
+645 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/LICENCE
+646 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/fstream.js
+647 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/abstract.js
+648 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/dir-writer.js
+649 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/file-reader.js
+650 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/file-writer.js
+651 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/get-type.js
+652 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/dir-reader.js
+653 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/link-writer.js
+654 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/proxy-reader.js
+655 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+656 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/proxy-writer.js
+657 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/reader.js
+658 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/socket-reader.js
+659 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/collect.js
+660 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/writer.js
+661 silly gunzTarPerm extractEntry vendor/tar/vendor/fstream/lib/link-reader.js
+662 http 304 https://registry.npmjs.org/buffer-crc32/0.2.1
+663 silly registry.get cb [ 304,
+663 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:02 GMT',
+663 silly registry.get     server: 'Apache',
+663 silly registry.get     connection: 'Keep-Alive',
+663 silly registry.get     'keep-alive': 'timeout=10, max=49',
+663 silly registry.get     etag: '"97M233244D4KZ3MQWUD76DZHT"',
+663 silly registry.get     'cache-control': 'max-age=1',
+663 silly registry.get     vary: 'Accept' } ]
+664 verbose etag buffer-crc32/0.2.1 from cache
+665 silly gunzTarPerm extractEntry vendor/tar/vendor/graceful-fs/README.md
+666 silly gunzTarPerm extractEntry vendor/tar/vendor/graceful-fs/LICENSE
+667 verbose read json /Users/ameen/.npm/buffer-crc32/0.2.1/package/package.json
+668 silly gunzTarPerm extractEntry vendor/tar/vendor/graceful-fs/graceful-fs.js
+669 silly gunzTarPerm extractEntry vendor/tar/vendor/inherits/README.md
+670 silly gunzTarPerm extractEntry vendor/tar/vendor/inherits/inherits.js
+671 silly gunzTarPerm extractEntry vendor/tar/vendor/mkdirp/LICENSE
+672 silly lockFile 057d0d26-buffer-crc32-0-2-1 buffer-crc32@0.2.1
+673 silly lockFile 057d0d26-buffer-crc32-0-2-1 buffer-crc32@0.2.1
+674 silly gunzTarPerm extractEntry vendor/tar/vendor/mkdirp/index.js
+675 silly gunzTarPerm extractEntry vendor/tar/vendor/mkdirp/README.markdown
+676 silly gunzTarPerm extractEntry vendor/tar/vendor/rimraf/README.md
+677 silly gunzTarPerm extractEntry vendor/tar/vendor/rimraf/LICENSE
+678 silly gunzTarPerm extractEntry vendor/tar/vendor/rimraf/rimraf.js
+679 silly gunzTarPerm extractEntry vendor/tar/vendor/rimraf/AUTHORS
+680 silly gunzTarPerm extractEntry vendor/underscore/README.md
+681 silly gunzTarPerm extractEntry vendor/underscore/LICENSE
+682 silly gunzTarPerm extractEntry vendor/underscore/underscore.js
+683 verbose read json /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash/package.json
+684 silly lockFile e0425509--contrib-jst-node-modules-lodash tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash
+685 silly lockFile e0425509--contrib-jst-node-modules-lodash tar:///Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash
+686 silly lockFile 19018ba2-een-npm-lodash-1-0-1-package-tgz tar:///Users/ameen/.npm/lodash/1.0.1/package.tgz
+687 silly lockFile 19018ba2-een-npm-lodash-1-0-1-package-tgz tar:///Users/ameen/.npm/lodash/1.0.1/package.tgz
+688 info preinstall lodash@1.0.1
+689 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash/package.json
+690 verbose readDependencies using package.json deps
+691 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash/package.json
+692 verbose readDependencies using package.json deps
+693 silly resolved []
+694 verbose about to build /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash
+695 info build /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash
+696 verbose from cache /Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/lodash/package.json
+697 verbose linkStuff [ false,
+697 verbose linkStuff   false,
+697 verbose linkStuff   false,
+697 verbose linkStuff   '/Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules' ]
+698 info linkStuff lodash@1.0.1
+699 verbose from cache /Users/ameen/repos/rfjs/package.json
+700 verbose linkBins lodash@1.0.1
+701 verbose link bins [ { lodash: './build.js' },
+701 verbose link bins   '/Users/ameen/repos/rfjs/node_modules/grunt-contrib-jst/node_modules/.bin',
+701 verbose link bins   false ]
+702 verbose linkMans lodash@1.0.1
+703 verbose rebuildBundles lodash@1.0.1
+704 info install lodash@1.0.1
+705 info postinstall lodash@1.0.1
+706 http 304 https://registry.npmjs.org/mkdirp/0.3.5
+707 silly registry.get cb [ 304,
+707 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:02 GMT',
+707 silly registry.get     server: 'Apache',
+707 silly registry.get     connection: 'Keep-Alive',
+707 silly registry.get     'keep-alive': 'timeout=10, max=50',
+707 silly registry.get     etag: '"1EH7J2TYKE2QQF0IGCLBHV8PA"',
+707 silly registry.get     'cache-control': 'max-age=1',
+707 silly registry.get     vary: 'Accept' } ]
+708 verbose etag mkdirp/0.3.5 from cache
+709 verbose read json /Users/ameen/.npm/mkdirp/0.3.5/package/package.json
+710 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+711 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+712 http 304 https://registry.npmjs.org/cookie-signature/1.0.1
+713 silly registry.get cb [ 304,
+713 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:02 GMT',
+713 silly registry.get     server: 'Apache',
+713 silly registry.get     connection: 'Keep-Alive',
+713 silly registry.get     'keep-alive': 'timeout=10, max=48',
+713 silly registry.get     etag: '"6SNNBLB580A2HZF7EAI7DVU9W"',
+713 silly registry.get     'cache-control': 'max-age=1',
+713 silly registry.get     vary: 'Accept' } ]
+714 verbose etag cookie-signature/1.0.1 from cache
+715 verbose read json /Users/ameen/.npm/cookie-signature/1.0.1/package/package.json
+716 warn package.json cookie-signature@1.0.1 No repository field.
+717 silly lockFile d4a1eba1-cookie-signature-1-0-1 cookie-signature@1.0.1
+718 silly lockFile d4a1eba1-cookie-signature-1-0-1 cookie-signature@1.0.1
+719 http 304 https://registry.npmjs.org/send/0.1.4
+720 silly registry.get cb [ 304,
+720 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:03 GMT',
+720 silly registry.get     server: 'Apache',
+720 silly registry.get     connection: 'Keep-Alive',
+720 silly registry.get     'keep-alive': 'timeout=10, max=49',
+720 silly registry.get     etag: '"6HZF0ANGPY13Z9DJBHSZ53SHY"',
+720 silly registry.get     'cache-control': 'max-age=1',
+720 silly registry.get     vary: 'Accept' } ]
+721 verbose etag send/0.1.4 from cache
+722 verbose read json /Users/ameen/.npm/send/0.1.4/package/package.json
+723 silly lockFile 555fd08a-send-0-1-4 send@0.1.4
+724 silly lockFile 555fd08a-send-0-1-4 send@0.1.4
+725 http 304 https://registry.npmjs.org/merge-descriptors/0.0.1
+726 silly registry.get cb [ 304,
+726 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:03 GMT',
+726 silly registry.get     server: 'Apache',
+726 silly registry.get     connection: 'Keep-Alive',
+726 silly registry.get     'keep-alive': 'timeout=10, max=47',
+726 silly registry.get     etag: '"9PN5ENTJ5XQZSWMQRQQ4LOB43"',
+726 silly registry.get     'cache-control': 'max-age=1',
+726 silly registry.get     vary: 'Accept' } ]
+727 verbose etag merge-descriptors/0.0.1 from cache
+728 verbose read json /Users/ameen/.npm/merge-descriptors/0.0.1/package/package.json
+729 silly lockFile 5220b296-merge-descriptors-0-0-1 merge-descriptors@0.0.1
+730 silly lockFile 5220b296-merge-descriptors-0-0-1 merge-descriptors@0.0.1
+731 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+732 http 200 https://registry.npmjs.org/fresh/0.2.0
+733 silly registry.get cb [ 200,
+733 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:03 GMT',
+733 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+733 silly registry.get     etag: '"138ATDJSZV8P28JNCND4YJUDE"',
+733 silly registry.get     'content-type': 'application/json',
+733 silly registry.get     via: '1.1 varnish',
+733 silly registry.get     'cache-control': 'max-age=1',
+733 silly registry.get     'content-length': '737',
+733 silly registry.get     'accept-ranges': 'bytes',
+733 silly registry.get     age: '64',
+733 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-sv61-SJC3',
+733 silly registry.get     'x-cache': 'HIT, HIT',
+733 silly registry.get     'x-cache-hits': '2, 1',
+733 silly registry.get     'x-timer': 'S1393465658.137072325,VS0,VS-198,VE-198,VE102625148',
+733 silly registry.get     vary: 'Accept',
+733 silly registry.get     'keep-alive': 'timeout=10, max=49',
+733 silly registry.get     connection: 'Keep-Alive' } ]
+734 silly lockFile 1150ef08--npmjs-org-fresh-fresh-0-2-0-tgz https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+735 verbose lock https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz /Users/ameen/.npm/1150ef08--npmjs-org-fresh-fresh-0-2-0-tgz.lock
+736 verbose addRemoteTarball [ 'https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz',
+736 verbose addRemoteTarball   'bfd9402cf3df12c4a4c310c79f99a3dde13d34a7' ]
+737 info retry fetch attempt 1 at 11:48:06
+738 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286275-0.4752703197300434/tmp.tgz
+739 http GET https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+740 http 304 https://registry.npmjs.org/debug
+741 silly registry.get cb [ 304,
+741 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:03 GMT',
+741 silly registry.get     server: 'Apache',
+741 silly registry.get     connection: 'Keep-Alive',
+741 silly registry.get     'keep-alive': 'timeout=10, max=48',
+741 silly registry.get     etag: '"7BC52P0UE3IMYG73EKH8BIKU3"',
+741 silly registry.get     'cache-control': 'max-age=1',
+741 silly registry.get     vary: 'Accept' } ]
+742 verbose etag debug from cache
+743 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+744 silly addNameRange number 2 { name: 'debug', range: '>=0.7.3 <1.0.0-', hasData: true }
+745 silly addNameRange versions [ 'debug',
+745 silly addNameRange   [ '0.0.1',
+745 silly addNameRange     '0.1.0',
+745 silly addNameRange     '0.2.0',
+745 silly addNameRange     '0.3.0',
+745 silly addNameRange     '0.4.0',
+745 silly addNameRange     '0.4.1',
+745 silly addNameRange     '0.5.0',
+745 silly addNameRange     '0.6.0',
+745 silly addNameRange     '0.7.0',
+745 silly addNameRange     '0.7.1',
+745 silly addNameRange     '0.7.2',
+745 silly addNameRange     '0.7.3',
+745 silly addNameRange     '0.7.4' ] ]
+746 verbose addNamed [ 'debug', '0.7.4' ]
+747 verbose addNamed [ '0.7.4', '0.7.4' ]
+748 silly lockFile 16160008-debug-0-7-4 debug@0.7.4
+749 verbose lock debug@0.7.4 /Users/ameen/.npm/16160008-debug-0-7-4.lock
+750 verbose read json /Users/ameen/.npm/debug/0.7.4/package/package.json
+751 silly lockFile 16160008-debug-0-7-4 debug@0.7.4
+752 silly lockFile 16160008-debug-0-7-4 debug@0.7.4
+753 silly lockFile a781479f-debug-0-7-3-1 debug@>= 0.7.3 < 1
+754 silly lockFile a781479f-debug-0-7-3-1 debug@>= 0.7.3 < 1
+755 http 200 https://registry.npmjs.org/connect/2.12.0
+756 silly registry.get cb [ 200,
+756 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:03 GMT',
+756 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+756 silly registry.get     etag: '"59FO38BYHKIMK6CDALCF152MG"',
+756 silly registry.get     'content-type': 'application/json',
+756 silly registry.get     via: '1.1 varnish',
+756 silly registry.get     'cache-control': 'max-age=1',
+756 silly registry.get     'content-length': '1466',
+756 silly registry.get     'accept-ranges': 'bytes',
+756 silly registry.get     age: '51',
+756 silly registry.get     'x-served-by': 'cache-v41-ASH, cache-sv61-SJC3',
+756 silly registry.get     'x-cache': 'HIT, HIT',
+756 silly registry.get     'x-cache-hits': '1, 1',
+756 silly registry.get     'x-timer': 'S1393465684.466825008,VS0,VS-108,VE-91,VE102599087',
+756 silly registry.get     vary: 'Accept',
+756 silly registry.get     'keep-alive': 'timeout=10, max=46',
+756 silly registry.get     connection: 'Keep-Alive' } ]
+757 silly lockFile e965364e-s-org-connect-connect-2-12-0-tgz https://registry.npmjs.org/connect/-/connect-2.12.0.tgz
+758 verbose lock https://registry.npmjs.org/connect/-/connect-2.12.0.tgz /Users/ameen/.npm/e965364e-s-org-connect-connect-2-12-0-tgz.lock
+759 verbose addRemoteTarball [ 'https://registry.npmjs.org/connect/-/connect-2.12.0.tgz',
+759 verbose addRemoteTarball   '31d8fa0dcacdf1908d822bd2923be8a2d2a7ed9a' ]
+760 info retry fetch attempt 1 at 11:48:06
+761 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286548-0.9534561999607831/tmp.tgz
+762 http GET https://registry.npmjs.org/connect/-/connect-2.12.0.tgz
+763 http 200 https://registry.npmjs.org/zlib-browserify/0.0.1
+764 silly registry.get cb [ 200,
+764 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:03 GMT',
+764 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+764 silly registry.get     etag: '"7FTJBUKQV6T2SDCV6YZ2X795N"',
+764 silly registry.get     'content-type': 'application/json',
+764 silly registry.get     via: '1.1 varnish',
+764 silly registry.get     'cache-control': 'max-age=1',
+764 silly registry.get     'content-length': '908',
+764 silly registry.get     'accept-ranges': 'bytes',
+764 silly registry.get     age: '139',
+764 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-sv61-SJC3',
+764 silly registry.get     'x-cache': 'HIT, HIT',
+764 silly registry.get     'x-cache-hits': '25987, 1',
+764 silly registry.get     'x-timer': 'S1393006364.378260136,VS0,VS40,VE40,VE561919236',
+764 silly registry.get     vary: 'Accept',
+764 silly registry.get     'keep-alive': 'timeout=10, max=48',
+764 silly registry.get     connection: 'Keep-Alive' } ]
+765 silly lockFile cb2295c0-serify-zlib-browserify-0-0-1-tgz https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz
+766 verbose lock https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz /Users/ameen/.npm/cb2295c0-serify-zlib-browserify-0-0-1-tgz.lock
+767 verbose addRemoteTarball [ 'https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz',
+767 verbose addRemoteTarball   '4fa6a45d00dbc15f318a4afa1d9afc0258e176cc' ]
+768 info retry fetch attempt 1 at 11:48:06
+769 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286604-0.6212686349172145/tmp.tgz
+770 http GET https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz
+771 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+772 error fetch failed https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+773 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+774 error fetch failed https://registry.npmjs.org/connect/-/connect-2.12.0.tgz
+775 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+776 error fetch failed https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz
+777 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+778 info trying registry request attempt 2 at 11:48:14
+779 verbose etag "878I6A8Q0NMQDA8G74N9CWM7O"
+780 http GET https://registry.npmjs.org/less
+781 info trying registry request attempt 2 at 11:48:14
+782 verbose etag "188IKYWAGXP85P3IO9G0XHB5F"
+783 http GET https://registry.npmjs.org/grunt-lib-contrib
+784 info trying registry request attempt 2 at 11:48:14
+785 verbose etag "EX3AAUMMS4BR0MQLRVR1R319K"
+786 http GET https://registry.npmjs.org/chalk
+787 info trying registry request attempt 2 at 11:48:15
+788 verbose etag "D9RP9ACBJJ5Z0JXIRGO5SS9ZL"
+789 http GET https://registry.npmjs.org/range-parser/0.0.4
+790 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+791 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+792 info trying registry request attempt 2 at 11:48:16
+793 verbose etag "6APMFC5X7H2FLK4DM8JIDYRTP"
+794 http GET https://registry.npmjs.org/methods/0.1.0
+795 info trying registry request attempt 2 at 11:48:16
+796 verbose etag "EH8FXT0F3XG3RUYCIMSRRJLSM"
+797 http GET https://registry.npmjs.org/cookie/0.1.0
+798 info trying registry request attempt 2 at 11:48:17
+799 verbose etag "BM3G1FHV8SMEAGQA7YO9P70R9"
+800 http GET https://registry.npmjs.org/commander/1.3.2
+801 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+802 info retry fetch attempt 2 at 11:48:17
+803 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286275-0.4752703197300434/tmp.tgz
+804 http GET https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+805 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+806 info retry fetch attempt 2 at 11:48:17
+807 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286548-0.9534561999607831/tmp.tgz
+808 http GET https://registry.npmjs.org/connect/-/connect-2.12.0.tgz
+809 info retry fetch attempt 2 at 11:48:17
+810 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286604-0.6212686349172145/tmp.tgz
+811 http GET https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz
+812 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+813 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+814 error fetch failed https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+815 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+816 error fetch failed https://registry.npmjs.org/connect/-/connect-2.12.0.tgz
+817 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+818 http 200 https://registry.npmjs.org/commander/1.3.2
+819 silly registry.get cb [ 200,
+819 silly registry.get   { date: 'Fri, 28 Feb 2014 06:18:15 GMT',
+819 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+819 silly registry.get     etag: '"EQG3B5CD1MGPFHQZ0FSLTPFQZ"',
+819 silly registry.get     'content-type': 'application/json',
+819 silly registry.get     via: '1.1 varnish',
+819 silly registry.get     'cache-control': 'max-age=1',
+819 silly registry.get     'content-length': '878',
+819 silly registry.get     'accept-ranges': 'bytes',
+819 silly registry.get     age: '297',
+819 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-sv61-SJC3',
+819 silly registry.get     'x-cache': 'MISS, HIT',
+819 silly registry.get     'x-cache-hits': '0, 1',
+819 silly registry.get     'x-timer': 'S1393556431.176670313,VS0,VS120,VE217,VE11863985',
+819 silly registry.get     vary: 'Accept',
+819 silly registry.get     'keep-alive': 'timeout=10, max=50',
+819 silly registry.get     connection: 'Keep-Alive' } ]
+820 silly lockFile 0d5429af-rg-commander-commander-1-3-2-tgz https://registry.npmjs.org/commander/-/commander-1.3.2.tgz
+821 verbose lock https://registry.npmjs.org/commander/-/commander-1.3.2.tgz /Users/ameen/.npm/0d5429af-rg-commander-commander-1-3-2-tgz.lock
+822 verbose addRemoteTarball [ 'https://registry.npmjs.org/commander/-/commander-1.3.2.tgz',
+822 verbose addRemoteTarball   '8a8f30ec670a6fdd64af52f1914b907d79ead5b5' ]
+823 info retry fetch attempt 1 at 11:48:18
+824 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568298152-0.24257114506326616/tmp.tgz
+825 http GET https://registry.npmjs.org/commander/-/commander-1.3.2.tgz
+826 error fetch failed https://registry.npmjs.org/zlib-browserify/-/zlib-browserify-0.0.1.tgz
+827 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+828 error fetch failed https://registry.npmjs.org/commander/-/commander-1.3.2.tgz
+829 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+830 info retry fetch attempt 2 at 11:48:29
+831 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568298152-0.24257114506326616/tmp.tgz
+832 http GET https://registry.npmjs.org/commander/-/commander-1.3.2.tgz
+833 error fetch failed https://registry.npmjs.org/commander/-/commander-1.3.2.tgz
+834 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+835 info trying registry request attempt 3 at 11:49:15
+836 verbose etag "EX3AAUMMS4BR0MQLRVR1R319K"
+837 http GET https://registry.npmjs.org/chalk
+838 info trying registry request attempt 3 at 11:49:15
+839 verbose etag "188IKYWAGXP85P3IO9G0XHB5F"
+840 http GET https://registry.npmjs.org/grunt-lib-contrib
+841 info trying registry request attempt 3 at 11:49:17
+842 verbose etag "6APMFC5X7H2FLK4DM8JIDYRTP"
+843 http GET https://registry.npmjs.org/methods/0.1.0
+844 silly registry.get cb [ 304, undefined ]
+845 verbose etag chalk from cache
+846 silly addNameRange number 2 { name: 'chalk', range: '>=0.4.0- <0.5.0-', hasData: true }
+847 silly addNameRange versions [ 'chalk',
+847 silly addNameRange   [ '0.1.0', '0.1.1', '0.2.0', '0.2.1', '0.3.0', '0.4.0' ] ]
+848 verbose addNamed [ 'chalk', '0.4.0' ]
+849 verbose addNamed [ '0.4.0', '0.4.0' ]
+850 silly lockFile 1efe4790-chalk-0-4-0 chalk@0.4.0
+851 verbose lock chalk@0.4.0 /Users/ameen/.npm/1efe4790-chalk-0-4-0.lock
+852 verbose read json /Users/ameen/.npm/chalk/0.4.0/package/package.json
+853 silly lockFile 1efe4790-chalk-0-4-0 chalk@0.4.0
+854 silly lockFile 1efe4790-chalk-0-4-0 chalk@0.4.0
+855 silly lockFile bc9fb696-chalk-0-4-0 chalk@~0.4.0
+856 silly lockFile bc9fb696-chalk-0-4-0 chalk@~0.4.0
+857 info trying registry request attempt 3 at 11:49:17
+858 verbose etag "EH8FXT0F3XG3RUYCIMSRRJLSM"
+859 http GET https://registry.npmjs.org/cookie/0.1.0
+860 http 304 https://registry.npmjs.org/grunt-lib-contrib
+861 silly registry.get cb [ 304,
+861 silly registry.get   { date: 'Fri, 28 Feb 2014 06:19:14 GMT',
+861 silly registry.get     server: 'Apache',
+861 silly registry.get     connection: 'Keep-Alive',
+861 silly registry.get     'keep-alive': 'timeout=10, max=50',
+861 silly registry.get     etag: '"188IKYWAGXP85P3IO9G0XHB5F"',
+861 silly registry.get     'cache-control': 'max-age=1',
+861 silly registry.get     vary: 'Accept' } ]
+862 verbose etag grunt-lib-contrib from cache
+863 silly addNameRange number 2 { name: 'grunt-lib-contrib',
+863 silly addNameRange   range: '>=0.6.1- <0.7.0-',
+863 silly addNameRange   hasData: true }
+864 silly addNameRange versions [ 'grunt-lib-contrib',
+864 silly addNameRange   [ '0.3.0',
+864 silly addNameRange     '0.3.1',
+864 silly addNameRange     '0.4.0',
+864 silly addNameRange     '0.5.1',
+864 silly addNameRange     '0.5.2',
+864 silly addNameRange     '0.5.3',
+864 silly addNameRange     '0.6.0',
+864 silly addNameRange     '0.6.1' ] ]
+865 verbose addNamed [ 'grunt-lib-contrib', '0.6.1' ]
+866 verbose addNamed [ '0.6.1', '0.6.1' ]
+867 silly lockFile 0ef65a81-grunt-lib-contrib-0-6-1 grunt-lib-contrib@0.6.1
+868 verbose lock grunt-lib-contrib@0.6.1 /Users/ameen/.npm/0ef65a81-grunt-lib-contrib-0-6-1.lock
+869 verbose read json /Users/ameen/.npm/grunt-lib-contrib/0.6.1/package/package.json
+870 silly lockFile 0ef65a81-grunt-lib-contrib-0-6-1 grunt-lib-contrib@0.6.1
+871 silly lockFile 0ef65a81-grunt-lib-contrib-0-6-1 grunt-lib-contrib@0.6.1
+872 silly lockFile a97902f4-grunt-lib-contrib-0-6-1 grunt-lib-contrib@~0.6.1
+873 silly lockFile a97902f4-grunt-lib-contrib-0-6-1 grunt-lib-contrib@~0.6.1
+874 info trying registry request attempt 3 at 11:49:17
+875 verbose etag "878I6A8Q0NMQDA8G74N9CWM7O"
+876 http GET https://registry.npmjs.org/less
+877 info trying registry request attempt 3 at 11:49:17
+878 verbose etag "D9RP9ACBJJ5Z0JXIRGO5SS9ZL"
+879 http GET https://registry.npmjs.org/range-parser/0.0.4
+880 info retry fetch attempt 3 at 11:49:17
+881 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286275-0.4752703197300434/tmp.tgz
+882 http GET https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+883 silly registry.get cb [ 304, undefined ]
+884 verbose etag cookie/0.1.0 from cache
+885 verbose read json /Users/ameen/.npm/cookie/0.1.0/package/package.json
+886 silly lockFile b55e145e-cookie-0-1-0 cookie@0.1.0
+887 silly lockFile b55e145e-cookie-0-1-0 cookie@0.1.0
+888 info retry fetch attempt 3 at 11:49:18
+889 verbose fetch to= /var/folders/xj/4zqdhbnn6klcr8qvktb30t740000gp/T/npm-2572/1393568286548-0.9534561999607831/tmp.tgz
+890 http GET https://registry.npmjs.org/connect/-/connect-2.12.0.tgz
+891 silly registry.get cb [ 304, undefined ]
+892 verbose etag range-parser/0.0.4 from cache
+893 verbose read json /Users/ameen/.npm/range-parser/0.0.4/package/package.json
+894 warn package.json range-parser@0.0.4 No repository field.
+895 silly lockFile 0760c556-range-parser-0-0-4 range-parser@0.0.4
+896 silly lockFile 0760c556-range-parser-0-0-4 range-parser@0.0.4
+897 error fetch failed https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+898 silly lockFile 1150ef08--npmjs-org-fresh-fresh-0-2-0-tgz https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+899 silly lockFile 1150ef08--npmjs-org-fresh-fresh-0-2-0-tgz https://registry.npmjs.org/fresh/-/fresh-0.2.0.tgz
+900 silly lockFile 1a4cf0d3-fresh-0-2-0 fresh@0.2.0
+901 silly lockFile 1a4cf0d3-fresh-0-2-0 fresh@0.2.0
+902 verbose about to build /Users/ameen/repos/rfjs/node_modules/express
+903 info /Users/ameen/repos/rfjs/node_modules/express unbuild
+904 verbose from cache /Users/ameen/repos/rfjs/node_modules/express/package.json
+905 info preuninstall express@3.4.8
+906 info uninstall express@3.4.8
+907 verbose true,/Users/ameen/repos/rfjs/node_modules,/Users/ameen/repos/rfjs/node_modules unbuild express@3.4.8
+908 verbose /Users/ameen/repos/rfjs/node_modules/.bin,[object Object] binRoot
+909 info postuninstall express@3.4.8
+910 error Error: SELF_SIGNED_CERT_IN_CHAIN
+910 error     at SecurePair.<anonymous> (tls.js:1346:32)
+910 error     at SecurePair.EventEmitter.emit (events.js:92:17)
+910 error     at SecurePair.maybeInitFinished (tls.js:959:10)
+910 error     at CleartextStream.read [as _read] (tls.js:463:15)
+910 error     at CleartextStream.Readable.read (_stream_readable.js:320:10)
+910 error     at EncryptedStream.write [as _write] (tls.js:366:25)
+910 error     at doWrite (_stream_writable.js:219:10)
+910 error     at writeOrBuffer (_stream_writable.js:209:5)
+910 error     at EncryptedStream.Writable.write (_stream_writable.js:180:11)
+910 error     at write (_stream_readable.js:573:24)
+910 error     at flow (_stream_readable.js:582:7)
+910 error     at Socket.pipeOnReadable (_stream_readable.js:614:5)
+911 error If you need help, you may report this log at:
+911 error     <http://github.com/isaacs/npm/issues>
+911 error or email it to:
+911 error     <npm-@googlegroups.com>
+912 error System Darwin 12.5.0
+913 error command "node" "/usr/local/bin/npm" "install"
+914 error cwd /Users/ameen/repos/rfjs
+915 error node -v v0.10.12
+916 error npm -v 1.2.32
+917 verbose exit [ 1, true ]
