@@ -36,15 +36,17 @@
                 c3.setCaption ("table component");
                 c3.addColumn ("a", "Column A");
                 c3.addColumn ("b", "Column B");
-                c3.addRow ({a: 1, b: 2});
-                c3.addRow ({a: 3, b: 4});
 
+                for(var i = 0; i < 25; i++) {
+                    c3.addRow ({a: 2 * i, b: 2 * i + 1});
+
+                }
                 db.addComponent(c3);
 
                 setTimeout(function () {
                     c1.setValue(55);
 
-                    c3.addRow ({a: 5, b: 6});
+//                    c3.addRow ({a: 5, b: 6});
                 }, 1500);
             });
         });
