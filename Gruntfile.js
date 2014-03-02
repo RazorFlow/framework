@@ -55,15 +55,21 @@ module.exports = function (grunt) {
                     suites: [ 'tests/test_test.js' ]
                 }
             }
-        }
+        },
+        karma: {
+            dev: {
+                configFile: './karma.conf.js',
+                singleRun: true
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jst');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('intern');
+    grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('test', [ 'intern' ]);
+    grunt.registerTask('test', ['karma:dev']);
     grunt.registerTask('compile', ['less', 'jst']);
 }
