@@ -43,7 +43,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       type : 'text',
-      dir : 'coverage/',
+      dir : 'build/coverage/',
       file : 'coverage.txt'
     },
 
@@ -72,7 +72,7 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['Chrome', 'Firefox', 'Safari', 'PhantomJS'],
+    browsers: ['PhantomJS'],
 
 
     // If browser does not capture in given timeout [ms], kill it

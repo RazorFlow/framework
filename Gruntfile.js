@@ -62,6 +62,14 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
+        shell: {
+            coverageReport: {
+                command: 'cat "build/coverage/PhantomJS 1.9.7 (Mac OS X)/coverage.txt"',
+                options: {
+                    stdout: true
+                }
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -69,7 +77,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('test', ['karma:dev']);
+    
     grunt.registerTask('compile', ['less', 'jst']);
+    grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 }
