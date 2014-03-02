@@ -40,23 +40,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                curly: true,
-                eqeqeq: true,
-                forin: true,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                //undef: true,
-                //unused: true,
-                maxdepth: 3,
-                evil: true,
-                smarttabs: true,
-                "-W099": true, //Mixed tabs and spaces
-                sub: true,
-                globals: {
-                    jQuery: true,
-                    node: true
-                }
+                jshintrc: 'src/js/.jshintrc'
             },
             files: [
                 "src/js/**/*.js"
