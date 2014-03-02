@@ -24,11 +24,20 @@ exclude = [
   
 ];
 
+preprocessors = {
+    '**/src/js/renderers/*.js': 'coverage'
+};
+
 
 // test results reporter to use
 // possible values: 'dots', 'progress', 'junit'
-reporters = ['progress'];
+reporters = ['dots', 'coverage'];
 
+coverageReporter = {
+  type : 'text-summary',
+  dir : 'coverage/',
+  file : 'coverage.txt'
+}
 
 // web server port
 port = 9876;
