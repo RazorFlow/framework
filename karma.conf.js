@@ -13,7 +13,14 @@ files = [
   REQUIRE,
   REQUIRE_ADAPTER,
   'tests/main.js',
+  {pattern: 'src/vendor/js/jquery.min.js', included: false},
+  {pattern: 'src/vendor/js/lodash.min.js', included: false},
+  {pattern: 'build/js/templates.js', included: false},
   {pattern: 'src/js/core/rfclass.js', included: false},
+  {pattern: 'src/js/prop/*.js', included: false},
+  {pattern: 'src/js/helpers/*.js', included: false},
+  {pattern: 'src/js/utils/*.js', included: false},
+  {pattern: 'src/js/constants/*.js', included: false},
   {pattern: 'src/js/renderers/*.js', included: false},
   {pattern: 'tests/renderers/*Spec.js', included: false},
 ];
@@ -34,7 +41,7 @@ preprocessors = {
 reporters = ['dots', 'coverage'];
 
 coverageReporter = {
-  type : 'text-summary',
+  type : 'text',
   dir : 'coverage/',
   file : 'coverage.txt'
 }
@@ -68,7 +75,7 @@ autoWatch = false;
 // - Safari (only Mac)
 // - PhantomJS
 // - IE (only Windows)
-browsers = ['Chrome', 'PhantomJS'];
+browsers = ['Chrome', 'PhantomJS', 'Firefox', 'Safari'];
 
 
 // If browser does not capture in given timeout [ms], kill it

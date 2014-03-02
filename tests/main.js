@@ -11,15 +11,13 @@ requirejs.config({
     baseUrl: '/base/src/js',
 
     paths: {
-        'jquery': '../src/vendor/js/jquery.min',
-        'underscore': '../src/vendor/js/lodash.min',
-        'dashboard': '../js/core/dashboard'
+        'jquery': '../vendor/js/jquery.min',
+        'lodash': '../vendor/js/lodash.min',
+        'templates': '../../build/js/templates'
     },
 
     shim: {
-        'underscore': {
-            exports: '_'
-        }
+
     },
 
     // ask Require.js to load these files (all our tests)
