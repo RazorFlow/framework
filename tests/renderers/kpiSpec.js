@@ -20,9 +20,34 @@ define([
     window._ = _;
 
     describe('KPIRenderer test', function() {
+        var rh = new RenderHelper();
+        var renderer = new KPIRenderer();
+        rh.setRenderer(renderer);
         it("Should work", function () {
-            var rh = new RenderHelper();
-            expect(rh.testItem()).toBe(1);
+            rh.render({
+                kpi: {
+                    display: {
+                        value: 42
+                    }
+                },
+                core: {
+                    caption: "Hello there"
+                }
+            });
+            rh.assert({
+                [
+                {
+                    selector: ".rfKPIValue",
+                    type: "text",
+                    value: "42"
+                },
+                {
+                    selector: ".rfKPICaption",
+                    type: "text",
+                    value: "Hello there"
+                },
+                ]
+            })
         })
     });
 });
