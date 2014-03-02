@@ -45,6 +45,16 @@ module.exports = function (grunt) {
             files: [
                 "src/js/**/*.js"
             ]
+        },
+        intern: {
+            someReleaseTarget: {
+                options: {
+                    runType: 'runner', // defaults to 'client'
+                    config: 'tests/intern',
+                    reporters: [ 'console', 'lcov' ],
+                    suites: [ 'tests/test_test.js' ]
+                }
+            }
         }
     });
 
@@ -52,6 +62,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jst');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('intern');
 
+    grunt.registerTask('test', [ 'intern' ]);
     grunt.registerTask('compile', ['less', 'jst']);
 }

@@ -1,25 +1,26 @@
 {
-    "name": "rfjs",
-    "version": "0.2.0",
-    "description": "RazorFlow Dashboard Framework - JavaScript Edition",
-    "scripts": {
-        "test": "grunt test",
-        "dev": "node tools/devserver"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://AmeenAhmed@bitbucket.org/razorflow/rfjs.git"
-    },
-    "dependencies": {
-        "express": "~3.4.8",
-        "ejs": "~0.8.5"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.2",
-        "grunt-contrib-requirejs": "~0.4.1",
-        "grunt-contrib-jst": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-jshint": "~0.4.0",
-        "grunt-contrib-less": ">= 0.1"
-    }
+  "name": "rfjs",
+  "version": "0.2.0",
+  "description": "RazorFlow Dashboard Framework - JavaScript Edition",
+  "scripts": {
+    "test": "grunt test",
+    "dev": "node tools/devserver"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://AmeenAhmed@bitbucket.org/razorflow/rfjs.git"
+  },
+  "dependencies": {
+    "express": "~3.4.8",
+    "ejs": "~0.8.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-jst": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-jshint": "~0.4.0",
+    "grunt-contrib-less": ">= 0.1",
+    "intern": "~1.4.0"
+  }
 }
