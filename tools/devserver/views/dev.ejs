@@ -32,20 +32,20 @@
 
                 var c3 = new TableComponent ();
                 c3.setDimensions (6, 6);
+                c3.setRowsPerPage('20');
                 c3.setCaption ("table component");
                 c3.addColumn ("a", "Column A");
                 c3.addColumn ("b", "Column B");
 
                 for(var i = 0; i < 25; i++) {
                     c3.addRow ({a: 2 * i, b: 2 * i + 1});
-
                 }
                 db.addComponent(c3);
 
                 setTimeout(function () {
                     c1.setValue(55);
                     c1.unlock();
-
+                    c3.clearRows();
 //                    c3.addRow ({a: 5, b: 6});
                 }, 1500);
             });
