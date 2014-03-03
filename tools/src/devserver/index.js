@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var app = new express();
 var path = require('path');
-var rootPath = path.resolve(__dirname, '../../');
+var rootPath = path.resolve(__dirname, '../../../');
 
 app.use('/assets', express.static(rootPath + '/src'));
 app.use('/build', express.static(rootPath + '/build'));

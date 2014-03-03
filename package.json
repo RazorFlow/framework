@@ -4,7 +4,7 @@
   "description": "RazorFlow Dashboard Framework - JavaScript Edition",
   "scripts": {
     "test": "grunt test",
-    "dev": "node tools/devserver"
+    "dev": "node tools/src/devserver"
   },
   "repository": {
     "type": "git",
