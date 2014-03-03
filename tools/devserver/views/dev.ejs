@@ -19,9 +19,8 @@
                 var c1 = new KPIComponent();
                 c1.setDimensions(3, 3);
                 c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
-                c1.setValue(513.22);
-//                    numberPrefix: '$'
-//                });
+                c1.lock();
+//                c1.setValue(513.22);
                 db.addComponent(c1);
 
                 var c2 = new KPIComponent();
@@ -45,6 +44,7 @@
 
                 setTimeout(function () {
                     c1.setValue(55);
+                    c1.unlock();
 
 //                    c3.addRow ({a: 5, b: 6});
                 }, 1500);
