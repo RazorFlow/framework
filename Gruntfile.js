@@ -46,16 +46,6 @@ module.exports = function (grunt) {
                 "src/js/**/*.js"
             ]
         },
-        intern: {
-            someReleaseTarget: {
-                options: {
-                    runType: 'runner', // defaults to 'client'
-                    config: 'tests/intern',
-                    reporters: [ 'console', 'lcov' ],
-                    suites: [ 'tests/test_test.js' ]
-                }
-            }
-        },
         karma: {
             dev: {
                 configFile: './karma.conf.js',
