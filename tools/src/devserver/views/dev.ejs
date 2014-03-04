@@ -37,9 +37,10 @@
                 c3.setCaption ("table component");
                 c3.addColumn ("a", "Column A");
                 c3.addColumn ("b", "Column B");
+                c3.addColumn ("c", "Column c");
 
                 for(var i = 0; i < 25; i++) {
-                    c3.addRow ({a: 2 * i, b: 2 * i + 1});
+                    c3.addRow ({a: 2 * i, b: 2 * i + 1, c: 2 * i + 2});
                 }
                 db.addComponent(c3);
 
