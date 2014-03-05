@@ -16,33 +16,32 @@
             StandaloneDashboard(function (db) {
                 db.setDashboardTitle('KPI Types Supported in RazorFlow');
 
-//                 var c1 = new KPIComponent();
-//                 c1.setDimensions(3, 3);
-//                 c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
-//                 c1.lock();
-// //                c1.setValue(513.22);
-//                 db.addComponent(c1);
+                // var c1 = new KPIComponent();
+                // c1.setDimensions(3, 3);
+                // c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
+                // c1.setValue(513.22);
+                // db.addComponent(c1);
 
-//                 var c2 = new KPIComponent();
-//                 c2.setDimensions(3, 3);
-//                 c2.setCaption('Average Monthly Cost');
-//                 c2.setValue(345);
-//                 c2.setSparkValues(['a', 'b', 'c', 'd', 'e'], [20, 10, 30, 40, 25]);
+                var c2 = new GaugeComponent();
+                c2.setDimensions(12, 20);
+                c2.setCaption('Average Monthly Cost');
+                c2.setValue(45);
+                c2.setLimits(0, 100);
 
-//                 db.addComponent(c2);
+                db.addComponent(c2);
 
 
-                var c3 = new TableComponent ();
-                c3.setDimensions (6, 6);
-                c3.setRowsPerPage('10');
-                c3.setCaption ("table component");
-                c3.addColumn ("a", "Column A");
-                c3.addColumn ("b", "Column B");
+                // var c3 = new TableComponent ();
+                // c3.setDimensions (6, 6);
+                // c3.setRowsPerPage('10');
+                // c3.setCaption ("table component");
+                // c3.addColumn ("a", "Column A");
+                // c3.addColumn ("b", "Column B");
 
-//                 for(var i = 0; i < 25; i++) {
-//                     c3.addRow ({a: 2 * i, b: 2 * i + 1});
-//                 }
-//                 db.addComponent(c3);
+                // for(var i = 0; i < 25; i++) {
+                //     c3.addRow ({a: 2 * i, b: 2 * i + 1});
+                // }
+                // db.addComponent(c3);
 
 //                 var c4 = new ChartComponent();
 //                 c4.setDimensions(12, 6);
@@ -58,20 +57,20 @@
                 // db.addComponent(c4);
                 
 
-                var filter = new FilterComponent();
-                filter.setDimensions(6,6);
-                filter.setCaption('A test filter component');
-                filter.addTextFilter('name', 'Enter your name');
-                filter.addSelectFilter('category', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
-                filter.addMultiSelectFilter('multi', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
-                filter.addDateFilter('delivery', 'Delivery Date');
-                filter.addDateRangeFilter('daterange', 'Delivery Range');
-                filter.addNumericRangeFilter('unitrange', 'Units Range');
-                filter.addCheckboxFilter('truthtest', 'Did you take this form seriously?');
-                filter.onApplyClicked(function(obj) {
-                    debugger
-                });
-                db.addComponent(filter);
+                // var filter = new FilterComponent();
+                // filter.setDimensions(6,6);
+                // filter.setCaption('A test filter component');
+                // filter.addTextFilter('name', 'Enter your name');
+                // filter.addSelectFilter('category', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
+                // filter.addMultiSelectFilter('multi', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
+                // filter.addDateFilter('delivery', 'Delivery Date');
+                // filter.addDateRangeFilter('daterange', 'Delivery Range');
+                // filter.addNumericRangeFilter('unitrange', 'Units Range');
+                // filter.addCheckboxFilter('truthtest', 'Did you take this form seriously?');
+                // filter.onApplyClicked(function(obj) {
+                //     debugger
+                // });
+                // db.addComponent(filter);
 //                 setTimeout(function () {
 //                     c1.setValue(55);
 //                     c1.unlock();
