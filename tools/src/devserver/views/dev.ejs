@@ -22,13 +22,13 @@
                 // c1.setValue(513.22);
                 // db.addComponent(c1);
 
-                // var c2 = new GaugeComponent();
-                // c2.setDimensions(3, 3);
-                // c2.setCaption('Average Monthly Cost');
-                // c2.setValue(45);
-                // c2.setLimits(0, 100);
+                var c2 = new GaugeComponent();
+                c2.setDimensions(12, 12);
+                c2.setCaption('Average Monthly Cost');
+                c2.setValue(45);
+                c2.setLimits(0, 100);
 
-                // db.addComponent(c2);
+                db.addComponent(c2);
 
 
                 // var c3 = new TableComponent ();
@@ -56,9 +56,6 @@
                 // c4.setYAxis('hello', {numberPrefix: '$'});
                 // db.addComponent(c4);
                 
-                var json = '{"components":[{"props":{"core":{"caption":"Average Monthly Sales","absolutePosition":false,"dimensions":{"w":null,"h":null},"isChild":false,"location":{"x":0,"y":0,"w":3,"h":3},"zoomable":true},"events":[],"children":[],"data":{},"kpi":{"display":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":null,"numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"value":513.22,"indicator":null,"indicatorColor":"green","caption":"","subcaption":"","target":null,"gaugeType":"circular","gaugeFlag":false,"sparkFlag":false,"ranges":[],"maximum":null,"minimum":null,"type":null}}},"data":[],"type":"KPIComponent"},{"props":{"core":{"caption":"Average Monthly Cost","absolutePosition":false,"dimensions":{"w":null,"h":null},"isChild":false,"location":{"x":0,"y":0,"w":3,"h":3},"zoomable":true},"events":[],"children":[],"data":{},"kpi":{"display":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":null,"numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"value":45,"indicator":null,"indicatorColor":"green","caption":"","subcaption":"","target":null,"gaugeType":"circular","gaugeFlag":true,"sparkFlag":false,"ranges":[],"maximum":100,"minimum":0,"type":null}}},"data":[],"type":"GaugeComponent"},{"props":{"core":{"caption":"table component","absolutePosition":false,"dimensions":{"w":null,"h":null},"isChild":false,"location":{"x":0,"y":0,"w":6,"h":6},"zoomable":true},"events":[],"children":[],"data":{"rowDataSource":{"url":null}},"table":{"columns":{"a":{"dataType":"auto","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":null,"numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"name":"","columnType":"text","sortable":false,"sortActiveFlag":false,"sortDirection":"descending","cellWidth":null,"hideColumnOnSmallDevices":false},"b":{"dataType":"auto","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":null,"numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"name":"","columnType":"text","sortable":false,"sortActiveFlag":false,"sortDirection":"descending","cellWidth":null,"hideColumnOnSmallDevices":false}},"rowsPerPage":10,"currentPageNumber":0,"serverPaginationFlag":false,"useRemoteDataSourceFlag":false,"detailViewFlag":false}},"data":[{"a":0,"b":1},{"a":2,"b":3},{"a":4,"b":5},{"a":6,"b":7},{"a":8,"b":9},{"a":10,"b":11},{"a":12,"b":13},{"a":14,"b":15},{"a":16,"b":17},{"a":18,"b":19},{"a":20,"b":21},{"a":22,"b":23},{"a":24,"b":25},{"a":26,"b":27},{"a":28,"b":29},{"a":30,"b":31},{"a":32,"b":33},{"a":34,"b":35},{"a":36,"b":37},{"a":38,"b":39},{"a":40,"b":41},{"a":42,"b":43},{"a":44,"b":45},{"a":46,"b":47},{"a":48,"b":49}],"type":"TableComponent"},{"props":{"core":{"caption":"Yearly Sales for Top 5 Genres","absolutePosition":false,"dimensions":{"w":null,"h":null},"isChild":false,"location":{"x":0,"y":0,"w":12,"h":6},"zoomable":true},"events":[],"children":[],"data":{},"chart":{"series":{"rock":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":"$","numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"seriesName":"Rock","seriesDisplayType":"pie","seriesColor":"auto","seriesHiddenFlag":false,"includeInLegendFlag":true},"latin":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":"$","numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"seriesName":"Latin","seriesDisplayType":"column","seriesColor":"auto","seriesHiddenFlag":false,"includeInLegendFlag":true},"metal":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":"$","numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"seriesName":"Metal","seriesDisplayType":"column","seriesColor":"auto","seriesHiddenFlag":false,"includeInLegendFlag":true},"blues":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":"$","numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"seriesName":"Blues","seriesDisplayType":"column","seriesColor":"auto","seriesHiddenFlag":false,"includeInLegendFlag":true},"jazz":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":"$","numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"seriesName":"Jazz","seriesDisplayType":"column","seriesColor":"auto","seriesHiddenFlag":false,"includeInLegendFlag":true}},"yaxis":{"dataType":"number","numberFormatFlag":true,"numberHumanize":false,"numberPrefix":"$","numberSuffix":null,"numberThousandsSeparator":",","numberDecimalsSeparator":".","numberForceDecimals":false,"numberDecimalPoints":2,"axisName":"hello","minValue":null,"maxValue":null,"adaptiveMinimumValueFlag":false},"showLegendFlag":true}},"data":[{"rfLabels":"2007","rock":178.2,"latin":82.17,"metal":61.38,"blues":62.37,"jazz":174.24},{"rfLabels":"2008","rock":155.43,"latin":77.22,"metal":53.46,"blues":59.6,"jazz":79.2},{"rfLabels":"2009","rock":161.37,"latin":80.19,"metal":30.69,"blues":45.54,"jazz":55.45},{"rfLabels":"2010","rock":157.41,"latin":63.36,"metal":80.39,"blues":38.61,"jazz":55.44},{"rfLabels":"2011","rock":174.24,"latin":79.2,"metal":44.45,"blues":5.94,"jazz":21.78}],"type":"ChartComponent"}]}';
-
-                db.pro._buildFromObject(JSON.parse(json));
 
                 // var filter = new FilterComponent();
                 // filter.setDimensions(6,6);
@@ -83,7 +80,7 @@
 //                 
 //                 
 
-                // console.log(JSON.stringify(db.pro._serializeComponents()));
+                console.log(JSON.stringify(db.pro._serializeComponents()));
             });
         });
     </script>
@@ -94,3 +91,4 @@
 </div>
 </body>
 </html>
+    
