@@ -22,26 +22,32 @@
                 // c1.setValue(513.22);
                 // db.addComponent(c1);
 
-                var c2 = new GaugeComponent();
-                c2.setDimensions(12, 20);
-                c2.setCaption('Average Monthly Cost');
-                c2.setValue(45);
-                c2.setLimits(0, 100);
+                // var c2 = new GaugeComponent();
+                // c2.setDimensions(12, 20);
+                // c2.setCaption('Average Monthly Cost');
+                // c2.setValue(45);
+                // c2.setLimits(0, 100);
 
-                db.addComponent(c2);
+                // db.addComponent(c2);
 
 
-                // var c3 = new TableComponent ();
-                // c3.setDimensions (6, 6);
-                // c3.setRowsPerPage('10');
-                // c3.setCaption ("table component");
-                // c3.addColumn ("a", "Column A");
-                // c3.addColumn ("b", "Column B");
+                var c3 = new TableComponent ();
+                c3.setDimensions (6, 6);
+                c3.setRowsPerPage('10');
+                c3.setCaption ("table component");
+                c3.addColumn ("a", "Column A", {
+                  dataType: "number",
+                  numberPrefix: "$"
+                });
+                c3.addColumn ("b", "Column B", {
+                  dataType: "number",
+                  numberSuffix: "%"
+                });
 
-                // for(var i = 0; i < 25; i++) {
-                //     c3.addRow ({a: 2 * i, b: 2 * i + 1});
-                // }
-                // db.addComponent(c3);
+                for(var i = 0; i < 10; i++) {
+                    c3.addRow ({a: 2 * i, b: 2 * i + 1});
+                }
+                db.addComponent(c3);
 
 //                 var c4 = new ChartComponent();
 //                 c4.setDimensions(12, 6);
@@ -80,7 +86,7 @@
 //                 
 //                 
 
-                console.log(db.pro._serializeComponents());
+                // console.log(db.pro._serializeComponents());
             });
         });
     </script>
