@@ -15,7 +15,7 @@ final class RazorFlowLintEngine extends ArcanistLintEngine {
       }
     }
 
-    $linters[] = id(new ArcanistTextLinter())->setPaths($text);
+    $linters[] = id(new ArcanistTextLinter())->setPaths($paths);
     $linters[] = id(new ArcanistJSHintLinter())
                     ->setPaths(preg_grep('/\.js$/', $paths));
 
