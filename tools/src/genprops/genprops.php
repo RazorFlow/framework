@@ -12,4 +12,5 @@ function require_and_write ($renderer, $outFile) {
 	file_put_contents($outFile, $contents);
 }
 
+# Write the actual file
 require_and_write("api/jsrenderer.php", "../../../src/js/prop/properties.js");
