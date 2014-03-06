@@ -22,13 +22,13 @@
                 // c1.setValue(513.22);
                 // db.addComponent(c1);
 
-                // var c2 = new GaugeComponent();
-                // c2.setDimensions(12, 20);
-                // c2.setCaption('Average Monthly Cost');
-                // c2.setValue(45);
-                // c2.setLimits(0, 100);
+                var c2 = new GaugeComponent();
+                c2.setDimensions(12, 12);
+                c2.setCaption('Average Monthly Cost');
+                c2.setValue(90);
+                c2.setLimits(0, 100);
 
-                // db.addComponent(c2);
+                db.addComponent(c2);
 
 
                 var c3 = new TableComponent ();
@@ -44,17 +44,17 @@
                   numberSuffix: "%"
                 });
 
-                for(var i = 0; i < 10; i++) {
+                for(var i = 0; i < 25; i++) {
                     c3.addRow ({a: 2 * i, b: 2 * i + 1});
                 }
                 db.addComponent(c3);
 
-//                 var c4 = new ChartComponent();
-//                 c4.setDimensions(12, 6);
-//                 c4.setCaption('New Chart');
-//                 c4.setCaption('Yearly Sales for Top 5 Genres');
-//                 c4.setLabels(['2007', '2008', '2009', '2010', '2011']);
-//                 c4.addSeries('rock', 'Rock', [178.20, 155.43, 161.37, 157.41, 174.24], {seriesDisplayType: 'pie', numberPrefix: "$"});
+                // var c4 = new ChartComponent();
+                // c4.setDimensions(12, 6);
+                // c4.setCaption('New Chart');
+                // c4.setCaption('Yearly Sales for Top 5 Genres');
+                // c4.setLabels(['2007', '2008', '2009', '2010', '2011']);
+                // c4.addSeries('rock', 'Rock', [178.20, 155.43, 161.37, 157.41, 174.24], {seriesDisplayType: 'pie', numberPrefix: "$"});
                 // c4.addSeries('latin', 'Latin', [82.17, 77.22, 80.19, 63.36, 79.20], {numberPrefix: "$"});
                 // c4.addSeries('metal', 'Metal', [61.38, 53.46, 30.69, 80.39, 44.45], {numberPrefix: "$"});
                 // c4.addSeries('blues', 'Blues', [62.37, 59.60, 45.54, 38.61, 5.94], {numberPrefix: "$"});
@@ -77,16 +77,17 @@
                 //     debugger
                 // });
                 // db.addComponent(filter);
-//                 setTimeout(function () {
-//                     c1.setValue(55);
-//                     c1.unlock();
-//                     // c3.clearRows();
-// //                    c3.addRow ({a: 5, b: 6});
-//                 }, 1500);
+                setTimeout(function () {
+                    // c1.setValue(55);
+                    // c1.unlock();
+                    // c3.clearRows();
+//                    c3.addRow ({a: 5, b: 6}); 
+                    // c2.setValue(55);
+                }, 3000);
 //                 
 //                 
 
-                // console.log(db.pro._serializeComponents());
+                console.log(JSON.stringify(db.pro._serializeComponents()));
             });
         });
     </script>
@@ -97,3 +98,4 @@
 </div>
 </body>
 </html>
+    
