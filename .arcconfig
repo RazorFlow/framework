@@ -1,4 +1,9 @@
 {
 	"project_id": "RFJS",
-	"conduit_uri": "http://forge.razorflow.com"
+	"conduit_uri": "http://forge.razorflow.com",
+	"load": [
+	"tools/src/arcanist"
+	],
+	"lint.engine": "RazorFlowLintEngine"
+
 }
