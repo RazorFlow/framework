@@ -42,6 +42,32 @@ app.get('/demos', function(req, res) {
     res.render('demo_index.ejs', {files: demos});
 });
 
+app.get('/testcases/:id', function(req, res) {
+    var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
+    var demoFiles = fs.readdirSync(rootPath + '/src/dev/testcases');
+    var id = req.params.id;
+    var demos = _.map(demoFiles, function(file) {
+        return file.replace('.js', '');
+    });
+    if(req.params.id) {
+        if(demos.indexOf(id) !== -1) {
+            var file = fs.readFileSync(rootPath + '/src/dev/testcases/' + id + '.js', 'utf-8');
+            res.render('demo.ejs', {vendorScripts: vendorScripts, file: file});
+        } else {
+            res.end('404 not found!');
+        }        
+    } 
+});
+
+app.get('/testcases', function(req, res) {
+    var demoFiles = fs.readdirSync(rootPath + '/src/dev/testcases');
+    var demos = _.map(demoFiles, function(file) {
+        return file.replace('.js', '');
+    });
+
+    res.render('demo_index.ejs', {files: demos});
+});
+
 app.get('/dev', function(req, res) {
     var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
     res.render('dev.ejs', {vendorScripts: vendorScripts});
