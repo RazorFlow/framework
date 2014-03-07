@@ -3,11 +3,11 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="/build/css/razorflow.css" />
+    <link rel="stylesheet" href="/build/css/razorflow.css"/>
     <script type="text/javascript" src="/build/js/templates.js"></script>
-        <% for(var i=-1; ++i<vendorScripts.length;) { %>
-            <script type="text/javascript" src="/assets/vendor/js/<%=vendorScripts[i]%>"></script>
-        <% } %>
+    <% for(var i = -1; ++i < vendorScripts.length;) { %>
+    <script type="text/javascript" src="/assets/vendor/js/<%= vendorScripts[i] %>"></script>
+    <% } %>
     <script type="text/javascript">
         require.config({
             baseUrl: '/assets/js'
@@ -25,7 +25,7 @@
                 // db.addComponent(c1);
 
                 var c2 = new GaugeComponent();
-                c2.setDimensions(12, 12);
+                c2.setDimensions(3, 3);
                 c2.setCaption('Average Monthly Cost');
                 c2.setValue(90);
                 c2.setLimits(0, 100);
@@ -33,21 +33,30 @@
                 db.addComponent(c2);
 
 
-                var c3 = new TableComponent ();
-                c3.setDimensions (6, 6);
+                var c3 = new TableComponent();
+                c3.setDimensions(8, 6);
                 c3.setRowsPerPage('10');
-                c3.setCaption ("table component");
-                c3.addColumn ("a", "Column A", {
-                  dataType: "number",
-                  numberPrefix: "$"
-                });
-                c3.addColumn ("b", "Column B", {
-                  dataType: "number",
-                  numberSuffix: "%"
-                });
+                c3.setCaption("table component");
+                for (var i = 0; i < 5; i++) {
+                    c3.addColumn("a" + i, "Column A" + i, {
+                        dataType: "number",
+                        numberPrefix: "$"
+                    });
+                    c3.addColumn("b" + i, "Column B" + i, {
+                        dataType: "number",
+                        numberSuffix: "%"
+                    });
+                }
 
-                for(var i = 0; i < 85; i++) {
-                    c3.addRow ({a: 2 * i, b: 2 * i + 1});
+                for (var i = 0; i < 85; i++) {
+                    var obj = {};
+                    for (var j = 0; j < 5; j++) {
+                        obj["a" + j] = Math.floor(Math.random
+                                () * 10000);
+                        obj["b" + j] = Math.floor(Math.random() * 10000);
+                    }
+
+                    c3.addRow(obj);
                 }
                 db.addComponent(c3);
 
@@ -63,7 +72,7 @@
                 // c4.addSeries('jazz', 'Jazz', [174.24, 79.20, 55.45, 55.44, 21.78], {numberPrefix: "$"});
                 // c4.setYAxis('hello', {numberPrefix: '$'});
                 // db.addComponent(c4);
-                
+
 
                 // var filter = new FilterComponent();
                 // filter.setDimensions(6,6);
@@ -89,7 +98,7 @@
 //                 
 //                 
 
-                console.log(JSON.stringify(db.pro._serializeComponents()));
+                //console.log(JSON.stringify(db.pro._serializeComponents()));
             });
         });
     </script>
