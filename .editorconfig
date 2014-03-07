@@ -7,11 +7,6 @@ end_of_line = lf
 insert_final_newline = true
 
 # Tab indentation (no size specified)
-[*.js]
-indent_style = space
-indent_size = 2
-
-# Matches the exact files package.json and .travis.yml
-[{package.json,.travis.yml}]
+[src/js/**.js]
 indent_style = space
 indent_size = 2
