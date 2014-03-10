@@ -18,11 +18,11 @@
             StandaloneDashboard(function (db) {
                 db.setDashboardTitle('KPI Types Supported in RazorFlow');
 
-                // var c1 = new KPIComponent();
-                // c1.setDimensions(3, 3);
-                // c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
-                // c1.setValue(513.22);
-                // db.addComponent(c1);
+                var c1 = new KPIComponent();
+                c1.setDimensions(3, 3);
+                c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
+                c1.setValue(513.22);
+                db.addComponent(c1);
 
                 var c2 = new GaugeComponent();
                 c2.setDimensions(3, 3);
@@ -74,20 +74,20 @@
                 // db.addComponent(c4);
 
 
-                // var filter = new FilterComponent();
-                // filter.setDimensions(6,6);
-                // filter.setCaption('A test filter component');
-                // filter.addTextFilter('name', 'Enter your name');
-                // filter.addSelectFilter('category', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
-                // filter.addMultiSelectFilter('multi', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
-                // filter.addDateFilter('delivery', 'Delivery Date');
-                // filter.addDateRangeFilter('daterange', 'Delivery Range');
-                // filter.addNumericRangeFilter('unitrange', 'Units Range');
-                // filter.addCheckboxFilter('truthtest', 'Did you take this form seriously?');
-                // filter.onApplyClicked(function(obj) {
-                //     debugger
-                // });
-                // db.addComponent(filter);
+                var filter = new FilterComponent();
+                filter.setDimensions(6,6);
+                filter.setCaption('A test filter component');
+                filter.addTextFilter('name', 'Enter your name');
+                filter.addSelectFilter('category', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
+                filter.addMultiSelectFilter('multi', 'Enter your category', ['Dragon', 'Horse', 'Cat', 'Dog', 'Human']);
+                filter.addDateFilter('delivery', 'Delivery Date');
+                filter.addDateRangeFilter('daterange', 'Delivery Range');
+                filter.addNumericRangeFilter('unitrange', 'Units Range');
+                filter.addCheckboxFilter('truthtest', 'Did you take this form seriously?');
+                filter.onApplyClicked(function(obj) {
+                    debugger
+                });
+                db.addComponent(filter);
                 setTimeout(function () {
                     // c1.setValue(55);
                     // c1.unlock();
