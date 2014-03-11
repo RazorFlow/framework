@@ -65,7 +65,7 @@ app.get('/testcases', function(req, res) {
         return file.replace('.js', '');
     });
 
-    res.render('demo_index.ejs', {files: demos});
+    res.render('testcases_index.ejs', {files: demos});
 });
 
 app.get('/dev', function(req, res) {
