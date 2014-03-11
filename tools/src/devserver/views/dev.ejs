@@ -22,8 +22,7 @@
                 c1.setDimensions(3, 3);
                 c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
                 c1.setValue(513.22);
-                c1.setSparkValues(['a', 'b', 'c'], [500, 450, 600]);
-                db.addComponent(c1);
+                //db.addComponent(c1);
 
                 var c2 = new GaugeComponent();
                 c2.setDimensions(3, 3);
@@ -31,8 +30,7 @@
                 c2.setValue(90);
                 c2.setLimits(0, 100);
 
-                db.addComponent(c2);
-
+                //db.addComponent(c2);
 
                 var c3 = new TableComponent();
                 c3.setDimensions(8, 6);
@@ -72,7 +70,7 @@
                 c4.addSeries('blues', 'Blues', [62.37, 59.60, 45.54, 38.61, 5.94], {numberPrefix: "$"});
                 c4.addSeries('jazz', 'Jazz', [174.24, 79.20, 55.45, 55.44, 21.78], {numberPrefix: "$"});
                 c4.setYAxis('hello', {numberPrefix: '$'});
-                db.addComponent(c4);
+                //db.addComponent(c4);
 
 
                 var filter = new FilterComponent();
@@ -88,7 +86,7 @@
                 filter.onApplyClicked(function(obj) {
                     debugger
                 });
-                db.addComponent(filter);
+                //db.addComponent(filter);
                 setTimeout(function () {
                     // c1.setValue(55);
                     // c1.unlock();
