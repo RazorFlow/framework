@@ -19,7 +19,9 @@
 <div id="dbTarget" style='position: relative;width: 80%' class='rf rf-click rf-lg'>
 </div>
 <script>
-    <%- file %>
+    require(["core/main"], function (rf) {
+        <%- file %>
+    });
 </script>
 </body>
 </html>
