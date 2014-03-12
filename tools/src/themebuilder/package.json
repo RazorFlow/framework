@@ -1,6 +1,7 @@
 {
   "name": "themegen",
   "dependencies": {
-  	"less": "*"
+  	"less": "*",
+  	"line-reader" : "*"
   }
 }
