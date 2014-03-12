@@ -13,8 +13,17 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 app.get('/', function(req, res) {
-    var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
-    res.render('index.ejs', {vendorScripts: vendorScripts});
+    var demoFiles = fs.readdirSync(rootPath + '/src/dev/demos');
+    var demos = _.map(demoFiles, function(file) {
+        return file.replace('.js', '');
+    });
+
+    var testcaseFiles = fs.readdirSync(rootPath + '/src/dev/testcases');
+    var testcases = _.map(testcaseFiles, function(file) {
+        return file.replace('.js', '');
+    });
+
+    res.render('index.ejs', {demos: demos, testcases: testcases});
 });
 
 app.get('/demos/:id', function(req, res) {

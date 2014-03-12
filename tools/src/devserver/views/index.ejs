@@ -1,20 +1,25 @@
 <!doctype html>
 <html>
     <head>
-
-        <% for(var i=-1; ++i<vendorScripts.length;) { %>
-            <script type="text/javascript" src="/assets/vendor/js/<%=vendorScripts[i]%>"></script>
-        <% } %>
-        <script>
-           require.config({
-               baseUrl: '/assets/js'
-           });
-           require(["core/main"], function (main) {
-
-           });
-       </script>
-       </head>
+    </head>
     <body>
-        
+    <h3>Demos</h3>
+    <ul>
+        <% for(var i=0; i<demos.length; i++) { %>
+          <li>
+            <a href="/demos/<%= demos[i] %>"><%=demos[i]%></a>
+          </li>
+        <% } %>
+      
+    </ul>
+    <h3>Testcases</h3>
+    <ul>
+        <% for(var i=0; i<testcases.length; i++) { %>
+          <li>
+            <a href="/testcases/<%= testcases[i] %>"><%=testcases[i]%></a>
+          </li>
+        <% } %>
+      
+    </ul>
     </body>
 </html>
