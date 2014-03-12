@@ -6,6 +6,7 @@ var rootPath = path.resolve(__dirname, '../../../');
 var _ = require('underscore');
 
 app.use('/assets', express.static(rootPath + '/src'));
+app.use('/transfer', express.static(rootPath + '/src/dev/transfer'));
 app.use('/build', express.static(rootPath + '/build'));
 app.use('/testScripts', express.static(rootPath + '/tests'));
 app.set('view engine', 'ejs');
