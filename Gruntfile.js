@@ -6,6 +6,11 @@ module.exports = function (grunt) {
                     baseUrl: "src/js",
                     name: 'build/almond',
                     include: ['core/main'],
+                    insertRequire: ['core/main'],
+                    wrap: {
+                        'startFile': 'src/js/build/start.js',
+                        'endFile': 'src/js/build/end.js'
+                    },
                     out: "build/rjsoutput.js"
                 }
             }
