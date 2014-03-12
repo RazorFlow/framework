@@ -1,0 +1,6 @@
+{
+  "name": "themegen",
+  "dependencies": {
+  	"less": "*"
+  }
+}
