@@ -22,15 +22,15 @@
                 c1.setDimensions(3, 3);
                 c1.setCaption({md: 'Average Monthly Sales', sm: "Sales"});
                 c1.setValue(513.22);
-                //db.addComponent(c1);
+                db.addComponent(c1);
 
                 var c2 = new GaugeComponent();
                 c2.setDimensions(3, 3);
                 c2.setCaption('Average Monthly Cost');
-                c2.setValue(90);
+                c2.setValue(40);
                 c2.setLimits(0, 100);
 
-                //db.addComponent(c2);
+                db.addComponent(c2);
 
                 var c3 = new TableComponent();
                 c3.setDimensions(8, 6);
