@@ -9,6 +9,16 @@ class SampleDashboard extends StandaloneDashboard {
         $kpi->setValue(42);
         $kpi->setDimensions(4, 4);
         $this->addComponent ($kpi);
+
+        $table = new TableComponent('table1');
+        $table->setCaption("Table 1");
+        $table->setDimensions (6,6);
+        $table->addColumn('colA', "Column A");
+        $table->addColumn('colB', "Column B");
+        for ($i = 0; $i < 10; $i ++) {
+            $table->addRow(array('colA' => $i * 2, 'colB' => $i * 2 + 1));
+        }
+        $this->addComponent ($table);
     }
 }
 
