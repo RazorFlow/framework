@@ -26,6 +26,14 @@ class SampleDashboard extends StandaloneDashboard {
         $kpi2->setDimensions(4, 4);
         $this->addComponent ($kpi2);
 
+        $chart = new ChartComponent('my_chart');
+        $chart->setCaption("Chart 1");
+        $chart->setDimensions(4,4);
+        $chart->setLabels(['January', 'February', 'March', 'April', 'May']);
+        $chart->addSeries("seriesA", "Series A", [1, 3, 5, 1, 9], null);
+        $chart->addSeries("seriesB", "Series B", [3, 1, 9, 2, 3], null);
+        $this->addComponent ($chart);
+
         $kpi->bindToEvent ("kpiClick", array($kpi2), "handleKPIClick");
     }
 
