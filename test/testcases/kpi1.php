@@ -4,7 +4,7 @@ require "../../src/razorflow.php";
 
 class SampleDashboard extends StandaloneDashboard {
     public function initialize () {
-        $kpi = new KPIComponent("foo");
+        $kpi = new KPIComponent("kpi1");
         $kpi->setCaption("Hello world");
         $kpi->setValue(42);
         $kpi->setDimensions(4, 4);
@@ -26,18 +26,18 @@ class SampleDashboard extends StandaloneDashboard {
         $kpi2->setDimensions(4, 4);
         $this->addComponent ($kpi2);
 
-        $chart = new ChartComponent('my_chart');
-        $chart->setCaption("Chart 1");
-        $chart->setDimensions(4,4);
-        $chart->setLabels(['January', 'February', 'March', 'April', 'May']);
-        $chart->addSeries("seriesA", "Series A", [1, 3, 5, 1, 9], null);
-        $chart->addSeries("seriesB", "Series B", [3, 1, 9, 2, 3], null);
-        $this->addComponent ($chart);
+        // $chart = new ChartComponent('my_chart');
+        // $chart->setCaption("Chart 1");
+        // $chart->setDimensions(4,4);
+        // $chart->setLabels(['January', 'February', 'March', 'April', 'May']);
+        // $chart->addSeries("seriesA", "Series A", [1, 3, 5, 1, 9], null);
+        // $chart->addSeries("seriesB", "Series B", [3, 1, 9, 2, 3], null);
+        // $this->addComponent ($chart);
 
         $kpi->bindToEvent ("kpiClick", array($kpi2), "handleKPIClick");
     }
 
-    public function handleKPIClick ($source, $target, $params) {
+    public function handleKPIClick ($source, $targets, $params) {
         die ("Handling kpi click");
     }
 }
