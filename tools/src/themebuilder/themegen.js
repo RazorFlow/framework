@@ -8,12 +8,14 @@
 				}
 			}
 			
-			var	finalLess = themegen.convertObjectToVariablesLess(newVariables) + '\n' + themeLessSourceCode;
-			less.render(finalLess, function(err, css) {
-				if(err){
-					console.log(err)
+			var	finalLess = themegen.convertObjectToVariablesLess(newVariables) + '\n' + themeLessSourceCode,
+				parser = new less.Parser();
+
+			parser.parse(finalLess, function(e, tree){
+				if(e){
+					console.log(e);
 				}else{
-					callback(css)
+					callback(tree.toCSS());
 				}
 			});
 		},

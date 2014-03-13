@@ -30,7 +30,7 @@ var readline = require('readline');
 	  					}else{
 	  						default_variables = data.toString()
 	  						themegen.generateTheme(themeObject, default_variables, default_theme + default_mixin, less, function (css) {
-	  							return css;
+	  							console.log(css)
 							})
 	  					}
 	  				});
