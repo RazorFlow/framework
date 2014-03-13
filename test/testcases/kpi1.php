@@ -38,7 +38,8 @@ class SampleDashboard extends StandaloneDashboard {
     }
 
     public function handleKPIClick ($source, $targets, $params) {
-        die ("Handling kpi click");
+        $kpi2 = $this->getComponentByID("kpi2");
+        $kpi2->setValue (55);
     }
 }
 
