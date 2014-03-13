@@ -40,6 +40,8 @@ class SampleDashboard extends StandaloneDashboard {
     public function handleKPIClick ($source, $targets, $params) {
         $kpi2 = $this->getComponentByID("kpi2");
         $kpi2->setValue (55);
+        $kpi2->setDimensions (5, 5);
+        $kpi2->setCaption ("Hello to you too");
     }
 }
 
