@@ -1,13 +1,14 @@
 (function() {
 	var themegen = {
 		generateTheme: function (themeObject, defaultVariables, themeLessSourceCode, less, callback) {
-			for(var key in defaultVariables){
+			var newVariables = themegen.convertStringToObject(defaultVariables)
+			for(var key in newVariables){
 				if(typeof(themeObject[key]) !== 'undefined'){
-					defaultVariables[key] = themeObject[key] + ';'
+					newVariables[key] = themeObject[key] + ';';
 				}
 			}
-			var newVariables = defaultVariables,
-				finalLess = themegen.convertObjectToVariablesLess(newVariables) + '\n' + themeLessSourceCode;
+			
+			var	finalLess = themegen.convertObjectToVariablesLess(newVariables) + '\n' + themeLessSourceCode;
 			less.render(finalLess, function(err, css) {
 				if(err){
 					console.log(err)
@@ -30,6 +31,18 @@
 				}
 			}
 			return variables
+		},
+		convertStringToObject: function(variables_string){
+			var split_variables = variables_string.split('\n'),
+				split_variable = '';
+				variables_object = {};
+			for(var key in split_variables){
+				if(split_variables[key][0] === '@'){
+					split_variable = split_variables[key].split(':')
+					variables_object[split_variable[0]] = split_variable[1]
+				}
+			}
+			return variables_object
 		}
 	};
 
