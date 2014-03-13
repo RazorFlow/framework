@@ -13,7 +13,7 @@ module.exports = function (grunt) {
                     }, 
                     paths: {
                         lodash: '../vendor/js/lodash.min',
-                        jquery: '../vendor/js/jquery.min',
+                        zepto: '../vendor/js/zepto.min',
                         d3: '../vendor/js/d3.rf',
                         Modernizr: '../vendor/js/modernizr.rf',
                         spin: '../vendor/js/spin'
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                         lodash: {
                             exports: '_'
                         },
-                        jquery: {
+                        zepto: {
                             exports: '$'
                         },
                         d3: {
