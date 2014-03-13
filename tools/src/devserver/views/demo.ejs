@@ -6,23 +6,57 @@
     <link rel="stylesheet" href="/build/css/razorflow.css" />
     <link rel="stylesheet" href="/assets/vendor/css/font-awesome.min.css" />
     <script type="text/javascript" src="/build/js/templates.js"></script>
-        <% for(var i=-1; ++i<vendorScripts.length;) { %>
+        <!-- <% for(var i=-1; ++i<vendorScripts.length;) { %>
             <script type="text/javascript" src="/assets/vendor/js/<%=vendorScripts[i]%>"></script>
-        <% } %>
-    <script type="text/javascript">
-        require.config({
-            baseUrl: '/assets/js'
-        });
-    </script>
+        <% } %> -->
+    <% if(build) { %>
+        <script type="text/javascript" src="/build/rjsoutput.js"></script>    
+    <% }  else { %>
+        <script type="text/javascript" src="/assets/vendor/js/require.min.js"></script>
+        <script type="text/javascript">
+            require.config({
+                baseUrl: '/assets/js',
+                paths: {
+                    lodash: '/assets/vendor/js/lodash.min',
+                    jquery: '/assets/vendor/js/jquery.min',
+                    d3: '/assets/vendor/js/d3.rf',
+                    Modernizr: '/assets/vendor/js/modernizr.rf',
+                    spin: '/assets/vendor/js/spin'
+                },
+                shim: {
+                    lodash: {
+                        exports: '_'
+                    },
+                    jquery: {
+                        exports: '$'
+                    },
+                    d3: {
+                        exports: 'd3'
+                    },
+                    Modernizr: {
+                        exports: 'Modernizr'
+                    },
+                    spin: {
+                        exports: 'Spinner'
+                    }
+                }
+            });
+        </script>
+    <% } %>
+    
 
 </head>
 <body>
 <div id="dbTarget" style='position: relative;width: 80%' class='rf rf-click rf-lg'>
 </div>
 <script>
-    require(["core/main"], function (rf) {
+    <% if(!build) { %> 
+        require(["core/main"], function (rf) {    
+            <%- file %>
+        });
+    <% }  else { %>
         <%- file %>
-    });
+    <% } %>
 </script>
 </body>
 </html>

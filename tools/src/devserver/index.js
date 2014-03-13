@@ -29,14 +29,15 @@ app.get('/', function(req, res) {
 app.get('/demos/:id', function(req, res) {
     var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
     var demoFiles = fs.readdirSync(rootPath + '/src/dev/demos');
-    var id = req.params.id;
+    var id = req.params.id;    
     var demos = _.map(demoFiles, function(file) {
         return file.replace('.js', '');
     });
+    var buildFlag = req.query.hasOwnProperty('build');
     if(req.params.id) {
         if(demos.indexOf(id) !== -1) {
             var file = fs.readFileSync(rootPath + '/src/dev/demos/' + id + '.js', 'utf-8');
-            res.render('demo.ejs', {vendorScripts: vendorScripts, file: file});
+            res.render('demo.ejs', {vendorScripts: vendorScripts, file: file, build: buildFlag});
         } else {
             res.end('404 not found!');
         }        
@@ -59,10 +60,11 @@ app.get('/testcases/:id', function(req, res) {
     var demos = _.map(demoFiles, function(file) {
         return file.replace('.js', '');
     });
+    var buildFlag = req.query.hasOwnProperty('build');
     if(req.params.id) {
         if(demos.indexOf(id) !== -1) {
             var file = fs.readFileSync(rootPath + '/src/dev/testcases/' + id + '.js', 'utf-8');
-            res.render('demo.ejs', {vendorScripts: vendorScripts, file: file});
+            res.render('demo.ejs', {vendorScripts: vendorScripts, file: file, build: buildFlag});
         } else {
             res.end('404 not found!');
         }        

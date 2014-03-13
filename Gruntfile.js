@@ -4,12 +4,36 @@ module.exports = function (grunt) {
             compile: {
                 options: {
                     baseUrl: "src/js",
-                    name: 'build/almond',
+                    name: 'buildutils/almond',
                     include: ['core/main'],
                     insertRequire: ['core/main'],
                     wrap: {
-                        'startFile': 'src/js/build/start.js',
-                        'endFile': 'src/js/build/end.js'
+                        'startFile': 'src/js/buildutils/start.js',
+                        'endFile': 'src/js/buildutils/end.js'
+                    }, 
+                    paths: {
+                        lodash: '../vendor/js/lodash.min',
+                        jquery: '../vendor/js/jquery.min',
+                        d3: '../vendor/js/d3.rf',
+                        Modernizr: '../vendor/js/modernizr.rf',
+                        spin: '../vendor/js/spin'
+                    },
+                    shim: {
+                        lodash: {
+                            exports: '_'
+                        },
+                        jquery: {
+                            exports: '$'
+                        },
+                        d3: {
+                            exports: 'd3'
+                        },
+                        Modernizr: {
+                            exports: 'Modernizr'
+                        },
+                        spin: {
+                            exports: 'Spinner'
+                        }
                     },
                     out: "build/rjsoutput.js"
                 }
