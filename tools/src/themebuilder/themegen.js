@@ -2,6 +2,7 @@
 	var themegen = {
 		generateTheme: function (themeObject, defaultVariables, themeLessSourceCode, less, callback) {
 			var newVariables = themegen.convertStringToObject(defaultVariables)
+			
 			for(var key in newVariables){
 				if(typeof(themeObject[key]) !== 'undefined'){
 					newVariables[key] = themeObject[key] + ';';
@@ -19,10 +20,11 @@
 				}
 			});
 		},
-		convertObjectToVariablesLess: function (newVariables) {
+		convertObjectToVariablesLess: function (variables_object) {
 			var variables = '',
-				count = '';
-			data = newVariables;
+				count = '',
+				data = variables_object;
+
 			for(var key in data){
 				if(data.hasOwnProperty(key)){
 					variables += key+':'+data[key]
@@ -40,8 +42,8 @@
 				variables_object = {};
 			for(var key in split_variables){
 				if(split_variables[key][0] === '@'){
-					split_variable = split_variables[key].split(':')
-					variables_object[split_variable[0]] = split_variable[1]
+					split_variable = split_variables[key].split(':');
+					variables_object[split_variable[0]] = split_variable[1];
 				}
 			}
 			return variables_object

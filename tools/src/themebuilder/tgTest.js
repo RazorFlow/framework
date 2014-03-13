@@ -5,14 +5,15 @@ var readline = require('readline');
  	less = require("less"),
 	themeObject = {
 			"@table-head-font-size":"15px",
-			"@table-body-color":"#f00"
+			"@table-body-color":"#000"
 			},
 	sourceObject = "",
 	defaultVars = {},
 	fs = require('fs'),
-	variables_less = __dirname + "/../../../src/less/theme/default.less",
+	variables_less = __dirname + "/../../../src/less/theme/" + process.argv[2],
 	theme_less = __dirname + "/../../../src/less/theme.less",
-	mixin_less = __dirname + "/../../../src/less/mixins.less";
+	mixin_less = __dirname + "/../../../src/less/mixins.less",
+	write_destination = __dirname + "/../../../src/less/theme/" + process.argv[3];
 
 	fs.readFile(theme_less, function (err, data) {
 	  	if (err){
@@ -29,8 +30,14 @@ var readline = require('readline');
 	  						console.log(err)
 	  					}else{
 	  						default_variables = data.toString()
-	  						themegen.generateTheme(themeObject, default_variables, default_theme + default_mixin, less, function (css) {
-	  							console.log(css)
+	  						themegen.generateTheme(themeObject, default_variables, default_mixin + default_theme, less, function (css) {
+	  							fs.writeFile(write_destination, css , function(err) {
+								    if(err) {
+								        console.log(err);
+								    } else {
+								        console.log("The file was saved!");
+								    }
+								});
 							})
 	  					}
 	  				});
