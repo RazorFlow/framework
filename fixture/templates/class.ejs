@@ -1,0 +1,29 @@
+<h2>Class <%= item.class.name %></h2>
+
+<h3><%= item.signature %></h3>
+
+<% if(item.augments) { %>
+    <p>inherits from 
+        <%- 
+            tree.hasClass(item.augments.name) ? 
+                linkify({
+                    text: item.augments.name, 
+                    href: item.augments.name + '.html'
+                }) : item.augments.name
+        %>
+    </p>
+<% } %>
+
+<% if(item.params) { %>
+<%- render('params.ejs', {tree: tree, params: item.params}) %>
+<% } %>
+
+<% if(item.example) { %>
+<pre><code><%= item.example.code %></code></pre>
+<% } %>
+
+<% for(j=0; j<item.methods.length; j++) {%>
+    <%- render('method.ejs', {tree: tree, item: item.methods[j]}) %>
+<% } %>
+
+

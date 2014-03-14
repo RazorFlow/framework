@@ -1,0 +1,19 @@
+<div id="<%= item.method.name %>">
+    <a href="#<%= item.method.name %>" class="rfDocPermalink">#</a>
+    <h3><%= item.method.name %></h3>
+    <p>
+        <code><%= item.signature %></code>
+    </p>
+    <p><%= item.desc.content %></p>
+    <h4>Params</h4>
+    <% if(item.params) { %>
+        <%- render('params.ejs', {tree: tree, params: item.params}) %>
+    <% } %>
+    <% if(item.example) { %>
+        <h4>Example</h4>
+        <pre><code><%= item.example.code %></code></pre>
+    <% } %>
+</div>
+
+    
+
