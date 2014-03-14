@@ -48,42 +48,51 @@ var articlesDir = config.articles;
 var outputDir = config.outputDir;
 var outputExt = config.outputFileExt;
 
+var noApi = config.noApi;
+
 var files = [];
+if(!noApi) {
+    for(var i=0; i<filenames.length; i++) {
+        var filename = filenames[i];
 
-for(var i=0; i<filenames.length; i++) {
-    var filename = filenames[i];
+        var file = path.basename(filename);
 
-    var file = path.basename(filename);
+        // Check for a wildcard
+        if(file.match(/\*/g)) {
+            var fileRegex = new RegExp(file.replace('*', '[a-zA-Z\\-]*').replace('.', '\\.'));
 
-    // Check for a wildcard
-    if(file.match(/\*/g)) {
-        var fileRegex = new RegExp(file.replace('*', '[a-zA-Z\\-]*').replace('.', '\\.'));
+            var dir = path.resolve(configDir, path.dirname(filename));
 
-        var dir = path.resolve(configDir, path.dirname(filename));
+            var filesInDir = fs.readdirSync(dir);
 
-        var filesInDir = fs.readdirSync(dir);
+            for(var j=0; j<filesInDir.length; j++) {
+                var f = filesInDir[j];
 
-        for(var j=0; j<filesInDir.length; j++) {
-            var f = filesInDir[j];
-
-            if(fileRegex.test(f)) {
-                files.push(dir + '/' + f);
+                if(fileRegex.test(f)) {
+                    files.push(dir + '/' + f);
+                }
             }
+            // console.log(files);
+        } else {
+            files.push(filename)
         }
-        // console.log(files);
-    } else {
-        files.push(filename)
     }
 }
 
-var templateDir = path.resolve(configDir, config.apiTemplates)
+
+var templateDir;
+var apiOutput = 'fakepath';
+if(!noApi) {
+    templateDir = path.resolve(configDir, config.apiTemplates);
+    apiOutput = path.resolve(configDir, config.apiOutput);    
+}
+
 var articleTemplatesDir = path.resolve(configDir, config.articleTemplates);
 var outputDir = path.resolve(configDir, config.outputDir);
 var articlesDir = path.resolve(configDir, config.articles);
 var examplesDir = path.resolve(configDir, config.examples);
 var examplesExt = config.examplesExt;
 var articlesOutput = path.resolve(configDir, config.articlesOutput);
-var apiOutput = path.resolve(configDir, config.apiOutput);
 var outputLinkPath = config.outputLinkPath;
 var examplesImagesDir = path.resolve(configDir, config.examplesImagesDir);
 var examplesLinkPath = config.examplesLinkPath;
@@ -92,33 +101,34 @@ var exampleLiveLinkPath = config.exampleLiveLinkPath;
 
 var tree = {classes:[]};
 
-logger.info('Parsing api source files...');
+if(!noApi) {
+    logger.info('Parsing api source files...');
 
-for(var i=0; i<files.length; i++) {
-    var file = files[i];
+    for(var i=0; i<files.length; i++) {
+        var file = files[i];
 
-    if(!fs.existsSync(file)) {
-        logger.error(file + ' file not found!');
-        process.exit(-1);
+        if(!fs.existsSync(file)) {
+            logger.error(file + ' file not found!');
+            process.exit(-1);
+        }
+
+        var fileContents = fs.readFileSync(file, 'utf-8');
+
+        fileparser.parse(fileContents, tree);
     }
+    if(config.onlyJSON) {
+        logger.info('Found onlyJSON option, generating intermediate.json for api tree.');
+        fs.writeFileSync(outputDir + '/' + 'intermediate.json', JSON.stringify(tree, null, 4));    
+    } else {
+        tree = objectifyTree(tree);
 
-    var fileContents = fs.readFileSync(file, 'utf-8');
+        // console.log(tree.classes[0].methods);
 
-    fileparser.parse(fileContents, tree);
-}
-
-if(config.onlyJSON) {
-    logger.info('Found onlyJSON option, generating intermediate.json for api tree.');
-    fs.writeFileSync(outputDir + '/' + 'intermediate.json', JSON.stringify(tree, null, 4));    
-} else {
-    tree = objectifyTree(tree);
-
-    // console.log(tree.classes[0].methods);
-
-    // console.log(_.flatten(tree));
-    logger.info("START Generating API Documentation")
-    docgen.generate(tree, templateDir, apiOutput, outputExt);    
-    logger.info("END Generating API Documentation. SUCCESS")
+        // console.log(_.flatten(tree));
+        logger.info("START Generating API Documentation")
+        docgen.generate(tree, templateDir, apiOutput, outputExt);    
+        logger.info("END Generating API Documentation. SUCCESS")
+    }
 }
 
 var articlesFolder = fs.readdirSync(articlesDir);
