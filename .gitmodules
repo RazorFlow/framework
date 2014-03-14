@@ -1,0 +1,3 @@
+[submodule "tools/razordoc"]
+	path = tools/razordoc
+	url = git@github.com:RazorFlow/razordoc.git
