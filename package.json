@@ -2,6 +2,8 @@
   "name": "razorflow_docs",
   "version": "0.0.0",
   "description": "Documentation for RazorFlow Dashboard Framework",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.5.3"
   }
 }
