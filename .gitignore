@@ -4,3 +4,4 @@ build
 .idea
 coverage
 npm-debug.log
+rfjs.sublime-workspace
