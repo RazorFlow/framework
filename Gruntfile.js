@@ -88,6 +88,14 @@ module.exports = function (grunt) {
                     stdout: true
                 }
             }
+        },
+        lodash: {
+            build: {
+                dest: 'src/vendor/js/lodash.rf.js',
+                options: {
+                    include: ['extend', 'pluck', 'map', 'each', 'isNumber', 'isNaN', 'isArray', 'isObject', 'find', 'defer', 'delay', 'max', 'min', 'sortBy', 'flatten', 'clone', 'cloneDeep', 'values', 'pick', 'reduce', 'filter', 'indexOf', 'keys', 'debounce'],
+                }
+            }
         }
     });
 
@@ -97,6 +105,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-lodash');
 
     
     grunt.registerTask('compile', ['less', 'jst']);
