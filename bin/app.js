@@ -39,71 +39,47 @@ if(opts.verbose) {
 logger.info("Starting RazorDoc with file: %s", opts.argv.configFile)
 
 
-var config = JSON.parse(fs.readFileSync(opts.argv.configFile, 'utf-8'));
-var configDir = path.dirname(fs.realpathSync(opts.argv.configFile));
-var filenames = config.sources;
-var templateDir = config.apiTemplates;
-var articleTemplates = config.articleTemplates;
-var articlesDir = config.articles;
-var outputDir = config.outputDir;
-var outputExt = config.outputFileExt;
+var config = JSON.parse(fs.readFileSync(opts.argv.configFile, 'utf-8')),
+    configDir = path.dirname(fs.realpathSync(opts.argv.configFile)),
+    filenames = config.sources,
+    templateDir = config.apiTemplates,
+    articleTemplates = config.articleTemplates,
+    articlesDir = config.articles,
+    outputDir = config.outputDir,
+    outputExt = config.outputFileExt,
+    noApi = config.noApi,
+    files = [];
 
-var noApi = config.noApi;
-
-var files = [];
+// If noApi flag is true, don't generate api docs
 if(!noApi) {
     for(var i=0; i<filenames.length; i++) {
-        var filename = filenames[i];
-
-        var file = path.basename(filename);
+        var filename = filenames[i],
+            file = path.basename(filename);
 
         // Check for a wildcard
         if(file.match(/\*/g)) {
-            var fileRegex = new RegExp(file.replace('*', '[a-zA-Z\\-]*').replace('.', '\\.'));
-
-            var dir = path.resolve(configDir, path.dirname(filename));
-
-            var filesInDir = fs.readdirSync(dir);
+            var fileRegex = new RegExp(file.replace('*', '[a-zA-Z\\-]*').replace('.', '\\.')),
+                dir = path.resolve(configDir, path.dirname(filename)),
+                filesInDir = fs.readdirSync(dir);
 
             for(var j=0; j<filesInDir.length; j++) {
                 var f = filesInDir[j];
-
                 if(fileRegex.test(f)) {
                     files.push(dir + '/' + f);
                 }
             }
-            // console.log(files);
         } else {
             files.push(filename)
         }
     }
-}
 
+    var apiOutput = 'fakepath',
+        tree = {classes:[]};
 
-var templateDir;
-var apiOutput = 'fakepath';
-if(!noApi) {
     templateDir = path.resolve(configDir, config.apiTemplates);
-    apiOutput = path.resolve(configDir, config.apiOutput);    
-}
+    apiOutput = path.resolve(configDir, config.apiOutput);
 
-var articleTemplatesDir = path.resolve(configDir, config.articleTemplates);
-var outputDir = path.resolve(configDir, config.outputDir);
-var articlesDir = path.resolve(configDir, config.articles);
-var examplesDir = path.resolve(configDir, config.examples);
-var examplesExt = config.examplesExt;
-var articlesOutput = path.resolve(configDir, config.articlesOutput);
-var outputLinkPath = config.outputLinkPath;
-var examplesImagesDir = path.resolve(configDir, config.examplesImagesDir);
-var examplesLinkPath = config.examplesLinkPath;
-var exampleImagesLinkPath = config.exampleImagesLinkPath;
-var exampleLiveLinkPath = config.exampleLiveLinkPath;
-
-var tree = {classes:[]};
-
-if(!noApi) {
     logger.info('Parsing api source files...');
-
     for(var i=0; i<files.length; i++) {
         var file = files[i];
 
@@ -121,19 +97,29 @@ if(!noApi) {
         fs.writeFileSync(outputDir + '/' + 'intermediate.json', JSON.stringify(tree, null, 4));    
     } else {
         tree = objectifyTree(tree);
-
-        // console.log(tree.classes[0].methods);
-
-        // console.log(_.flatten(tree));
         logger.info("START Generating API Documentation")
         docgen.generate(tree, templateDir, apiOutput, outputExt);    
         logger.info("END Generating API Documentation. SUCCESS")
     }
 }
 
-var articlesFolder = fs.readdirSync(articlesDir);
-var articlesPartialsDir = articlesDir + '/_partials';
-var articlesPartials = [];
+
+var templateDir,
+    articleTemplatesDir = path.resolve(configDir, config.articleTemplates),
+    outputDir = path.resolve(configDir, config.outputDir),
+    articlesDir = path.resolve(configDir, config.articles),
+    examplesDir = path.resolve(configDir, config.examples),
+    examplesExt = config.examplesExt,
+    articlesOutput = path.resolve(configDir, config.articlesOutput),
+    outputLinkPath = config.outputLinkPath,
+    examplesImagesDir = path.resolve(configDir, config.examplesImagesDir),
+    examplesLinkPath = config.examplesLinkPath,
+    exampleImagesLinkPath = config.exampleImagesLinkPath,
+    exampleLiveLinkPath = config.exampleLiveLinkPath,
+    articlesFolder = fs.readdirSync(articlesDir),
+    articlesPartialsDir = articlesDir + '/_partials',
+    articlesPartials = [];
+
 articlesFolder = _.without(articlesFolder, '_partials');
 articlesFolder = _.without(articlesFolder, 'include'); // Temporary code
 
@@ -143,7 +129,6 @@ if(fs.existsSync(articlesPartialsDir)) {
 
 var articles = [];
 var articleStruct = _.flatten(folderWalker(articlesFolder, articlesDir, articles));
-
 
 function folderWalker(dirArray, dirPath, articles) {
     var dirList = [];
@@ -175,8 +160,6 @@ function folderWalker(dirArray, dirPath, articles) {
 
     return dirList;
 }
-
-// console.log(articleStruct);
 
 var articleTree = {
     articles: articles,
@@ -214,6 +197,5 @@ if(config.onlyJSON) {
     });
     logger.info("END Generating Articles ")
 }
-
 
 logger.info("RazorDoc finished successfully")
