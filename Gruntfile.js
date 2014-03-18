@@ -72,7 +72,8 @@ module.exports = function (grunt) {
                 files: [
                     {src: ["build/js/razorflow.min.js"], dest: '../webrf/static/transfer/'},
                     {src: ["build/css/razorflow.css"], dest: '../webrf/static/transfer/'},
-                    {src: ["build/js/rfDemos.css"], dest: '../webrf/static/transfer/'}
+                    {src: ["build/js/rfDemos.js"], dest: '../webrf/static/transfer/'},
+                    {src: ["build/img/demoImgs/*.png"], dest: '../webrf/static/transfer/demoImgs/'},
                 ]
             }
         },
@@ -85,9 +86,17 @@ module.exports = function (grunt) {
         screenshotGen: {
             demos: {
                 options: {
-                    files: "src/dev/demos/*.js",
+                    files: "src/samples/demos/*.js",
                     out: "build/img/demoImgs/",
-                    baseUrl: "http://localhost:9090/demos/",
+                    baseUrl: "http://localhost:9090/dev/",
+                    timeout: 2000
+                }
+            },
+            examples: {
+                options: {
+                    files: "src/samples/examples/*.js",
+                    out: "build/img/exampleImgs/",
+                    baseUrl: "http://localhost:9090/dev/",
                     timeout: 2000
                 }
             }
@@ -111,5 +120,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core'])
     grunt.registerTask('release', ['build'])
-    grunt.registerTask('websiteRelease', ['release', 'squashdemos', 'copy:localToWebRF'])
+    grunt.registerTask('websiteRelease', ['release', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
