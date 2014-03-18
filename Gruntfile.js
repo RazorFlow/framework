@@ -70,10 +70,10 @@ module.exports = function (grunt) {
         copy: {
             localToWebRF: {
                 files: [
-                    {src: ["build/js/razorflow.min.js"], dest: '../webrf/static/transfer/'},
-                    {src: ["build/css/razorflow.css"], dest: '../webrf/static/transfer/'},
-                    {src: ["build/js/rfDemos.js"], dest: '../webrf/static/transfer/'},
-                    {src: ["build/img/demoImgs/*.png"], dest: '../webrf/static/transfer/demoImgs/'},
+                    {src: ["build/js/razorflow.min.js"], dest: '../webrf/static/transfer/', flatten:true},
+                    {src: ["build/css/razorflow.css"], dest: '../webrf/static/transfer/', flatten:true},
+                    {src: ["build/js/rfDemos.js"], dest: '../webrf/static/transfer/', flatten:true},
+                    {src: ["build/img/exampleImgs/*.png"], dest: '../webrf/static/transfer/',flatten: true },
                 ]
             }
         },
