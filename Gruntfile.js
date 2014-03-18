@@ -81,6 +81,16 @@ module.exports = function (grunt) {
                 demos: "src/dev/demos/*.js",
                 out: "build/js/rfDemos.js"
             }
+        },
+        screenshotGen: {
+            demos: {
+                options: {
+                    files: "src/dev/demos/*.js",
+                    out: "build/img/demoImgs/",
+                    baseUrl: "http://localhost:9090/demos/",
+                    timeout: 2000
+                }
+            }
         }
     });
 
