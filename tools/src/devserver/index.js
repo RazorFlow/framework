@@ -50,6 +50,12 @@ app.get('/dev/:id', function (req, res) {
     res.render('demo.ejs', {file: file, build: false});
 });
 
+app.get('/build/:id', function (req, res) {
+    var id = req.params.id;
+    var file = fs.readFileSync(sampleLookup[id], 'utf-8');
+    res.render('demo.ejs', {file: file, build: true});
+});
+
 app.get('/tests', function(req, res) {
     var vendorScripts = fs.readdirSync(rootPath + '/src/vendor/js');
     var testScripts = fs.readdirSync(rootPath + '/tests');
