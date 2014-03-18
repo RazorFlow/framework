@@ -66,6 +66,21 @@ module.exports = function (grunt) {
                     include: ['extend', 'pluck', 'map', 'each', 'isNumber', 'isString', 'isNaN', 'isArray', 'isObject', 'find', 'defer', 'delay', 'max', 'min', 'sortBy', 'flatten', 'clone', 'cloneDeep', 'values', 'pick', 'reduce', 'filter', 'indexOf', 'keys', 'debounce'],
                 }
             }
+        },
+        copy: {
+            localToWebRF: {
+                files: [
+                    {src: ["build/js/razorflow.min.js"], dest: '../webrf/static/transfer/'},
+                    {src: ["build/css/razorflow.css"], dest: '../webrf/static/transfer/'},
+                    {src: ["build/js/rfDemos.css"], dest: '../webrf/static/transfer/'}
+                ]
+            }
+        },
+        squashdemos: {
+            options: {
+                demos: "src/dev/demos/*.js",
+                out: "build/js/rfDemos.js"
+            }
         }
     });
 
@@ -77,6 +92,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-lodash');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadTasks("./tools/src/grunt-tasks");
 
 
     
@@ -84,4 +100,6 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core'])
+    grunt.registerTask('release', ['build'])
+    grunt.registerTask('websiteRelease', ['release', 'squashdemos', 'copy:localToWebRF'])
 }
