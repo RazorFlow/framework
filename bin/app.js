@@ -70,7 +70,7 @@ if(!noApi) {
                 }
             }
         } else {
-            files.push(filename)
+            files.push(path.resolve(configDir, filename));
         }
     }
 
