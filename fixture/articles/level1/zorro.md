@@ -1,6 +1,8 @@
 <meta>
 {
-    "title": "Zorro file"
+    "title": "Zorro file",
+    "id": "zorro",
+    "index": 2
 }
 </meta>
 

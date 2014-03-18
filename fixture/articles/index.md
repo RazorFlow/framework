@@ -1,6 +1,7 @@
 <meta>
 {
-	"title": "Article Root"
+	"title": "Article Root",
+    "id": "root"
 }
 </meta>
 ### This is the article root

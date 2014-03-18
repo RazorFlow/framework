@@ -1,6 +1,8 @@
 <meta>
 {
-	"title": "Level 2 Root"
+	"title": "Level 2 Root",
+    "id": "level2",
+    "index": 1
 }
 </meta>
 ### This is the Level 2 root

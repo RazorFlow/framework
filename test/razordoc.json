@@ -9,5 +9,6 @@
     "articleTemplates": "../fixture/article_templates",
     "outputFileExt": "html",
     "examplesExt": "js",
-    "onlyJSON": false
+    "onlyJSON": false,
+    "outputLinkPath": ""
 }

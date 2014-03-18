@@ -1,6 +1,8 @@
 <meta>
 {
-	"title": "Level 1 Sub-document"
+	"title": "Level 1 Sub-document",
+    "id": "document2",
+    "index": 1
 }
 </meta>
 

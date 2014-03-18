@@ -1,6 +1,8 @@
 <meta>
 {
-    "title": "Something interesting"
+    "title": "Something interesting",
+    "id": "something",
+    "index": 1
 }
 </meta>
 ### This is the Level 2 root

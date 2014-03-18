@@ -17,7 +17,7 @@ var opts = require("optimist")
                     configFile: "The configuration JSON file path",
                     verbose: "Enable verbose logging"
                })
-               .boolean(['verbose'])
+               .boolean(['verbose']);
 
 
 if(!opts.argv.configFile) {
@@ -112,7 +112,7 @@ var templateDir,
     examplesExt = config.examplesExt,
     articlesOutput = path.resolve(configDir, config.articlesOutput),
     outputLinkPath = config.outputLinkPath,
-    examplesImagesDir = path.resolve(configDir, config.examplesImagesDir),
+    examplesImagesDir = !!config.examplesImagesDir ? path.resolve(configDir, config.examplesImagesDir) : '',
     examplesLinkPath = config.examplesLinkPath,
     exampleImagesLinkPath = config.exampleImagesLinkPath,
     exampleLiveLinkPath = config.exampleLiveLinkPath,
