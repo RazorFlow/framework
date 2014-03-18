@@ -70,16 +70,16 @@ module.exports = function (grunt) {
         copy: {
             localToWebRF: {
                 files: [
-                    {src: ["build/js/razorflow.min.js"], dest: '../webrf/static/transfer/', flatten:true},
-                    {src: ["build/css/razorflow.css"], dest: '../webrf/static/transfer/', flatten:true},
-                    {src: ["build/js/rfDemos.js"], dest: '../webrf/static/transfer/', flatten:true},
-                    {src: ["build/img/exampleImgs/*.png"], dest: '../webrf/static/transfer/',flatten: true },
+                    {src: ["build/js/razorflow.min.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
+                    {src: ["build/css/razorflow.css"], dest: '../webrf/backend/static/transfer/', flatten:true},
+                    {src: ["build/js/rfDemos.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
+                    {src: ["build/img/exampleImgs/*.png"], dest: '../webrf/backend/static/transfer/',flatten: true },
                 ]
             }
         },
         squashdemos: {
             options: {
-                demos: "src/dev/demos/*.js",
+                demos: "src/samples/demos/*.js",
                 out: "build/js/rfDemos.js"
             }
         },
@@ -100,7 +100,18 @@ module.exports = function (grunt) {
                     timeout: 2000
                 }
             }
+        },
+        replace: {
+            removeAMD: {
+                src: "build/js/razorflow.min.js",
+                overwrite: true,
+                replacements: [
+                    {from: /\bdefine\b/g, to: "_dfn"},
+                    {from: /\brequire\b/g, to: "_rqr"}
+                ]
+            }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -111,6 +122,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-lodash');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadTasks("./tools/src/grunt-tasks");
 
 
@@ -118,7 +130,7 @@ module.exports = function (grunt) {
     grunt.registerTask('compile', ['less', 'jst:templates']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core'])
+    grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core', "replace:removeAMD"])
     grunt.registerTask('release', ['build'])
     grunt.registerTask('websiteRelease', ['release', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }

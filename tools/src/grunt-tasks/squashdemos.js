@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerTask('squashdemos', 'Squash Demos', function() {
-    var out = "window.rfDemosSquashed = {\n";
+    var out = "window.rfDemos = {\n";
     grunt.log.writeln("Squashing demos...");
 
     // Merge task-specific and/or target-specific options with these defaults.
