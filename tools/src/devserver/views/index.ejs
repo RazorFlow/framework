@@ -3,23 +3,14 @@
     <head>
     </head>
     <body>
-    <h3>Demos</h3>
-    <ul>
-        <% for(var i=0; i<demos.length; i++) { %>
+    <% for (var key in indexedSamples) { 
+        var items = indexedSamples[key]; %>
+        <h3><%= key %></h3>
+        <% for(var i=0; i<items.length; i++) { %>
           <li>
-            <a href="/demos/<%= demos[i] %>"><%=demos[i]%></a>
+            <a href="/dev/<%= items[i] %>"><%= items[i] %></a>
           </li>
         <% } %>
-      
-    </ul>
-    <h3>Testcases</h3>
-    <ul>
-        <% for(var i=0; i<testcases.length; i++) { %>
-          <li>
-            <a href="/testcases/<%= testcases[i] %>"><%=testcases[i]%></a>
-          </li>
-        <% } %>
-      
-    </ul>
+    <% } %>
     </body>
 </html>
