@@ -13,31 +13,9 @@
         <script type="text/javascript" src="/build/rjsoutput.js"></script>    
     <% }  else { %>
         <script type="text/javascript" src="/assets/vendor/js/require.min.js"></script>
+        <script type="text/javascript" src="/assets/dev/requireConfig.js"></script>
         <script type="text/javascript">
-            require.config({
-                baseUrl: '/assets/js',
-                paths: {
-                    lodash: '/assets/vendor/js/lodash.rf.min',
-                    zepto: '/assets/vendor/js/zepto.min',
-                    d3: '/assets/vendor/js/d3.rf',
-                    Modernizr: '/assets/vendor/js/modernizr.rf',
-                    spin: '/assets/vendor/js/spin'
-                },
-                shim: {
-                    lodash: {
-                        exports: '_'
-                    },
-                    zepto: {
-                        exports: '$'
-                    },
-                    Modernizr: {
-                        exports: 'Modernizr'
-                    },
-                    spin: {
-                        exports: 'Spinner'
-                    }
-                }
-            });
+            require.config(window.browserConfig);
         </script>
     <% } %>
     

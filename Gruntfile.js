@@ -1,43 +1,11 @@
+var gruntRequireConfig = require('./src/dev/requireConfig').gruntConfig;
+
 module.exports = function (grunt) {
     grunt.initConfig({
         requirejs: {
-                core: {
-                    options: {
-                        baseUrl: "src/js",
-                        name: 'buildutils/almond',
-                        include: ['core/main'],
-                        insertRequire: ['core/main'],
-                        wrap: {
-                            'startFile': 'src/js/buildutils/start.js',
-                            'endFile': 'src/js/buildutils/end.js'
-                        }, 
-                        paths: {
-                            lodash: '../vendor/js/lodash.rf.min',
-                            zepto: '../vendor/js/zepto.min',
-                            d3: '../vendor/js/d3.rf',
-                            Modernizr: '../vendor/js/modernizr.rf',
-                            spin: '../vendor/js/spin'
-                        },
-                        shim: {
-                            lodash: {
-                                exports: '_'
-                            },
-                            zepto: {
-                                exports: '$'
-                            },
-                            d3: {
-                                exports: 'd3'
-                            },
-                            Modernizr: {
-                                exports: 'Modernizr'
-                            },
-                            spin: {
-                                exports: 'Spinner'
-                            }
-                        },
-                        out: "build/js/razorflow.min.js"
-                    }
-                }
+            core: {
+                options: gruntRequireConfig
+            }
         },
         concat: {
 
