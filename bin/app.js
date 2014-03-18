@@ -48,6 +48,7 @@ var config = JSON.parse(fs.readFileSync(opts.argv.configFile, 'utf-8')),
     outputDir = config.outputDir,
     outputExt = config.outputFileExt,
     noApi = config.noApi,
+    showInheritedMethods = config.showInheritedMethods,
     files = [];
 
 // If noApi flag is true, don't generate api docs
@@ -98,7 +99,7 @@ if(!noApi) {
     } else {
         tree = objectifyTree(tree);
         logger.info("START Generating API Documentation")
-        docgen.generate(tree, templateDir, apiOutput, outputExt);    
+        docgen.generate(tree, templateDir, apiOutput, outputExt, showInheritedMethods);    
         logger.info("END Generating API Documentation. SUCCESS")
     }
 }

@@ -10,5 +10,6 @@
     "outputFileExt": "html",
     "examplesExt": "js",
     "onlyJSON": false,
-    "outputLinkPath": ""
+    "outputLinkPath": "",
+    "showInheritedMethods": true
 }

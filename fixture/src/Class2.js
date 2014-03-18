@@ -9,7 +9,6 @@ function Class2 () {
 	 * This is the description for parameter 2.
 	 * That's your problem to worry about.
 	 * @method example2
-	 * @memberOf Class2
 	 * @param  {Class2} param1 Stuff
 	 * @param  {string} param2 this is an overly long parameter description
 	 *                         which has some awkward spacing

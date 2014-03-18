@@ -8,7 +8,6 @@ function Class1Base () {
 	/**
 	 * This is a parent funciton. this should be displayed in Class1
      * @method parentExample
-     * @memberOf Class1Base
 	 */
 	this.parentExample = function () {
 

@@ -27,3 +27,9 @@
 <% } %>
 
 
+<% if(item.augments) { 
+    var base = tree.findNodeByClassName(item.augments.name);
+    for(var j=0; j<base.methods.length; j++) {
+%>
+    <%- render('method.ejs', {tree: tree, item: base.methods[j]}) %>
+<% } } %>
