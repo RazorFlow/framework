@@ -1,8 +1,14 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         shell: {
-            local_articles: {
-                command: 'node tools/razordoc/bin/app.js --configFile src/config/local_articles.json',
+            local_js_articles: {
+                command: 'node tools/razordoc/bin/app.js --configFile src/config/local_js_articles.json',
+                options: {
+                    stdout: true
+                }
+            },
+            local_php_articles: {
+                command: 'node tools/razordoc/bin/app.js --configFile src/config/local_php_articles.json',
                 options: {
                     stdout: true
                 }
@@ -38,5 +44,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-shell');
 
     
-    grunt.registerTask('compile', ['shell:local_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
+    grunt.registerTask('compile', ['shell:local_js_articles', 'shell:local_js_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
 }
