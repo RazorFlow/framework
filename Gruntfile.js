@@ -85,6 +85,11 @@ module.exports = function (grunt) {
                     {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/dashboard_quickstart/js/'},
                     {cwd: 'build/css/', src: ['razorflow.css'], dest: 'src/package/dashboard_quickstart/css/'}
                 ],
+            },
+            packageToRelease: {
+                files: [
+                    {cwd: 'src/package/', src: ['**'], dest: '../package/rf/javascript/'}
+                ]
             }
         },
         squashdemos: {
@@ -142,6 +147,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core', "replace:removeAMD"])
-    grunt.registerTask('release', ['build', 'copyto:buildToPackage'])
-    grunt.registerTask('websiteRelease', ['release', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
+    grunt.registerTask('package', ['build', 'copyto:buildToPackage'])
+    grunt.registerTask('release', ['package', 'copyto:packageToRelease'])
+    grunt.registerTask('websiteRelease', ['build', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
