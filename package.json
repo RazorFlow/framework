@@ -13,7 +13,8 @@
   "dependencies": {
     "express": "~3.4.8",
     "ejs": "~0.8.5",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "grunt-copy-to": "0.0.10"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

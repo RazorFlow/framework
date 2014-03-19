@@ -77,6 +77,16 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        copyto: {
+            buildToPackage: {
+                files: [
+                    {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/js/'},
+                    {cwd: 'build/css/', src: ['razorflow.css'], dest: 'src/package/css/'},
+                    {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/dashboard_quickstart/js/'},
+                    {cwd: 'build/css/', src: ['razorflow.css'], dest: 'src/package/dashboard_quickstart/css/'}
+                ],
+            }
+        },
         squashdemos: {
             options: {
                 demos: "src/samples/demos/*.js",
@@ -123,6 +133,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-lodash');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadTasks("./tools/src/grunt-tasks");
 
 
@@ -131,6 +142,6 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core', "replace:removeAMD"])
-    grunt.registerTask('release', ['build'])
+    grunt.registerTask('release', ['build', 'copyto:buildToPackage'])
     grunt.registerTask('websiteRelease', ['release', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
