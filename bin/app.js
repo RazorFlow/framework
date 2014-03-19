@@ -50,8 +50,9 @@ var config = JSON.parse(fs.readFileSync(opts.argv.configFile, 'utf-8')),
     noApi = config.noApi,
     noArticles = config.noArticles,
     showInheritedMethods = config.showInheritedMethods,
-    files = [];
-
+    files = [],
+    apiOutput = 'fakepath';
+    
 // If noApi flag is true, don't generate api docs
 if(!noApi) {
     for(var i=0; i<filenames.length; i++) {
@@ -75,8 +76,8 @@ if(!noApi) {
         }
     }
 
-    var apiOutput = 'fakepath',
-        tree = {classes:[]};
+    
+    var tree = {classes:[]};
 
     templateDir = path.resolve(configDir, config.apiTemplates);
     apiOutput = path.resolve(configDir, config.apiOutput);
