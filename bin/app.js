@@ -149,15 +149,19 @@ if(!noArticles) {
                 
                 // dirList.push(folderWalker(fs.readdirSync(itemPath), itemPath));
             } else if(stats.isFile()) {
-                dirList.push({
-                    'name': item,
-                    'path': itemPath.replace(articlesDir, '').replace(/\/*/, ''),
-                    'type': 'file',
-                });
-                articles.push({
-                    'name': item,
-                    'path': itemPath.replace(articlesDir, '').replace(/\/*/, '')
-                });
+
+              // Check for hidden files, if there exists: ignore it
+              if(!item.match(/^\./)){
+                  dirList.push({
+                      'name': item,
+                      'path': itemPath.replace(articlesDir, '').replace(/\/*/, ''),
+                      'type': 'file',
+                  });
+                  articles.push({
+                      'name': item,
+                      'path': itemPath.replace(articlesDir, '').replace(/\/*/, '')
+                  });
+              }
             }
         }
 
