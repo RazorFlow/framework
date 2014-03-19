@@ -76,11 +76,13 @@ module.exports = function (grunt) {
                 ext: '.min.css'
             }
         },
+        // Need to copy products.json
         copy: {
             localToWebRF: {
                 files: [
                     {src: ["build/js/razorflow.min.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
                     {src: ["build/css/razorflow.min.css"], dest: '../webrf/backend/static/transfer/', flatten:true},
+                    {src: ["build/js/templates.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
                     {src: ["build/js/rfDemos.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
                     {src: ["build/img/exampleImgs/*.png"], dest: '../webrf/backend/static/transfer/',flatten: true },
                 ]
