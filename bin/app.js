@@ -48,6 +48,7 @@ var config = JSON.parse(fs.readFileSync(opts.argv.configFile, 'utf-8')),
     outputDir = config.outputDir,
     outputExt = config.outputFileExt,
     noApi = config.noApi,
+    noArticles = config.noArticles,
     showInheritedMethods = config.showInheritedMethods,
     files = [];
 
@@ -104,99 +105,100 @@ if(!noApi) {
     }
 }
 
+if(!noArticles) {
+    var templateDir,
+        articleTemplatesDir = path.resolve(configDir, config.articleTemplates),
+        outputDir = path.resolve(configDir, config.outputDir),
+        articlesDir = path.resolve(configDir, config.articles),
+        examplesDir = path.resolve(configDir, config.examples),
+        examplesExt = config.examplesExt,
+        articlesOutput = path.resolve(configDir, config.articlesOutput),
+        outputLinkPath = config.outputLinkPath,
+        examplesImagesDir = !!config.examplesImagesDir ? path.resolve(configDir, config.examplesImagesDir) : '',
+        examplesLinkPath = config.examplesLinkPath,
+        exampleImagesLinkPath = config.exampleImagesLinkPath,
+        exampleLiveLinkPath = config.exampleLiveLinkPath,
+        articlesFolder = fs.readdirSync(articlesDir),
+        articlesPartialsDir = articlesDir + '/_partials',
+        articlesPartials = [];
 
-var templateDir,
-    articleTemplatesDir = path.resolve(configDir, config.articleTemplates),
-    outputDir = path.resolve(configDir, config.outputDir),
-    articlesDir = path.resolve(configDir, config.articles),
-    examplesDir = path.resolve(configDir, config.examples),
-    examplesExt = config.examplesExt,
-    articlesOutput = path.resolve(configDir, config.articlesOutput),
-    outputLinkPath = config.outputLinkPath,
-    examplesImagesDir = !!config.examplesImagesDir ? path.resolve(configDir, config.examplesImagesDir) : '',
-    examplesLinkPath = config.examplesLinkPath,
-    exampleImagesLinkPath = config.exampleImagesLinkPath,
-    exampleLiveLinkPath = config.exampleLiveLinkPath,
-    articlesFolder = fs.readdirSync(articlesDir),
-    articlesPartialsDir = articlesDir + '/_partials',
-    articlesPartials = [];
+    articlesFolder = _.without(articlesFolder, '_partials');
+    articlesFolder = _.without(articlesFolder, 'include'); // Temporary code
 
-articlesFolder = _.without(articlesFolder, '_partials');
-articlesFolder = _.without(articlesFolder, 'include'); // Temporary code
-
-if(fs.existsSync(articlesPartialsDir)) {
-    articlesPartials = fs.readdirSync(articlesPartialsDir);
-}
-
-var articles = [];
-var articleStruct = _.flatten(folderWalker(articlesFolder, articlesDir, articles));
-
-function folderWalker(dirArray, dirPath, articles) {
-    var dirList = [];
-    for(var i=0; i<dirArray.length; i++) {
-        var item = dirArray[i];
-        var itemPath = dirPath + '/' + item;
-        var stats = fs.statSync(itemPath);
-        if(stats.isDirectory()) {
-            dirList.push({
-                'name': item,
-                'path': itemPath.replace(articlesDir, '').replace(/\/*/, ''),
-                'type': 'directory',
-                'content': folderWalker(fs.readdirSync(itemPath), itemPath, articles)
-            });
-            
-            // dirList.push(folderWalker(fs.readdirSync(itemPath), itemPath));
-        } else if(stats.isFile()) {
-            dirList.push({
-                'name': item,
-                'path': itemPath.replace(articlesDir, '').replace(/\/*/, ''),
-                'type': 'file',
-            });
-            articles.push({
-                'name': item,
-                'path': itemPath.replace(articlesDir, '').replace(/\/*/, '')
-            });
-        }
+    if(fs.existsSync(articlesPartialsDir)) {
+        articlesPartials = fs.readdirSync(articlesPartialsDir);
     }
 
-    return dirList;
-}
+    var articles = [];
+    var articleStruct = _.flatten(folderWalker(articlesFolder, articlesDir, articles));
 
-var articleTree = {
-    articles: articles,
-    partials: articlesPartials,
-    articleStruct: articleStruct
-};
+    function folderWalker(dirArray, dirPath, articles) {
+        var dirList = [];
+        for(var i=0; i<dirArray.length; i++) {
+            var item = dirArray[i];
+            var itemPath = dirPath + '/' + item;
+            var stats = fs.statSync(itemPath);
+            if(stats.isDirectory()) {
+                dirList.push({
+                    'name': item,
+                    'path': itemPath.replace(articlesDir, '').replace(/\/*/, ''),
+                    'type': 'directory',
+                    'content': folderWalker(fs.readdirSync(itemPath), itemPath, articles)
+                });
+                
+                // dirList.push(folderWalker(fs.readdirSync(itemPath), itemPath));
+            } else if(stats.isFile()) {
+                dirList.push({
+                    'name': item,
+                    'path': itemPath.replace(articlesDir, '').replace(/\/*/, ''),
+                    'type': 'file',
+                });
+                articles.push({
+                    'name': item,
+                    'path': itemPath.replace(articlesDir, '').replace(/\/*/, '')
+                });
+            }
+        }
 
-var examples = _.map(fs.readdirSync(examplesDir), function(item) {
-    return item.replace('.' + examplesExt, '');
-});
+        return dirList;
+    }
 
+    var articleTree = {
+        articles: articles,
+        partials: articlesPartials,
+        articleStruct: articleStruct
+    };
 
-if(config.onlyJSON) {
-    logger.info('Found onlyJSON option, generating intermediate.json for articles tree.');
-    fs.writeFileSync(outputDir + '/articleTree.json' ,JSON.stringify(articleTree.articleStruct, null, 4), 'utf-8');    
-} else {
-    logger.info("START Generating Articles")
-    articlesGenerator.generate({
-        articleTree: articleTree, 
-        apiTree: tree, 
-        exampleTree: examples,
-        articlesDir: articlesDir,
-        examplesDir: examplesDir,
-        outputDir: outputDir,
-        articlesOutput: articlesOutput, 
-        apiOutput: apiOutput,
-        examplesExt: examplesExt,
-        outputFileExt: outputExt,
-        articleTemplatesDir: articleTemplatesDir,
-        outputLinkPath: outputLinkPath,
-        examplesImagesDir: examplesImagesDir,
-        examplesLinkPath: examplesLinkPath,
-        exampleImagesLinkPath: exampleImagesLinkPath,
-        exampleLiveLinkPath: exampleLiveLinkPath
+    var examples = _.map(fs.readdirSync(examplesDir), function(item) {
+        return item.replace('.' + examplesExt, '');
     });
-    logger.info("END Generating Articles ")
-}
 
-logger.info("RazorDoc finished successfully")
+
+    if(config.onlyJSON) {
+        logger.info('Found onlyJSON option, generating intermediate.json for articles tree.');
+        fs.writeFileSync(outputDir + '/articleTree.json' ,JSON.stringify(articleTree.articleStruct, null, 4), 'utf-8');    
+    } else {
+        logger.info("START Generating Articles")
+        articlesGenerator.generate({
+            articleTree: articleTree, 
+            apiTree: tree, 
+            exampleTree: examples,
+            articlesDir: articlesDir,
+            examplesDir: examplesDir,
+            outputDir: outputDir,
+            articlesOutput: articlesOutput, 
+            apiOutput: apiOutput,
+            examplesExt: examplesExt,
+            outputFileExt: outputExt,
+            articleTemplatesDir: articleTemplatesDir,
+            outputLinkPath: outputLinkPath,
+            examplesImagesDir: examplesImagesDir,
+            examplesLinkPath: examplesLinkPath,
+            exampleImagesLinkPath: exampleImagesLinkPath,
+            exampleLiveLinkPath: exampleLiveLinkPath
+        });
+        logger.info("END Generating Articles ")
+    }
+
+    logger.info("RazorDoc finished successfully")
+}
