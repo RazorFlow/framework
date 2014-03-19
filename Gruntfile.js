@@ -44,5 +44,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-shell');
 
     
-    grunt.registerTask('compile', ['shell:local_js_articles', 'shell:local_js_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
+    grunt.registerTask('compile', ['shell:local_js_articles', 'shell:local_php_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
 }
