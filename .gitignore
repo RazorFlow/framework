@@ -5,3 +5,5 @@ build
 coverage
 npm-debug.log
 rfjs.sublime-workspace
+src/package/js/razorflow.min.js
+src/package/css/razorflow.min.css
