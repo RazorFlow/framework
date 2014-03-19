@@ -30,6 +30,18 @@ module.exports = function (grunt) {
                 options: {
                     stdout: true
                 }
+            },
+            web_js_articles: {
+                command: 'node tools/razordoc/bin/app.js --configFile src/config/web_js_articles.json',
+                options: {
+                    stdout: true
+                }
+            },
+            web_php_articles: {
+                command: 'node tools/razordoc/bin/app.js --configFile src/config/web_php_articles.json',
+                options: {
+                    stdout: true
+                }
             }
         },
         watch: {
@@ -45,4 +57,5 @@ module.exports = function (grunt) {
 
     
     grunt.registerTask('compile', ['shell:local_js_articles', 'shell:local_php_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
+    grunt.registerTask('webArticles', ['shell:web_js_articles', 'shell:web_php_articles']);
 }
