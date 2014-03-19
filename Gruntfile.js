@@ -67,11 +67,20 @@ module.exports = function (grunt) {
                 }
             }
         },
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'build/css/',
+                src: ['razorflow.css'],
+                dest: 'build/css/',
+                ext: '.min.css'
+            }
+        },
         copy: {
             localToWebRF: {
                 files: [
                     {src: ["build/js/razorflow.min.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
-                    {src: ["build/css/razorflow.css"], dest: '../webrf/backend/static/transfer/', flatten:true},
+                    {src: ["build/css/razorflow.min.css"], dest: '../webrf/backend/static/transfer/', flatten:true},
                     {src: ["build/js/rfDemos.js"], dest: '../webrf/backend/static/transfer/', flatten:true},
                     {src: ["build/img/exampleImgs/*.png"], dest: '../webrf/backend/static/transfer/',flatten: true },
                 ]
@@ -81,9 +90,9 @@ module.exports = function (grunt) {
             buildToPackage: {
                 files: [
                     {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/js/'},
-                    {cwd: 'build/css/', src: ['razorflow.css'], dest: 'src/package/css/'},
+                    {cwd: 'build/css/', src: ['razorflow.min.css'], dest: 'src/package/css/'},
                     {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/dashboard_quickstart/js/'},
-                    {cwd: 'build/css/', src: ['razorflow.css'], dest: 'src/package/dashboard_quickstart/css/'}
+                    {cwd: 'build/css/', src: ['razorflow.min.css'], dest: 'src/package/dashboard_quickstart/css/'}
                 ],
             },
             packageToRelease: {
@@ -139,6 +148,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadTasks("./tools/src/grunt-tasks");
 
 
@@ -147,7 +157,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core', "replace:removeAMD"])
-    grunt.registerTask('package', ['build', 'copyto:buildToPackage'])
+    grunt.registerTask('package', ['build', 'cssmin:minify', 'copyto:buildToPackage'])
     grunt.registerTask('release', ['package', 'copyto:packageToRelease'])
     grunt.registerTask('websiteRelease', ['build', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
