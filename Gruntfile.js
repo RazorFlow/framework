@@ -161,5 +161,5 @@ module.exports = function (grunt) {
     grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core', "replace:removeAMD"])
     grunt.registerTask('package', ['build', 'cssmin:minify', 'copyto:buildToPackage'])
     grunt.registerTask('release', ['package', 'copyto:packageToRelease'])
-    grunt.registerTask('websiteRelease', ['build', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
+    grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
