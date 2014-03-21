@@ -8,3 +8,5 @@ rfjs.sublime-workspace
 razorflow.min.js
 razorflow.css
 src/package
+src/package/css/razorflow.min.css
+src/package/dashboard_quickstart/css/razorflow.min.css

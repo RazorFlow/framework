@@ -1,29 +1,31 @@
 var gruntRequireConfig = require('./src/dev/requireConfig').gruntConfig;
+var gruntWrapperRequireConfig = require('./src/dev/requireConfig').gruntWrapperConfig;
 
 module.exports = function (grunt) {
     grunt.initConfig({
         requirejs: {
             core: {
                 options: gruntRequireConfig
+            },
+            wrapper: {
+                options: gruntWrapperRequireConfig
             }
         },
         concat: {
 
         },
         jst: {
-            templates: {
-                compile: {
-                    options: {
-                        prettify: true,
-                        processName: function (filePath) {
-                            var parts = filePath.split('/');
-                            var fileName = parts[parts.length - 1];
-                            return fileName.split('.')[0];
-                        }
-                    },
-                    files: {
-                        "build/js/templates.js": ["src/templates/*.html"]
+            compile: {
+                options: {
+                    prettify: true,
+                    processName: function (filePath) {
+                        var parts = filePath.split('/');
+                        var fileName = parts[parts.length - 1];
+                        return fileName.split('.')[0];
                     }
+                },
+                files: {
+                    "build/js/templates.js": ["src/templates/*.html"]
                 }
             }
         },
@@ -155,10 +157,10 @@ module.exports = function (grunt) {
 
 
     
-    grunt.registerTask('compile', ['less', 'jst:templates']);
+    grunt.registerTask('compile', ['less', 'jst:compile']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["less", "jst:templates", 'requirejs:core', "replace:removeAMD"])
+    grunt.registerTask('build', ["less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD"])
     grunt.registerTask('package', ['build', 'cssmin:minify', 'copyto:buildToPackage'])
     grunt.registerTask('release', ['package', 'copyto:packageToRelease'])
     grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
