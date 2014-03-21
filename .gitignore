@@ -1,5 +1,6 @@
 .idea
+.DS_Store
 node_modules
 package/
-src/config.php
+src/config/config.php
 src/static/rf/
