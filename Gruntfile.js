@@ -3,7 +3,8 @@ module.exports = function (grunt) {
         copyto: {
             buildToStatic: {
                 files: [
-                    {cwd: '../jsrf/src/package/', src: ['js/*.js', 'css/*.css', 'fonts/*'], dest: 'src/static/rf/'},
+                    {cwd: '../jsrf/src/package/', src: ['fonts/*', 'js/*.js'], dest: 'src/static/rf/'},
+                    {cwd: '../jsrf/build/', src: ['js/*.js', 'css/*.css'], dest: 'src/static/rf/'},
                 ],
             },
             localToRelease: {
