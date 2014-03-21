@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var fileparser = require('../src/fileparser');
-var docgen = require('../src/docgen');
-var objectifyTree = require('../src/objectifyTree');
-var articlesGenerator = require('../src/articlesgen');
+var fileparser = require('../src/razordoc/fileparser');
+var docgen = require('../src/razordoc/docgen');
+var objectifyTree = require('../src/razordoc/objectifyTree');
+var articlesGenerator = require('../src/razordoc/articlesgen');
 var utils = require('util');
 var path = require('path');
 var _ = require('underscore');
@@ -131,8 +131,9 @@ if(!noArticles) {
     }
 
     var articles = [];
-    var articleStruct = _.flatten(folderWalker(articlesFolder, articlesDir, articles));
 
+    var articleStruct = _.flatten(folderWalker(articlesFolder, articlesDir, articles));
+    console.log(articles);
     function folderWalker(dirArray, dirPath, articles) {
         var dirList = [];
         for(var i=0; i<dirArray.length; i++) {
