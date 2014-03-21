@@ -4,50 +4,43 @@ module.exports = function (grunt) {
             local: {
                 options: {
                     articles: {
-                        "js": {
-                            src: "src/content/js/",
-                            relativeLinkPath: "js/"
-                        },
-                        "php": {
-                            src: "src/content/php/",
-                            relativeLinkPath: "php/"
-                        },
+                        root: 'src/content'
                     },
                     examples: {
                         'js': {
-                            src: "src/examples/src/js/",
+                            src: "src/examples/js/",
                             srcSuffix: ".js",
-                            images: "src/examples/images/js/",
+                            imagePrefix: "http://samples.razorflow.com/_assets/images/js/",
                             imageSuffix: ".png",
-                            thumbs: "src/exampels/thumbs/js/",
+                            thumbPrefix: "http://samples.razorflow.com/_assets/images/js/thumbs/",
                             thumbSuffix: ".png",
-                            livePrefix: "http://sample.razorflow.com/php/",
-                            liveSuffix: ""
+                            livePrefix: "http://samples.razorflow.com/js/",
+                            liveSuffix: ".html"
                         },
                         'php': {
-                            src: "src/examples/src/php/",
+                            src: "src/examples/php/",
                             srcSuffix: ".js",
-                            images: "src/examples/images/php/",
+                            imagePrefix: "http://samples.razorflow.com/_assets/images/php/",
                             imageSuffix: ".png",
-                            thumbs: "src/exampels/thumbs/php/",
+                            thumbPrefix: "http://samples.razorflow.com/_assets/images/php/thumbs/",
                             thumbSuffix: ".png",
-                            livePrefix: "http://sample.razorflow.com/php/",
-                            liveSuffix: ""
+                            livePrefix: "http://samples.razorflow.com/php/",
+                            liveSuffix: ".html"
                         }
                     },
                     api: {
                         "js": {
-                            src: "../jsrf/src/js/**/*.js",
-                            out: "build/docs/js/api",
-                            relativeLinkPath: "js/api/"
+                            src: ["../jsrf/src/js/components/*.js"],
+                            out: "build/docs/api/js",
+                            relativeLinkPath: "api/js/"
                         },
                         "php": {
-                            src: "../phprf/src/lib/**/*.php",
-                            out: "build/docs/php/api",
-                            relativeLinkPath: "php/api/"
+                            src: ["../phprf/src/lib/components/*.php"],
+                            out: "build/docs/api/php",
+                            relativeLinkPath: "api/php/"
                         }
                     },
-                    linkPrefix: "/docs/",
+                    linkPrefix: "",
                     out: "build/docs",
                     suffix: "html",
                     /*
@@ -57,8 +50,9 @@ module.exports = function (grunt) {
 
                     ... all other remaining EJS files
                      */
-                    template: "src/templates/default"
-                }
+                    template: "src/templates/default/article_layout",
+                    apiTemplates: "src/templates/default"
+                }    
             }
         },
         watch: {
