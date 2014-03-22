@@ -1,0 +1,16 @@
+{% import "macros.twig" as macros %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RF Examples</title>
+</head>
+<body>
+<h1>JavaScript</h1>
+<h2>Demos</h2>
+{{ macros.exampleList (examples, 'js', 'demos') }}
+<h2>Examples</h2>
+{{ macros.exampleList (examples, 'js', 'examples') }}
+<h2>Testcases</h2>
+{{ macros.exampleList (examples, 'js', 'testcases') }}
+</body>
+</html>

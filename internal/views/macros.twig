@@ -1,0 +1,7 @@
+{% macro exampleList (examples, lang, type) %}
+<ul>
+{% for item in examples[lang][type] %}
+	<li><a href="/dev/{{ lang }}/{{ type }}/{{ item }}">{{ item }}</a></li>
+{% endfor %}
+</ul>
+{% endmacro %}
