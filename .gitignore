@@ -6,5 +6,6 @@ razordoc
 phprf
 package
 webrf
+examples
 *.sublime-workspace
 .DS_Store
