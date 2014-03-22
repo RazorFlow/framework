@@ -108,7 +108,7 @@ class DevDashboardController {
 		);
 
 		ob_start();
-		require $rfExampleConfig['devLibPaths']['rfphp'];
+		require $rfExampleConfig['prodLibPaths']['rfphp'];
 		require $filePath;
 		$contents = ob_get_contents();
 		ob_end_clean();
