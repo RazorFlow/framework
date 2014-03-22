@@ -3,12 +3,35 @@
 <html>
 <head>
 	<title>RF Examples</title>
+  <link rel="stylesheet" href="/static/internal/css/foundation.min.css">
+  <style>
+  .container{
+    padding-top: 80px;
+  }
+  </style>
 </head>
 <body>
-<h1>JavaScript</h1>
-<h2>Demos</h2>
-{{ macros.prodExampleList (examples, 'js', 'demos') }}
-<h2>Examples</h2>
-{{ macros.prodExampleList (examples, 'js', 'examples') }}
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1>
+          <a href="/">JavaScript</a>
+        </h1>
+      </li>
+    </ul>
+  <div class="container">
+  <div class="row">
+    <div class="large-12 columns">
+    <h2>Demos</h2>
+      {{ macros.prodExampleList (examples, 'js', 'demos') }}
+    </div>
+  </div>
+    <div class="large-12 columns">
+      <h2>Examples</h2>
+      {{ macros.prodExampleList (examples, 'js', 'examples') }}
+    </div>
+  </div>
+</div>
+</div>
 </body>
 </html>
