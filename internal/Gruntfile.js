@@ -5,7 +5,8 @@ module.exports = function (grunt) {
     			files: 
     			[
 	    			{cwd: '../../jsrf/src/package', src: ["fonts/**", "css/**"], dest: '../static/rf/'},
-	    			{cwd: '../../jsrf/build', src: ["js/**"], dest: '../static/rf/'}
+	    			{cwd: '../../jsrf/build', src: ["js/**"], dest: '../static/rf/'},
+                    {cwd: '../../phprf/src', src: ["**"], dest: '../lib/phprf/'}
     			]
     		}
     	},
