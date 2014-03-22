@@ -88,7 +88,6 @@ class DevDashboardController {
 			echo $phpBody;
 		}
 
-
 		ob_start();
 		require $rfExampleConfig['devLibPaths']['rfphp'];
 		require $filePath;

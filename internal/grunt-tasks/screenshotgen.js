@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       }
       else {
         var fileName = files.shift ();
-        var baseName = path.basename(fileName, ".js");
+        var baseName = path.basename(fileName, options.extension);
         var url = options.baseUrl + baseName;
         var outPath = options.out + baseName + ".png";
 
