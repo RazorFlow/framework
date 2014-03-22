@@ -84,17 +84,17 @@ module.exports = function (grunt) {
                     api: {
                         "js": {
                             src: ["../jsrf/src/js/components/*.js"],
-                            out: "../webrf/backend/docs/api/js/",
+                            out: "../webrf/backend/docs/dashboard/api/js/",
                             relativeLinkPath: "api/js/"
                         },
                         "php": {
                             src: ["../phprf/src/lib/components/*.php"],
-                            out: "../webrf/backend/docs/api/php/",
+                            out: "../webrf/backend/docs/dashboard/api/php/",
                             relativeLinkPath: "api/php/"
                         }
                     },
-                    linkPrefix: "/docs/",
-                    out: "../webrf/backend/docs",
+                    linkPrefix: "/docs",
+                    out: "../webrf/backend/docs/dashboard/",
                     suffix: "html",
                     /*
                     base.ejs
