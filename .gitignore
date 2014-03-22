@@ -4,3 +4,4 @@ composer.lock
 static/rf
 node_modules
 static/exampleImages
+*.pyc
