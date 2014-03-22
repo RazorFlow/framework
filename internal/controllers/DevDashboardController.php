@@ -29,13 +29,22 @@ class DevDashboardController {
 
 		return $examples;
 	}
-	public function index (Request $request, Application $app) {
+	public function devIndex(Request $request, Application $app) {
 		$examples = $this->buildExampleArray ();
 
 		return $app['twig']->render('dev/index.twig', array(
 			'examples' => $examples
 		));
 	}
+
+	public function prodIndex(Request $request, Application $app) {
+		$examples = $this->buildExampleArray ();
+
+		return $app['twig']->render('prod/index.twig', array(
+			'examples' => $examples
+		));
+	}
+
 
 	public function jsExample (Request $request, Application $app, $type, $id) {
 		global $rfExampleConfig;
@@ -47,6 +56,13 @@ class DevDashboardController {
 			'type' => $type,
 			'id' => $id,
 			'file_contents' => $fileContents
+		));
+	}
+
+	public function prodJSExample (Request $request, Application $app, $type, $id) {
+		return $app['twig']->render('prod/jsExample.twig', array(
+			'type' => $type,
+			'id' => $id
 		));
 	}
 }

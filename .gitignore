@@ -1,2 +1,6 @@
 /vendor/
 composer.phar
+composer.lock
+static/rf
+node_modules
+static/exampleImages
