@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                         },
                         'php': {
                             src: "../examples/src/php/examples/",
-                            srcSuffix: ".js",
+                            srcSuffix: ".php",
                             imagePrefix: "http://localhost:8080/static/exampleImages/php/examples/",
                             imageSuffix: ".png",
                             thumbPrefix: "http://localhost:8080/static/exampleImages/php/examples/",
@@ -72,7 +72,7 @@ module.exports = function (grunt) {
                         },
                         'php': {
                             src: "../examples/src/php/examples/",
-                            srcSuffix: ".js",
+                            srcSuffix: ".php",
                             imagePrefix: "http://examples.razorflow.com/static/exampleImages/php/examples/",
                             imageSuffix: ".png",
                             thumbPrefix: "http://examples.razorflow.com/static/exampleImages/php/examples/",
