@@ -17,7 +17,7 @@ echo "Cloning RazorDoc"
 git clone git@github.com:razorflow/razordoc.git razordoc
 
 echo "Cloning Webrf"
-git clone git@github.com:razorflow/docs.git phprf
+git clone git@bitbucket.org:razorflow/webrf.git webrf
 
 echo "Cloning Examples"
 git clone git@github.com:razorflow/examples.git examples
