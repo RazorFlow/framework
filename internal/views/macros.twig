@@ -8,12 +8,11 @@
 
 {% macro prodExampleList (examples, lang, type, swa) %}
 {{ swa }}
-<ul>
 {% for item in examples[lang][type] %}
-	<li>
-	  <p><a href="/dashboard/{{ lang }}/{{ type }}/{{ item }}">{{ item }}</a></p>
-	  <p><a href="https://github.com/RazorFlow/examples/blob/master/src/js/{{ type }}/{{ item }}.{{ lang }}">View On Github</a></p>
-	</li>
+	<section class="section">		
+			<span class="subtitles"><a href="/dashboard/{{ lang }}/{{ type }}/{{ item }}">{{ item }}</a></span> |
+			<span class="github"><a href="https://github.com/RazorFlow/examples/blob/master/src/js/{{ type }}/{{ item }}.{{ lang }}" target="_blank">view on Github</a></span>
+	</section>
 {% endfor %}
-</ul>
+
 {% endmacro %}

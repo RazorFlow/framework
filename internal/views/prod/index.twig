@@ -3,35 +3,100 @@
 <html>
 <head>
 	<title>RF Examples</title>
-  <link rel="stylesheet" href="/static/internal/css/foundation.min.css">
-  <style>
-  .container{
-    padding-top: 80px;
-  }
-  </style>
+  <link rel="stylesheet" href="/static/internal/css/foundation.css">
+  <link rel="stylesheet" href="/static/internal/css/examples.css">
 </head>
-<body>
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1>
-          <a href="/">JavaScript</a>
-        </h1>
-      </li>
-    </ul>
-  <div class="container">
-  <div class="row">
-    <div class="large-12 columns">
-    <h2>Demos</h2>
-      {{ macros.prodExampleList (examples, 'js', 'demos') }}
+  <body>
+    
+
+ <!-- Header and Nav -->
+
+  <div class="rfTopBar">
+    <div class="row">
+      <div class="large-12 columns">
+        <h3 class="topbarTitle">Razorflow</h3>
+      </div>
     </div>
   </div>
-    <div class="large-12 columns">
-      <h2>Examples</h2>
-      {{ macros.prodExampleList (examples, 'js', 'examples') }}
+
+  <div class="rfTopBarWrapper">
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>Examples</h4>
+      </div>
     </div>
   </div>
-</div>
-</div>
-</body>
+
+  <div class="row panel">
+      <div class="large-12 columns ">
+        <div class="panel panelTitle">
+          <h4 class="title"><a href="#">Javascript</a></h4>
+        </div>
+      </div>
+      <div class="large-6 columns ">
+        <div class="panel panelExample">
+          <h4 class="title"><a href="#">Demos</a></h4>
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            {{ macros.prodExampleList (examples, 'js', 'demos') }}
+          </div>
+        </div>
+      </div>
+
+      <div class="large-6 columns ">
+        <div class="panel panelExample">
+          <h4 class="title"><a href="#">Examples</a></h4>
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            {{ macros.prodExampleList (examples, 'js', 'examples') }}
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="row panel">
+      <div class="large-12 columns ">
+        <div class="panel panelTitle">
+          <h4 class="title"><a href="#">PHP</a></h4>
+        </div>
+      </div>
+      <div class="large-6 columns ">
+        <div class="panel panelExample">
+          <h4 class="title"><a href="#">Demos</a></h4>
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            {{ macros.prodExampleList (examples, 'js', 'demos') }}
+          </div>
+        </div>
+      </div>
+
+      <div class="large-6 columns ">
+        <div class="panel panelExample">
+          <h4 class="title"><a href="#">Examples</a></h4>
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            {{ macros.prodExampleList (examples, 'js', 'examples') }}
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-5 columns">
+          <p>&copy; Copyright</p>
+        </div>
+        <div class="large-7 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Demos</a></li>
+            <li><a href="#">Examples</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
 </html>

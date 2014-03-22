@@ -5,3 +5,5 @@ static/rf
 node_modules
 static/exampleImages
 *.pyc
+npm-debug.log
+.DS_Store
