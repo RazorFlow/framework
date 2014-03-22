@@ -6,10 +6,14 @@
 </ul>
 {% endmacro %}
 
-{% macro prodExampleList (examples, lang, type) %}
+{% macro prodExampleList (examples, lang, type, swa) %}
+{{ swa }}
 <ul>
 {% for item in examples[lang][type] %}
-	<li><a href="/dashboard/{{ lang }}/{{ type }}/{{ item }}">{{ item }}</a></li>
+	<li>
+	  <p><a href="/dashboard/{{ lang }}/{{ type }}/{{ item }}">{{ item }}</a></p>
+	  <p><a href="https://github.com/RazorFlow/examples/blob/master/src/js/{{ type }}/{{ item }}.{{ lang }}">View On Github</a></p>
+	</li>
 {% endfor %}
 </ul>
 {% endmacro %}
