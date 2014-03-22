@@ -8,24 +8,24 @@ module.exports = function (grunt) {
                     },
                     examples: {
                         'js': {
-                            src: "src/examples/js/",
+                            src: "../examples/src/js/examples/",
                             srcSuffix: ".js",
-                            imagePrefix: "http://samples.razorflow.com/_assets/images/js/",
+                            imagePrefix: "http://localhost:8080/static/exampleImages/js/examples/",
                             imageSuffix: ".png",
-                            thumbPrefix: "http://samples.razorflow.com/_assets/images/js/thumbs/",
+                            thumbPrefix: "http://localhost:8080/static/exampleImages/js/examples/",
                             thumbSuffix: ".png",
-                            livePrefix: "http://samples.razorflow.com/js/",
-                            liveSuffix: ".html"
+                            livePrefix: "http://localhost:8080/dashboard/js/examples/",
+                            liveSuffix: ""
                         },
                         'php': {
-                            src: "src/examples/php/",
+                            src: "../examples/src/php/examples/",
                             srcSuffix: ".js",
-                            imagePrefix: "http://samples.razorflow.com/_assets/images/php/",
+                            imagePrefix: "http://localhost:8080/static/exampleImages/php/examples/",
                             imageSuffix: ".png",
-                            thumbPrefix: "http://samples.razorflow.com/_assets/images/php/thumbs/",
+                            thumbPrefix: "http://localhost:8080/static/exampleImages/php/examples/",
                             thumbSuffix: ".png",
-                            livePrefix: "http://samples.razorflow.com/php/",
-                            liveSuffix: ".html"
+                            livePrefix: "http://localhost:8080/dashboard/php/examples/",
+                            liveSuffix: ""
                         }
                     },
                     api: {
@@ -61,24 +61,24 @@ module.exports = function (grunt) {
                     },
                     examples: {
                         'js': {
-                            src: "src/examples/js/",
+                            src: "../examples/src/js/examples/",
                             srcSuffix: ".js",
-                            imagePrefix: "http://samples.razorflow.com/_assets/images/js/",
+                            imagePrefix: "http://examples.razorflow.com/static/exampleImages/js/examples/",
                             imageSuffix: ".png",
-                            thumbPrefix: "http://samples.razorflow.com/_assets/images/js/thumbs/",
+                            thumbPrefix: "http://examples.razorflow.com/static/exampleImages/js/examples/",
                             thumbSuffix: ".png",
-                            livePrefix: "http://samples.razorflow.com/js/",
-                            liveSuffix: ".html"
+                            livePrefix: "http://examples.razorflow.com/dashboard/js/examples/",
+                            liveSuffix: ""
                         },
                         'php': {
-                            src: "src/examples/php/",
+                            src: "../examples/src/php/examples/",
                             srcSuffix: ".js",
-                            imagePrefix: "http://samples.razorflow.com/_assets/images/php/",
+                            imagePrefix: "http://examples.razorflow.com/static/exampleImages/php/examples/",
                             imageSuffix: ".png",
-                            thumbPrefix: "http://samples.razorflow.com/_assets/images/php/thumbs/",
+                            thumbPrefix: "http://examples.razorflow.com/static/exampleImages/php/examples/",
                             thumbSuffix: ".png",
-                            livePrefix: "http://samples.razorflow.com/php/",
-                            liveSuffix: ".html"
+                            livePrefix: "http://examples.razorflow.com/dashboard/php/examples/",
+                            liveSuffix: ""
                         }
                     },
                     api: {
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
                             relativeLinkPath: "api/php/"
                         }
                     },
-                    linkPrefix: "",
+                    linkPrefix: "/docs/",
                     out: "../webrf/backend/docs",
                     suffix: "html",
                     /*
