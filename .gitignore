@@ -7,3 +7,4 @@ phprf
 package
 webrf
 *.sublime-workspace
+.DS_Store
