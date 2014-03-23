@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"folder_exclude_patterns": ["node_modules", "vendor"],
+			"folder_exclude_patterns": ["node_modules", "vendor", "old/oldjsrf", "docs/build"],
 			"follow_symlinks": true,
 			"path": "../"
 		}
