@@ -22,10 +22,11 @@ module.exports = function (grunt) {
                         var parts = filePath.split('/');
                         var fileName = parts[parts.length - 1];
                         return fileName.split('.')[0];
-                    }
+                    },
+                    amd: true
                 },
                 files: {
-                    "build/js/templates.js": ["src/templates/*.html"]
+                    "src/js/generated/templates.js": ["src/templates/*.html"]
                 }
             }
         },
