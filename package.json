@@ -3,20 +3,15 @@
   "version": "0.2.0",
   "description": "RazorFlow Dashboard Framework - JavaScript Edition",
   "scripts": {
-    "test": "grunt test",
-    "dev": "node tools/src/devserver"
   },
   "repository": {
     "type": "git",
     "url": "https://AmeenAhmed@bitbucket.org/razorflow/rfjs.git"
   },
   "dependencies": {
-    "express": "~3.4.8",
     "ejs": "~0.8.5",
     "underscore": "~1.6.0",
-    "grunt-copy-to": "0.0.10"
-  },
-  "devDependencies": {
+    "grunt-copy-to": "0.0.10",
     "grunt": "~0.4.2",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-jst": "*",
@@ -40,8 +35,6 @@
     "lodash-cli": "~2.4.1",
     "grunt-lodash": "~0.3.0",
     "grunt-contrib-copy": "^0.5.0",
-    "url-to-screenshot": "^0.4.1",
-    "glob": "^3.2.9",
     "grunt-text-replace": "^0.3.11",
     "grunt-contrib-cssmin": "~0.9.0"
   }
