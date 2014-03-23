@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                     paths: ['src/less']
                 },
                 files: {
-                    "build/css/razorflow.css": "src/less/razorflow.less"
+                    "build/tmp/razorflow.css": "src/less/razorflow.less"
                 }
             }
         },
@@ -54,14 +54,6 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
-        shell: {
-            coverageReport: {
-                command: 'cat "build/coverage/PhantomJS 1.9.7 (Mac OS X)/coverage.txt"',
-                options: {
-                    stdout: true
-                }
-            }
-        },
         lodash: {
             build: {
                 dest: 'src/vendor/js/lodash.rf.js',
@@ -73,9 +65,9 @@ module.exports = function (grunt) {
         cssmin: {
             minify: {
                 expand: true,
-                cwd: 'build/css/',
+                cwd: 'build/tmp/',
                 src: ['razorflow.css'],
-                dest: 'build/css/',
+                dest: 'build/assets/css',
                 ext: '.min.css'
             }
         },
@@ -92,6 +84,12 @@ module.exports = function (grunt) {
             }
         },
         copyto: {
+            assetsToBuild: {
+                files: [
+                    {cwd: 'src/', src: ['fonts/**'], dest: 'build/assets/'},
+                    {cwd: 'src/vendor/js/', src: ['jquery.min.js'], dest: 'build/assets/js/'},
+                ]
+            },
             buildToPackage: {
                 files: [
                     {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/js/'},
@@ -106,41 +104,19 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        squashdemos: {
-            options: {
-                demos: "src/samples/demos/*.js",
-                out: "build/js/rfDemos.js"
-            }
-        },
-        screenshotGen: {
-            demos: {
-                options: {
-                    files: "src/samples/demos/*.js",
-                    out: "build/img/demoImgs/",
-                    baseUrl: "http://localhost:9090/dev/",
-                    timeout: 2000
-                }
-            },
-            examples: {
-                options: {
-                    files: "src/samples/examples/*.js",
-                    out: "build/img/exampleImgs/",
-                    baseUrl: "http://localhost:9090/dev/",
-                    timeout: 2000
-                }
-            }
-        },
         replace: {
             removeAMD: {
-                src: "build/js/razorflow.min.js",
+                src: "build/assets/js/razorflow.min.js",
                 overwrite: true,
                 replacements: [
                     {from: /\bdefine\b/g, to: "_dfn"},
                     {from: /\brequire\b/g, to: "_rqr"}
                 ]
             }
+        },
+        clean: {
+            build: ["build"]
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -154,6 +130,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadTasks("./tools/src/grunt-tasks");
 
 
@@ -161,8 +138,7 @@ module.exports = function (grunt) {
     grunt.registerTask('compile', ['less', 'jst:compile']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD"])
-    grunt.registerTask('package', ['build', 'cssmin:minify', 'copyto:buildToPackage'])
-    grunt.registerTask('release', ['package', 'copyto:packageToRelease'])
+    grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:assetsToBuild"])
+    grunt.registerTask('package', ['build', 'copyto:packageToBuild'])
     grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
