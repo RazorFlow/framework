@@ -84,18 +84,21 @@ module.exports = function (grunt) {
             }
         },
         copyto: {
-            assetsToBuild: {
+            srcToBuild: {
                 files: [
                     {cwd: 'src/', src: ['fonts/**'], dest: 'build/assets/'},
                     {cwd: 'src/vendor/js/', src: ['jquery.min.js'], dest: 'build/assets/js/'},
                 ]
             },
-            buildToPackage: {
+            packageToBuild: {
                 files: [
-                    {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/js/'},
-                    {cwd: 'build/css/', src: ['razorflow.min.css'], dest: 'src/package/css/'},
-                    {cwd: 'build/js/', src: ['razorflow.min.js'], dest: 'src/package/dashboard_quickstart/js/'},
-                    {cwd: 'build/css/', src: ['razorflow.min.css'], dest: 'src/package/dashboard_quickstart/css/'}
+                    {cwd: 'src/package/', src: ['**/*'], dest: 'build/package/'},
+                ],
+            },
+            assetsToPackage: {
+                files: [
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "fonts/**"], dest: 'build/package/files/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "fonts/**"], dest: 'build/package/dashboard_quickstart/'},
                 ],
             },
             packageToRelease: {
@@ -138,7 +141,7 @@ module.exports = function (grunt) {
     grunt.registerTask('compile', ['less', 'jst:compile']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:assetsToBuild"])
-    grunt.registerTask('package', ['build', 'copyto:packageToBuild'])
-    grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
+    grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild"])
+    grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage'])
+    // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
