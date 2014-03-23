@@ -1,4 +1,9 @@
 module.exports = function (grunt) {
+
+    var buildId = "";
+    if(grunt.option('release-id')) {
+        buildId = "_" + grunt.option('release-id');
+    }
     grunt.initConfig({
         copyto: {
             jsrfToPackage: {
@@ -18,18 +23,56 @@ module.exports = function (grunt) {
         compress: {
             release: {
                 options: {
-                    archive: "package/razorflow_dashboard_framework.zip"
+                    archive: "package/razorflow_dashboard_framework" + buildId + ".zip"
                 },
                 files: [
                     {cwd: 'build/package/', src: ['**'], dest: 'razorflow_dashboard_framework', expand: true},
                 ]
             }
+        },
+        extGrunt: {
+            jsPackage: {
+                options: {
+                    cwd: "jsrf",
+                    task: "package"
+                }
+            },
+            phpPackage: {
+                options: {
+                    cwd: "phprf",
+                    task: "package"
+                }
+            },
+            exampleBuild: {
+                options: {
+                    cwd: "examples/internal",
+                    task: "build"
+                }
+            }
         }
     });
+
+    grunt.registerMultiTask ("extGrunt", "Call an external grunt", function () {
+        var options = this.options({
+        });
+        var done = this.async ();
+
+        grunt.util.spawn({
+            grunt: true,
+            opts: {
+                cwd: options.cwd,
+                stdio: 'inherit'
+            },
+            args: [options.task]
+        }, done)
+    })
 
     grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('release', ["clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "compress:release"])
+    grunt.registerTask('cleanAll', ["extGrunt:jsClean", "extGrunt:phpClean"]);
+
+    grunt.registerTask('buildAll', ["extGrunt:jsPackage", "extGrunt:phpPackage", "extGrunt:exampleBuild"]);
+    grunt.registerTask('release', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "compress:release"])
 }
