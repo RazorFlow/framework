@@ -4,11 +4,16 @@ module.exports = function (grunt) {
     		jsrfToLocal: {
     			files: 
     			[
-	    			{cwd: '../../jsrf/src/package', src: ["fonts/**", "css/**"], dest: '../static/rf/'},
-	    			{cwd: '../../jsrf/build', src: ["js/**"], dest: '../static/rf/'},
-                    {cwd: '../../phprf/src', src: ["**"], dest: '../lib/phprf/'}
+	    			{cwd: '../../jsrf/build/assets/', src: ["**/*"], dest: '../static/rf/'}
     			]
-    		}
+    		},
+            phprfToLocal: {
+                files: 
+                [
+                    {cwd: '../../phprf/build/package/', src: ["**/*"], dest: '../lib/phprf/'}
+                ]
+            }
+
     	},
         screenshotGen: {
             jsExamples: {
@@ -34,16 +39,28 @@ module.exports = function (grunt) {
                 }
             }
         },
+        clean: {
+            staticFiles: {
+                options: {
+                    force: true
+                },
+                src: ["../static/rf/"]
+            },
+            phpLib: {
+                options: {
+                    force: true
+                },
+                src: ["../lib/phprf/"]
+            }
+        }
     });
 
-
-   grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadTasks("./grunt-tasks");
     // grunt.loadNpmTasks('grunt-contrib-cssmin');
     // grunt.loadTasks("./tools/src/grunt-tasks");
 
-
-    
-    grunt.registerTask('build', ["copyto:jsrfToLocal"])
+    grunt.registerTask('build', ["clean:staticFiles", "clean:phpLib", "copyto:jsrfToLocal", "copyto:phprfToLocal"])
     grunt.registerTask('screenshots', ["screenshotGen:jsExamples", "screenshotGen:phpExamples"]);
 }

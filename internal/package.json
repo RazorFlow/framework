@@ -3,10 +3,11 @@
   "version": "0.2.0",
   "description": "RazorFlow Example Helpers",
   "dependencies": {
-  	"underscore": "*",
+    "underscore": "*",
     "grunt": "~0.4.2",
     "grunt-copy-to": "0.0.10",
     "url-to-screenshot": "^0.4.1",
-    "glob": "^3.2.9"
+    "glob": "^3.2.9",
+    "grunt-contrib-clean": "^0.5.0"
   }
 }
