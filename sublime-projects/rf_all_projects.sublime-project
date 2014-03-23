@@ -4,7 +4,7 @@
 		{
 			"folder_exclude_patterns": ["node_modules", "vendor"],
 			"follow_symlinks": true,
-			"path": "../examples"
+			"path": "../"
 		}
 	]
 }
