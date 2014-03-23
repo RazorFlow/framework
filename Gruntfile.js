@@ -1,27 +1,20 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         copyto: {
-            buildToStatic: {
+            assetsToPackage: {
                 files: [
-                    {cwd: '../jsrf/src/package/', src: ['fonts/*', 'js/*.js'], dest: 'src/static/rf/'},
-                    {cwd: '../jsrf/build/', src: ['js/*.js', 'css/*.css'], dest: 'src/static/rf/'},
+                    {cwd: '../jsrf/build/assets/', src: ['js/*.js', 'css/*.css', 'fonts/**'], dest: 'build/package/static/rf/'},
                 ],
             },
-            localToRelease: {
+            libToPackage: {
                 files: [
-                    {cwd: 'src/', src: ['**'], dest: 'package/rfphp/'},
+                    {cwd: 'src/', src: ['**'], dest: 'build/package/'},
                 ],
-            },
-            releaseToFinal: {
-                files: [
-                    {cwd: 'package/', src: ['**'], dest: '../package/rf/php/'},
-                ]
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-copy-to');
 
-    grunt.registerTask('package', ['copyto:buildToStatic', 'copyto:localToRelease'])
-    grunt.registerTask('release', ['package', 'copyto:releaseToFinal'])
+    grunt.registerTask('package', ['copyto:libToPackage', 'copyto:assetsToPackage'])
 }
