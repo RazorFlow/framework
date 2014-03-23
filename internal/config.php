@@ -4,6 +4,7 @@ global $rfExampleConfig;
 $rfExampleConfig = array (
 	'devStaticPaths' => array (
 		'jsrf' => __DIR__.'/../../jsrf/src/',
+		'docs' => __DIR__.'/../../docs/build/docs/',
 		'jsrfBuild' => __DIR__.'/../../jsrf/build/'
 	),
 	'devLibPaths' => array (

@@ -24,8 +24,15 @@ class DevStaticController {
 		else if ($extension === "js") {
 			$mime = "application/javascript";
 		}
+		else if ($extension === "html") {
+			$mime = "text/html";
+		}
 
 
 		return $app->sendFile($filePath, 200, array('Content-Type' => $mime));
+	}
+
+	public function devDocs(Request $request, Application $app, $fileName) {
+		return $this->getDevFile($request, $app, 'docs', $fileName);
 	}
 }

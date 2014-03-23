@@ -15,6 +15,7 @@ $app->get('/devStatic/{lang}/{fileName}', 'DevStaticController::getDevFile')->as
 $app->get('/dev/', 'DevDashboardController::devIndex');
 $app->get('/dev/js/{type}/{id}', 'DevDashboardController::devJSExample');
 $app->match('/dev/php/{type}/{id}', 'DevDashboardController::devPHPExample');
+$app->match('/docs/{fileName}', 'DevStaticController::devDocs')->assert('fileName', '.+');
 
 // Production routes
 $app->get('/', 'DevDashboardController::prodIndex');
