@@ -4,7 +4,12 @@
 		{
 			"folder_exclude_patterns": ["node_modules"],
 			"follow_symlinks": true,
-			"path": "/home/anirudh/rf/jsrf"
+			"path": "../jsrf"
+		},
+		{
+			"folder_exclude_patterns": ["node_modules"],
+			"follow_symlinks": true,
+			"path": "../examples/src/js"
 		}
 	]
 }

@@ -4,7 +4,7 @@
 		{
 			"folder_exclude_patterns": ["node_modules"],
 			"follow_symlinks": true,
-			"path": "/home/anirudh/rf/docs"
+			"path": "../rf/docs"
 		}
 	]
 }
