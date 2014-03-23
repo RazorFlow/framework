@@ -11,10 +11,14 @@ module.exports = function (grunt) {
                     {cwd: 'src/', src: ['**'], dest: 'build/package/'},
                 ],
             }
+        },
+        clean: {
+            build: ["build/package"]
         }
     });
 
     grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('package', ['copyto:libToPackage', 'copyto:assetsToPackage'])
+    grunt.registerTask('package', ["clean:build", 'copyto:libToPackage', 'copyto:assetsToPackage'])
 }
