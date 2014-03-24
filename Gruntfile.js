@@ -85,15 +85,18 @@ module.exports = function (grunt) {
                         }
                     },
                     api: {
-                        "js": {
-                            src: ["../jsrf/src/js/components/*.js"],
-                            out: "../webrf/backend/docs/dashboard/api/js/",
-                            relativeLinkPath: "api/js/"
-                        },
-                        "php": {
-                            src: ["../phprf/src/lib/components/*.php"],
-                            out: "../webrf/backend/docs/dashboard/api/php/",
-                            relativeLinkPath: "api/php/"
+                        "relativeLinkPath": 'api',
+                        lang: {
+                            "js": {
+                                src: ["../jsrf/src/js/components/*.js"],
+                                out: "../webrf/backend/docs/dashboard/api/js/",
+                                relativeLinkPath: "api/js/"
+                            },
+                            "php": {
+                                src: ["../phprf/src/lib/components/*.php"],
+                                out: "../webrf/backend/docs/dashboard/api/php/",
+                                relativeLinkPath: "api/php/"
+                            }
                         }
                     },
                     linkPrefix: "/docs",
@@ -106,8 +109,8 @@ module.exports = function (grunt) {
 
                     ... all other remaining EJS files
                      */
-                    template: "src/templates/razorflow_dotcom/article_layout",
-                    apiTemplates: "src/templates/razorflow_dotcom"
+                    articleTemplates: "src/templates/razorflow_dotcom/article_templates",
+                    apiTemplates: "src/templates/razorflow_dotcom/api_templates"
                 }
             }
         },
