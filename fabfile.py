@@ -9,7 +9,7 @@ from contextlib import contextmanager as _contextmanager
  # Default release is 'current'
 env.release = 'current'
 
-rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "composer.phar")
+rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "composer.phar", "adminer.php")
 
 
 def production():
