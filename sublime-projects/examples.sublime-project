@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"folder_exclude_patterns": ["node_modules", "vendor"],
+			"folder_exclude_patterns": ["node_modules", "vendor", "phprf"],
 			"follow_symlinks": true,
 			"path": "../examples"
 		}
