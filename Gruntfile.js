@@ -50,8 +50,8 @@ module.exports = function (grunt) {
 
                     ... all other remaining EJS files
                      */
-                    template: "src/templates/default/article_layout",
-                    apiTemplates: "src/templates/default"
+                    articleTemplates: "src/templates/default/article_templates",
+                    apiTemplates: "src/templates/default/api_templates"
                 }
             },
             website: {
