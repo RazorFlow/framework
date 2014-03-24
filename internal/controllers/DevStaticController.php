@@ -14,8 +14,8 @@ class DevStaticController {
 		if(!file_exists($filePath)) {
 			$app->abort(404, "Cannot find file");
 		}
-
-		$extension = array_pop(explode(".", $fileName));
+		$arr = explode(".", $fileName);
+		$extension = array_pop($arr);
 		$mime = "text/plain";
 
 		if($extension === "css") {
