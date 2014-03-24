@@ -29,15 +29,18 @@ module.exports = function (grunt) {
                         }
                     },
                     api: {
-                        "js": {
-                            src: ["../jsrf/src/js/components/*.js"],
-                            out: "build/docs/api/js",
-                            relativeLinkPath: "api/js/"
-                        },
-                        "php": {
-                            src: ["../phprf/src/lib/components/*.php"],
-                            out: "build/docs/api/php",
-                            relativeLinkPath: "api/php/"
+                        "relativeLinkPath": 'api',
+                        "lang": {
+                            "js": {
+                                src: ["../jsrf/src/js/components/*.js"],
+                                out: "build/docs/api/js",
+                                relativeLinkPath: "api/js/"
+                            },
+                            "php": {
+                                src: ["../phprf/src/lib/components/*.php"],
+                                out: "build/docs/api/php",
+                                relativeLinkPath: "api/php/"
+                            }
                         }
                     },
                     linkPrefix: "",
