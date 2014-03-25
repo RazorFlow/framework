@@ -1,0 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+
+.rfTopBar {
+	padding-top: 10px;
+	padding-bottom: 0;
+	background: #205081;
+	background-image: -webkit-linear-gradient(top,#255d95 0,#205081 100%);
+	background-image: linear-gradient(to bottom,#255d95 0,#205081 100%);
+	background-repeat: repeat-x;
+	border-top: 1px solid #d7dce5;
+	border-bottom: 1px solid #d7dce5;
+	font-size: 28px;
+}
+
+.title {
+	color: #000;
+}
+
+.topbarTitle {
+	color: #fff;
+}
+
+.title a {
+	color: #000;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.github {
+
+	height: 32px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	margin: 0 6px;
+	margin-bottom: -10px;
+	cursor: pointer;
+	font-size: 12px;
+}
+.panel {
+	background: #fff;
+}
+
+.panelTitle {
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+}
+
+.panelExample {
+	border: 0px;
+}
+
+.rfTopBarWrapper {
+	padding-top: 10px;
+	padding-bottom: 0;
+	background-color: #f6f7f9;
+	background-image: -webkit-linear-gradient(top,#fff 0,#f6f7f9 100%);
+	background-image: linear-gradient(to bottom,#fff 0,#f6f7f9 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff6f7f9', GradientType=0);
+	border-top: 1px solid #d7dce5;
+	border-bottom: 1px solid #d7dce5;
+	font-size: 28px;
+	margin-bottom: 20px;
+}
