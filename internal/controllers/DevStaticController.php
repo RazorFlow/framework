@@ -14,8 +14,8 @@ class DevStaticController {
 		if(!file_exists($filePath)) {
 			$app->abort(404, "Cannot find file");
 		}
-
-		$extension = array_pop(explode(".", $fileName));
+		$arr = explode(".", $fileName);
+		$extension = array_pop($arr);
 		$mime = "text/plain";
 
 		if($extension === "css") {
@@ -24,8 +24,15 @@ class DevStaticController {
 		else if ($extension === "js") {
 			$mime = "application/javascript";
 		}
+		else if ($extension === "html") {
+			$mime = "text/html";
+		}
 
 
 		return $app->sendFile($filePath, 200, array('Content-Type' => $mime));
+	}
+
+	public function devDocs(Request $request, Application $app, $fileName) {
+		return $this->getDevFile($request, $app, 'docs', $fileName);
 	}
 }

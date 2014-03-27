@@ -26,10 +26,14 @@ class DevDashboardController {
 
 	private function buildExampleArray () {
 		global $rfExampleConfig;
-		$examples = array ('js' => array());
+		$examples = array ('js' => array(), 'php' => array());
 		$examples['js']['demos'] = $this->find('js', 'demos', 'js');
 		$examples['js']['examples'] = $this->find('js', 'examples', 'js');
 		$examples['js']['testcases'] = $this->find('js', 'testcases', 'js');
+
+		$examples['php']['demos'] = $this->find('php', 'demos', 'php');
+		$examples['php']['examples'] = $this->find('php', 'examples', 'php');
+		$examples['php']['testcases'] = $this->find('php', 'testcases', 'php');
 
 		return $examples;
 	}
@@ -63,7 +67,7 @@ class DevDashboardController {
 	}
 
 
-	public function jsExample (Request $request, Application $app, $type, $id) {
+	public function devJSExample (Request $request, Application $app, $type, $id) {
 		global $rfExampleConfig;
 		$examples = $this->buildExampleArray ();
 
@@ -74,6 +78,58 @@ class DevDashboardController {
 			'id' => $id,
 			'file_contents' => $fileContents
 		));
+	}
+
+	public function devPHPExample(Request $request, Application $app, $type, $id) {
+		global $rfExampleConfig;
+		$filePath = $rfExampleConfig['examplePaths']['php'][$type].'/'.$id.'.php';
+
+		global $_rfConfig;
+		$_rfConfig = array(
+			"staticRoot" => "",
+			"rfDev" => false
+		);
+		global $phpHead, $phpBody;
+		$phpHead = $app['twig']->render('dev/phpHead.twig', array(
+		));
+		$phpBody = $app['twig']->render('dev/phpBody.twig', array(
+		));
+
+		function _rf_alternate_head () {
+			global $phpHead, $phpBody;
+			echo $phpHead;
+		}
+
+		function _rf_alternate_body() {
+			global $phpHead, $phpBody;
+			echo $phpBody;
+		}
+
+		ob_start();
+		require $rfExampleConfig['devLibPaths']['rfphp'];
+		require $filePath;
+		$contents = ob_get_contents();
+		ob_end_clean();
+
+		return new Response ($contents);
+	}
+
+	public function prodPHPExample(Request $request, Application $app, $type, $id) {
+		global $rfExampleConfig;
+		$filePath = $rfExampleConfig['examplePaths']['php'][$type].'/'.$id.'.php';
+
+		global $_rfConfig;
+		$_rfConfig = array(
+			"staticRoot" => $rfExampleConfig['prodLibPaths']['rfStatic']
+		);
+
+		ob_start();
+		require $rfExampleConfig['prodLibPaths']['rfphp'];
+		require $filePath;
+		$contents = ob_get_contents();
+		ob_end_clean();
+
+		return new Response ($contents);
 	}
 
 	public function prodJSExample (Request $request, Application $app, $type, $id) {

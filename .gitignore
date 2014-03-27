@@ -4,4 +4,7 @@ composer.lock
 static/rf
 node_modules
 static/exampleImages
+lib/phprf
 *.pyc
+.DS_Store
+npm-debug.log

@@ -2,28 +2,16 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="/devStatic/jsrfBuild/css/razorflow.css" />
-    <link rel="stylesheet" href="/devStatic/jsrf/vendor/css/font-awesome.min.css" />
-    <script type="text/javascript" src="/devStatic/jsrfBuild/js/templates.js"></script>
-    <!--[if lte IE 9]>
-        <script type="text/javascript" src="/devStatic/jsrf/vendor/js/jquery.min.js"></script>
-    <![endif]-->
-        <script type="text/javascript" src="/devStatic/jsrf/vendor/js/require.min.js"></script>
-        <script type="text/javascript" src="/devStatic/jsrf/dev/requireConfig.js"></script>
-        <script type="text/javascript">
-            require.config(window.browserConfig);
-        </script>
-    
-
-</head>
-<body>
-<div id="dbTarget" style='position: relative;' class='rf rf-click rf-lg'>
-</div>
+{{ include('dev/jsIncludes.twig') }}
 <script>
     require(["core/main"], function (rf) {    
         {{ file_contents|raw }}
     });
 </script>
+</head>
+<body>
+<div id="dbTarget" style='position: relative;' class='rf rf-click rf-lg'>
+</div>
 </body>
 </html>
     
