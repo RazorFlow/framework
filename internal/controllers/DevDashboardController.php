@@ -13,8 +13,12 @@ class DevDashboardController {
 		$finder = new Finder();
 		$finder->in($rfExampleConfig['examplePaths'][$lang][$type])->name("*.".$fileType);
 		$res = array();
-		foreach($finder as $file) {
-			$res []= $file->getBaseName (".".$fileType);
+    foreach($finder as $file) {
+      $fileContents = $file->getContents();
+      $res []= array(
+        "meta" => $this->getFileMeta($fileContents),
+        "basename" => $file->getBaseName (".".$fileType)
+      );
 		}
 
 		return $res;
@@ -29,6 +33,19 @@ class DevDashboardController {
 
 		return $examples;
 	}
+
+  private function getFileMeta($contents){
+    $re = "/\/\*\&(.*)\*\//s";
+    preg_match_all($re, $contents, $matches);
+
+    if($matches && count($matches[1]) > 0){
+      $meta = $matches[1][0];
+      return json_decode($meta, true);
+    }
+
+    return array();
+  }
+
 	public function devIndex(Request $request, Application $app) {
 		$examples = $this->buildExampleArray ();
 
