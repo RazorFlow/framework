@@ -6,6 +6,7 @@ module.exports = function (grunt) {
                     articles: {
                         root: 'src/content'
                     },
+                    constantsPath: '../jsrf/tools/config/props.json',
                     examples: {
                         'js': {
                             src: "../examples/src/js/examples/",
