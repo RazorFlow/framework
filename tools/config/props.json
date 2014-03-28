@@ -16,21 +16,25 @@
 			"numberFormatFlag": {
 				"type":"boolean",
 				"default": true,
+				"public": true,
 				"shortDesc" : "If set to true, the number will be formatted as per the options."
 			},
 			"numberHumanize": {
 				"type":"boolean",
+				"public": true,
 				"default": false,
 				"shortDesc": "Uses K, M and B to denote thousands, millions and billions respectively."
 			},
 			"numberPrefix": {
 				"type":"string",
 				"default": null,
+				"public": true,
 				"shortDesc" : "Adds a string perfix to the number."
 			},
 			"numberSuffix": {
 				"type":"string",
 				"default": null,
+				"public": true,
 				"shortDesc": "Adds a string suffix to the number."
 			},
 			"numberThousandsSeparator": {
@@ -49,6 +53,7 @@
 				"shortDesc" : "Always show decimal places."
 			},
 			"numberDecimalPoints": {
+				"public": true,
 				"type":"number",
 				"default": 2,
 				"shortDesc" : "Number of decimal places to show."
@@ -384,21 +389,6 @@
 				"type": "string",
 				"default": "",
 				"shortDesc"  : "Name of the axis."
-			},
-			"minValue": {
-				"type": "number",
-				"default": null,
-				"shortDesc" : "Minimum value of the axis."
-			},
-			"maxValue": {
-				"type": "number",
-				"default": null,
-				"shortDesc" : "Maximum value of the axis."
-			},
-			"adaptiveMinimumValueFlag": {
-				"type": "number",
-				"default": false,
-				"shortDesc" : "If set to true, the minimum value is inferred from the least value in all the series."
 			}
 		}
 	},
@@ -417,16 +407,19 @@
 			},
 			"seriesDisplayType": {
 				"type": "string",
+				"public": true,
 				"shortDesc": "The type of the series to draw on the chart",
 				"default": "column"
 			},
 			"seriesColor": {
 				"type": "string",
+				"public": true,
 				"shortDesc": "The color of the series on the chart",
 				"default": "auto"
 			},
 			"seriesHiddenFlag": {
 				"type": "boolean",
+				"public": true,
 				"shortDesc": "Set this to true to hide the series (but visible on legend)",
 				"default": false
 			},
@@ -550,26 +543,12 @@
 				"default": false,
 				"shortDesc" : "Wether the column is sortable."
 			},
-			"sortActiveFlag": {
-				"type": "boolean",
-				"default": false,
-				"shortDesc" : "Indicates if a column is already sorted."
-			},
-			"sortDirection": {
-				"type": "string",
-				"default": "descending",
-				"shortDesc" : "Wether to sort in a ascending or descending order."
-			},
 			"cellWidth": {
 				"type": "number",
 				"default": null,
-				"shortDesc" : "Width of the cell in the table."
+				"shortDesc" : "Width of the cell in the table.",
+				"public": true
 			},
-			"hideColumnOnSmallDevices": {
-				"type": "boolean",
-				"default": false,
-				"shortDesc" : "When set to true, column is hidden on small devices."
-			}
 		}
 	},
 	"FilterComponentProperties": {
