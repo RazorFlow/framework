@@ -20,6 +20,6 @@ $app->match('/docs/{fileName}', 'DevStaticController::devDocs')->assert('fileNam
 // Production routes
 $app->get('/', 'DevDashboardController::prodIndex');
 $app->get('/dashboard/js/{type}/{id}', 'DevDashboardController::prodJSExample');
-$app->get('/dashboard/php/{type}/{id}', 'DevDashboardController::prodPHPExample');
+$app->match('/dashboard/php/{type}/{id}', 'DevDashboardController::prodPHPExample');
 
 $app->run ();
