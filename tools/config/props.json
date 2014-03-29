@@ -548,7 +548,7 @@
 				"default": null,
 				"shortDesc" : "Width of the cell in the table.",
 				"public": true
-			},
+			}
 		}
 	},
 	"FilterComponentProperties": {
