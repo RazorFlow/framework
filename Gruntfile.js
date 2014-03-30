@@ -86,7 +86,6 @@ module.exports = function (grunt) {
         copyto: {
             srcToBuild: {
                 files: [
-                    {cwd: 'src/', src: ['fonts/**'], dest: 'build/assets/'},
                     {cwd: 'src/vendor/js/', src: ['jquery.min.js'], dest: 'build/assets/js/'},
                 ]
             },
@@ -97,8 +96,8 @@ module.exports = function (grunt) {
             },
             assetsToPackage: {
                 files: [
-                    {cwd: 'build/assets/', src: ["js/**", "css/**", "fonts/**"], dest: 'build/package/files/'},
-                    {cwd: 'build/assets/', src: ["js/**", "css/**", "fonts/**"], dest: 'build/package/dashboard_quickstart/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**"], dest: 'build/package/files/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**"], dest: 'build/package/dashboard_quickstart/'},
                 ],
             },
             packageToRelease: {
