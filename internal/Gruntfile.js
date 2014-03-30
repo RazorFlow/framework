@@ -46,6 +46,12 @@ module.exports = function (grunt) {
                 },
                 src: ["../static/rf/"]
             },
+            screenshots: {
+                options: {
+                    force: true
+                },
+                src: ["../static/exampleImages/"]
+            },
             phpLib: {
                 options: {
                     force: true
@@ -62,5 +68,5 @@ module.exports = function (grunt) {
     // grunt.loadTasks("./tools/src/grunt-tasks");
 
     grunt.registerTask('build', ["clean:staticFiles", "clean:phpLib", "copyto:jsrfToLocal", "copyto:phprfToLocal"])
-    grunt.registerTask('screenshots', ["screenshotGen:jsExamples", "screenshotGen:phpExamples"]);
+    grunt.registerTask('screenshots', ["clean:screenshots", "screenshotGen:jsExamples", "screenshotGen:phpExamples"]);
 }
