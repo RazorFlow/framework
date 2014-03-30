@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                                 relativeLinkPath: "api/js/"
                             },
                             "php": {
-                                src: ["../phprf/src/lib/components/*.php"],
+                                src: ["../phprf/src/lib/**/*.php"],
                                 out: "build/docs/api/php",
                                 relativeLinkPath: "api/php/"
                             }
