@@ -8,12 +8,12 @@ module.exports = function (grunt) {
         copyto: {
             jsrfToPackage: {
                 files: [
-                    {cwd: 'jsrf/build/package/', src: ['**/*'], dest: 'build/package/javascript/'},
+                    {cwd: 'jsrf/build/package/', src: ['**/*'], dest: 'build/package/razorflow_js/'},
                 ]
             },
             phprfToPackage: {
                 files: [
-                    {cwd: 'phprf/build/package/', src: ['**/*'], dest: 'build/package/php/'},
+                    {cwd: 'phprf/build/package/', src: ['**/*'], dest: 'build/package/razorflow_php/'},
                 ]
             }
         },
@@ -74,5 +74,7 @@ module.exports = function (grunt) {
     grunt.registerTask('cleanAll', ["extGrunt:jsClean", "extGrunt:phpClean"]);
 
     grunt.registerTask('buildAll', ["extGrunt:jsPackage", "extGrunt:phpPackage", "extGrunt:exampleBuild"]);
-    grunt.registerTask('release', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "compress:release"])
+    grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"])
+    grunt.registerTask('simplePackage', ["clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"])
+    grunt.registerTask('release', ['package', "compress:release"])
 }
