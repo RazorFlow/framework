@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+    module.exports = function (grunt) {
     grunt.initConfig({
         razordoc: {
             local: {
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                                 relativeLinkPath: "api/js/"
                             },
                             "php": {
-                                src: ["../phprf/src/lib/**/*.php"],
+                                src: ["../phprf/src/lib/components/*.php"],
                                 out: "build/docs/api/php",
                                 relativeLinkPath: "api/php/"
                             }
