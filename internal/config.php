@@ -24,6 +24,11 @@ $rfExampleConfig = array (
 			'demos' => __DIR__."/../src/php/demos/",
 			'examples' => __DIR__."/../src/php/examples/",
 			'testcases' => __DIR__."/../src/php/testcases/"
+		),
+		'html' => array (
+			'demos' => __DIR__."/../src/html/demos/",
+			'examples' => __DIR__."/../src/html/examples/",
+			'testcases' => __DIR__."/../src/html/testcases/"
 		)
 	)
 );

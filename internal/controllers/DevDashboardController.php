@@ -13,11 +13,11 @@ class DevDashboardController {
 		$finder = new Finder();
 		$finder->in($rfExampleConfig['examplePaths'][$lang][$type])->name("*.".$fileType);
 		$res = array();
-    foreach($finder as $file) {
-      $fileContents = $file->getContents();
-      $res []= array(
-        "meta" => $this->getFileMeta($fileContents),
-        "basename" => $file->getBaseName (".".$fileType)
+		foreach($finder as $file) {
+			$fileContents = $file->getContents();
+			$res []= array(
+				"meta" => $this->getFileMeta($fileContents),
+				"basename" => $file->getBaseName (".".$fileType)
       );
 		}
 
@@ -34,6 +34,10 @@ class DevDashboardController {
 		$examples['php']['demos'] = $this->find('php', 'demos', 'php');
 		$examples['php']['examples'] = $this->find('php', 'examples', 'php');
 		$examples['php']['testcases'] = $this->find('php', 'testcases', 'php');
+
+		$examples['html']['demos'] = $this->find('html', 'demos', 'html');
+		$examples['html']['examples'] = $this->find('html', 'examples', 'html');
+		$examples['html']['testcases'] = $this->find('html', 'testcases', 'html');
 
 		return $examples;
 	}
@@ -112,6 +116,19 @@ class DevDashboardController {
 		ob_end_clean();
 
 		return new Response ($contents);
+	}
+
+	public function devHTMLExample (Request $request, Application $app, $type, $id) {
+		global $rfExampleConfig;
+		$examples = $this->buildExampleArray ();
+
+		$fileContents = file_get_contents($rfExampleConfig['examplePaths']['html'][$type].'/'.$id.'.html');
+
+		return $app['twig']->render('dev/htmlExample.twig', array(
+			'type' => $type,
+			'id' => $id,
+			'file_contents' => $fileContents
+		));
 	}
 
 	public function prodPHPExample(Request $request, Application $app, $type, $id) {

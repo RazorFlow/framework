@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+{{ include('dev/jsIncludes.twig') }}
+<script>
+    require(["core/main"], function (rf) {    
+        if(window.rfReady) {
+        	window.rfReady ();
+        }
+    });
+</script>
+</head>
+<body>
+<div id="dbTarget" style='position: relative;' class='rf rf-click rf-lg'>
+</div>
+{{ file_contents|raw }}
+</body>
+</html>
+    
