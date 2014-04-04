@@ -88,6 +88,8 @@ class DevDashboardController {
 		global $rfExampleConfig;
 		$filePath = $rfExampleConfig['examplePaths']['php'][$type].'/'.$id.'.php';
 
+		$this->createHeader ($app);
+
 		global $_rfConfig;
 		$_rfConfig = array(
 			"staticRoot" => "",
@@ -135,6 +137,8 @@ class DevDashboardController {
 		global $rfExampleConfig;
 		$filePath = $rfExampleConfig['examplePaths']['php'][$type].'/'.$id.'.php';
 
+		$this->createHeader ($app);
+
 		global $_rfConfig;
 		$_rfConfig = array(
 			"staticRoot" => $rfExampleConfig['prodLibPaths']['rfStatic']
@@ -147,6 +151,12 @@ class DevDashboardController {
 		ob_end_clean();
 
 		return new Response ($contents);
+	}
+
+	protected function createHeader ($app) {
+		global $razorflow_assets;
+		$razorflow_assets = $app['twig']->render('dev/jsIncludes.twig', array(
+		));
 	}
 
 	public function prodJSExample (Request $request, Application $app, $type, $id) {
