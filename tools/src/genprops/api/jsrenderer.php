@@ -52,7 +52,7 @@ function <?php echo $name; ?>() {
 
 	});
 }
-exports.<?php echo $name; ?> = <?php echo $name; ?>
+exports.<?php echo $name; ?> = <?php echo $name; ?>;
 
 
 <?php
