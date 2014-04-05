@@ -18,7 +18,8 @@ $rfExampleConfig = array (
 		'js' => array (
 			'demos' => __DIR__."/../src/js/demos/",
 			'examples' => __DIR__."/../src/js/examples/",
-			'testcases' => __DIR__."/../src/js/testcases/"
+			'testcases' => __DIR__."/../src/js/testcases/",
+			'test' => __DIR__."/../src/js/tests/"
 		),
 		'php' => array (
 			'demos' => __DIR__."/../src/php/demos/",

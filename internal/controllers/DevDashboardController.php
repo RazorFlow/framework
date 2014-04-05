@@ -42,17 +42,17 @@ class DevDashboardController {
 		return $examples;
 	}
 
-  private function getFileMeta($contents){
-    $re = "/\/\*\&(.*)\*\//s";
-    preg_match_all($re, $contents, $matches);
+	private function getFileMeta($contents){
+		$re = "/\/\*\&(.*)\*\//s";
+		preg_match_all($re, $contents, $matches);
 
-    if($matches && count($matches[1]) > 0){
-      $meta = $matches[1][0];
-      return json_decode($meta, true);
-    }
+		if($matches && count($matches[1]) > 0){
+			$meta = $matches[1][0];
+			return json_decode($meta, true);
+		}
 
-    return array();
-  }
+		return array();
+	}
 
 	public function devIndex(Request $request, Application $app) {
 		$examples = $this->buildExampleArray ();
@@ -79,6 +79,18 @@ class DevDashboardController {
 
 		return $app['twig']->render('dev/jsExample.twig', array(
 			'type' => $type,
+			'id' => $id,
+			'file_contents' => $fileContents
+		));
+	}
+
+	public function testJSExample (Request $request, Application $app, $id) {
+		global $rfExampleConfig;
+		$examples = $this->buildExampleArray ();
+
+		$fileContents = file_get_contents($rfExampleConfig['examplePaths']['js']['test'].'/'.$id.'.js');
+
+		return $app['twig']->render('dev/jsTest.twig', array(
 			'id' => $id,
 			'file_contents' => $fileContents
 		));
