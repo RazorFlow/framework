@@ -8,7 +8,7 @@
  [jasmine-gem]: http://github.com/pivotal/jasmine-gem
  */
 
-window.jasmineBoot = function() {
+(function() {
 
   /**
    * ## Require &amp; Instantiate
@@ -161,6 +161,7 @@ window.jasmineBoot = function() {
    * Replace the browser window's `onload`, ensure it's called, and then run all of the loaded specs. This includes initializing the `HtmlReporter` instance and then executing the loaded Jasmine environment. All of this will happen after all of the specs are loaded.
    */
   window.jasmineExecute = function () {
+    env.addReporter(new jasmine.JSReporter());
     htmlReporter.initialize();
     env.execute();
   }
@@ -173,4 +174,4 @@ window.jasmineBoot = function() {
     return destination;
   }
 
-};
+}) ()

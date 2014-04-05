@@ -1,3 +1,23 @@
+var browsers = [{
+        browserName: "firefox",
+        version: "19",
+        platform: "XP"
+    }, {
+        browserName: "chrome",
+        platform: "XP"
+    }, {
+        browserName: "chrome",
+        platform: "linux"
+    }, {
+        browserName: "internet explorer",
+        platform: "WIN8",
+        version: "10"
+    }, {
+        browserName: "internet explorer",
+        platform: "VISTA",
+        version: "9"
+    }];
+
 module.exports = function (grunt) {
     grunt.initConfig({
     	copyto: {
@@ -58,11 +78,22 @@ module.exports = function (grunt) {
                 },
                 src: ["../lib/phprf/"]
             }
-        }
+        },
+        'saucelabs-jasmine': {
+            all: {
+                options: {
+                    urls: ["http://localhost:8080/dev/test/footest"],
+                    tunnelTimeout: 5,
+                    concurrency: 3,
+                    browsers: browsers
+                }
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-saucelabs');
     grunt.loadTasks("./grunt-tasks");
     // grunt.loadNpmTasks('grunt-contrib-cssmin');
     // grunt.loadTasks("./tools/src/grunt-tasks");

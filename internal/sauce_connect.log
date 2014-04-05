@@ -1,0 +1,1356 @@
+2014-04-05 23:06:12,434 - sauce_connect:575 - INFO - / Starting \
+2014-04-05 23:06:12,438 - sauce_connect:576 - INFO - Please wait for "You may start your tests" to start your tests.
+2014-04-05 23:06:12,447 - sauce_connect:588 - DEBUG - System is 5.5 hours off UTC
+2014-04-05 23:06:12,450 - sauce_connect:590 - DEBUG - options: {'user': 'razorflow', 'ports': ['60342'], 'no_ssl_bump_domains': '', 'domains': None, 'debug_ssh': False, 'tunnel_ports': ['80'], 'allow_unclean_exit': False, 'rest_url': 'https://saucelabs.com/rest/v1', 'logfile': 'sauce_connect.log', 'squid_opts': '', 'logfilesize': '31457280', 'boost_mode': True, 'tunnel_identifier': '165951361', 'fast_fail_regexps': '', 'vm_version': '', 'quiet': False, 'latency_log': 150, 'use_ssh_config': False, 'ssh': False, 'se_port': '4445', 'readyfile': None, 'shared_tunnel': False, 'ssh_port': 443, 'direct_domains': '', 'host': '127.0.0.1'}
+2014-04-05 23:06:12,453 - sauce_connect:591 - DEBUG - metadata: {'PythonVersion': '2.5.1', 'OwnerHost': '127.0.0.1', 'Release': '3.0-r30', 'OwnerPorts': ['60342'], 'Ports': ['80'], 'Platform': 'Java-1.7.0_51-OpenJDK_64-Bit_Server_VM,_24.45-b08,_Oracle_Corporation-on-Linux-3.11.0-12-generic-amd64', 'Build': '46', 'ScriptRelease': 46, 'ScriptName': 'sauce_connect'}
+2014-04-05 23:06:12,454 - sauce_connect:593 - INFO - Forwarding: None:['80'] -> 127.0.0.1:['60342']
+2014-04-05 23:06:12,467 - sauce_connect:385 - INFO - Succesfully connected to local server 127.0.0.1:60342 in 6ms
+2014-04-05 23:06:14,128 - sauce_connect:248 - INFO - {"no_ssl_bump_domains":null,"squid_config":null,"use_caching_proxy":true,"metadata":{"PythonVersion":"2.5.1","OwnerHost":"127.0.0.1","Release":"3.0-r30","OwnerPorts":["60342"],"Ports":["80"],"Platform":"Java-1.7.0_51-OpenJDK_64-Bit_Server_VM,_24.45-b08,_Oracle_Corporation-on-Linux-3.11.0-12-generic-amd64","Build":"46","ScriptRelease":46,"ScriptName":"sauce_connect"},"use_kgp":true,"tunnel_identifier":"165951361","shared_tunnel":false,"fast_fail_regexps":null,"ssh_port":443,"direct_domains":null,"vm_version":"","domain_names":[]}
+2014-04-05 23:06:19,197 - sauce_connect:260 - INFO - Tunnel remote VM is provisioned (81b1cf8d8d3d499b9ac9fe81c2cb6caa)
+2014-04-05 23:06:19,740 - sauce_connect:278 - INFO - Tunnel remote VM is booting ..
+2014-04-05 23:06:57,517 - sauce_connect:282 - INFO - Tunnel remote VM is running at maki77134.miso.saucelabs.com
+2014-04-05 23:06:57,552 - sauce_connect:385 - INFO - Succesfully connected to local server 127.0.0.1:60342 in 3ms
+2014-04-05 23:06:57,555 - sauce_connect:665 - INFO - Starting connection to tunnel host...
+2014-04-05 23:06:57,559 - sauce_connect:665 - INFO - Connecting to tunnel host maki77134.miso.saucelabs.com as razorflow
+2014-04-05 23:06:57,753 - sauce_connect:665 - INFO - Forwarding Selenium with ephemeral port 50121
+2014-04-05 23:06:57,766 - sauce_connect:665 - INFO - Selenium HTTP proxy listening on port 4445
+2014-04-05 23:06:59,051 - sauce_connect:0 - INFO - Successful handshake with Sauce Connect server
+2014-04-05 23:06:59,306 - sauce_connect:0 - INFO - Tunnel host version: 0.1.0, remote endpoint ID: bcc2b7645fab4a51901eb32598161f30
+2014-04-05 23:06:59,312 - sauce_connect:665 - INFO - Connected! You may start your tests.
+2014-04-05 23:07:06,657 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:07:06,700 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (43ms, 1376 bytes)
+2014-04-05 23:07:07,019 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:07:07,029 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (10ms, 4233 bytes)
+2014-04-05 23:07:07,216 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:07:07,220 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:07:07,219 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:07:07,219 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:07:07,232 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (13ms, 6078 bytes)
+2014-04-05 23:07:07,233 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (14ms, 11235 bytes)
+2014-04-05 23:07:07,234 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (19ms, 15525 bytes)
+2014-04-05 23:07:07,239 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (20ms, 62835 bytes)
+2014-04-05 23:07:07,270 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:07:07,282 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (11ms, 7120 bytes)
+2014-04-05 23:07:07,589 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:07:07,612 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (23ms, 15233 bytes)
+2014-04-05 23:07:08,010 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:07:08,030 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (20ms, 2485 bytes)
+2014-04-05 23:07:08,927 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:07:08,928 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:07:08,940 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (13ms, 879 bytes)
+2014-04-05 23:07:08,951 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (24ms, 12473 bytes)
+2014-04-05 23:07:09,819 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:07:09,819 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:07:09,821 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:07:09,821 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:07:09,819 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:07:09,832 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (13ms, 10748 bytes)
+2014-04-05 23:07:09,838 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (19ms, 299 bytes)
+2014-04-05 23:07:09,845 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (24ms, 2170 bytes)
+2014-04-05 23:07:09,851 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (30ms, 2167 bytes)
+2014-04-05 23:07:09,855 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (36ms, 361 bytes)
+2014-04-05 23:07:10,147 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:07:10,165 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (19ms, 4643 bytes)
+2014-04-05 23:07:10,463 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:07:10,463 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:07:10,476 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (13ms, 7580 bytes)
+2014-04-05 23:07:10,483 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (20ms, 10076 bytes)
+2014-04-05 23:07:10,799 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:07:10,799 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:07:10,801 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:07:10,802 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:07:10,812 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (14ms, 15240 bytes)
+2014-04-05 23:07:10,818 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (17ms, 3801 bytes)
+2014-04-05 23:07:10,823 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (23ms, 354 bytes)
+2014-04-05 23:07:10,828 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (26ms, 235 bytes)
+2014-04-05 23:07:11,072 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:07:11,075 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:07:11,089 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (18ms, 2745 bytes)
+2014-04-05 23:07:11,096 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (22ms, 3457 bytes)
+2014-04-05 23:07:11,105 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:07:11,105 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:07:11,121 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (16ms, 2450 bytes)
+2014-04-05 23:07:11,131 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (25ms, 1774 bytes)
+2014-04-05 23:07:11,456 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:07:11,460 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:07:11,466 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:07:11,471 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:07:11,474 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (19ms, 1713 bytes)
+2014-04-05 23:07:11,480 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (13ms, 1700 bytes)
+2014-04-05 23:07:11,486 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (13ms, 2255 bytes)
+2014-04-05 23:07:11,492 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (32ms, 289 bytes)
+2014-04-05 23:07:11,770 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:07:11,786 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (15ms, 7587 bytes)
+2014-04-05 23:07:11,839 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:07:11,841 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:07:11,859 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (20ms, 12997 bytes)
+2014-04-05 23:07:11,862 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (22ms, 4767 bytes)
+2014-04-05 23:07:12,224 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:07:12,229 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:07:12,232 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:07:12,236 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:07:12,242 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (18ms, 361 bytes)
+2014-04-05 23:07:12,246 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (19ms, 3485 bytes)
+2014-04-05 23:07:12,253 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (21ms, 8458 bytes)
+2014-04-05 23:07:12,259 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (29ms, 253 bytes)
+2014-04-05 23:07:12,490 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:07:12,496 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:07:12,513 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (21ms, 4649 bytes)
+2014-04-05 23:07:12,535 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (38ms, 1376 bytes)
+2014-04-05 23:07:12,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:07:12,548 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:07:12,562 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (11ms, 1207 bytes)
+2014-04-05 23:07:12,571 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (21ms, 4376 bytes)
+2014-04-05 23:07:12,790 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:07:12,806 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (16ms, 709 bytes)
+2014-04-05 23:07:12,845 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:07:12,848 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:07:12,864 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (19ms, 46198 bytes)
+2014-04-05 23:07:12,868 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (20ms, 26896 bytes)
+2014-04-05 23:07:12,969 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:07:12,970 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:07:12,970 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:07:12,982 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (13ms, 9263 bytes)
+2014-04-05 23:07:12,986 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (18ms, 10409 bytes)
+2014-04-05 23:07:12,986 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (16ms, 4233 bytes)
+2014-04-05 23:07:12,996 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:07:12,996 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:07:12,999 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:07:13,000 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (6ms, 11235 bytes)
+2014-04-05 23:07:13,002 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (4ms, 6078 bytes)
+2014-04-05 23:07:13,006 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (11ms, 62835 bytes)
+2014-04-05 23:07:13,036 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:07:13,036 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:07:13,046 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (9ms, 7120 bytes)
+2014-04-05 23:07:13,056 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (20ms, 15525 bytes)
+2014-04-05 23:07:13,141 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:07:13,141 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:07:13,141 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/jquery.min.js
+2014-04-05 23:07:13,160 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (18ms, 2485 bytes)
+2014-04-05 23:07:13,167 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (26ms, 15233 bytes)
+2014-04-05 23:07:13,224 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/jquery.min.js -> 200 (85ms, 96380 bytes)
+2014-04-05 23:07:13,430 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:07:13,433 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:07:13,453 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (23ms, 57949 bytes)
+2014-04-05 23:07:13,460 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (26ms, 9637 bytes)
+2014-04-05 23:07:13,713 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:07:13,730 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (17ms, 6001 bytes)
+2014-04-05 23:07:13,971 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:07:13,973 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:07:13,986 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (14ms, 3121 bytes)
+2014-04-05 23:07:13,996 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (22ms, 14939 bytes)
+2014-04-05 23:07:14,256 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:07:14,273 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (16ms, 5114 bytes)
+2014-04-05 23:07:14,898 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:07:14,898 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:07:14,898 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:07:14,911 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (13ms, 5758 bytes)
+2014-04-05 23:07:14,915 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (18ms, 566 bytes)
+2014-04-05 23:07:14,921 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (23ms, 2121 bytes)
+2014-04-05 23:07:15,066 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:07:15,069 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:07:15,088 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (23ms, 12473 bytes)
+2014-04-05 23:07:15,092 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (24ms, 879 bytes)
+2014-04-05 23:07:15,177 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:07:15,180 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:07:15,183 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:07:15,197 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (21ms, 1689 bytes)
+2014-04-05 23:07:15,201 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (22ms, 306 bytes)
+2014-04-05 23:07:15,206 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (24ms, 5992 bytes)
+2014-04-05 23:07:15,357 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:07:15,358 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:07:15,375 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (19ms, 28976 bytes)
+2014-04-05 23:07:15,381 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (24ms, 15045 bytes)
+2014-04-05 23:07:15,448 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:07:15,467 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (17ms, 5896 bytes)
+2014-04-05 23:07:15,569 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:07:15,569 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:07:15,585 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (17ms, 3496 bytes)
+2014-04-05 23:07:15,592 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (23ms, 399 bytes)
+2014-04-05 23:07:15,736 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:07:15,736 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:07:15,737 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:07:15,749 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (12ms, 7580 bytes)
+2014-04-05 23:07:15,753 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (17ms, 5152 bytes)
+2014-04-05 23:07:15,757 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (20ms, 3425 bytes)
+2014-04-05 23:07:15,996 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:07:16,000 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:07:16,009 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (12ms, 12664 bytes)
+2014-04-05 23:07:16,013 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (14ms, 1725 bytes)
+2014-04-05 23:07:16,058 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:07:16,059 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:07:16,072 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (13ms, 1990 bytes)
+2014-04-05 23:07:16,078 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (19ms, 4116 bytes)
+2014-04-05 23:07:16,266 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:07:16,282 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (16ms, 3646 bytes)
+2014-04-05 23:07:16,572 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:07:16,573 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:07:16,575 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:07:16,578 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:07:16,578 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:07:16,578 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:07:16,588 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (17ms, 361 bytes)
+2014-04-05 23:07:16,591 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:07:16,592 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (19ms, 2170 bytes)
+2014-04-05 23:07:16,591 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:07:16,592 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:07:16,598 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (21ms, 4643 bytes)
+2014-04-05 23:07:16,582 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:07:16,604 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (27ms, 10748 bytes)
+2014-04-05 23:07:16,608 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (30ms, 299 bytes)
+2014-04-05 23:07:16,612 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (36ms, 2167 bytes)
+2014-04-05 23:07:16,618 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (28ms, 10076 bytes)
+2014-04-05 23:07:16,627 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (36ms, 12997 bytes)
+2014-04-05 23:07:16,631 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (38ms, 8458 bytes)
+2014-04-05 23:07:16,634 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (51ms, 235 bytes)
+2014-04-05 23:07:16,785 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:07:16,802 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (16ms, 7587 bytes)
+2014-04-05 23:07:17,012 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:07:17,013 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:07:17,017 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:07:17,023 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:07:17,028 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:07:17,029 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (17ms, 1700 bytes)
+2014-04-05 23:07:17,032 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (19ms, 2255 bytes)
+2014-04-05 23:07:17,035 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:07:17,042 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (26ms, 3485 bytes)
+2014-04-05 23:07:17,046 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:07:17,052 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:07:17,055 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:07:17,052 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (30ms, 4767 bytes)
+2014-04-05 23:07:17,053 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:07:17,052 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:07:17,063 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (36ms, 361 bytes)
+2014-04-05 23:07:17,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:07:17,072 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (26ms, 15240 bytes)
+2014-04-05 23:07:17,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:07:17,072 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (37ms, 253 bytes)
+2014-04-05 23:07:17,075 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:07:17,079 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (25ms, 4649 bytes)
+2014-04-05 23:07:17,073 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (22ms, 354 bytes)
+2014-04-05 23:07:17,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:07:17,069 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:07:17,088 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (34ms, 2745 bytes)
+2014-04-05 23:07:17,072 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:07:17,094 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (43ms, 3801 bytes)
+2014-04-05 23:07:17,099 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (31ms, 3457 bytes)
+2014-04-05 23:07:17,105 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (37ms, 2450 bytes)
+2014-04-05 23:07:17,111 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (38ms, 289 bytes)
+2014-04-05 23:07:17,117 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (49ms, 1774 bytes)
+2014-04-05 23:07:17,121 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (53ms, 1713 bytes)
+2014-04-05 23:07:17,127 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (54ms, 4376 bytes)
+2014-04-05 23:07:17,265 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:07:17,267 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:07:17,275 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (9ms, 1207 bytes)
+2014-04-05 23:07:17,280 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (12ms, 5758 bytes)
+2014-04-05 23:07:17,318 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:07:17,319 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:07:17,328 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (9ms, 6001 bytes)
+2014-04-05 23:07:17,334 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (14ms, 2121 bytes)
+2014-04-05 23:07:17,525 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:07:17,528 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:07:17,529 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:07:17,529 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:07:17,530 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:07:17,529 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:07:17,529 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:07:17,539 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:07:17,543 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (16ms, 5992 bytes)
+2014-04-05 23:07:17,542 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:07:17,552 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:07:17,552 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (28ms, 14939 bytes)
+2014-04-05 23:07:17,555 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (27ms, 709 bytes)
+2014-04-05 23:07:17,558 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:07:17,559 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:07:17,559 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:07:17,562 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (33ms, 46198 bytes)
+2014-04-05 23:07:17,568 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (39ms, 3121 bytes)
+2014-04-05 23:07:17,572 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (42ms, 9263 bytes)
+2014-04-05 23:07:17,576 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (46ms, 26896 bytes)
+2014-04-05 23:07:17,582 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (43ms, 57949 bytes)
+2014-04-05 23:07:17,585 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (42ms, 10409 bytes)
+2014-04-05 23:07:17,591 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (40ms, 28976 bytes)
+2014-04-05 23:07:17,595 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:07:17,595 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (38ms, 5896 bytes)
+2014-04-05 23:07:17,599 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (41ms, 15045 bytes)
+2014-04-05 23:07:17,604 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (43ms, 5114 bytes)
+2014-04-05 23:07:17,608 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (12ms, 9637 bytes)
+2014-04-05 23:07:17,706 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:07:17,717 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (13ms, 306 bytes)
+2014-04-05 23:07:17,868 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:07:17,868 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:07:17,871 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:07:17,872 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:07:17,882 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (12ms, 566 bytes)
+2014-04-05 23:07:17,888 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (18ms, 1689 bytes)
+2014-04-05 23:07:17,891 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (22ms, 399 bytes)
+2014-04-05 23:07:17,895 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (23ms, 3496 bytes)
+2014-04-05 23:07:18,015 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:07:18,016 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:07:18,025 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (9ms, 1990 bytes)
+2014-04-05 23:07:18,030 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (14ms, 1725 bytes)
+2014-04-05 23:07:18,165 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:07:18,165 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:07:18,171 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:07:18,176 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (11ms, 5152 bytes)
+2014-04-05 23:07:18,181 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (15ms, 3425 bytes)
+2014-04-05 23:07:18,186 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (16ms, 12664 bytes)
+2014-04-05 23:07:18,756 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:07:18,759 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:07:18,770 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (13ms, 4116 bytes)
+2014-04-05 23:07:18,779 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (20ms, 3646 bytes)
+2014-04-05 23:08:11,582 - sauce_connect:0 - INFO - Request started: GET http://ie9cvlist.ie.microsoft.com/IE9CompatViewList.xml
+2014-04-05 23:08:12,315 - sauce_connect:0 - INFO - GET http://ie9cvlist.ie.microsoft.com/IE9CompatViewList.xml -> 200 (734ms, 147151 bytes)
+2014-04-05 23:08:45,934 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:08:45,971 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (38ms, 1376 bytes)
+2014-04-05 23:08:46,532 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:08:46,538 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (5ms, 4233 bytes)
+2014-04-05 23:08:46,700 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:08:46,709 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:08:46,701 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:08:46,701 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:08:46,720 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (11ms, 7120 bytes)
+2014-04-05 23:08:46,710 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:08:46,714 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:08:46,723 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (22ms, 6078 bytes)
+2014-04-05 23:08:46,710 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:08:46,714 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (14ms, 11235 bytes)
+2014-04-05 23:08:46,729 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (28ms, 62835 bytes)
+2014-04-05 23:08:46,733 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (20ms, 15233 bytes)
+2014-04-05 23:08:46,740 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (30ms, 15525 bytes)
+2014-04-05 23:08:46,744 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (35ms, 2485 bytes)
+2014-04-05 23:08:50,476 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:08:50,476 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:08:50,500 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (23ms, 12473 bytes)
+2014-04-05 23:08:50,505 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (29ms, 879 bytes)
+2014-04-05 23:08:51,186 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:08:51,187 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:08:51,190 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:08:51,190 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:08:51,191 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:08:51,190 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:08:51,194 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:08:51,194 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:08:51,197 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (12ms, 2167 bytes)
+2014-04-05 23:08:51,194 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:08:51,203 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (15ms, 235 bytes)
+2014-04-05 23:08:51,207 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (17ms, 7580 bytes)
+2014-04-05 23:08:51,211 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (21ms, 10076 bytes)
+2014-04-05 23:08:51,216 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (24ms, 2170 bytes)
+2014-04-05 23:08:51,220 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (29ms, 4643 bytes)
+2014-04-05 23:08:51,226 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (32ms, 361 bytes)
+2014-04-05 23:08:51,230 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (35ms, 10748 bytes)
+2014-04-05 23:08:51,233 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (39ms, 299 bytes)
+2014-04-05 23:08:51,515 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:08:51,523 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:08:51,532 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:08:51,538 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:08:51,540 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:08:51,555 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:08:51,553 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:08:51,542 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (27ms, 1700 bytes)
+2014-04-05 23:08:51,562 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:08:51,549 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (27ms, 2255 bytes)
+2014-04-05 23:08:51,555 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:08:51,551 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:08:51,559 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (26ms, 7587 bytes)
+2014-04-05 23:08:51,568 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (27ms, 709 bytes)
+2014-04-05 23:08:51,569 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (14ms, 9263 bytes)
+2014-04-05 23:08:51,575 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (23ms, 26896 bytes)
+2014-04-05 23:08:51,582 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (45ms, 46198 bytes)
+2014-04-05 23:08:51,586 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (23ms, 10409 bytes)
+2014-04-05 23:08:51,592 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (37ms, 12997 bytes)
+2014-04-05 23:08:51,596 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (45ms, 8458 bytes)
+2014-04-05 23:08:51,779 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:08:51,779 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:08:51,796 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (18ms, 57949 bytes)
+2014-04-05 23:08:51,801 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (20ms, 9637 bytes)
+2014-04-05 23:08:51,815 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:08:51,816 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:08:51,816 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:08:51,822 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:08:51,825 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:08:51,829 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (16ms, 4649 bytes)
+2014-04-05 23:08:51,835 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:08:51,835 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (20ms, 253 bytes)
+2014-04-05 23:08:51,842 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:08:51,842 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (26ms, 4376 bytes)
+2014-04-05 23:08:51,844 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (22ms, 361 bytes)
+2014-04-05 23:08:51,842 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:08:51,851 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (27ms, 1207 bytes)
+2014-04-05 23:08:51,855 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:08:51,859 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (24ms, 4767 bytes)
+2014-04-05 23:08:51,864 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (23ms, 3801 bytes)
+2014-04-05 23:08:51,869 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:08:51,875 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (32ms, 3485 bytes)
+2014-04-05 23:08:51,878 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (23ms, 15240 bytes)
+2014-04-05 23:08:51,882 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (14ms, 354 bytes)
+2014-04-05 23:08:52,036 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:08:52,039 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:08:52,042 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:08:52,046 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:08:52,049 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (11ms, 1774 bytes)
+2014-04-05 23:08:52,051 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:08:52,052 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:08:52,056 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (15ms, 289 bytes)
+2014-04-05 23:08:52,061 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (24ms, 2745 bytes)
+2014-04-05 23:08:52,065 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (20ms, 3457 bytes)
+2014-04-05 23:08:52,069 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (20ms, 1713 bytes)
+2014-04-05 23:08:52,075 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (23ms, 2450 bytes)
+2014-04-05 23:08:52,082 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:08:52,082 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:08:52,091 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (8ms, 6001 bytes)
+2014-04-05 23:08:52,098 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (15ms, 3121 bytes)
+2014-04-05 23:08:52,298 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:08:52,298 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:08:52,315 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (16ms, 5114 bytes)
+2014-04-05 23:08:52,326 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (28ms, 14939 bytes)
+2014-04-05 23:08:52,845 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:08:52,845 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:08:52,849 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:08:52,861 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (16ms, 2121 bytes)
+2014-04-05 23:08:52,869 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (19ms, 5992 bytes)
+2014-04-05 23:08:52,877 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (31ms, 5758 bytes)
+2014-04-05 23:08:53,147 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:08:53,150 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:08:53,148 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:08:53,150 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:08:53,151 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:08:53,157 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (12ms, 306 bytes)
+2014-04-05 23:08:53,164 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (15ms, 28976 bytes)
+2014-04-05 23:08:53,167 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (19ms, 3496 bytes)
+2014-04-05 23:08:53,174 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (25ms, 15045 bytes)
+2014-04-05 23:08:53,177 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (26ms, 5896 bytes)
+2014-04-05 23:08:53,296 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:08:53,296 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:08:53,301 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:08:53,302 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:08:53,312 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (15ms, 566 bytes)
+2014-04-05 23:08:53,316 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (16ms, 399 bytes)
+2014-04-05 23:08:53,322 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (25ms, 1689 bytes)
+2014-04-05 23:08:53,326 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (25ms, 5152 bytes)
+2014-04-05 23:08:53,417 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:08:53,415 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:08:53,421 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:08:53,421 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:08:53,436 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (19ms, 12664 bytes)
+2014-04-05 23:08:53,441 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (21ms, 1990 bytes)
+2014-04-05 23:08:53,446 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (30ms, 1725 bytes)
+2014-04-05 23:08:53,450 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (29ms, 3425 bytes)
+2014-04-05 23:08:53,706 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:08:53,707 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:08:53,724 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (18ms, 4116 bytes)
+2014-04-05 23:08:53,732 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (23ms, 3646 bytes)
+2014-04-05 23:09:06,003 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:09:06,038 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (35ms, 1376 bytes)
+2014-04-05 23:09:06,729 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:09:06,730 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:09:06,729 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:09:06,730 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:09:06,736 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (9ms, 62835 bytes)
+2014-04-05 23:09:06,739 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (9ms, 4233 bytes)
+2014-04-05 23:09:06,736 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (9ms, 11235 bytes)
+2014-04-05 23:09:06,740 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (11ms, 6078 bytes)
+2014-04-05 23:09:06,746 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:09:06,747 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:09:06,753 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (8ms, 15233 bytes)
+2014-04-05 23:09:06,759 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (12ms, 15525 bytes)
+2014-04-05 23:09:07,457 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:09:07,474 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (18ms, 2485 bytes)
+2014-04-05 23:09:08,084 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:09:08,092 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (8ms, 7120 bytes)
+2014-04-05 23:09:08,894 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:09:08,895 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:09:08,911 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (18ms, 12473 bytes)
+2014-04-05 23:09:08,917 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (21ms, 879 bytes)
+2014-04-05 23:09:09,430 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:09:09,436 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:09:09,434 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:09:09,438 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:09:09,437 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:09:09,438 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:09:09,451 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (22ms, 361 bytes)
+2014-04-05 23:09:09,457 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (23ms, 2167 bytes)
+2014-04-05 23:09:09,461 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (23ms, 10748 bytes)
+2014-04-05 23:09:09,464 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (29ms, 299 bytes)
+2014-04-05 23:09:09,470 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (31ms, 2170 bytes)
+2014-04-05 23:09:09,474 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (36ms, 4643 bytes)
+2014-04-05 23:09:10,029 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:09:10,029 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:09:10,038 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:09:10,046 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (17ms, 10076 bytes)
+2014-04-05 23:09:10,049 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (19ms, 235 bytes)
+2014-04-05 23:09:10,053 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (16ms, 7580 bytes)
+2014-04-05 23:09:10,338 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:09:10,338 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:09:10,355 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (17ms, 1700 bytes)
+2014-04-05 23:09:10,362 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:09:10,364 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:09:10,362 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (24ms, 2255 bytes)
+2014-04-05 23:09:10,374 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (12ms, 7587 bytes)
+2014-04-05 23:09:10,378 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (15ms, 3801 bytes)
+2014-04-05 23:09:10,713 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:09:10,716 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:09:10,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:09:10,730 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (16ms, 15240 bytes)
+2014-04-05 23:09:10,733 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (18ms, 354 bytes)
+2014-04-05 23:09:10,739 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (20ms, 2745 bytes)
+2014-04-05 23:09:10,756 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:09:10,757 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:09:10,773 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (17ms, 3457 bytes)
+2014-04-05 23:09:10,785 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (26ms, 1774 bytes)
+2014-04-05 23:09:11,131 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:09:11,132 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:09:11,148 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (16ms, 2450 bytes)
+2014-04-05 23:09:11,157 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (23ms, 1713 bytes)
+2014-04-05 23:09:12,720 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:09:12,737 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (16ms, 289 bytes)
+2014-04-05 23:09:13,233 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:09:13,233 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:09:13,253 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (20ms, 12997 bytes)
+2014-04-05 23:09:13,260 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (26ms, 361 bytes)
+2014-04-05 23:09:13,440 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:09:13,447 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (7ms, 4767 bytes)
+2014-04-05 23:09:13,703 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:09:13,703 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:09:13,710 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (8ms, 3485 bytes)
+2014-04-05 23:09:13,716 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (12ms, 253 bytes)
+2014-04-05 23:09:13,742 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:09:13,743 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:09:13,756 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (14ms, 709 bytes)
+2014-04-05 23:09:13,760 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (16ms, 4649 bytes)
+2014-04-05 23:09:13,966 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:09:13,976 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (11ms, 46198 bytes)
+2014-04-05 23:09:14,269 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:09:14,283 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (14ms, 4376 bytes)
+2014-04-05 23:09:14,542 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:09:14,553 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:09:14,555 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (12ms, 1207 bytes)
+2014-04-05 23:09:14,566 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (12ms, 26896 bytes)
+2014-04-05 23:09:14,802 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:09:14,802 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:09:14,812 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:09:14,815 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (14ms, 9263 bytes)
+2014-04-05 23:09:14,825 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (22ms, 10409 bytes)
+2014-04-05 23:09:14,831 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (18ms, 57949 bytes)
+2014-04-05 23:09:15,124 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:09:15,140 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (15ms, 9637 bytes)
+2014-04-05 23:09:15,920 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:09:15,927 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (8ms, 8458 bytes)
+2014-04-05 23:09:16,232 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:09:16,246 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (15ms, 6001 bytes)
+2014-04-05 23:09:16,494 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:09:16,496 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:09:16,496 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:09:16,506 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (12ms, 3121 bytes)
+2014-04-05 23:09:16,510 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (15ms, 14939 bytes)
+2014-04-05 23:09:16,516 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (20ms, 5114 bytes)
+2014-04-05 23:09:16,782 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:09:16,795 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (11ms, 2121 bytes)
+2014-04-05 23:09:17,104 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:09:17,121 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (18ms, 5758 bytes)
+2014-04-05 23:09:17,394 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:09:17,394 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:09:17,410 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (15ms, 566 bytes)
+2014-04-05 23:09:17,414 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (19ms, 1689 bytes)
+2014-04-05 23:09:17,453 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:09:17,454 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:09:17,470 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (16ms, 306 bytes)
+2014-04-05 23:09:17,494 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (39ms, 28976 bytes)
+2014-04-05 23:09:17,533 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:09:17,535 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:09:17,552 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (19ms, 15045 bytes)
+2014-04-05 23:09:17,562 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (26ms, 5896 bytes)
+2014-04-05 23:09:17,788 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:09:17,789 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:09:17,786 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:09:17,799 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (11ms, 5992 bytes)
+2014-04-05 23:09:17,805 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (14ms, 5152 bytes)
+2014-04-05 23:09:17,809 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (22ms, 3496 bytes)
+2014-04-05 23:09:17,864 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:09:17,865 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:09:17,881 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (16ms, 3425 bytes)
+2014-04-05 23:09:17,890 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (26ms, 12664 bytes)
+2014-04-05 23:09:18,114 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:09:18,115 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:09:18,131 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (17ms, 399 bytes)
+2014-04-05 23:09:18,138 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (23ms, 1725 bytes)
+2014-04-05 23:09:18,184 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:09:18,184 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:09:18,197 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (15ms, 1990 bytes)
+2014-04-05 23:09:18,203 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (19ms, 3646 bytes)
+2014-04-05 23:09:18,463 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:09:18,479 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (15ms, 4116 bytes)
+2014-04-05 23:10:27,342 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:10:27,375 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (33ms, 1376 bytes)
+2014-04-05 23:10:28,322 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:10:28,325 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:10:28,328 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (8ms, 4233 bytes)
+2014-04-05 23:10:28,335 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:10:28,336 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:10:28,338 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (12ms, 62835 bytes)
+2014-04-05 23:10:28,335 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:10:28,339 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (4ms, 6078 bytes)
+2014-04-05 23:10:28,342 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (6ms, 7120 bytes)
+2014-04-05 23:10:28,342 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (7ms, 11235 bytes)
+2014-04-05 23:10:28,635 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:10:28,651 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (17ms, 15525 bytes)
+2014-04-05 23:10:29,009 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:10:29,026 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (18ms, 15233 bytes)
+2014-04-05 23:10:30,207 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:10:30,221 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (14ms, 2485 bytes)
+2014-04-05 23:10:31,167 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:10:31,167 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:10:31,180 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (12ms, 879 bytes)
+2014-04-05 23:10:31,190 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (22ms, 12473 bytes)
+2014-04-05 23:10:31,730 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:10:31,732 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:10:31,733 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:10:31,734 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:10:31,733 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:10:31,740 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (10ms, 299 bytes)
+2014-04-05 23:10:31,744 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (13ms, 361 bytes)
+2014-04-05 23:10:31,752 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (18ms, 2167 bytes)
+2014-04-05 23:10:31,757 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (22ms, 2170 bytes)
+2014-04-05 23:10:31,763 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (30ms, 10748 bytes)
+2014-04-05 23:10:32,148 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:10:32,151 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:10:32,151 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:10:32,163 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (13ms, 4643 bytes)
+2014-04-05 23:10:32,167 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (16ms, 10076 bytes)
+2014-04-05 23:10:32,171 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (21ms, 7580 bytes)
+2014-04-05 23:10:32,420 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:10:32,421 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:10:32,437 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (16ms, 235 bytes)
+2014-04-05 23:10:32,444 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (23ms, 1700 bytes)
+2014-04-05 23:10:32,700 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:10:32,710 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (12ms, 2255 bytes)
+2014-04-05 23:10:32,796 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:10:32,796 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:10:32,812 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (16ms, 7587 bytes)
+2014-04-05 23:10:32,818 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (22ms, 3801 bytes)
+2014-04-05 23:10:32,950 - sauce_connect:0 - INFO - received SIGINT
+2014-04-05 23:13:09,191 - sauce_connect:575 - INFO - / Starting \
+2014-04-05 23:13:09,196 - sauce_connect:576 - INFO - Please wait for "You may start your tests" to start your tests.
+2014-04-05 23:13:09,203 - sauce_connect:588 - DEBUG - System is 5.5 hours off UTC
+2014-04-05 23:13:09,204 - sauce_connect:590 - DEBUG - options: {'user': 'razorflow', 'ports': ['33664'], 'no_ssl_bump_domains': '', 'domains': None, 'debug_ssh': False, 'tunnel_ports': ['80'], 'allow_unclean_exit': False, 'rest_url': 'https://saucelabs.com/rest/v1', 'logfile': 'sauce_connect.log', 'squid_opts': '', 'logfilesize': '31457280', 'boost_mode': True, 'tunnel_identifier': '165951777', 'fast_fail_regexps': '', 'vm_version': '', 'quiet': False, 'latency_log': 150, 'use_ssh_config': False, 'ssh': False, 'se_port': '4445', 'readyfile': None, 'shared_tunnel': False, 'ssh_port': 443, 'direct_domains': '', 'host': '127.0.0.1'}
+2014-04-05 23:13:09,207 - sauce_connect:591 - DEBUG - metadata: {'PythonVersion': '2.5.1', 'OwnerHost': '127.0.0.1', 'Release': '3.0-r30', 'OwnerPorts': ['33664'], 'Ports': ['80'], 'Platform': 'Java-1.7.0_51-OpenJDK_64-Bit_Server_VM,_24.45-b08,_Oracle_Corporation-on-Linux-3.11.0-12-generic-amd64', 'Build': '46', 'ScriptRelease': 46, 'ScriptName': 'sauce_connect'}
+2014-04-05 23:13:09,209 - sauce_connect:593 - INFO - Forwarding: None:['80'] -> 127.0.0.1:['33664']
+2014-04-05 23:13:09,219 - sauce_connect:385 - INFO - Succesfully connected to local server 127.0.0.1:33664 in 4ms
+2014-04-05 23:13:10,601 - sauce_connect:248 - INFO - {"no_ssl_bump_domains":null,"squid_config":null,"use_caching_proxy":true,"metadata":{"PythonVersion":"2.5.1","OwnerHost":"127.0.0.1","Release":"3.0-r30","OwnerPorts":["33664"],"Ports":["80"],"Platform":"Java-1.7.0_51-OpenJDK_64-Bit_Server_VM,_24.45-b08,_Oracle_Corporation-on-Linux-3.11.0-12-generic-amd64","Build":"46","ScriptRelease":46,"ScriptName":"sauce_connect"},"use_kgp":true,"tunnel_identifier":"165951777","shared_tunnel":false,"fast_fail_regexps":null,"ssh_port":443,"direct_domains":null,"vm_version":"","domain_names":[]}
+2014-04-05 23:13:14,219 - sauce_connect:260 - INFO - Tunnel remote VM is provisioned (4083d7044afd457a9a7f3ee8db66790c)
+2014-04-05 23:13:14,690 - sauce_connect:278 - INFO - Tunnel remote VM is booting ..
+2014-04-05 23:13:36,720 - sauce_connect:282 - INFO - Tunnel remote VM is running at maki76172.miso.saucelabs.com
+2014-04-05 23:13:36,749 - sauce_connect:385 - INFO - Succesfully connected to local server 127.0.0.1:33664 in 2ms
+2014-04-05 23:13:36,756 - sauce_connect:665 - INFO - Starting connection to tunnel host...
+2014-04-05 23:13:36,759 - sauce_connect:665 - INFO - Connecting to tunnel host maki76172.miso.saucelabs.com as razorflow
+2014-04-05 23:13:36,941 - sauce_connect:665 - INFO - Forwarding Selenium with ephemeral port 35293
+2014-04-05 23:13:36,966 - sauce_connect:665 - INFO - Selenium HTTP proxy listening on port 4445
+2014-04-05 23:13:38,635 - sauce_connect:0 - INFO - Successful handshake with Sauce Connect server
+2014-04-05 23:13:38,644 - sauce_connect:0 - INFO - Tunnel host version: 0.1.0, remote endpoint ID: e5459773f6624fd2a62fdefa87d7c21c
+2014-04-05 23:13:38,648 - sauce_connect:665 - INFO - Connected! You may start your tests.
+2014-04-05 23:13:48,684 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:13:48,737 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (53ms, 1376 bytes)
+2014-04-05 23:13:48,937 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:13:48,967 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (28ms, 1376 bytes)
+2014-04-05 23:13:49,069 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:13:49,071 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:13:49,072 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:13:49,075 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:13:49,088 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (17ms, 15525 bytes)
+2014-04-05 23:13:49,088 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (17ms, 62835 bytes)
+2014-04-05 23:13:49,089 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (9ms, 4233 bytes)
+2014-04-05 23:13:49,091 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (14ms, 11235 bytes)
+2014-04-05 23:13:49,210 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:13:49,224 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (12ms, 6078 bytes)
+2014-04-05 23:13:49,303 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:13:49,316 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:13:49,316 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (13ms, 5343 bytes)
+2014-04-05 23:13:49,332 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (15ms, 4233 bytes)
+2014-04-05 23:13:49,335 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:13:49,335 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:13:49,344 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (8ms, 62835 bytes)
+2014-04-05 23:13:49,349 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (14ms, 15525 bytes)
+2014-04-05 23:13:49,387 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:13:49,388 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:13:49,394 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:13:49,398 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (12ms, 11235 bytes)
+2014-04-05 23:13:49,401 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (8ms, 5343 bytes)
+2014-04-05 23:13:49,398 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (10ms, 6078 bytes)
+2014-04-05 23:13:49,480 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:13:49,492 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (11ms, 15233 bytes)
+2014-04-05 23:13:49,752 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:13:49,769 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (18ms, 2485 bytes)
+2014-04-05 23:13:50,329 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:13:50,349 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (20ms, 15233 bytes)
+2014-04-05 23:13:50,598 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:13:50,611 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (12ms, 2485 bytes)
+2014-04-05 23:13:50,900 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:13:50,901 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:13:50,918 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (19ms, 879 bytes)
+2014-04-05 23:13:50,937 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (36ms, 12473 bytes)
+2014-04-05 23:13:51,181 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:13:51,184 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:13:51,200 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (18ms, 879 bytes)
+2014-04-05 23:13:51,207 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (23ms, 12473 bytes)
+2014-04-05 23:13:51,230 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:13:51,232 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:13:51,247 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (17ms, 10748 bytes)
+2014-04-05 23:13:51,253 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (20ms, 361 bytes)
+2014-04-05 23:13:51,444 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:13:51,446 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:13:51,447 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:13:51,457 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (12ms, 299 bytes)
+2014-04-05 23:13:51,463 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (16ms, 2167 bytes)
+2014-04-05 23:13:51,469 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (21ms, 2170 bytes)
+2014-04-05 23:13:51,516 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:13:51,517 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:13:51,530 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (15ms, 4643 bytes)
+2014-04-05 23:13:51,533 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:13:51,539 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:13:51,542 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (24ms, 10748 bytes)
+2014-04-05 23:13:51,543 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:13:51,555 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (22ms, 299 bytes)
+2014-04-05 23:13:51,566 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (28ms, 2167 bytes)
+2014-04-05 23:13:51,572 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (30ms, 361 bytes)
+2014-04-05 23:13:51,792 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:13:51,793 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:13:51,802 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (10ms, 2170 bytes)
+2014-04-05 23:13:51,808 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (14ms, 4643 bytes)
+2014-04-05 23:13:51,928 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:13:51,933 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:13:51,938 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:13:51,930 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:13:51,947 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (20ms, 10076 bytes)
+2014-04-05 23:13:51,938 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:13:51,956 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:13:51,957 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (25ms, 235 bytes)
+2014-04-05 23:13:51,960 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:13:51,963 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (28ms, 3801 bytes)
+2014-04-05 23:13:51,970 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (39ms, 7580 bytes)
+2014-04-05 23:13:51,977 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (40ms, 15240 bytes)
+2014-04-05 23:13:51,983 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (27ms, 354 bytes)
+2014-04-05 23:13:51,989 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (29ms, 10076 bytes)
+2014-04-05 23:13:52,071 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:13:52,082 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (9ms, 7580 bytes)
+2014-04-05 23:13:52,105 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:13:52,108 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:13:52,121 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (16ms, 235 bytes)
+2014-04-05 23:13:52,131 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (22ms, 3801 bytes)
+2014-04-05 23:13:52,525 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:13:52,532 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:13:52,539 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:13:52,545 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (21ms, 15240 bytes)
+2014-04-05 23:13:52,546 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:13:52,548 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:13:52,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:13:52,555 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:13:52,556 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:13:52,559 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (20ms, 2745 bytes)
+2014-04-05 23:13:52,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:13:52,552 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:13:52,551 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (19ms, 354 bytes)
+2014-04-05 23:13:52,565 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (21ms, 1774 bytes)
+2014-04-05 23:13:52,571 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (22ms, 2450 bytes)
+2014-04-05 23:13:52,575 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (24ms, 3457 bytes)
+2014-04-05 23:13:52,581 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (27ms, 2745 bytes)
+2014-04-05 23:13:52,584 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (36ms, 289 bytes)
+2014-04-05 23:13:52,588 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (32ms, 3457 bytes)
+2014-04-05 23:13:52,592 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (42ms, 1713 bytes)
+2014-04-05 23:13:52,828 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:13:52,829 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:13:52,848 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (19ms, 1774 bytes)
+2014-04-05 23:13:52,854 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (23ms, 2450 bytes)
+2014-04-05 23:13:52,857 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:13:52,858 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:13:52,867 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (10ms, 1713 bytes)
+2014-04-05 23:13:52,872 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (14ms, 289 bytes)
+2014-04-05 23:13:52,938 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:13:52,940 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:13:52,944 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:13:52,953 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (15ms, 1700 bytes)
+2014-04-05 23:13:52,960 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (18ms, 2255 bytes)
+2014-04-05 23:13:52,966 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (21ms, 7587 bytes)
+2014-04-05 23:13:53,078 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:13:53,079 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:13:53,095 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (16ms, 12997 bytes)
+2014-04-05 23:13:53,101 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (20ms, 1700 bytes)
+2014-04-05 23:13:53,158 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:13:53,161 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:13:53,174 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (16ms, 4767 bytes)
+2014-04-05 23:13:53,180 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (18ms, 2255 bytes)
+2014-04-05 23:13:53,237 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:13:53,240 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:13:53,243 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:13:53,253 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (15ms, 361 bytes)
+2014-04-05 23:13:53,257 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (17ms, 7587 bytes)
+2014-04-05 23:13:53,262 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (19ms, 12997 bytes)
+2014-04-05 23:13:53,276 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:13:53,279 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:13:53,288 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (11ms, 4767 bytes)
+2014-04-05 23:13:53,292 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (15ms, 361 bytes)
+2014-04-05 23:13:53,358 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:13:53,362 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:13:53,375 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (17ms, 3485 bytes)
+2014-04-05 23:13:53,381 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (19ms, 253 bytes)
+2014-04-05 23:13:53,448 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:13:53,450 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:13:53,464 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (17ms, 4649 bytes)
+2014-04-05 23:13:53,470 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (20ms, 4376 bytes)
+2014-04-05 23:13:53,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:13:53,551 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:13:53,553 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:13:53,565 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (17ms, 3485 bytes)
+2014-04-05 23:13:53,569 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (20ms, 1207 bytes)
+2014-04-05 23:13:53,575 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (21ms, 709 bytes)
+2014-04-05 23:13:53,627 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:13:53,628 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:13:53,640 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (14ms, 253 bytes)
+2014-04-05 23:13:53,645 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (19ms, 4649 bytes)
+2014-04-05 23:13:53,710 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:13:53,711 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:13:53,726 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (17ms, 4376 bytes)
+2014-04-05 23:13:53,732 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (20ms, 1207 bytes)
+2014-04-05 23:13:53,809 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:13:53,811 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:13:53,812 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:13:53,822 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (14ms, 8458 bytes)
+2014-04-05 23:13:53,826 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (14ms, 8458 bytes)
+2014-04-05 23:13:53,834 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (23ms, 46198 bytes)
+2014-04-05 23:13:53,898 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:13:53,901 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:13:53,904 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:13:53,917 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (17ms, 9263 bytes)
+2014-04-05 23:13:53,914 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (16ms, 26896 bytes)
+2014-04-05 23:13:53,921 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (19ms, 709 bytes)
+2014-04-05 23:13:53,927 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:13:53,934 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:13:53,934 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (8ms, 10409 bytes)
+2014-04-05 23:13:53,944 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (9ms, 57949 bytes)
+2014-04-05 23:13:54,078 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:13:54,078 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:13:54,078 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:13:54,092 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (14ms, 46198 bytes)
+2014-04-05 23:13:54,095 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (17ms, 9263 bytes)
+2014-04-05 23:13:54,102 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (25ms, 26896 bytes)
+2014-04-05 23:13:54,108 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:13:54,109 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:13:54,118 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (11ms, 10409 bytes)
+2014-04-05 23:13:54,125 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (15ms, 57949 bytes)
+2014-04-05 23:13:54,155 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:13:54,167 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (11ms, 9637 bytes)
+2014-04-05 23:13:54,467 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:13:54,476 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (10ms, 6001 bytes)
+2014-04-05 23:13:54,657 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:13:54,657 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:13:54,664 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (9ms, 3121 bytes)
+2014-04-05 23:13:54,671 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (14ms, 14939 bytes)
+2014-04-05 23:13:54,796 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:13:54,805 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (8ms, 9637 bytes)
+2014-04-05 23:13:55,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:13:55,078 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (10ms, 5114 bytes)
+2014-04-05 23:13:55,348 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:13:55,365 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (16ms, 2121 bytes)
+2014-04-05 23:13:55,638 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:13:55,640 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:13:55,654 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (15ms, 6001 bytes)
+2014-04-05 23:13:55,658 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (19ms, 3121 bytes)
+2014-04-05 23:13:55,927 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:13:55,927 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:13:55,937 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (11ms, 14939 bytes)
+2014-04-05 23:13:55,941 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (14ms, 5114 bytes)
+2014-04-05 23:13:56,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:13:56,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:13:56,078 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (10ms, 2121 bytes)
+2014-04-05 23:13:56,084 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (15ms, 5758 bytes)
+2014-04-05 23:13:56,137 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:13:56,138 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:13:56,151 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (15ms, 566 bytes)
+2014-04-05 23:13:56,157 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (19ms, 1689 bytes)
+2014-04-05 23:13:56,187 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:13:56,201 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (15ms, 306 bytes)
+2014-04-05 23:13:56,338 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:13:56,339 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:13:56,354 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (15ms, 5758 bytes)
+2014-04-05 23:13:56,359 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (20ms, 28976 bytes)
+2014-04-05 23:13:56,371 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:13:56,374 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:13:56,378 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:13:56,384 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (14ms, 15045 bytes)
+2014-04-05 23:13:56,388 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (16ms, 566 bytes)
+2014-04-05 23:13:56,392 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (15ms, 1689 bytes)
+2014-04-05 23:13:56,417 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:13:56,420 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:13:56,434 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (16ms, 306 bytes)
+2014-04-05 23:13:56,447 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (27ms, 28976 bytes)
+2014-04-05 23:13:56,457 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:13:56,459 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:13:56,460 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:13:56,473 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (14ms, 15045 bytes)
+2014-04-05 23:13:56,476 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (18ms, 5896 bytes)
+2014-04-05 23:13:56,483 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (22ms, 3496 bytes)
+2014-04-05 23:13:56,638 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:13:56,641 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:13:56,654 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (15ms, 5992 bytes)
+2014-04-05 23:13:56,658 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (19ms, 399 bytes)
+2014-04-05 23:13:56,707 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:13:56,707 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:13:56,711 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:13:56,716 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (9ms, 5896 bytes)
+2014-04-05 23:13:56,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:13:56,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:13:56,721 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (14ms, 5152 bytes)
+2014-04-05 23:13:56,726 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (14ms, 3425 bytes)
+2014-04-05 23:13:56,730 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (13ms, 3496 bytes)
+2014-04-05 23:13:56,736 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (17ms, 5992 bytes)
+2014-04-05 23:13:56,937 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:13:56,938 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:13:56,954 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (17ms, 399 bytes)
+2014-04-05 23:13:56,960 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (21ms, 5152 bytes)
+2014-04-05 23:13:56,997 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:13:57,000 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:13:57,003 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:13:57,009 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (11ms, 12664 bytes)
+2014-04-05 23:13:57,013 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (15ms, 3425 bytes)
+2014-04-05 23:13:57,019 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (16ms, 1725 bytes)
+2014-04-05 23:13:57,026 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:13:57,028 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:13:57,040 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (13ms, 4116 bytes)
+2014-04-05 23:13:57,048 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (20ms, 1990 bytes)
+2014-04-05 23:13:57,249 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:13:57,250 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:13:57,256 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:13:57,257 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:13:57,262 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:13:57,263 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (16ms, 12664 bytes)
+2014-04-05 23:13:57,267 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (17ms, 3646 bytes)
+2014-04-05 23:13:57,273 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (17ms, 1725 bytes)
+2014-04-05 23:13:57,276 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:13:57,278 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (20ms, 1990 bytes)
+2014-04-05 23:13:57,283 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (22ms, 4116 bytes)
+2014-04-05 23:13:57,289 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (13ms, 3646 bytes)
+2014-04-05 23:14:23,138 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:14:23,164 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (26ms, 1376 bytes)
+2014-04-05 23:14:23,875 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:14:23,881 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:14:23,881 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (8ms, 4233 bytes)
+2014-04-05 23:14:23,882 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:14:23,887 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:14:23,888 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:14:23,890 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:14:23,891 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (9ms, 62835 bytes)
+2014-04-05 23:14:23,888 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (7ms, 5343 bytes)
+2014-04-05 23:14:23,900 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (12ms, 15525 bytes)
+2014-04-05 23:14:23,904 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (18ms, 2485 bytes)
+2014-04-05 23:14:23,905 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (16ms, 11235 bytes)
+2014-04-05 23:14:24,138 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:14:24,141 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:14:24,148 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (10ms, 6078 bytes)
+2014-04-05 23:14:24,160 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (20ms, 15233 bytes)
+2014-04-05 23:14:24,483 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:14:24,509 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (27ms, 1376 bytes)
+2014-04-05 23:14:27,569 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:14:27,572 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:14:27,573 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:14:27,575 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:14:27,572 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:14:27,582 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:14:27,579 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:14:27,585 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (11ms, 11235 bytes)
+2014-04-05 23:14:27,582 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (14ms, 879 bytes)
+2014-04-05 23:14:27,582 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/jquery.min.js
+2014-04-05 23:14:27,585 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (12ms, 6078 bytes)
+2014-04-05 23:14:27,585 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (15ms, 4233 bytes)
+2014-04-05 23:14:27,594 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (13ms, 15525 bytes)
+2014-04-05 23:14:27,595 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (22ms, 62835 bytes)
+2014-04-05 23:14:27,599 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (20ms, 5343 bytes)
+2014-04-05 23:14:27,601 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/jquery.min.js -> 200 (17ms, 96380 bytes)
+2014-04-05 23:14:27,746 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:14:27,747 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:14:27,763 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (17ms, 15233 bytes)
+2014-04-05 23:14:27,769 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (20ms, 2485 bytes)
+2014-04-05 23:14:27,851 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:14:27,854 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:14:27,868 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:14:27,871 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:14:27,871 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:14:27,874 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:14:27,880 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (26ms, 361 bytes)
+2014-04-05 23:14:27,874 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (20ms, 10748 bytes)
+2014-04-05 23:14:27,885 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:14:27,891 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (17ms, 2170 bytes)
+2014-04-05 23:14:27,894 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (22ms, 4643 bytes)
+2014-04-05 23:14:27,900 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (27ms, 2167 bytes)
+2014-04-05 23:14:27,904 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (37ms, 299 bytes)
+2014-04-05 23:14:27,910 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (25ms, 10076 bytes)
+2014-04-05 23:14:28,043 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:14:28,052 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:14:28,061 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (17ms, 7580 bytes)
+2014-04-05 23:14:28,065 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (13ms, 235 bytes)
+2014-04-05 23:14:29,288 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:14:29,289 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:14:29,296 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:14:29,301 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:14:29,306 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (18ms, 3801 bytes)
+2014-04-05 23:14:29,301 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:14:29,308 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:14:29,311 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:14:29,301 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:14:29,305 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:14:29,306 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (20ms, 15240 bytes)
+2014-04-05 23:14:29,315 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (18ms, 354 bytes)
+2014-04-05 23:14:29,305 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:14:29,322 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (21ms, 1774 bytes)
+2014-04-05 23:14:29,328 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (27ms, 2450 bytes)
+2014-04-05 23:14:29,334 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (26ms, 289 bytes)
+2014-04-05 23:14:29,338 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (27ms, 1700 bytes)
+2014-04-05 23:14:29,344 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (42ms, 1713 bytes)
+2014-04-05 23:14:29,348 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (45ms, 3457 bytes)
+2014-04-05 23:14:29,355 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (51ms, 2745 bytes)
+2014-04-05 23:14:29,387 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:14:29,388 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:14:29,400 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:14:29,407 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (20ms, 2255 bytes)
+2014-04-05 23:14:29,417 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (30ms, 7587 bytes)
+2014-04-05 23:14:29,424 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (25ms, 12473 bytes)
+2014-04-05 23:14:29,529 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:14:29,533 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:14:29,548 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:14:29,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:14:29,552 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (24ms, 879 bytes)
+2014-04-05 23:14:29,559 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:14:29,561 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:14:29,562 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:14:29,565 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (31ms, 3485 bytes)
+2014-04-05 23:14:29,568 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (19ms, 361 bytes)
+2014-04-05 23:14:29,578 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (18ms, 12997 bytes)
+2014-04-05 23:14:29,578 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (28ms, 4767 bytes)
+2014-04-05 23:14:29,582 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (22ms, 253 bytes)
+2014-04-05 23:14:29,588 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (25ms, 4649 bytes)
+2014-04-05 23:14:29,589 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:14:29,588 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:14:29,592 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:14:29,589 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:14:29,598 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:14:29,601 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:14:29,604 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (14ms, 8458 bytes)
+2014-04-05 23:14:29,605 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:14:29,607 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (14ms, 709 bytes)
+2014-04-05 23:14:29,611 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (21ms, 1207 bytes)
+2014-04-05 23:14:29,617 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (27ms, 4376 bytes)
+2014-04-05 23:14:29,621 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (22ms, 46198 bytes)
+2014-04-05 23:14:29,628 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (26ms, 26896 bytes)
+2014-04-05 23:14:29,631 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (25ms, 9263 bytes)
+2014-04-05 23:14:29,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:14:29,720 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:14:29,723 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:14:29,729 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:14:29,730 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:14:29,732 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (14ms, 10409 bytes)
+2014-04-05 23:14:29,734 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:14:29,740 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (20ms, 57949 bytes)
+2014-04-05 23:14:29,744 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (20ms, 9637 bytes)
+2014-04-05 23:14:29,749 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (20ms, 14939 bytes)
+2014-04-05 23:14:29,753 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (22ms, 3121 bytes)
+2014-04-05 23:14:29,756 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (23ms, 6001 bytes)
+2014-04-05 23:14:29,816 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:14:29,832 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (15ms, 5114 bytes)
+2014-04-05 23:14:29,931 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:14:29,933 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:14:29,930 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:14:29,940 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:14:29,943 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:14:29,944 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (13ms, 2167 bytes)
+2014-04-05 23:14:29,944 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:14:29,946 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:14:29,948 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:14:29,950 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (18ms, 306 bytes)
+2014-04-05 23:14:29,951 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:14:29,953 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:14:29,956 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (27ms, 10748 bytes)
+2014-04-05 23:14:29,957 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:14:29,960 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:14:29,963 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (21ms, 3496 bytes)
+2014-04-05 23:14:29,960 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:14:29,964 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:14:29,969 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (25ms, 5992 bytes)
+2014-04-05 23:14:29,960 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:14:29,959 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:14:29,974 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (35ms, 5896 bytes)
+2014-04-05 23:14:29,980 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (34ms, 10076 bytes)
+2014-04-05 23:14:29,984 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (35ms, 7580 bytes)
+2014-04-05 23:14:29,989 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (37ms, 2121 bytes)
+2014-04-05 23:14:29,993 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (39ms, 566 bytes)
+2014-04-05 23:14:29,996 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (41ms, 1689 bytes)
+2014-04-05 23:14:30,002 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (41ms, 361 bytes)
+2014-04-05 23:14:30,006 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (45ms, 5758 bytes)
+2014-04-05 23:14:30,012 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (46ms, 299 bytes)
+2014-04-05 23:14:30,016 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (55ms, 28976 bytes)
+2014-04-05 23:14:30,022 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (63ms, 15045 bytes)
+2014-04-05 23:14:30,098 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:14:30,096 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:14:30,099 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:14:30,111 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (13ms, 4643 bytes)
+2014-04-05 23:14:30,115 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (16ms, 235 bytes)
+2014-04-05 23:14:30,121 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (25ms, 2170 bytes)
+2014-04-05 23:14:30,476 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:14:30,477 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:14:30,486 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:14:30,493 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (15ms, 5152 bytes)
+2014-04-05 23:14:30,499 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (21ms, 12664 bytes)
+2014-04-05 23:14:30,503 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (16ms, 3425 bytes)
+2014-04-05 23:14:30,556 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:14:30,558 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:14:30,565 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (8ms, 1725 bytes)
+2014-04-05 23:14:30,566 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:14:30,568 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:14:30,566 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:14:30,572 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (14ms, 399 bytes)
+2014-04-05 23:14:30,578 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (11ms, 7587 bytes)
+2014-04-05 23:14:30,582 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (15ms, 1990 bytes)
+2014-04-05 23:14:30,585 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:14:30,586 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:14:30,588 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (22ms, 1700 bytes)
+2014-04-05 23:14:30,588 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:14:30,595 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (9ms, 2255 bytes)
+2014-04-05 23:14:30,601 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (16ms, 3801 bytes)
+2014-04-05 23:14:30,607 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:14:30,608 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:14:30,609 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:14:30,607 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (18ms, 15240 bytes)
+2014-04-05 23:14:30,617 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (9ms, 354 bytes)
+2014-04-05 23:14:30,618 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:14:30,619 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:14:30,624 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (13ms, 3457 bytes)
+2014-04-05 23:14:30,625 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:14:30,630 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:14:30,631 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:14:30,634 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (27ms, 2745 bytes)
+2014-04-05 23:14:30,632 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:14:30,634 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:14:30,638 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (20ms, 1713 bytes)
+2014-04-05 23:14:30,642 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (24ms, 1774 bytes)
+2014-04-05 23:14:30,647 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (21ms, 2450 bytes)
+2014-04-05 23:14:30,651 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (20ms, 8458 bytes)
+2014-04-05 23:14:30,655 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (25ms, 12997 bytes)
+2014-04-05 23:14:30,660 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (26ms, 4649 bytes)
+2014-04-05 23:14:30,664 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (33ms, 289 bytes)
+2014-04-05 23:14:30,710 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:14:30,711 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:14:30,707 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:14:30,723 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (14ms, 253 bytes)
+2014-04-05 23:14:30,729 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (17ms, 1207 bytes)
+2014-04-05 23:14:30,736 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (27ms, 4376 bytes)
+2014-04-05 23:14:30,736 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:14:30,736 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:14:30,746 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:14:30,746 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:14:30,750 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (13ms, 4116 bytes)
+2014-04-05 23:14:30,755 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (18ms, 3646 bytes)
+2014-04-05 23:14:30,759 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (13ms, 709 bytes)
+2014-04-05 23:14:30,765 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (17ms, 46198 bytes)
+2014-04-05 23:14:30,917 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:14:30,920 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:14:30,921 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:14:30,937 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (18ms, 361 bytes)
+2014-04-05 23:14:30,943 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (22ms, 3485 bytes)
+2014-04-05 23:14:30,947 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (30ms, 4767 bytes)
+2014-04-05 23:14:31,007 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:14:31,009 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:14:31,015 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:14:31,016 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:14:31,023 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:14:31,030 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (23ms, 9263 bytes)
+2014-04-05 23:14:31,032 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:14:31,032 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:14:31,033 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:14:31,030 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:14:31,030 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:14:31,038 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (24ms, 6001 bytes)
+2014-04-05 23:14:31,042 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (32ms, 26896 bytes)
+2014-04-05 23:14:31,048 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (30ms, 10409 bytes)
+2014-04-05 23:14:31,052 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (29ms, 9637 bytes)
+2014-04-05 23:14:31,058 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:14:31,062 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (29ms, 14939 bytes)
+2014-04-05 23:14:31,058 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:14:31,062 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:14:31,065 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:14:31,068 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (36ms, 5114 bytes)
+2014-04-05 23:14:31,072 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:14:31,075 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (46ms, 57949 bytes)
+2014-04-05 23:14:31,081 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (51ms, 3121 bytes)
+2014-04-05 23:14:31,085 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (55ms, 5758 bytes)
+2014-04-05 23:14:31,092 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (33ms, 2121 bytes)
+2014-04-05 23:14:31,096 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (38ms, 5992 bytes)
+2014-04-05 23:14:31,101 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (39ms, 28976 bytes)
+2014-04-05 23:14:31,108 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (42ms, 15045 bytes)
+2014-04-05 23:14:31,114 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (43ms, 5896 bytes)
+2014-04-05 23:14:31,257 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:14:31,259 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:14:31,263 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:14:31,278 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (20ms, 12473 bytes)
+2014-04-05 23:14:31,280 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (22ms, 3496 bytes)
+2014-04-05 23:14:31,286 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (24ms, 306 bytes)
+2014-04-05 23:14:31,517 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:14:31,519 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:14:31,535 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (17ms, 566 bytes)
+2014-04-05 23:14:31,542 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (23ms, 1689 bytes)
+2014-04-05 23:14:31,667 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:14:31,670 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:14:31,676 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:14:31,677 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:14:31,678 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:14:31,683 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (15ms, 399 bytes)
+2014-04-05 23:14:31,686 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (17ms, 1725 bytes)
+2014-04-05 23:14:31,693 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (17ms, 5152 bytes)
+2014-04-05 23:14:31,700 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (21ms, 12664 bytes)
+2014-04-05 23:14:31,704 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (26ms, 3425 bytes)
+2014-04-05 23:14:31,796 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:14:31,812 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (16ms, 1990 bytes)
+2014-04-05 23:14:31,867 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:14:31,868 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:14:31,884 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (17ms, 4116 bytes)
+2014-04-05 23:14:31,892 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (23ms, 12473 bytes)
+2014-04-05 23:14:32,107 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:14:32,124 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (16ms, 3646 bytes)
+2014-04-05 23:14:46,158 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/dev/test/footest
+2014-04-05 23:14:46,191 - sauce_connect:0 - INFO - GET http://localhost:8080/dev/test/footest -> 200 (32ms, 1376 bytes)
+2014-04-05 23:14:46,713 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.css
+2014-04-05 23:14:46,713 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine.js
+2014-04-05 23:14:46,720 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-html.js
+2014-04-05 23:14:46,720 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.css -> 200 (7ms, 4233 bytes)
+2014-04-05 23:14:46,723 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine.js -> 200 (11ms, 62835 bytes)
+2014-04-05 23:14:46,723 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-html.js -> 200 (4ms, 11235 bytes)
+2014-04-05 23:14:47,003 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/boot.js
+2014-04-05 23:14:47,006 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js
+2014-04-05 23:14:47,006 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css
+2014-04-05 23:14:47,009 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/jasmine-jsreporter.js -> 200 (5ms, 5343 bytes)
+2014-04-05 23:14:47,009 - sauce_connect:0 - INFO - GET http://localhost:8080/static/jasmine/boot.js -> 200 (7ms, 6078 bytes)
+2014-04-05 23:14:47,016 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrfBuild/tmp/razorflow.css -> 200 (8ms, 15525 bytes)
+2014-04-05 23:14:47,266 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js
+2014-04-05 23:14:47,266 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js
+2014-04-05 23:14:47,280 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/require.min.js -> 200 (16ms, 15233 bytes)
+2014-04-05 23:14:47,288 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/dev/requireConfig.js -> 200 (22ms, 2485 bytes)
+2014-04-05 23:14:49,900 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/favicon.ico
+2014-04-05 23:14:49,901 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/main.js
+2014-04-05 23:14:49,923 - sauce_connect:0 - INFO - GET http://localhost:8080/favicon.ico -> 404 (23ms, 12473 bytes)
+2014-04-05 23:14:49,927 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/main.js -> 200 (25ms, 879 bytes)
+2014-04-05 23:14:50,703 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js
+2014-04-05 23:14:50,704 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js
+2014-04-05 23:14:50,706 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js
+2014-04-05 23:14:50,721 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dashboard.js -> 200 (18ms, 10748 bytes)
+2014-04-05 23:14:50,730 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/embeddeddashboard.js -> 200 (26ms, 299 bytes)
+2014-04-05 23:14:50,734 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/standalonedashboard.js -> 200 (28ms, 361 bytes)
+2014-04-05 23:14:50,970 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js
+2014-04-05 23:14:50,970 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js
+2014-04-05 23:14:50,970 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js
+2014-04-05 23:14:50,986 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/tablecomponent.js -> 200 (16ms, 4643 bytes)
+2014-04-05 23:14:50,999 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/gaugecomponent.js -> 200 (29ms, 2170 bytes)
+2014-04-05 23:14:50,999 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponent.js -> 200 (28ms, 2167 bytes)
+2014-04-05 23:14:51,049 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js
+2014-04-05 23:14:51,049 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js
+2014-04-05 23:14:51,065 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/chartcomponent.js -> 200 (15ms, 10076 bytes)
+2014-04-05 23:14:51,076 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/filtercomponent.js -> 200 (25ms, 7580 bytes)
+2014-04-05 23:14:51,255 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/globals.js
+2014-04-05 23:14:51,269 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/globals.js -> 200 (15ms, 235 bytes)
+2014-04-05 23:14:51,375 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js
+2014-04-05 23:14:51,374 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js
+2014-04-05 23:14:51,394 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/generated/templates.js -> 200 (19ms, 15240 bytes)
+2014-04-05 23:14:51,398 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/rfclass.js -> 200 (25ms, 3801 bytes)
+2014-04-05 23:14:51,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js
+2014-04-05 23:14:51,549 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js
+2014-04-05 23:14:51,562 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/layoutmanager.js -> 200 (14ms, 2745 bytes)
+2014-04-05 23:14:51,569 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/positionutils.js -> 200 (20ms, 354 bytes)
+2014-04-05 23:14:51,618 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/media.js
+2014-04-05 23:14:51,619 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js
+2014-04-05 23:14:51,635 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/media.js -> 200 (17ms, 3457 bytes)
+2014-04-05 23:14:51,642 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/helpers/mediahelper.js -> 200 (22ms, 1774 bytes)
+2014-04-05 23:14:51,813 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js
+2014-04-05 23:14:51,829 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/componentconstants.js -> 200 (16ms, 2450 bytes)
+2014-04-05 23:14:51,924 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js
+2014-04-05 23:14:51,924 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js
+2014-04-05 23:14:51,940 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/browserutils.js -> 200 (16ms, 1713 bytes)
+2014-04-05 23:14:51,951 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/componentutils.js -> 200 (27ms, 289 bytes)
+2014-04-05 23:14:52,071 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js
+2014-04-05 23:14:52,072 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js
+2014-04-05 23:14:52,078 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js
+2014-04-05 23:14:52,092 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/properties.js -> 200 (18ms, 7587 bytes)
+2014-04-05 23:14:52,098 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/sortingcore.js -> 200 (21ms, 361 bytes)
+2014-04-05 23:14:52,102 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/tablerenderer.js -> 200 (32ms, 4767 bytes)
+2014-04-05 23:14:52,736 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js
+2014-04-05 23:14:52,737 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js
+2014-04-05 23:14:52,739 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js
+2014-04-05 23:14:52,740 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/components/component.js
+2014-04-05 23:14:52,747 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/table/paginationcore.js -> 200 (12ms, 3485 bytes)
+2014-04-05 23:14:52,753 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/errorutils.js -> 200 (15ms, 253 bytes)
+2014-04-05 23:14:52,757 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/kpicomponentcore.js -> 200 (19ms, 1700 bytes)
+2014-04-05 23:14:52,763 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/components/component.js -> 200 (24ms, 12997 bytes)
+2014-04-05 23:14:53,003 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js
+2014-04-05 23:14:53,005 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js
+2014-04-05 23:14:53,006 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js
+2014-04-05 23:14:53,007 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js
+2014-04-05 23:14:53,013 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/core/dbregistry.js -> 200 (9ms, 709 bytes)
+2014-04-05 23:14:53,020 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/d3.rf.js -> 200 (16ms, 46198 bytes)
+2014-04-05 23:14:53,023 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/kpirenderer.js -> 200 (21ms, 2255 bytes)
+2014-04-05 23:14:53,028 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/filterrenderer.js -> 200 (20ms, 8458 bytes)
+2014-04-05 23:14:53,253 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js
+2014-04-05 23:14:53,255 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js
+2014-04-05 23:14:53,269 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/chartrenderer.js -> 200 (16ms, 4649 bytes)
+2014-04-05 23:14:53,279 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js
+2014-04-05 23:14:53,283 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/numberformatter.js -> 200 (28ms, 4376 bytes)
+2014-04-05 23:14:53,295 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/assert.js -> 200 (16ms, 1207 bytes)
+2014-04-05 23:14:53,539 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js
+2014-04-05 23:14:53,540 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js
+2014-04-05 23:14:53,558 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/lodash.min.js -> 200 (17ms, 26896 bytes)
+2014-04-05 23:14:53,568 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/modernizr.rf.js -> 200 (27ms, 9263 bytes)
+2014-04-05 23:14:53,898 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js
+2014-04-05 23:14:53,914 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/spin.js -> 200 (16ms, 10409 bytes)
+2014-04-05 23:14:53,920 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js
+2014-04-05 23:14:53,920 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js
+2014-04-05 23:14:53,934 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/zepto.min.js -> 200 (14ms, 57949 bytes)
+2014-04-05 23:14:53,941 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/vendor/js/ua-parser.min.js -> 200 (21ms, 9637 bytes)
+2014-04-05 23:14:54,170 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js
+2014-04-05 23:14:54,170 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js
+2014-04-05 23:14:54,173 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js
+2014-04-05 23:14:54,186 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertybase.js -> 200 (17ms, 14939 bytes)
+2014-04-05 23:14:54,190 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/propertylist.js -> 200 (19ms, 5114 bytes)
+2014-04-05 23:14:54,194 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/componentrenderer.js -> 200 (21ms, 6001 bytes)
+2014-04-05 23:14:54,437 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js
+2014-04-05 23:14:54,453 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/paginationrenderer.js -> 200 (16ms, 1689 bytes)
+2014-04-05 23:14:54,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js
+2014-04-05 23:14:54,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js
+2014-04-05 23:14:54,733 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/renderers/table/sortingrenderer.js -> 200 (16ms, 566 bytes)
+2014-04-05 23:14:54,740 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/messages/errormessages.js -> 200 (22ms, 306 bytes)
+2014-04-05 23:14:55,375 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js
+2014-04-05 23:14:55,394 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/datasource.js -> 200 (16ms, 2121 bytes)
+2014-04-05 23:14:55,717 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js
+2014-04-05 23:14:55,719 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js
+2014-04-05 23:14:55,720 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js
+2014-04-05 23:14:55,720 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js
+2014-04-05 23:14:55,723 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js
+2014-04-05 23:14:55,723 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js
+2014-04-05 23:14:55,730 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/modalutils.js -> 200 (14ms, 5758 bytes)
+2014-04-05 23:14:55,736 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfkpi.js -> 200 (18ms, 3121 bytes)
+2014-04-05 23:14:55,740 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/wrapgenius.js -> 200 (20ms, 5896 bytes)
+2014-04-05 23:14:55,744 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfpiechart.js -> 200 (25ms, 15045 bytes)
+2014-04-05 23:14:55,750 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfchart.js -> 200 (27ms, 28976 bytes)
+2014-04-05 23:14:55,755 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/datepicker.js -> 200 (30ms, 5992 bytes)
+2014-04-05 23:14:56,061 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js
+2014-04-05 23:14:56,063 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js
+2014-04-05 23:14:56,068 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/data/query.js
+2014-04-05 23:14:56,073 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/dataformatter.js -> 200 (13ms, 3496 bytes)
+2014-04-05 23:14:56,079 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/data/query.js -> 200 (12ms, 1990 bytes)
+2014-04-05 23:14:56,085 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/prop/proputils.js -> 200 (22ms, 1725 bytes)
+2014-04-05 23:14:56,404 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js
+2014-04-05 23:14:56,405 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js
+2014-04-05 23:14:56,421 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/iconutils.js -> 200 (17ms, 399 bytes)
+2014-04-05 23:14:56,430 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/internallayoutmanager.js -> 200 (25ms, 5152 bytes)
+2014-04-05 23:14:56,747 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js
+2014-04-05 23:14:56,752 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js
+2014-04-05 23:14:56,752 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js
+2014-04-05 23:14:56,766 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/constants/kpilayoutconstants.js -> 200 (18ms, 3425 bytes)
+2014-04-05 23:14:56,776 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rfgauge.js -> 200 (24ms, 12664 bytes)
+2014-04-05 23:14:56,782 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/utils/graphicutils.js -> 200 (29ms, 3646 bytes)
+2014-04-05 23:14:57,092 - sauce_connect:0 - INFO - Request started: GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js
+2014-04-05 23:14:57,107 - sauce_connect:0 - INFO - GET http://localhost:8080/devStatic/jsrf/js/graphics/rftooltip.js -> 200 (14ms, 4116 bytes)
+2014-04-05 23:15:12,246 - sauce_connect:0 - INFO - received SIGTERM
