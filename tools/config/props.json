@@ -175,7 +175,21 @@
             	"type": "string",
             	"default": true,
             	"shortDesc" : "Specifies if the component is zoomable."
-            }
+            },
+            "breadCrumbs": {
+				"type": "PropertyList",
+				"class": "BreadCrumbProperties",
+				"shortDesc" : "List of items to have a breadcrumbs"
+			}
+		}
+	},
+	"BreadCrumbProperties": {
+		"base": "PropertyBase",
+		"properties": {
+			"url": {
+				"type": "string",
+				"default": null
+			}
 		}
 	},
 	"ComponentDimensionProperties": {
