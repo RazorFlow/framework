@@ -30,6 +30,7 @@ class DevDashboardController {
 		$examples['js']['demos'] = $this->find('js', 'demos', 'js');
 		$examples['js']['examples'] = $this->find('js', 'examples', 'js');
 		$examples['js']['testcases'] = $this->find('js', 'testcases', 'js');
+		$examples['js']['tests'] = $this->find('js', 'tests', 'js');
 
 		$examples['php']['demos'] = $this->find('php', 'demos', 'php');
 		$examples['php']['examples'] = $this->find('php', 'examples', 'php');
@@ -87,8 +88,18 @@ class DevDashboardController {
 	public function testJSExample (Request $request, Application $app, $id) {
 		global $rfExampleConfig;
 		$examples = $this->buildExampleArray ();
+		$fileContents = "";
 
-		$fileContents = file_get_contents($rfExampleConfig['examplePaths']['js']['test'].'/'.$id.'.js');
+		if($id === "all") {
+			foreach ($examples['js']['tests'] as $item) {
+				$fileContents .= file_get_contents($rfExampleConfig['examplePaths']['js']['tests'].'/'.$item['basename'].'.js');
+				$fileContents .=";\n\n";
+			}
+		}
+		else {
+			$fileContents = file_get_contents($rfExampleConfig['examplePaths']['js']['tests'].'/'.$id.'.js');
+		}
+
 
 		return $app['twig']->render('dev/jsTest.twig', array(
 			'id' => $id,

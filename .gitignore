@@ -8,3 +8,4 @@ lib/phprf
 *.pyc
 .DS_Store
 npm-debug.log
+sauce_connect.log

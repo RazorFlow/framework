@@ -80,9 +80,9 @@ module.exports = function (grunt) {
             }
         },
         'saucelabs-jasmine': {
-            all: {
+            modern: {
                 options: {
-                    urls: ["http://localhost:8080/dev/test/footest"],
+                    urls: ["http://localhost:8080/dev/test/all"],
                     tunnelTimeout: 5,
                     concurrency: 3,
                     browsers: browsers
@@ -100,4 +100,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', ["clean:staticFiles", "clean:phpLib", "copyto:jsrfToLocal", "copyto:phprfToLocal"])
     grunt.registerTask('screenshots', ["clean:screenshots", "screenshotGen:jsExamples", "screenshotGen:phpExamples"]);
+
+    grunt.registerTask('slowTests', ["saucelabs-jasmine:modern"]);
 }
