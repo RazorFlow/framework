@@ -562,7 +562,31 @@
 				"default": null,
 				"shortDesc" : "Width of the cell in the table.",
 				"public": true
-			}
+			},
+      "textAlign": {
+        "type": "string",
+        "default": null,
+        "shortDesc": "Text alignment of the column cells",
+        "public": true
+      },
+      "textBoldFlag": {
+        "type": "boolean",
+        "default": false,
+        "shortDesc": "Whether text needs to be bolder",
+        "public": true
+      },
+      "textItalicFlag": {
+        "type": "boolean",
+        "default": false,
+        "shortDesc": "Whether text needs to be italized",
+        "public": true
+      },
+      "rawHTML": {
+        "type": "boolean",
+        "default": false,
+        "shortDesc": "Whether raw html needs to be rendered. It will be escaped by default.",
+        "public": true
+      }
 		}
 	},
 	"FilterComponentProperties": {
