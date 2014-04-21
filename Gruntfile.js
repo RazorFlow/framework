@@ -38,6 +38,14 @@ module.exports = function (grunt) {
                 files: {
                     "build/tmp/razorflow.css": "src/less/razorflow.less"
                 }
+            },
+            newdesign: {
+                options: {
+                    paths: ['src/dev/newdesign/less']
+                },
+                files: {
+                    "src/dev/newdesign/css/razorflow.css":  "src/dev/newdesign/less/razorflow.less"
+                }
             }
         },
         jshint: {
