@@ -3,5 +3,9 @@
   "version": "0.0.1",
   "description": "Yet Another Charting System",
   "author": "Ameen Ahmed(ameen@razorflow.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-less": "^0.11.0"
+  }
 }
