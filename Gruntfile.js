@@ -112,6 +112,11 @@ module.exports = function (grunt) {
                 files: [
                     {cwd: 'src/package/', src: ['**'], dest: '../package/rf/javascript/'}
                 ]
+            },
+            razorcharts: {
+                files: [
+                    {cwd: '../razorcharts/src/js', src:['**'], dest: 'src/js/'}
+                ]
             }
         },
         replace: {
