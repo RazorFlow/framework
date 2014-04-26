@@ -1,0 +1,6 @@
+{
+	"name": "razorflow/newsite",
+	"require": {
+		"kriswallsmith/assetic": "*"
+	},
+}
