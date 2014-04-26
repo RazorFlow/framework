@@ -91,19 +91,19 @@
                         lang: {
                             "js": {
                                 src: ["../jsrf/src/js/components/*.js"],
-                                out: "../webrf/backend/docs/dashboard/api/js/",
+                                out: "../newsite/src/docs/dashboard/api/js/",
                                 relativeLinkPath: "api/js/"
                             },
                             "php": {
                                 src: ["../phprf/src/lib/components/*.php"],
-                                out: "../webrf/backend/docs/dashboard/api/php/",
+                                out: "../newsite/src/docs/dashboard/api/php/",
                                 relativeLinkPath: "api/php/"
                             }
                         }
                     },
                     linkPrefix: "/docs",
-                    out: "../webrf/backend/docs/dashboard/",
-                    suffix: "html",
+                    out: "../newsite/src/docs/dashboard/",
+                    suffix: "php",
                     /*
                     base.ejs
                     article.ejs
