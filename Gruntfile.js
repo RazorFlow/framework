@@ -38,7 +38,7 @@
                                 relativeLinkPath: "api/js/"
                             },
                             "php": {
-                                src: ["../phprf/src/lib/components/*.php"],
+                                src: ["../phprf/src/lib/components/*.php", "../phprf/src/lib/util/*.php"],
                                 out: "build/docs/api/php",
                                 relativeLinkPath: "api/php/"
                             }
@@ -95,7 +95,7 @@
                                 relativeLinkPath: "api/js/"
                             },
                             "php": {
-                                src: ["../phprf/src/lib/components/*.php"],
+                                src: ["../phprf/src/lib/components/*.php", "../phprf/src/lib/util/*.php"],
                                 out: "../newsite/src/docs/dashboard/api/php/",
                                 relativeLinkPath: "api/php/"
                             }
