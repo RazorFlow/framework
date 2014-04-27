@@ -10,3 +10,6 @@ node_modules/
 .DS_Store
 build
 backend/docs
+composer.phar
+composer.lock
+vendor/

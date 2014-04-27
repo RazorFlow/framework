@@ -1,6 +1,8 @@
 {
 	"name": "razorflow/newsite",
 	"require": {
-		"kriswallsmith/assetic": "*"
-	},
+		"kriswallsmith/assetic": "*",
+		"guzzlehttp/guzzle": "4.*"
+
+	}
 }
