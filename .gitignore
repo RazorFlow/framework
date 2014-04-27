@@ -12,4 +12,3 @@ build
 backend/docs
 composer.phar
 composer.lock
-vendor/
