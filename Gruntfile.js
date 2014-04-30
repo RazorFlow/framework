@@ -117,6 +117,16 @@ module.exports = function (grunt) {
                 files: [
                     {cwd: '../razorcharts/src/js', src:['**'], dest: 'src/js/'}
                 ]
+            },
+            spriteDev: {
+                files: [
+                    {cwd: 'src/img/', src:['**'], dest: 'build/tmp/'}
+                ]
+            },
+            spriteProd: {
+                files: [
+                    {cwd: 'src/img/', src:['**'], dest: 'build/assets/img/'}
+                ]
             }
         },
         replace: {
@@ -150,10 +160,10 @@ module.exports = function (grunt) {
 
 
     
-    grunt.registerTask('compile', ['less', 'jst:compile']);
+    grunt.registerTask('compile', ['less', 'jst:compile', 'copyto:spriteDev']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild"])
+    grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
     grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage'])
     // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
