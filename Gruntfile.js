@@ -127,6 +127,14 @@ module.exports = function (grunt) {
                 files: [
                     {cwd: 'src/img/', src:['**'], dest: 'build/assets/img/'}
                 ]
+            },
+            themebuilder: {
+                files: [
+                    {cwd: 'build/assets/', src: ["js/**"], dest: 'src/dev/themebuilder/vendor/js/'},
+                    {cwd: 'build/tmp/', src: ["**"], dest: 'src/dev/themebuilder/vendor/css/'},
+                    {cwd: 'src/less/', src: ["**"], dest: 'src/dev/themebuilder/vendor/less/'},
+
+                ]
             }
         },
         replace: {
@@ -160,7 +168,7 @@ module.exports = function (grunt) {
 
 
     
-    grunt.registerTask('compile', ['less', 'jst:compile', 'copyto:spriteDev']);
+    grunt.registerTask('compile', ['less', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
