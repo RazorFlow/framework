@@ -130,7 +130,7 @@ module.exports = function (grunt) {
             },
             themebuilder: {
                 files: [
-                    {cwd: 'build/assets/', src: ["js/**"], dest: 'src/dev/themebuilder/vendor/js/'},
+                    {cwd: 'build/assets/js/', src: ["**"], dest: 'src/dev/themebuilder/vendor/js/'},
                     {cwd: 'build/tmp/', src: ["**"], dest: 'src/dev/themebuilder/vendor/css/'},
                     {cwd: 'src/less/', src: ["**"], dest: 'src/dev/themebuilder/vendor/less/'},
 
