@@ -46,6 +46,14 @@ module.exports = function (grunt) {
                 files: {
                     "src/dev/newdesign/css/razorflow.css":  "src/dev/newdesign/less/razorflow.less"
                 }
+            },
+            themebuilder: {
+                options: {
+                    paths: ['src/dev/themebuilder/less']
+                },
+                files: {
+                    "src/dev/themebuilder/css/themebuilder.css" : "src/dev/themebuilder/less/themebuilder.less"
+                }
             }
         },
         jshint: {
