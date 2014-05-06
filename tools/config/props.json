@@ -83,6 +83,42 @@
 				"type": "PropertyBase",
 				"class": "ComponentDataProperties",
 				"shortDesc" : "Component data."
+			},
+			"kpis": {
+				"type": "PropertyList",
+				"class": "ComponentKPIProperties",
+				"shortDesc": "Mini KPIs"
+			}
+		}
+	},
+	"ComponentKPIProperties": {
+		"shortDesc" : "Contains Mini KPI properties",
+		"base" : "ComponentDataProperties",
+		"properties" : {
+			"caption": {
+				"type": "string",
+				"default": "text",
+				"shortDesc": "Caption for Mini KPI"
+			},
+			"value": {
+				"type": "string",
+				"default": "text",
+				"shortDesc": "Value for Mini KPI"
+			},
+			"textColor": {
+				"type": "string",
+				"default": "auto",
+				"shortDesc": "text color for Mini KPI"
+			},
+			"Width": {
+				"type": "number",
+				"default": 2,
+				"shortDesc": "width for Mini KPI"
+			},
+			"activeFlag": {
+				"type": "boolean",
+				"default": true,
+				"shortDesc": "boolean flag to check if Mini KPI is active"
 			}
 		}
 	},
