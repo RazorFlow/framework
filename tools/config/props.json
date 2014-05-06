@@ -187,6 +187,16 @@
 				"default": "",
 				"shortDesc" : "Caption to the component."
 			},
+			"icon": {
+				"type": "string",
+				"default": null,
+				"shortDesc": "Icon to show in caption"
+			},
+			"iconprops": {
+				"type": "string",
+				"default": null,
+				"shortDesc": "Component icon properties"
+			},
             "absolutePosition": {
                 "type": "boolean",
                 "default": false,
