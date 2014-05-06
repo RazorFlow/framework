@@ -370,8 +370,17 @@
 				"type" : "string",
 				"default" : null,
 				"shortDesc" : "Specifies wether an indicator should be displayed or not."
+			},
+			"icon": {
+				"type": "string",
+				"default": null,
+				"shortDesc": "Specifies an icon to show in the kpi"
+			},
+			"iconprops": {
+				"type": "string",
+				"default": null,
+				"shortDesc": "Properties of the icon"
 			}
-
 		}
 	},
 	"RFRangeProperties": {
