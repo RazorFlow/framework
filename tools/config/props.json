@@ -93,7 +93,7 @@
 	},
 	"ComponentKPIProperties": {
 		"shortDesc" : "Contains Mini KPI properties",
-		"base" : "ComponentDataProperties",
+		"base" : "DataColumnProperties",
 		"properties" : {
 			"caption": {
 				"type": "string",
@@ -105,10 +105,15 @@
 				"default": "text",
 				"shortDesc": "Value for Mini KPI"
 			},
-			"textColor": {
+			"captioncolor": {
 				"type": "string",
-				"default": "auto",
-				"shortDesc": "text color for Mini KPI"
+				"default": null,
+				"shortDesc": "caption color for Mini KPI"
+			},
+			"valuecolor": {
+				"type": "string",
+				"default": null,
+				"shortDesc": "value color for Mini KPI"
 			},
 			"Width": {
 				"type": "number",
@@ -119,6 +124,16 @@
 				"type": "boolean",
 				"default": true,
 				"shortDesc": "boolean flag to check if Mini KPI is active"
+			},
+			"icon": {
+				"type": "string",
+				"default": null,
+				"shortDesc": "Icon for the value"
+			},
+			"iconprops": {
+				"type": "string",
+				"default": "{}",
+				"shortDesc": "properties of the icon"
 			}
 		}
 	},
