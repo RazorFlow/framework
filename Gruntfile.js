@@ -46,6 +46,11 @@ module.exports = function (grunt) {
                 files: {
                     "src/dev/newdesign/css/razorflow.css":  "src/dev/newdesign/less/razorflow.less"
                 }
+            },
+            theme: {
+                files: {
+                    "build/tmp/rftheme.default.css": "build/tmp/less/rftheme.default.less"
+                }
             }
         },
         jshint: {
@@ -147,6 +152,14 @@ module.exports = function (grunt) {
         },
         clean: {
             build: ["build"]
+        },
+        themegen: {
+            defaultTheme: {
+                options: {
+                    themeJSON: "src/js/generated/defaulttheme.json",
+                    out: "build/tmp/less/rftheme.default.less"
+                }
+            }
         }
     });
 
@@ -166,7 +179,7 @@ module.exports = function (grunt) {
 
 
     
-    grunt.registerTask('compile', ['less', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
+    grunt.registerTask('compile', ['themegen', 'less', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])

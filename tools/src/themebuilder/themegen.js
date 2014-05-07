@@ -1,6 +1,6 @@
 (function() {
 	var themegen = {
-		generateTheme: function (themeObject, defaultVariables, themeLessSourceCode, less, callback) {
+		generateTheme: function (themeObject, defaultVariables, themeLessSourceCode, callback) {
 			var newVariables = themegen.convertStringToObject(defaultVariables)
 			
 			for(var key in newVariables){
