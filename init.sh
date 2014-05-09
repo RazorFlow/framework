@@ -24,3 +24,6 @@ git clone git@bitbucket.org:razorflow/newsite.git newsite
 
 echo "Cloning Examples"
 git clone git@github.com:razorflow/examples.git examples
+
+echo "Cloning razorcharts"
+git clone git@bitbucket.org:razorflow/razorcharts.git razorcharts
