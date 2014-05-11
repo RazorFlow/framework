@@ -141,6 +141,15 @@ module.exports = function (grunt) {
         },
         clean: {
             build: ["build"]
+        },
+        featuregen: {
+            getFeature: {
+                options: {
+                    files: "src/js/components/*.js",
+                    out: "build/out.html",
+                    extension: ".js"
+                }
+            }
         }
     });
 

@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var fs = require('fs');
 var path = require ('path');
-var screenshot = require('url-to-screenshot');
+// var screenshot = require('url-to-screenshot');
 
 
 module.exports = function(grunt) {
