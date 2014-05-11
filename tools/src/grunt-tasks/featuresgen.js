@@ -27,6 +27,7 @@ module.exports = function(grunt) {
       str += "<tr><th>Feature</th><th>JS</th><th>PHP</th><th>JSDocs</th><th>PHPDocs</th></tr>";
       for (var key in features) {
         str += "<tr>";
+        str += "<td>" + key + "</td>";
         for (var sub in features[key]) {
           str += "<td>" + features[key][sub] + "</td>";
         }
