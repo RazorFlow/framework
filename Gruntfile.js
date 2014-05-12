@@ -136,7 +136,7 @@ module.exports = function (grunt) {
             themebuilder: {
                 files: [
                     {cwd: 'src/less/', src: ["theme.less", "mixins.less", "theme/default.less"], dest: 'build/tmp/themebuilder/'},
-                    {cwd: 'src/js/generated/', src: ["defaulttheme.json"], dest: 'build/tmp/themebuilder/'}
+                    {cwd: 'src/js/themebuilder/config/', src: ["defaulttheme.json"], dest: 'build/tmp/themebuilder/'}
                 ]
             }
         },
@@ -156,7 +156,7 @@ module.exports = function (grunt) {
         themegen: {
             defaultTheme: {
                 options: {
-                    themeJSON: "src/js/generated/defaulttheme.json",
+                    themeJSON: "src/js/themebuilder/config/defaulttheme.json",
                     out: "build/tmp/less/rftheme.default.less"
                 }
             }
