@@ -140,21 +140,14 @@
 	"ComponentDataProperties": {
 		"base": "PropertyBase",
 		"properties": {
-			
-		}
-	},
-	"TableDataProperties": {
-		"shortDesc" : "Containes Table Component properties.",
-		"base": "ComponentDataProperties",
-		"properties": {
-			"rowDataSource": {
-				"type": "PropertyBase",
-				"class": "RemoteDataSource",
-				"shortDesc" : "Path to data soource."
+			"sources": {
+				"type": "PropertyList",
+				"class": "RemoteDataSourceProperties",
+				"shortDesc" : "All remote datasources for the component"
 			}
 		}
 	},
-	"RemoteDataSource": {
+	"RemoteDataSourceProperties": {
 		"base": "PropertyBase",
 		"properties": {
 			"url": {
@@ -564,11 +557,6 @@
 				"type": "PropertyBase",
 				"class": "TableProperties",
 				"shortDesc" : "Properties pertaining to the Table Component."
-			},
-			"data": {
-				"type": "PropertyBase",
-				"class": "TableDataProperties",
-				"shortDesc" : "Contains table component data."
 			}
 		}
 	},
@@ -591,21 +579,11 @@
 				"default": 0,
 				"shortDesc" : "The current page number"
 			},
-			"serverPaginationFlag": {
-				"type": "boolean",
-				"default": false,
-				"shortDesc" : "Set to true to enable server side pagination."
-			},
-			"useRemoteDataSourceFlag": {
-				"type": "boolean",
-				"default": false,
-				"shortDesc" : "To use remote datasource, set this to true."
-			},
-			"detailViewFlag": {
-				"type": "boolean",
-				"default": false,
-				"shortDesc" : "When true, detail view button is displayed."
-			}
+      "totalRows" : {
+        "type": "number",
+        "default": 0,
+        "shortDesc": "Total number of rows for the entire table."
+      }
 		}
 	},
 	"TableColumnProperties": {
