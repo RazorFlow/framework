@@ -145,7 +145,7 @@ module.exports = function (grunt) {
         featuregen: {
             getFeature: {
                 options: {
-                    files: "src/js/components/*.js",
+                    files: "src/js/**/*.js",
                     out: "build/out.html",
                     extension: ".js"
                 }
