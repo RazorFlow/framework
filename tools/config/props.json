@@ -234,6 +234,16 @@
 				"type": "PropertyList",
 				"class": "BreadCrumbProperties",
 				"shortDesc" : "List of items to have a breadcrumbs"
+			},
+			"isHidden": {
+				"type": "boolean",
+				"default": false,
+				"shortDesc": "flag to indicate component is hidden"
+			},
+			"showModal": {
+				"type": "boolean",
+				"default": false,
+				"shortDesc": "flag to show component as modal"
 			}
 		}
 	},
