@@ -446,6 +446,11 @@
 		"base": "PropertyBase",
 		"shortDesc" : "Chart Component properties.",
 		"properties": {
+			"stacked": {
+				"type": "boolean",
+				"shortDesc": "Whether the chart is stacked or not",
+				"default": false				
+			},
 			"series": {
 				"type": "PropertyList",
 				"class": "ChartSeriesProperties",
