@@ -55,7 +55,6 @@ module.exports = function(grunt) {
 
     vars = convertStringToObject(vars);
     var themeObject = grunt.file.readJSON(options.themeJSON);
-
     for(var key in themeObject){
       if(typeof(themeObject[key]) !== 'undefined'){
         vars["@" + key] = themeObject[key] + ';';
