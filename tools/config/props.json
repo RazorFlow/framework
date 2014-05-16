@@ -649,6 +649,12 @@
         "default": false,
         "shortDesc": "Whether raw html needs to be rendered. It will be escaped by default.",
         "public": true
+      },
+      "subCaption": {
+      	"type": "string",
+      	"default": null,
+      	"shortDesc": "Include a sub caption next to the table column header",
+      	"public": true
       }
 		}
 	},
