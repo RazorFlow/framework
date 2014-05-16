@@ -39,14 +39,6 @@ module.exports = function (grunt) {
                     "build/tmp/razorflow.css": "src/less/razorflow.less"
                 }
             },
-            newdesign: {
-                options: {
-                    paths: ['src/dev/newdesign/less']
-                },
-                files: {
-                    "src/dev/newdesign/css/razorflow.css":  "src/dev/newdesign/less/razorflow.less"
-                }
-            },
             theme: {
                 files: {
                     "build/tmp/rftheme.default.css": "build/tmp/less/rftheme.default.less"
@@ -191,7 +183,7 @@ module.exports = function (grunt) {
     grunt.registerTask('compile', ['themegen', 'less:development', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
+    grunt.registerTask('build', ["clean:build", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
     grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage'])
     // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
