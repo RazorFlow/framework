@@ -61,7 +61,10 @@
             website: {
                 options: {
                     articles: {
-                        root: 'src/content'
+                        root: 'src/content',
+                        imagesLocalPath: 'src/images',
+                        imagesRelativePath: "dashboard/_images/",
+                        imagesPhysicalPath: "../newsite/src/docs/dashboard/_images/"
                     },
                     constantsPath: '../jsrf/tools/config/props.json',
                     examples: {
