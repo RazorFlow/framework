@@ -188,7 +188,7 @@ module.exports = function (grunt) {
 
 
     
-    grunt.registerTask('compile', ['themegen', 'less', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
+    grunt.registerTask('compile', ['themegen', 'less:development', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["clean:build", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
