@@ -36,11 +36,7 @@ module.exports = function (grunt) {
                     paths: ['src/less']
                 },
                 files: {
-                    "build/tmp/razorflow.css": "src/less/razorflow.less"
-                }
-            },
-            theme: {
-                files: {
+                    "build/tmp/razorflow.css": "src/less/razorflow.less",
                     "build/tmp/rftheme.default.css": "build/tmp/less/rftheme.default.less"
                 }
             }
