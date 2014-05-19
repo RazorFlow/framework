@@ -651,9 +651,15 @@
         "public": true
       },
       "subCaption": {
+      	"type": "boolean",
+      	"default": false,
+      	"shortDesc": "Whether a number prefix or suffix needs to be there besides column heading.",
+      	"public": true
+      },
+      "subCaptionUnits": {
       	"type": "string",
       	"default": null,
-      	"shortDesc": "Include a sub caption next to the table column header",
+      	"shortDesc": "A number prefix or suffix next to the column heading.",
       	"public": true
       }
 		}
