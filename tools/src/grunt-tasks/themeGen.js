@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     var options = this.options({
       themeLess: "src/less/theme.less",
       mixins: "src/less/mixins.less",
-      defaultVariables: "src/less/theme/default.less",
+      defaultVariables: "src/less/theme/variables.less",
     });
 
     var mixins = grunt.file.read(options.mixins),

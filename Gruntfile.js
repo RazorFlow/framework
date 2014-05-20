@@ -123,7 +123,7 @@ module.exports = function (grunt) {
             },
             themebuilder: {
                 files: [
-                    {cwd: 'src/less/', src: ["theme.less", "mixins.less", "theme/default.less"], dest: 'build/tmp/themebuilder/'},
+                    {cwd: 'src/less/', src: ["theme.less", "mixins.less", "theme/variables.less"], dest: 'build/tmp/themebuilder/'},
                     {cwd: 'src/js/themebuilder/config/', src: ["defaulttheme.json"], dest: 'build/tmp/themebuilder/'}
                 ]
             }
