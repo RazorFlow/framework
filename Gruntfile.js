@@ -12,7 +12,10 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-
+            css: {
+                src: 'build/tmp/*.css',
+                dest: 'build/tmp/razorflow.core.theme.css'
+            }
         },
         jst: {
             compile: {
@@ -67,7 +70,7 @@ module.exports = function (grunt) {
             minify: {
                 expand: true,
                 cwd: 'build/tmp/',
-                src: ['razorflow.css'],
+                src: ['razorflow.core.theme.css'],
                 dest: 'build/assets/css',
                 ext: '.min.css'
             }
@@ -97,8 +100,8 @@ module.exports = function (grunt) {
             },
             assetsToPackage: {
                 files: [
-                    {cwd: 'build/assets/', src: ["js/**", "css/**"], dest: 'build/package/files/'},
-                    {cwd: 'build/assets/', src: ["js/**", "css/**"], dest: 'build/package/dashboard_quickstart/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/package/files/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/package/dashboard_quickstart/'},
                 ],
             },
             packageToRelease: {
@@ -111,13 +114,9 @@ module.exports = function (grunt) {
                     {cwd: '../razorcharts/src/js', src:['**'], dest: 'src/js/'}
                 ]
             },
-            spriteDev: {
+            sprite: {
                 files: [
-                    {cwd: 'src/img/', src:['**'], dest: 'build/tmp/'}
-                ]
-            },
-            spriteProd: {
-                files: [
+                    {cwd: 'src/img/', src:['**'], dest: 'build/img/'},
                     {cwd: 'src/img/', src:['**'], dest: 'build/assets/img/'}
                 ]
             },
@@ -172,14 +171,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadTasks("./tools/src/grunt-tasks");
 
 
     
-    grunt.registerTask('compile', ['themegen', 'less:development', 'jst:compile', 'copyto:spriteDev', 'copyto:themebuilder']);
+    grunt.registerTask('compile', ['themegen', 'less:development', 'jst:compile', 'copyto:sprite', 'copyto:themebuilder']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["clean:build", "copyto:razorcharts", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
+    grunt.registerTask('build', ["clean:build", "copyto:razorcharts", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'concat:css', 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
     grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage'])
     // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
