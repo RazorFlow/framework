@@ -28,7 +28,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$db = new SampleDashboard();
-		$db->setActionPath ("/apps/php_mvc/rfci/welcome/dashboardAction");
+		$db->setActionPath ("/apps/php_mvc/rfci/index.php/welcome/dashboardAction");
 		$data = array(
 			'db' => $db
 		);

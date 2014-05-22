@@ -9,6 +9,7 @@
 <body>
 
 	<div>
+		<h1>Codeigniter RazorFlow Embedded Dashboard</h1>
 		<?php echo $db->renderEmbedded(); ?>
 	</div>
 </body>
