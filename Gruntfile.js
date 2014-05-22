@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         copyto: {
             assetsToPackage: {
                 files: [
-                    {cwd: '../jsrf/build/assets/', src: ['js/*.js', 'css/*.css', 'fonts/**'], dest: 'build/package/static/rf/'},
+                    {cwd: '../jsrf/build/assets/', src: ['js/*.js', 'css/*.css', 'fonts/**', 'img/**'], dest: 'build/package/static/rf/'},
                 ],
             },
             libToPackage: {
