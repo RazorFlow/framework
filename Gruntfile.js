@@ -179,7 +179,7 @@ module.exports = function (grunt) {
     grunt.registerTask('compile', ['themegen', 'less:development', 'jst:compile', 'copyto:sprite', 'copyto:themebuilder']);
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
-    grunt.registerTask('build', ["clean:build", "copyto:razorcharts", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'concat:css', 'cssmin:minify', "copyto:srcToBuild", "copyto:spriteProd"])
+    grunt.registerTask('build', ["clean:build", "copyto:razorcharts", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', "replace:removeAMD", 'concat:css', 'cssmin:minify', "copyto:srcToBuild"])
     grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage'])
     // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
