@@ -408,6 +408,11 @@
 				"type": "string",
 				"default": null,
 				"shortDesc": "Properties of the icon"
+			},
+			"kpiValueTextColor": {
+				"type": "string",
+				"default": "auto",
+				"shortDesc": "custom color for kpi value"
 			}
 		}
 	},
