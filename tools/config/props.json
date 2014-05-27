@@ -409,9 +409,10 @@
 				"default": null,
 				"shortDesc": "Properties of the icon"
 			},
-			"kpiValueTextColor": {
+			"valueTextColor": {
 				"type": "string",
 				"default": "auto",
+				"public": true,
 				"shortDesc": "custom color for kpi value"
 			}
 		}
