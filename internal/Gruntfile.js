@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                 options: {
                     files: "../src/js/examples/*.js",
                     out: "../static/exampleImages/js/examples/",
-                    baseUrl: "http://localhost:8080/dev/js/examples/",
+                    baseUrl: "http://localhost:8080/dashboard/js/examples/",
                     width: 1024,
                     height: 768,
                     timeout: 2000,
@@ -51,7 +51,7 @@ module.exports = function (grunt) {
                 options: {
                     files: "../src/php/examples/*.php",
                     out: "../static/exampleImages/php/examples/",
-                    baseUrl: "http://localhost:8080/dev/php/examples/",
+                    baseUrl: "http://localhost:8080/dashboard/php/examples/",
                     width: 1024,
                     height: 768,
                     timeout: 2000,
