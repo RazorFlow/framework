@@ -53,6 +53,7 @@ var TestHelper = function () {
 			reset = true;
 		}
 		addSyncContinuation(function () {
+			context = funcToValue(context);
 			// First, reset the context div to body
 			if(reset) {
 				contextDiv = $("body");
@@ -162,12 +163,14 @@ var TestHelper = function () {
 		addSyncContinuation(function () {
 			func(contextDiv);
 		});
+		return self;
 	};
 
 	self.doASync = function (func) {
 		addASyncContinuation(function (done) {
 			func(contextDiv, done)
 		});
+		return self;
 	};
 
 	self.assertElementExists = function (selector) {
@@ -191,7 +194,7 @@ var TestHelper = function () {
 
 	var funcToValue = function (value, found) {
 		if(typeof(value) === "function") {
-			value(found);
+			return value(found);
 		}
 		else {
 			return value;
@@ -200,7 +203,7 @@ var TestHelper = function () {
 
 	var compareFoundToExpected = function (found, expected) {
 		if(typeof(expected) === "function") {
-			if(expected(found) === true) {
+			if(expected(found, contextDiv) === true) {
 				return;
 			}
 			else {

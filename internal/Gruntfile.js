@@ -16,7 +16,13 @@ var browsers = [{
         browserName: "internet explorer",
         platform: "VISTA",
         version: "9"
-    }];
+    },
+    {
+        browserName: "internet explorer",
+        platform: "WIN7",
+        version: "11"
+    }
+];
 
 module.exports = function (grunt) {
     grunt.initConfig({
