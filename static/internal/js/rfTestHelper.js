@@ -9,6 +9,9 @@ var TestHelper = function () {
 		if(contextDiv == null) {
 			self.showError ("Context is null");
 		}
+		if(val === ".") {
+			return contextDiv;
+		}
 		if(typeof(val) === "string") {
 			var contextFound = contextDiv.find(val);
 			if(contextFound.length === 0) {
@@ -196,7 +199,18 @@ var TestHelper = function () {
 	};
 
 	var compareFoundToExpected = function (found, expected) {
-		expect(found).toBe(funcToValue(expected, found));
+		if(typeof(expected) === "function") {
+			if(expected(found) === true) {
+				return;
+			}
+			else {
+				self.showError("Custom check failed");
+			}
+		}
+		else {
+			expect(found).toBe(expected);	
+		}
+		
 	};
 
 	var runContinuations = function (cList) {
