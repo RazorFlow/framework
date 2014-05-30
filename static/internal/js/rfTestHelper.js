@@ -44,20 +44,32 @@ var TestHelper = function () {
 		return self;
 	};
 
-	self.setContext = function (context) {
+	self.setContext = function (context, reset) {
+		if(typeof(reset) == "undefined")
+		{
+			reset = true;
+		}
 		addSyncContinuation(function () {
 			// First, reset the context div to body
-			contextDiv = $("body");
+			if(reset) {
+				contextDiv = $("body");
+			}
 			contextDiv = jqFilter(context); 
 		});
 		return self;
 	};
 
-	self.assertText = function (selector, value) {
+	self.assertText = function (selector, expected, options) {
+		options = options ? options : {};
 		addSyncContinuation(function () {
-			log("Asserting text is " + value);
+			log("Asserting text is " + expected);
 			var item = jqFilter(selector);
-			expect(item.text()).toBe(value);
+			var found = item.text();
+			if(options.trim) {
+				found = found.trim();
+			}
+
+			compareFoundToExpected(found, expected);
 		});
 		return self;
 	};
@@ -85,6 +97,8 @@ var TestHelper = function () {
 
 	self.debug = function () {
 		addSyncContinuation(function () {
+			console.log("Launching a debugger");
+			console.log("The current div is ", contextDiv)
 			// DO NOT REMOVE THIS DEBUGGER. It's actually MEANT to be here.
 			debugger;
 		});
