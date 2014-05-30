@@ -95,6 +95,70 @@ var TestHelper = function () {
 		runContinuations(continuations);
 	};
 
+	self.assertCSS = function (selector, propName, expected) {
+		addSyncContinuation(function () {
+			var item = jqFilter(selector);
+
+			if(typeof(propName) == "string") {
+				var found = item.css(propName);
+				compareFoundToExpected(found, expected);
+			}
+			else if(typeof(propName) == "object") {
+				for(var key in propName) {
+					if(propName.hasOwnProperty(key)) {
+						var expectedVal = propName[key];
+						var found = item.css(key);
+
+						compareFoundToExpected(found, expectedVal);
+					}
+				}
+			}
+		});
+
+		return self;
+	};
+
+	self.assertAttrs = function (selector, propName, expected) {
+		addSyncContinuation(function () {
+			var item = jqFilter(selector);
+
+			if(typeof(propName) == "string") {
+				var found = item.attr(propName);
+				compareFoundToExpected(found, expected);
+			}
+			else if(typeof(propName) == "object") {
+				for(var key in propName) {
+					if(propName.hasOwnProperty(key)) {
+						var expectedVal = propName[key];
+						var found = item.attr(key);
+
+						compareFoundToExpected(found, expectedVal);
+					}
+				}
+			}
+		});
+
+		return self;
+	};
+
+	self.doSync = function (func) {
+		addSyncContinuation(function () {
+			func(contextDiv);
+		});
+	};
+
+	self.doASync = function (func) {
+		addASyncContinuation(function (done) {
+			func(contextDiv, done)
+		});
+	};
+
+	self.assertElementExists = function (selector) {
+		addSyncContinuation(function () {
+			jqFilter(selector); // This will trigger 
+		});
+	}
+
 	var addSyncContinuation = function (func) {
 		continuations.push(function (done) {
 			func ();
@@ -106,6 +170,19 @@ var TestHelper = function () {
 		continuations.push(function (done) {
 			func(done);
 		})
+	};
+
+	var funcToValue = function (value, found) {
+		if(typeof(value) === "function") {
+			value(found);
+		}
+		else {
+			return value;
+		}
+	};
+
+	var compareFoundToExpected = function (found, expected) {
+		expect(found).toBe(funcToValue(expected, found));
 	};
 
 	var runContinuations = function (cList) {
