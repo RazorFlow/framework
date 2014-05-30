@@ -85,7 +85,7 @@ class DevDashboardController {
 		));
 	}
 
-	public function testJSExample (Request $request, Application $app, $id) {
+	public function devTest (Request $request, Application $app, $id) {
 		global $rfExampleConfig;
 		$examples = $this->buildExampleArray ();
 		$fileContents = "";
@@ -102,6 +102,28 @@ class DevDashboardController {
 
 
 		return $app['twig']->render('dev/jsTest.twig', array(
+			'id' => $id,
+			'file_contents' => $fileContents
+		));
+	}
+	
+	public function prodTest (Request $request, Application $app, $id) {
+		global $rfExampleConfig;
+		$examples = $this->buildExampleArray ();
+		$fileContents = "";
+
+		if($id === "all") {
+			foreach ($examples['js']['tests'] as $item) {
+				$fileContents .= file_get_contents($rfExampleConfig['examplePaths']['js']['tests'].'/'.$item['basename'].'.js');
+				$fileContents .=";\n\n";
+			}
+		}
+		else {
+			$fileContents = file_get_contents($rfExampleConfig['examplePaths']['js']['tests'].'/'.$id.'.js');
+		}
+
+
+		return $app['twig']->render('prod/jsTest.twig', array(
 			'id' => $id,
 			'file_contents' => $fileContents
 		));

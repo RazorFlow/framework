@@ -44,6 +44,8 @@ var TestHelper = function () {
 		contextDiv = $("body");
 		continuations = [];
 
+		self.wait(400);
+
 		return self;
 	};
 
@@ -101,8 +103,8 @@ var TestHelper = function () {
 
 	self.debug = function () {
 		addSyncContinuation(function () {
-			console.log("Launching a debugger");
-			console.log("The current div is ", contextDiv)
+			// console.log("Launching a debugger");
+			// console.log("The current div is ", contextDiv)
 			// DO NOT REMOVE THIS DEBUGGER. It's actually MEANT to be here.
 			debugger;
 		});
@@ -230,7 +232,11 @@ var TestHelper = function () {
 	};
 
 	var log = function (msg) {
-		console.log(msg);
+		if(console) {
+			if(console.log) {
+				console.log(msg);
+			}
+		}
 	};
 
 
