@@ -86,8 +86,7 @@
 			},
 			"kpis": {
 				"type": "PropertyList",
-				"class": "ComponentKPIProperties",
-				"shortDesc": "Mini KPIs"
+				"class": "ComponentKPIProperties"
 			}
 		}
 	},
@@ -97,13 +96,14 @@
 		"properties" : {
 			"caption": {
 				"type": "string",
-				"default": "text",
-				"shortDesc": "Caption for Mini KPI"
+				"default": "",
+				"public": "true",
+				"shortDesc": "The caption to display for the component KPI"
 			},
 			"value": {
-				"type": "string",
-				"default": "text",
-				"shortDesc": "Value for Mini KPI"
+				"type": "number",
+				"default": 0,
+				"shortDesc": "The value for the component KPI"
 			},
 			"captioncolor": {
 				"type": "string",
