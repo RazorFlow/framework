@@ -18,7 +18,7 @@ var TestHelper = function () {
 				self.showError("Cannot find selector " + val + " in context");
 			}
 			if(contextFound.length > 1) {
-				console.warn("the number of elements found for ", val, "is ", contextFound.length);
+				log("the number of elements found for ", val, "is ", contextFound.length);
 			}
 			return $(contextDiv.find(val)[0]);
 		}
@@ -27,7 +27,7 @@ var TestHelper = function () {
 				self.showError("Empty jquery object passed");
 			}
 			if(val.length > 1) {
-				console.warn("the number of elements found for ", val, "is ", contextFound.length);
+				log("the number of elements found for ", val, "is ", contextFound.length);
 			}
 
 			return val;
