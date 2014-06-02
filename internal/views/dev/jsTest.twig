@@ -15,7 +15,7 @@
 
 {{ include('dev/jsIncludes.twig') }}
 <script>
-    require(["core/main"], function (rf) {    
+    require(["core/main", "utils/numberformatter"], function (rf, NumberFormatter) {    
         {{ file_contents|raw }}
         window.jasmineExecute();
     });
