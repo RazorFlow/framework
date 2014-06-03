@@ -452,11 +452,6 @@
 		"base": "PropertyBase",
 		"shortDesc" : "Chart Component properties.",
 		"properties": {
-			"stacked": {
-				"type": "boolean",
-				"shortDesc": "Whether the chart is stacked or not",
-				"default": false				
-			},
 			"series": {
 				"type": "PropertyList",
 				"class": "ChartSeriesProperties",
@@ -525,6 +520,11 @@
 				"type": "boolean",
 				"shortDesc": "Set this to false to not show the series in the legend",
 				"default": true
+			},
+			"seriesStacked": {
+				"type": "boolean",
+				"shortDesc": "Specifies whether a series is stacked or not",
+				"default": false
 			}
 		}
 	},
