@@ -522,6 +522,7 @@
 				"default": true
 			},
 			"seriesStacked": {
+				"public": true,
 				"type": "boolean",
 				"shortDesc": "Specifies whether a series is stacked or not",
 				"default": false
