@@ -65,6 +65,10 @@ var TestHelper = function () {
 		return self;
 	};
 
+	self.drillContext = function (context) {
+		return self.setContext(context, false);
+	};
+
 	self.assertText = function (selector, expected, options) {
 		options = options ? options : {};
 		addSyncContinuation(function () {
@@ -77,6 +81,22 @@ var TestHelper = function () {
 
 			compareFoundToExpected(found, expected);
 		});
+		return self;
+	};
+
+	self.svgMeasure = function (selector, attribute, expected, options) {
+		options = options ? options : {};
+		addSyncContinuation(function () {
+			log("Measuring svg");
+			var item = jqFilter(selector);
+
+			// Get direct item
+			item = item[0];
+
+			var found = item[attribute].baseVal[0].value;
+			compareFoundToExpected(found, expected);
+		});
+
 		return self;
 	};
 
@@ -245,4 +265,19 @@ var TestHelper = function () {
 	};
 };
 
+var t3 = {
+	start: function (done) {
+		return new TestHelper().start(done);
+	},
+	between: function (start, end) {
+		return function (val) {
+			return start < val < end;
+		}
+	},
+	approximate: function (point, tolerance) {
+		return t3.between(point - tolerance, point + tolerance);
+	}
+};
+
+window.t3 = t3;
 window.TestHelper = TestHelper;
