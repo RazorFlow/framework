@@ -462,6 +462,16 @@
 				"class": "ChartAxisProperties",
 				"shortDesc" : "Properties pertaining to the chart Y axis."
 			},
+			"secondaryYAxis": {
+				"type": "PropertyBase",
+				"class": "ChartAxisProperties",
+				"shortDesc" : "Properties pertaining to the chart Y axis."	
+			},
+			"dualY": {
+				"type": "boolean",
+				"shortDesc": "Is this chart a dual y axis chart",
+				"default": false
+			},
 			"showLegendFlag":{
 				"type": "boolean",
 				"default": true,
@@ -473,6 +483,11 @@
 		"base": "DataColumnProperties",
 		"shortDesc" : "Properties of the chart axes.",
 		"properties": {
+			"id": {
+				"type": "string",
+				"shortDesc": "The id of this axis",
+				"default": "primary"
+			},
 			"dataType": {
 				"type": "string",
 				"shortDesc": "Overridden type of the series",
@@ -526,6 +541,12 @@
 				"type": "boolean",
 				"shortDesc": "Specifies whether a series is stacked or not",
 				"default": false
+			},
+			"yAxis": {
+				"public": true,
+				"type": "string",
+				"shortDesc": "Specifies the id of the axis if it is a dual axis chart",
+				"default": "primary"
 			}
 		}
 	},
