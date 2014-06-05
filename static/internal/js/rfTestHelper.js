@@ -1,6 +1,7 @@
 var TestHelper = function () {
 	var self = this;
 	var contextDiv = $("body");
+	var oldContext = null;
 	var doneFunc = null,
 		continuations = [];
 
@@ -13,6 +14,9 @@ var TestHelper = function () {
 			return contextDiv;
 		}
 		if(typeof(val) === "string") {
+			if(!contextDiv) {
+				debugger;
+			}
 			var contextFound = contextDiv.find(val);
 			if(contextFound.length === 0) {
 				self.showError("Cannot find selector " + val + " in context");
@@ -92,9 +96,53 @@ var TestHelper = function () {
 
 			// Get direct item
 			item = item[0];
+			if(!item.hasOwnProperty(attribute)) {
+				showError("Selector " + selector + " has no property " + attribute)
+				return;
+			}
 
-			var found = item[attribute].baseVal[0].value;
+			var baseVal = item[attribute].baseVal;
+			var found;
+			if(typeof(baseVal.value) == "number") {
+				found = baseVal.value;
+			}
+			else if (baseVal[0]) {
+				found = baseVal[0].value
+			}
+			else {
+				showError("Cannot found a baseval");
+			}
 			compareFoundToExpected(found, expected);
+		});
+
+		return self;
+	};
+
+	self.svgTriggerEvent = function (selector, eventName) {
+		addSyncContinuation(function () {
+			log("Triggering event");
+			var item = jqFilter(selector);
+
+			// Get direct item
+			item = item[0];
+			var event; // The custom event that will be created
+
+			if (document.createEvent) {
+				event = document.createEvent("HTMLEvents");
+				event.initEvent(eventName, true, true);
+			} else {
+				event = document.createEventObject();
+				event.eventType = eventName;
+			}
+
+			event.eventName = eventName;
+
+			if (document.createEvent) {
+				item.dispatchEvent(event);
+			} else {
+				item.fireEvent("on" + event.eventType, event);
+			}
+
 		});
 
 		return self;
@@ -133,6 +181,22 @@ var TestHelper = function () {
 
 	self.finish = function () {
 		runContinuations(continuations);
+	};
+
+	self.enterTempContext = function (selector) {
+		addSyncContinuation (function () {
+			oldContext = contextDiv;
+			contextDiv = jqFilter(selector);
+		})
+		return self;
+	};
+
+	self.exitTempContext = function (selector) {
+		addSyncContinuation(function () {
+			contextDiv = oldContext;
+			oldContext = null;
+		})
+		return self;
 	};
 
 	self.assertCSS = function (selector, propName, expected) {
@@ -225,11 +289,14 @@ var TestHelper = function () {
 
 	var compareFoundToExpected = function (found, expected) {
 		if(typeof(expected) === "function") {
-			if(expected(found, contextDiv) === true) {
+			var expectedResult = expected(found, contextDiv)
+			if(expectedResult === true) {
 				return;
 			}
 			else {
-				self.showError("Custom check failed");
+				if(expected(found, contextDiv, self.showError)) {
+					self.showError("Custom check failed");
+				}
 			}
 		}
 		else {
@@ -270,8 +337,15 @@ var t3 = {
 		return new TestHelper().start(done);
 	},
 	between: function (start, end) {
-		return function (val) {
-			return start < val < end;
+		return function (val, context, showError) {
+			if(typeof(val) === "string") {
+				val = parseInt(val);
+			}
+			if(typeof(showError) === "function") {
+				showError("Expected " + start + " < " + val + " < " + end + ". But it wasn't so.");
+			}
+
+			return (start <= val) && (val <= end);
 		}
 	},
 	approximate: function (point, tolerance) {
