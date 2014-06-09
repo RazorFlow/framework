@@ -6,7 +6,7 @@ var TestHelper = function () {
 		continuations = [];
 
 
-	var jqFilter = function (val) {
+	var jqFilter = function (val, all) {
 		if(contextDiv == null) {
 			self.showError ("Context is null");
 		}
@@ -24,7 +24,7 @@ var TestHelper = function () {
 			if(contextFound.length > 1) {
 				log("the number of elements found for ", val, "is ", contextFound.length);
 			}
-			return $(contextDiv.find(val)[0]);
+			return all ? contextDiv.find(val) : $(contextDiv.find(val)[0]); 
 		}
 		if(typeof(val) === "object") {
 			if(val.length === 0) {
@@ -108,6 +108,17 @@ var TestHelper = function () {
 			if(!item.hasClass(expected)) {
 				self.showError("Expected "+ selector + " to have class " + expected);
 			}
+		});
+		return self;
+	};
+
+	self.count = function (selector, expectedNum, options) {
+		options = options ? options : {op: '='};
+		addSyncContinuation(function() {
+			log('Asserting the number of dom elements found by the selector to be ' + expectedNum);
+			var items = jqFilter(selector, true),
+				found = items.length;
+			compareFoundToExpectedWithOp(found, expectedNum, options.op);
 		});
 		return self;
 	};
@@ -328,6 +339,31 @@ var TestHelper = function () {
 		}
 		
 	};
+
+	var compareFoundToExpectedWithOp = function(found, expected, op) {
+		if(typeof(expected) === "function") {
+			var expectedResult = expected(found, contextDiv)
+			if(expectedResult === true) {
+				return;
+			}
+			else {
+				if(expected(found, contextDiv, self.showError)) {
+					self.showError("Custom check failed");
+				}
+			}
+		}
+		else {
+			if(op === '=') {
+				expect(found).toEqual(expected);
+			} else if(op === '<') {
+				expect(found).toBeLessThan(expected);
+			} else if(op === '>') {
+				expect(found).toBeGreaterThan(expected);
+			} else if(op === '~') {
+				expected(found).toBeCloseTo(expected);
+			}
+		}
+	}
 
 	var runContinuations = function (cList) {
 		if(cList.length == 0) {
