@@ -12,3 +12,4 @@ newsite
 *.sublime-workspace
 .DS_Store
 node_modules
+*.pyc
