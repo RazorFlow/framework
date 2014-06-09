@@ -88,6 +88,30 @@ var TestHelper = function () {
 		return self;
 	};
 
+	self.assert = function (callback) {
+		addASyncContinuation(function (done) {
+			var onErr = function (message) {
+				self.showError(message);
+				done();
+			};
+
+			callback(contextDiv, done, onErr);
+		});
+		return self;
+	}
+
+	self.assertClass = function (selector, expected, options) {
+		options = options ? options : {};
+		addSyncContinuation(function () {
+			log("Asserting class exists:" + expected);
+			var item = jqFilter(selector);
+			if(!item.hasClass(expected)) {
+				self.showError("Expected "+ selector + " to have class " + expected);
+			}
+		});
+		return self;
+	};
+
 	self.svgMeasure = function (selector, attribute, expected, options) {
 		options = options ? options : {};
 		addSyncContinuation(function () {
@@ -96,8 +120,8 @@ var TestHelper = function () {
 
 			// Get direct item
 			item = item[0];
-			if(!item.hasOwnProperty(attribute)) {
-				showError("Selector " + selector + " has no property " + attribute)
+			if(!item[attribute]) {
+				self.showError("Selector " + selector + " has no property " + attribute)
 				return;
 			}
 
@@ -110,7 +134,7 @@ var TestHelper = function () {
 				found = baseVal[0].value
 			}
 			else {
-				showError("Cannot found a baseval");
+				self.showError("Cannot found a baseval");
 			}
 			compareFoundToExpected(found, expected);
 		});

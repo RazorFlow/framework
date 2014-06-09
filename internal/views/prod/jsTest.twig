@@ -17,7 +17,7 @@
 
 {{ include('dev/jsIncludes.twig') }}
 <script>
-    require(["core/main"], function (rf) {
+    $(function() {
         {{ file_contents|raw }}
         window.jasmineExecute();
     });
