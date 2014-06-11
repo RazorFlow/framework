@@ -7,6 +7,7 @@
                         root: 'src/content'
                     },
                     constantsPath: '../jsrf/tools/config/props.json',
+                    partialsPath: 'src/partials',
                     examples: {
                         'js': {
                             src: "../examples/src/js/examples/",
@@ -67,6 +68,7 @@
                         imagesPhysicalPath: "../newsite/src/docs/dashboard/_images/"
                     },
                     constantsPath: '../jsrf/tools/config/props.json',
+                    partialsPath: 'src/partials',
                     examples: {
                         'js': {
                             src: "../examples/src/js/examples/",
