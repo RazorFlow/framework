@@ -13,3 +13,4 @@ src/package/dashboard_quickstart/css/razorflow.min.css
 src/js/generated/
 src/js/razorcharts/
 src/dev/themebuilder/
+extras/connectors/

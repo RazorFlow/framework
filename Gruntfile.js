@@ -125,6 +125,11 @@ module.exports = function (grunt) {
                     {cwd: 'src/less/', src: ["theme.less", "mixins.less", "theme/variables.less"], dest: 'build/tmp/themebuilder/'},
                     {cwd: 'src/js/themebuilder/config/', src: ["defaulttheme.json"], dest: 'build/tmp/themebuilder/'}
                 ]
+            },
+            connectors: {
+                files: [
+                    {cwd: '../cloudconnect/src/', src:['**'], dest: 'extras/connectors/'}
+                ]
             }
         },
         replace: {
