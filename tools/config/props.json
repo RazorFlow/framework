@@ -253,6 +253,10 @@
 			"url": {
 				"type": "string",
 				"default": null
+			},
+			"labels": {
+				"type": "string",
+				"default": null
 			}
 		}
 	},
