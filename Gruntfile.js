@@ -29,7 +29,11 @@ module.exports = function (grunt) {
                         var fileName = parts[parts.length - 1];
                         return fileName.split('.')[0];
                     },
-                    amd: true
+                    amd: true,
+                    global: false,
+                    requires: {
+                        'vendor/lodash' : '_'
+                    }
                 },
                 files: {
                     "src/js/generated/templates.js": ["src/templates/*.html"]
@@ -168,7 +172,8 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-jst');
+    // grunt.loadNpmTasks('grunt-contrib-jst');
+    grunt.loadTasks("../grunt-contrib-jst/tasks");
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
