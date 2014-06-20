@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"folder_exclude_patterns": ["node_modules"],
+			"folder_exclude_patterns": ["node_modules", "build"],
 			"follow_symlinks": true,
 			"path": "../phprf"
 		},
