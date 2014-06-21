@@ -1,10 +1,9 @@
 var browsers = [{
         browserName: "firefox",
-        version: "19",
-        platform: "XP"
+        platform: "WIN7"
     }, {
         browserName: "chrome",
-        platform: "XP"
+        platform: "WIN7"
     }, {
         browserName: "chrome",
         platform: "linux"
