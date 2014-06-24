@@ -56,7 +56,8 @@ module.exports = function (grunt) {
                 jshintrc: 'src/js/.jshintrc'
             },
             files: [
-                "src/js/**/*.js"
+                "src/js/**/*.js",
+                "!src/js/vendor/**/*.js"
             ]
         },
         karma: {
