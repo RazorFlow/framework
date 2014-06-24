@@ -57,7 +57,8 @@ module.exports = function (grunt) {
             },
             files: [
                 "src/js/**/*.js",
-                "!src/js/vendor/**/*.js"
+                "!src/js/vendor/**/*.js",
+                "!src/js/generated/templates.js"
             ]
         },
         karma: {
