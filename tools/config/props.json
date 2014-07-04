@@ -202,7 +202,7 @@
 			},
 			"iconprops": {
 				"type": "string",
-				"default": null,
+				"default": "{}",
 				"shortDesc": "Component icon properties"
 			},
             "absolutePosition": {
@@ -406,7 +406,7 @@
 			},
 			"iconprops": {
 				"type": "string",
-				"default": null,
+				"default": "{}",
 				"shortDesc": "Properties of the icon"
 			},
 			"valueTextColor": {
