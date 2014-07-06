@@ -34,3 +34,11 @@ def upload_app ():
 		local_dir=".",
 		exclude=rsync_excludes,
 	)
+
+def push_docs():
+	print (yellow("Uploading application to web server..."))
+	rsync_project(
+		remote_dir="/home/razorflow/webrf/src/docs/",
+		local_dir="./src/docs/",
+		exclude=rsync_excludes,
+	)
