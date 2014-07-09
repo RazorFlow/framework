@@ -13,3 +13,4 @@ backend/docs
 composer.phar
 composer.lock
 version.php
+custombuilder/
