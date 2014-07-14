@@ -7,6 +7,7 @@ module.exports = function(grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerTask('squashdemos', 'Squash Demos', function() {
+    var mainObject = {};
     var out = "window.rfDemos = {\n";
     grunt.log.writeln("Squashing demos...");
 
@@ -19,11 +20,40 @@ module.exports = function(grunt) {
       var item = files[i];
       var id = path.basename (item, ".js");
       var content = grunt.file.read(item);
+      var meta = JSON.parse(content.match(/\/\*&([^\*\/]*)/)[1]);
 
-      out += ""+id+":function () {\n" + content + "\n},\n";
+      meta.content = content;
+      meta.method = "**content**"
+      if(mainObject[meta.section.id]) {
+        mainObject[meta.section.id].items[meta.id] = meta;
+      } else {
+        mainObject[meta.section.id] = {
+          title: meta.section.title,
+          items: {}
+        }
+        mainObject[meta.section.id].items[meta.id] = meta;
+      }
     }
 
-    out += "a:0}";
+    for(var key in mainObject) {
+      out += '"' + key + '" : { \n';
+      out += '"title": "' + mainObject[key].title + '",\n';
+      out += '"items": {\n';
+      var items = mainObject[key].items;
+      for(var item in items) {
+        var content = items[item].content;
+        var json = JSON.stringify(items[item]);
+        content = content.replace(/'/g, '"');
+        json = json.replace('"**content**"', "function() {" + content + "},");
+        out += '"' + item + '": ' + json + ",";
+      }
+      out += '}},';
+
+    } 
+
+    // console.log(out);
+
+    out += "}";
     grunt.file.write(options.out, out);
 
     grunt.log.ok("Finished squashing.");
