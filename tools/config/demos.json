@@ -1,0 +1,58 @@
+{
+    "demos": [
+        {
+            "id": "business_demos",
+            "title": "Business Demos",
+            "demos": [
+                {
+                    "id": "sales_dashboard",
+                    "title": "Sales Dashboard",
+                    "desc": "Description goes here",
+                    "js": "sales_dashboard",
+                    "php": "sales_dashboard"
+                },
+                {
+                    "id": "inventory_dashboard",
+                    "title": "Inventory Dashboard",
+                    "desc": "Description goes here",
+                    "js": "inventory_dashboard",
+                    "php": "none"
+                }
+            ]
+        },
+        {
+            "id": "feature_demos",
+            "title": "Feature Demos",
+            "demos": [
+                {
+                    "id": "kpi_dashboard",
+                    "title": "KPI Types",
+                    "desc": "Description goes here",
+                    "js": "kpi_feature_dashboard",
+                    "php": "kpi_feature_dashboard"
+                },
+                {
+                    "id": "chart_dashboard",
+                    "title": "Chart Types",
+                    "desc": "Description goes here",
+                    "js": "chart_feature_dashboard",
+                    "php": "chart_feature_dashboard"
+                },
+                {
+                    "id": "filter_dashboard",
+                    "title": "Filter in Razorflow",
+                    "desc": "Description goes here",
+                    "js": "filter_feature_dashboard",
+                    "php": "filter_feature_dashboard"
+                },
+                {
+                    "id": "table_dashboard",
+                    "title": "Table in Razorflow",
+                    "desc": "Description goes here",
+                    "js": "table_feature_dashboard",
+                    "php": "table_feature_dashboard"
+                }
+            ]
+        }
+    ]
+}
