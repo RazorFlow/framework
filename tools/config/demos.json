@@ -29,28 +29,32 @@
                     "title": "KPI Types",
                     "desc": "Description goes here",
                     "js": "kpi_feature_dashboard",
-                    "php": "kpi_feature_dashboard"
+                    "php": "kpi_feature_dashboard",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
                 },
                 {
                     "id": "chart_dashboard",
                     "title": "Chart Types",
                     "desc": "Description goes here",
                     "js": "chart_feature_dashboard",
-                    "php": "chart_feature_dashboard"
+                    "php": "chart_feature_dashboard",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/chart/chart_basic.php"
                 },
                 {
                     "id": "filter_dashboard",
                     "title": "Filter in Razorflow",
                     "desc": "Description goes here",
                     "js": "filter_feature_dashboard",
-                    "php": "filter_feature_dashboard"
+                    "php": "filter_feature_dashboard",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/filter/filter_configure.php"
                 },
                 {
                     "id": "table_dashboard",
                     "title": "Table in Razorflow",
                     "desc": "Description goes here",
                     "js": "table_feature_dashboard",
-                    "php": "table_feature_dashboard"
+                    "php": "table_feature_dashboard",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/table/index.php"
                 }
             ]
         }
