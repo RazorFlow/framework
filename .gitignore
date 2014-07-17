@@ -15,3 +15,5 @@ composer.lock
 version.php
 custombuilder/
 razorflow.css
+*.cache
+icons.html
