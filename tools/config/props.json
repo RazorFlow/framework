@@ -244,6 +244,11 @@
 				"type": "boolean",
 				"default": false,
 				"shortDesc": "flag to show component as modal"
+			},
+			"breadcrumbStartString": {
+				"type": "string",
+				"default": "Start",
+				"shortDesc": "a variable to set the start string for drill down"
 			}
 		}
 	},
