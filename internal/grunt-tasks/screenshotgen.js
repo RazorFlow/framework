@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     var options = this.options({
       width: 1024,
       height: 768,
-      timeout: 1000
+      timeout: 2000
     });
     var files = grunt.file.expand(options.files);
 

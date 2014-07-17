@@ -35,6 +35,7 @@ class DevDashboardController {
 		$examples['php']['demos'] = $this->find('php', 'demos', 'php');
 		$examples['php']['examples'] = $this->find('php', 'examples', 'php');
 		$examples['php']['testcases'] = $this->find('php', 'testcases', 'php');
+		$examples['php']['tour'] = $this->find('php', 'tour', 'php');
 
 		$examples['html']['demos'] = $this->find('html', 'demos', 'html');
 		$examples['html']['examples'] = $this->find('html', 'examples', 'html');
@@ -141,8 +142,13 @@ class DevDashboardController {
 			"rfDev" => false
 		);
 		global $phpHead, $phpBody;
-		$phpHead = $app['twig']->render('dev/phpHead.twig', array(
-		));
+		if($type == "tour") {
+			$phpHead = $app['twig']->render('dev/phpTourHead.twig', array(
+			));
+		} else {
+			$phpHead = $app['twig']->render('dev/phpHead.twig', array(
+			));
+		}
 		$phpBody = $app['twig']->render('dev/phpBody.twig', array(
 		));
 
