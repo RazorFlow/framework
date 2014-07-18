@@ -10,9 +10,17 @@ rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "temp", "co
 
 
 def production():
-	env.settings = 'production'
+	if not confirm("You are pushing to PRODUCTION. Are you sure?", False):
+		abort("Aborted at request of user")
+	else:
+		env.settings = 'production'
+		env.user = 'razorflow'
+		env.hosts = ['107.170.146.248']
+
+def staging ():
+	env.settings = 'staging'
 	env.user = 'razorflow'
-	env.hosts = ['107.170.146.248']
+	env.hosts = ['tools.razorflow.com']
 
 @_contextmanager
 def virtualenv():
