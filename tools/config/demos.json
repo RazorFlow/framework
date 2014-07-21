@@ -57,6 +57,84 @@
                     "doc": "http://razorflow.com/docs/dashboard/js/guide/components/table/index.php"
                 }
             ]
+        },
+        {
+            "id": "chart_component_demos",
+            "title": "Chart Component",
+            "demos": [
+                {
+                    "id": "chart_column",
+                    "title": "Column Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_column",
+                    "php": "chart_column",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_iie",
+                    "title": "Pie Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_pie",
+                    "php": "chart_pie",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_bar",
+                    "title": "Bar Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_bar",
+                    "php": "chart_bar",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_line",
+                    "title": "Line Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_line",
+                    "php": "chart_line",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_area",
+                    "title": "Area Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_area",
+                    "php": "chart_area",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_stacked_column",
+                    "title": "Stacked Column Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_stacked_column",
+                    "php": "chart_stacked_column",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_stacked_bar",
+                    "title": "Stacked Bar Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_stacked_bar",
+                    "php": "chart_stacked_bar",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_combined",
+                    "title": "Combining Chart",
+                    "desc": "Description goes here",
+                    "js": "chart_combined",
+                    "php": "chart_combined",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                },
+                {
+                    "id": "chart_dualy",
+                    "title": "Dual Y Axes",
+                    "desc": "Description goes here",
+                    "js": "chart_dualy",
+                    "php": "chart_dualy",
+                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                }
+            ]
         }
     ]
 }
