@@ -2,7 +2,7 @@
 	"name": "razorflow/newsite",
 	"require": {
 		"kriswallsmith/assetic": "*",
-		"guzzlehttp/guzzle": "4.*"
-
+		"guzzlehttp/guzzle": "4.*",
+    "deskpro/deskpro-api-php": "dev-master"
 	}
 }
