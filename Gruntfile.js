@@ -108,11 +108,45 @@ module.exports = function (grunt) {
                     {cwd: 'src/package/', src: ['**/*'], dest: 'build/package/'},
                 ],
             },
+            packageMinToBuild: {
+                files: [
+                    {cwd: 'src/packages/minified/', src: ['**/*'], dest: 'build/packages/minified/'}
+                ]
+            },
+            packageSrcToBuild: {
+                files: [
+                    {cwd: 'src/packages/source/', src: ['**/*'], dest: 'build/packages/source/'}
+                ]
+            },
             assetsToPackage: {
                 files: [
                     {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/package/files/'},
                     {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/package/dashboard_quickstart/'},
                 ],
+            },
+            assetsToMinPackage: {
+                files: [
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/packages/minified/files/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/packages/minified/dashboard_quickstart/'},
+                ],
+            },
+            assetsToSrcPackage: {
+                files: [
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/packages/source/files/'},
+                    {cwd: 'build/assets/', src: ["js/**", "css/**", "img/**"], dest: 'build/packages/source/dashboard_quickstart/'},
+                ],
+            },
+            srcToPackage: {
+                files: [
+                    {cwd: 'src/dev/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/dev/'},
+                    {cwd: 'src/fonts/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/fonts/'},
+                    {cwd: 'src/img/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/img/'},
+                    {cwd: 'src/js/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/js/'},
+                    {cwd: 'src/less/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/less/'},
+                    {cwd: 'src/templates/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/templates/'},
+                    {cwd: 'src/vendor/', src: ['**/*'], dest: 'build/packages/source/source/javascript/src/vendor/'},
+                    {cwd: 'tools/src/grunt-tasks/', src: ['themeGen.js'], dest: 'build/packages/source/source/javascript/tools/grunt-tasks/'}
+                ]
             },
             packageToRelease: {
                 files: [
@@ -196,6 +230,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["clean:build", "copyto:razorcharts", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', 'requirejs:debug', "replace:removeAMD", 'concat:css', 'cssmin:minify', "copyto:srcToBuild"])
-    grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage'])
+    grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage']);
+    grunt.registerTask('packageMin', ['build', 'copyto:packageMinToBuild', 'copyto:assetsToMinPackage']);
+    grunt.registerTask('packageSrc', ['build', 'copyto:packageSrcToBuild', 'copyto:assetsToSrcPackage', 'copyto:srcToPackage']);
     // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
 }
