@@ -4,3 +4,4 @@ node_modules
 package/
 src/config/config.php
 src/static/rf/
+build
