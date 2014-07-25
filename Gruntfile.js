@@ -230,8 +230,9 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['compile', 'karma:dev', 'shell:coverageReport']);
 
     grunt.registerTask('build', ["clean:build", "copyto:razorcharts", "compile", "less", "jst:compile", 'requirejs:core', 'requirejs:wrapper', 'requirejs:debug', "replace:removeAMD", 'concat:css', 'cssmin:minify', "copyto:srcToBuild"])
-    grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage']);
+    // grunt.registerTask('package', ['build', 'copyto:packageToBuild', 'copyto:assetsToPackage']);
     grunt.registerTask('packageMin', ['build', 'copyto:packageMinToBuild', 'copyto:assetsToMinPackage']);
     grunt.registerTask('packageSrc', ['build', 'copyto:packageSrcToBuild', 'copyto:assetsToSrcPackage', 'copyto:srcToPackage']);
     // grunt.registerTask('websiteRelease', ['build', 'cssmin:minify', 'squashdemos', "screenshotGen:examples", 'copy:localToWebRF'])
+    grunt.registerTask('package', ['clean:build', 'build', 'copyto:packageMinToBuild', 'copyto:assetsToMinPackage', 'copyto:packageSrcToBuild', 'copyto:assetsToSrcPackage', 'copyto:srcToPackage']);
 }
