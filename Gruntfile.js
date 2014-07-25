@@ -29,14 +29,15 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            build: ["build/packages"]
+            build: ["build"]
         }
     });
 
     grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('package', ["clean:build", 'copyto:libToPackage', 'copyto:assetsToPackage']);
+    // grunt.registerTask('package', ["clean:build", 'copyto:libToPackage', 'copyto:assetsToPackage']);
     grunt.registerTask('packageMin', ['clean:build', 'copyto:srcToPackageMin']);
     grunt.registerTask('packageSrc', ['clean:build', 'copyto:srcToPackageSrc']);
+    grunt.registerTask('package', ['clean:build', 'copyto:srcToPackageMin', 'copyto:srcToPackageSrc']);
 }
