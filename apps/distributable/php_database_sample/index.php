@@ -270,7 +270,7 @@ class StockDashboard extends Dashboard {
     $category = $this->get_category();
     $c12->addSelectFilter('category', 'Select Category', array_merge(['no selection'], ArrayUtils::pluck($category, 'CategoryName')));
     $c12->addTextFilter('contains', 'Product Name Contains');
-    $c12->addNumericRangeFilter('stock', 'Units In Stock');
+    $c12->addNumericRangeFilter('stock', 'Units In Stock', array(0, 100));
     $this->addComponent($c12);
     $c12->onApplyClick(array($table), 'handleApply', $this);
   }
