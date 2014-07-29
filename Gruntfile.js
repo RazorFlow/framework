@@ -179,7 +179,8 @@
                     ... all other remaining EJS files
                      */
                     articleTemplates: "src/templates/razorflow_dotcom/article_templates",
-                    apiTemplates: "src/templates/razorflow_dotcom/api_templates"
+                    apiTemplates: "src/templates/razorflow_dotcom/api_templates",
+                    topBarTitle: 'JavaScript Documentation'
                 }
             },
             website_php: {
@@ -240,7 +241,8 @@
                     ... all other remaining EJS files
                      */
                     articleTemplates: "src/templates/razorflow_dotcom/article_templates",
-                    apiTemplates: "src/templates/razorflow_dotcom/api_templates"
+                    apiTemplates: "src/templates/razorflow_dotcom/api_templates",
+                    topBarTitle: 'PHP Documentation'
                 }
             }
         },
