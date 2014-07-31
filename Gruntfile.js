@@ -8,17 +8,41 @@ module.exports = function(grunt) {
         copyto: {
             jsrfToPackage: {
                 files: [{
-                    cwd: 'jsrf/build/package/',
+                    cwd: 'jsrf/build/packages/',
                     src: ['**/*'],
                     dest: 'build/package/razorflow_js/'
                 }, ]
             },
             phprfToPackage: {
                 files: [{
-                    cwd: 'phprf/build/package/',
+                    cwd: 'phprf/build/packages/',
                     src: ['**/*'],
                     dest: 'build/package/razorflow_php/'
                 }, ]
+            },
+            packageToSuite: {
+                files: [
+                    {
+                        cwd: 'build/package/razorflow_js/minified',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_minified/razorflow_framework_js/'
+                    },
+                    {
+                        cwd: 'build/package/razorflow_php/minified',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_minified/razorflow_framework_php/'
+                    },
+                    {
+                        cwd: 'build/package/razorflow_js/source',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_source/razorflow_framework_js/'
+                    },
+                    {
+                        cwd: 'build/package/razorflow_php/source',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_source/razorflow_framework_php/'
+                    },
+                ]
             }
         },
         clean: {
@@ -142,7 +166,7 @@ module.exports = function(grunt) {
     grunt.registerTask('cleanAll', ["extGrunt:jsClean", "extGrunt:phpClean"]);
 
     grunt.registerTask('buildAll', ["extGrunt:jsPackage", "extGrunt:phpPackage", "extGrunt:exampleBuild"]);
-    grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"]);
+    grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "copyto:packageToSuite"]);
     grunt.registerTask('simplePackage', ["clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"])
     grunt.registerTask('release', ['package', "compress:release", "extGrunt:transferSiteStatic", "extGrunt:takeScreenshots", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"])
 
