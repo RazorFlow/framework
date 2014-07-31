@@ -1,64 +1,6 @@
 {
     "demos": [
         {
-            "id": "business_demos",
-            "title": "Business Demos",
-            "demos": [
-                {
-                    "id": "sales_dashboard",
-                    "title": "Sales Dashboard",
-                    "desc": "Description goes here",
-                    "js": "sales_dashboard",
-                    "php": "sales_dashboard"
-                },
-                {
-                    "id": "inventory_dashboard",
-                    "title": "Inventory Dashboard",
-                    "desc": "Description goes here",
-                    "js": "inventory_dashboard",
-                    "php": "none"
-                }
-            ]
-        },
-        {
-            "id": "feature_demos",
-            "title": "Feature Demos",
-            "demos": [
-                {
-                    "id": "kpi_dashboard",
-                    "title": "KPI Types",
-                    "desc": "Description goes here",
-                    "js": "kpi_feature_dashboard",
-                    "php": "kpi_feature_dashboard",
-                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
-                },
-                {
-                    "id": "chart_dashboard",
-                    "title": "Chart Types",
-                    "desc": "Description goes here",
-                    "js": "chart_feature_dashboard",
-                    "php": "chart_feature_dashboard",
-                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/chart/chart_basic.php"
-                },
-                {
-                    "id": "filter_dashboard",
-                    "title": "Filter in Razorflow",
-                    "desc": "Description goes here",
-                    "js": "filter_feature_dashboard",
-                    "php": "filter_feature_dashboard",
-                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/filter/filter_configure.php"
-                },
-                {
-                    "id": "table_dashboard",
-                    "title": "Table in Razorflow",
-                    "desc": "Description goes here",
-                    "js": "table_feature_dashboard",
-                    "php": "table_feature_dashboard",
-                    "doc": "http://razorflow.com/docs/dashboard/js/guide/components/table/index.php"
-                }
-            ]
-        },
-        {
             "id": "chart_component_demos",
             "title": "Chart Component",
             "demos": [
@@ -133,6 +75,44 @@
                     "js": "chart_dualy",
                     "php": "chart_dualy",
                     "doc": "http://razorflow.com/docs/dashboard/js/guide/components/kpi/kpi_basic.php"
+                }
+            ]
+        },
+        {
+            "id": "kpi_component_demos",
+            "title": "KPI Component",
+            "demos": [
+                {
+                    "id": "simple_kpi",
+                    "title": "Simple KPI",
+                    "desc": "Description goes here",
+                    "js": "kpi_simple",
+                    "php": "kpi_simple",
+                    "doc": ""
+                },
+                {
+                    "id": "gauge_kpi",
+                    "title": "Gauge",
+                    "desc": "Description goes here",
+                    "js": "kpi_gauge",
+                    "php": "kpi_gauge",
+                    "doc": ""
+                },
+                {
+                    "id": "group_kpi",
+                    "title": "KPI Group",
+                    "desc": "Description goes here",
+                    "js": "kpi_group",
+                    "php": "kpi_group",
+                    "doc": ""
+                },
+                {
+                    "id": "component_kpi",
+                    "title": "Component KPIs",
+                    "desc": "Description goes here",
+                    "js": "kpi_component_kpi",
+                    "php": "kpi_component_kpi",
+                    "doc": ""
                 }
             ]
         }
