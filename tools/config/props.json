@@ -707,49 +707,49 @@
 			}
 		}
 	},
-	"FilterComponentProperties": {
+	"FormComponentProperties": {
 		"base": "ComponentProperties",
-		"shortDesc" : "Filter Component properties",
+		"shortDesc" : "Form Component properties",
 		"properties": {
-			"filter": {
+			"form": {
 				"type": "PropertyBase",
-				"class": "FilterProperties",
-				"shortDesc" : "Properties pertaining to the filter component."
+				"class": "FormProperties",
+				"shortDesc" : "Properties pertaining to the form component."
 			}
 		}
 	},
-	"FilterProperties": {
+	"FormProperties": {
 		"base": "PropertyBase",
 		"properties": {
 			"items": {
 				"type": "PropertyList",
-				"class": "FilterItemProperties",
-				"shortDesc" : "List of properties for filter item."
+				"class": "FormItemProperties",
+				"shortDesc" : "List of properties for form item."
 			}
 		}
 	},
-	"FilterItemProperties": {
+	"FormItemProperties": {
 		"base": "PropertyBase",
 		"properties": {
 			"type": {
 				"type": "string",
 				"default": "",
-				"shortDesc" : "Type of filter item."
+				"shortDesc" : "Type of form item."
 			},
 			"label": {
 				"type": "string",
 				"default": "",
-				"shortDesc" : "Text to be displayed on the filter."
+				"shortDesc" : "Text to be displayed on the form."
 			},
 			"list": {
 				"type": "string",
 				"default": "string",
-				"shortDesc" : "List of select options to filter by."
+				"shortDesc" : "List of select options to form by."
 			},
 			"options": {
 				"type": "string",
 				"default": "",
-				"shortDesc": "Additional options passed to the filter component."
+				"shortDesc": "Additional options passed to the form component."
 			},
 			"range": {
 				"type": "string",
