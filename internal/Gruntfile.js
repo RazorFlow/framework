@@ -45,10 +45,10 @@ module.exports = function (grunt) {
                 options: {
                     files: "../src/js/examples/*.js",
                     out: "../static/exampleImages/js/examples/",
-                    baseUrl: "http://localhost:8080/dashboard/js/examples/",
+                    baseUrl: "http://localhost:8080/dev/js/examples/",
                     width: 1024,
                     height: 768,
-                    timeout: 2000,
+                    timeout: 5000,
                     extension: ".js"
                 }
             },
@@ -56,10 +56,10 @@ module.exports = function (grunt) {
                 options: {
                     files: "../src/php/examples/*.php",
                     out: "../static/exampleImages/php/examples/",
-                    baseUrl: "http://localhost:8080/dashboard/php/examples/",
+                    baseUrl: "http://localhost:8080/dev/php/examples/",
                     width: 1024,
                     height: 768,
-                    timeout: 2000,
+                    timeout: 5000,
                     extension: ".php"
                 }
             }
