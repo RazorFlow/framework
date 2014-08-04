@@ -127,7 +127,7 @@
                         root: 'src/content/js',
                         imagesLocalPath: 'src/images',
                         imagesRelativePath: "js/_images/",
-                        imagesPhysicalPath: "../newsite/src/docs/js/_images/"
+                        imagesPhysicalPath: "../newsite/src/docs/dashboard/js/_images/"
                     },
                     constantsPath: '../jsrf/tools/config/props.json',
                     partialsPath: 'src/partials',
@@ -158,7 +158,7 @@
                         lang: {
                             "js": {
                                 src: ["../jsrf/src/js/components/*.js"],
-                                out: "../newsite/src/docs/js/api",
+                                out: "../newsite/src/docs/dashboard/js/api",
                                 relativeLinkPath: "api/"
                             },
                             // "php": {
@@ -168,8 +168,8 @@
                             // }
                         }
                     },
-                    linkPrefix: "/docs",
-                    out: "../newsite/src/docs/js/",
+                    linkPrefix: "/docs/dashboard",
+                    out: "../newsite/src/docs/dashboard/js/",
                     suffix: "php",
                     /*
                     base.ejs
@@ -189,7 +189,7 @@
                         root: 'src/content/php',
                         imagesLocalPath: 'src/images',
                         imagesRelativePath: "php/_images/",
-                        imagesPhysicalPath: "../newsite/src/docs/php/_images/"
+                        imagesPhysicalPath: "../newsite/src/docs/dashboard/php/_images/"
                     },
                     constantsPath: '../jsrf/tools/config/props.json',
                     partialsPath: 'src/partials',
@@ -225,13 +225,13 @@
                             // },
                             "php": {
                                 src: ["../phprf/src/lib/components/*.php", "../phprf/src/lib/util/*.php"],
-                                out: "../newsite/src/docs/php/api",
+                                out: "../newsite/src/docs/dashboard/php/api",
                                 relativeLinkPath: "api/"
                             }
                         }
                     },
-                    linkPrefix: "/docs",
-                    out: "../newsite/src/docs/php/",
+                    linkPrefix: "/docs/dashboard",
+                    out: "../newsite/src/docs/dashboard/php/",
                     suffix: "php",
                     /*
                     base.ejs
