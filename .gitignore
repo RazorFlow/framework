@@ -18,3 +18,4 @@ razorflow.css
 *.cache
 icons.html
 razorflow.sqlite
+composer.phar

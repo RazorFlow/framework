@@ -3,6 +3,7 @@
 	"require": {
 		"kriswallsmith/assetic": "*",
 		"guzzlehttp/guzzle": "4.*",
-    "deskpro/deskpro-api-php": "dev-master"
+    "deskpro/deskpro-api-php": "dev-master",
+    "phpmailer/phpmailer": "5.2.8"
 	}
 }
