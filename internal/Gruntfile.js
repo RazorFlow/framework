@@ -35,7 +35,7 @@ module.exports = function (grunt) {
             phprfToLocal: {
                 files: 
                 [
-                    {cwd: '../../phprf/build/package/', src: ["**/*"], dest: '../lib/phprf/'}
+                    {cwd: '../../phprf/build/packages/minified/razorflow_php', src: ["**/*"], dest: '../lib/phprf/'}
                 ]
             }
 
