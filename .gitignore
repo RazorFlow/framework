@@ -17,4 +17,4 @@ custombuilder/
 razorflow.css
 *.cache
 icons.html
-database.sqlite
+razorflow.sqlite
