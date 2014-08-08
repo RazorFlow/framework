@@ -30,10 +30,15 @@ def virtualenv():
  
 def deploy():
 	upload_app ()
+	clear_caches ()
 	print(green("##################################################################"))
 	print(green("## Finished deploy without any known errors. Please still test. ##"))
 	print(green("##################################################################"))
 
+def clear_caches():
+	print (yellow("Clearing caches"))
+	run("rm /home/razorflow/webrf/src/static/compiled/*.js")
+	run("rm /home/razorflow/webrf/src/static/compiled/*.css")
 
 def upload_app ():
 	print (yellow("Uploading application to web server..."))
