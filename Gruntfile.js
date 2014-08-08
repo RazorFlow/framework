@@ -8,33 +8,123 @@ module.exports = function(grunt) {
         copyto: {
             jsrfToPackage: {
                 files: [{
-                    cwd: 'jsrf/build/package/',
+                    cwd: 'jsrf/build/packages/',
                     src: ['**/*'],
                     dest: 'build/package/razorflow_js/'
                 }, ]
             },
             phprfToPackage: {
                 files: [{
-                    cwd: 'phprf/build/package/',
+                    cwd: 'phprf/build/packages/',
                     src: ['**/*'],
                     dest: 'build/package/razorflow_php/'
                 }, ]
+            },
+            packageToSuite: {
+                files: [
+                    {
+                        cwd: 'build/package/razorflow_js/minified',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_minified/razorflow_framework_js/'
+                    },
+                    {
+                        cwd: 'build/package/razorflow_php/minified',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_minified/razorflow_framework_php/'
+                    },
+                    {
+                        cwd: 'build/package/razorflow_js/source',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_source/razorflow_framework_js/'
+                    },
+                    {
+                        cwd: 'build/package/razorflow_php/source',
+                        src: ['**/*'],
+                        dest: 'build/package/razorflow_framework_suite_source/razorflow_framework_php/'
+                    },
+                ]
             }
         },
         clean: {
             packageBuild: ["package/**", "build/**"]
         },
         compress: {
-            release: {
+            // release: {
+            //     options: {
+            //         archive: "package/razorflow_dashboard_framework" + buildId + ".zip"
+            //     },
+            //     files: [{
+            //         cwd: 'build/package/',
+            //         src: ['**'],
+            //         dest: 'razorflow_dashboard_framework',
+            //         expand: true
+            //     }, ]
+            // },
+            js_min: {
                 options: {
-                    archive: "package/razorflow_dashboard_framework" + buildId + ".zip"
+                    archive: "package/js_minified/razorflow_framework_js" + buildId + ".zip"
                 },
                 files: [{
-                    cwd: 'build/package/',
+                    cwd: 'build/package/razorflow_js/minified/',
                     src: ['**'],
-                    dest: 'razorflow_dashboard_framework',
+                    dest: 'razorflow_framework_js',
                     expand: true
-                }, ]
+                }]
+            },
+            js_src: {
+                options: {
+                    archive: "package/js_source/razorflow_framework_js_wsource" + buildId + ".zip"
+                },
+                files: [{
+                    cwd: 'build/package/razorflow_js/source/',
+                    src: ['**'],
+                    dest: 'razorflow_framework_js',
+                    expand: true
+                }]
+            },
+            php_min: {
+                options: {
+                    archive: "package/php_minified/razorflow_framework_php" + buildId + ".zip"
+                },
+                files: [{
+                    cwd: 'build/package/razorflow_php/minified/',
+                    src: ['**'],
+                    dest: 'razorflow_framework_php',
+                    expand: true
+                }]
+            },
+            php_src: {
+                options: {
+                    archive: "package/php_source/razorflow_framework_php_wsource" + buildId + ".zip"
+                },
+                files: [{
+                    cwd: 'build/package/razorflow_php/source/',
+                    src: ['**'],
+                    dest: 'razorflow_framework_php',
+                    expand: true
+                }]
+            },
+            suite_min: {
+                options: {
+                    archive: "package/suite_minified/razorflow_framework_suite" + buildId + ".zip"
+                },
+                files: [{
+                    cwd: 'build/package/razorflow_framework_suite_minified/',
+                    src: ['**'],
+                    dest: 'razorflow_framework_suite',
+                    expand: true
+                }]
+            },
+            suite_src: {
+                options: {
+                    archive: "package/suite_source/razorflow_framework_suite_wsource_" + buildId + ".zip"
+                },
+                files: [{
+                    cwd: 'build/package/razorflow_framework_suite_source/',
+                    src: ['**'],
+                    dest: 'razorflow_framework_suite',
+                    expand: true
+                }]
             }
         },
         extGrunt: {
@@ -142,10 +232,9 @@ module.exports = function(grunt) {
     grunt.registerTask('cleanAll', ["extGrunt:jsClean", "extGrunt:phpClean"]);
 
     grunt.registerTask('buildAll', ["extGrunt:jsPackage", "extGrunt:phpPackage", "extGrunt:exampleBuild"]);
-    grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"]);
+    grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "copyto:packageToSuite"]);
     grunt.registerTask('simplePackage', ["clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"])
-    grunt.registerTask('release', ['package', "compress:release", "extGrunt:transferSiteStatic", "extGrunt:takeScreenshots", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"])
-
+    grunt.registerTask('release', ['package', "compress", "extGrunt:transferSiteStatic", "extGrunt:takeScreenshots", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"]);
     grunt.registerTask("upload", ["s3:upload_package", "exec:show_gg"]);
 
 
