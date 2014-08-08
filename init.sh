@@ -27,3 +27,6 @@ git clone git@github.com:razorflow/examples.git examples
 
 echo "Cloning razorcharts"
 git clone git@bitbucket.org:razorflow/razorcharts.git razorcharts
+
+echo "Cloning grunt-jst"
+git clone git://github.com/skyronic/grunt-contrib-jst.git grunt-contrib-jst

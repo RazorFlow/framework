@@ -9,6 +9,7 @@ package
 webrf
 examples
 newsite
+grunt-contrib-jst
 *.sublime-workspace
 .DS_Store
 node_modules
