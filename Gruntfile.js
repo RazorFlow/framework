@@ -258,7 +258,7 @@
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadTasks("../razordoc/src/");
 
-    grunt.registerTask('build', ['razordoc:local']);
+    grunt.registerTask('build', ['razordoc:website_js', 'razordoc:website_php']);
 
     // grunt.registerTask('compile', ['shell:local_js_articles', 'shell:local_php_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
     // grunt.registerTask('webArticles', ['shell:web_js_articles', 'shell:web_php_articles']);
