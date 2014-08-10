@@ -64,11 +64,6 @@
 		"shortDesc" : "Base for component properties.",
 		"base": "PropertyBase",
 		"properties": {
-			"index": {
-				"type": "Number",
-				"default": 99999,
-				"shortDesc": "The position in a dashboard"
-			},
 			"core": {
 				"type": "PropertyBase",
 				"class": "ComponentCoreProperties",
@@ -200,6 +195,11 @@
 		"base": "PropertyBase",
 		"shortDesc" : "Core properties of the component.",
 		"properties": {
+			"index": {
+				"type": "number",
+				"default": 99999,
+				"shortDesc": "The position in a dashboard"
+			},
 			"caption": {
 				"type": "string",
 				"default": "",
