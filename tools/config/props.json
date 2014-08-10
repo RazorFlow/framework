@@ -491,6 +491,11 @@
 				"type": "boolean",
 				"default": true,
 				"shortDesc" : "When set to false, chart legend is hidden."
+			},
+			"showPieValues": {
+				"type": "boolean",
+				"default": true,
+				"shortDesc": "When set to false, pie labels will be hidden."
 			}
 		}
 	},
