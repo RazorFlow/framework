@@ -260,7 +260,7 @@ module.exports = function(grunt) {
     grunt.registerTask('buildAll', ["extGrunt:jsPackage", "extGrunt:phpPackage", "extGrunt:exampleBuild"]);
     grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "copyto:packageToSuite"]);
     grunt.registerTask('simplePackage', ["clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"])
-    grunt.registerTask('release', ['package', "compress", "transferSiteStatic", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"]);
+    grunt.registerTask('release', ['package', "compress", "extGrunt:transferSiteStatic", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"]);
     grunt.registerTask("upload", ["extGrunt:takeScreenshots","s3:upload_package", "exec:show_gg"]);
 
 
