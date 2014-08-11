@@ -180,7 +180,8 @@
                      */
                     articleTemplates: "src/templates/razorflow_dotcom/article_templates",
                     apiTemplates: "src/templates/razorflow_dotcom/api_templates",
-                    topBarTitle: 'JavaScript Documentation'
+                    topBarTitle: 'JavaScript Documentation',
+                    langUrl: 'js'
                 }
             },
             website_php: {
@@ -242,7 +243,8 @@
                      */
                     articleTemplates: "src/templates/razorflow_dotcom/article_templates",
                     apiTemplates: "src/templates/razorflow_dotcom/api_templates",
-                    topBarTitle: 'PHP Documentation'
+                    topBarTitle: 'PHP Documentation',
+                    langUrl: 'php'
                 }
             }
         },
