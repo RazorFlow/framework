@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                     {cwd: 'src/', src: ['**'], dest: 'build/packages/source/razorflow_php/'},
                     {cwd: '../jsrf/build/assets/', src: ['js/*.js', 'css/*.css', 'fonts/**', 'img/**'], dest: 'build/packages/source/razorflow_php/static/rf/'},
                     {cwd: '../jsrf/build/packages/source/source/', src: ['**/*'], dest: 'build/packages/source/source/'},
-                    {cwd: 'src/', src: ['**'], dest: 'build/packages/source/source/php/src/'}
+                    {cwd: 'src/', src: ['**'], dest: 'build/packages/source/source/php/src/'},
                     {cwd: 'dashboard_quickstart/', src: ['**'], dest: 'build/packages/source/dashboard_quickstart/'},
                     {cwd: '../jsrf/build/assets/', src: ['js/*.js', 'css/*.css', 'fonts/**', 'img/**'], dest: 'build/packages/source/dashboard_quickstart/razorflow_php/static/rf/'},
                 ]
