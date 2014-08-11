@@ -196,10 +196,36 @@ module.exports = function(grunt) {
 
                 },
                 // Files to be uploaded.
-                upload: [{
-                    src: 'package/razorflow_dashboard_framework' + buildId + ".zip",
-                    dest: 'razorflow_dashboard_framework' + buildId + ".zip",
-                }]
+                upload: [
+                    // {
+                    //     src: 'package/razorflow_dashboard_framework' + buildId + ".zip",
+                    //     dest: 'razorflow_dashboard_framework' + buildId + ".zip",
+                    // },
+                    {
+                        src: 'package/js_minified/razorflow_framework_js' + buildId + '.zip',
+                        dest: 'razorflow_framework_js' + buildId + '.zip'
+                    },
+                    {
+                        src: "package/js_source/razorflow_framework_js_wsource" + buildId + ".zip",
+                        dest: "razorflow_framework_js_wsource" + buildId + ".zip"
+                    },
+                    {
+                        src: "package/php_minified/razorflow_framework_php" + buildId + ".zip",
+                        dest: "razorflow_framework_php" + buildId + ".zip"
+                    },
+                    {
+                        src: "package/php_source/razorflow_framework_php_wsource" + buildId + ".zip",
+                        dest: "razorflow_framework_php_wsource" + buildId + ".zip"
+                    },
+                    {
+                        src: "package/suite_minified/razorflow_framework_suite" + buildId + ".zip",
+                        dest: "razorflow_framework_suite" + buildId + ".zip"
+                    },
+                    {
+                        src: "package/suite_source/razorflow_framework_suite_wsource_" + buildId + ".zip",
+                        dest: "razorflow_framework_suite_wsource_" + buildId + ".zip"
+                    }
+                ]
             }
         }
     });
@@ -234,7 +260,7 @@ module.exports = function(grunt) {
     grunt.registerTask('buildAll', ["extGrunt:jsPackage", "extGrunt:phpPackage", "extGrunt:exampleBuild"]);
     grunt.registerTask('package', ["buildAll", "clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage", "copyto:packageToSuite"]);
     grunt.registerTask('simplePackage', ["clean:packageBuild", "copyto:jsrfToPackage", "copyto:phprfToPackage"])
-    grunt.registerTask('release', ['package', "compress", "extGrunt:transferSiteStatic", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"]);
+    grunt.registerTask('release', ['package', "compress", "extGrunt:buildMVCApps", "extGrunt:buildDocs", "createVersionPhp"]);
     grunt.registerTask("upload", ["extGrunt:takeScreenshots","s3:upload_package", "exec:show_gg"]);
 
 
