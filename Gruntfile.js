@@ -117,7 +117,7 @@ module.exports = function(grunt) {
             },
             suite_src: {
                 options: {
-                    archive: "package/suite_source/razorflow_framework_suite_wsource_" + buildId + ".zip"
+                    archive: "package/suite_source/razorflow_framework_suite_wsource" + buildId + ".zip"
                 },
                 files: [{
                     cwd: 'build/package/razorflow_framework_suite_source/',
@@ -222,7 +222,7 @@ module.exports = function(grunt) {
                         dest: "razorflow_framework_suite" + buildId + ".zip"
                     },
                     {
-                        src: "package/suite_source/razorflow_framework_suite_wsource_" + buildId + ".zip",
+                        src: "package/suite_source/razorflow_framework_suite_wsource" + buildId + ".zip",
                         dest: "razorflow_framework_suite_wsource_" + buildId + ".zip"
                     }
                 ]
