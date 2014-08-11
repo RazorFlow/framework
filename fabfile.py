@@ -6,7 +6,7 @@ from contextlib import contextmanager as _contextmanager
 
 
 
-rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "temp", "config.php", "resources")
+rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "temp", "config.php", "resources", "compiled")
 
 
 def production():
@@ -37,8 +37,8 @@ def deploy():
 
 def clear_caches():
 	print (yellow("Clearing caches"))
-	run("rm /home/razorflow/webrf/src/static/compiled/*.js")
-	run("rm /home/razorflow/webrf/src/static/compiled/*.css")
+	run("rm -f /home/razorflow/webrf/src/static/compiled/*.js")
+	run("rm -f /home/razorflow/webrf/src/static/compiled/*.css")
 
 def upload_app ():
 	print (yellow("Uploading application to web server..."))
