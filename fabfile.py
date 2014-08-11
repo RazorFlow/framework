@@ -6,7 +6,7 @@ from contextlib import contextmanager as _contextmanager
 
 
 
-rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "temp", "config.php", "resources", "compiled")
+rsync_excludes = ("*_local.py", "*.pyc", ".git/*", "*node_modules*", "temp", "config.php", "resources", "compiled", "*.sqlite")
 
 
 def production():
