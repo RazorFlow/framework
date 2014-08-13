@@ -93,7 +93,8 @@ module.exports = function(grunt) {
             ]},
             {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
                 {dir: "js", files:[
-                    "build/assets/js/razorflow.min.js"
+                    "build/assets/js/razorflow.min.js",
+                    "build/assets/js/razorflow.devtools.min.js"
                 ]},
                 {dir: "img", src:"build/assets/img/"},
                 {dir: "css", src:"build/assets/css/"}
