@@ -1,0 +1,19 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "unused": false,
+  "maxdepth": 6,
+  "evil": true,
+  "smarttabs": true,
+  "sub": true,
+  "globals": {
+    "jQuery": true,
+    "define": true,
+    "require": true,
+    "node": true
+  }
+}

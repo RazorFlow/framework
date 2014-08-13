@@ -1,0 +1,218 @@
+.rfTable {
+    border-collapse: collapse;
+    p {
+        margin: 0;
+        padding: 0;
+        line-height: 16px;
+        margin-top: 2px;
+    }
+
+    th, td {
+        height: @table-cell-height;
+        padding-left: @table-cell-padding;
+        padding-right: @table-cell-padding;
+    }
+
+    .canaryTH {
+        font-weight: bold;
+        border-right: 1px solid #000;
+        white-space: nowrap;
+    }
+
+    td:last-child, th:last-child {
+        border-right: none;
+    }
+
+    th {
+        text-align: left;
+        cursor: pointer;
+        white-space: nowrap;
+        border-top: 0px !important;
+    }
+
+    thead {
+        font-size: @table-head-font-size;
+        th {
+            font-size: @table-head-font-size;
+            line-height: 17px;
+            min-width: 53px;
+            &.rfTh-right {
+                // padding-right: 8px;
+            }
+        }
+    }
+    tbody {
+        font-size: @table-body-font-size;
+        tr {            
+            td {
+                font-size: @table-body-font-size;
+                line-height: 34px;
+                min-width: 53px;
+            }
+        }
+    }
+    
+    margin: 0 !important;
+
+    .rfRight{
+      text-align: right;
+      p {
+        // padding-right: 8px;
+      }
+    }
+
+    .rfCenter{
+      text-align: center;
+    }
+
+    .rfLeft{
+      text-align: left;
+    }
+
+    td{
+      &.rfBold{
+        font-weight: bold;
+      }
+
+      &.rfItalic{
+        font-style: italic;
+      }
+    }
+}
+
+.rfModalBody {
+    .rfTableHeader {
+        .rfTable {
+            border-top: 1px solid @table-cell-border-color;
+        }
+    }
+}
+
+.rfTableBody {
+    height: 100%;
+    overflow: auto;
+    border-top: none;
+}
+
+.rfPaginationContainer {
+    display: table;
+    width: 100%;
+    .rfPaginationCore {
+        display: table-row;
+        height: 58px;
+        text-align: center;
+        .paginationInfo {
+            display: inline-block;
+            padding-top: 19px;
+            padding-left: 10px;
+            float: left;
+            font-size: 14px;
+        }
+        ul.rfpagination, .rfMobilePagination {
+            display: inline-block;
+            padding-top: 13px;
+            padding-right: 11px;
+            float: right;
+            list-style-type: none;
+            li, span {
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                a {
+                    text-decoration: none;
+                    display: block;
+                    padding: 0px 10px;
+                    font-size: 11px;
+                    line-height: 27px;
+                    letter-spacing: 1px;
+                }
+            }
+            .active {
+                border-radius: 2px;
+                width: 29px;
+                height: 29px;
+                border-width: 1px;
+                border-style: solid;
+            }
+        }
+    }
+}
+
+.pageNextArrow, .pagePrevArrow {
+    position: relative;
+    top: -6px;
+    font-size: 14px;
+}
+
+.pageNextArrow {
+    left: 5px;
+}
+
+.pagePrevArrow {
+    padding-right: 5px;
+    transform: rotate(180deg);
+    -webkit-transform:rotate(180deg); 
+    top: 9px;
+    left: -6px;
+}
+
+.rfPrevButton, .rfNextButton {
+    height: 29px;
+    width: 70px;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+}
+.rfPrevButton.disabled, .rfNextButton.disabled {
+    opacity: 0.2;
+    cursor: default;
+    a {
+        cursor: default;
+    }
+}
+
+@-moz-document url-prefix() {
+    .pageNextArrow {
+        left: 8px;
+    }
+    .pageNextArrow, .pagePrevArrow {
+        top: -2px;
+        font-size: 10px;
+    }
+    .pagePrevArrow {
+        top: 4px;
+        left: -10px;
+    }
+}
+
+.rfMobilePagination {
+    width: 216px;
+    float: none !important;
+    .rfMobileButton {
+        width: 40px;
+    }
+    .rfNextButton {
+        float: right;
+    }
+    .rfPrevButton {
+        float: left;
+    }
+    .paginationInfo {
+        text-align: center;
+        width: 116px;
+        padding-top: 0px !important;
+        padding-left: 0px !important;
+        font-family: HelveticaNeue-Light;
+        font-size: 14px;
+        line-height: 32px;
+    }
+}
+    
+.rfTableContainer {
+    overflow: hidden;
+}
+
+.canary-tableSparkline {
+    background-color: @table-spark-color;
+}
+

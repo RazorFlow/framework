@@ -1,0 +1,51 @@
+RAZORFLOW - BETA SOFTWARE LICENSE AGREEMENT
+
+THIS IS A LEGAL AGREEMENT BETWEEN YOU (ENTITY OR PERSON, hereinafter collectively referred to as “YOU” or “YOUR” or “USER”) AND RAZORFLOW TECHNOLOGIES LLP (“RAZORFLOW”) TO LICENSE THE RAZORFLOW DASHBOARD FRAMEWORK SOFTWARE AVAILABLE VIA THE RAZORFLOW WEBSITE, WHICH INCLUDES COMPUTER SOFTWARE AND ASSOCIATED MEDIA (the “BETA SOFTWARE”) AND “ONLINE” OR ELECTRONIC DOCUMENTATION (the “DOCUMENTATION”).
+
+BY INSTALLING, COPYING, OR OTHERWISE USING THE BETA SOFTWARE, YOU ACKNOWLEDGE THAT YOU OR YOUR AUTHORIZED REPRESENTATIVE HAVE READ AND UNDERSTAND THIS AGREEMENT AND AGREE TO THE VALIDITY AND TO BE BOUND BY THE TERMS OF THIS LICENSE GRANT (“LICENSE”).
+
+THESE LICENSE TERMS, TOGETHER WITH ANY APPLICABLE NON-DISCLOSURE AGREEMENT APPEARING OR REFERENCED ON RAZORFLOW WEBSITE OR IN THE FILES DELIVERED DURING INSTALLATION REPRESENT THE ENTIRE SET OF TERMS AND CONDITIONS GOVERNING YOUR USE OF THIS BETA SOFTWARE AND ACCOMPANYING WRITTEN MATERIALS (WHERE APPLICABLE), AND SUPERSEDE ANY OTHER PRIOR PROPOSAL, REPRESENTATION, OR UNDERSTANDING BETWEEN THE PARTIES.
+
+IT IS HIGHLY RECOMMENDED THAT YOU KEEP A COPY OF THIS LICENSE FOR YOUR RECORDS.
+
+1. Acknowledgment of Validity and Limited Rights For Testing Only.
+
+Upon your acceptance of the Agreement by downloading the BETA SOFTWARE, RazorFlow grants to you a non-exclusive, limited purpose license to use the BETA SOFTWARE and the DOCUMENTATION, only as authorized in this LICENSE, and you hereby acknowledge and agree to the validity of this AGREEMENT and the terms and conditions contained herein, and agree to be bound hereto.
+
+The BETA SOFTWARE has been designed and developed by RazorFlow, either alone or together with other third parties, and this LICENSE is being made on behalf of all parties who contributed to the BETA SOFTWARE and DOCUMENTATION. Subject to the terms and provisions set forth, USER is willing to accept delivery of the BETA SOFTWARE for the purpose of using and evaluating the same. RazorFlow is willing to permit the USER to use and evaluate the BETA SOFTWARE under the terms and conditions of this AGREEMENT in order to obtain user information to such BETA SOFTWARE which may be helpful to RazorFlow in making any improvements, enhancements or modifications with respect thereto. The BETA SOFTWARE may be used on multiple computers owned, leased or otherwise controlled by you. You may use the BETA SOFTWARE on any other platforms. The BETA SOFTWARE is “in use” on a computer when it is loaded into temporary memory (i.e., RAM) or installed into permanent memory (e.g. hard disk, CD-ROM or other storage device) of that computer.
+
+2. Ownership of Proprietary Rights and Grant
+
+Upon your acceptance of the Agreement by downloading the BETA SOFTWARE, RazorFlow does hereby grant USER at no charge a non-exclusive, but transferable right to use the BETA SOFTWARE for evaluation purposes only. This right shall terminate on the date RazorFlow determines in its sole discretion that RazorFlow no longer has a need for user information from the USER regarding the BETA SOFTWARE; or RazorFlow has learned that the terms of this AGREEMENT have been breached by USER. You acknowledge and agree that the BETA SOFTWARE and DOCUMENTATION are proprietary to RazorFlow or its third party contributors protected under United States copyright laws, other applicable copyright laws, and international treaty provisions. You further acknowledge and agree that the entire right, title and interest in and to the BETA SOFTWARE and DOCUMENTATION, including associated intellectual property rights, shall remain with RazorFlow or its third party contributors. RazorFlow retains all rights not expressly granted herein. Nothing in this AGREEMENT obligates RazorFlow to create any updates or enhancements, nor to provide technical support or the maintenance services for the BETA SOFTWARE.
+
+3. Evaluation and Reports.
+
+The USER shall provide RazorFlow with reports concerning its opinion and evaluation of the BETA SOFTWARE. USER shall consult with representatives of RazorFlow from time-to-time concerning the performance of the BETA SOFTWARE. USER agrees that right, title and interest to any reports, feedback or suggestions relating to the BETA SOFTWARE or any inventions relating to an improvement, modification or enhancement of the BETA SOFTWARE conceived in, or made as a result of, USER’s performance of this AGREEMENT shall become the exclusive property of RazorFlow and that RazorFlow may disclose and use such information for any purposes whatsoever, entirely without obligation of any kind to USER.
+
+4. Proprietary Information and Data.
+
+USER acknowledges that the BETA SOFTWARE consists of software which is proprietary to RazorFlow or its licensors; and all rights, title and interest therein or thereto, including, without limitation, all patents, copyrights, trademarks and trade secrets are proprietary to RazorFlow or its licensors and shall remain vested therein.
+
+For purposes of this AGREEMENT, “PROPRIETARY INFORMATION” shall include, but not be limited to, the BETA SOFTWARE, including its functionality, performance, business purpose, specifications, DOCUMENTATION, and the like, test results obtained by USER through use of the BETA SOFTWARE, any material data relating to use of the BETA SOFTWARE by USER, including, but not limited to defects, deficiencies, errors, omissions, work-arounds, features, enhancements, updates, upgrades, and other information typically relating to unreleased version(s) of computer programs, and any and all information, either written or oral, relating to the BETA SOFTWARE, including plans, business and financial information, which may, from time-to-time, be disclosed by RazorFlow to USER during the term of this AGREEMENT. It is understood by both parties that ANY information provided by RazorFlow during the term to USER relating to the BETA SOFTWARE is RazorFlow's PROPRIETARY INFORMATION.
+
+5. Disclaimer of Warranty.
+
+USER acknowledges that the BETA SOFTWARE has not been completely tested and will contain defects or deficiencies which cannot or may not be corrected. USER further acknowledges that use of the BETA SOFTWARE may involve the transmission, upload, download, translation or transfer of its data to a server or computer platform outside of USER’s control, and some errors in the data may occur while transferring, transmitting or translating data while using the BETA SOFTWARE. RazorFlow cautions USER to determine for itself the suitability of the use of the BETA SOFTWARE for any purpose.
+
+RazorFlow further cautions USER not to use the BETA SOFTWARE in a production environment. USER acknowledges that RazorFlow has no express or implied obligation to announce or introduce the BETA SOFTWARE or any similar or compatible product. USER acknowledges that all use, testing, research and development performed by it pursuant to this AGREEMENT are done entirely at its own risk.
+
+ACCORDINGLY, RAZORFLOW MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, REGARDING THE USE OR PERFORMANCE OF THE BETA SOFTWARE, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF MECHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. USER ACCEPTS THE BETA SOFTWARE IN “AS IS” CONDITION, AND RAZORFLOW SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, REGARDLESS OF THE NATURE OF THE CLAIM, INCLUDING WITHOUT LIMITATION LOST PROFITS, COSTS OF DELAY, ANY FAILURE OF DELIVERY, COSTS OF LOST OR DAMAGED DATA OR DOCUMENTATION OR LIABILITIES TO THIRD PARTIES ARISING FROM ANY SOURCE, EVEN IF RAZORFLOW HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+6. Miscellaneous.
+
+This AGREEMENT shall be governed by the laws of the State of California, United States of America, without regard to conflicts of law rules. In addition to the foregoing, and not in lieu thereof, USER agrees to comply with the export laws and regulations of the United States Government, or any other export laws, restrictions or regulations, as they apply to the exports of products and technical data from the United States and re-exports or transfers of products and technical data from other countries, and to furnish or complete such documentation as may be required.
+
+USER’s obligations under Section 3, 4 and 5 shall survive the termination of this AGREEMENT and commercial release of the BETA SOFTWARE.
+
+7. Consequences of Breach.
+
+USER acknowledges that:
+
+RazorFlow shall be entitled, without waiving any additional rights or remedies available to it at law, in equity, or by statute, to such injunctive or equitable relief as may be deemed proper by a court of competent jurisdiction; and
+USER’s breach of this AGREEMENT shall result in immediate termination of this AGREEMENT and may be cause for exclusion in other RazorFlow sponsored BETA or other BETA SOFTWARE programs, among other remedies available to RazorFlow at law or
+BY DOWNLOADING THE BETA SOFTWARE TO ACCEPT THIS AGREEMENT, YOU ACKNOWLEDGE THAT YOU ARE AN AUTHORIZED REPRESENTATIVE OF YOUR ORGANIZATION AND HAVE READ AND UNDERSTAND THIS AGREEMENT AND AGREE TO BE BOUND BY THE TERMS AND CONDITIONS CONTAINED HEREIN.

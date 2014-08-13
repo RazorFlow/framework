@@ -1,0 +1,110 @@
+/*//TODO: Extract theme.less styles
+.rfModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    font-family: "Roboto Condensed", "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    .cover {
+        position: absolute;
+        background: #000;
+        opacity: 0.6;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -999;
+    }
+
+    .rfModalWindow {
+        position: absolute;
+        margin: 0 auto;
+        z-index: 9999;
+        display: inline-block;
+        border-radius: 6px;
+        .rfModalHeader {
+            padding: 10px 0px 0px 8px;
+            border-bottom: @component-caption-border-bottom;
+            background: @component-caption-background-color;
+            color: @component-caption-color;
+            border: @component-caption-border;
+            border-bottom: #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            .vertical-gradient(@component-caption-gradient-start, @component-caption-gradient-stop);
+    		.box-shadow(inset @component-caption-left-shadow, @component-caption-right-shadow);
+            .border-top-radius(6px);
+            height: @component-caption-height;
+            h4 {
+                display: inline-block;
+                width: 80%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                margin-top: 1px;
+                margin-left: 5px;
+            }
+
+            .closeButton {
+                padding: 3px;
+                padding-bottom: 2px;
+                background: #D9534F;
+                color: #FFF;
+                border: 1px solid #D43F3A;
+                border-radius: 3px;
+                font-size: 14px;
+                float: right;
+                margin-right: 8px;
+                cursor: pointer;
+                margin-top: -2px;
+            }
+        }
+
+        .rfModalBody {
+            overflow: hidden;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .rfModalFooter {
+            padding: 10px 4px;
+            background-color: #fff;
+            border-bottom-radius: 6px;
+        }
+    }
+
+}*/
+
+.k-window {
+    font-family: @db-font-family;
+    border-radius: 6px;
+    .k-header {
+        background-image: none !important;
+        height: @modal-header-height;
+        .k-window-title {
+            font-weight: bold;
+            font-size: @modal-header-font-size;
+            line-height: 38px;
+        }
+    }
+    .k-window-content {
+        height: 100% !important;
+    }
+}
+
+.k-window-titlebar {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    .k-window-actions {
+        margin-top: @modal-header-actions-margin;
+        .k-window-action {
+            padding-right: 6px;
+        }
+    }
+    .k-window-title {
+        margin-left: 3px;
+    }
+}

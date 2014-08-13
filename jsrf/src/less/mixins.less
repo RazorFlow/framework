@@ -1,0 +1,48 @@
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+  border-top-left-radius: @radius;
+}
+
+.box-shadow(@params1, @params2){
+  -moz-box-shadow: @params1, @params2;
+  -webkit-box-shadow: @params1, @params2;
+  box-shadow: @params1, @params2;
+}
+
+.box-shadow(@params){
+  -moz-box-shadow: @params;
+  -webkit-box-shadow: @params;
+  box-shadow: @params;
+}
+
+.vertical-gradient(@start, @stop){
+  background-color: @start;
+  background-image: -webkit-linear-gradient(top, @start 0, @stop 100%);
+  background-image: -moz-linear-gradient(top, @start 0, @stop 100%);
+  background-image: -ms-linear-gradient(top, @start 0, @stop 100%);
+}
+
+.button-styler(@color, @bg-color){
+  color: @color;
+  background-color: @bg-color;
+  border-color: darken(@bg-color, 15%);
+  &:hover{
+    background-color: darken(@bg-color, 5%);
+  }
+  &:active{
+    background-color: @bg-color;
+  }
+}
+
+.adjust-btn-padding(@size){
+  @vertical: @btn-default-vertical-padding+(@size)*1px;
+  @horizontal: @btn-default-horizontal-padding+(@size)*1px;
+  padding: @vertical @horizontal;
+}
+
+.composite-background(@gradient) when not (@gradient = none) {
+    background-image: -webkit-linear-gradient(top, ~"@{gradient}");
+    background-image: -moz-linear-gradient(top, ~"@{gradient}");
+    background-image: -o-linear-gradient(top, ~"@{gradient}");
+    background-image: ~"linear-gradient(to bottom, @{gradient})";
+}

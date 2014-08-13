@@ -1,0 +1,41 @@
+ul.tabLinks {
+    li {
+        font-family: @db-font-family;
+        margin-left: @tab-margin !important;
+        border-radius: @tab-border-radius @tab-border-radius 0 0 !important;
+        font-size: @tab-font-size;
+        line-height: 15px;
+        text-shadow: @tab-text-shadow;
+        // vertical-align: bottom !important;
+        border-collapse: collapse;
+        span.k-loading, span.k-complete {
+            display: none;
+        }
+        // a {
+        //     padding: 6px 11px !important;
+        // }
+    }
+    li.k-state-active {
+        font-weight: bold;
+        // a {
+        //     padding: 6px 2px !important;
+        // }
+    }
+}
+
+#rfTabMobile {
+    .km-icon {
+        display: none;
+    }
+    .km-text {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+#rfTabCore {
+    background-image: none;
+    > div {
+        padding-top: 0px;
+    }
+}

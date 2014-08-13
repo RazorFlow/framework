@@ -1,0 +1,175 @@
+//RF Icon
+@import "icon-variables.less";
+
+// @font-face {
+//     font-family: 'FontAwesome';
+//     src: url('fonts/fontawesome-webfont.eot');
+//     src: url('fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+//         url('fonts/fontawesome-webfont.woff') format('woff'),
+//         url('fonts/fontawesome-webfont.ttf') format('truetype'),
+//         url('fonts/fontawesome-webfont.svg') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+
+.rfIcon {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    background-image: @sprite;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.rfErrorIcon {
+    background-position: -30px -73px;
+    width: 14px;
+    height: 14px;
+    vertical-align: top;
+    margin-top: 2px;
+}
+
+.rfRefreshIcon {
+    background-position: -9px -38px;
+    width: 13px;
+    height: 13px;
+    opacity: 0.5;
+}
+
+.rfRefreshIcon:hover {
+    opacity: 1;
+}
+
+.rfMaximizeIcon {
+    background-position: 0 -153px;
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.rfMaximizeIcon:hover {
+    background-position: -24px -153px;
+}
+
+.k-i-close {
+    background-image: @sprite !important;
+    background-position: 0 -131px;
+    width: 18px;
+    height: 18px;
+    background-size: initial !important;
+}
+
+.k-i-arrow-e {
+    background-image: @sprite !important;
+    background-position: -30px -10px;
+    width: 6px;
+    height: 11px;
+    background-size: initial !important;
+}
+
+.k-i-arrow-w {
+    background-image: @sprite !important;
+    background-position: 0px -10px;
+    width: 6px;
+    height: 11px;
+    background-size: initial !important;
+}
+
+.k-link:not(.k-state-disabled):hover > .k-i-close {
+    background-position: -22px -131px;
+}
+
+.k-link:not(.k-state-disabled):hover > .k-i-arrow-e,
+.k-state-hover > .k-i-arrow-e,
+.k-state-hover > * > .k-i-arrow-e,
+.k-button:hover .k-i-arrow-e,
+.k-textbox:hover .k-i-arrow-e,
+.k-button:active .k-i-arrow-e {
+    background-position: -20px -10px;
+}
+
+.k-link:not(.k-state-disabled):hover > .k-i-arrow-w,
+.k-state-hover > .k-i-arrow-w,
+.k-state-hover > * > .k-i-arrow-w,
+.k-button:hover .k-i-arrow-w,
+.k-textbox:hover .k-i-arrow-w,
+.k-button:active .k-i-arrow-w {
+    background-position: -10px -10px;
+}
+
+.k-nav-next, .k-nav-prev, .k-nav-fast {
+    background: none !important;
+    margin-top: 1px;
+}
+
+.rfLeftArrowLarge,
+.rfRightArrowLarge {
+    margin-top: 5px;
+}
+
+.rfLeftArrowLarge {
+    background-position: -42px -91px;
+    width: 10px;
+    height: 18px;
+}
+
+.rfPrevButton:hover > .rfLeftArrowLarge {
+    background-position: -28px -91px;
+}
+
+.rfRightArrowLarge {
+    background-position: 0px -91px;
+    width: 10px;
+    height: 18px;
+}
+
+.rfNextButton:hover > .rfRightArrowLarge {
+    background-position: -14px -91px;
+}
+
+.k-button > .k-delete {
+    background-image: @sprite !important;
+    background-position: 0 -24px;
+    width: 9px;
+    height: 10px;
+    margin-left: 10px;
+    margin-right: 7px;
+    margin-top: -2px;
+    background-size: initial !important;
+}
+
+.k-button:hover > .k-delete,
+.k-state-hover > .k-delete {
+    background-position: -12px -24px;
+}
+
+.k-multiselect-wrap .k-button {
+    background-image: none;
+    background-color: @lightest-gray-shade-1;
+}
+
+.rfBCRight {
+    background-position: 0px -38px;
+    width: 5px;
+    height: 12px;
+    position: absolute;
+    margin-top: 8px;
+}
+
+.k-i-arrow-s {
+    background-image: @sprite !important;
+    background-position: 0px 0px;
+    width: 11px;
+    height: 6px;
+    background-size: initial !important;
+}
+.k-state-hover .k-i-arrow-s {
+    background-position: 0px 0px;
+}

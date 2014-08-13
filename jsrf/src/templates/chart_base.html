@@ -1,0 +1,18 @@
+<% if(legendVisible) { %>
+<div class="rfLegendContainer">
+    <ul class="rfLegendContainerList <% if(displayType === 'pie'){ %> rfPieLegend <% } %>">
+    <% for(var i=0; i<series.length; i++) { 
+        var item = series[i], 
+            cls = item.seriesColor !== 'auto' ? '' : 'chart-color-' + (i + 1), 
+            style =item.seriesColor !== 'auto' ? 'background: ' + item.seriesColor : ''; %>
+        <li class="rfLegendKey <%= (item.seriesHiddenFlag === true) ? 'disabled' : '' %>" data-key="<%=item.key%>">
+            <span class="legendColor <%= cls %>" style="<%= style %>"></span>
+            <span class="legendCaption"><%= item.seriesName %></span>
+        </li>
+    <% } %>
+    </ul>
+</div>
+<% } %>
+<div class="chartCore">
+
+</div>

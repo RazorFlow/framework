@@ -1,0 +1,11 @@
+<div class="rfBreadCrumb">
+    <ul>
+        <li data-index="0"><a><%= startString %></a> </li>
+        <% for(var i=-1; ++i<drillLabelList.length;) { %>
+            <li data-index="<%= i+1 %>">
+                <span class="rfIcon rfBCRight"></span> <a><%= drillLabelList[i] %></a>
+            </li>
+        <% } %>
+
+    </ul>
+</div>

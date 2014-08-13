@@ -1,0 +1,93 @@
+.rfCaptionText {
+  display: inline-block;
+  width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: @component-title-font-size;
+  line-height: @container-header-height;
+}
+.rfComponentContainer {
+    position: absolute;
+}
+.rfWrapper {
+  padding: @container-padding;
+  border-radius: @container-border-radius;
+}
+.rfCaptionIconContainer {
+  float: left;
+  margin-top: 9px;
+}
+.rfCaption {
+  position: relative;
+  height: @container-header-height;
+  padding: @container-header-padding;
+}
+
+.rfCore {
+  position: relative;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.rfChromelessTop{
+  height: 8px;
+}
+
+.rfLock {
+  position: relative;
+  .rfLoadingText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -38px;
+    margin-left: -30px;
+  }
+  .rfSpinner{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: 12px;
+  }
+}
+
+.rfError {
+  display: none;
+  margin: 9px 0px 0px 9px;
+  border-radius: 2px;
+  .rfErrorMessageText {
+    text-align: left;
+    padding: 11px;
+    font-size: 13px;
+    ul.errorList {
+      display: inline-block;
+      width: 90%;
+      margin-left: 3px;
+      li {
+        list-style-type: none;
+      }
+      li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.rfMaximizeButton {
+  /*padding: 4px;
+  padding-bottom: 3px;
+  font-size: 9px;
+  float: right;
+  margin-right: 6px;
+  margin-top: 8px;*/
+  cursor: pointer;
+  margin-top: 9px;
+  float: right;
+}
+
+.rfIntegrated {
+  border: 0px !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}

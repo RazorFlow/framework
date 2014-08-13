@@ -1,0 +1,729 @@
+// Dashboard Styles
+.rfDashboardCore {
+    // background-color: @db-background-color;
+    font-family: @db-font-family;
+}
+
+.rfDashboardHeader {
+    background: @db-title-background-color;
+}
+
+.dbTitle {
+  color: @db-title-color;
+}
+
+// Component styles
+.rfCaptionText {
+  color: @component-title-font-color;
+}
+
+.rfWrapper {
+    background: @component-background-color;
+    border: @component-border;
+}
+
+
+.rfCaption {
+    padding: @container-header-padding;
+    border-bottom: @component-header-border;
+    background: @component-caption-background-color;
+}
+
+// KPI Styles
+.rfKPICaption {
+    color: @kpi-caption-font-color;
+}
+
+.rfKPISubCaption {
+    color: @kpi-subcaption-font-color;
+}
+
+.rfKPIValue {
+    text-shadow: 1px 1px @kpi-value-text-shadow;
+    color: @kpi-value-font-color;
+}
+
+// Table styles
+.rfTable {
+    border-bottom: @table-border;
+    thead {
+        tr {
+            .composite-background(@table-head-background);
+        }
+    }
+    tbody {
+        background-color: @table-background-color;
+        tr:nth-child(even) {
+            background: @table-body-even-row-background-color;
+        }
+    }
+    th, td {
+      border-right: @table-border;
+      color: @table-cell-font-color;
+    }
+}
+
+.rfPaginationContainer {
+    border-top: @pagination-container-border;
+    .paginationInfo {
+        color: @pagination-info-color;
+    }
+    ul.rfpagination, .rfMobilePagination {
+        li, span {
+            a {
+                color: @pagination-link-color;
+            }
+        }
+        li.active {
+
+          .composite-background(@pagination-active-background);
+          border-color: @pagination-border-color;
+        }
+    }
+}
+
+.rfPrevButton, .rfNextButton {
+    .composite-background(@pagination-active-background);
+    border-color: @pagination-border-color;
+}
+
+
+// Chart styles
+.yGrid line {
+    stroke: @chart-grid-color;
+}
+.yAxis text {
+    fill: @chart-axis-font-color;
+    font-size: @chart-axis-font-size;
+}
+.xAxis path {
+    stroke: @chart-grid-color;
+}
+.xAxis text {
+    fill: @chart-axis-font-color;
+    font-size: @chart-axis-font-size;
+}
+li.rfLegendKey {
+    font-size: @legend-caption-font-size;
+
+    &.disabled {
+
+        .legendColor {
+            background: @chart-legend-color-disabled-background-color !important;
+        }   
+
+        .legendCaption {
+            color: @legend-caption-font-color !important;
+        }
+    }
+}
+
+.xAxisLabel {
+    font-size: @chart-axis-font-size;
+}
+
+.chart-color-1 {
+    fill: @rc-series-color-1;
+    background: @rc-series-color-1;
+    color: @rc-series-color-1;
+    line& {
+        stroke: @rc-series-color-1;
+    }
+}
+.chart-color-2 {
+    fill: @rc-series-color-2;
+    background: @rc-series-color-2;
+    color: @rc-series-color-2;
+    line& {
+        stroke: @rc-series-color-2;
+    }
+}
+.chart-color-3 {
+    fill: @rc-series-color-3;
+    background: @rc-series-color-3;
+    color: @rc-series-color-3;
+    line& {
+        stroke: @rc-series-color-3;
+    }
+}
+.chart-color-4 {
+    fill: @rc-series-color-4;
+    background: @rc-series-color-4;
+    color: @rc-series-color-4;
+    line& {
+        stroke: @rc-series-color-4;
+    }
+}
+.chart-color-5 {
+    fill: @rc-series-color-5;
+    background: @rc-series-color-5;
+    color: @rc-series-color-5;
+    line& {
+        stroke: @rc-series-color-5;
+    }
+}
+.chart-color-6 {
+    fill: @rc-series-color-6;
+    background: @rc-series-color-6;
+    color: @rc-series-color-5;
+    line& {
+        stroke: @rc-series-color-6;
+    }
+}
+.chart-color-7 {
+    fill: @rc-series-color-7;
+    background: @rc-series-color-7;
+    color: @rc-series-color-7;
+    line& {
+        stroke: @rc-series-color-7;
+    }
+}
+.chart-color-8 {
+    fill: @rc-series-color-8;
+    background: @rc-series-color-8;
+    color: @rc-series-color-7;
+    line& {
+        stroke: @rc-series-color-8;
+    }
+}
+.chart-color-9 {
+    fill: @rc-series-color-9;
+    background: @rc-series-color-9;
+    color: @rc-series-color-9;
+    line& {
+        stroke: @rc-series-color-9;
+    }
+}
+
+.rfLock {
+  &.loading {
+    color: @loading-text-color;
+    background: @loading-background-color;
+  }
+}
+
+.rfError {
+    color: @error-text-color;
+    background: @error-background-color;
+    border: @error-border;
+}
+
+
+//Modal
+
+.k-window {
+    .k-header {
+        background-color: @modal-header-background-color;
+        border-bottom: @modal-header-border;
+        .k-window-title {
+            color: @modal-header-font-color;
+        }
+    }
+}
+.rfModalBody {
+    background-color: @modal-body-background-color;
+}
+
+//form
+
+.formItems {
+  .form-item {
+    label {
+      color: @form-label-text-color;
+    }
+
+    .form-item-main {
+      .k-dropdown-wrap {
+        &.k-state-hover, &.k-state-focused {
+          background-color: @k-state-background;
+          border: @k-state-focus-border;
+          box-shadow: none;
+        }
+      }
+      .k-widget, .k-picker-wrap, .k-select, .k-state-focused {
+        background: none;
+        border: @k-widget-border;
+      }
+
+      .k-datepicker {
+        border: @form-select-border !important;
+      }
+
+    }
+
+    .k-multiselect, .k-multiselect-wrap {
+      border: @k-select-border;
+    }
+
+    input[type=text] {
+      background: @textbox-background;
+    }
+
+    select {
+      border: @k-select-border;
+    }
+  }
+}
+
+.formContainer {
+
+  .form-header {
+    color: @form-header-color;
+  }
+
+  .divider {
+    border: @form-item-border;
+  }
+
+  .dashed-divider {
+    border-top: @dashed-divider;
+  }
+}
+
+.k-animation-container {
+  .k-list-container {
+    border: 1px solid @dropdown-border-color;
+  }
+}
+
+// BreadCrumb
+
+.rfBreadCrumb {
+    border-bottom: @breadcrumb-border;
+    ul {
+        li {
+            color: @breadcrumb-font-color;
+        }
+
+        li:last-child {
+            color: @breadcrumb-active-color;
+        }
+    }
+}
+
+// Tabbed Dashboard
+
+ul.tabLinks {
+    li {
+        background: @tab-background-color!important;
+        border: @tab-border !important;
+        color: @tab-font-color;
+    }
+    li.k-state-active {
+        border: @tab-active-border !important;
+        color: @tab-active-font-color;
+        border-bottom-color: @tab-background-color !important;
+    }
+}
+
+div.k-state-active {
+    background: @tab-active-content-background-color !important;
+    border: @tab-active-content-border !important;
+    border-top: @tab-active-content-border-top !important;
+}
+
+#rfTabCore {
+    background-color: @tab-container-background-color;
+    border: @tab-container-border;
+}
+
+// Chart
+
+// .rfIcon {
+//     display: inline-block;
+//     background-image: @sprite;
+//     background-repeat: no-repeat;
+//     cursor: pointer;
+// }
+
+.rfMaximizeIcon {
+    color: #888;
+}
+
+.rfMaximizeIcon:hover {
+    color: #000;
+}
+
+
+// Chart
+
+.rc-tooltip {
+    font-size: 10px;
+    pointer-events: none;
+    shape-rendering: crispEdges;
+    path {
+        stroke: #888;
+        stroke-width: 1px;
+    }
+    path.rc-tooltip-dash {
+        stroke-dasharray: 1,1;
+    }
+    .rect {
+        fill: #fff;
+        opacity: 0.9;
+    }
+    text.rc-series-1 {
+        fill: @rc-series-color-1;
+    }
+    text.rc-series-2 {
+        fill: @rc-series-color-2;
+    }
+    text.rc-series-3 {
+        fill: @rc-series-color-3;
+    }
+    text.rc-series-4 {
+        fill: @rc-series-color-4;
+    }
+    text.rc-series-5 {
+        fill: @rc-series-color-5;
+    }
+    text.rf-tooltip-label {
+        font-size: 12px;
+    }
+    text.rf-tooltip-value {
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+// Column chart base styles
+.rc-column-chart {
+    .rc-plot-item.activate {
+        cursor: pointer;
+    }
+    .rc-series-1 {
+        .rc-plot-item   {
+            fill: @rc-series-color-1;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-1-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            fill: @rc-series-color-2;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-2-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            fill: @rc-series-color-3;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-3-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            fill: @rc-series-color-4;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-4-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            fill: @rc-series-color-5;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-5-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-6 {
+        .rc-plot-item {
+            fill: @rc-series-color-6;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-6-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-7 {
+        .rc-plot-item {
+            fill: @rc-series-color-7;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-7-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-8 {
+        .rc-plot-item {
+            fill: @rc-series-color-8;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-8-highlight;
+            stroke: none;
+        }
+    }
+    .rc-series-9 {
+        .rc-plot-item {
+            fill: @rc-series-color-9;
+            stroke: none;
+        }
+        .highlight {
+            fill: @rc-series-color-9-highlight;
+            stroke: none;
+        }
+    }
+}
+
+.rc-line-chart {
+    .rc-plot-item.activate {
+        cursor: pointer;
+    }
+    circle.rc-plot-item {
+        cursor: pointer;
+    }
+    path.rc-plot-item, circle.rc-plot-item {
+        stroke-width: @rc-line-stroke-width;
+    }
+    .rc-series-1 {
+        .rc-plot-item {
+            stroke: @rc-series-color-1;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            stroke: @rc-series-color-2;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            stroke: @rc-series-color-3;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            stroke: @rc-series-color-4;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            stroke: @rc-series-color-5;
+            fill: @rc-line-circle-fill;
+        }
+    }
+}
+
+.rc-area-chart {
+    .area-path {
+        pointer-events: none;
+    }
+    .rc-plot-item {
+        opacity: 0.8;
+    }
+    .rc-series-1 {
+        .rc-plot-item {
+            fill: @rc-series-color-1;
+            stroke: none;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            fill: @rc-series-color-2;
+            stroke: none;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            fill: @rc-series-color-3;
+            stroke: none;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            fill: @rc-series-color-4;
+            stroke: none;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            fill: @rc-series-color-5;
+            stroke: none;
+        }
+    }
+}
+
+.rc-bar-chart {
+    .rc-plot-item.activate {
+        cursor: pointer;
+    }
+    .rc-series-1 {
+        .rc-plot-item {
+            fill: @rc-series-color-1;
+            stroke: none;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            fill: @rc-series-color-2;
+            stroke: none;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            fill: @rc-series-color-3;
+            stroke: none;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            fill: @rc-series-color-4;
+            stroke: none;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            fill: @rc-series-color-5;
+            stroke: none;
+        }
+    }
+}
+
+.rc-pie-chart {
+    .rc-plot-item-1 {
+        fill: @rc-series-color-1;
+        stroke: none;
+    }
+    
+
+    .rc-plot-item-2 {
+        fill: @rc-series-color-2;
+        stroke: none;
+    }
+
+    .rc-plot-item-3 {
+        fill: @rc-series-color-3;
+        stroke: none;
+    }
+
+    .rc-plot-item-4 {
+        fill: @rc-series-color-4;
+        stroke: none;
+    }
+
+    .rc-plot-item-5 {
+        fill: @rc-series-color-5;
+        stroke: none;
+    }
+    .rc-plot-item-6 {
+        fill: @rc-series-color-6;
+        stroke: none;
+    }
+    .rc-plot-item-7 {
+        fill: @rc-series-color-7;
+        stroke: none;
+    }
+    .rc-plot-item-8 {
+        fill: @rc-series-color-8;
+        stroke: none;
+    }
+    .rc-plot-item-9 {
+        fill: @rc-series-color-9;
+        stroke: none;
+    }
+    .pie-label-line {
+        stroke: @rc-line-stroke;
+        stroke-width: @rc-pie-label-line-stroke-width;
+    }
+    .pie-label-circle {
+        stroke: @rc-line-stroke;
+        stroke-width: @rc-pie-label-line-stroke-width;
+        fill: #FFF;
+    }
+    .pie-label-text {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .pie-label-label {
+        fill: #666;
+        font-size: 10px;
+    }
+}
+
+.rc-gauge {
+    line-height: 1em;
+    .background {
+        fill: #EEEEEE;
+        stroke: none;
+    }
+
+    .main {
+        fill: #67ADDA;
+        stroke: none;
+    }
+
+    .inner-circle {
+        fill: #F9F9F9;
+        stroke: #67ADDA;
+    }
+
+    .value-label {
+        fill: #333;
+        font-size: 24px;
+    }
+
+    .label {
+        fill: #333;
+        font-size: 14px;
+    }
+}
+
+.rc-grid {
+    .rc-grid-line {
+        stroke: @rc-grid-line-stroke;
+        stroke-dasharray: @rc-grid-line-dasharray;
+    }
+    .rc-grid-line-base {
+        stroke: #979797;
+        stroke-dasharray: none;
+    }
+    // .rc-grid-line:first-child {
+    //     display: none;
+    // }
+}
+
+.rc-axis {
+    .rc-grid-line {
+        stroke: @rc-grid-line-stroke;
+    }
+
+    text {
+        fill: @rc-axes-text-stroke;
+        stroke: none;
+        font-size: @rc-axes-text-font-size;
+        // pointer-events: none;
+    }
+
+    text.rc-axis-label {
+        font-size: @rc-axes-label-text-font-size;
+        fill: @rc-axes-label-text-stroke;
+        stroke: none;
+    }
+
+    path {
+        visibility: hidden;
+        stroke: @rc-grid-line-stroke;
+        stroke-dasharray: @rc-grid-line-dasharray;
+    }
+}

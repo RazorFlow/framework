@@ -1,0 +1,25 @@
+.rfMiniKPI {
+	text-align: center;
+	padding-bottom: 12px;
+	> div {
+		display: inline-block;
+		text-align: center;
+		height: @mini-kpi-height;
+		border-right: @mini-kpi-border;
+		.rfMiniKPICaption {
+			font-size: @mini-kpi-caption-font-size;
+			color: @mini-kpi-caption-font-color;
+			line-height: 14px;
+			margin-top: @mini-kpi-caption-margin;
+		}
+		.rfMiniKPIValue {
+			font-weight: bold;
+			font-size: @mini-kpi-value-font-size;
+			color: @mini-kpi-value-font-color;
+			line-height: 31px;
+		}
+	}
+	> div:last-child {
+		border-right: 0px;
+	}
+}

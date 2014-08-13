@@ -1,0 +1,22 @@
+<div class='rfPaginationCore'>
+	<% if(!media) { %>
+		<p class="paginationInfo">
+			Page <%= activePage+1 %> of <%= totalPages %>
+		</p>
+		<ul class="rfpagination">
+		  <li class="rfPrevButton <% if(activePage === 0){ %> disabled<% } %>"><a href="#"><span class="pagePrevArrow">&#866;</span> Prev</a></li>
+				<% for(var i=startPage; i<=lastPage; i++){ %>
+					<li class="rfPageNumber<% if(activePage === i){ %> active<% } %>" data-page-number="<%= i %>"><a href="#"><%= (i+1) %></a></li>
+				<% } %>
+				<li class="rfNextButton <% if(activePage === totalPages-1){ %> disabled<% } %>"><a href="#">Next <span class="pageNextArrow">&#866;</span></a></li>
+		</ul>
+	<% } else { %>
+		<div class="rfMobilePagination">
+		  <span class="rfPrevButton <% if(activePage === 0){ %> disabled<% } %> rfMobileButton"><span class="rfIcon rfLeftArrowLarge"></span></span>
+		  <span class="paginationInfo">
+				Page <%= activePage+1 %> of <%= totalPages %>
+			</span>
+			<span class="rfNextButton <% if(activePage === totalPages-1){ %> disabled<% } %> rfMobileButton"><span class="rfIcon rfRightArrowLarge"></span></span>
+		</div>
+	<% } %>
+</div>

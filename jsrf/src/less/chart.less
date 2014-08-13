@@ -1,0 +1,83 @@
+
+.yAxis path {
+    fill: none;
+    stroke: none;
+}
+
+.yGrid line {
+    fill: none;
+    shape-rendering: crispEdges;
+}
+
+.yAxis text {
+}
+
+.xAxis line {
+    fill:none;
+    stroke: none;
+}
+
+.xAxis path {
+    fill: none;
+    shape-rendering: crispEdges;
+}
+.xAxis text {
+    cursor: pointer;
+}
+
+text.rfText {
+    fill: #666;
+    font-size: 11px;
+}
+
+.rfLegendContainer {
+    float: left;
+}
+
+.rfCore {
+    // padding: 10px; 
+}
+
+ul.rfLegendContainerList {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:not(.rfPieLegend) {
+        li.rfLegendKey {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    li.rfLegendKey {
+        display: inline-block;
+        margin-right: @legend-margin;
+        .legendColor {
+            display: inline-block;
+            width: @legend-color-width;
+            height: @legend-color-height;
+            border-radius: @legend-border-radius;
+            position: absolute;
+            margin-left: 1px;
+            margin-top: 1px;
+        }
+        .legendCaption {
+            display: inline-block;
+            margin-left: 14px;
+        }
+        &.disabled {
+        }
+    }
+}
+
+
+.xAxisLabel {
+    margin: 0 !important;
+    padding: 0;
+    padding-top: 4px;
+    line-height: 1.2em;
+    display: inline-block;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+}

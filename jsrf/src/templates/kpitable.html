@@ -1,0 +1,10 @@
+<div class="rfKPITableContainer">
+    <table class="rfTable">
+        <% for(var i=-1; ++i<numKPIs;) { %> 
+            <tr id="<%= keys[i] %>">
+                <td class="rfKPITableCaption rfKPICaption"><%= kpis[i].caption %></td>
+                <td class="rfKPITableValue rfKPIValue"><%= kpis[i].value %></td>
+            </tr>
+        <% } %>
+    </table>
+</div>

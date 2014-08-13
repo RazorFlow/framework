@@ -1,0 +1,29 @@
+.rfBreadCrumb {
+    height: 29px;
+    padding-left: 10px;
+    ul {
+        list-style-type: none;
+        li {
+            display: table-cell;
+            font-size: 11px;
+            line-height: 29px;
+            padding-right: 5px;
+            a {
+                cursor: pointer;
+                padding-left: 9px;
+            }
+        }
+
+        li:first-child > a {
+            padding-left: 0px;
+        }
+
+        li:not(:last-child) > a:hover {
+            text-decoration: underline;
+        }
+
+        li:last-child a {
+            cursor: default;
+        }
+    }
+}

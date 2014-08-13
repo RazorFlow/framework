@@ -1,0 +1,21 @@
+<table class="rfTable">
+    <tbody>
+    <% for (var i = 0; i < data.length; i++) { var row = data[i]; var tCol = 0; %>
+
+    <tr>
+        <%
+        for (var key in row) {
+        var item = row[key];
+        var style = styleClass[key]['style'];
+        %>
+        <td style="" class="<%= style %>" data-id="<%= key %>" id="rfTableCell-<%= key %>-<%= i %>">
+            <p><% if(columns[key].dataType === 'icon') { %>
+                <span class="rfIcon rfi-<%=item%>"></span>
+                <% } else { %><%= item %><% } %></p>
+        </td>
+        <% } %>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+

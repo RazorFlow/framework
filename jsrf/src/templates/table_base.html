@@ -1,0 +1,23 @@
+<div class='rfTableContainer'>
+    <div class="rfTableHeader">
+        <table class='rfTable'>
+            <thead>
+            <tr>
+                <% for (var key in columns) { var item = columns[key]; %>
+                <% var thStyleClass = item.textAlign ? 'rfTh-' + item.textAlign : null %>
+                <th data-id='<%= key %>' class='<%= thStyleClass %>'>
+                    <p>
+                        <%= item.name %> <% if(item.subCaptionUnits){ %>(<%=  item.subCaptionUnits %>)<% } %>
+                    </p>
+                </th>
+                <% } %>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="rfTableBody">
+    </div>
+
+</div>
+    <div class='rfPaginationContainer'>
+    </div>

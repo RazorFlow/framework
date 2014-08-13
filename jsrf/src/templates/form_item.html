@@ -1,0 +1,77 @@
+<div class="form-item">
+    <label for='<%= id %>' class=" control-label"><%= label %></label>
+    <% if(type == "checkbox") { %>
+        <input type="checkbox" id='<%= id %>' class="rfformItem checkBox" data-key='<%= id %>' 
+        <%= options.value === true ? 'checked' : '' %>>
+    <% } %>
+    <div class="form-item-main">
+        <% if(type == "text") { %>
+        <input type="text" class="form-control rfformItem textItem" data-key='<%= id %>' value="<%= value %>">
+        <% } %>
+        
+        <% if(type == "select" || type == 'multiSelect') { %>
+        <select id="<%= id %>" <%= (multiple === true) ? 'multiple="multiple"' : '' %> class="form-control" data-key="<%= id %>">
+            <% for (var i = 0; i < list.length; i ++) { %>
+            <option <%= (i === options.defaultSelectedIndex) ? 'selected' : '' %> 
+                <%= (multiple === true && isOptionSelected[i] === true) ? 'selected' : '' %>
+                data-index="<%= i %>"><%= list[i] %></option>
+                <% } %>
+            </select>
+        <% } %>
+        
+        <% if(type == "date") { %>
+            <div class="short-box" style="display: inline-block;">
+                <% if(touch === true) { %>
+                    <input type="date" id='<%= id %>' class="form-control rfformItem datepickerItem" data-key='<%= id %>' 
+                    value="<%= options.defaultDate %>" />
+                <% } else { %>
+                    <input type="text" id='<%= id %>' class="form-control rfformItem datepickerItem" data-key='<%= id %>' 
+                    value="<%= options.defaultDate %>" />
+                <% } %>
+            </div>
+        <% } %>
+        
+        <% if(type == "dateRange") { %>
+            <div class="short-box datepickerRange" style="display: inline-block;">
+            <% if(touch === true) { %>
+                <input type="date" id='<%= id %>' class="form-control rfformItem datepickerItem rangeStart" data-key='<%= id %>' 
+                value="<%= options.defaultStartDate %>">
+            <% } else { %>
+                <input type="text" id='<%= id %>' class="form-control rfformItem datepickerItem rangeStart" data-key='<%= id %>' 
+                value="<%= options.defaultStartDate %>">
+            <% } %>
+            </div>    
+             <span class="to">to</span>
+            <div class="short-box datepickerRange" style="display: inline-block;">
+            <% if(touch === true) { %>
+                <input type="date" id='<%= id %>' class="form-control rfformItem datepickerItem rangeEnd" data-key='<%= id %>' 
+                value="<%= options.defaultEndDate %>">    
+            <% } else { %>
+                <input type="text" id='<%= id %>' class="form-control rfformItem datepickerItem rangeEnd" data-key='<%= id %>' 
+                value="<%= options.defaultEndDate %>">    
+            <% } %>
+            </div>
+        <% } %>
+        
+        <% if(type == "numericRange") { %>
+        <span class="rfNumericRangeText-<%= id %>"></span>
+        <br />
+        <div id="rfRangeSlider-<%= id %>">
+          <% if(touch === true) { %>
+            <div class="" style="width: 40%; display: inline-block;">
+                <input type="number" id='<%= id %>' class="form-control rfformItem numberRangeItem rangeStart" data-key='<%= id %>' 
+                value="<%= options.values[0] %>">
+            </div>
+          <span class="to">to</span>
+            <div class="" style="width: 40%; display: inline-block;">
+                <input type="number" id='<%= id %>' class="form-control rfformItem numberRangeItem rangeEnd" data-key='<%= id %>' 
+                value="<%= options.values[1] %>">
+            </div>
+          <% } else { %>
+            <input id='<%= id %>' data-key='<%= id %>'/>
+            <input id='<%= id %>' data-key='<%= id %>'/>
+          <% } %>
+        </div>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div id="<%= logID %>" style="display:none;">
+  <table class="rfTable" style="width: auto;">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Message</th>
+      </tr>      
+    </thead>
+    <tbody>
+      <% for(var i=0; i<logs.length; i++){ %>
+        <tr>
+          <td><%= new Date() %></td>
+          <td>
+            <%= logs[i].message %>
+            <p><%= logs[i].log %></p>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

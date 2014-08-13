@@ -1,0 +1,15 @@
+<table class='itemTable'>
+<% for (var i = 0; i<items.length; i++) { %>
+	<tr>
+		<td>
+			<input data-id='<%= items[i].key %>' class='picker' />
+		</td>
+		<td>
+			<span class='themeItem'><%= items[i].desc %></span>
+		</td>
+		<td>
+			<span data-id='<%= items[i].key %>' data-value='<%= DefaultTheme[items[i].key] %>' class='rfIcon rfRefreshIcon resetTheme'></span>
+		</td>
+	</tr>
+<% } %>
+</table>

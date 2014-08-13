@@ -1,0 +1,262 @@
+.rc-tooltip {
+    font-size: 10px;
+    pointer-events: none;
+    .rect {
+        fill: #fff;
+        opacity: 0.9;
+    }
+    text.rc-series-1 {
+        fill: @rc-series-color-1;
+    }
+    text.rc-series-2 {
+        fill: @rc-series-color-2;
+    }
+    text.rc-series-3 {
+        fill: @rc-series-color-3;
+    }
+    text.rc-series-4 {
+        fill: @rc-series-color-4;
+    }
+    text.rc-series-5 {
+        fill: @rc-series-color-5;
+    }
+}
+// Column chart base styles
+.rc-column-chart {
+    .rc-series-1 {
+        .rc-plot-item {
+            fill: @rc-series-color-1;
+            stroke: none;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            fill: @rc-series-color-2;
+            stroke: none;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            fill: @rc-series-color-3;
+            stroke: none;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            fill: @rc-series-color-4;
+            stroke: none;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            fill: @rc-series-color-5;
+            stroke: none;
+        }
+    }
+}
+
+.rc-line-chart {
+    path.rc-plot-item, circle.rc-plot-item {
+        stroke-width: @rc-line-stroke-width;
+    }
+    .rc-series-1 {
+        .rc-plot-item {
+            stroke: @rc-series-color-1;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            stroke: @rc-series-color-2;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            stroke: @rc-series-color-3;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            stroke: @rc-series-color-4;
+            fill: @rc-line-circle-fill;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            stroke: @rc-series-color-5;
+            fill: @rc-line-circle-fill;
+        }
+    }
+}
+
+.rc-area-chart {
+    .rc-plot-item {
+        opacity: 0.8;
+    }
+    .rc-series-1 {
+        .rc-plot-item {
+            fill: @rc-series-color-1;
+            stroke: none;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            fill: @rc-series-color-2;
+            stroke: none;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            fill: @rc-series-color-3;
+            stroke: none;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            fill: @rc-series-color-4;
+            stroke: none;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            fill: @rc-series-color-5;
+            stroke: none;
+        }
+    }
+}
+
+.rc-bar-chart {
+    .rc-series-1 {
+        .rc-plot-item {
+            fill: @rc-series-color-1;
+            stroke: none;
+        }
+    }
+    .rc-series-2 {
+        .rc-plot-item {
+            fill: @rc-series-color-2;
+            stroke: none;
+        }
+    }
+    .rc-series-3 {
+        .rc-plot-item {
+            fill: @rc-series-color-3;
+            stroke: none;
+        }
+    }
+    .rc-series-4 {
+        .rc-plot-item {
+            fill: @rc-series-color-4;
+            stroke: none;
+        }
+    }
+    .rc-series-5 {
+        .rc-plot-item {
+            fill: @rc-series-color-5;
+            stroke: none;
+        }
+    }
+}
+
+.rc-pie-chart {
+    .rc-plot-item-1 {
+        fill: @rc-series-color-1;
+        stroke: none;
+    }
+    
+
+    .rc-plot-item-2 {
+        fill: @rc-series-color-2;
+        stroke: none;
+    }
+
+    .rc-plot-item-3 {
+        fill: @rc-series-color-3;
+        stroke: none;
+    }
+
+    .rc-plot-item-4 {
+        fill: @rc-series-color-4;
+        stroke: none;
+    }
+
+    .rc-plot-item-5 {
+        fill: @rc-series-color-5;
+        stroke: none;
+    }
+    .pie-label-line {
+        stroke: @rc-line-stroke;
+        stroke-width: @rc-pie-label-line-stroke-width;
+    }
+    .pie-label-circle {
+        stroke: @rc-line-stroke;
+        stroke-width: @rc-pie-label-line-stroke-width;
+        fill: #FFF;
+    }
+    .pie-label-text {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .pie-label-label {
+        fill: #666;
+        font-size: 14px;
+    }
+}
+
+.rc-gauge {
+    .background {
+        fill: #EEEEEE;
+        stroke: none;
+    }
+
+    .main {
+        fill: #67ADDA;
+        stroke: none;
+    }
+
+    .inner-circle {
+        fill: #F9F9F9;
+        stroke: #67ADDA;
+    }
+
+    .value-label {
+        fill: #333;
+        font-size: 24px;
+        line-height: 1em;
+    }
+
+    .label {
+        fill: #333;
+    }
+}
+
+.rc-grid {
+    .rc-grid-line {
+        stroke: @rc-grid-line-stroke;
+        stroke-dasharray: @rc-grid-line-dasharray;
+    }
+    .rc-grid-line:first-child {
+        display: none;
+    }
+}
+
+.rc-axis {
+    .rc-grid-line {
+        stroke: @rc-grid-line-stroke;
+    }
+
+    text {
+        fill: @rc-axes-text-stroke;
+        stroke: none;
+        font-size: @rc-axes-text-font-size;
+    }
+
+    text.rc-axis-label {
+        font-size: @rc-axes-label-text-font-size;
+        fill: @rc-axes-label-text-stroke;
+        stroke: none;
+    }
+}

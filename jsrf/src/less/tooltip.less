@@ -1,0 +1,76 @@
+.rfTooltip {
+    box-sizing: content-box;
+    font-family: @db-font-family;
+    position: absolute;
+    background: #FFF;
+    width: 100px;
+    height: 100px;
+    z-index: 9999999;
+    pointer-events: none;
+    border: 1px solid #888;
+    border-radius: 4px;
+    padding: 0 4px;
+
+    .rfTooltipValueRow {
+        margin-top: 2px;
+        border-top: 1px dotted #AAA;
+        padding: 4px 0;
+    }
+
+    .rfTooltipMainLabel {
+        display: inline-block;
+        font-size: 11px;
+        padding: 4px 0;
+    }
+
+    .rfTooltipValue {
+        font-size: 12px;
+        font-weight: bold;
+        float: right;
+    }
+
+    .rfTooltipLabel {
+        font-size: 12px;
+        float: left;
+    }
+
+    .downArrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #FFF;
+    }
+
+    .downArrowBorder {
+        z-index: -1;
+        position: absolute;
+        margin-top: 1px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 9px solid #888;
+    }
+
+    .leftArrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid #FFF;
+    }
+
+    .leftArrowBorder {
+        z-index: -1;
+        position: absolute;
+        margin-left: -1px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 9px solid #888;
+    }
+}

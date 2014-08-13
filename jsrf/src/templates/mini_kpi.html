@@ -1,0 +1,12 @@
+<div class="rfMiniKPI">
+	<% for (var key in kpis) { %>
+		<div class="<%= key %>">
+			<div class="rfMiniKPICaption">
+				<%= kpis[key].caption %>
+			</div>
+			<div class="rfMiniKPIValue">
+				<%= kpis[key].value %>
+			</div>
+		</div>
+	<% } %>
+</div>

@@ -1,0 +1,16 @@
+node_modules
+.DS_Store
+build
+.idea
+coverage
+npm-debug.log
+rfjs.sublime-workspace
+razorflow.min.js
+razorflow.css
+src/package
+src/package/css/razorflow.min.css
+src/package/dashboard_quickstart/css/razorflow.min.css
+src/js/generated/
+src/js/razorcharts/
+src/dev/themebuilder/
+extras/connectors/

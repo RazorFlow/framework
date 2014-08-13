@@ -1,0 +1,25 @@
+<% if(title){ %>
+	<div class="rfDashboardHeader">
+	  <div class="rfHeaderContainer">
+	  	<h1 class="dbTitle"><%= title %></h1>
+	  </div>
+	</div>
+<% } %>
+<% if (mobile) { %>
+    <div id="rfTabMobile" class="k-content">
+        <div id="mobile-tabstrip" data-role="tabstrip">
+        </div>
+        <div id="content-container">
+        </div>
+    </div>
+<% } else { %>
+    <div id="rfTabCore">
+        <ul class="tabLinks"></ul>
+    </div>
+<% } %>
+
+<div class="rfNotification"></div>
+<!-- 
+<div class="rfServerLogBtnWrapper">
+  <button class="rfServerLogButton">Server Log</button>
+</div> -->

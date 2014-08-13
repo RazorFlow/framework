@@ -1,0 +1,8 @@
+<% if (!(media === 'xs')) { %>
+	<span class="rfIcon rfErrorIcon"></span>
+<% } %>
+<ul class="errorList">
+<% for (var i = 0; i < message.length; i++) { %>
+	<li><%= message[i].msg %>.</li>
+<% } %>
+</ul>

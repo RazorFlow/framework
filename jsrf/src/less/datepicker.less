@@ -1,0 +1,60 @@
+.rfDatePicker {
+    display: inline-block;
+    position: absolute;
+    width: 300px;
+    z-index: 99999;
+    .rfDatePickerInner {
+        background: #fff;
+        border: 1px solid #888;
+        padding: 8px;
+        width: 100%;
+        box-shadow: 0 0 9px #333;
+        .rfDatePickerHeader {
+            text-align: center;
+            padding: 12px 4px;
+            padding-top: 0px;
+            .leftArrow {
+                width: 16px;
+                height: 32px;
+                float: left;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==');
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+
+            .rightArrow {
+                width: 16px;
+                height: 32px;
+                float: right;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=');
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+
+            .title {
+                font-weight: bold;
+            }
+        }
+
+        .rfDatePickerMain {
+            td, th {
+                width: 40px;
+                text-align: center;
+            }
+
+            td.selected {
+                background: #449944;
+            }
+
+
+
+            td {
+                cursor: pointer;
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
