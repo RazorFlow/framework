@@ -1,0 +1,55 @@
+<h1>Class <%= item.class.name %></h1>
+<h4><%= item.signature %></h4>
+
+<% if(item.augments) { %>
+    <p>inherits from 
+        <%- 
+            tree.hasClass(item.augments.name) && tree.findNodeByClassName(item.augments.name).access.name !== 'private'? 
+                linkify({
+                    text: item.augments.name, 
+                    href: item.augments.name + '.php'
+                }) : item.augments.name
+        %>
+    </p>
+<% } %>
+<% if(item.params.length && item.params[0]) { %>
+<%- render('params.ejs', {tree: tree, params: item.params}) %>
+<% } %>
+<% if(item.example) { %>
+<h2>Examples</h2>
+<pre><code><%= item.example.code %></code></pre>
+<% } %>
+<h4>Methods</h4>
+<% if(item.methods) { %> 
+<% for(j=0; j<item.methods.length; j++) {%>
+        <%- render('method.ejs', {tree: tree, item: item.methods[j]}) %>
+    <% } %>
+<% } %>
+    
+<h4>Inherited Methods</h4>
+<% if(item.augments) { 
+    var tItem = item;
+    while(tItem.augments) {
+        var base = tree.findNodeByClassName(tItem.augments.name);
+        if(base) {
+            for(var j=0; j<base.methods.length; j++) {
+%>
+              <%- render('method.ejs', {tree: tree, item: base.methods[j]}) %>
+
+<%          }
+        } 
+       tItem = base;
+    } 
+}
+%>
+
+<% if(item.events){ %> 
+<h4>Events</h4> 
+<% if(item.augments) { %>
+<% var base = tree.findNodeByClassName(item.augments.name); %>
+<% if(base.events){ %> 
+<%- render('events.ejs', {tree: tree, events: base.events}) %>
+<% } %>
+<% } %>
+<%- render('events.ejs', {tree: tree, events: item.events}) %>
+<% } %>

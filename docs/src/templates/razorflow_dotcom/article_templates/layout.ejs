@@ -1,0 +1,102 @@
+<?php 
+function custom_title () {
+    return "Documentation";
+}
+
+function extra_scripts () {
+  return array(
+    'vendor/jquery.validate.min.js',
+    'vendor/underscore.min.js',
+    'vendor/codemirror/js/codemirror.js',
+    'vendor/codemirror/mode/javascript.js',
+    'vendor/codemirror/mode/xml.js',
+    'vendor/codemirror/mode/htmlmixed.js',
+    'vendor/codemirror/mode/clike.js',
+    'vendor/codemirror/mode/php.js',
+    'js/rfDocs.js'
+  );
+}
+
+function setActive () {
+  return "docs";
+}
+
+function extra_styles() {
+    return array(
+        'vendor/codemirror/css/codemirror.css',
+        'vendor/codemirror/theme/rftheme.css'
+    );
+}
+
+if(!function_exists('rf_trackpage')) {
+    function rf_trackpage () {
+        return array (
+            'name' => "Download Start",
+            'opts' => array (
+            )
+        );
+    }
+}
+
+
+require $_SERVER['DOCUMENT_ROOT']."/layout/header.php";
+?>
+<div class="col-md-12 rfDocHeader">
+  <div class="container">
+    <div class="col-xs-12 col-sm-8 topBarTitle"><h2><a href="<%= options.linkPrefix %>/<%= options.langUrl %>"><%= options.topBarTitle %></a></h2></div>
+    <div class="form-group col-xs-12 col-sm-4">
+                <form id="docs_search" action="/search/site.php" method="get">
+                  <div class="input-group search-box">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon glyphicon-search"></span></span>
+                      <input type="hidden" name="start" value="1">
+                      <input id="form1_q" name="q" class="form-control" type="search" placeholder="SEARCH DOCUMENTATION">
+                  </div>
+              </form> 
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row hidden-xs hidden-sm">
+    <ol class="breadcrumb rfTocBreadcrumb">
+      <%- breadcrumb %>
+    </ol>
+  </div>
+    <div class="row">
+      <hr class="docDivider hidden-sm hidden-xs">
+        <div class="col-md-8 docContentWrapper pull-right">
+            <div class="docContent">
+              <% if(title){ %>
+              <h1> <%= title %> </h1>
+              <% } %>
+                <%- content %>
+            </div>
+            <div class="links">
+              <% if(prev) { %>
+                <a class="article-nav-button pull-left" href="<%= prev.path %>">
+                  <span class="rf-icon rf_arrow_left prev-article"></span>
+                  <span class="hidden-xs"><%= prev.title %></span>
+                </a>
+              <% } %>
+              <% if(next) { %>
+                <a class="article-nav-button pull-right" href="<%= next.path %>">
+                  <span class="hidden-xs"><%= next.title %></span>
+                  <span class="rf-icon rf_arrow_right next-article"></span>
+                </a>
+              <% } %>
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+            <ul id="docTree" class="rf-tree docTree">
+                <%- articleNav %>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+window.doc_id = "<%= id %>";
+</script>
+
+<?php
+require $_SERVER['DOCUMENT_ROOT']."/layout/footer.php";
+

@@ -1,0 +1,11 @@
+<% for(var i=0; i<boundevents.length; i++) { %>
+  <% var item = boundevents[i] %>
+  <div id="boundevent-<%= item.bind.name %>">
+    <h3><a href="#boundevent-<%= item.bind.name %>" class="rfDocPermalink pull-right">#</a><%= item.bind.name %></h3>
+    <p>
+        <code>bind('<%= item.bind.name %>', callback)</code>
+    </p>
+    <p><%= item.desc.content %></p>
+  </div>
+<% } %>
+

@@ -1,0 +1,53 @@
+<table class="table table-condensed rfParamsTable">
+    <thead>
+        <tr>
+            <th>Name</th><th>Type</th><th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(i=0; i<params.length; i++) {
+            var param = params[i];
+            if(!param) continue;
+        %>
+            <tr>
+                <td><code><%= param.name %></code></td>
+                <td>
+                    <%- 
+                        tree.hasClass(param.paramType) ? 
+                            linkify({
+                                text: param.paramType, 
+                                href: param.paramType + '.php'
+                            }) : param.paramType
+                    %>
+                </td>
+                <td>
+                    <%= param.desc %>
+                    <% var param = findConstantsObject(param.paramType); 
+                        if(param) { %>
+                        <div class="propsTableWrapper">
+                        <table class="propsTableInactive">
+                            <tr>
+                                <td><span>Properties</span> <span class="hyphen">&ndash;</span> <a href="#" class="params_options" data-id="<%= item_options_id %>">Show</a></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        </div>
+                        <div class="optionsTableInactive">
+                        <table class="table table-condensed rfParamsTable" id="<%= item_options_id %>"><thead><th>Name</th><th>Type</th><th>Description</th></thead>
+                        <tbody>
+                            <% for(var key in param) { %>
+                            <tr>
+                                <td><code><%= key %></code></td>
+                                <td><%= param[key].type %></td>
+                                <td><%= param[key].shortDesc %></td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                        </table>
+                        </div>
+                    <% } %>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
