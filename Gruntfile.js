@@ -69,10 +69,37 @@ module.exports = function(grunt) {
                     {cwd:"jsrf/src/", src:["img/*"], dest:"build/assets/"}
                 ]
             }
-        }
+        },
+        packman: {
+
+        } 
     };
     grunt.registerTask("jsrf:compile", []);
     grunt.registerTask("build:jsrf", ["requirejs", "jst:jsrf", "themegen:jsrf", "less:jsrf", "cssmin:jsrf"]);
+
+    var package_dev_minified = {
+        file_name: "razorflow_framework"
+        container_name: "razorflow_js",
+        files: [
+            {file: "readme.html", src:"tools/licenses/dev/suite.html"},
+            {dir:"assets", files: [
+                {dir: "js", files: [
+                    "build/assets/js/razorflow.min.js"
+                ]},
+                {dir: "img", src:"build/assets/img/"},
+                {dir: "css", src:"build/assets/css/"}
+            ]},
+            {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
+                {dir: "js", files:[
+                    "build/assets/js/razorflow.min.js"
+                ]},
+                {dir: "img", src:"build/assets/img/"},
+                {dir: "css", src:"build/assets/css/"}
+            ]}
+        ]
+    };
+
+    JSRF_Tasks.packman.dev = package_dev_minified;
 
 
     grunt.loadNpmTasks('grunt-contrib-clean');
