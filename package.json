@@ -11,6 +11,7 @@
     "grunt-contrib-jst": "^0.6.0",
     "grunt-contrib-less": "^0.11.4",
     "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-exec": "^0.4.6",
     "underscore": "^1.6.0"
   }
 }

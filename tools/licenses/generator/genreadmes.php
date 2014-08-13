@@ -65,6 +65,7 @@ function write_items ($lang, $langName) {
 		$contents = ob_get_contents();
 		ob_end_clean();
 		file_put_contents($filePath, $contents);
+		echo "Successfully wrote: $filePath\n";
 	}
 }
 global $version;

@@ -73,21 +73,16 @@ module.exports = function(grunt) {
         },
         packman: {
 
-        } 
+        },
+        exec: {
+
+        }
     };
-    grunt.registerTask("jsrf:compile", []);
-    grunt.registerTask("build:jsrf", ["requirejs", "jst:jsrf", "themegen:jsrf", "less:jsrf", "cssmin:jsrf"]);
 
-    function addPackageWithLicense (opts) {
+    function addPackageWithLicense (version, license) {
+        var taskHost = JSRF_Tasks.packman;
 
-
-    }
-
-    JSRF_Tasks.packman.js_dev = {
-        file_name: "razorflow_framework_js",
-        container_name: "razorflow_framework_js",
-        files: [
-            {file: "readme.html", src:"tools/licenses/dev/suite.html"},
+        var js_files = [
             {dir:"files", files: [
                 {dir: "js", files: [
                     "build/assets/js/razorflow.min.js",
@@ -103,14 +98,9 @@ module.exports = function(grunt) {
                 {dir: "img", src:"build/assets/img/"},
                 {dir: "css", src:"build/assets/css/"}
             ]}
-        ]
-    };
+        ];
 
-    JSRF_Tasks.packman.php_dev = {
-        file_name: "razorflow_framework_php",
-        container_name: "razorflow_framework_php",
-        files: [
-            {file: "readme.html", src:"tools/licenses/dev/suite.html"},
+        var php_files = [
             {dir:"razorflow_php", src:"wrappers/phprf/src/", files: [
                 {dir:"static", files: [
                     {dir:"rf", files:[
@@ -126,9 +116,60 @@ module.exports = function(grunt) {
             {dir: "dashboard_quickstart", src:"wrappers/phprf/dashboard_quickstart/", files:[
                 {dir:"razorflow_php", copyFromPackage: "../razorflow_php/"}
             ]}
-        ]
+        ];
+
+        var licensePath = "razorflow_license_" + license;
+
+        taskHost['js_' + license] = {
+            file_name: "razorflow_framework_js_"+license+"-"+version,
+            container_name: "razorflow_framework_js-" + version,
+            files: [
+                {file: "readme.html", src:"tools/licenses/"+licensePath+"/js.html"},
+                {file: "license.pdf", src:"tools/licenses/"+licensePath+"/license.pdf"},
+            ].concat(js_files)
+        };
+
+        taskHost['php_' + license] = {
+            file_name: "razorflow_framework_php_"+license+"-"+ version,
+            container_name: "razorflow_framework_php-" + version,
+            files: [
+                {file: "readme.html", src:"tools/licenses/"+licensePath+"/js.html"},
+                {file: "license.pdf", src:"tools/licenses/"+licensePath+"/license.pdf"},
+            ].concat(php_files)
+        };
+
+        taskHost['suite_' + license] = {
+            file_name: "razorflow_framework_suite_"+license+"-" + version,
+            container_name: "razorflow_framework_suite-" + version,
+            files: [
+                {file: "readme.html", src:"tools/licenses/"+licensePath+"/suite.html"},
+                {file: "license.pdf", src:"tools/licenses/"+licensePath+"/license.pdf"},
+                {dir: "razorflow_php", files: php_files},
+                {dir: "razorflow_js", files: js_files},
+            ]
+        };
     }
 
+    function createPackagesForVersion (version) {
+        JSRF_Tasks.exec.php_readme_gen = {
+            cmd: "php genreadmes.php " + version,
+            stdout: true,
+            cwd: "tools/licenses/generator"
+        }
+        addPackageWithLicense(version, "developer");
+        addPackageWithLicense(version, "oem");
+        addPackageWithLicense(version, "oem_devdirect");
+        addPackageWithLicense(version, "saas");
+        addPackageWithLicense(version, "saas_devdirect");
+        addPackageWithLicense(version, "corporate");
+        addPackageWithLicense(version, "corporate_devdirect");
+    };
+
+    createPackagesForVersion("1.0.1");
+
+    grunt.registerTask("package", ["exec:php_readme_gen", "packman"])
+    grunt.registerTask("jsrf:compile", []);
+    grunt.registerTask("build:jsrf", ["requirejs", "jst:jsrf", "themegen:jsrf", "less:jsrf", "cssmin:jsrf"]);
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -137,6 +178,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-exec');
     grunt.loadTasks ('./tools/grunt-tasks/');
     grunt.initConfig (JSRF_Tasks);
 };
