@@ -61,11 +61,13 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('packman', 'Package Maker', function() {
     var options = this.options({
-      tmpDir: "build/tmp/packman/"
+      tmpDir: "build/tmp/packman/",
+      outDir: "build/packages/"
     });
     var data = this.data;
+    var done = this.async();
 
-    if(grunt.file.exists(options.tmpDir)) {
+    if(grunt.file.exists(pj(options.tmpDir, data.container_name))) {
       grunt.log.debug("Removing temp dir", options.tmpDir);
       grunt.file.delete(options.tmpDir);
     }
@@ -82,6 +84,18 @@ module.exports = function(grunt) {
       opts: {
         cwd: options.tmpDir
       }
-    })
+    }, function (error) {
+      if(error == null) {
+        grunt.log.debug("Executing zip command now")
+        grunt.file.copy(pj(options.tmpDir, data.file_name + ".zip"), pj(options.outDir, data.file_name + ".zip"));
+        grunt.log.ok("Successfully built ", data.file_name + ".zip")
+      }
+      else {
+        grunt.fail.fatal("something went wrong with zip");
+      }
+      done();
+    });
+
+
   });
 };
