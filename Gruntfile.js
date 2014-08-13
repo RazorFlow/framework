@@ -1,4 +1,5 @@
 var requireConfig = require("./jsrf/src/js/requireConfig");
+var _ = require("underscore");
 
 module.exports = function(grunt) {
     // Options for builds, usually specified by 
@@ -77,29 +78,56 @@ module.exports = function(grunt) {
     grunt.registerTask("jsrf:compile", []);
     grunt.registerTask("build:jsrf", ["requirejs", "jst:jsrf", "themegen:jsrf", "less:jsrf", "cssmin:jsrf"]);
 
-    var package_dev_minified = {
-        file_name: "razorflow_framework",
-        container_name: "razorflow_js",
+    function addPackageWithLicense (opts) {
+
+
+    }
+
+    JSRF_Tasks.packman.js_dev = {
+        file_name: "razorflow_framework_js",
+        container_name: "razorflow_framework_js",
         files: [
             {file: "readme.html", src:"tools/licenses/dev/suite.html"},
-            {dir:"assets", files: [
+            {dir:"files", files: [
                 {dir: "js", files: [
-                    "build/assets/js/razorflow.min.js"
+                    "build/assets/js/razorflow.min.js",
+                    "build/assets/js/razorflow.devtools.min.js"
                 ]},
                 {dir: "img", src:"build/assets/img/"},
                 {dir: "css", src:"build/assets/css/"}
             ]},
-            // {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
-            //     {dir: "js", files:[
-            //         "build/assets/js/razorflow.min.js"
-            //     ]},
-            //     {dir: "img", src:"build/assets/img/"},
-            //     {dir: "css", src:"build/assets/css/"}
-            // ]}
+            {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
+                {dir: "js", files:[
+                    "build/assets/js/razorflow.min.js"
+                ]},
+                {dir: "img", src:"build/assets/img/"},
+                {dir: "css", src:"build/assets/css/"}
+            ]}
         ]
     };
 
-    JSRF_Tasks.packman.dev = package_dev_minified;
+    JSRF_Tasks.packman.php_dev = {
+        file_name: "razorflow_framework_php",
+        container_name: "razorflow_framework_php",
+        files: [
+            {file: "readme.html", src:"tools/licenses/dev/suite.html"},
+            {dir:"razorflow_php", src:"wrappers/phprf/src/", files: [
+                {dir:"static", files: [
+                    {dir:"rf", files:[
+                        {dir:"js", files: [
+                            "build/assets/js/razorflow.wrapper.min.js",
+                            "build/assets/js/razorflow.devtools.min.js"
+                        ]},
+                        {dir:"img", src:"build/assets/img/"},
+                        {dir:"css", src:"build/assets/css/"}
+                    ]}
+                ]}
+            ]},
+            {dir: "dashboard_quickstart", src:"wrappers/phprf/dashboard_quickstart/", files:[
+                {dir:"razorflow_php", copyFromPackage: "../razorflow_php/"}
+            ]}
+        ]
+    }
 
 
     grunt.loadNpmTasks('grunt-contrib-clean');

@@ -44,6 +44,9 @@ module.exports = function(grunt) {
         else if(item.files) {
           grunt.file.mkdir (pj(cwd, item.dir));
         }
+        else if(item.copyFromPackage) {
+          ensureCopyDir (pj(cwd, item.copyFromPackage), pj(cwd, item.dir));
+        }
         else{
           grunt.fail.fatal ("Don't know how to handle this dir: ", JSON.stringify(item.dir));
         }
@@ -71,5 +74,14 @@ module.exports = function(grunt) {
     grunt.file.mkdir(pj(options.tmpDir, data.container_name));
 
     handle_files (pj(options.tmpDir, data.container_name), data.files);
+
+    grunt.log.debug("Executing zip command now")
+    grunt.util.spawn({
+      cmd: "zip",
+      args: ["-r", data.file_name + ".zip", data.container_name],
+      opts: {
+        cwd: options.tmpDir
+      }
+    })
   });
 };
