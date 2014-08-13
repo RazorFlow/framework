@@ -8,14 +8,10 @@ module.exports = function(grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('themegen', 'generate themes', function() {
-    grunt.log.writeln("generating themes");
     var done = this.async();
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      themeLess: "src/less/theme.less",
-      mixins: "src/less/mixins.less",
-      defaultVariables: "src/less/theme/variables.less",
     });
 
     var mixins = grunt.file.read(options.mixins),
@@ -54,7 +50,7 @@ module.exports = function(grunt) {
     };
 
     vars = convertStringToObject(vars);
-    var themeObject = grunt.file.readJSON(options.themeJSON);
+    var themeObject = grunt.file.readJSON(this.data.themeJSON);
     for(var key in themeObject){
       if(typeof(themeObject[key]) !== 'undefined'){
         vars["@" + key] = themeObject[key] + ';';
@@ -63,7 +59,7 @@ module.exports = function(grunt) {
     
     
     var finalLess = convertObjectToVariablesLess(vars) + '\n' + themeLessSourceCode;
-    grunt.file.write(options.out, finalLess);
+    grunt.file.write(this.data.out, finalLess);
     done();
   });
 
