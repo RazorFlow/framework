@@ -1,7 +1,7 @@
 (function(global) {
     var paths = {
-        kendo: 'vendor/js/kendo',
-        Raphael: 'vendor/js/redraphael',
+        kendo: 'vendor/kendo',
+        Raphael: 'vendor/redraphael',
     };
     var shim = {
         Raphael: {
@@ -16,55 +16,43 @@
         baseUrl: 'http://localhost:8080/devStatic/jsrf/js'
     });
 
-    var gruntConfig = extend({
-        paths: resetPaths(clone(paths), '../'),
-        shim: clone(shim)
-    }, {
-        baseUrl: "src/js",
-        name: 'buildutils/almond',
+    var requireDefaults = {
+        paths: resetPaths(clone(paths), "../"),
+        shim: clone(shim),
+        baseUrl: "jsrf/src/js",
+        name: "buildutils/almond",
+        optimize:"none"
+    };
+
+    global.core = extend(requireDefaults, {
         include: ['core/main'],
         insertRequire: ['core/main'],
         wrap: {
-            'startFile': 'src/js/buildutils/start.js',
-            'endFile': 'src/js/buildutils/end.js'
+            'startFile': 'jsrf/src/js/buildutils/start.js',
+            'endFile': 'jsrf/src/js/buildutils/end.js'
         },
-        // optimize: 'none',
         out: "build/assets/js/razorflow.min.js"
-        // optimize: 'none'
     });
 
-    var gruntDebugConfig = extend({
-        paths: resetPaths(clone(paths), '../'),
-        shim: clone(shim)
-    }, {
-        baseUrl: "src/js",
-        name: 'buildutils/almond',
+    global.devtools = extend(requireDefaults, {
         include: ['core/devtools.main'],
         insertRequire: ['core/devtools.main'],
         wrap: {
-            'startFile': 'src/js/buildutils/start.js',
-            'endFile': 'src/js/buildutils/enddebug.js'
+            'startFile': 'jsrf/src/js/buildutils/start.js',
+            'endFile': 'jsrf/src/js/buildutils/enddebug.js'
         },
-        // optimize: 'none',
         out: "build/assets/js/razorflow.devtools.min.js"
-        // optimize: 'none'
     });
 
-    var gruntWrapperConfig = extend({
-        paths: resetPaths(clone(paths), '../'),
-        shim: clone(shim)
-    }, {
-        baseUrl: "src/js",
-        name: 'buildutils/almond',
+    global.wrapper = extend(requireDefaults, {
         include: ['wrapperhelpers/wrappermain'],
         insertRequire: ['wrapperhelpers/wrappermain'],
         wrap: {
-            'startFile': 'src/js/buildutils/start.js',
-            'endFile': 'src/js/buildutils/endwrapper.js'
+            'startFile': 'jsrf/src/js/buildutils/start.js',
+            'endFile': 'jsrf/src/js/buildutils/endwrapper.js'
         },
         out: "build/assets/js/razorflow.wrapper.min.js"
-    });
-
+    })
 
     function resetPaths (obj, basePath) {
         for(var key in obj) {
@@ -89,10 +77,4 @@
         }
         return newObj;
     }
-
-    global.browserConfig = browserConfig;
-    global.gruntConfig = gruntConfig;
-    global.gruntWrapperConfig = gruntWrapperConfig;
-    global.gruntDebugConfig = gruntDebugConfig;
-
 })((typeof module !== "undefined" && module.exports) ? module.exports : ((!!window) ? window : this));
