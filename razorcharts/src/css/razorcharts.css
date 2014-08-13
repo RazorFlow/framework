@@ -1,0 +1,185 @@
+.rc-tooltip {
+  font-size: 10px;
+  pointer-events: none;
+}
+.rc-tooltip .rect {
+  fill: #fff;
+  opacity: 0.9;
+}
+.rc-tooltip text.rc-series-1 {
+  fill: #3b8c9d;
+}
+.rc-tooltip text.rc-series-2 {
+  fill: #80a824;
+}
+.rc-tooltip text.rc-series-3 {
+  fill: #c0dd25;
+}
+.rc-tooltip text.rc-series-4 {
+  fill: #f99e00;
+}
+.rc-tooltip text.rc-series-5 {
+  fill: #db513a;
+}
+.rc-column-chart .rc-series-1 .rc-plot-item {
+  fill: #3b8c9d;
+  stroke: none;
+}
+.rc-column-chart .rc-series-2 .rc-plot-item {
+  fill: #80a824;
+  stroke: none;
+}
+.rc-column-chart .rc-series-3 .rc-plot-item {
+  fill: #c0dd25;
+  stroke: none;
+}
+.rc-column-chart .rc-series-4 .rc-plot-item {
+  fill: #f99e00;
+  stroke: none;
+}
+.rc-column-chart .rc-series-5 .rc-plot-item {
+  fill: #db513a;
+  stroke: none;
+}
+.rc-line-chart path.rc-plot-item,
+.rc-line-chart circle.rc-plot-item {
+  stroke-width: 2;
+}
+.rc-line-chart .rc-series-1 .rc-plot-item {
+  stroke: #3b8c9d;
+  fill: #ffffff;
+}
+.rc-line-chart .rc-series-2 .rc-plot-item {
+  stroke: #80a824;
+  fill: #ffffff;
+}
+.rc-line-chart .rc-series-3 .rc-plot-item {
+  stroke: #c0dd25;
+  fill: #ffffff;
+}
+.rc-line-chart .rc-series-4 .rc-plot-item {
+  stroke: #f99e00;
+  fill: #ffffff;
+}
+.rc-line-chart .rc-series-5 .rc-plot-item {
+  stroke: #db513a;
+  fill: #ffffff;
+}
+.rc-area-chart .rc-plot-item {
+  opacity: 0.8;
+}
+.rc-area-chart .rc-series-1 .rc-plot-item {
+  fill: #3b8c9d;
+  stroke: none;
+}
+.rc-area-chart .rc-series-2 .rc-plot-item {
+  fill: #80a824;
+  stroke: none;
+}
+.rc-area-chart .rc-series-3 .rc-plot-item {
+  fill: #c0dd25;
+  stroke: none;
+}
+.rc-area-chart .rc-series-4 .rc-plot-item {
+  fill: #f99e00;
+  stroke: none;
+}
+.rc-area-chart .rc-series-5 .rc-plot-item {
+  fill: #db513a;
+  stroke: none;
+}
+.rc-bar-chart .rc-series-1 .rc-plot-item {
+  fill: #3b8c9d;
+  stroke: none;
+}
+.rc-bar-chart .rc-series-2 .rc-plot-item {
+  fill: #80a824;
+  stroke: none;
+}
+.rc-bar-chart .rc-series-3 .rc-plot-item {
+  fill: #c0dd25;
+  stroke: none;
+}
+.rc-bar-chart .rc-series-4 .rc-plot-item {
+  fill: #f99e00;
+  stroke: none;
+}
+.rc-bar-chart .rc-series-5 .rc-plot-item {
+  fill: #db513a;
+  stroke: none;
+}
+.rc-pie-chart .rc-plot-item-1 {
+  fill: #3b8c9d;
+  stroke: none;
+}
+.rc-pie-chart .rc-plot-item-2 {
+  fill: #80a824;
+  stroke: none;
+}
+.rc-pie-chart .rc-plot-item-3 {
+  fill: #c0dd25;
+  stroke: none;
+}
+.rc-pie-chart .rc-plot-item-4 {
+  fill: #f99e00;
+  stroke: none;
+}
+.rc-pie-chart .rc-plot-item-5 {
+  fill: #db513a;
+  stroke: none;
+}
+.rc-pie-chart .pie-label-line {
+  stroke: #000000;
+  stroke-width: 1;
+}
+.rc-pie-chart .pie-label-circle {
+  stroke: #000000;
+  stroke-width: 1;
+  fill: #FFF;
+}
+.rc-pie-chart .pie-label-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+.rc-pie-chart .pie-label-label {
+  fill: #666;
+  font-size: 10px;
+}
+.rc-gauge .background {
+  fill: #EEEEEE;
+  stroke: none;
+}
+.rc-gauge .main {
+  fill: #67ADDA;
+  stroke: none;
+}
+.rc-gauge .inner-circle {
+  fill: #F9F9F9;
+  stroke: #67ADDA;
+}
+.rc-gauge .value-label {
+  fill: #333;
+  font-size: 24px;
+}
+.rc-gauge .label {
+  fill: #333;
+}
+.rc-grid .rc-grid-line {
+  stroke: #cccccc;
+}
+.rc-axis .rc-grid-line {
+  stroke: #cccccc;
+}
+.rc-axis text {
+  fill: #666666;
+  stroke: none;
+  font-size: 12px;
+}
+.rc-axis text.rc-axis-label {
+  font-size: 11px;
+  fill: #333333;
+  stroke: none;
+}
+.rc-chart {
+  font-family: "Lucida Grande";
+}
