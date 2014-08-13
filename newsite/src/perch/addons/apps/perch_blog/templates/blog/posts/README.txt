@@ -1,1 +1,0 @@
-This folder can contain alternative post templates. They should be alternatives to post.html.

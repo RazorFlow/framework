@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^(.*)\.html$ $1.php [nc]

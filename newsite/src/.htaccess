@@ -1,7 +1,0 @@
-ErrorDocument 404 /error/404.php
-
-<IfModule mod_rewrite.c>  
-    RewriteEngine on  
-    # rules go here
-    RewriteRule /blog/([a-zA-Z0-9-/]+)$ /blog/post.php?s=$1 [L]
-</IfModule>
