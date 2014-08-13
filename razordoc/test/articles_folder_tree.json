@@ -1,0 +1,48 @@
+[
+    {
+        "name": "_partials",
+        "path": "_partials",
+        "type": "directory",
+        "content": [
+            {
+                "name": "partial1.md",
+                "path": "_partials/partial1.md",
+                "type": "file"
+            }
+        ]
+    },
+    {
+        "name": "index.md",
+        "path": "index.md",
+        "type": "file"
+    },
+    {
+        "name": "level1",
+        "path": "level1",
+        "type": "directory",
+        "content": [
+            {
+                "name": "document2.md",
+                "path": "level1/document2.md",
+                "type": "file"
+            },
+            {
+                "name": "index.md",
+                "path": "level1/index.md",
+                "type": "file"
+            },
+            {
+                "name": "level2",
+                "path": "level1/level2",
+                "type": "directory",
+                "content": [
+                    {
+                        "name": "index.md",
+                        "path": "level1/level2/index.md",
+                        "type": "file"
+                    }
+                ]
+            }
+        ]
+    }
+]

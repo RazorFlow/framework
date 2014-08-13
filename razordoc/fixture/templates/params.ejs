@@ -1,0 +1,22 @@
+<table class="table">
+    <tbody>
+        <% for(i=0; i<params.length; i++) {
+            var param = params[i];
+            if(!param) continue;
+        %>
+            <tr>
+                <td><code><%= param.name %></code></td>
+                <td>
+                    <%- 
+                        tree.hasClass(param.paramType) ? 
+                            linkify({
+                                text: param.paramType, 
+                                href: param.paramType + '.html'
+                            }) : param.paramType
+                    %>
+                </td>
+                <td><%= param.desc %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
