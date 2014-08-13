@@ -1,0 +1,148 @@
+<style>
+    .container {
+        font-family: Arial;
+    }
+
+    .header {
+        background: #242424;
+        color: #F5F5F5;
+        padding: 10px;
+    }
+    .dashboard-containers {
+        width: 1280px;
+        margin: 0 auto;
+    }
+    .cs-dashboard {
+        display: inline-block;
+    }
+    .dota-dashboard {
+        display: inline-block;
+    }
+
+    #csdb {
+        width: 800px;
+        height: 400px;
+        overflow: scroll;
+        border: 1px solid #888;
+    }
+    #dotadb {
+        width: 400px;
+        height: 400px;
+        overflow: scroll;
+        border: 1px solid #888;
+    }
+    #changeSize {
+        padding: 10px;
+    }
+
+    .title {
+        text-align: center;
+        padding: 8px;
+        background: #242424;
+        color: #fff;
+    }
+</style>
+<div class="container">
+    <div class="header">
+        <h2> Valve Internal Dashboard </h2>
+    </div>
+    <div class="dashboard-containers">
+        <div class="cs-dashboard">
+            <div class="title">
+             CS Go Facts
+            </div>
+            <div id="csdb">
+
+            </div>
+        </div>
+        <div class="dota-dashboard">
+            <div class="title">
+                Dota 2 Facts
+            </div>
+            <div id="dotadb">
+
+            </div>
+        </div>
+            
+    </div>
+</div>
+<button id="changeSize">Change Size</button>
+<script type="text/javascript">
+    function rfReady() {
+        var csdb = new Dashboard();
+
+        var c1 = new KPIComponent();
+        c1.setDimensions(3,2);
+        c1.setCaption('Number of players online');
+        c1.setValue(32445);
+        csdb.addComponent(c1);
+
+        var c2 = new KPIComponent();
+        c2.setDimensions(3,2);
+        c2.setCaption('Number of Servers');
+        c2.setValue(14235);
+        csdb.addComponent(c2);
+
+        var c3 = new KPIComponent();
+        c3.setDimensions(3,2);
+        c3.setCaption('Number of players searching');
+        c3.setValue(827);
+        csdb.addComponent(c3);
+
+        var c4 = new KPIComponent();
+        c4.setDimensions(3,2);
+        c4.setCaption('Number of cheaters online');
+        c4.setValue(65535);
+        csdb.addComponent(c4);
+
+        var c5 = new ChartComponent();
+        c5.setDimensions(6, 6);
+        c5.setCaption('Increase in cheaters 2013 last 2 quarters');
+        c5.setLabels(['October', 'November', 'December', 'January', 'February', 'March']);
+        c5.addSeries('cheaters', 'Cheaters', [12300, 14468, 18974, 25083, 56632, 75523]);
+        csdb.addComponent(c5);
+
+        var c5 = new ChartComponent();
+        c5.setDimensions(6, 6);
+        c5.setCaption('Ratio of cheaters vs legit players');
+        c5.setLabels(['Legit players', 'Cheaters']);
+        c5.addSeries('cheaters', 'Cheaters', [13, 87], {seriesDisplayType: 'pie', 'numberSuffix': '%'});
+        csdb.addComponent(c5);
+
+        csdb.embedTo('csdb', {
+            forceBigScreenMode: true
+        });
+
+
+        var dotadb = new Dashboard();
+
+        var d1 = new KPIComponent();
+        d1.setDimensions(3,2);
+        d1.setCaption('Number of heroes');
+        d1.setValue(1023);
+        dotadb.addComponent(d1);
+
+        var d2 = new KPIComponent();
+        d2.setDimensions(3,2);
+        d2.setCaption('Number of players lost to CS GO');
+        d2.setValue(23554);
+        dotadb.addComponent(d2);
+
+        var d5 = new ChartComponent();
+        d5.setDimensions(6, 6);
+        d5.setCaption('Learning curve compared to other things');
+        d5.setLabels(['Quake', 'CS GO', 'Rocket Science', 'Building a time machine', 'Dota']);
+        d5.addSeries('learnig_curve', 'Learning Curve', [1, 2, 5, 18, 74], {seriesDisplayType: 'pie', 'numberSuffix': '%'});
+        dotadb.addComponent(d5);
+
+        dotadb.embedTo('dotadb');
+
+        $('#changeSize').on('click', function() {
+            dotadb.setWidth(400);
+            dotadb.setHeight(600);
+        });
+    }
+        
+</script>
+
+    

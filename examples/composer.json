@@ -1,0 +1,17 @@
+{
+    "name": "razorflow/examples",
+    "description": "RazorFlow Dashboard Examples",
+    "authors": [
+        {
+            "name": "Anirudh Sanjeev",
+            "email": "anirudh@razorflow.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "silex/silex": "1.2.*@dev",
+        "symfony/finder": "2.5.*@dev",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "symfony/twig-bridge": "~2.3"
+    }
+}

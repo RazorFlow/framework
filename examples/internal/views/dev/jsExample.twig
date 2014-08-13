@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+{{ include('dev/jsIncludes.twig') }}
+<script>
+    require(["core/main"], function (rf) {    
+        {{ file_contents|raw }}
+    });
+</script>
+</head>
+<body>
+<div id="dbTarget" style='position: relative;' class='rf rf-click rf-lg'>
+</div>
+</body>
+</html>
+    

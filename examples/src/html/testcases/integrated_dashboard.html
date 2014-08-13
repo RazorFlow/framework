@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      #rfKPI1, #rfKPI2, #rfKPI3, #rfKPI4 {
+        height: 200px;
+      }
+      #rfChart, #rfTable {
+        height: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar" id="rfTable">
+          
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder" id="rfKPI1">
+              
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder" id="rfKPI2">
+              
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder" id="rfKPI3">
+
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder" id="rfKPI4">
+              
+            </div>
+          </div>
+
+          <h2 class="sub-header">Section title</h2>
+          <div id="rfChart">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    function rfReady() {
+        var kpi1 = new KPIComponent();
+        kpi1.setCaption("Hello");
+        kpi1.setValue("20");
+        kpi1.renderTo("rfKPI1");
+
+        var kpi2 = new KPIComponent();
+        kpi2.setCaption("Hello");
+        kpi2.setValue("20");
+        kpi2.renderTo("rfKPI2");
+
+        var kpi3 = new KPIComponent();
+        kpi3.setCaption("Hello");
+        kpi3.setValue("20");
+        kpi3.renderTo("rfKPI3");
+
+        var kpi4 = new KPIComponent();
+        kpi4.setCaption("Hello");
+        kpi4.setValue("20");
+        kpi4.renderTo("rfKPI4");
+
+        var chart = new ChartComponent('someid');
+        chart.setLabels (["2009", "2010", "2011"])
+        chart.addSeries ("beverages", "Beverages", [1355, 1916, 1150]);
+        chart.addSeries ("packaged_foods", "Packaged Foods", [1513, 976, 1321]);
+        chart.renderTo("rfChart");
+
+        var table = new TableComponent ('test');
+        table.setCaption ("Regional Sales");
+        table.addColumn ('zone', "Zone");
+        table.addColumn ('name', "Store Name");
+        table.addColumn ('sale', "Sales amount");
+        var data = [
+            {zone: "North", name: "Northern Stores", sale: 4000},
+            {zone: "South", name: "Southern Stores", sale: 4500}
+        ];
+        table.addMultipleRows (data);
+        table.renderTo('rfTable');
+    }
+        
+</script>
+  </body>
+</html>
+
+    

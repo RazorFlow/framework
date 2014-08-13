@@ -1,0 +1,110 @@
+<style>
+    dashboard {
+        display: none;
+    }
+</style>
+<h1>Razorflow MVVM TestBed</h1>
+
+<div id="view">
+</div>    
+
+<dashboard>
+    <component id="kpi" type="KPIComponent" dimensions="3x2" a="something">
+        <component-caption>Sales</component-caption>
+        <value numberPrefix="$" numberSuffix="%">42</value>
+    </component>
+    <!-- <component type="KPIComponent" dimensions="3x2">
+        <component-caption>Units</component-caption>
+        <value>3</value>
+    </component>
+    <component type="KPIComponent" dimensions="3x2">
+        <component-caption>Units Sold</component-caption>
+        <value>34</value>
+        <spark>
+            <labels>
+                <label>jan</label>
+                <label>feb</label>
+                <label>mar</label>
+            </labels>
+            <values>
+                <val>10</val>
+                <val>20</val>
+                <val>30</val>
+            </values>
+        </spark>
+    </component>
+    <component id="gauge" type="GaugeComponent" dimensions="3x2">
+        <component-caption>Revisits</component-caption>
+        <value>67</value>
+        <limits>
+            <min>0</min>
+            <max>100</max>
+        </limits>
+    </component>
+    <component id="table" type="TableComponent">
+        <component-caption>Item Info</component-caption>
+        <table>
+            <thead>
+                <tr>
+                    <th id="item">Item</th>
+                    <th id="cost" dataType="number" numberPrefix="$">Cost</th>
+                    <th id="sales" dataType="number" numberPrefix="$">Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Beverages</td><td>24</td><td>32</td>
+                </tr>
+                <tr>
+                    <td>Dairy Products</td><td>12</td><td>22</td>
+                </tr>
+                <tr>
+                    <td>Grains / Cereals</td><td>18</td><td>27</td>
+                </tr>
+            </tbody>
+        </table>
+    </component>
+    <component id="chart" type="ChartComponent">
+        <component-caption>Sales Chart</component-caption>
+        <labels>
+            <label>January</label>
+            <label>February</label>
+            <label>March</label>
+            <label>April</label>
+            <label>May</label>
+        </labels>
+        <series id="us" caption="US" numberPrefix="$" seriesDisplayType="line">
+            <data>
+                <val>10</val>
+                <val>20</val>
+                <val>30</val>
+                <val>40</val>
+                <val>50</val>
+            </data>
+        </series>
+        <series id="uk" caption="UK" numberPrefix="$">
+            <data>
+                <val>10</val>
+                <val>20</val>
+                <val>30</val>
+                <val>40</val>
+                <val>50</val>
+            </data>
+        </series>
+    </component> -->
+</dashboard>
+
+<button id="shoot">Shoot</button>
+<script type="text/javascript">
+    function rfReady() {
+        rf.HTMLBuilder.buildFromHTML('view');
+
+        $("#shoot").on("click", function() {
+            $("#kpi").attr("a", "anything");
+            // $("#kpi").find("value").text("50");
+            // $("#gauge").find("value").text("81");
+            // $("#chart").append($('<series id="ind" caption="India" numberPrefix="$"><data><val>50</val><val>40</val><val>30</val><val>20</val><val>10</val></data>'));
+            // $("#table").find("tbody").append($("<tr><td>Something</td><td>120</td><td>190</td></tr>"));
+        });
+    }
+</script>

@@ -1,0 +1,3 @@
+[submodule "static/t3"]
+	path = static/t3
+	url = https://github.com/razorflow/t3.git

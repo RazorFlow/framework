@@ -1,0 +1,60 @@
+<style>
+    body {
+        font-family: Arial;
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<div class="container">
+    <h1>Sales Dashboard</h1>
+    <div id="dashboard-container">
+
+    </div>
+    <button class="action"></button>
+</div>
+
+<script type="text/javascript">
+    function rfReady() {
+        var db = new Dashboard();
+
+        var kpi1 = new KPIComponent();
+        kpi1.setDimensions(3, 2);
+        kpi1.setCaption('Total Sales');
+        kpi1.setValue(687, {
+            numberPrefix: '$'
+        });
+
+        var chart1 = new ChartComponent();
+        chart1.setDimensions(4, 4);
+        chart1.setCaption('Sales by category');
+        chart1.setLabels(['Beverages', 'Condiments', 'Dairy Products']);
+        chart1.addSeries('sales', 'Sales', [232, 134, 321]);
+
+        var table1 = new TableComponent();
+        table1.setDimensions(4, 4);
+        table1.setCaption('Sales by year');
+        table1.addColumn('year', 'Year');
+        table1.addColumn('sales', 'Sales');
+        table1.addRow({
+            'year': 2011,
+            'sales': 432
+        });
+        table1.addRow({
+            'year': 2012,
+            'sales': 561
+        });
+        table1.addRow({
+            'year': 2013,
+            'sales': 687
+        });
+
+        db.addComponent(kpi1);
+        db.addComponent(chart1);
+        db.addComponent(table1);
+
+        db.embedTo('dashboard-container');
+    }
+</script>
