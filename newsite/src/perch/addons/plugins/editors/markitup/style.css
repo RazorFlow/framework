@@ -1,0 +1,186 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://markitup.jaysalvat.com/
+// ------------------------------------------------------------------*/
+.textile .markItUp .markItUpButton1 a {
+	background-image:url(images/textile/h1.png); 
+}
+.textile .markItUp .markItUpButton2 a {
+	background-image:url(images/textile/h2.png); 
+}
+.textile .markItUp .markItUpButton3 a {
+	background-image:url(images/textile/h3.png); 
+}
+.textile .markItUp .markItUpButton4 a {
+	background-image:url(images/textile/h4.png); 
+}
+.textile .markItUp .markItUpButton5 a {
+	background-image:url(images/textile/h5.png); 
+}
+.textile .markItUp .markItUpButton6 a {
+	background-image:url(images/textile/h6.png); 
+}
+.textile .markItUp .markItUpButton7 a {
+	background-image:url(images/textile/paragraph.png); 
+}
+
+.textile .markItUp .markItUpButton8 a {
+	background-image:url(images/textile/bold.png);
+}
+.textile .markItUp .markItUpButton9 a {
+	background-image:url(images/textile/italic.png);
+}
+.textile .markItUp .markItUpButton10 a {
+	background-image:url(images/textile/stroke.png);
+}
+
+.textile .markItUp .markItUpButton11 a {
+	background-image:url(images/textile/list-bullet.png);
+}
+.textile .markItUp .markItUpButton12 a {
+	background-image:url(images/textile/list-numeric.png);
+}
+
+.textile .markItUp .markItUpButton13 a {
+	background-image:url(images/textile/picture.png); 
+}
+
+.textile .markItUp .markItUpButton14 a {
+	background-image:url(images/textile/file.png); 
+}
+
+.textile .markItUp .markItUpButton15 a {
+	background-image:url(images/textile/link.png);
+}
+
+.textile .markItUp .markItUpButton16 a	{
+	background-image:url(images/textile/quotes.png);
+}
+.textile .markItUp .markItUpButton17 a	{
+	background-image:url(images/textile/code.png);
+}
+
+.textile .markItUp .preview a {
+	background-image:url(images/textile/preview.png);
+}
+
+
+
+
+
+.markdown .markItUp .markItUpButton1 a {
+	background-image:url(images/markdown/h1.png); 
+}
+.markdown .markItUp .markItUpButton2 a {
+	background-image:url(images/markdown/h2.png); 
+}
+.markdown .markItUp .markItUpButton3 a {
+	background-image:url(images/markdown/h3.png); 
+}
+.markdown .markItUp .markItUpButton4 a {
+	background-image:url(images/markdown/h4.png); 
+}
+.markdown .markItUp .markItUpButton5 a {
+	background-image:url(images/markdown/h5.png); 
+}
+.markdown .markItUp .markItUpButton6 a {
+	background-image:url(images/markdown/h6.png); 
+}
+
+.markdown .markItUp .markItUpButton7 a {
+	background-image:url(images/markdown/bold.png);
+}
+.markdown .markItUp .markItUpButton8 a {
+	background-image:url(images/markdown/italic.png);
+}
+
+.markdown .markItUp .markItUpButton9 a {
+	background-image:url(images/markdown/list-bullet.png);
+}
+.markdown .markItUp .markItUpButton10 a {
+	background-image:url(images/markdown/list-numeric.png);
+}
+
+.markdown .markItUp .markItUpButton11 a {
+	background-image:url(images/textile/picture.png); 
+}
+
+.markdown .markItUp .markItUpButton12 a {
+	background-image:url(images/markdown/file.png); 
+}
+
+.markdown .markItUp .markItUpButton13 a {
+	background-image:url(images/markdown/link.png);
+}
+
+
+.markdown .markItUp .markItUpButton14 a	{
+	background-image:url(images/markdown/quotes.png);
+}
+
+
+.markdown .markItUp .preview a {
+	background-image:url(images/markdown/preview.png);
+}
+
+
+
+.html .markItUp .markItUpButton1 a {
+	background-image:url(images/html/h1.png); 
+}
+.html .markItUp .markItUpButton2 a {
+	background-image:url(images/html/h2.png); 
+}
+.html .markItUp .markItUpButton3 a {
+	background-image:url(images/html/h3.png); 
+}
+.html .markItUp .markItUpButton4 a {
+	background-image:url(images/html/h4.png); 
+}
+.html .markItUp .markItUpButton5 a {
+	background-image:url(images/html/h5.png); 
+}
+.html .markItUp .markItUpButton6 a {
+	background-image:url(images/html/h6.png); 
+}
+.html .markItUp .markItUpButton7 a {
+	background-image:url(images/html/paragraph.png); 
+}
+
+.html .markItUp .markItUpButton8 a {
+	background-image:url(images/html/bold.png);
+}
+.html .markItUp .markItUpButton9 a {
+	background-image:url(images/html/italic.png);
+}
+.html .markItUp .markItUpButton10 a {
+	background-image:url(images/html/stroke.png);
+}
+
+.html .markItUp .markItUpButton11 a {
+	background-image:url(images/html/list-bullet.png);
+}
+.html .markItUp .markItUpButton12 a {
+	background-image:url(images/html/list-numeric.png);
+}
+.html .markItUp .markItUpButton13 a {
+	background-image:url(images/html/list-item.png);
+}
+
+.html .markItUp .markItUpButton14 a {
+	background-image:url(images/html/picture.png); 
+}
+
+.html .markItUp .markItUpButton15 a {
+	background-image:url(images/html/file.png); 
+}
+.html .markItUp .markItUpButton16 a {
+	background-image:url(images/html/link.png);
+}
+
+.html .markItUp .clean a {
+	background-image:url(images/html/clean.png);
+}
+.html .markItUp .preview a {
+	background-image:url(images/html/preview.png);
+}

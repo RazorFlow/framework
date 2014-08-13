@@ -1,0 +1,46 @@
+<perch:before>
+<div class="posts">
+</perch:before>
+<div class="post">
+  <div class="post-title"><a href="<perch:blog id="postURL" />" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></div>
+      <div class="post-meta">
+        Posted in 
+        <a href="/blog/archive.php?cat=<perch:blog id="category_slugs" />"><perch:blog id="category_names" /></a> 
+        <span class="divider">&nbsp;</span>
+        <span class="posted-date">On <perch:blog id="postDateTime" format="%d %B, %Y" /></span>
+      </div>
+    <perch:if exists="image"><img src="<perch:blog id="image" type="image" width="50" height="50" crop="true" />" alt="<perch:blog id="postTitle" />" /></perch:if>
+    <div class="post-content">
+    <p>
+        <perch:blog id="excerpt" type="textarea" textile="true" />
+    </p>
+        <perch:blog id="postDescHTML" type="textarea" textile="true" />
+<!--       <div class="upper-case share-article">
+        <a href="#">Share this article</a>
+      </div>
+ -->    </div>
+<perch:after>
+</div>
+</div>
+<perch:if exists="paging">
+<div class="pagination col-sm-12">
+    <perch:if exists="not_last_page">
+        <div class="col-sm-6 next">
+            <a href="<perch:blog id="next_url" encode="false" />"> <i class="rf-icon rf_arrow_left"></i> OLDER</a>
+        </div>
+    </perch:if>
+    <perch:if exists="not_first_page">
+        <div class="col-sm-6 previous pull-right">
+            <a href="<perch:blog id="prev_url" encode="false" />" class="pull-right">NEWER <i class="rf-icon rf_arrow_right"></i></a>
+        </div>
+    </perch:if>
+</div>
+<perch:if id="prev_url" value="">
+    <div class="pagination left-divider"></div>
+</perch:if>
+<perch:if id="next_url" value="">
+    <div class="pagination right-divider"></div>
+</perch:if>
+</perch:if>
+</perch:after>
+</div> 

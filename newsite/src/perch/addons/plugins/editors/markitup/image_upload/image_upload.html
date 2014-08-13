@@ -1,0 +1,22 @@
+<form id="miu_image_upload" method="post" enctype="multipart/form-data" action="">
+	<div>
+		<label for="miu_image_upload_image">File to upload</label>
+		<input type="file" id="miu_image_upload_image" name="miu_image_upload_image" required="true" class="file" size="28" />
+	</div>
+	<div>
+		<label for="miu_image_upload_title">Image title</label>
+		<input type="text" id="miu_image_upload_title" name="miu_image_upload_title" class="title" />
+	</div>
+	<div id="miu_image_upload_classes">
+		<label for="miu_image_upload_class">Style</label>
+		<select id="miu_image_upload_class" name="miu_image_upload_class">
+			<option value=""></option>
+		</select>
+	</div>
+	<div class="buttonset">
+		<input type="submit" value="Upload" />
+		<span class="or">or</span> <a href="#" class="cancel">Cancel</a>
+		<img class="spinner" src="" width="15" height="15" alt="" />
+	</div>
+	<span class="speak"></span>
+</form>

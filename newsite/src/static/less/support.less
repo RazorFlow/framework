@@ -1,0 +1,24 @@
+.dropped-files {
+  li {
+    &:first-child {
+      padding-top: 10px;
+    }
+  }
+}
+
+.inputFileWrapper {
+  border: 2px dashed @file-uploader-border-color;
+  background: @file-uploader-background-color;
+  padding: 20px;
+  margin-top: 10px;
+
+  input {
+    display: inline-block !important; 
+  }
+
+  a {
+    &.fileInputRemove {
+      .pull-right();
+    }
+  }
+}

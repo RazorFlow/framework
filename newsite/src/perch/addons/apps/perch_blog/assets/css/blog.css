@@ -1,0 +1,63 @@
+body #content #main-panel form textarea.small {
+	height: 100px;
+	min-height: 100px;
+}
+
+ul.importables {
+	margin-bottom: 20px;
+}
+
+ul.importables li {
+	background-color: rgb(246,246,246);
+	padding: 10px 5px 10px 10px;
+	border-bottom: 1px solid #fff;
+	color: rgba(0,0,0,0.5);
+	text-decoration: none;
+	font-size: 1em;
+}
+
+ul.importables li .action {
+	float: right;
+	margin-top: -3px;
+	margin-right: 5px;
+}
+
+ul.importables li.success {
+	background-position: 10px -621px;
+	padding-left: 30px;
+}
+
+ul.importables li.failure {
+	background-position: 10px -702px;
+	padding-left: 30px;
+}
+
+form .checkboxes.multi-col div.checkbox {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+.bulk-edit .controls .field {
+	min-width: 200px
+}
+
+.bulk-edit .controls .field,
+.bulk-edit .controls p.submit {
+	display: inline-block;
+}
+
+.bulk-edit .controls a:link,
+.bulk-edit .controls a:visited {
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: -3px;
+	text-decoration: none;
+	color: rgb(127, 127, 127);
+	border-bottom: 1px solid rgb(127, 127, 127);
+}
+
+span.input {
+	display: inline-block;
+	padding-top: 3px;
+}

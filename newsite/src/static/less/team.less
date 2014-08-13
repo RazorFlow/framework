@@ -1,0 +1,122 @@
+.team-avatar {
+  border: 1px solid @gray-border;
+  cursor: pointer;
+  position: relative;
+
+  img {
+    width: 100%;
+    position: relative;
+    max-height: 300px;
+  }
+
+  .info {
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    opacity: 0.9;
+    color: @secondary-text-color;
+    font-size: @subsection2-font-size;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    display: none;
+    background: @primary-color;
+    width: 100%;
+
+    p {
+      &:last-of-type {
+        padding-bottom: 25px;
+      }
+    }
+
+    .team-icons {
+      padding-left: 0;
+      li {
+        display: inline-block;
+        padding-right: 25px;
+        > div {
+          a {
+            -webkit-transform: scale(1, 1);
+            -webkit-transition-duration: 250ms;
+            -webkit-transition-timing-function: ease-out;
+
+            -moz-transform: scale(1, 1);
+            -moz-transition-duration: 250ms;
+            -moz-transition-timing-function: ease-out;
+
+            -ms-transform: scale(1, 1);
+            -ms-transition-duration: 250ms;
+            -ms-transition-timing-function: ease-out;
+
+            &:hover {
+              -webkit-transform: scale(0.8, 0.8);
+              -webkit-transition-duration: 250ms;
+              -webkit-transition-timing-function: ease-out;
+
+              -moz-transform: scale(0.8, 0.8);
+              -moz-transition-duration: 250ms;
+              -moz-transition-timing-function: ease-out;
+
+              -ms-transform: scale(0.8, 0.8);
+              -ms-transition-duration: 250ms;
+              -ms-transition-timing-function: ease-out;
+            }
+          }
+
+
+        }
+        a {
+          color: #FFF;
+        }
+      }
+
+      padding-top: 25px;
+    }
+
+    p {
+      text-transform: none;
+      &:first-child {
+        margin-top: 15%;
+      } 
+    }
+
+    hr {
+      width: 60%;
+    }
+  }
+}
+
+.team-container {
+  h6, p {
+    .upper-case();
+  }
+  h6 {
+    font-weight: 600;
+  }
+  > div {
+    display: inline-block;
+
+    .meta-info {
+      height: 125px;
+    }
+  }
+}
+
+
+@media (max-width: @screen-xs-min) {
+  .team-avatar {
+    .info {
+      visibility: hidden;
+      cursor: auto;
+    }
+  }
+}
+
+@media (min-width: @screen-xs-min) and (max-width: @screen-sm-max){
+  .team-avatar {
+    .info {
+      visibility: hidden;
+      cursor: auto;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+/* this stylesheet contains some example styling for the blog pages. For the full layout you will require the default Perch Quill Feather. Feel free to edit  */
+
+.date {
+	font-weight: bold;
+    padding: 0.5em 0 0 0;
+}
+
+.comments {
+	border-bottom: 1px dotted #DEE0E0;
+}
+
+.author h2 {
+	font-size: 107.7%;
+	margin-top: 0;
+}
+
+
+
+@media only screen and (min-width: 700px) {
+    .comments li {
+	   overflow: auto;
+    }
+
+    .comments img,
+    .author img {
+		float: left;
+        margin-right: 2.8571429%; /* 20 / 700 */
+        margin-bottom: 20px;
+        width: 12.8571429%; /* 90 / 700 */
+	}
+	
+	.comments .comment,
+	.author .author {
+		float: right;
+        width: 83.5714286%; /* 585 / 700 */
+	}
+
+	.author:after {
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+
+}

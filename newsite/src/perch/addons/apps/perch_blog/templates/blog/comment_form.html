@@ -1,0 +1,37 @@
+<perch:if id="postAllowComments" value="1">
+
+	<perch:form id="comment" method="post" app="perch_blog" class="comment-form" action="<perch:blog id="postURL" />">
+		<fieldset>
+		   <legend>Leave a comment</legend>
+			<div>
+				<perch:label for="commentName">Name</perch:label>
+				<perch:input type="text" id="commentName" required="true" label="Name" antispam="name" />
+				<perch:error for="commentName" type="required">Required</perch:error>
+			</div>
+			<div>
+				<perch:label for="commentEmail">Email</perch:label>
+				<perch:input type="email" id="commentEmail" required="true" label="Email" antispam="email" />
+				<perch:error for="commentEmail" type="required">Required</perch:error>
+				<perch:error for="commentEmail" type="format">Check format of address</perch:error>
+			</div>
+			<div>
+				<perch:label for="commentURL">Website</perch:label>
+				<perch:input type="url" id="commentURL" placeholder="http://" label="URL" antispam="url" />
+			</div>
+			<div>
+				<perch:label for="commentHTML">Comment</perch:label>
+				<perch:input type="textarea" id="commentHTML" required="true" label="Message" antispam="body" />
+				<perch:error for="commentHTML" type="required">Required</perch:error>
+			</div>
+			<div>
+				<perch:input type="hidden" id="postID" value="<perch:blog id="postID" />" />
+				<perch:input type="submit" id="submitComment" value="Submit" />
+			</div>
+
+	    </fieldset>
+		<perch:success>
+			<p>Thank you. Your comment has been submitted and will appear on the site once approved.</p>
+		</perch:success>
+
+	</perch:form>
+</perch:if>

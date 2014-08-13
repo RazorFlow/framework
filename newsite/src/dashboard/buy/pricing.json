@@ -1,0 +1,93 @@
+{
+	"corporate": {
+		"whatsIncluded": {
+			"title": "what's Included",
+			"Corporate Websites": ["1 named website","1 named website", "Display dashboard on a corporate website which is accessed by a top-level domain."],
+			"Intranet Websites": ["1","1", "A server that hosts business applications for internal stakeholders only e.g. employees, vendors, customers or associates only"],
+			"SaaS applications": [false, false, "The SaaS license is required for your hosted web applications that charge recurring or one-time fees from customers."],
+			"Distribution with commercial software": [false, false, "The OEM license is required to distribute RazorFlow framework with your software (installed on-premise) or hardware products."]
+		},
+		"support": {
+			"title": "support & Upgrades"
+		},
+		"pricing": {
+			"title": "pricing",
+			"Source code included": [false, true, "Full source code of RazorFlow dashboard framework, provided on an as-is basis. Technical support on source is not provided, however."],
+			"License plan": ["Annual", "Annual"],
+			"Pricing": ["$299", "$499"]
+		}
+	},
+	"saas": {
+		"whatsIncluded": {
+			"title": "what's Included",
+			"SaaS application?": ["1 named application","1 named application", "The SaaS license is required for your hosted web applications that charge recurring or one-time fees from customers."],
+			"Corporate Websites": ["1 named website","1 named website", "Each website accessed by top-level domain is counted as one corporate website. Domain pointers are allowed."],
+			"Intranet Websites": ["None","None", "A server that hosts business applications for internal stakeholders only e.g. employees, vendors, customers or associates only"],
+			"Distribution with commercial software": [false, false, "The OEM license is required to distribute RazorFlow framework with your software (installed on-premise) or hardware products."]
+		},
+		"support": {
+			"title": "support & Upgrades"
+		},
+		"pricing": {
+			"title": "pricing",
+			"Source code included": [false, true, "Full source code of RazorFlow dashboard framework, provided on an as-is basis. Technical support on source is not provided, however."],
+			"License plan": ["Annual", "Annual"],
+			"Pricing": ["$999", "$1999"]
+		}
+	},
+	"oem": {
+		"whatsIncluded": {
+			"title": "what's Included",
+			"Distribution with commercial software": ["1 named application","1 named application", "The OEM license is required to distribute RazorFlow framework with your software (installed on-premise) or hardware products."],
+			"Corporate Websites": ["1 named website","1 named website", "Each website accessed by top-level domain is counted as one corporate website. Domain pointers are allowed."],
+			"SaaS applications": [false, false, "The SaaS license is required for your hosted web applications that charge recurring or one-time fees from customers."],
+			"Intranet Websites": ["None","None", "A server that hosts business applications for internal stakeholders only e.g. employees, vendors, customers or associates only"]
+		},
+		"support": {
+			"title": "support & Upgrades"
+		},
+		"pricing": {
+			"title": "pricing",
+			"Source code included": [false, true, "Full source code of RazorFlow dashboard framework, provided on an as-is basis. Technical support on source is not provided, however."],
+			"License plan": ["Annual", "Annual"],
+			"Pricing": ["$1999", "$3999"]
+		}
+	},
+	"common": {
+		"whatsIncluded": {
+			"Dashboard Users": ["Unlimited", "Unlimited", "The number of users who can consume applications built using the framework"],
+			"Unlimited Developers": [true,true, "Each developer is a person who is working directly or indirectly with RazorFlow Software, including front-end developer, designer, QA, server-side developer, to build the dashboards or components of the dashboards, including collating data, providing design and business logic"],
+			"Unlimited development and test servers": [true, true],
+			"Use in personal blogs and non-commercial websites": [true, true],
+			"Distribution with non-commercial mobile apps": [true, true, "Mobile applications selling advertisement are not allowed"],
+			"Full RazorFlow framework, including all components": [true, true],
+			"Server-side bindings": [true, true, "PHP binding currently available. .Net and Java bindings coming soon"],
+			"Unlimited dashboards": [true, true]
+		},
+		"support": {
+			"Turnaround time": ["72 working hours", "36 working hours"],
+			"Direct access to RazorFlow development team for support":[true, true],
+			"Support tickets through email": ["Unlimited","Unlimited"],
+			"Phone calls": ["Unlimited","Unlimited", "Phone calls need to be scheduled as per IST timezone"],
+			"Free major & minor version upgrades during active license subscription period": [true, true, "All upgrades are provided free of cost during your active license subscription period"]
+		},
+		"pricing": {
+
+		}
+	},
+	"subtitle": {
+		"corporate": "Using the Corporate license, you can deploy RazorFlow dashboards inside your organization for managers and other stakeholders. You can also display dashboards on a public website and embed it into blogs and similar uses.",
+		"saas": "Using the SaaS license, you can display RazorFlow dashboards part of your SaaS application, typically to provide each user a dashboard of their relavant data. The license applies to a single application, but can be deployed on multiple servers in cloud environments.",
+		"oem": "An OEM license allows you to build RazorFlow applications included as part of your product. Once you purchase an OEM license you can bundle the framework with a single product and distribute it to unlimited customers."
+	},
+	"planCode": {
+		"corporate": ["4625627", "4625628"],
+		"saas": ["4625629", "4625630"],
+		"oem": ["4625631", "4625632"]
+	},
+	"eula": {
+		"corporate": ["/license/show.php?id=corporate", "/license/show.php?id=corporate_devdirect"],
+		"saas": ["/license/show.php?id=saas", "/license/show.php?id=saas_devdirect"],
+		"oem": ["/license/show.php?id=oem", "/license/show.php?id=oem_devdirect"]
+	}
+}

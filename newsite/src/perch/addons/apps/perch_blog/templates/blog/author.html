@@ -1,0 +1,9 @@
+<div class="module author">
+    <perch:if exists="author_image">
+        <img src="<perch:blog id="author_image" type="image" label="Image" width="240" height="240" crop="true" density="2" order="5" />" width="120" height="120" alt="<perch:blog id="authorGivenName" type="text" label="Given name" order="1" /> <perch:blog id="authorFamilyName" type="text" label="Given name" order="2" />" />
+    </perch:if>
+    <div class="author hcard">
+        <h2 class="fn n"><a href="/blog/archive.php?author=<perch:blog id="authorSlug" type="text" />"><perch:blog id="authorGivenName" type="text" label="Given name" order="1" />  <perch:blog id="authorFamilyName" type="text" label="Given name" order="2" /></a></h2>
+        <perch:blog id="author_biog" type="textarea" label="Biography" textile="true" editor="markitup" order="4" />
+    </div>
+</div>

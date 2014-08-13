@@ -1,0 +1,9 @@
+<perch:before><ul></perch:before>
+<li<perch:if exists="selected"> class="active"</perch:if>>
+	<perch:if exists="spacer">
+		<perch:pages id="page_number" />
+	<perch:else />
+		<a href="<perch:pages id="url" />"><perch:pages id="page_number" /></a>
+	</perch:if>
+</li>
+<perch:after></ul></perch:after>

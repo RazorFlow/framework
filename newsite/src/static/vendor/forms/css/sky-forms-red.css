@@ -1,0 +1,58 @@
+/**/
+/* normal state */
+/**/
+.sky-form .toggle i:before {
+	background-color: #cc3d3d;	
+}
+.sky-form .button {
+	background-color: #cc3d3d;
+}
+
+
+/**/
+/* hover state */
+/**/
+.sky-form .input:hover input,
+.sky-form .select:hover select,
+.sky-form .textarea:hover textarea,
+.sky-form .radio:hover i,
+.sky-form .checkbox:hover i,
+.sky-form .toggle:hover i {
+	border-color: #dc9596;
+}
+.sky-form .rating input + label:hover,
+.sky-form .rating input + label:hover ~ label {
+	color: #cc3d3d;
+}
+
+
+/**/
+/* focus state */
+/**/
+.sky-form .input input:focus,
+.sky-form .select select:focus,
+.sky-form .textarea textarea:focus,
+.sky-form .radio input:focus + i,
+.sky-form .checkbox input:focus + i,
+.sky-form .toggle input:focus + i {
+	border-color: #cc3d3d;
+}
+
+
+/**/
+/* checked state */
+/**/
+.sky-form .radio input + i:after {
+	background-color: #cc3d3d;	
+}
+.sky-form .checkbox input + i:after {
+	color: #cc3d3d;
+}
+.sky-form .radio input:checked + i,
+.sky-form .checkbox input:checked + i,
+.sky-form .toggle input:checked + i {
+	border-color: #cc3d3d;	
+}
+.sky-form .rating input:checked ~ label {
+	color: #cc3d3d;	
+}

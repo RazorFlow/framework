@@ -1,0 +1,12 @@
+<perch:if exists="paging">
+  <div class="paging">
+    Page <perch:content id="current_page" type="hidden" /> of <perch:content id="number_of_pages" type="hidden" />
+    <perch:if exists="not_first_page">
+      <a href="<perch:content id="prev_url" type="hidden" encode="false" />">Previous</a>
+    </perch:if>
+    <perch:content id="page_links" encode="false" />
+    <perch:if exists="not_last_page">
+      <a href="<perch:content id="next_url" type="hidden" encode="false" />">Next</a>
+    </perch:if>
+  </div>
+</perch:if>

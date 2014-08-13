@@ -1,0 +1,230 @@
+.demo-container {
+    margin-top: 40px;
+}
+
+#main-container {
+    // margin-left: 30%;
+}
+
+div.rf-panel {
+    padding: 0;
+}
+
+div.rfsidepanel {
+    height: 100%;
+    background: #222326;
+    min-height: 1024px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    div.rfsidepanel {
+        width: 243px;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.rfsidepanel {
+        width: 293px;
+    }
+}
+
+@media (max-width: 991px) {
+    div.rfsidepanel {
+        width: 100%;
+    }
+}
+
+ul.rf-accordian {
+        color: #fff;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            font-size: 15px;
+            color: #88898C;
+            span.title {
+                padding: 16px 8px;
+                display: block;
+                cursor: pointer;
+            }
+            
+            ul {
+                margin: 0;
+                padding: 0;
+                
+                list-style-type: none;
+
+                li {
+                    background: #2E2F33;
+                    padding: 10px 8px;
+                    color: #E5E6E9;
+                    cursor: pointer;
+                }
+
+                li.selected {
+                    background: #64656C;
+                }
+            }
+        }
+    }
+
+div.demo-bar {
+    position: relative;
+    background: #F9F9F9;
+    padding: 16px;
+    .icon {
+        width: 16px;
+        height: 16px;
+        background: red;
+    }
+}
+
+div.rf-optgroup {
+    display: inline-block;
+    font-size: 14px;
+    ul {
+        margin: 0;
+        list-style-type: none;
+        li {
+            margin-left: -4px;
+            padding: 0 16px;
+            display: inline-block;
+            border-right: 1px solid #979797;
+            color: #666;
+            cursor: pointer;
+        }
+
+        li.selected {
+            color: #215387;
+        }
+
+        li:last-child{
+            border-right: none;
+        }
+    }
+
+    .opt-marker {
+        bottom: -1px;
+        position: absolute;
+        height: 3px;
+        width: 40px;
+        background: #215387;
+    }
+}
+
+div.rf-optbuttons {
+    display: inline-block;
+    display: none;
+    margin-bottom: -2px;
+    margin-top: -3px;
+    ul {
+        margin: 0;
+        list-style-type: none;
+
+        
+    }
+
+    &.black {
+        li {
+            display: inline-block;
+            padding: 3px 16px;
+            color: #333;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        li.selected {
+            background: #333;
+            color: #FFF;
+        }
+    }
+
+    &.blue {
+        li {
+            display: inline-block;
+            padding: 3px 16px;
+            color: #215387;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        li.selected {
+            background: #215387;
+            color: #FFF;
+        }
+    }
+}
+
+div.demo-toolbar {
+    padding: 16px;
+
+    .documentation-button, .standalone-button {
+        a {
+            text-decoration: underline;
+            color: #666666;
+            margin-left: 11px;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        i {
+            color: #666666;
+        }
+    }
+    .documentation-button {
+        float: right;
+    }
+}
+
+div.codebox {
+    .header {
+        padding: 16px;
+        position: relative;
+    }
+}
+
+div.code-div {
+    border: 1px solid #D4D4D4;
+    height: 500px;
+    box-sizing: content-box;
+}
+
+.img-link {
+    cursor: pointer;
+}
+
+#db-chrome {
+    
+    &.mobile {
+        margin: 0 auto;
+        width: 382px;
+        height: 802px;
+        padding-top: 118px;
+        padding-left: 32px;
+        background-image: url('/static/images/iphone5.gif');
+
+        #db-container {
+            width: 320px;
+            height: 568px;
+            overflow: scroll;
+            
+        }
+    }
+}
+#db-desc {
+    padding: 0px;
+    padding-left: 15px;
+
+    .heading {
+        padding: 10px 0;
+        font-weight: 400;
+        font-size: 19px;
+    }
+
+    .desc {
+        padding: 0px;
+        font-weight: 200;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,597 @@
+/* this stylesheet is included as a starting point with the Perch Quill Feather, the design was created by Laura Kalbag for Perch. 
+You are welcome to use this as is, or use it as a starting point when building your site.
+SECTIONS:
+
+1. Default styling - establishes the basic styles for elements on the site
+2. Section specific styling - for specific parts of the site
+3. Layout rules - these create the responsive layout
+*/
+
+/* *** 1. DEFAULT STYLING *** */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%; 
+	font: inherit; 
+	vertical-align: baseline; 
+}
+
+body {
+	background: #fff; 
+	line-height: 1;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after { 
+	content: ''; 
+	content: none;
+}
+
+ins {
+	text-decoration: none; 
+	background: #fff75c;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+em {
+	font-style:italic;
+}
+
+strong {
+	font-weight:bold;
+}
+
+abr {
+	border-bottom:1px dotted;
+}
+
+input[type=submit], button {
+	cursor:pointer;-webkit-appearance:none;
+} 
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+	display: block;
+} 
+
+/* make sure the page doesn't shift horizontally */
+html {
+	overflow-y:scroll
+}
+
+
+/* The default font and size from which other font sizes are calculated is set here. 
+To have a different font, change the font family.
+To make the text bigger across the site, change the font size */
+body {
+    color: #555;
+    font-family: "Droid Sans", Arial, sans-serif;
+    font-size: 87.5%;
+    line-height: 1.4;
+    padding: 20px 0 0 0;
+}
+
+.wrapper {
+	width: 90%;
+    margin: 0 auto 0 auto;
+    clear:both;
+}
+
+a {
+    color: #333;
+}
+
+a:active,
+a:hover {
+    color: #000;
+}
+
+p {
+    margin-bottom: 1.2em;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    margin: 1em 0 0.5em 0;
+}
+
+h1 a, h2 a, h3 a, h4 a {
+    font-weight: bold;
+}
+
+h1 {    
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+::selection,
+::-moz-selection {
+    background: #fdfaa1;
+}
+
+blockquote {
+    border-left: 2px solid;
+	  padding-left: 1.2em;
+}
+
+img {
+    border: 1px solid #e2e2e2;
+    margin-bottom: 1em;
+    max-width: 100%;
+	height: auto;
+}
+
+figure {
+    background: #f0f0f0;
+    border: 1px solid #dee0e0;
+    margin-bottom: 1em;
+    padding: .8em;
+}
+
+figure img {
+    margin: 0 auto;
+	  display: block;
+}
+
+figure figcaption {
+    padding-top: .8em;
+    text-align: center;
+}
+
+figure figcaption h4 {
+    margin-top: 0;
+}
+
+figure figcaption p {
+    margin-bottom: 0;
+}
+
+form {
+    overflow: hidden;
+}
+
+form fieldset {
+    border: 1px solid #e2e2e2;
+    margin: 2em 0;
+    padding: 1em;
+}
+
+form legend {
+    font-weight: bold;
+    margin-left: -1em;
+    padding: 0 1em;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form input[type=search],
+form input[type=url],
+form textarea {
+    background: #fff;
+    background: -moz-linear-gradient(top, #f1f1f1 1%, #ffffff 25%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f1f1f1), color-stop(25%,#ffffff), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top, #f1f1f1 1%,#ffffff 25%,#ffffff 100%);
+    background: -o-linear-gradient(top, #f1f1f1 1%,#ffffff 25%,#ffffff 100%);
+    background: -ms-linear-gradient(top, #f1f1f1 1%,#ffffff 25%,#ffffff 100%);
+    background: linear-gradient(top, #f1f1f1 1%,#ffffff 25%,#ffffff 100%);
+    border: 1px solid #dee0e0;
+    color: #000;
+    font-family: "Droid Sans", Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    margin-bottom: 2em;
+    padding: .5em;
+    width: 95%;
+}
+
+form textarea {
+    background: #fff;
+    background: -moz-linear-gradient(top, #f1f1f1 1%, #ffffff 5%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f1f1f1), color-stop(5%,#ffffff), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top, #f1f1f1 1%,#ffffff 5%,#ffffff 100%);
+    background: -o-linear-gradient(top, #f1f1f1 1%,#ffffff 5%,#ffffff 100%);
+    background: -ms-linear-gradient(top, #f1f1f1 1%,#ffffff 5%,#ffffff 100%);
+    background: linear-gradient(top, #f1f1f1 1%,#ffffff 5%,#ffffff 100%);
+}
+
+form textarea + em {
+    color: #717171;
+    display: block;
+    font-size: 92.85714%;
+    margin-top: -2em;
+    margin-bottom: -2em;
+}
+
+form ul li {
+    list-style-type: none;
+}
+
+form input[type=submit],
+form input[type=button],
+form button {
+    background: #333;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #fff;
+    font-family: "Droid Sans", Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    margin-bottom: 2.5em;
+    padding: .5em 1em;
+}
+
+form input[type=submit]:hover,
+form input[type=button]:hover,
+form button:hover,
+form input[type=submit]:active,
+form input[type=button]:active,
+form button:active {
+    background: #000;
+    border: 1px solid #000;
+}
+
+a.paging-prev {
+	padding-left: 15px;
+    display: block;
+    background: url("../img/arrow-left.png") center left no-repeat;
+}
+
+a.paging-next {
+	padding-right: 15px;
+    display: block;
+	background: url("../img/arrow-right.png") center right no-repeat;
+}
+
+/* *** 2. SECTION SPECIFIC STYLING *** */
+
+img.logo {
+    border: none;
+    margin: 20px 0 10px 0;
+}
+
+.company-name {
+	margin: 0 0 0.5em 0;
+}
+
+/* *** MAIN-NAV *** */
+.main-nav {
+    border-top: 1px solid #e2e2e2;
+    margin-bottom: 40px;
+}
+
+.main-nav li {
+    list-style-type: none;
+}
+
+.main-nav li a {
+    color: #555;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: .8em 1.6em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.main-nav li.selected a {
+	color: #fff;
+    background-color: #000;
+}
+
+.main-nav li a:hover {
+	color: #000;
+}
+
+.main-nav ul li.selected a {
+    background: #000;
+    color: #fff;
+}
+
+/* *** SUB NAV *** */
+.sidebar ul{
+	font-weight: bold;
+    margin: 0 0 1.2em 1.2em;
+}
+
+/* *** TAGS *** */
+.tags ul, .primary-content .tags ul {
+    overflow: hidden;
+    margin:0;
+    padding: 0;
+}
+
+.tags li {
+    float: left;
+    list-style-type: none;
+    margin: 5px 10px 5px 0;
+}
+
+.tags li a {
+    background: url("../img/tag.png") no-repeat scroll right center #e2e2e2;
+    display: block;
+    padding: 0 25px 0 5px;
+}
+
+.tags li a:hover, .tags li a:active {
+    background: url("../img/tag.png") no-repeat scroll right center #c6c6c6;
+}
+
+/* *** MODULES *** */
+.modules {
+	overflow: auto;
+    
+}
+
+.module {
+    background: #f0f0f0;
+    border: 1px solid #dee0e0;
+    padding: 1.5em 1.5em 0 1.5em;
+    font-size: 92.85714%;
+    margin: 0 0 1.5em 0;
+    /* the below means that we don't need to calculate the width+padding+border when using these in the responsive design. */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.module h3 {
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+/* *** LISTINGS *** */
+.listing,
+.primary-content ul.listing {
+	list-style:none;
+	margin: 0;
+}
+
+.listing li {
+	border-top: 1px dotted #dee0e0;
+    padding-top: 1em;
+}
+
+/* *** PRIMARY-CONTENT ***
+The following rules only effect content inside the main content area of the page.
+*/
+
+.primary-content {
+	padding: 0 0 2em 0;
+}
+
+.primary-content ul, .primary-content ol {
+	margin: 0 0 1.2em 1.2em;
+}
+
+/* *** LAYOUT-FOOTER *** */
+.layout-footer {
+    background: #f0f0f0;
+    border-top: 1px solid #dee0e0;
+    margin-top: 40px;
+    padding: 1.5em 0 1.5em 0;
+    clear:both;
+}
+
+.layout-footer ul.social-links li {
+    list-style-type: none;
+}
+
+.layout-footer ul.social-links li a {
+    color: #787878;
+}
+
+/* *** 3. LAYOUT RULES *** */
+
+/* this is a mobile first responsive design. Therefore we start out by displaying the rules for the smallest size and then add rules as the screen size gets wider.
+You could also have each section as a separate stylesheet, it is up to you. */
+
+/*Screen width above 320px. Mobile phones. */
+@media only screen and (min-width: 320px) {
+    .main-nav {
+        border-bottom: 1px solid #e2e2e2;
+        overflow: hidden;
+        padding: 0;
+    }
+    
+    .main-nav ul {
+        overflow: hidden;
+        padding: 5px 20px;
+    }
+    
+    .main-nav li {
+        float: left;
+    }
+    
+    .main-nav li a {
+        float: left;
+        margin: .5em 0;
+        padding: .5em 1.5em;
+    }
+    
+    .layout-footer ul.social-links {
+        overflow: hidden;
+        padding-bottom: 5px;
+    }
+    
+    .layout-footer ul.social-links li {
+        float: left;
+        width: 20%; /* 1/5 of 100% */
+    }
+    
+    .layout-footer ul.social-links li a {
+        background: url("../img/social-icons.png") top left no-repeat;
+        display: block;
+        height: 0;
+        margin: 0 auto;
+        opacity: .5;
+        overflow: hidden;
+        padding-top: 50px;
+        width: 40px;
+    }
+    
+    .layout-footer ul.social-links li.facebook a {
+        background-position: -60px 0;
+    }
+    
+    .layout-footer ul.social-links li.flickr a {
+        background-position: -120px 0;
+    }
+    
+    .layout-footer ul.social-links li.linkedin a {
+        background-position: -182px 0;
+    }
+    
+    .layout-footer ul.social-links li.rss a {
+        background-position: -240px 0;
+    }
+    
+    .layout-footer ul.social-links li a:hover,
+    .layout-footer ul.social-links li a:active {
+        opacity: .8;
+    }
+    
+    .layout-footer small {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 460px) {
+	
+}
+
+@media only screen and (min-width: 700px) {
+    .layout-footer ul.social-links {
+        float: left;
+    }
+    
+    .layout-footer ul.social-links li a {
+        background: url("../img/social-icons.png") 0 -70px no-repeat;
+        margin: 0;
+        padding-top: 30px;
+        width: 30px;
+    }
+    
+    .layout-footer ul.social-links li.facebook a {
+        background-position: -27px -70px;
+    }
+    
+    .layout-footer ul.social-links li.flickr a {
+        background-position: -55px -70px;
+    }
+    
+    .layout-footer ul.social-links li.linkedin a {
+        background-position: -82px -70px;
+    }
+    
+    .layout-footer ul.social-links li.rss a {
+        background-position: -109px -70px;
+    }
+    
+    .layout-footer ul.social-links li a:hover,
+    .layout-footer ul.social-links li a:active {
+        opacity: .8;
+        
+    }
+    
+    .layout-footer small {
+        display: block;
+        text-align: right;
+    }
+	
+}
+
+@media only screen and (min-width: 960px) {
+/* LARGE SCREENS */
+    
+    
+    .main-nav ul {
+        overflow: hidden;
+        padding: 0;
+    }
+    
+    .main-nav ul li a {
+        margin: 0;
+        padding: .8em 1.6em;
+    }
+    
+    .main-nav ul li:first-child a {
+        margin-left: 1.6em;
+    }
+    
+    .main-nav ul li.selected:nth-child(1) a {
+        margin-left: 0;
+    }
+    
+    .main-nav ul li:last-child a {
+        margin-right: 1.6em;
+    }
+    
+    .main-nav ul li.selected:last-child a{
+        margin-right: 0;
+    }
+    
+    .cols2-nav-left .sidebar {
+	   float: left;
+        width: 18.75%; /* 180/960*/
+    }
+    
+    .cols2-nav-left .primary-content {
+	   float:right;
+        width: 75%; /* 720/960*/
+    }
+    
+    .cols2-nav-right .sidebar {
+       float: right;
+        width: 18.75%; /* 180/960*/
+    }
+    
+    .cols2-nav-right .primary-content {
+       float:left;
+        width: 75%; /* 720/960*/
+    }
+    
+    .cols1 .primary-content {
+	   margin: 0 auto 0 auto;
+       width: 90%;
+    }
+
+    .modules .module {
+	   width: 31.25%;
+       float:left;
+       margin: 0 0 1.5em 3.125%;
+    }
+    
+    .modules .module:nth-child(3n+1) {
+	   margin: 0 0 1.5em 0;
+    
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .wrapper, .main-nav ul {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1200px;
+    }
+    
+
+}

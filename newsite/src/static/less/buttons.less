@@ -1,0 +1,39 @@
+.btn {
+  border-radius: 2px !important;
+  &:hover, &:focus {
+  }
+  font-size: @font-size-h4;
+  height: 50px;
+  padding: 10px 20px;
+}
+
+.btn-default {
+  &:hover, &:focus {
+    .btn-primary();
+  }
+}
+
+.btn-secondary {
+  .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+  border-color: initial;
+  &:hover, &:focus {
+    border-color: initial;
+  }
+  &.btn-border {
+    border-color: @btn-secondary-bg;
+  }
+  &.btn-inline {
+    padding: @btn-inline-padding;
+    font-size: @btn-inline-font-size;
+  }
+}
+
+.btn-rounded {
+  border-radius: 40px !important;
+}
+
+.btn-small {
+  height: 44px;
+  font-size: 18px;
+  border-radius: 4px !important;
+}

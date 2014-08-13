@@ -1,0 +1,39 @@
+<div class="post">
+  <div class="post-title"><a href="<perch:blog id="postURL" />" rel="bookmark" class="entry-title"><perch:blog id="postTitle" /></a></div>
+<!-- 	<h1 class="rfBlogTitle">
+        <a href="<perch:blog id="postURL" type="hidden" />" rel="bookmark" class="entry-title">
+            <perch:blog id="postTitle" type="text" label="Title" required="true" size="xl autowidth" order="1" />
+        </a>
+    </h1>
+ -->	
+
+      <div class="post-meta">
+        Posted in 
+        <a href="/blog/archive.php?cat=<perch:blog id="category_slugs" />"><perch:blog id="category_names" /></a> 
+        <span class="divider">&nbsp;</span>
+        <span class="posted-date">On <perch:blog id="postDateTime" format="%d %B, %Y" /></span>
+      </div>
+<!--     <p class="entry-published date">
+        On <perch:blog id="postDateTime" type="date" label="Date" time="true" format="%d %B, %Y" divider-before="Meta information" /> 
+		<perch:if exists="authorGivenName">
+            by <perch:blog id="authorGivenName" type="hidden" /> <perch:blog id="authorFamilyName" type="hidden" />
+        </perch:if>
+	</p>
+ -->    
+    <div class="post-content">
+    <p>
+        <perch:blog id="excerpt" type="textarea" markdown="true" />
+    </p>
+    <perch:if exists="image">
+        <div>
+            <img src="<perch:blog id="image" type="image" width="320" height="240" crop="true" label="Image" order="4" />" alt="<perch:blog id="postTitle" />" />
+        </div>
+    </perch:if>
+    <p>
+    	<perch:blog id="postDescHTML" type="textarea" label="Post" order="2" editor="markitup" markdown="true" size="xxl autowidth" required="true" />
+    </p>
+</div>
+</div>
+
+<perch:blog id="excerpt" type="textarea" label="Excerpt" textile="true" order="3" suppress="true" size="s" />
+<perch:blog id="image" type="image" width="50" height="50" crop="true" suppress="true" />

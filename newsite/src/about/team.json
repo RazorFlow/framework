@@ -1,0 +1,83 @@
+{
+  "team": [
+    {
+      "name": "Anirudh Sanjeev",
+      "designation": "Co-Founder & Lead Developer",
+      "avatar": "/static/about/anirudh.jpg",
+      "info": "Fond of coffee, long runs, wide open grassy spaces on cool summer mornings, Amon Amarth - a talented Swedish melodic death metal band, and the Vim text editor. Loves 80's heavy metal and has played in cover bands.",
+      "links": {
+        "linkedin": "http://www.linkedin.com/in/anirudhsanjeev",
+        "github": "https://github.com/skyronic",
+        "twitter": "https://twitter.com/skyronic",
+        "website": "http://skyronic.com"
+      }
+    },
+    {
+      "name": "Pallav Nandhani",
+      "designation": "Co-Founder & Chief Hustler",
+      "avatar": "/static/about/pallav.jpg",
+      "info": "He is currently juggling between RazorFlow and FusionCharts, where he is also the co-founder and CEO. Of whatever money he is left with after spending, he invests in technology startups through his fund Seeders.",
+      "links": {
+        "linkedin": "http://in.linkedin.com/in/pallavn",
+        "twitter": "https://twitter.com/pallavn"
+      }
+    },
+    {
+      "name": "Ameen Ahmed",
+      "designation": "JavaScript Lead, AWPer",
+      "avatar": "/static/about/ameen.jpg",
+      "info": "Ameen leads the development of RazorFlow's JavaScript Core and spends free time by building experimental tools like JavaScript-compilers and isometric game engines. When he's not programming, he is programming.",
+      "links": {
+        "linkedin": "http://www.linkedin.com/profile/view?id=178823284",
+        "github": "https://github.com/AmeenAhmed",
+        "twitter": "https://twitter.com/TheViralDragon",
+        "website": "http://ameen-ahmed.me/"
+      }
+    },
+    {
+      "name": "Narendra N Shetty",
+      "designation": "Developer",
+      "avatar": "/static/about/narendra.jpg",
+      "info": "Narendra works on the JavaScript core and the PHP Bindings. He plays basketball for an hour every morning, a fact that continues to baffle the rest of the team who have trouble waking up in time.",
+      "links": {
+        "linkedin": "http://www.linkedin.com/profile/view?id=39592869",
+        "github": "https://github.com/narendrashetty",
+        "twitter": "https://twitter.com/narendra_shetty"
+      }
+    },
+    {
+      "name": "Amit Das",
+      "designation": "Designer",
+      "avatar": "/static/about/amit.jpg",
+      "info": "Amit leads the effort to make dashboards look, work and feel great. Computer, Food, Books and Games - give him any one and he can survive. Currently on a mission to find the best biryani in the world",
+      "links": {
+        "linkedin": "http://www.linkedin.com/in/amitatkria",
+        "twitter": "https://twitter.com/godgeez",
+        "website": "http://dasamit.com/"
+      }
+    },
+    {
+      "name": "Swaroop SM",
+      "designation": "Developer",
+      "avatar": "/static/about/swaroop.jpg",
+      "info": "Swaroop works on the JavaScript core, PHP Bindings and our documentation and testing infrastructure. Loves chocolate, working on open source projects (including his own static site generator), and playing guitar.",
+      "links": {
+        "linkedin": "http://www.linkedin.com/in/swaroopsm",
+        "github": "https://github.com/swaroopsm",
+        "twitter": "https://twitter.com/smswaroop",
+        "website": "http://ameen-ahmed.me/"
+      }
+    }
+  ],
+    "_readme": {
+      "links": [
+        "dribble",
+        "facebook",
+        "github",
+        "kickstarter",
+        "linkedin",
+        "twitter",
+        "website"
+      ]
+    }
+}

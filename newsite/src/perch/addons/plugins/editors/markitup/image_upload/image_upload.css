@@ -1,0 +1,103 @@
+#miu_image_upload {
+	width: 410px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 10px;
+	color: #fff;
+	background: rgb(84, 81, 76);
+	position: absolute;
+	display: none;
+	box-shadow: 0px 0px 10px #333333;
+}
+
+#miu_image_upload {
+	background: rgba(84, 81, 76, 0.98);
+}
+
+#miu_image_upload.fail {
+	background: rgb(179, 64, 64);
+	box-shadow: 0px 0px 10px rgb(179, 64, 64);
+}
+
+#miu_image_upload.fail {
+	background: rgba(179, 64, 64, 0.8);
+}
+
+#miu_image_upload div {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid #65635e;
+}
+
+#miu_image_upload div:first-child {
+	margin-top: 0;
+	border-top: 0;
+	padding-top: 0;
+}
+
+#miu_image_upload label {
+	display: inline-block;
+	width: 108px;
+	padding-left: 12px;
+}
+
+#miu_image_upload input.title {
+	width: 270px;
+}
+
+#miu_image_upload_image {
+	width: 270px;
+}
+
+#miu_image_upload .buttonset {
+	padding-left: 125px;
+	margin-top: 8px;
+	padding-bottom: 8px;
+	border-bottom: none;
+	background-color: #5D5A55;
+	position: relative;
+}
+
+#miu_image_upload.fail .buttonset {
+	background-color: transparent;
+}
+
+
+#miu_image_upload .buttonset a.cancel:link,
+#miu_image_upload .buttonset a.cancel:visited {
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	text-decoration: none;
+}
+
+#miu_image_upload span.speak {
+	display: block;
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	background: transparent;
+	top: -20px;
+	right: 90px;
+	border-color: transparent transparent rgb(84, 81, 76) transparent;
+	border-width: 10px;
+	border-style: solid;
+}
+
+#miu_image_upload span.speak {
+	border-color: transparent transparent rgba(84, 81, 76, 0.95) transparent;
+}
+
+#miu_image_upload.fail span.speak {
+	border-color: transparent transparent rgb(179, 64, 64) transparent;
+}
+
+#miu_image_upload.fail span.speak {
+	border-color: transparent transparent rgba(179, 64, 64, 0.7);
+}
+
+#miu_image_upload img.spinner {
+	position: absolute;
+	top: 10px;
+	left: 100px;
+	display: none;
+}

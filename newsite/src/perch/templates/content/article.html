@@ -1,0 +1,27 @@
+<h2><perch:content id="heading" type="text" label="Heading" required="true" title="true" /></h2>
+<p class="date"><perch:content id="date" type="date" label="Date" format="%d %B %Y" required="true" /></p>
+
+<perch:content id="body" type="textarea" label="Body" markdown="true" editor="markitup" required="true" />
+
+<p class="vcard">
+    &copy; <perch:content id="date" type="date" label="Date" format="Y" />
+    
+    <span class="fn n">
+        <perch:content id="author_given_name" type="text" label="Author given name" />
+        <perch:content id="author_family_name" type="text" label="Author family name" /> 
+    </span>  
+</p>
+
+<perch:after>
+  <perch:if exists="paging">
+    <div class="paging">
+      Page <perch:content id="current_page" type="hidden" /> of <perch:content id="number_of_pages" type="hidden" />
+      <perch:if exists="not_first_page">
+        <a href="<perch:content id="prev_url" type="hidden" encode="false" />">Previous</a>
+      </perch:if>
+      <perch:if exists="not_last_page">
+        <a href="<perch:content id="next_url" type="hidden" encode="false" />">Next</a>
+      </perch:if>
+    </div>
+  </perch:if>
+</perch:after>
