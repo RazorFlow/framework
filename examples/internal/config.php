@@ -16,8 +16,8 @@ $rfExampleConfig = array (
 		'rfphp' => __DIR__.'/../../wrappers/phprf/src/razorflow.php'
 	),
 	'prodLibPaths' => array (
-		'rfphp' => __DIR__.'/../../build/php/razorflow_php/razorflow.php',
-		'rfStatic' => '/mount/phprfBuild'
+		'rfphp' => __DIR__.'/../lib/razorflow_php/razorflow.php',
+		'rfStatic' => '/lib/razorflow_php/static/rf/'
 	),
 	'examplePaths' => array(
 		'js' => array (

@@ -16,6 +16,7 @@
     "grunt-exec": "^0.4.6",
     "grunt-lib-contrib": "^0.7.1",
     "lodash": "^2.4.1",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "url-to-screenshot": "^0.4.1"
   }
 }

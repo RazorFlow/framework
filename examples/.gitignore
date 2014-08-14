@@ -4,7 +4,7 @@ composer.lock
 static/rf
 node_modules
 static/exampleImages
-lib/phprf
+lib/razorflow_php
 *.pyc
 .DS_Store
 npm-debug.log

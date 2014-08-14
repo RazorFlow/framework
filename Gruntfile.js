@@ -70,7 +70,20 @@ module.exports = function(grunt) {
                     {cwd:"jsrf/src/", src:["img/*"], dest:"build/assets/"},
                     {cwd:"jsrf/src/", src:["img/*"], dest:"build/tmp/"}
                 ]
-            }
+            },
+            examples: {
+                files: [
+                    {cwd: "build/razorflow_js/", src:"**/*", dest: "examples/static/rf/"},
+                    {cwd: "build/php/razorflow_php/", src:"**/*", dest: "examples/lib/razorflow_php/"}
+                ]
+                .concat(_.map([
+                    'php_mvc/cakephp/app/vendor/razorflow_php/',
+                    'distributable/php_database_sample/razorflow_php/'
+                ], function(val){ return {cwd:"build/php/razorflow_php", src:"**/*", dest:"examples/apps/"+val};  })).concat(_.map([
+                    'html_embedded/razorflow_js/',
+                    'php_mvc/rfci/application/rf/'
+                ], function(val){ return {cwd:"build/assets/", src:"**/*", dest:"examples/apps/"+val};  }))
+            },
         },
         packman: {
 
@@ -80,6 +93,30 @@ module.exports = function(grunt) {
         },
         clean: {
             build: "build"
+        },
+        screenshotGen: {
+            jsExamples: {
+                options: {
+                    files: "examples/src/js/examples/*.js",
+                    out: "examples/static/exampleImages/js/examples/",
+                    baseUrl: "http://localhost:8080/dashboard/js/examples/",
+                    width: 1024,
+                    height: 768,
+                    timeout: 2000,
+                    extension: ".js"
+                }
+            },
+            phpExamples: {
+                options: {
+                    files: "examples/src/php/examples/*.php",
+                    out: "examples/static/exampleImages/php/examples/",
+                    baseUrl: "http://localhost:8080/dashboard/php/examples/",
+                    width: 1024,
+                    height: 768,
+                    timeout: 2000,
+                    extension: ".php"
+                }
+            }
         }
     };
 
@@ -189,6 +226,7 @@ module.exports = function(grunt) {
     grunt.registerTask("build:phprf", ["packman:php_build"]);
     grunt.registerTask("build", ["build:jsrf", "build:phprf"]);
     grunt.registerTask("package", ["clean:build", "build", "makePackage"]);
+    grunt.registerTask("build:examples", ["copyto:examples"]);
 
 
     grunt.loadNpmTasks('grunt-contrib-clean');
