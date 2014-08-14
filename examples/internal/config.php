@@ -4,7 +4,7 @@ global $rfExampleConfig;
 $rfExampleConfig = array (
 	'mounts' => array (
 		'jsrf' => __DIR__.'/../../jsrf/src/',
-		'jsrfBuild' => __DIR__.'/../../build/assets/',
+		'jsrfBuild' => __DIR__.'/../../build/js/',
 		'tmp' => __DIR__.'/../../build/tmp/'
 	),
 	'devStaticPaths' => array (

@@ -80,23 +80,18 @@ module.exports = function(grunt) {
         }
     };
 
-    var js_files = [
-        {dir:"files", files: [
-            {dir: "js", files: [
-                "build/assets/js/razorflow.min.js",
-                "build/assets/js/razorflow.devtools.min.js"
-            ]},
-            {dir: "img", src:"build/assets/img/"},
-            {dir: "css", src:"build/assets/css/"}
+    var js_assets = [
+        {dir: "js", files: [
+            "jsrf/src/vendor/jquery.min.js",
+            "build/assets/js/razorflow.min.js",
+            "build/assets/js/razorflow.devtools.min.js"
         ]},
-        {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
-            {dir: "js", files:[
-                "build/assets/js/razorflow.min.js",
-                "build/assets/js/razorflow.devtools.min.js"
-            ]},
-            {dir: "img", src:"build/assets/img/"},
-            {dir: "css", src:"build/assets/css/"}
-        ]}
+        {dir: "img", src:"build/assets/img/"},
+        {dir: "css", src:"build/assets/css/"}
+    ];
+    var js_files = [
+        {dir:"files", files: js_assets},
+        {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:js_assets}
     ];
 
     var php_files = [
@@ -104,6 +99,7 @@ module.exports = function(grunt) {
             {dir:"static", files: [
                 {dir:"rf", files:[
                     {dir:"js", files: [
+                        "jsrf/src/vendor/jquery.min.js",
                         "build/assets/js/razorflow.wrapper.min.js",
                         "build/assets/js/razorflow.devtools.min.js"
                     ]},
@@ -123,7 +119,15 @@ module.exports = function(grunt) {
         noZip: true,
         copyFolderTo: "build/",
         files: php_files
-    }
+    };
+
+    JSRF_Tasks.packman.js_build = {
+        file_name: "razorflow_js_build",
+        container_name: "razorflow_js",
+        noZip: true,
+        copyFolderTo: "build/",
+        files: js_assets
+    };
 
     function addPackageWithLicense (version, license) {
         var taskHost = JSRF_Tasks.packman;
@@ -178,7 +182,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("package", ["exec:php_readme_gen", "packman"])
     grunt.registerTask("jsrf:compile", []);
-    grunt.registerTask("build:jsrf", ["jst:jsrf", "requirejs", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img"]);
+    grunt.registerTask("build:jsrf", ["jst:jsrf", "requirejs", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
     grunt.registerTask("build:phprf", ["build:jsrf", "packman:php_build"]);
 
     grunt.loadNpmTasks('grunt-contrib-clean');
