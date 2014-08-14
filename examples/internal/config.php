@@ -5,6 +5,7 @@ $rfExampleConfig = array (
 	'mounts' => array (
 		'jsrf' => __DIR__.'/../../jsrf/src/',
 		'jsrfBuild' => __DIR__.'/../../build/js/',
+		'phprfBuild' => __DIR__.'/../../build/php/razorflow_php/static/rf/',
 		'tmp' => __DIR__.'/../../build/tmp/'
 	),
 	'devStaticPaths' => array (
@@ -16,7 +17,7 @@ $rfExampleConfig = array (
 	),
 	'prodLibPaths' => array (
 		'rfphp' => __DIR__.'/../../build/php/razorflow_php/razorflow.php',
-		'rfStatic' => '/static/rf/'
+		'rfStatic' => '/mount/phprfBuild'
 	),
 	'examplePaths' => array(
 		'js' => array (

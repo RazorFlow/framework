@@ -1,5 +1,5 @@
 <?php
-
+ini_set("date.timezone", "Asia/Kolkata");
 	global $licenses;
 $licenses = array (
 	'corporate' => array(

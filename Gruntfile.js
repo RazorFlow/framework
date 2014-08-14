@@ -77,6 +77,9 @@ module.exports = function(grunt) {
         },
         exec: {
 
+        },
+        clean: {
+            build: "build"
         }
     };
 
@@ -180,10 +183,13 @@ module.exports = function(grunt) {
 
     createPackagesForVersion("1.0.1");
 
-    grunt.registerTask("package", ["exec:php_readme_gen", "packman"])
+    grunt.registerTask("makePackage", ["exec:php_readme_gen", "packman"])
     grunt.registerTask("jsrf:compile", []);
     grunt.registerTask("build:jsrf", ["jst:jsrf", "requirejs", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
-    grunt.registerTask("build:phprf", ["build:jsrf", "packman:php_build"]);
+    grunt.registerTask("build:phprf", ["packman:php_build"]);
+    grunt.registerTask("build", ["build:jsrf", "build:phprf"]);
+    grunt.registerTask("package", ["clean:build", "build", "makePackage"]);
+
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
