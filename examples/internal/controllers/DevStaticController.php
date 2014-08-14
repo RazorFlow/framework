@@ -29,7 +29,7 @@ class DevStaticController {
 		}
 
 
-		return $app->sendFile($filePath, 200, array('Content-Type' => $mime));
+		return $app->sendFile($filePath, 200, array('Content-Type' => $mime, 'Cache-Control' => 'no-cache, no-store, must-revalidate'));
 	}
 
 	public function devDocs(Request $request, Application $app, $fileName) {

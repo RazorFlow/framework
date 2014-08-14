@@ -9,11 +9,11 @@
         }
     };
     
-    var browserConfig = extend({
-        paths: resetPaths(clone(paths), 'http://localhost:8080/devStatic/jsrf/'),
+    global.browserConfig = extend({
+        paths: resetPaths(clone(paths), 'http://localhost:8080/mount/jsrf/'),
         shim: clone(shim)
     }, {
-        baseUrl: 'http://localhost:8080/devStatic/jsrf/js'
+        baseUrl: 'http://localhost:8080/mount/jsrf/js/'
     });
 
     var requireDefaults = {

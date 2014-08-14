@@ -2,16 +2,20 @@
 
 global $rfExampleConfig;
 $rfExampleConfig = array (
+	'mounts' => array (
+		'jsrf' => __DIR__.'/../../jsrf/src/',
+		'jsrfBuild' => __DIR__.'/../../build/assets/',
+		'tmp' => __DIR__.'/../../build/tmp/'
+	),
 	'devStaticPaths' => array (
 		'jsrf' => __DIR__.'/../../jsrf/src/',
 		'docs' => __DIR__.'/../../docs/build/docs/',
-		'jsrfBuild' => __DIR__.'/../../jsrf/build/'
 	),
 	'devLibPaths' => array (
-		'rfphp' => __DIR__.'/../../phprf/src/razorflow.php'
+		'rfphp' => __DIR__.'/../../wrappers/phprf/src/razorflow.php'
 	),
 	'prodLibPaths' => array (
-		'rfphp' => __DIR__.'/../lib/phprf/razorflow.php',
+		'rfphp' => __DIR__.'/../../build/php/razorflow_php/razorflow.php',
 		'rfStatic' => '/static/rf/'
 	),
 	'examplePaths' => array(

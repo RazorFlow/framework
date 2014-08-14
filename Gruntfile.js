@@ -67,7 +67,8 @@ module.exports = function(grunt) {
         copyto: {
             jsrf_img: {
                 files:[
-                    {cwd:"jsrf/src/", src:["img/*"], dest:"build/assets/"}
+                    {cwd:"jsrf/src/", src:["img/*"], dest:"build/assets/"},
+                    {cwd:"jsrf/src/", src:["img/*"], dest:"build/tmp/"}
                 ]
             }
         },

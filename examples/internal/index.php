@@ -2,6 +2,7 @@
 require "config.php";
 require "controllers/DevStaticController.php";
 require "controllers/DevDashboardController.php";
+ini_set("date.timezone", "Asia/Kolkata");
 
 $app = new Silex\Application();
 $app['debug'] = true;
@@ -9,6 +10,30 @@ $app['debug'] = true;
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
+
+global $rfExampleConfig;
+// mounts
+foreach($rfExampleConfig['mounts'] as $point => $path) {
+	$app->get("/mount/$point/{fileName}", function ($fileName) use ($app, $path) {
+		$filePath = $path.$fileName;
+		$arr = explode(".", $fileName);
+		$extension = array_pop($arr);
+		$mime = "text/plain";
+
+		if($extension === "css") {
+			$mime = "text/css";
+		}
+		else if ($extension === "js") {
+			$mime = "application/javascript";
+		}
+		else if ($extension === "html") {
+			$mime = "text/html";
+		}
+
+
+		return $app->sendFile($filePath, 200, array('Content-Type' => $mime));
+	})->assert('fileName', '.+');
+}
 
 // Development routes
 $app->get('/devStatic/{lang}/{fileName}', 'DevStaticController::getDevFile')->assert('fileName', '.+');;
