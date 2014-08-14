@@ -65,7 +65,6 @@ module.exports = function(grunt) {
       outDir: "build/packages/"
     });
     var data = this.data;
-    var done = this.async();
 
     if(grunt.file.exists(pj(options.tmpDir, data.container_name))) {
       grunt.log.debug("Removing temp dir", options.tmpDir);
@@ -77,25 +76,37 @@ module.exports = function(grunt) {
 
     handle_files (pj(options.tmpDir, data.container_name), data.files);
 
-    grunt.log.debug("Executing zip command now")
-    grunt.util.spawn({
-      cmd: "zip",
-      args: ["-r", data.file_name + ".zip", data.container_name],
-      opts: {
-        cwd: options.tmpDir
+    if(data.noZip !== true) {
+      var done = this.async();
+      grunt.log.debug("Executing zip command now")
+      grunt.util.spawn({
+        cmd: "zip",
+        args: ["-r", data.file_name + ".zip", data.container_name],
+        opts: {
+          cwd: options.tmpDir
+        }
+      }, function (error) {
+        if(error == null) {
+          grunt.log.debug("Executing zip command now")
+          grunt.file.copy(pj(options.tmpDir, data.file_name + ".zip"), pj(options.outDir, data.file_name + ".zip"));
+          grunt.log.ok("Successfully built ", data.file_name + ".zip")
+        }
+        else {
+          grunt.fail.fatal("something went wrong with zip");
+        }
+        done();
+      });
+    }
+    else {
+      if(data.copyFolderTo) {
+        var target_folder = pj(data.copyFolderTo, data.container_name);
+        if(grunt.file.exists(target_folder)) {
+          grunt.file.delete (target_folder);
+        }
+        grunt.log.writeln("Copying built folder to ", target_folder);
+        fse.copySync(pj(options.tmpDir, data.container_name), pj(data.copyFolderTo, data.container_name));
+        grunt.log.ok("Copied Successfully");
       }
-    }, function (error) {
-      if(error == null) {
-        grunt.log.debug("Executing zip command now")
-        grunt.file.copy(pj(options.tmpDir, data.file_name + ".zip"), pj(options.outDir, data.file_name + ".zip"));
-        grunt.log.ok("Successfully built ", data.file_name + ".zip")
-      }
-      else {
-        grunt.fail.fatal("something went wrong with zip");
-      }
-      done();
-    });
-
-
+    }
   });
 };

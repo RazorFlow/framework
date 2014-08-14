@@ -79,46 +79,53 @@ module.exports = function(grunt) {
         }
     };
 
+    var js_files = [
+        {dir:"files", files: [
+            {dir: "js", files: [
+                "build/assets/js/razorflow.min.js",
+                "build/assets/js/razorflow.devtools.min.js"
+            ]},
+            {dir: "img", src:"build/assets/img/"},
+            {dir: "css", src:"build/assets/css/"}
+        ]},
+        {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
+            {dir: "js", files:[
+                "build/assets/js/razorflow.min.js",
+                "build/assets/js/razorflow.devtools.min.js"
+            ]},
+            {dir: "img", src:"build/assets/img/"},
+            {dir: "css", src:"build/assets/css/"}
+        ]}
+    ];
+
+    var php_files = [
+        {dir:"razorflow_php", src:"wrappers/phprf/src/", files: [
+            {dir:"static", files: [
+                {dir:"rf", files:[
+                    {dir:"js", files: [
+                        "build/assets/js/razorflow.wrapper.min.js",
+                        "build/assets/js/razorflow.devtools.min.js"
+                    ]},
+                    {dir:"img", src:"build/assets/img/"},
+                    {dir:"css", src:"build/assets/css/"}
+                ]}
+            ]}
+        ]},
+        {dir: "dashboard_quickstart", src:"wrappers/phprf/dashboard_quickstart/", files:[
+            {dir:"razorflow_php", copyFromPackage: "../razorflow_php/"}
+        ]}
+    ];
+
+    JSRF_Tasks.packman.php_build = {
+        file_name: "razorflow_php_build",
+        container_name: "php",
+        noZip: true,
+        copyFolderTo: "build/",
+        files: php_files
+    }
+
     function addPackageWithLicense (version, license) {
         var taskHost = JSRF_Tasks.packman;
-
-        var js_files = [
-            {dir:"files", files: [
-                {dir: "js", files: [
-                    "build/assets/js/razorflow.min.js",
-                    "build/assets/js/razorflow.devtools.min.js"
-                ]},
-                {dir: "img", src:"build/assets/img/"},
-                {dir: "css", src:"build/assets/css/"}
-            ]},
-            {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:[
-                {dir: "js", files:[
-                    "build/assets/js/razorflow.min.js",
-                    "build/assets/js/razorflow.devtools.min.js"
-                ]},
-                {dir: "img", src:"build/assets/img/"},
-                {dir: "css", src:"build/assets/css/"}
-            ]}
-        ];
-
-        var php_files = [
-            {dir:"razorflow_php", src:"wrappers/phprf/src/", files: [
-                {dir:"static", files: [
-                    {dir:"rf", files:[
-                        {dir:"js", files: [
-                            "build/assets/js/razorflow.wrapper.min.js",
-                            "build/assets/js/razorflow.devtools.min.js"
-                        ]},
-                        {dir:"img", src:"build/assets/img/"},
-                        {dir:"css", src:"build/assets/css/"}
-                    ]}
-                ]}
-            ]},
-            {dir: "dashboard_quickstart", src:"wrappers/phprf/dashboard_quickstart/", files:[
-                {dir:"razorflow_php", copyFromPackage: "../razorflow_php/"}
-            ]}
-        ];
-
         var licensePath = "razorflow_license_" + license;
 
         taskHost['js_' + license] = {
@@ -170,7 +177,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask("package", ["exec:php_readme_gen", "packman"])
     grunt.registerTask("jsrf:compile", []);
-    grunt.registerTask("build:jsrf", ["requirejs", "jst:jsrf", "themegen:jsrf", "less:jsrf", "cssmin:jsrf"]);
+    grunt.registerTask("build:jsrf", ["jst:jsrf", "requirejs", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img"]);
+    grunt.registerTask("build:phprf", ["build:jsrf", "packman:php_build"]);
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
