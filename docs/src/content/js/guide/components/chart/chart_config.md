@@ -1,11 +1,7 @@
-<meta>
-{
-	"title": "Chart Options and Advanced Configuration",
-	"subtitle": "",
-	"index": 11,
-	"id": "chart_config"
-}
-</meta>
+--
+title: "Chart Options and Advanced Configuration"
+id: "chart_config"
+--
 
 ### Hiding the legend
 

@@ -1,11 +1,7 @@
-<meta>
-{
-    "title": "Stacked Charts",
-    "subtitle": "",
-    "index": 6,
-    "id": "chart_series_stacked"
-}
-</meta>
+--
+title: "Stacked Charts"
+id: "chart_series_stacked"
+--
 
 ### Stacked Column Charts
 

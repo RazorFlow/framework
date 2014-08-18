@@ -1,1 +1,0 @@
-This is an example partial. This prints parameters foo: <%= foo %> and bar: <%= bar %>

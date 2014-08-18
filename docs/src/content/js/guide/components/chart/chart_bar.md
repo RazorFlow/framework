@@ -1,11 +1,7 @@
-<meta>
-{
-    "title": "Bar Charts",
-    "subtitle": "",
-    "index": 7,
-    "id": "chart_bar"
-}
-</meta>
+--
+title: "Bar Charts"
+id: "chart_bar"
+--
 
 ### Bar Charts
 

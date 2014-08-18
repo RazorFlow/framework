@@ -1,11 +1,7 @@
-<meta>
-{
-	"title": "Basic ChartComponent Functionality",
-	"subtitle": "",
-  "index": 1,
-  "id": "chart_basic"
-}
-</meta>
+--
+title: "Basic ChartComponent Functionality"
+id: "chart_basic"
+--
 
 Here is an example chart component:
 

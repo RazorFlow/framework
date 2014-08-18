@@ -1,11 +1,7 @@
-<meta>
-{
-    "title": "Drill-down data using breadcrumbs",
-    "subtitle": "",
-    "index": 9,
-    "id": "chart_drilldown"
-}
-</meta>
+--
+title: "Drill-down data using breadcrumbs"
+id: "chart_drilldown"
+--
 
 Drill-downs allow your users to explore data by clicking on one item in your chart to reveal more data about the item that they have selected. For example, a drill-down might allow you to drill from Country-wide data to seeing data for an individual state. Drill-downs can also be used for navigating time-based records like drilling down from yearly data to monthly data.
 

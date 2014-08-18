@@ -1,15 +1,13 @@
-<meta>
-{
-	"title": "Level 2 Root",
-    "id": "level2",
-    "index": 1
-}
-</meta>
+--
+title: "Level 2 Root"
+id: "level2"
+index: 1
+--
 ### This is the Level 2 root
 
-This is body text. Link to level 1: <%- linkArticle('level1/document2') %>.
+This is body text. Link to level 1: <%- linkArticle('document2') %>.
 
-Link to root: <%- linkArticle('index') %>
+Link to root: <%- linkArticle('root') %>
 
 This is viewing a partial: <%- partial('partial1', {foo: 'hello', 'bar': 'worldaaaah!! beeeeeeeesss!!'}) %>
 

@@ -1,5 +1,33 @@
     module.exports = function (grunt) {
     grunt.initConfig({
+        apiMeta: {
+            options: {
+                src: ["../jsrf/src/js/components/*.js"],
+                out: "generated/apiMeta.json"
+            }
+        
+        },
+        tocGen: {    
+            options: {
+                toc: 'config/toc.json',
+                articlesDir: './src/content/js/guide/components/chart',
+                apiPrefix: "/docs/dashboard/js/api",
+                articlesPrefix: "",
+                suffix: "html",
+                out: 'generated/toc.html'
+            }
+        },
+        api: {
+            options: {
+                src: "generated/apiMeta.json",
+                toc: 'config/toc.json',
+                outPath: "build/docs/dashboard/js/api",
+                relativeLinkPath: "/docs/dashboard/js/api",
+                linkPrefix: "",
+                suffix: "html",
+                apiTemplates: "src/templates/default/api_templates"
+            }
+        },
         razordoc: {
             local: {
                 options: {
@@ -258,7 +286,7 @@
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadTasks("../razordoc/src/");
+    grunt.loadTasks("../tools/razordoc/tasks/");
 
     grunt.registerTask('build', ['razordoc:website_js', 'razordoc:website_php']);
 

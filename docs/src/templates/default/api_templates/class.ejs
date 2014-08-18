@@ -1,55 +1,37 @@
-<h2>Class <%= item.class.name %></h2>
+<h2>Class <%= item.class %></h2>
 
-<h4><%= item.signature %></h4>
+<h3><%= item.signature %></h3>
 
 <% if(item.augments) { %>
     <p>inherits from 
         <%- 
-            tree.hasClass(item.augments.name) && tree.findNodeByClassName(item.augments.name).access.name !== 'private'? 
+            tree.hasClass(item.augments) ? 
                 linkify({
-                    text: item.augments.name, 
-                    href: item.augments.name + '.php'
-                }) : item.augments.name
+                    text: item.augments, 
+                    href: item.augments + '.html'
+                }) : item.augments
         %>
     </p>
 <% } %>
+
 <% if(item.params) { %>
-<h3>Params</h3>
 <%- render('params.ejs', {tree: tree, params: item.params}) %>
 <% } %>
+
 <% if(item.example) { %>
-<h3>Examples</h3>
-<pre><code><%= item.example.code %></code></pre>
+<pre><code><%= item.example %></code></pre>
 <% } %>
-<h2>Methods</h2>
-<% for(j=0; j<item.methods.length; j++) {%>
-    <%- render('method.ejs', {tree: tree, item: item.methods[j]}) %>
-<% } %>
-<% if(item.augments) { %>
-<h2>Inherited Methods</h2>
-<% 
-    var tItem = item;
-    while(tItem.augments) {
-        var base = tree.findNodeByClassName(tItem.augments.name);
-        if(base) {
-            for(var j=0; j<base.methods.length; j++) {
-%>
-              <%- render('method.ejs', {tree: tree, item: base.methods[j]}) %>
-
-<%          }
-        } 
-       tItem = base;
-    } 
-}
-%>
-
-
-<% if(item.boundEvents) { %>
-    <h2>Bound Events</h2>
-    <% var inheritedClass = tree.findNodeByClassName(item.augments.name) %>
-    <% if(inheritedClass && inheritedClass.boundEvents) { %>
-        <%- render('boundevent.ejs', {tree: tree, boundevents: inheritedClass.boundEvents}) %>
+<% if(item.methods) { %>
+    <% for(j=0; j<item.methods.length; j++) {%>
+        <%- render('method.ejs', {tree: tree, item: item.methods[j]}) %>
     <% } %>
-    <%- render('boundevent.ejs', {tree: tree, boundevents: item.boundEvents}) %>
 <% } %>
     
+
+
+<% if(item.augments) { 
+    var base = tree.findNodeByClassName(item.augments);
+    for(var j=0; j<base.methods.length; j++) {
+%>
+    <%- render('method.ejs', {tree: tree, item: base.methods[j]}) %>
+<% } } %>

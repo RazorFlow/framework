@@ -1,11 +1,7 @@
-<meta>
-{
-    "title": "Chart Drill into Modal",
-    "subtitle": "",
-    "index": 10,
-    "id": "chart_drill_into_modal"
-}
-</meta>
+--
+title: "Chart Drill into Modal"
+id: "chart_drill_into_modal"
+--
 
 ### Show drill/detail chart in modal
 

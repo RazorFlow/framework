@@ -1,11 +1,7 @@
-<meta>
-{
-    "title": "Chart Series Configuration",
-    "subtitle": "",
-    "index": 2,
-    "id": "series_config"
-}
-</meta>
+--
+title: "Chart Series Configuration"
+id: "series_config"
+--
 
 ## Change series/chart type
 

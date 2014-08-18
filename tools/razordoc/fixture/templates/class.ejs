@@ -1,15 +1,15 @@
-<h2>Class <%= item.class.name %></h2>
+<h2>Class <%= item.class %></h2>
 
 <h3><%= item.signature %></h3>
 
 <% if(item.augments) { %>
     <p>inherits from 
         <%- 
-            tree.hasClass(item.augments.name) ? 
+            tree.hasClass(item.augments) ? 
                 linkify({
-                    text: item.augments.name, 
-                    href: item.augments.name + '.html'
-                }) : item.augments.name
+                    text: item.augments, 
+                    href: item.augments + '.html'
+                }) : item.augments
         %>
     </p>
 <% } %>
@@ -19,16 +19,18 @@
 <% } %>
 
 <% if(item.example) { %>
-<pre><code><%= item.example.code %></code></pre>
+<pre><code><%= item.example %></code></pre>
 <% } %>
-
-<% for(j=0; j<item.methods.length; j++) {%>
-    <%- render('method.ejs', {tree: tree, item: item.methods[j]}) %>
+<% if(item.methods) { %>
+    <% for(j=0; j<item.methods.length; j++) {%>
+        <%- render('method.ejs', {tree: tree, item: item.methods[j]}) %>
+    <% } %>
 <% } %>
+    
 
 
 <% if(item.augments) { 
-    var base = tree.findNodeByClassName(item.augments.name);
+    var base = tree.findNodeByClassName(item.augments);
     for(var j=0; j<base.methods.length; j++) {
 %>
     <%- render('method.ejs', {tree: tree, item: base.methods[j]}) %>
