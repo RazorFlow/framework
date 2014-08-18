@@ -117,6 +117,17 @@ module.exports = function(grunt) {
                     extension: ".php"
                 }
             }
+        },
+        squashDemos: {
+          options: {
+            demoPaths: {
+              js: "examples/src/js/demos/*.js",
+              php: "examples/src/php/demos/*.php"
+            },
+            demosConfig: "tools/config/demos.json",
+            out: "website/src/static/transfer/build/js/rfDemos.js",
+            outCode: "website/src/static/transfer/build/js/rfDemoCode.js"
+          }
         }
     };
 
