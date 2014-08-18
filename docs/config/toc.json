@@ -1,0 +1,55 @@
+[
+    {
+        "id": "chart_guide",
+        "title": "Razorflow ChartComponent Documentation",
+        "children": [
+            {
+                "id": "chart_basic"
+            },
+            {
+                "id": "series_config"
+            },
+            {
+                "id": "chart_yaxis",
+                "title": "Chart Y-Axis Configuration"
+            },
+            {
+                "id": "chart_update"
+            },
+            {
+                "id": "chart_event_click"
+            },
+            {
+                "id": "chart_series_stacked"
+            },
+            {
+                "id": "chart_bar"
+            },
+            {
+                "id": "dual_axis"
+            },
+            {
+                "title": "Drill-Downs",
+                "children": [
+                    {
+                        "id": "chart_drilldown"
+                    },
+                    {
+                        "id": "chart_drill_into_modal"
+                    }
+                ]
+            },
+            {
+                "id": "chart_config"
+            }
+        ]
+    },
+    {
+        "title": "Javascript API Reference",
+        "children": [
+            {
+                "id": "ChartComponent"
+            }
+        ]
+    }
+]

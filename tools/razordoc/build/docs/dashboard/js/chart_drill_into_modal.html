@@ -1,0 +1,53 @@
+<h1>Chart Drill into Modal</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <h3 id="show-drill-detail-chart-in-modal">Show drill/detail chart in modal</h3>
+<p>You may encounter a situation where you have one chart having high-level summarized data, and wish to show more detail about an individual item when one of them have been clicked. You can do this by opening a secondary detail chart in a modal window.</p>
+<p>The steps involving this are:</p>
+<ol>
+<li>Create the <strong>source</strong> chart, this is going to contain the summary and will be displayed on the dashboard.</li>
+<li>Create the <strong>target</strong> chart. This will be hidden by default, and opened only when the <strong>source</strong> is clicked.</li>
+<li>Listen to the click event on the <strong>source</strong> chart to show the <strong>target</strong>.</li>
+</ol>
+<h3 id="step-1-create-source-chart">Step 1: Create Source chart</h3>
+<p>You can create a regular chart component and add it to the dashboard.</p>
+<pre><code>    var sourceChart = new ChartComponent();
+    sourceChart.setDimensions (4, 4);
+    sourceChart.setCaption(&quot;2011 Sales&quot;); 
+    sourceChart.setLabels ([&quot;Beverages&quot;, &quot;Vegetables&quot;])
+    sourceChart.addSeries (&quot;sales&quot;, &quot;Sales&quot;, [1343, 7741]);
+    sourceChart.addSeries (&quot;quantity&quot;, &quot;Quantity&quot;, [76, 119]);
+    db.addComponent (sourceChart);
+</code></pre><h3 id="step-2-create-the-target-chart-">Step 2: Create the target chart.</h3>
+<p>You can create the target chart, but since we don&#39;t know what data to put in, we can hide it using the <a href="/docs/dashboard/js/api/Component.html#hideComponent">hideComponent</a> function. This will ensure that the chart is not visibile on the dashboard when it&#39;s loaded. Don&#39;t forget to add this chart to the dashboard. Also note that you don&#39;t need to set the dimensions of this chart. </p>
+<pre><code>    var targetChart = new ChartComponent();
+    targetChart.hideComponent();
+    targetChart.lock();
+    db.addComponent (targetChart);
+</code></pre><h3 id="step-3-show-the-target-on-click">Step 3: Show the target on click</h3>
+<p>You can listen to when the chart plot items are clicked using the <a href="/docs/dashboard/js/api/ChartComponent.html#onItemClick">onItemClick</a> event handler. Within this callback we can lock the chart temporarily using the <a href="/docs/dashboard/js/api/Component.html#lock">lock</a> function and we need to show the chart in the modal, by using the <a href="/docs/dashboard/js/api/Component.html#showAsModal">showAsModal</a>.</p>
+<p>You can also use the parameters in the <code>params</code> variable to customize the data in the chart. Also note that you need to call the <a href="/docs/dashboard/js/api/Component.html#unlock">unlock</a> function to show the component (see <a href="#brokenLink">lock_and_unlock</a> for more on why this is required) .</p>
+<pre><code>    sourceChart.onItemClick(function(params) {
+        targetChart.lock();
+        targetChart.setCaption (&quot;Zone-wise breakdown of &quot; + params.label);
+        // You can filter/process the data as required.
+        targetChart.setLabels ([&quot;North Zone&quot;, &quot;South Zone&quot;]);
+        targetChart.addSeries (&quot;sales&quot;, &quot;Sales&quot;, [21, 46]);
+        targetChart.showAsModal();
+        targetChart.unlock();
+    });
+</code></pre><h3 id="complete-example">Complete example</h3>
+<a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a>
+    </div>
+</div>
+    

@@ -1,0 +1,52 @@
+<h1>Basic ChartComponent Functionality</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <p>Here is an example chart component:</p>
+<p>Here is the code for a complete dashboard containing a single chart component:</p>
+<pre><code>rf.StandaloneDashboard(function(db){
+    var chart = new ChartComponent();
+    chart.setDimensions (4, 4);
+    chart.setCaption(&quot;My First Chart&quot;); 
+    chart.setLabels ([&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;]);
+    chart.addSeries (&quot;beverages&quot;, &quot;Beverages&quot;, [1355, 1916, 1150]);
+    chart.addSeries (&quot;packaged_foods&quot;, &quot;Packaged Foods&quot;, [1513, 976, 1321]);
+    db.addComponent (chart);
+});
+</code></pre><p>The steps taken to build this dashboard are:</p>
+<ol>
+<li>Create an empty dashboard</li>
+<li>Add a new component instance of type <a href="/docs/dashboard/js/api/ChartComponent.html#">ChartComponent</a></li>
+<li>Set the <strong>Component Dimensions</strong> as 4x4</li>
+<li>Set a <strong>caption</strong> to the component.</li>
+<li>Set the labels (which are shown on the X-Axis) using the <a href="/docs/dashboard/js/api/ChartComponent.html#setLabels">setLabels</a> function, pass an array of strings which will be displayed.</li>
+<li>Add multiple series to the chart, using the <a href="/docs/dashboard/js/api/ChartComponent.html#addSeries">addSeries</a> function which takes 3 arguments:<ul>
+<li>An <strong>ID String</strong> (<code>beverages</code>, <code>packaged_foods</code>, etc) which is used later to refer to this series to update it, etc.</li>
+<li>The <strong>Title</strong> of the series, which will be displayed on the chart.</li>
+<li>An array of <strong>Data Values</strong> which will be the actual values plotted on the chart.</li>
+</ul>
+</li>
+<li><strong>Add the component</strong> to the dashboard using the <strong>addComponent</strong> function.</li>
+</ol>
+<h2 id="pie-charts">Pie Charts</h2>
+<p>To create a pie chart, use the <a href="/docs/dashboard/js/api/ChartComponent.html#setPieValues">setPieValues</a> function instead of <a href="/docs/dashboard/js/api/ChartComponent.html#addSeries">addSeries</a>. Since a pie chart can only have a single set of values, you can call this function only once.</p>
+<h3 id="notes-">Notes:</h3>
+<ul>
+<li>By default, all chart series are Column Charts. Changing the series type is covered in <a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li>
+<li>Please ensure that the number of data points in each series is the same number of items in  your Label Array.</li>
+</ul>
+<p>This article is awesome <a href="/docs/dashboard/js/new_article.html">A New File</a></p>
+<p>dd</p>
+<a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a>
+    </div>
+</div>
+    

@@ -1,0 +1,44 @@
+<h1>Chart Series Configuration</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <h2 id="change-series-chart-type">Change series/chart type</h2>
+<p>The series type is also sometimes called the &quot;Chart Type&quot;. You can make a single series display as a Line or a Column. More display types like Area will be supported in later releases.</p>
+<p>To change the chart series, set the <code>seriesDisplayType</code> property while adding a series using <a href="/docs/dashboard/js/api/ChartComponent.html#addSeries">addSeries</a> like this:</p>
+<pre><code>    chart.addSeries (&quot;beverages&quot;, &quot;Beverages&quot;, [1355, 1916, 1150], {
+        seriesDisplayType: &#39;line&#39;
+    });
+</code></pre><p>Acceptable values are:</p>
+<ul>
+<li><code>line</code></li>
+<li><code>column</code></li>
+</ul>
+<h2 id="format-the-display-numbers">Format the display numbers</h2>
+<p>You can change the way the numbers are displayed in the series for showing currencies, percentages, etc. You can also change the way decimals, comma-separators and other aspects are handled.</p>
+<p>You can configure the the series formats numbers by setting properties in the <a href="/docs/dashboard/js/api/ChartComponent.html#addSeries">addSeries</a> function. For example, we will configure the number prefix to be a &quot;$&quot; (commonly used currency symbol) and set <code>numberForceDecimals</code> which ensures that the decimals will always be shown.</p>
+<pre><code>    chart.addSeries (&quot;packaged_foods&quot;, &quot;Packaged Foods&quot;, [1513, 976, 1321], {
+        numberPrefix: &quot;$ &quot;,
+        numberForceDecimals: true 
+    });
+</code></pre><p>For a full list of number formatting options, and how to use them, refer to <strong>Number formatting options</strong>.</p>
+<h2 id="change-series-color">Change series color</h2>
+<p>You can change the series color using the <code>seriesColor</code> property while adding a series.</p>
+<pre><code>    chart.addSeries (&quot;beverages&quot;, &quot;Beverages&quot;, [1355, 1916, 1150], {
+        seriesColor: &#39;a4c9f3&#39;
+    });
+</code></pre><h2 id="full-example">Full example</h2>
+<h2 id="example-anchor">Example Anchor</h2>
+<div id="example_anchor"></div>
+<div id="example_anchor2"></div><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a>
+    </div>
+</div>
+    
