@@ -4,9 +4,19 @@ var _ = require("underscore");
 module.exports = function(grunt) {
     // Options for builds, usually specified by 
     var opts = {
-        channel: "beta",
-        version: "unknown_version"
+        channel: grunt.option("channel") || "unstable",
+        versionNumber: grunt.option ("versionNumber") || "unstable",
+        betaNumber: grunt.option("betaNumber") || "0",
+        versionString: ""
     };
+
+    // The version string is the same as the version number. For example 1.1.3 is version
+    opts.versionString = opts.versionNumber;
+    if(opts.channel === "beta") {
+        // The name of the version will be razorflow-1.2.0-beta.2
+        opts.versionString = opts.versionString + "-beta." + opts.betaNumber;
+    }
+
 
     var JSRF_Tasks = {
         requirejs: {
@@ -92,7 +102,8 @@ module.exports = function(grunt) {
 
         },
         clean: {
-            build: "build"
+            build: "build",
+            jsrf: ["build/assets"]
         },
         screenshotGen: {
             jsExamples: {
@@ -135,6 +146,52 @@ module.exports = function(grunt) {
                 js: "jsrf/src/js/prop/properties.js",
                 php: "wrappers/phprf/src/lib/core/Properties.php"
             } 
+        },
+        file_append: {
+            jsrf_version: {
+                files: {
+                    "build/assets/js/razorflow.min.js": {
+                        append: "\n\nwindow.__rfVersion={channel:\""+opts.channel+"\", version:\""+opts.versionNumber+"\"};\n\n"
+                    }
+                }
+            }
+        },
+        versionWriter: {
+            options: {
+                versionJSON: "tools/config/version.json",
+                versionPHP: "website/src/version.php",
+                opts: opts
+
+            }
+        },
+        s3: {
+            options: {
+                key: 'AKIAIUKBV2KPXI6GM43A',
+                secret: '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',
+                bucket: 'download_bucket',
+                access: 'public-read',
+                headers: {
+                    // Two Year cache policy (1000 * 60 * 60 * 24 * 730)
+                    "Cache-Control": "max-age=630720000, public",
+                    "Expires": new Date(Date.now() + 63072000000).toUTCString()
+                }
+            },
+            upload_package: {
+                // These options override the defaults
+                options: {
+                    encodePaths: true,
+                    maxOperations: 20
+
+                },
+                // Files to be uploaded.
+                upload: [
+                    {
+                        // Move everything in the packages folder to 
+                        src: "build/packages/*",
+                        dest: opts.versionString + "/"
+                    }
+                ]
+            }
         }
     };
 
@@ -224,7 +281,7 @@ module.exports = function(grunt) {
     function createPackagesForVersion (version) {
         JSRF_Tasks.exec.php_readme_gen = {
             cmd: "php genreadmes.php " + version,
-            stdout: true,
+            // stdout: true, // Set this to true to debug genreadmes
             cwd: "tools/licenses/generator"
         }
         addPackageWithLicense(version, "developer");
@@ -236,15 +293,16 @@ module.exports = function(grunt) {
         addPackageWithLicense(version, "corporate_devdirect");
     };
 
-    createPackagesForVersion("1.0.1");
+    createPackagesForVersion(opts.versionString);
 
     grunt.registerTask("makePackage", ["exec:php_readme_gen", "packman"])
     grunt.registerTask("jsrf:compile", []);
-    grunt.registerTask("build:jsrf", ["jst:jsrf", "requirejs", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
+    grunt.registerTask("build:jsrf", ["clean:jsrf", "jst:jsrf", "requirejs", "file_append:jsrf_version", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
+    grunt.registerTask("build:examples", ["copyto:examples"]);
     grunt.registerTask("build:phprf", ["packman:php_build"]);
     grunt.registerTask("build", ["build:jsrf", "build:phprf"]);
     grunt.registerTask("package", ["clean:build", "build", "makePackage"]);
-    grunt.registerTask("build:examples", ["copyto:examples"]);
+    grunt.registerTask("upload", ["s3:upload_package"]);
 
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -253,6 +311,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-file-append');
+    grunt.loadNpmTasks('grunt-s3');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadTasks ('./tools/grunt-tasks/');
     grunt.initConfig (JSRF_Tasks);
