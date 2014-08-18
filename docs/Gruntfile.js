@@ -10,9 +10,10 @@
         tocGen: {    
             options: {
                 toc: 'config/toc.json',
+                apiMeta: 'generated/apiMeta.json',
                 articlesDir: './src/content/js/guide/components/chart',
-                apiPrefix: "/docs/dashboard/js/api",
-                articlesPrefix: "",
+                apiPrefix: "/docs/dashboard/js/api/",
+                articlesPrefix: "/docs/dashboard/js/",
                 suffix: "html",
                 out: 'generated/toc.html'
             }
@@ -20,12 +21,45 @@
         api: {
             options: {
                 src: "generated/apiMeta.json",
-                toc: 'config/toc.json',
+                toc: 'generated/toc.html',
                 outPath: "build/docs/dashboard/js/api",
                 relativeLinkPath: "/docs/dashboard/js/api",
                 linkPrefix: "",
                 suffix: "html",
                 apiTemplates: "src/templates/default/api_templates"
+            }
+        },
+        articles: {
+            options: {
+                toc: 'generated/toc.html',
+                tocTree: 'config/toc.json',
+                articles: {
+                    root: 'src/content/js/guide/components/chart',
+                    imagesLocalPath: 'src/images',
+                    imagesRelativePath: "js/_images/",
+                    imagesPhysicalPath: "../newsite/src/docs/dashboard/js/_images/"
+                },
+                constantsPath: '../jsrf/tools/config/props.json',
+                partialsPath: 'src/partials',
+                examples: {
+                    src: "../examples/src/js/examples",
+                    srcSuffix: ".js",
+                    imagePrefix: "http://examples.razorflow.com/static/exampleImages/js/examples/",
+                    imageSuffix: ".png",
+                    thumbPrefix: "http://examples.razorflow.com/static/exampleImages/js/examples/",
+                    thumbSuffix: ".png",
+                    livePrefix: "http://examples.razorflow.com/dashboard/js/examples/",
+                    liveSuffix: ""
+                },
+                api: {
+                    linkPrefix: '/docs/dashboard/js/api/',
+                    meta: 'generated/apiMeta.json'
+                },
+                linkPrefix: "/docs/dashboard/js/",
+                out: "build/docs/dashboard/js/",
+                suffix: "html",
+                articleTemplates: "src/templates/default/article_templates",
+                topBarTitle: 'JavaScript Documentation'
             }
         },
         razordoc: {
