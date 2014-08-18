@@ -128,6 +128,13 @@ module.exports = function(grunt) {
             out: "website/src/static/transfer/build/js/rfDemos.js",
             outCode: "website/src/static/transfer/build/js/rfDemoCode.js"
           }
+        },
+        genProps: {
+            configPath: "tools/config/props.json",
+            outPaths: {
+                js: "jsrf/src/js/prop/properties.js",
+                php: "wrappers/phprf/src/lib/core/Properties.php"
+            } 
         }
     };
 
