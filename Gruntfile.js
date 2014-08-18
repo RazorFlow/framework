@@ -4,9 +4,19 @@ var _ = require("underscore");
 module.exports = function(grunt) {
     // Options for builds, usually specified by 
     var opts = {
-        channel: "beta",
-        version: "unknown_version"
+        channel: grunt.option("channel", "unstable") ,
+        versionNumber: grunt.option ("version", "unstable"),
+        betaNumber: grunt.option("betaNumber", "0") ,
+        versionString: ""
     };
+
+    // The version string is the same as the version number. For example 1.1.3 is version
+    opts.versionString = opts.versionNumber;
+    if(opts.channel = "beta") {
+        // The name of the version will be razorflow-1.2.0-beta.2
+        opts.versionString = opts.versionString + "-beta." + opts.betaNumber;
+    }
+
 
     var JSRF_Tasks = {
         requirejs: {
@@ -92,7 +102,8 @@ module.exports = function(grunt) {
 
         },
         clean: {
-            build: "build"
+            build: "build",
+            jsrf: ["build/assets"]
         },
         screenshotGen: {
             jsExamples: {
@@ -135,6 +146,15 @@ module.exports = function(grunt) {
                 js: "jsrf/src/js/prop/properties.js",
                 php: "wrappers/phprf/src/lib/core/Properties.php"
             } 
+        },
+        file_append: {
+            jsrf_version: {
+                files: {
+                    "build/assets/js/razorflow.min.js": {
+                        append: "\n\nwindow.__rfVersion={channel:\""+opts.channel+"\", version:\""+opts.versionNumber+"\"};\n\n"
+                    }
+                }
+            }
         }
     };
 
@@ -240,7 +260,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("makePackage", ["exec:php_readme_gen", "packman"])
     grunt.registerTask("jsrf:compile", []);
-    grunt.registerTask("build:jsrf", ["jst:jsrf", "requirejs", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
+    grunt.registerTask("build:jsrf", ["clean:jsrf", "jst:jsrf", "requirejs", "file_append:jsrf_version", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
     grunt.registerTask("build:phprf", ["packman:php_build"]);
     grunt.registerTask("build", ["build:jsrf", "build:phprf"]);
     grunt.registerTask("package", ["clean:build", "build", "makePackage"]);
@@ -253,6 +273,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-copy-to');
+    grunt.loadNpmTasks('grunt-file-append');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadTasks ('./tools/grunt-tasks/');
     grunt.initConfig (JSRF_Tasks);
