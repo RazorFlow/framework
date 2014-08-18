@@ -130,11 +130,14 @@ module.exports = function(grunt) {
           }
         },
         genProps: {
-            configPath: "tools/config/props.json",
-            outPaths: {
-                js: "jsrf/src/js/prop/properties.js",
-                php: "wrappers/phprf/src/lib/core/Properties.php"
-            } 
+            options: {
+                configPath: "tools/config/props.json",
+                outPaths: {
+                    js: "jsrf/src/js/prop/properties.js",
+                    php: "wrappers/phprf/src/lib/core/Properties.php"
+                },
+                templatePath: "tools/grunt-tasks/templates/genprops" 
+            }
         }
     };
 

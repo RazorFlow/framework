@@ -1,0 +1,10 @@
+function <%= name %>() {
+  <%= base %>.call(this);
+
+  this.register({
+    <%- propValueStrings %>
+  });
+}
+exports.<%= name %> = <%= name %>;
+
+
