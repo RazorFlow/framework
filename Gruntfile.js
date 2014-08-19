@@ -94,6 +94,15 @@ module.exports = function(grunt) {
                     'php_mvc/rfci/application/rf/'
                 ], function(val){ return {cwd:"build/assets/", src:"**/*", dest:"examples/apps/"+val};  }))
             },
+            website: {
+                files: [
+                    {cwd: "build/assets/", src:["**/*"], dest: "website/src/static/transfer/build/"},
+                    {cwd: "examples/static/fixtures/", src:["*.*"], dest: "website/src/static/fixtures/"},
+                    {cwd: "examples/static/fixtures/databases/", src:[""], dest: "website/src/static/fixtures/"},
+                    {cwd: 'wrappers/phprf/build/packages/minified/', src: ["**/*.*"], dest: 'transfer/build/'},
+                    {cwd: '../../../examples/src/php/tour/', src: ["*.*"], dest: 'transfer/build/tour/'}
+                ]
+            }
         },
         packman: {
 
