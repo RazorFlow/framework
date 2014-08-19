@@ -161,7 +161,6 @@ module.exports = function(grunt) {
                 versionJSON: "tools/config/version.json",
                 versionPHP: "website/src/version.php",
                 opts: opts
-
             }
         },
         s3: {
@@ -301,7 +300,7 @@ module.exports = function(grunt) {
     grunt.registerTask("build:examples", ["copyto:examples"]);
     grunt.registerTask("build:phprf", ["packman:php_build"]);
     grunt.registerTask("build", ["build:jsrf", "build:phprf"]);
-    grunt.registerTask("package", ["clean:build", "build", "makePackage"]);
+    grunt.registerTask("package", ["clean:build", "build", "makePackage", "versionWriter"]);
     grunt.registerTask("upload", ["s3:upload_package"]);
 
 
