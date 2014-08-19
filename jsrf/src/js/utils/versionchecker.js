@@ -1,10 +1,14 @@
-define (['utils/rflogger', 'utils/rfnotification'], function (RFLogger, RFNotification) {
+define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], function (RFLogger, RFNotification, DebugConstants) {
+
+  // window.__rfVersion = {channel: "stable", version: "0.0.9"};
 
   var currentVersion;
   var betaVersionRunning;
   var versionRunning = window.__rfVersion;
-  var updateURL = "http://localhost:8089/update/check.php";
+  var updateURL = DebugConstants.checkScriptURL;;
   var defaultLicense = "dev";
+  var callbackMethod = "rf.jsonp.versionCheckCallback";
+
 
   var versionChecker = {
 
@@ -21,9 +25,9 @@ define (['utils/rflogger', 'utils/rfnotification'], function (RFLogger, RFNotifi
 
   var check = function() {
     if(olderVersion()) {
-      window.localStorage.setItem('last_checked', new Date());
-      window.localStorage.setItem('user_id', currentVersion.user_id);
-      var upgrade_url = 'http://razorflow.com/upgrade';
+      window.localStorage.setItem('__rf_update_last_checked', new Date());
+      window.localStorage.setItem('__rf_update_user_id', currentVersion.user_id);
+      var upgrade_url = getUpgradeURL();
       RFNotification.create("<a href='" + upgrade_url + "' target='_BLANK' style='color: #FFF;'>You are using an older version of RazorFlow. Click here to update.</a>", null, null, true);
       rf.logger.log('You are using an older version of RazorFlow!');
     }
@@ -34,12 +38,13 @@ define (['utils/rflogger', 'utils/rfnotification'], function (RFLogger, RFNotifi
 
   var getVersion = function() {
     if(isVersionCheckable()) {
-      var user_id = localStorage.getItem('user_id');
-      var version_check_url = updateURL + "?v=" + versionRunning.version + "&l=" + defaultLicense + "&c=" + versionRunning.channel + "&id=" + user_id;
+      var user_id = localStorage.getItem('__rf_update_user_id');
+      var version_check_url = updateURL + "?v=" + versionRunning.version + "&l=" + defaultLicense + "&c=" + versionRunning.channel + "&id=" + user_id + "&callback=" + callbackMethod;
       $.ajax({
         type: 'get',
         dataType: 'jsonp',
-        url: version_check_url
+        url: version_check_url,
+        jsonp: false
       });
     }
     else {
@@ -49,7 +54,7 @@ define (['utils/rflogger', 'utils/rfnotification'], function (RFLogger, RFNotifi
 
   var isVersionCheckable = function() {
     if(window.localStorage) {
-      var last_checked = window.localStorage.getItem('last_checked')
+      var last_checked = window.localStorage.getItem('__rf_update_last_checked')
 
       if(last_checked === null) {
         return true;
@@ -86,7 +91,7 @@ define (['utils/rflogger', 'utils/rfnotification'], function (RFLogger, RFNotifi
     }
 
     return false;
-  }
+  };
 
   var isBetaVersion = function() {
     if(versionRunning.channel === 'beta') {
@@ -94,7 +99,17 @@ define (['utils/rflogger', 'utils/rfnotification'], function (RFLogger, RFNotifi
     }
 
     return false;
-  }
+  };
+
+  var getUpgradeURL = function() {
+    var channel = versionRunning.channel,
+        version = versionRunning.version,
+        latest = (isBetaVersion() ? currentVersion.beta.versionNumber : currentVersion.stable.versionNumber);
+
+    debugger
+
+    return DebugConstants.upgradeURL + "?channel=" + channel + "&version=" + version + "&latest=" + latest;
+  };
 
   return versionChecker;
 

@@ -1,7 +1,8 @@
 define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker'], function(RFLogger, RFNotification, RFVersionChecker) {
     if(window.rf) {
         rf.logger = RFLogger;
-        rf.rfVersionCallback = RFVersionChecker.versionCallback;
+        rf.jsonp = {};
+        rf.jsonp.versionCheckCallback = RFVersionChecker.versionCallback;
     }
     RFLogger.init();
 

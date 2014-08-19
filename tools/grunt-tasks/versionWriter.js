@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     // Now write the version.php file
     contents = "<?php \n" + 
         "global $rfVersion; \n" + 
-        "$rfVersion = json_decode(\'"+JSON.stringify(currentVersion)+"\');\n";
+        "$rfVersion = json_decode(\'"+JSON.stringify(currentVersion)+"\', true);\n";
     grunt.log.writeln (contents);
     grunt.file.write (data.versionPHP, contents);
   });
