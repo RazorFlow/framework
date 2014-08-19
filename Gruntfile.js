@@ -96,11 +96,13 @@ module.exports = function(grunt) {
             },
             website: {
                 files: [
-                    {cwd: "build/assets/", src:["**/*"], dest: "website/src/static/transfer/build/"},
+                    {cwd: "build/assets/", src: ["css/*.css", "js/*.js", "img/*"], dest: "website/src/static/transfer/build/"},
                     {cwd: "examples/static/fixtures/", src:["*.*"], dest: "website/src/static/fixtures/"},
-                    {cwd: "examples/static/fixtures/databases/", src:[""], dest: "website/src/static/fixtures/"},
-                    {cwd: 'wrappers/phprf/build/packages/minified/', src: ["**/*.*"], dest: 'transfer/build/'},
-                    {cwd: '../../../examples/src/php/tour/', src: ["*.*"], dest: 'transfer/build/tour/'}
+                    {cwd: "examples/static/fixtures/databases/", src: ["Northwind.sqlite"], dest: "website/src/static/fixtures/"},
+                    {cwd: 'wrappers/phprf/build/packages/minified/', src: ["**/*.*"], dest: 'website/src/static/transfer/build/'},
+                    {cwd: "build/php/razorflow_php/", src: ["**/*.*"], dest: "website/src/static/transfer/build/razorflow_php/"},
+                    {cwd: 'examples/src/php/tour/', src: ["*.*"], dest: 'website/src/static/transfer/build/tour/'},
+                    {cwd: 'website/src/storage/sample_db/', src: ["razorflow.sqlite"], dest: 'website/src/storage/database/'}
                 ]
             }
         },
@@ -311,7 +313,9 @@ module.exports = function(grunt) {
     grunt.registerTask("build:jsrf", ["clean:jsrf", "jst:jsrf", "requirejs", "file_append:jsrf_version", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
     grunt.registerTask("build:examples", ["copyto:examples"]);
     grunt.registerTask("build:phprf", ["packman:php_build"]);
-    grunt.registerTask("build", ["build:jsrf", "build:phprf"]);
+    grunt.registerTask("build:code", ["build:jsrf", "build:phprf"]);
+    grunt.registerTask("build:website", ["build:code", "copyto:website"])
+    grunt.registerTask("build", ["build:code", "build:website"]);
     grunt.registerTask("package", ["clean:build", "build", "makePackage", "versionWriter"]);
     grunt.registerTask("upload", ["s3:upload_package"]);
 
