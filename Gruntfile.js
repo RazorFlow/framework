@@ -140,13 +140,6 @@ module.exports = function(grunt) {
             outCode: "website/src/static/transfer/build/js/rfDemoCode.js"
           }
         },
-        genProps: {
-            configPath: "tools/config/props.json",
-            outPaths: {
-                js: "jsrf/src/js/prop/properties.js",
-                php: "wrappers/phprf/src/lib/core/Properties.php"
-            } 
-        },
         file_append: {
             jsrf_version: {
                 files: {
@@ -190,6 +183,16 @@ module.exports = function(grunt) {
                         dest: opts.versionString + "/"
                     }
                 ]
+            }
+        },
+        genProps: {
+            options: {
+                configPath: "tools/config/props.json",
+                outPaths: {
+                    js: "jsrf/src/js/prop/properties.js",
+                    php: "wrappers/phprf/src/lib/core/Properties.php"
+                },
+                templatePath: "tools/grunt-tasks/templates/genprops" 
             }
         }
     };

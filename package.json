@@ -20,6 +20,7 @@
     "grunt-s3": "^0.2.0-alpha.3",
     "lodash": "^2.4.1",
     "underscore": "^1.6.0",
-    "url-to-screenshot": "^0.4.1"
+    "url-to-screenshot": "^0.4.1",
+    "ejs": "^1.0.0"
   }
 }

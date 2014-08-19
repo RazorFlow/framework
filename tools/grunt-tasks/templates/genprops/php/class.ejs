@@ -1,0 +1,11 @@
+class <%= name %> extends <%= base %> {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+      <%- propValueStrings %>
+    ));
+  }
+  
+}
