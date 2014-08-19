@@ -106,7 +106,6 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
         version = versionRunning.version,
         latest = (isBetaVersion() ? currentVersion.beta.versionNumber : currentVersion.stable.versionNumber);
 
-    debugger
 
     return DebugConstants.upgradeURL + "?channel=" + channel + "&version=" + version + "&latest=" + latest;
   };
