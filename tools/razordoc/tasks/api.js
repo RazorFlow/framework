@@ -18,7 +18,9 @@ module.exports = function (grunt) {
         var ext = options.suffix;
         var outputPath = path.resolve(configDir, options.outPath);
         var tree = JSON.parse(fs.readFileSync (apiMeta, 'utf-8'));
+        var constantsPath = path.resolve (configDir, options.constantsPath);
+        var constantsObj = JSON.parse (fs.readFileSync (constantsPath, 'utf-8'));
         tree = objectifyTree(tree);
-        apiGen.generate(tree, templateDir, outPath, ext, true, {}, {}, {}, '', options, toc);
+        apiGen.generate(tree, templateDir, outPath, ext, true, {}, {}, constantsObj, '', options, toc);
     });
 };

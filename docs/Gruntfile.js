@@ -49,7 +49,8 @@
                     suffix: "php",
                     apiTemplates: "src/templates/razorflow_dotcom/api_templates",
                     topBarTitle: 'JavaScript Documentation',
-                    langUrl: '/docs/dashboard/js'
+                    langUrl: '/docs/dashboard/js',
+                    constantsPath: '../tools/config/props.json'
                 }
             },
             php: {
@@ -62,7 +63,8 @@
                     suffix: "php",
                     apiTemplates: "src/templates/razorflow_dotcom/api_templates",
                     topBarTitle: 'PHP Documentation',
-                    langUrl: '/docs/dashboard/php'
+                    langUrl: '/docs/dashboard/php',
+                    constantsPath: '../tools/config/props.json'
                 }
             }
         },
