@@ -76,10 +76,10 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
     var versionCheck;
 
     if(isBetaVersion()) {
-      versionCheck = validateVersion(currentVersion.beta.versionNumber, versionRunning.version);
+      versionCheck = validateVersion(currentVersion.beta.versionString, versionRunning.version);
     }
     else {
-      versionCheck = validateVersion(currentVersion.stable.versionNumber, versionRunning.version);
+      versionCheck = validateVersion(currentVersion.stable.versionString, versionRunning.version);
     }
 
     return !versionCheck;
