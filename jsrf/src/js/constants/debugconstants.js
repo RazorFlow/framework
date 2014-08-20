@@ -2,8 +2,8 @@ define([], function () {
 
   var constants = {
 
-    checkScriptURL: 'http://razorflow.com/update/check.php',
-    upgradeURL: 'http://razorflow.com/update'
+    checkScriptURL: 'http://next.razorflow.com/update/check.php',
+    upgradeURL: 'http://next.razorflow.com/update'
 
   };
 
