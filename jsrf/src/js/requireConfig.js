@@ -21,7 +21,12 @@
         shim: clone(shim),
         baseUrl: "jsrf/src/js",
         name: "buildutils/almond",
-        optimize:"none"
+        preserveLicenseComments: false,
+        optimize: "uglify2",
+        uglify2: {
+            mangle: true
+        }
+        // optimize:"none"
     };
 
     global.core = extend(requireDefaults, {

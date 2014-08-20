@@ -14,9 +14,13 @@
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-copy-to": "0.0.10",
     "grunt-exec": "^0.4.6",
+    "grunt-file-append": "0.0.4",
+    "grunt-file-creator": "^0.1.1",
     "grunt-lib-contrib": "^0.7.1",
+    "grunt-s3": "^0.2.0-alpha.3",
     "lodash": "^2.4.1",
     "underscore": "^1.6.0",
-    "url-to-screenshot": "^0.4.1"
+    "url-to-screenshot": "^0.4.1",
+    "ejs": "^1.0.0"
   }
 }

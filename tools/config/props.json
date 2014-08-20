@@ -259,7 +259,7 @@
                 "type": "Number",
                 "default": 99999,
                 "shortDesc": "The position in a dashboard"
-            },
+            }
         }
     },
     "BreadCrumbProperties": {
