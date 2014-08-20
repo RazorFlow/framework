@@ -156,6 +156,9 @@ module.exports = function(grunt) {
                 files: {
                     "build/assets/js/razorflow.min.js": {
                         append: "\n\nwindow.__rfVersion={channel:\""+opts.channel+"\", version:\""+opts.versionNumber+"\"};\n\n"
+                    },
+                    "build/assets/js/razorflow.wrapper.min.js": {
+                        append: "\n\nwindow.__rfVersion={channel:\""+opts.channel+"\", version:\""+opts.versionNumber+"\"};\n\n"
                     }
                 }
             }
