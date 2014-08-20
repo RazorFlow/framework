@@ -27,7 +27,7 @@ function addAPINav (articles, apiMeta, apiPrefix) {
 }
 
 function constructTOC (tocTree) {
-    var html = '<ul>';
+    var html = '<ul id="docTree" class="rf-tree docTree">';
     for(var i=-1; ++i<tocTree.length;) {
         html += '<li>' + toc(tocTree[i]) + '</li>';
     }
@@ -75,7 +75,7 @@ function linkArticle (article, title) {
 }
 
 function linkApi (article) {
-    return '<a href="' + article.path + '">' + article.title + '<a/>';
+    return '<a href="' + article.path + '">' + article.title + '</a>';
 }
 
 function folderWalker(dirArray, dirPath, articles, rootPath) {

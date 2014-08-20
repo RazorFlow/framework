@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Creating a standalone dashboard",
-    "id": "create_standalone",
-    "index": 0
-}
-</meta>
+--
+title: "Creating a standalone dashboard"
+id: "create_standalone"
+index: 0
+--
+
 
 ### Create a dashboard from the included dashboard template
 

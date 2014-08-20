@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "A DrillDown SQL Dashboard with PHP",
-  "subtitle": "",
-  "id": "php_sql_breadcrumbs",
-  "index": 1
-}
-</meta>
+--
+title: "A DrillDown SQL Dashboard with PHP"
+subtitle: ""
+id: "php_sql_breadcrumbs"
+index: 1
+--
+
 
 ## See a live demo of this example
 

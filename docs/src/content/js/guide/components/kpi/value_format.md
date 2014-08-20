@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Customizing KPI Display value",
-	"subtitle": "",
-	"id": "value_format",
-	"index": 1
-}
-</meta>
+--
+title: "Customizing KPI Display value"
+subtitle: ""
+id: "value_format"
+index: 1
+--
+
 
 ### Formatting the number
 

@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Add components to your dashboard",
-    "subtitle": "",
-    "id": "add_components",
-    "index": 1
-}
-</meta>
+--
+title: "Add components to your dashboard"
+subtitle: ""
+id: "add_components"
+index: 1
+--
+
 
 {{ anchor("component_object", "What is a component object?") }}
 ### What is a component object?

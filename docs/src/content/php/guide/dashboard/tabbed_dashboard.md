@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Create a Tabbed Dashboard",
-    "id": "php_create_tabbed",
-    "index": 4
-}
-</meta>
+--
+title: "Create a Tabbed Dashboard"
+id: "php_create_tabbed"
+index: 4
+--
+
 
 ### What is a Tabbed Dashboard?
 A Tabbed Dashboard allows you to separate dashboards by tabs.

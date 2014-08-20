@@ -1,10 +1,9 @@
-<meta>
-{
-  "title": "Web Application Patterns",
-  "subtitle": "",
-  "id": "js_patterns_webapp_index"
-}
-</meta>
+--
+title: "Web Application Patterns"
+subtitle: ""
+id: "js_patterns_webapp_index"
+--
+
 
 ## Common Web Application Patterns
 

@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Getting Started with the form component",
-	"subtitle": "",
-	"index": 1,
-	"id": "php_form_configure"
-}
-</meta>
+--
+title: "Getting Started with the form component"
+subtitle: ""
+index: 1
+id: "php_form_configure"
+--
+
 ### Add a field component to the dashboard
 
 You can add a field component to the dashboard by creating an instance of the {{ linkApi("php", "FormComponent", "") }} object in your code.

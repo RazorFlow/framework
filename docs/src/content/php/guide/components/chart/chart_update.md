@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Updating chart data",
-    "subtitle": "",
-    "index": 4,
-    "id": "php_chart_update"
-}
-</meta>
+--
+title: "Updating chart data"
+subtitle: ""
+index: 4
+id: "php_chart_update"
+--
+
 
 ## In place update
 

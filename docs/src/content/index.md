@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Documentation",
-    "subtitle": "",
-    "index": 0,
-    "id": "doc_root"
-}
-</meta>
+--
+title: "Documentation"
+subtitle: ""
+index: 0
+id: "doc_root"
+--
+
 
 <div class="container">
 <div class="row">

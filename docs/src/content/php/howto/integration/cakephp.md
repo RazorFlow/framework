@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "Embedding into CakePHP MVC App",
-  "subtitle": "",
-  "id": "php_cakephp",
-  "index": 0
-}
-</meta>
+--
+title: "Embedding into CakePHP MVC App"
+subtitle: ""
+id: "php_cakephp"
+index: 0
+--
+
 
 ### See the finished version
 

@@ -5,19 +5,19 @@ Some charts with a Y Axis can be configured. The aspects of the Y Axis that can 
 
 To do this, you will need to use the {{ linkApi("{%=lang%}", "ChartComponent", "setYAxis") }} function.
 
-{% if(lang === 'js') { %}
+<% if(lang === 'js') { %>
 ~~~
     chart.setYAxis("Sales", {
         numberPrefix: "$ "
     });
 ~~~
-{% } else if(lang === 'php') { %}
+<% } else if(lang === 'php') { %>
 ~~~
     $chart->setYAxis("Sales", array(
       "numberPrefix" => "$"
     ));
 ~~~
-{% } %}
+<% } %>
 
 
 1. The first parameter is the name of the Y Axis

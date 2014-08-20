@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Gauge Component",
-    "subtitle": "",
-    "id":"gauge_guide"
-}
-</meta>
+--
+title: "Gauge Component"
+subtitle: ""
+id: "gauge_guide"
+--
+
 
 ### Basic usage
 

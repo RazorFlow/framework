@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "A simple SQL Dashboard with PHP",
-  "subtitle": "",
-  "id": "php_sql_simple",
-  "index": 0
-}
-</meta>
+--
+title: "A simple SQL Dashboard with PHP"
+subtitle: ""
+id: "php_sql_simple"
+index: 0
+--
+
 
 ## See a live demo of this example
 

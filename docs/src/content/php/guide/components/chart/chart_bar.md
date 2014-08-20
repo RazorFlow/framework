@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Bar Charts",
-    "subtitle": "",
-    "index": 7,
-    "id": "php_chart_bar"
-}
-</meta>
+--
+title: "Bar Charts"
+subtitle: ""
+index: 7
+id: "php_chart_bar"
+--
+
 
 ### Bar Charts
 

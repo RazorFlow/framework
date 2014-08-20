@@ -5,7 +5,7 @@ var _ = require('underscore');
 var apiGen = require('../src/apiGen');
 
 module.exports = function (grunt) {
-    grunt.registerTask ('apiMeta', 'Generates api doc meta file', function () {
+    grunt.registerMultiTask ('apiMeta', 'Generates api doc meta file', function () {
         grunt.log.writeln ("Starting RazorDoc...");
         var configDir = process.cwd ();
         var options = this.options ({});

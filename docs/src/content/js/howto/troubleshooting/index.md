@@ -1,8 +1,7 @@
-<meta>
-{
-  "title": "Troubleshooting",
-  "subtitle": "",
-  "id": "troubleshooting_index"
-}
-</meta>
+--
+title: "Troubleshooting"
+subtitle: ""
+id: "troubleshooting_index"
+--
+
 

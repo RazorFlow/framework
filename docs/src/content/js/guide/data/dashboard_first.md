@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Configure dashboard first and fetch data next",
-	"subtitle": "",
-	"index": 2,
-	"id": "dashboard_first"
-}
-</meta>
+--
+title: "Configure dashboard first and fetch data next"
+subtitle: ""
+index: 2
+id: "dashboard_first"
+--
+
 
 To display data in a dashboard you must first fetch it from a web server by using a HTTP AJAX request. Once the data has been fetched, you can use the RazorFlow Dashboard Framework API to define and build the dashboard. The summarized steps for this are:
 

@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Basic ChartComponent Functionality",
-	"subtitle": "",
-  "index": 1,
-  "id": "php_chart_basic"
-}
-</meta>
+--
+title: "Basic ChartComponent Functionality"
+subtitle: ""
+index: 1
+id: "php_chart_basic"
+--
+
 
 Here is an example chart component:
 

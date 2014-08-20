@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Common component concepts",
-	"subtitle": "",
-	"id":"common_guide"
-}
-</meta>
+--
+title: "Common component concepts"
+subtitle: ""
+id: "common_guide"
+--
+
 
 ### Basics
 

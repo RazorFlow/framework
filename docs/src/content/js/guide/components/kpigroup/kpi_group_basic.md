@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "Getting Started with KPI Group Component",
-  "subtitle": "",
-  "id": "kpi_group_basic",
-  "index": 0
-}
-</meta>
+--
+title: "Getting Started with KPI Group Component"
+subtitle: ""
+id: "kpi_group_basic"
+index: 0
+--
+
 
 ### Adding a KPI Group Component to the dashboard
 

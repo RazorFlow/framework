@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Component KPIs",
-	"subtitle": "",
-	"id":"js_component_kpis",
-	"index": 2
-}
-</meta>
+--
+title: "Component KPIs"
+subtitle: ""
+id: "js_component_kpis"
+index: 2
+--
+
 
 {{ anchor("componentKPI", "Component KPIs") }}
 

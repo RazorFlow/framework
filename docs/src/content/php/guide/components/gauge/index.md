@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Gauge Component",
-    "subtitle": "",
-    "id":"php_gauge_guide"
-}
-</meta>
+--
+title: "Gauge Component"
+subtitle: ""
+id: "php_gauge_guide"
+--
+
 
 ### Basic usage
 

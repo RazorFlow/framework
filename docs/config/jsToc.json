@@ -1,0 +1,248 @@
+[
+    {
+        "id": "js_guide_root",
+        "children": [
+            {
+                "id": "components_index",
+                "children": [
+                    {
+                        "id": "chart_guide",
+                        "children": [
+                            {
+                                "id": "chart_basic"
+                            },
+                            {
+                                "id": "series_config"
+                            },
+                            {
+                                "id": "chart_yaxis"
+                            },
+                            {
+                                "id": "chart_update"
+                            },
+                            {
+                                "id": "chart_event_click"
+                            },
+                            {
+                                "id": "chart_series_stacked"
+                            },
+                            {
+                                "id": "chart_bar"
+                            },
+                            {
+                                "id": "dual_axis"
+                            },
+                            {
+                                "id": "chart_drilldown"
+                            },
+                            {
+                                "id": "chart_drill_into_modal"
+                            },
+                            {
+                                "id": "chart_config"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "common_guide",
+                        "children": [
+                            {
+                                "id": "number_formatting"
+                            },
+                            {
+                                "id": "js_component_kpis"
+                            },
+                            {
+                                "id": "component_layout"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "form_guide",
+                        "children": [
+                            {
+                                "id": "form_configure"
+                            },
+                            {
+                                "id": "form_getvalues"
+                            },
+                            {
+                                "id": "form_submit_event"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "gauge_guide",
+                        "children": [
+                            {
+                                "id": "gauge_basic"
+                            },
+                            {
+                                "id": "gauge_update"
+                            }
+                        ]
+
+                    },
+                    {
+                        "id": "kpi_guide",
+                        "children": [
+                            {
+                                "id": "kpi_basic"
+                            },
+                            {
+                                "id": "value_format"
+                            },
+                            {
+                                "id": "kpi_whatis"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kpi_group_guide",
+                        "children": [
+                            {
+                                "id": "kpi_group_basic"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "kpi_table_guide",
+                        "children": [
+                            {
+                                "id": "kpi_table_basic"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "table_guide",
+                        "children": [
+                            {
+                                "id": "table_add_data"
+                            },
+                            {
+                                "id": "table_format_values"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "dashboard_guide",
+                "children": [
+                    {
+                        "id": "create_standalone"
+                    },
+                    {
+                        "id": "add_components"
+                    },
+                    {
+                        "id": "arrange_components"
+                    },
+                    {
+                        "id": "standalone_vs_embedded"
+                    },
+                    {
+                        "id": "webframework_standalone"
+                    },
+                    {
+                        "id": "js_create_embedded"
+                    },
+                    {
+                        "id": "create_tabbed"
+                    },
+                    {
+                        "id": "embed_tabbed"
+                    },
+                    {
+                        "id": "dashboard_deploy"
+                    }
+                ]
+            },
+            {
+                "id": "data_guide",
+                "children": [
+                    {
+                        "id": "lock_and_unlock"
+                    },
+                    {
+                        "id": "dashboard_first"
+                    },
+                    {
+                        "id": "prefetch_data"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "howto_index",
+        "children": [
+            {
+                "id" : "patterns_index",
+                "children": [
+                    {
+                        "id": "js_patterns_webapp_index",
+                        "children": [
+                            {
+                                "id": "js_pattern_authentication"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "server_index",
+                "children": [
+                    {
+                        "id": "php_index",
+                        "children": [
+                            {
+                                "id": "php_simple"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "troubleshooting_index",
+                "children": [
+                    {
+                        "id": "js_debug"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Javascript API Reference",
+        "children": [
+            {
+                "id": "Component"
+            },
+            {
+                "id": "ChartComponent"
+            },
+            {
+                "id": "FormComponent"
+            },
+            {
+                "id": "GaugeComponent"
+            },
+            {
+                "id": "KPIComponent"
+            },
+            {
+                "id": "KPIGroupComponent"
+            },
+            {
+                "id": "KPITableComponent"
+            },
+            {
+                "id": "MultiKPIComponent"
+            },
+            {
+                "id": "TableComponent"
+            }
+        ]
+    }
+]

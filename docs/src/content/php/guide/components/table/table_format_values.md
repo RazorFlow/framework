@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Column formatting",
-	"subtitle": "",
-	"id": "php_table_format_values",
-	"index": 2
-}
-</meta>
+--
+title: "Column formatting"
+subtitle: ""
+id: "php_table_format_values"
+index: 2
+--
+
 
 ## Column formatting
 

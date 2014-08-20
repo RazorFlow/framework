@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Number Formatting",
-	"subtitle": "",
-	"id":"number_formatting",
-	"index": 1
-}
-</meta>
+--
+title: "Number Formatting"
+subtitle: ""
+id: "number_formatting"
+index: 1
+--
+
 
 {{ anchor("numberFormatting", "Number Formatting Parameters") }}
 

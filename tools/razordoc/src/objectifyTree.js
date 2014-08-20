@@ -29,7 +29,6 @@ var treeObject = {
                 return cls;
             }
         }
-        console.log(name);
         return null;
     },
     hasClass: function(classname) {

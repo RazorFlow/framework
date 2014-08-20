@@ -1,10 +1,9 @@
-<meta>
-{
-  "title": "Building dashboards with PHP",
-  "subtitle": "",
-  "id": "php_index"
-}
-</meta>
+--
+title: "Building dashboards with PHP"
+subtitle: ""
+id: "php_index"
+--
+
 
 ### Basics
 

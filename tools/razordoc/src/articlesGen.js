@@ -24,9 +24,14 @@ var preprocessHelpers = {
     linkApi: function (){},
     embedExample: function (){},
     ref: function () {},
-    notice: function() {}
+    notice: function() {},
+    image: function () {}
 };
 var errors = [];
+var options;
+var articleTemplatesDir;
+var examplesImagesDir;
+var imagesPath;
 
 var processHelpers = {
     anchor: function (id, title) {
@@ -64,8 +69,21 @@ var processHelpers = {
             console.log('Cannot find class `' + classname + '` found in file `' + currentFile.path + '`');
         }
     },
-    embedExample: function () {
-
+    embedExample: function (lang, filename) {
+        var examplePath = options.examples.src + '/' + filename + options.examples.srcSuffix;
+        var exampleTemplate = fs.readFileSync (options.articleTemplates + '/exampleLayout.ejs', 'utf-8');
+        if(fs.existsSync (examplePath)) {
+            var exampleContent = fs.readFileSync (examplePath, 'utf-8');
+            var content = ejs.render (exampleTemplate, {
+                code: exampleContent, 
+                image: options.examples.imagePrefix + filename + options.examples.imageSuffix,
+                live: options.examples.livePrefix + filename + options.examples.liveSuffix,
+            });
+            return content;
+        } else {
+            console.log("Error : Example [" + filename + "] not found!");
+            return 'Example [" + filename + "] not found!'
+        }
     },
     ref: function (id) {
         var anchor = (_.where(anchors, {id: id}) || [])[0];
@@ -78,15 +96,22 @@ var processHelpers = {
         }
         
     },
-    notice: function() {}
+    notice: function (type, title, message) {
+        return "<div class='alert alert-" + type + "'><strong>" + title + "</strong> " + message + "</div>";
+    },
+    image: function(imagePath){
+      return '<img src="'+ options.articles.imagesRelativePath + imagePath+'" />';
+    },
 };
 
-exports.generate = function (articlesDir, templateDir, outputDir, partialsPath, linkPrefix, suffix, apiTree, apiLinkPrefix, toc, tocTree) {
+exports.generate = function (articlesDir, templateDir, outputDir, partialsPath, _imagesPath, linkPrefix, suffix, apiTree, apiLinkPrefix, toc, tocTree, _options) {
     var articles = [];
     var partials = [];
     var tree = folderWalker (fs.readdirSync(articlesDir), articlesDir, articles, articlesDir);
     var partialsTree = folderWalker (fs.readdirSync(partialsPath), partialsPath, partials, partialsPath);
     var tempDir = outputDir + '/tmp';
+    articleTemplatesDir = templateDir;
+    imagesPath = _imagesPath;
     processHelpers.articles = articles;
     processHelpers.partials = partials;
     processHelpers.partialsPath = partialsPath;
@@ -94,6 +119,7 @@ exports.generate = function (articlesDir, templateDir, outputDir, partialsPath, 
     processHelpers.suffix = suffix;
     processHelpers.apiTree = apiTree;
     processHelpers.apiLinkPrefix = apiLinkPrefix;
+    options = _options;
 
     processMeta (articlesDir, articles);
     removeMeta (articlesDir, articles, tempDir);
@@ -117,7 +143,6 @@ function handleErrors (articlesDir, templateDir, outputDir, partialsPath, linkPr
             console.log('Reloading partials and compiling the file');
             var partials = [];
             var partialsTree = folderWalker (fs.readdirSync(partialsPath), partialsPath, partials, partialsPath);
-            console.log(partials);
             processHelpers.partials = partials;
             processMetaArticle (articlesDir, article);
             removeMetaArticle (articlesDir, article, tempDir);
@@ -216,56 +241,63 @@ function renderArticle (tempDir, layoutDir, outputDir, articles, article, suffix
     var outFilename = outputDir + '/' + article.path.replace('.md', '.' + suffix);
     mkdirp.sync (path.dirname(outFilename));
     var content = fs.readFileSync (filename, 'utf-8');
-    var markdown = marked (content) + findNextAndPrev (article.id, tocTree);
+    var markdown = marked (content);
+    var links = findNextAndPrev (article.id, tocTree);
     var layout = fs.readFileSync(layoutDir + '/layout.ejs', 'utf-8');
     var output = ejs.render(layout, {
+        'id': article.id,
         'title': article.title,
         'breadcrumb': breadCrumbGen (articles, article.path),
         'toc': toc,
-        'content': markdown
+        'content': markdown,
+        'prev': links.prev,
+        'next': links.next,
+        'options': options
     });
     fs.writeFileSync (outFilename, output, 'utf-8');
 }
 
-function constructTOC (tocTree) {
-    var html = '<ul>';
-    for(var i=-1; ++i<tocTree.length;) {
-        html += '<li>' + toc(tocTree[i]) + '</li>';
-    }
-    html += '</ul>'
-    return html;
+function articleFullPath (article) {
+    return processHelpers.linkPrefix + article.path.replace('.md', '.' + processHelpers.suffix);
 }
 
-exports.constructTOC = constructTOC;
-
 function linkArticle (article, title) {
-    return '<a href="' + processHelpers.linkPrefix + article.path.replace('.md', '.' + processHelpers.suffix) + '">' + (title || article.title) + '</a>';
+    return '<a href="' + articleFullPath (article) + '">' + (title || article.title) + '</a>';
 }
 
 function findNextAndPrev (id, tocTree) {
-    var arr = findArticleArray (id, tocTree);
-    var str = '';
-    if(arr) {
-        var article = _.where (arr, {id: id});
-        var idx = findIndexInArray (arr, id);
-        var prev = findPrev(arr, idx);
-        var next = findNext(arr, idx);
-        var prevArticle, nextArticle;
+    var article = (_.where (processHelpers.articles, {id: id}) || [])[0];
+    if(article.name !== 'index.md') {
+        var arrObj = {};
+        findArticleArray (id, tocTree, arrObj);
+        var arr = arrObj.array;
+        var str = '';
+        if(arr) {
+            var article = _.where (arr, {id: id});
+            var idx = findIndexInArray (arr, id);
+            var prev = findPrev(arr, idx);
+            var next = findNext(arr, idx);
+            var prevArticle, nextArticle;
 
-        if(prev) {
-            prevArticle = _.where (processHelpers.articles, {id: prev.id})[0];
-            str += linkArticle(prevArticle);
+            if(prev) {
+                prevArticle = _.where (processHelpers.articles, {id: prev.id})[0];
+                str += linkArticle(prevArticle);
+            }
+
+            if(next) {
+                nextArticle = _.where (processHelpers.articles, {id: next.id})[0];
+                str += linkArticle(nextArticle);
+            }
+        } else {
+            console.log('Error: cannot find id `' + id + '`in toc ');
         }
 
-        if(next) {
-            nextArticle = _.where (processHelpers.articles, {id: next.id})[0];
-            str += linkArticle(nextArticle);
-        }
-    } else {
-        console.log('Error: cannot find id `' + id + '`in toc ');
+        return {
+            prev: prev ? {path: articleFullPath (prevArticle), title: prevArticle.title} : null,
+            next: next ? {path: articleFullPath (nextArticle), title: nextArticle.title} : null
+        };
     }
-
-    return str;
+    return '';
 }
 
 function findPrev (arr, idx) {
@@ -292,72 +324,36 @@ function findIndexInArray (arr, id) {
     }
 }
 
-function findArticleArray (id, tocTree) {
-    var article = (_.where (tocTree, {id: id}) || [])[0];
-    if(article) {
-        return tocTree;
-    } else {
-        for(var i=-1; ++i<tocTree.length;) {
-            if(tocTree[i].children) {
-                return findArticleArray(id, tocTree[i].children);
-            }
-        }
-    }
-}
-
-function toc (tocTree) {
-    var articles = processHelpers.articles;
-    var str = '';
-    if(tocTree.id) {
-        var article = (_.where (articles, {id: tocTree.id}) || [])[0];
-        if(tocTree.title) {
-            str += linkArticle (article);
+function findArticleArray (id, tocTree, articleObj) {
+    for(var i=-1; ++i<tocTree.length;) {
+        if(tocTree[i].children) {
+            findArticleArray(id, tocTree[i].children, articleObj);
         } else {
-            str += linkArticle (article, tocTree.title);
-        }        
-    } else {
-        if(tocTree.title) {
-            str += '<span>' + tocTree.title + '</span>'
-        } else {
-            console.log('Error: No id or title provided in toc node');
+            if(tocTree[i].id === id) {
+                articleObj.id = id;
+                articleObj.array = tocTree;
+            } 
         }
     }
-
-    if(tocTree.children) {
-        str += '<ul>';
-        for(var i=-1; ++i<tocTree.children.length;) {
-            str += '<li>';
-            str += toc (tocTree.children[i]);
-            str += '</li>';
-        }
-        str += '</ul>';
-    }
-    return str;
 }
 
 function breadCrumbGen (articles, fpath) {
     var breadcrumb = [];
-    var root = (_.where(articles, {path: 'index.md'}) || [])[0];
-
-    breadcrumb.push(_.extend(root, {
-        link: processHelpers.linkPrefix + root.path.replace('.md', '.' + processHelpers.suffix)
-    }));
     var article = (_.where(articles, {path: fpath}) || [])[0];
     var parts = fpath.split('/');
     if(article.path.indexOf('index.md') !== -1) {
         parts = parts.slice(0, parts.length - 1);
     }
     
-    for(var i=-1; ++i<parts.length;) {
-        if(i == parts.length - 1) {
-            breadcrumb.push (_.extend(article, {
-                link: processHelpers.linkPrefix + parts[i].replace('.md', '.html')
-            }));
-        } else {
-            // TODO
+    breadcrumb.push (_.extend(article, {link: articleFullPath (article)}));
+    for(var i=parts.length-2; i>=0; --i) {
+        var articlePath = parts.slice(0, i+1).join('/') + '/' + 'index.md';
+        var tempArticle = (_.where(articles, {path: articlePath}) || [])[0];
+        if(tempArticle) {
+            breadcrumb.push (_.extend(tempArticle, {link: articleFullPath (tempArticle)}));
         }
     }
-    return breadcrumb;
+    return breadcrumb.reverse();
 }
 
 function processMeta (articlesDir, articles) {

@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Embed a dashboard into an existing page",
-    "id": "php_create_embed",
-    "index": 2
-}
-</meta>
+--
+title: "Embed a dashboard into an existing page"
+id: "php_create_embed"
+index: 2
+--
+
 
 ### What is an embedded dashboard?
 

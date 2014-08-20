@@ -84,9 +84,6 @@ var viewObjectHelpers = {
         var resultObj = {};
         if(obj) {
              extractProps(obj, resultObj);
-             // console.log('======================================================================');
-             // console.log(resultObj);
-             // console.log('======================================================================');
              return resultObj;
         }
         
@@ -112,7 +109,6 @@ exports.generate = function(tree, _templateDir, _outputDir, outputExt ,showInher
 
     exports.constantsObj = constantsObj;
     templateDir = _templateDir; 
-
     var viewOptions = _.extend({
         tree: tree,
         apiNav: apiNav,
@@ -129,20 +125,22 @@ exports.generate = function(tree, _templateDir, _outputDir, outputExt ,showInher
     layoutTemplate = fs.readFileSync(layoutTemplatePath, 'utf-8');
 
     var renderList = tree.findAllClassNames({'access': 'public'});
+    try {
+        renderList = ['index'].concat(renderList);
+        for(var _i=0; _i<renderList.length; _i++) {
+            viewOptions.currentClass = renderList[_i];
+            var layoutHTML = ejs.render(layoutTemplate, viewOptions);
+            var outputPath = _outputDir + '/' + renderList[_i] + '.' + outputExt;
+            if(!fs.existsSync(path.dirname(outputPath))) {
+                mkdirp.sync(path.dirname(outputPath));
+            }
 
-    renderList = ['index'].concat(renderList);
-
-    for(var _i=0; _i<renderList.length; _i++) {
-        viewOptions.currentClass = renderList[_i];
-
-        var layoutHTML = ejs.render(layoutTemplate, viewOptions);
-        var outputPath = _outputDir + '/' + renderList[_i] + '.' + outputExt;
-        if(!fs.existsSync(path.dirname(outputPath))) {
-            mkdirp.sync(path.dirname(outputPath));
+            fs.writeFileSync(outputPath, layoutHTML, 'utf-8');
         }
-
-        fs.writeFileSync(outputPath, layoutHTML, 'utf-8');
+    } catch (e) {
+        console.log(e);
     }
+        
 };
 
 

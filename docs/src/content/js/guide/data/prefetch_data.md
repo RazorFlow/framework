@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Dashboards with data fetched first",
-	"subtitle": "",
-	"index": 3,
-	"id": "prefetch_data"
-}
-</meta>
+--
+title: "Dashboards with data fetched first"
+subtitle: ""
+index: 3
+id: "prefetch_data"
+--
+
 
 One of the other options to build a data driven dashboard, is to fetch the data for the dashboard first before creating the dashboard. This is ideal for scenarios where all the data for the dashboard can be processed and fetched at once.
 

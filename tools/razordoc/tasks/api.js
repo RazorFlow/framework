@@ -6,7 +6,7 @@ var apiGen = require('../src/apiGen');
 var objectifyTree = require('../src/objectifyTree');
 
 module.exports = function (grunt) {
-    grunt.registerTask ('api', 'Generates api docs', function () {
+    grunt.registerMultiTask ('api', 'Generates api docs', function () {
         grunt.log.writeln ("Starting RazorDoc...");
         var configDir = process.cwd ();
         var options = this.options ({});
@@ -19,6 +19,6 @@ module.exports = function (grunt) {
         var outputPath = path.resolve(configDir, options.outPath);
         var tree = JSON.parse(fs.readFileSync (apiMeta, 'utf-8'));
         tree = objectifyTree(tree);
-        apiGen.generate(tree, templateDir, outPath, ext, true, {}, {}, {}, '', {}, toc);
+        apiGen.generate(tree, templateDir, outPath, ext, true, {}, {}, {}, '', options, toc);
     });
 };

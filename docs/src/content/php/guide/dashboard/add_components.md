@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Add components to your dashboard",
-    "subtitle": "",
-    "id": "php_add_components",
-    "index": 3
-}
-</meta>
+--
+title: "Add components to your dashboard"
+subtitle: ""
+id: "php_add_components"
+index: 3
+--
+
 
 ### What is a component object?
 

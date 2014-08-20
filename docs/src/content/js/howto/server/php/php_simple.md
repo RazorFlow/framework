@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "A basic interactive PHP Dashboard example",
-  "subtitle": "",
-  "id": "php_simple",
-  "index": 0
-}
-</meta>
+--
+title: "A basic interactive PHP Dashboard example"
+subtitle: ""
+id: "php_simple"
+index: 0
+--
+
 
 ### What are we building?
 

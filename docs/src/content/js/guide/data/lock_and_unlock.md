@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Lock and Unlock components",
-	"subtitle": "",
-	"index": 1,
-	"id": "lock_and_unlock"
-}
-</meta>
+--
+title: "Lock and Unlock components"
+subtitle: ""
+index: 1
+id: "lock_and_unlock"
+--
+
 
 Any component object (see {{ ref("component_object") }}) has two special functions which change the behaviour of the component, these functions are the **lock** and **unlock** functions only.
 

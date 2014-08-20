@@ -2,7 +2,7 @@ var tocGen = require ('../src/tocGen');
 var path = require ('path');
 var fs = require ('fs');
 module.exports = function (grunt) {
-    grunt.registerTask ('tocGen', 'Generates toc', function () {
+    grunt.registerMultiTask ('tocGen', 'Generates toc', function () {
         try {
             var configDir = process.cwd ();
             var options = this.options({});
@@ -15,7 +15,6 @@ module.exports = function (grunt) {
             var suffix = options.suffix;
             var html = tocGen.generateTOC (toc, articlesDir, options.articlesPrefix, suffix, apiMeta, apiPrefix);
             grunt.file.write (options.out, html);
-            console.log (html);
         } catch (e) {
             console.log(e);
         }

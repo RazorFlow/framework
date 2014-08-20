@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Chart Series Configuration",
-    "subtitle": "",
-    "index": 2,
-    "id": "php_series_config"
-}
-</meta>
+--
+title: "Chart Series Configuration"
+subtitle: ""
+index: 2
+id: "php_series_config"
+--
+
 
 ## Change series/chart type
 

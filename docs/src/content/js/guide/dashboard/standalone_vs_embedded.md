@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Types of Dashboards: Standalone and Embedded",
-    "id": "standalone_vs_embedded",
-    "index": 3
-}
-</meta>
+--
+title: "Types of Dashboards: Standalone and Embedded"
+id: "standalone_vs_embedded"
+index: 3
+--
+
 
 Currently, a dashboard can be displayed in 2 modes:
 
