@@ -1,0 +1,223 @@
+[
+    {
+        "id": "php_guide_index",
+        "children": [
+            {
+                "id": "php_component_index",
+                "children": [
+                    {
+                        "id": "php_chart_guide",
+                        "children": [
+                            {
+                                "id": "php_chart_basic"
+                            },
+                            {
+                                "id": "php_series_config"
+                            },
+                            {
+                                "id": "php_chart_yaxis"
+                            },
+                            {
+                                "id": "php_chart_update"
+                            },
+                            {
+                                "id": "php_chart_event_click"
+                            },
+                            {
+                                "id": "php_chart_series_stacked"
+                            },
+                            {
+                                "id": "php_chart_bar"
+                            },
+                            {
+                                "id": "php_dual_axis"
+                            },
+                            {
+                                "id": "php_chart_drilldown"
+                            },
+                            {
+                                "id": "php_chart_drill_into_modal"
+                            },
+                            {
+                                "id": "php_chart_config"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_common_guide",
+                        "children": [
+                            {
+                                "id": "php_number_formatting"
+                            },
+                            {
+                                "id": "php_component_kpis"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_form_guide",
+                        "children": [
+                            {
+                                "id": "php_form_configure"
+                            },
+                            {
+                                "id": "php_form_getvalues"
+                            },
+                            {
+                                "id": "php_form_submit_event"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_gauge_guide",
+                        "children": [
+                            {
+                                "id": "php_gauge_basic"
+                            },
+                            {
+                                "id": "php_gauge_update"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_kpi_guide",
+                        "children": [
+                            {
+                                "id": "php_kpi_basic"
+                            },
+                            {
+                                "id": "php_value_format"
+                            },
+                            {
+                                "id": "php_kpi_whatis"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_kpi_group_guide",
+                        "children": [
+                            {
+                                "id": "php_kpi_group_basic"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_kpi_table_guide",
+                        "children": [
+                            {
+                                "id": "php_kpi_table_basic"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "php_table_guide",
+                        "children": [
+                            {
+                                "id": "php_table_add_data"
+                            },
+                            {
+                                "id": "php_table_format_values"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "php_dashboard_guide",
+                "children": [
+                    {
+                        "id": "php_installation"
+                    },
+                    {
+                        "id": "php_create_standalone"
+                    },
+                    {
+                        "id": "php_create_embed"
+                    },
+                    {
+                        "id": "php_add_components"
+                    },
+                    {
+                        "id": "php_create_tabbed"
+                    },
+                    {
+                        "id": "php_embed_tabbed"
+                    },
+                    {
+                        "id": "php_arrange_components"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "howto_index",
+        "children": [
+            {
+                "id": "php_howto_databases_index",
+                "children": [
+                    {
+                        "id": "php_sql_simple"
+                    },
+                    {
+                        "id": "php_sql_breadcrumbs"
+                    }
+                ]
+            },
+            {
+                "id": "php_integration_index",
+                "children": [
+                    {
+                        "id": "php_cakephp"
+                    }
+                ]
+            },
+            {
+                "id": "php_troubleshooting_index",
+                "children": [
+                    {
+                        "id": "php_blank_dashboard"
+                    },
+                    {
+                        "id": "php_generic_server_error"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "PHP API Reference",
+        "children": [
+            {
+                "id": "Component"
+            },
+            {
+                "id": "ChartComponent"
+            },
+            {
+                "id": "FormComponent"
+            },
+            {
+                "id": "GaugeComponent"
+            },
+            {
+                "id": "KPIComponent"
+            },
+            {
+                "id": "KPIGroupComponent"
+            },
+            {
+                "id": "KPITableComponent"
+            },
+            {
+                "id": "MultiKPIComponent"
+            },
+            {
+                "id": "TableComponent"
+            },
+            {
+                "id": "ArrayUtils"
+            }
+        ]
+    }
+]

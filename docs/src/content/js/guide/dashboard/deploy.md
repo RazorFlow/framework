@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Deploying your Dashboard",
-    "id": "dashboard_deploy",
-    "index": 9
-}
-</meta>
+--
+title: "Deploying your Dashboard"
+id: "dashboard_deploy"
+index: 9
+--
+
 
 The process of deploying a dashboard using RazorFlow Dashboard Framework to your final production server depends on the specific deployment process followed by your product. However these are the general steps and guidelines to follow:
 

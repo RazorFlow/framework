@@ -58,7 +58,9 @@ require $_SERVER['DOCUMENT_ROOT']."/layout/header.php";
 <div class="container">
   <div class="row hidden-xs hidden-sm">
     <ol class="breadcrumb rfTocBreadcrumb">
-      <%- breadcrumb %>
+      <% for(var i=-1; ++i<breadcrumb.length;) { %>
+          <li><a href="<%= breadcrumb[i].link %>"><%= breadcrumb[i].title %></a></li>
+      <% } %>
     </ol>
   </div>
     <div class="row">
@@ -87,9 +89,7 @@ require $_SERVER['DOCUMENT_ROOT']."/layout/header.php";
             </div>
         </div>
         <div class="col-md-4">
-            <ul id="docTree" class="rf-tree docTree">
-                <%- articleNav %>
-            </ul>
+              <%- toc %>
         </div>
     </div>
 </div>

@@ -1,0 +1,34 @@
+<h1>Updating chart data</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <h2 id="in-place-update">In place update</h2>
+<p>If the labels on the X-Axis are not changing, then you can perform an &quot;in-place-update&quot; of chart data. This has the advantage of smoothly scaling the chart so that your users clearly understand how much it changes.</p>
+<p>You can update a chart&#39;s data anytime after it&#39;s rendered using the <a href="/docs/dashboard/js/api/ChartComponent.html#updateSeries">updateSeries</a> function. Remember to use the correct series ID, the same one you used while creating the series with <a href="/docs/dashboard/js/api/ChartComponent.html#addSeries">addSeries</a> For example:</p>
+<pre><code>    chart.onItemClick (function (params) {
+        chart2.updateSeries (&quot;series_1&quot;, [3, 5, 2]);
+    });
+</code></pre><h3 id="complete-example">Complete Example</h3>
+<h2 id="full-chart-update">Full chart update</h2>
+<p>If you are re-drawing new data on the chart, you will need to first clear out the contents of the chart. To do so, use the <a href="/docs/dashboard/js/api/ChartComponent.html#clearChart">clearChart</a> function. Using this function it is almost like creating a new chart altogether, because this clears out all the series. Note that this doesn&#39;t reset other properties like the Y Axis name, etc.</p>
+<pre><code>    chart.onItemClick (function (params) {
+        chart2.lock();
+        chart2.clearChart ();
+        chart2.setLabels ([&quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;]);
+        chart2.addSeries(&quot;another_series&quot;, &quot;Another Series&quot;, [13, 5, 9, 12]);
+        chart2.unlock();
+    });
+</code></pre><h3 id="complete-example">Complete Example</h3>
+<a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a>
+    </div>
+</div>
+    

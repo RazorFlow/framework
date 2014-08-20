@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Building a standalone dashboard with your web framework",
-    "id": "webframework_standalone",
-    "index": 4
-}
-</meta>
+--
+title: "Building a standalone dashboard with your web framework"
+id: "webframework_standalone"
+index: 4
+--
+
 
 If you use a web framework, and wish to build a standalone dashboard - similar to the ones you can build by using the dashboard quick-start, you can easily do so. The steps involved are:
 

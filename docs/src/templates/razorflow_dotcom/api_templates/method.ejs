@@ -1,20 +1,20 @@
 <div id="<%= item.method.name %>" class='rfApiMethod'>
     
-    <h3><a class="rfPermalink" href="#<%= item.method.name %>">Permalink</a><%= item.method.name %></h3>
+    <h3><a class="rfPermalink" href="#<%= item.method.name %>">Permalink</a><%= item.method %></h3>
     <hr/>
     <p>
         <code><%= item.signature %></code>
     </p>
-    <p><%= item.desc.content %></p>
+    <p><%= item.desc %></p>
     <h5>Params</h5>
     <% if(item.params.length && item.params[0]) { %>
-        <%- render('params.ejs', {tree: tree, params: item.params, item_options_id: "options_" + item.method.name}) %>
+        <%- render('params.ejs', {tree: tree, params: item.params, item_options_id: "options_" + item.method}) %>
     <% } else { %>
         None
     <% } %>
     <% if(item.example) { %>
         <h5>Example</h5>
-        <pre><code><%= item.example.code %></code></pre>
+        <pre><code><%= item.example %></code></pre>
     <% } %>
 </div>
 

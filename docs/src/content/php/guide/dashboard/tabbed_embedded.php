@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Embed a Tabbed Dashboard into an existing page",
-    "id": "php_embed_tabbed",
-    "index": 5
-}
-</meta>
+--
+title: "Embed a Tabbed Dashboard into an existing page"
+id: "php_embed_tabbed"
+index: 5
+--
+
 
 ### To embed a Tabbed Dashboard into a web page follow these steps:
 

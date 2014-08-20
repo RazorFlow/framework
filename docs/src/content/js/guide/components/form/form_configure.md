@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Getting Started with the form component",
-	"subtitle": "",
-	"index": 0,
-	"id": "form_configure"
-}
-</meta>
+--
+title: "Getting Started with the form component"
+subtitle: ""
+index: 0
+id: "form_configure"
+--
+
 ### Add a form component to the dashboard
 
 You can add a form component to the dashboard by creating an instance of the {{ linkApi("js", "FormComponent", "") }} object in your code.

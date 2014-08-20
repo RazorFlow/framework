@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Create a Tabbed Dashboard",
-    "id": "create_tabbed",
-    "index": 6
-}
-</meta>
+--
+title: "Create a Tabbed Dashboard"
+id: "create_tabbed"
+index: 6
+--
+
 
 ### What is a Tabbed Dashboard?
 A Tabbed Dashboard allows you to separate dashboards by tabs.

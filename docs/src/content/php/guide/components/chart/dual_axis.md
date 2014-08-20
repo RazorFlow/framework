@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Dual Y Axes Charts",
-    "subtitle": "",
-    "index": 8,
-    "id": "php_dual_axis"
-}
-</meta>
+--
+title: "Dual Y Axes Charts"
+subtitle: ""
+index: 8
+id: "php_dual_axis"
+--
+
 
 Sometimes you might need to show some multiple series of data on the same chart, but with very different scales. For example, you want to show the number of car sales with the total revenue.
 

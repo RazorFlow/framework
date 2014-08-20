@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "Getting Started with KPI Table Component",
-  "subtitle": "",
-  "id": "php_kpi_table_basic",
-  "index": 0
-}
-</meta>
+--
+title: "Getting Started with KPI Table Component"
+subtitle: ""
+id: "php_kpi_table_basic"
+index: 0
+--
+
 
 ### Adding a KPI Table Component to the dashboard
 

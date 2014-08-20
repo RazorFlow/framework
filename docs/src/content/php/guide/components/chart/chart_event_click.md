@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "Chart click events",
-    "subtitle": "",
-    "index": 5,
-    "id": "php_chart_event_click"
-}
-</meta>
+--
+title: "Chart click events"
+subtitle: ""
+index: 5
+id: "php_chart_event_click"
+--
+
 
 You can execute a PHP function when an item on the chart has been clicked, by using the {{ linkApi("php", "ChartComponent", "onItemClick") }} function. This function is executed whenever an item (like a line chart circle, column chart rectangle, etc.) is clicked.
 

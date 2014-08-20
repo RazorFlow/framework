@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Form submit events",
-	"subtitle": "",
-	"id": "php_form_submit_event",
-	"index": 2
-}
-</meta>
+--
+title: "Form submit events"
+subtitle: ""
+id: "php_form_submit_event"
+index: 2
+--
+
 
 You can execute a PHP function when the "Apply" button on the form has been clicked, by using the {{ linkApi ('php', 'FormComponent', 'onApplyClick') }} function. This callback gives you all the data in an easy to use form.
 

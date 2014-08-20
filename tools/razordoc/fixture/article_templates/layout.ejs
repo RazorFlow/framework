@@ -1,11 +1,13 @@
-<%= title %>
+<h1><%= title %></h1>
 <div class="breadcrumb">
-    <%- breadcrumb %>
+    <ul>
+    <% for(var i=-1; ++i<breadcrumb.length;) { %>
+        <li><a href="<%= breadcrumb[i].link %>"><%= breadcrumb[i].title %></a></li>
+    <% } %>
+    </ul>
 </div>
 <div class="container">
-    <ul>
-        <%- articleNav %>
-    </ul>
+    <%- toc %>
     <div class="content">
         <%- content %>
     </div>

@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Chart Options and Advanced Configuration",
-	"subtitle": "",
-	"index": 11,
-	"id": "php_chart_config"
-}
-</meta>
+--
+title: "Chart Options and Advanced Configuration"
+subtitle: ""
+index: 11
+id: "php_chart_config"
+--
+
 
 ### Hiding the legend
 

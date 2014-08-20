@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Table Component",
-	"subtitle": "",
-	"id": "table_guide"
-}
-</meta>
+--
+title: "Table Component"
+subtitle: ""
+id: "table_guide"
+--
+
 
 ### Basic Usage
 

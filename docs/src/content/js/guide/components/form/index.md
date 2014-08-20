@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Form Component",
-	"id": "form_guide",
-	"subtitle": ""
-}
-</meta>
+--
+title: "Form Component"
+id: "form_guide"
+subtitle: ""
+--
+
 
 ### Basic Usage
 

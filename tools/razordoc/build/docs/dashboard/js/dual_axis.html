@@ -1,0 +1,35 @@
+<h1>Dual Y Axes Charts</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <p>Sometimes you might need to show some multiple series of data on the same chart, but with very different scales. For example, you want to show the number of car sales with the total revenue.</p>
+<p>Take a look at this example. You can&#39;t even <strong>see</strong> the second series because it&#39;s so small:</p>
+<p>However, we still want to see some correlation. For this we use RazorFlow&#39;s Dual Axis system.</p>
+<p>You can create a dual axes chart by calling the <a href="/docs/dashboard/js/api/ChartComponent.html#addYAxis">addYAxis</a> function on the chart component. Currently, only column, line and area charts can have dual axes. By default, the chart has a left axis, when the <code>addYAxis</code> is called it adds a right axis to the chart. The <code>addYAxis</code> function is similar to the <a href="/docs/dashboard/js/api/ChartComponent.html#setYAxis">setYAxis</a> function with one exception. It function has an extra parameter <code>id</code> associated with it. it looks like this:</p>
+<pre><code>    chart.addYAxis(&quot;quantity&quot;, &quot;Quantity&quot;, {
+        // Any options will go here.
+    });
+</code></pre><ol>
+<li>The first parameter is the id of the axis.</li>
+<li>The second parameter is the name of the Y Axis.</li>
+<li>The third optional parameter is an object containing <strong>Standard number formatting properties</strong>.</li>
+</ol>
+<p>To tell a series to use the new axis instead of the <code>primary</code> axis, set the unique id of new axis for the yAxis parameter in the config options in the <code>addSeries</code> function.</p>
+<pre><code>    chart.addSeries (&quot;quantity&quot;, &quot;Quantity&quot;, [14, 19, 17], {
+        seriesDisplayType: &#39;column&#39;,
+        yAxis: &quot;quantity&quot;
+    });
+</code></pre><h3 id="complete-example">Complete example</h3>
+<a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a>
+    </div>
+</div>
+    

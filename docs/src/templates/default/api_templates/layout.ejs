@@ -1,35 +1,21 @@
-<!doctype html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <script type="text/javascript" src="/static/build/razorflow.min.js"></script>
-</head>
-<body>
-    <ul>
-       <li><a href="/docs">Razorflow Documentation</a></li> 
-       <li><a href="/docs/api/<%= tree.namespace %>">Razorflow <%= tree.namespace.toUpperCase() %> API Documentation</a></li> 
-        <% if(currentClass !== 'index') { %>
-            <li><a href="/docs/api/<%= tree.namespace %>/<%= currentClass %>.php"><%= currentClass %></a></li> 
-        <% } %>
-    </ul>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <ul class="">
-                    <%- articleNav %>
-                    <%- apiNav %>
-                </ul>
-            </div>
-            <div class="col-md-8">
-                <% 
+<head>Razordoc example doc</head>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="nav">
+                <%- toc %>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <% 
                 var classNode = tree.findNodeByClassName(currentClass);
-                if(currentClass != 'index' && (classNode.access && classNode.access.name !== 'private')) { 
-                %>
+                if(currentClass != 'index' && (classNode.access !== 'private')) { 
+            %>
                     <%- render('class.ejs', {tree: tree, item: tree.findNodeByClassName(currentClass)}) %>
             <% } else { %>
                 <%- render('index.ejs', {}) %>
             <% } %>
-            </div>
-    </div>
-</body>
+        </div>
+</div>
 </html>

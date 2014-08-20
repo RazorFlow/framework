@@ -1,4 +1,4 @@
-<table class="table table-condensed rfParamsTable">
+<table class="table">
     <tbody>
         <% for(i=0; i<params.length; i++) {
             var param = params[i];
@@ -11,27 +11,11 @@
                         tree.hasClass(param.paramType) ? 
                             linkify({
                                 text: param.paramType, 
-                                href: param.paramType + '.php'
+                                href: param.paramType + '.html'
                             }) : param.paramType
                     %>
                 </td>
-                <td>
-                    <%= param.desc %>
-                    <% var param = findConstantsObject(param.paramType); 
-                        if(param) { %>
-                        <table class="table table-condensed"><thead><th>Name</th><th>Type</th><th>Description</th></thead>
-                        <tbody>
-                            <% for(var key in param) { %>
-                            <tr>
-                                <td><%= key %></td>
-                                <td><%= param[key].type %></td>
-                                <td><%= param[key].shortDesc %></td>
-                            </tr>
-                            <% } %>
-                        </tbody>
-                        </table>
-                    <% } %>
-                </td>
+                <td><%= param.desc %></td>
             </tr>
         <% } %>
     </tbody>

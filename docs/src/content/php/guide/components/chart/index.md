@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Chart Component",
-    "id": "php_chart_guide",
-	"subtitle": ""
-}
-</meta>
+--
+title: "Chart Component"
+id: "php_chart_guide"
+subtitle: ""
+--
+
 
 ### Basic Usage
 

@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Guide",
-	"subtitle": "",
-	"id": "js_guide_root"
-}
-</meta>
+--
+title: "Guide"
+subtitle: ""
+id: "js_guide_root"
+--
+
 
 ## RazorFlow JS Guide
 

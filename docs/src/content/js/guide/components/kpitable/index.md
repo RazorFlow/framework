@@ -1,10 +1,9 @@
-<meta>
-{
-  "title": "KPI Table Component",
-  "subtitle": "",
-  "id":"kpi_table_guide"
-}
-</meta>
+--
+title: "KPI Table Component"
+subtitle: ""
+id: "kpi_table_guide"
+--
+
 
 ### Basic usage
 

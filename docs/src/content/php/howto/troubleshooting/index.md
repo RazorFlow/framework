@@ -1,9 +1,8 @@
-<meta>
-{
-  "title": "Troubleshooting",
-  "subtitle": "",
-  "id": "php_troubleshooting_index"
-}
-</meta>
+--
+title: "Troubleshooting"
+subtitle: ""
+id: "php_troubleshooting_index"
+--
+
 
 Coming Soon...

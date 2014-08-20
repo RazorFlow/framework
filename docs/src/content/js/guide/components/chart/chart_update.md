@@ -1,11 +1,7 @@
-<meta>
-{
-    "title": "Updating chart data",
-    "subtitle": "",
-    "index": 4,
-    "id": "chart_update"
-}
-</meta>
+--
+title: "Updating chart data"
+id: "chart_update"
+--
 
 ## In place update
 

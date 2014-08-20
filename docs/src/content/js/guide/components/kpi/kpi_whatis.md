@@ -1,11 +1,10 @@
-<meta>
-{
-    "title": "What is a KPI",
-    "subtitle": "",
-    "id": "kpi_whatis",
-    "index": 3
-}
-</meta>
+--
+title: "What is a KPI"
+subtitle: ""
+id: "kpi_whatis"
+index: 3
+--
+
 
 A KPI is a realtime indicator of a particular metric. For example, consider your car dashboard. When you look at it, the information that you're looking for is your current speed, fuel tank status, among others.
 

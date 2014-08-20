@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Getting Started with KPI Component",
-	"subtitle": "",
-	"id": "kpi_basic",
-	"index": 0
-}
-</meta>
+--
+title: "Getting Started with KPI Component"
+subtitle: ""
+id: "kpi_basic"
+index: 0
+--
+
 
 ### Adding a KPI Component to the dashboard
 

@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Table Component",
-	"subtitle": "",
-	"id": "php_table_guide"
-}
-</meta>
+--
+title: "Table Component"
+subtitle: ""
+id: "php_table_guide"
+--
+
 
 ### Basic Usage
 

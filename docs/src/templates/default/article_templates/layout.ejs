@@ -1,60 +1,15 @@
-<!doctype html>
-<html>
-<head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-<script type="text/javascript" src="/static/build/razorflow.min.js"></script>
-</head>
-<body class="rf">
+<h1><%= title %></h1>
+<div class="breadcrumb">
+    <ul>
+    <% for(var i=-1; ++i<breadcrumb.length;) { %>
+        <li><a href="<%= breadcrumb[i].link %>"><%= breadcrumb[i].title %></a></li>
+    <% } %>
+    </ul>
+</div>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1> <%= title %> </h1>
-            <ol class="breadcrumb">
-                <%- breadcrumb %>
-            </ol>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <ul id="docTree">
-                <%- articleNav %>
-                <%- apiNav %>
-            </ul>
-        </div>
-        <div class="col-md-8">
-            <div class="content">
-                <%- content %>
-            </div>
-            <div class="links">
-              <% if(prev) { %>
-                <a class="btn btn-primary pull-left" href="<%= prev.path %>">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-                  <%= prev.title %>
-                </a>
-              <% } %>
-              <% if(next) { %>
-                <a class="btn btn-primary pull-right" href="<%= next.path %>">
-                  <%= next.title %>
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-              <% } %>
-                
-            </div>
-        </div>
+    <%- toc %>
+    <div class="content">
+        <%- content %>
     </div>
 </div>
-</body>
-</html>
-<script type="text/javascript">
-  // $(function(){
-  //   window.tv = $("#docTree").kendoTreeView ().data('kendoTreeView');
-  //   var root = window.tv.findByText("<%= title %>");
-  //   window.tv.select(root);
-  //   var rootParent = window.tv.parent(root);
     
-  //   for(var i = 0; i < 20; i ++) {if (rootParent.length == 0) { break; } root = rootParent; window.tv.expand(root); rootParent = window.tv.parent(root); }
-  //   $('pre').addClass('language-javascript');
-  //   Prism.highlightAll();
-  // })
-</script>

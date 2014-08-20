@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Create a new dashboard",
-    "id": "php_create_standalone",
-    "index": 1
-}
-</meta>
+--
+title: "Create a new dashboard"
+id: "php_create_standalone"
+index: 1
+--
+
 
 
 To create a new dashboard you must first {{ linkArticle ('php_installation') }}. After that, the steps are:

@@ -1,5 +1,141 @@
     module.exports = function (grunt) {
     grunt.initConfig({
+        apiMeta: {
+            js: {
+                options: {
+                    src: ["../jsrf/src/js/components/*.js"],
+                    out: "generated/jsApiMeta.json"
+                }
+            },
+            php: {
+                options: {
+                    src: ["../wrappers/phprf/src/lib/components/*.php", "../wrappers/phprf/src/lib/util/ArrayUtils.php"],
+                    out: "generated/phpApiMeta.json"
+                }
+            }
+        },
+        tocGen: {
+            js: {
+                options: {
+                    toc: 'config/jsToc.json',
+                    apiMeta: 'generated/jsApiMeta.json',
+                    articlesDir: './src/content/js',
+                    apiPrefix: "/docs/dashboard/js/api/",
+                    articlesPrefix: "/docs/dashboard/js/",
+                    suffix: "php",
+                    out: 'generated/jsToc.html'
+                }
+            },
+            php: {
+                options: {
+                    toc: "config/phpToc.json",
+                    apiMeta: "generated/phpApiMeta.json",
+                    articlesDir: "./src/content/php",
+                    apiPrefix: "/docs/dashboard/php/api/",
+                    articlesPrefix: "/docs/dashboard/php/",
+                    suffix: "php",
+                    out: 'generated/phpToc.html'
+                }
+            }
+        },
+        api: {
+            js: {
+                options: {
+                    src: "generated/jsApiMeta.json",
+                    toc: 'generated/jsToc.html',
+                    outPath: "../website/src/docs/dashboard/js/api",
+                    relativeLinkPath: "/docs/dashboard/js/api",
+                    linkPrefix: "",
+                    suffix: "php",
+                    apiTemplates: "src/templates/razorflow_dotcom/api_templates",
+                    topBarTitle: 'JavaScript Documentation',
+                    langUrl: '/docs/dashboard/js'
+                }
+            },
+            php: {
+                options: {
+                    src: "generated/phpApiMeta.json",
+                    toc: 'generated/phpToc.html',
+                    outPath: "../website/src/docs/dashboard/php/api",
+                    relativeLinkPath: "/docs/dashboard/php/api",
+                    linkPrefix: "",
+                    suffix: "php",
+                    apiTemplates: "src/templates/razorflow_dotcom/api_templates",
+                    topBarTitle: 'PHP Documentation',
+                    langUrl: '/docs/dashboard/php'
+                }
+            }
+        },
+        articles: {
+            js: {
+                options: {
+                    toc: 'generated/jsToc.html',
+                    tocTree: 'config/jsToc.json',
+                    articles: {
+                        root: 'src/content/js',
+                        imagesLocalPath: 'src/images',
+                        imagesRelativePath: "/docs/dashboard/_images/",
+                        imagesPhysicalPath: "../newsite/src/docs/dashboard/js/_images/"
+                    },
+                    constantsPath: '../jsrf/tools/config/props.json',
+                    partialsPath: 'src/partials',
+                    examples: {
+                        src: "../examples/src/js/examples",
+                        srcSuffix: ".js",
+                        imagePrefix: "http://examples.razorflow.com/static/exampleImages/js/examples/",
+                        imageSuffix: ".png",
+                        thumbPrefix: "http://examples.razorflow.com/static/exampleImages/js/examples/",
+                        thumbSuffix: ".png",
+                        livePrefix: "http://examples.razorflow.com/dashboard/js/examples/",
+                        liveSuffix: ""
+                    },
+                    api: {
+                        linkPrefix: '/docs/dashboard/js/api/',
+                        meta: 'generated/jsApiMeta.json'
+                    },
+                    linkPrefix: "/docs/dashboard/js/",
+                    out: "../website/src/docs/dashboard/js",
+                    suffix: "php",
+                    articleTemplates: "src/templates/razorflow_dotcom/article_templates",
+                    topBarTitle: 'JavaScript Documentation',
+                    langUrl: '/docs/dashboard/js'
+                } 
+            },
+            php: {
+                options: {
+                    toc: 'generated/phpToc.html',
+                    tocTree: 'config/phpToc.json',
+                    articles: {
+                        root: 'src/content/php',
+                        imagesLocalPath: 'src/images',
+                        imagesRelativePath: "js/_images/",
+                        imagesPhysicalPath: "../newsite/src/docs/dashboard/js/_images/"
+                    },
+                    constantsPath: '../jsrf/tools/config/props.json',
+                    partialsPath: 'src/partials',
+                    examples: {
+                        src: "../examples/src/php/examples",
+                        srcSuffix: ".php",
+                        imagePrefix: "http://examples.razorflow.com/static/exampleImages/php/examples/",
+                        imageSuffix: ".png",
+                        thumbPrefix: "http://examples.razorflow.com/static/exampleImages/php/examples/",
+                        thumbSuffix: ".png",
+                        livePrefix: "http://examples.razorflow.com/dashboard/php/examples/",
+                        liveSuffix: ""
+                    },
+                    api: {
+                        linkPrefix: '/docs/dashboard/php/api/',
+                        meta: 'generated/phpApiMeta.json'
+                    },
+                    linkPrefix: "/docs/dashboard/php/",
+                    out: "../website/src/docs/dashboard/php",
+                    suffix: "php",
+                    articleTemplates: "src/templates/razorflow_dotcom/article_templates",
+                    topBarTitle: 'PHP Documentation',
+                    langUrl: '/docs/dashboard/php'
+                }
+            }
+        },
         razordoc: {
             local: {
                 options: {
@@ -258,9 +394,10 @@
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadTasks("../razordoc/src/");
+    grunt.loadTasks("../tools/razordoc/tasks/");
 
-    grunt.registerTask('build', ['razordoc:website_js', 'razordoc:website_php']);
+    // grunt.registerTask('build', ['razordoc:website_js', 'razordoc:website_php']);
+    grunt.registerTask('build', ['apiMeta', 'tocGen', 'api', 'articles']);
 
     // grunt.registerTask('compile', ['shell:local_js_articles', 'shell:local_php_articles', 'shell:local_jsapi', 'shell:local_phpapi', 'shell:copy_images']);
     // grunt.registerTask('webArticles', ['shell:web_js_articles', 'shell:web_php_articles']);

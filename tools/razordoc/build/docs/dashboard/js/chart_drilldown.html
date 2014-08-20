@@ -1,0 +1,77 @@
+<h1>Drill-down data using breadcrumbs</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <p>Drill-downs allow your users to explore data by clicking on one item in your chart to reveal more data about the item that they have selected. For example, a drill-down might allow you to drill from Country-wide data to seeing data for an individual state. Drill-downs can also be used for navigating time-based records like drilling down from yearly data to monthly data.</p>
+<p>Let&#39;s consider an example, where we&#39;re drilling from <em>Country</em> to <em>State</em> to <em>City</em>. We initially start off showing the <em>Country</em>-wide data, and once the user clicks on one country, it activates the next <strong>drill step</strong> which shows the states. Once the user clicks on the name of any sate, it activates a <strong>drill step</strong> which shows the cities in that state. Note that you would normally have to do a bit of filtering and aggregation but we will not be covering that here.</p>
+<p>The basic concept here is to use the <code>addDrillStep</code> function to add one drill step at a time. Let&#39;s consider this basic skeleton of a chart:</p>
+<pre><code>var chart = new ChartComponent ();
+chart.setCaption (&quot;Sales by country&quot;);
+chart.setLabels ([ /* list of countries */]);
+chart.addSeries (&quot;sales&quot;, &quot;Sales&quot;, [ /* country-wise sales */]);
+
+chart.addDrillStep (function (done, params) {
+    alert (&quot;Filtering states for country: &quot; + params.label);
+    chart.setLabels ([ /* List of states in the selected country */])
+    chart.addSeries (&quot;sales&quot;, &quot;Sales&quot;, [ /* state-wise sales */])
+
+    done (); // This is required
+});
+
+chart.addDrillStep (function (done, params) {
+    alert (&quot;Filtering states for state: &quot; + params.label);
+    chart.setLabels ([ /* List of cities in the selected state */])
+    chart.addSeries (&quot;sales&quot;, &quot;Sales&quot;, [ /* city-wise sales */])
+
+    done (); // This is required
+});
+</code></pre><h4 id="concept-1-your-chart-data-gets-reset-after-every-drill-step">Concept 1: Your chart data gets reset after every drill step</h4>
+<p>Notice that though you called <code>addSeries</code> every time in the drill step, it didn&#39;t add a new series, but rather replaced it. Technically, operating on a chart after a drill step is like working on a new chart object.</p>
+<p><strong>Why is this happening?</strong> When you are drilling down the chart, you normally show new data, with completely new labels and charts. This is similar to calling the <a href="/docs/dashboard/js/api/ChartComponent.html#clearChart">clearChart</a> function.</p>
+<h4 id="concept-2-you-have-to-create-a-callback-to-handle-the-drill">Concept 2: You have to create a callback to handle the drill</h4>
+<p>Since the code to perform the drill down has to be done after the user clicks on a chart item, it needs to be specified as a JavaScript callback.</p>
+<h4 id="concept-3-you-have-to-call-done-at-the-end">Concept 3: You have to call &quot;done&quot; at the end</h4>
+<p>Notice that there&#39;s a call to a function called <code>done</code> at the end of both drill step functions. This <code>done</code> function is also passed as the first parameter on the callback function.</p>
+<p><strong>Why is this here?</strong> If you have to perform some asynchronous functionality like fetching data using AJAX, you can call <code>done</code> only after the data is available, and the chart is ready for display.</p>
+<h4 id="concept-4-the-params-include-everything-from-onitemclick">Concept 4: The params include everything from onItemClick</h4>
+<p>The parameters of the item that was clicked on by the user are provided. </p>
+<ul>
+<li><strong>value</strong>: The value of the item that was clicked (purely numeric, this will not contain formatted values like number prefix/suffix, etc)</li>
+<li><strong>label</strong>: The x-axis label that corresponds to the item that was clicked.</li>
+<li><strong>labelIndex</strong>: The index of the label (starting from 0) that corresponds to the item that was clicked.</li>
+</ul>
+<h3 id="full-example">Full Example</h3>
+<h2 id="additional-notes">Additional notes</h2>
+<h3 id="get-drill-data-from-server-using-ajax">Get Drill data from server using AJAX</h3>
+<pre><code>chart.addDrillStep (function (done, params) {
+    $.ajax({
+        url: &quot;/get_data?country=&quot; + encodeURI(params.label)
+        success: function (data) {
+            // Update the component with new data
+            done(); // now finish the drill down
+        }
+    })
+});
+</code></pre><p>Notice how the <code>done</code> function can be called inside the AJAX success function</p>
+<h3 id="get-values-of-previous-drill">Get values of previous drill</h3>
+<p>For example, while filtering cities, you might need to perform a query which also knows the country and state. In other words, you need to know the entire history of the drilldown. For this, the <code>params</code> object includes a separate key called <code>drillLabelList</code>. </p>
+<p>chart.addDrillStep (function (done, params) {
+    alert (&quot;Filtering states for state: &quot; + params.label);
+    alert (&quot;The country is: &quot; + params.drillLabelList [0]); // drillLabelList is now [&quot;Country&quot;, &quot;State&quot;]
+    chart.setLabels ([ /<em> List of cities in the selected state </em>/])
+    chart.addSeries (&quot;sales&quot;, &quot;Sales&quot;, [ /<em> city-wise sales </em>/])</p>
+<pre><code>done (); // This is required
+</code></pre><p>});</p>
+<a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a>
+    </div>
+</div>
+    

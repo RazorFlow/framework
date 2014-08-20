@@ -1,0 +1,31 @@
+<h1>Configuring the Y-Axis of the chart</h1>
+<div class="breadcrumb">
+    <ul>
+    
+        <li><a href="/docs/dashboard/js/index.html">Chart Component</a></li>
+    
+        <li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li>
+    
+    </ul>
+</div>
+<div class="container">
+    <ul><li><a href="/docs/dashboard/js/index.html">Chart Component</a><ul><li><a href="/docs/dashboard/js/chart_basic.html">Basic ChartComponent Functionality</a></li><li><a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a></li><li><a href="/docs/dashboard/js/chart_yaxis.html">Configuring the Y-Axis of the chart</a></li><li><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a></li><li><a href="/docs/dashboard/js/chart_event_click.html">Chart click events</a></li><li><a href="/docs/dashboard/js/chart_series_stacked.html">Stacked Charts</a></li><li><a href="/docs/dashboard/js/chart_bar.html">Bar Charts</a></li><li><a href="/docs/dashboard/js/dual_axis.html">Dual Y Axes Charts</a></li><li><span>Drill-Downs</span><ul><li><a href="/docs/dashboard/js/chart_drilldown.html">Drill-down data using breadcrumbs</a></li><li><a href="/docs/dashboard/js/chart_drill_into_modal.html">Chart Drill into Modal</a></li></ul></li><li><a href="/docs/dashboard/js/chart_config.html">Chart Options and Advanced Configuration</a></li></ul></li></ul>
+    <div class="content">
+        <p>Some charts with a Y Axis can be configured. The aspects of the Y Axis that can be currently customized are:</p>
+<ol>
+<li>The name of the Y-Axis</li>
+<li>The number formatting of the Y AXis.</li>
+</ol>
+<p>To do this, you will need to use the <a href="/docs/dashboard/js/api/ChartComponent.html#setYAxis">setYAxis</a> function.</p>
+<pre><code>    chart.setYAxis(&quot;Sales&quot;, {
+        numberPrefix: &quot;$ &quot;
+    });
+</code></pre><ol>
+<li>The first parameter is the name of the Y Axis</li>
+<li>The second optional parameter is an object containing <strong>Standard number formatting properties</strong>.</li>
+</ol>
+<h3 id="complete-example">Complete example</h3>
+<a href="/docs/dashboard/js/series_config.html">Chart Series Configuration</a><a href="/docs/dashboard/js/chart_update.html">Updating chart data</a>
+    </div>
+</div>
+    

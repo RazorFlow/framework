@@ -1,10 +1,6 @@
-<meta>
-{
-    "title": "Configuring the Y-Axis of the chart",
-    "subtitle": "",
-    "index": 3,
-    "id": "chart_yaxis"
-}
-</meta>
+--
+title: "Configuring the Y-Axis of the chart"
+id: "chart_yaxis"
+--
 
-{%- partial('guide/components/chart/chart_yaxis', {lang: 'js'}) %}
+{{ partial('guide/components/chart/chart_yaxis', {lang: 'js'}) }}

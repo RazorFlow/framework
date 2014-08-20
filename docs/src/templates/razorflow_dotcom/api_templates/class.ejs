@@ -1,14 +1,14 @@
-<h1>Class <%= item.class.name %></h1>
+<h1>Class <%= item.class %></h1>
 <h4><%= item.signature %></h4>
 
 <% if(item.augments) { %>
     <p>inherits from 
         <%- 
-            tree.hasClass(item.augments.name) && tree.findNodeByClassName(item.augments.name).access.name !== 'private'? 
+            tree.hasClass(item.augments) && tree.findNodeByClassName(item.augments).access !== 'private'? 
                 linkify({
-                    text: item.augments.name, 
-                    href: item.augments.name + '.php'
-                }) : item.augments.name
+                    text: item.augments, 
+                    href: item.augments + '.php'
+                }) : item.augments
         %>
     </p>
 <% } %>
@@ -17,7 +17,7 @@
 <% } %>
 <% if(item.example) { %>
 <h2>Examples</h2>
-<pre><code><%= item.example.code %></code></pre>
+<pre><code><%= item.example %></code></pre>
 <% } %>
 <h4>Methods</h4>
 <% if(item.methods) { %> 
@@ -30,7 +30,7 @@
 <% if(item.augments) { 
     var tItem = item;
     while(tItem.augments) {
-        var base = tree.findNodeByClassName(tItem.augments.name);
+        var base = tree.findNodeByClassName(tItem.augments);
         if(base) {
             for(var j=0; j<base.methods.length; j++) {
 %>
@@ -46,7 +46,7 @@
 <% if(item.events){ %> 
 <h4>Events</h4> 
 <% if(item.augments) { %>
-<% var base = tree.findNodeByClassName(item.augments.name); %>
+<% var base = tree.findNodeByClassName(item.augments); %>
 <% if(base.events){ %> 
 <%- render('events.ejs', {tree: tree, events: base.events}) %>
 <% } %>

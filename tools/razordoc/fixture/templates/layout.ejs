@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <% 
                 var classNode = tree.findNodeByClassName(currentClass);
-                if(currentClass != 'index' && (classNode.access && classNode.access.name !== 'private')) { 
+                if(currentClass != 'index' && (classNode.access !== 'private')) { 
             %>
                     <%- render('class.ejs', {tree: tree, item: tree.findNodeByClassName(currentClass)}) %>
             <% } else { %>

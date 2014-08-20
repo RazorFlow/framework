@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Number Formatting",
-	"subtitle": "",
-	"id":"php_number_formatting",
-	"index": 0
-}
-</meta>
+--
+title: "Number Formatting"
+subtitle: ""
+id: "php_number_formatting"
+index: 0
+--
+
 
 {{ anchor("phpNumberFormatting", "Number Formatting Parameters") }}
 

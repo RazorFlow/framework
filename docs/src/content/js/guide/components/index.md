@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Component Guide",
-	"subtitle": "",
-	"id": "components_index"
-}
-</meta>
+--
+title: "Component Guide"
+subtitle: ""
+id: "components_index"
+--
+
 
 A Dashboard Component is what is displayed to the user - a visual representation of the data that powers the component.
 

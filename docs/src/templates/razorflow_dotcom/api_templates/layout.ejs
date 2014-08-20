@@ -61,20 +61,18 @@ require $_SERVER['DOCUMENT_ROOT']."/layout/header.php";
           <hr class="docDivider hidden-sm">
             <div class="docContentWrapper">
                 <div class="col-md-8 docContent pull-right">
-                    <% 
-                    var classNode = tree.findNodeByClassName(currentClass);
-                    if(currentClass != 'index' && (classNode.access && classNode.access.name !== 'private')) { 
-                    %>
-                        <%- render('class.ejs', {tree: tree, item: tree.findNodeByClassName(currentClass)}) %>
-                <% } else { %>
-                    <%- render('index.ejs', {}) %>
-                <% } %>
+                  <% 
+                      var classNode = tree.findNodeByClassName(currentClass);
+                      if(currentClass != 'index') { 
+                  %>
+                          <%- render('class.ejs', {tree: tree, item: classNode}) %>
+                  <% } else { %>
+                      <%- render('index.ejs', {}) %>
+                  <% } %>
                 </div>
             </div>
             <div class="col-md-4">
-                <ul id="docTree" class="rf-tree docTree">
-                    <%- articleNav %>
-                </ul>
+                    <%- toc %>
             </div>
         </div>
     </div>

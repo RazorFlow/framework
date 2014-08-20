@@ -11,22 +11,21 @@ var treeObject = {
                 for(var j=0; j<keys.length; j++) {
                     var key = keys[j];
                     // This .name is a jugaad!!
-                    if(cls[key] && cls[key].name !== filterObj[key]) {
+                    if(cls[key] !== filterObj[key]) {
                         filter = false;
                     }
                 }
             }
-            if(filter) nodes.push(cls.class.name);
+            if(filter) nodes.push(cls.class);
         }
 
         return nodes;
     },
     findNodeByClassName: function(name) {
-
         for(var i=0; i<this.classes.length; i++) {
             var cls = this.classes[i];
             
-            if(name === cls.class.name) {
+            if(name === cls.class) {
                 return cls;
             }
         }

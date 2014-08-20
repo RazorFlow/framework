@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Guide",
-	"subtitle": "",
-	"id": "php_guide_index"
-}
-</meta>
+--
+title: "Guide"
+subtitle: ""
+id: "php_guide_index"
+--
+
 
 ## RazorFlow PHP Guide
 

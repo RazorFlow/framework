@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "Dashboards with JavaScript",
-  "subtitle": "",
-  "id": "js_doc_root",
-  "hideTitle": true
-}
-</meta>
+--
+title: "Dashboards with JavaScript"
+subtitle: ""
+id: "js_doc_root"
+hideTitle: true
+--
+
 <h1>Guides</h1>
 <p>These guides are focussed, in-depth articles explaining the RazorFlow Dashboard Framework and how to use it.</p>
 <div class="row">

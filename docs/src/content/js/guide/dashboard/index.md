@@ -1,10 +1,9 @@
-<meta>
-{
-	"title": "Dashboard Fundamentals",
-	"subtitle": "",
-	"id": "dashboard_guide"
-}
-</meta>
+--
+title: "Dashboard Fundamentals"
+subtitle: ""
+id: "dashboard_guide"
+--
+
 
 ### Basics concepts
 

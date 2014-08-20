@@ -1,10 +1,9 @@
-<meta>
-{
-  "title": "Dashboard Patterns",
-  "subtitle": "",
-  "id": "patterns_index"
-}
-</meta>
+--
+title: "Dashboard Patterns"
+subtitle: ""
+id: "patterns_index"
+--
+
 
 ## Common Web Application Patterns
 

@@ -1,11 +1,10 @@
-<meta>
-{
-  "title": "Adding authentication to your dashboard",
-  "subtitle": "",
-  "id": "js_pattern_authentication",
-  "index": 0
-}
-</meta>
+--
+title: "Adding authentication to your dashboard"
+subtitle: ""
+id: "js_pattern_authentication"
+index: 0
+--
+
 
 {{ notice ('warning', '', "This applies to the JavaScript version of the documentation. These instructions are relatively generic and apply to virtually all " )}}
 

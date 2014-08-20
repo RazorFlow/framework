@@ -1,10 +1,9 @@
-<meta>
-{
-  "title": "KPI Group Component",
-  "subtitle": "",
-  "id":"php_kpi_group_guide"
-}
-</meta>
+--
+title: "KPI Group Component"
+subtitle: ""
+id: "php_kpi_group_guide"
+--
+
 
 ### Basic usage
 

@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Embed a Tabbed Dashboard into an existing page",
-    "id": "embed_tabbed",
-    "index": 7
-}
-</meta>
+--
+title: "Embed a Tabbed Dashboard into an existing page"
+id: "embed_tabbed"
+index: 7
+--
+
 
 Create the HTML markup for rendering the dashboard.
 ~~~

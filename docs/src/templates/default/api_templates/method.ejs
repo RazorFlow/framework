@@ -1,17 +1,17 @@
-<div id="<%= item.method.name %>">
-    
-    <h3><a href="#<%= item.method.name %>" class="rfDocPermalink pull-right">#</a><%= item.method.name %></h3>
+<div id="<%= item.method %>">
+    <a href="#<%= item.method %>" class="rfDocPermalink">#</a>
+    <h3><%= item.method %></h3>
     <p>
         <code><%= item.signature %></code>
     </p>
-    <p><%= item.desc.content %></p>
+    <p><%= item.desc %></p>
     <h4>Params</h4>
     <% if(item.params) { %>
-        <%- render('params.ejs', {tree: tree, params: item.params, item_id: item.method.name}) %>
+        <%- render('params.ejs', {tree: tree, params: item.params}) %>
     <% } %>
     <% if(item.example) { %>
         <h4>Example</h4>
-        <pre><code><%= item.example.code %></code></pre>
+        <pre><code><%= item.example %></code></pre>
     <% } %>
 </div>
 

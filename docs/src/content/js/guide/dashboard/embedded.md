@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Embedding a dashboard",
-    "id": "js_create_embedded",
-    "index": 5
-}
-</meta>
+--
+title: "Embedding a dashboard"
+id: "js_create_embedded"
+index: 5
+--
+
 
 
 ### What is an embedded dashboard?

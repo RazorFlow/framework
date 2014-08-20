@@ -1,10 +1,9 @@
-<meta>
-{
-    "title": "Install RazorFlow PHP Dashboard Framework",
-    "id": "php_installation",
-    "index": 0
-}
-</meta>
+--
+title: "Install RazorFlow PHP Dashboard Framework"
+id: "php_installation"
+index: 0
+--
+
 
 1. [Download](http://razorflow.com/download/) as a zip file.
 2. Determine the Document Root/Web Root. The Document Root is the folder on your computer, where all your web pages are located.

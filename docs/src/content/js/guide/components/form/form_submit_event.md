@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Form submit events",
-	"subtitle": "",
-	"id": "form_submit_event",
-	"index": 2
-}
-</meta>
+--
+title: "Form submit events"
+subtitle: ""
+id: "form_submit_event"
+index: 2
+--
+
 
 You can execute a JavaScript callback when the "Apply" button on the form has been clicked, by using the {{ linkApi ('js', 'FormComponent', 'onApplyClick') }} function. This callback gives you all the data in an easy to use form.
 

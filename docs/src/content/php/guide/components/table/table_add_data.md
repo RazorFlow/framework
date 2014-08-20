@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Adding data to the table",
-	"subtitle": "",
-	"id": "php_table_add_data",
-	"index": 1
-}
-</meta>
+--
+title: "Adding data to the table"
+subtitle: ""
+id: "php_table_add_data"
+index: 1
+--
+
 
 You can add a table component to the dashboard by creating an intance of the {{ linkApi("php", "TableComponent", "") }} class in your dashboard code.
 

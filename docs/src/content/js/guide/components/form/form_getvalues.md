@@ -1,11 +1,10 @@
-<meta>
-{
-	"title": "Get the values entered by users",
-	"subtitle": "",
-	"id": "form_getvalues",
-	"index": 1
-}
-</meta>
+--
+title: "Get the values entered by users"
+subtitle: ""
+id: "form_getvalues"
+index: 1
+--
+
 
 ### Access the input values in a form component
 
