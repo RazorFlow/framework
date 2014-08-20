@@ -182,7 +182,7 @@ module.exports = function(grunt) {
             upload_package: {
                 // These options override the defaults
                 options: {
-                    encodePaths: true,
+                    encodePaths: false,
                     maxOperations: 20
 
                 },
@@ -260,9 +260,10 @@ module.exports = function(grunt) {
     function addPackageWithLicense (version, license) {
         var taskHost = JSRF_Tasks.packman;
         var licensePath = "razorflow_license_" + license;
+        var fileName = (license === "developer") ? "-"+version : "_"+license+"-"+version;
 
         taskHost['js_' + license] = {
-            file_name: "razorflow_framework_js_"+license+"-"+version,
+            file_name: "razorflow_framework_js"+fileName,
             container_name: "razorflow_framework_js-" + version,
             files: [
                 {file: "readme.html", src:"tools/licenses/"+licensePath+"/js.html"},
@@ -271,7 +272,7 @@ module.exports = function(grunt) {
         };
 
         taskHost['php_' + license] = {
-            file_name: "razorflow_framework_php_"+license+"-"+ version,
+            file_name: "razorflow_framework_php"+fileName,
             container_name: "razorflow_framework_php-" + version,
             files: [
                 {file: "readme.html", src:"tools/licenses/"+licensePath+"/js.html"},
@@ -280,7 +281,7 @@ module.exports = function(grunt) {
         };
 
         taskHost['suite_' + license] = {
-            file_name: "razorflow_framework_suite_"+license+"-" + version,
+            file_name: "razorflow_framework_suite"+fileName,
             container_name: "razorflow_framework_suite-" + version,
             files: [
                 {file: "readme.html", src:"tools/licenses/"+licensePath+"/suite.html"},
