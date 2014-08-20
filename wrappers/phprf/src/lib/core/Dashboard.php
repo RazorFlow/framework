@@ -20,12 +20,6 @@ abstract class Dashboard {
       }
 
       $this->debugMode = false;
-      // if(isset($_rfConfig['rfDebug'])) {
-      //   $this->debugMode = $_rfConfig['rfDebug'];
-      // }
-      // else {
-      //   $this->debugMode = false;       
-      // }
     }
 
     public function setID ($id) {
