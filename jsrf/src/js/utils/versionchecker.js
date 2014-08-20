@@ -103,11 +103,10 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
 
   var getUpgradeURL = function() {
     var channel = versionRunning.channel,
-        version = versionRunning.version,
-        latest = (isBetaVersion() ? currentVersion.beta.versionNumber : currentVersion.stable.versionNumber);
+        version = versionRunning.version;
 
 
-    return DebugConstants.upgradeURL + "?channel=" + channel + "&version=" + version + "&latest=" + latest;
+    return DebugConstants.upgradeURL + "?channel=" + channel + "&version=" + version;
   };
 
   return versionChecker;
