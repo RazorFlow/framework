@@ -19,12 +19,13 @@ abstract class Dashboard {
         $this->staticRoot = $_rfConfig['staticRoot'];
       }
 
-      if(isset($_rfConfig['rfDebug'])) {
-        $this->debugMode = $_rfConfig['rfDebug'];
-      }
-      else {
-        $this->debugMode = false;       
-      }
+      $this->debugMode = false;
+      // if(isset($_rfConfig['rfDebug'])) {
+      //   $this->debugMode = $_rfConfig['rfDebug'];
+      // }
+      // else {
+      //   $this->debugMode = false;       
+      // }
     }
 
     public function setID ($id) {
@@ -283,6 +284,10 @@ abstract class Dashboard {
 
     public function getDebugMode() {
         return $this->debugMode;
+    }
+
+    public function enableDevTools() {
+        $this->debugMode = true;
     }
 
     private function isXHR() {

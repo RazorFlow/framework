@@ -31,5 +31,6 @@ $db = new MyDashboard();
 // This is relative to the current path of index.php and will not work in more advanced
 // scenarios like integrating into MVC and embedding.
 $db->setStaticRoot ("razorflow_php/static/rf/");
+$db->enableDevTools ();
 $db->renderStandalone();
   
