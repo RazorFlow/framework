@@ -37,7 +37,7 @@ define([
                 return true;
             }
           } else {
-            if(browser.name === 'Chrome' && browser.major < 23) {
+            if(browser.name === 'Chrome' && browser.major < 22) {
                 return false;
             } else if(browser.name === 'Firefox' && browser.major < 17) {
                 return false;
