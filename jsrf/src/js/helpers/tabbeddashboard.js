@@ -185,7 +185,7 @@ define([
         'margin': '0 auto'
       });
       if(!browserUtils.isBrowserSupported()) {
-        pro.$containerDiv.html(window.JST.browser_error({}));
+        pro.$containerDiv.html(JST.browser_error({}));
         return;
       }
     };
