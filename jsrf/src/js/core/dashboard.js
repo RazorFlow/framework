@@ -62,7 +62,7 @@ define([
           'margin': '0 auto'
         });
         if(!browserUtils.isBrowserSupported()) {
-          $containerDiv.html(window.JST.browser_error({}));
+          $containerDiv.html(JST.browser_error({}));
           return;
         }
         init();
@@ -90,7 +90,7 @@ define([
         forceSmallScreenMode = !!opts.forceSmallScreenMode;
         $containerDiv = $jqDiv;
         if(!browserUtils.isBrowserSupported()) {
-          $containerDiv.html(window.JST.browser_error({}));
+          $containerDiv.html(JST.browser_error({}));
           return;
         }
         pro.setEmbeddedWidthHeight();
