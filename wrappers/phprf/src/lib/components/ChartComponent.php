@@ -159,6 +159,9 @@ class ChartComponent extends RFComponent {
         if($key === "showLegendFlag") {
             $this->props->setValue ("chart.showLegendFlag", $value);
             return true;
+        } else if($key === "showPieValues") {
+            $this->props->setValue ("chart.showPieValues", $value);
+            return true;
         }
         return false;
     }
