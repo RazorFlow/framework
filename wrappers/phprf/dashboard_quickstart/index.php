@@ -15,10 +15,10 @@ class MyDashboard extends StandaloneDashboard {
     $chart = new ChartComponent("2014_sales");
     $chart->setCaption("2014 Sales");
     $chart->setDimensions (4, 4);
-    $chart->setLabels (["Beverages", "Vegetables"]);
-    $chart->addSeries ("sales", "Sales", [1343, 7741], array(
+    $chart->setLabels (array("Beverages", "Vegetables"));
+    $chart->addSeries ("sales", "Sales", array(1343, 7741), array(
     	'numberPrefix' => "$"
-	));
+	  ));
 
     $this->addComponent ($chart);
   }

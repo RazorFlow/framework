@@ -9,3 +9,5 @@ grunt-contrib-jst
 .DS_Store
 node_modules
 *.pyc
+version.php
+version.json
