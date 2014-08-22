@@ -161,7 +161,8 @@ define(['razorcharts/renderers/column',
                         scale: yScale['left'],
                         type: 'left',
                         forceDomain: true,
-                        domain: domains.lDomain
+                        domain: domains.lDomain,
+                        showLabelFlag: true
                     }));
                 }
                 yAxis['right'] = new Axis();
@@ -170,7 +171,8 @@ define(['razorcharts/renderers/column',
                         scale: yScale['right'],
                         type: 'right',
                         forceDomain: true,
-                        domain: domains.rDomain
+                        domain: domains.rDomain,
+                        showLabelFlag: true
                     }));
                 }
                 // if(_.min(dataByAxisType['right']) < 0 && _.min(dataByAxisType['left']) >= 0) {
@@ -215,7 +217,8 @@ define(['razorcharts/renderers/column',
                 yAxis = new Axis();
                 yAxis.config(_.extend(options.yAxis || {}, {
                     scale: yScale,
-                    type: 'left'
+                    type: 'left',
+                    showLabelFlag: true
                 }));
             }
             
@@ -229,7 +232,8 @@ define(['razorcharts/renderers/column',
                 scale: xScale,
                 type: 'bottom',
                 eventManager: eventManager,
-                tooltip: options.axesTooltip
+                tooltip: options.axesTooltip,
+                showLabelFlag: options.showLabelFlag
             }));
 
             grid = new Grid();

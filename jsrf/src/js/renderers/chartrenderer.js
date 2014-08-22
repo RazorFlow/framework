@@ -253,7 +253,8 @@ define([
     var selectAndCreateChart = function (labels, data, series, displayValues) {
       var _series = [],
           customColors = [],
-          dualY = self.props.chart.dualY;
+          dualY = self.props.chart.dualY,
+          showLabelFlag = self.props.chart.showLabelFlag;
       coreChartType = series[0].displayType === 'pie' ? 'pie' : series[0].displayType === 'bar' ? 'bar' : 'linear';
       for(var i=-1; ++i<series.length;) {
         if(series) {
@@ -351,7 +352,8 @@ define([
             axesTooltip.hide();
           }
         },
-        series: coreChartType === 'pie' ? _series[0] : _series
+        series: coreChartType === 'pie' ? _series[0] : _series,
+        showLabelFlag: showLabelFlag
       });
 
       // if(coreChartType === 'pie') {

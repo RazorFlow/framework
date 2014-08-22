@@ -273,7 +273,8 @@ function ChartProperties() {
     'secondaryYAxis':new ChartAxisProperties(),
     'dualY':false,
     'showLegendFlag':true,
-    'showPieValues':true
+    'showPieValues':true,
+    'showLabelFlag':true
   });
 }
 exports.ChartProperties = ChartProperties;

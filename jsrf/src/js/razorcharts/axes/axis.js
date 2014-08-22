@@ -77,6 +77,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
         };
 
         self.resizeTo = function(w, h) {
+            var showLabel = shouldLabelBeShown();
             var scale = options.scale,  
                 rangeUnit = null, i, g;
             width = w;
@@ -139,44 +140,46 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                 tickContainer.transform('t0,0');
                 
             } else if(options.type === 'bottom') {
-                rangeUnit = w / tickValues.length;
-                if(scale.type === 'ordinal') {
-                    tilt = shouldWeTilt(tickValues, rangeUnit);    
-                }
-                for(i=-1; ++i<ticks.length;) {
-                    ticks[i].remove();
-                    ticks[i] = null;
-                }
-                ticks = createTicks(tickValues, options.type);
-                for(i=-1; ++i<tickValues.length;) {
-                    g = ticks[i];
+                if(showLabel) {
+                    rangeUnit = w / tickValues.length;
                     if(scale.type === 'ordinal') {
-                        // Check if label needs breaking
-                        if(tilt) {
-                                g.remove();
-                                g = ticks[i] = createTiltedTick(tickValues[i], i, rangeUnit, 'bottom');
-                        } else {
-                            if(labelWidths[tickValues[i]] > rangeUnit) {
-                                var lines = getLines(tickValues[i], rangeUnit);
-                                g.remove();
-                                g = ticks[i] = createMultilineTick(lines.words, i, 'bottom');
-                            } 
-                        }
-                        g.transform('t'+(scale.calc(tickValues[i]) + rangeUnit / 2)  +',0');
-                    } else if(scale.type === 'linear') {
-                        g.transform('t'+ scale.calc(tickValues[i]) +',0');
+                        tilt = shouldWeTilt(tickValues, rangeUnit);    
                     }
-                }
-                if(options.label) {
-                    axisLabel.attr({
-                        'text-anchor': 'middle',
-                        transform: 't' + (w/2) + ',' + (tickContainer.node.getBBox().height + axisLabel.getBBox().height)
-                    });
-                }
+                    for(i=-1; ++i<ticks.length;) {
+                        ticks[i].remove();
+                        ticks[i] = null;
+                    }
+                    ticks = createTicks(tickValues, options.type);
+                    for(i=-1; ++i<tickValues.length;) {
+                        g = ticks[i];
+                        if(scale.type === 'ordinal') {
+                            // Check if label needs breaking
+                            if(tilt) {
+                                    g.remove();
+                                    g = ticks[i] = createTiltedTick(tickValues[i], i, rangeUnit, 'bottom');
+                            } else {
+                                if(labelWidths[tickValues[i]] > rangeUnit) {
+                                    var lines = getLines(tickValues[i], rangeUnit);
+                                    g.remove();
+                                    g = ticks[i] = createMultilineTick(lines.words, i, 'bottom');
+                                } 
+                            }
+                            g.transform('t'+(scale.calc(tickValues[i]) + rangeUnit / 2)  +',0');
+                        } else if(scale.type === 'linear') {
+                            g.transform('t'+ scale.calc(tickValues[i]) +',0');
+                        }
+                    }
+                    if(options.label) {
+                        axisLabel.attr({
+                            'text-anchor': 'middle',
+                            transform: 't' + (w/2) + ',' + (tickContainer.node.getBBox().height + axisLabel.getBBox().height)
+                        });
+                    }
 
-                if(options.axisLine) {
-                    axisLine.attr('path', 'm0,0l' + w + ',0');
-                }
+                    if(options.axisLine) {
+                        axisLine.attr('path', 'm0,0l' + w + ',0');
+                    }
+            }
             }
             if(tilt && options.type === 'bottom') {
                 if(!tooltip) {
@@ -330,10 +333,14 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
         };
 
         var createTicks = function(_tickValues, orientation) {
+
             var tempHolder = [];
+            var showLabelFlag = shouldLabelBeShown();
+            if(options.showLabelFlag === 'undefined' || options.showLabelFlag === true) {
             for(var i=-1; ++i<_tickValues.length;) {
+                var tickLabel = (options.showLabelFlag === 'undefined') ? tickLabels[i] : (options.showLabelFlag ? tickLabels[i] : '');
                 var g = paper.group('tick-' + (i+1), tickContainer),
-                    _ticks = paper.text(0 , 0, '' + tickLabels[i], g),
+                    _ticks = paper.text(0 , 0, '' + tickLabel, g),
                     line = null;
 
                 if(orientation === 'left') {
@@ -385,6 +392,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                   }));
                 }
             }
+        }
 
             return tempHolder;
         };
@@ -634,6 +642,16 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             
             return tilt;
         };
+
+        var shouldLabelBeShown = function() {
+
+            if(options.showLabelFlag === 'undefined'){
+                return true;
+            }
+            else {
+                return options.showLabelFlag;
+            }
+        }
     };
 
     return Axis;

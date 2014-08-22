@@ -82,13 +82,15 @@ define(['razorcharts/renderers/bar',
             yAxis = new Axis();
             yAxis.config(_.extend(options.yAxis || {}, {
                 scale: yScale,
-                type: 'left'
+                type: 'left',
+                showLabelFlag: options.showLabelFlag
             }));
 
             xAxis = new Axis();
             xAxis.config(_.extend(options.xAxis || {}, {
                 scale: xScale,
-                type: 'bottom'
+                type: 'bottom',
+                showLabelFlag: true
             }));
 
             grid = new Grid();
