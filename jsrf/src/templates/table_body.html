@@ -6,9 +6,16 @@
         <%
         for (var key in row) {
         var item = row[key];
-        var style = styleClass[key]['style'];
+        var style = styleClass["column"][key]['style'];
+        var backgroundColor = "";
+        var textColor = "";
+        if(styleClass["cell"][key]) {
+            var backgroundColor = styleClass["cell"][key][i]["cellBackgroundColor"];
+            var textColor = styleClass["cell"][key][i]["cellTextColor"];
+        }
+        console.log(backgroundColor);
         %>
-        <td style="" class="<%= style %>" data-id="<%= key %>" id="rfTableCell-<%= key %>-<%= i %>">
+        <td class="<%= style %>" data-id="<%= key %>" id="rfTableCell-<%= key %>-<%= i %>" style="background-color:<%= backgroundColor %>; color:<%= textColor %>">
             <p><% if(columns[key].dataType === 'icon') { %>
                 <span class="rfIcon rfi-<%=item%>"></span>
                 <% } else { %><%= item %><% } %></p>

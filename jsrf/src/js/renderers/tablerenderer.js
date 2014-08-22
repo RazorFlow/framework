@@ -132,16 +132,22 @@ define([
      */
     var formatColumnStyle = function(data){
       var columnProps = _.cloneDeep(self.props.table.columns);
-      var formattedStyle = null;
+      var cellProps = _.cloneDeep(self.props.table.cellConditionalFormatters);
+      var formattedStyle = {};
       for(var key in columnProps){
         if(columnProps.hasOwnProperty(key)){
           var formatter = new StyleFormatter();
           formatter.setConfig(columnProps[key]);
-          formattedStyle = formatter.formatColumn(columnProps, key);
+          formattedStyle.column = formatter.formatColumn(columnProps, key);
+          
+          if(cellProps.hasOwnProperty(key)) {
+            formatter.setConfig(cellProps[key]);
+            formattedStyle.cell = formatter.formatCell(data, key);
+          }
+
           formatter.filterHTML(data, key);
         }
       }
-
       return formattedStyle;
     };
 

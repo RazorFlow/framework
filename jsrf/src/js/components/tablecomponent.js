@@ -92,6 +92,15 @@ define([
        */
       clearRows: function () {
         self.ds.clearRows();
+      },
+
+      cellConditionalFormat: function (id, formatRule, appliedStyle) {
+        options = {};
+        options.column_id = id;
+        options.conditionalExpression = _.isString(formatRule) ? {"type": "valueComparator", "expression": formatRule } : formatRule;
+        options.format = _.isString(appliedStyle) ? {"cellBackgroundColor" : appliedStyle, "cellTextColor" : null} : appliedStyle;
+
+        pro.pb.addItemToList("table.cellConditionalFormatters", id, options);
       }
     };
 

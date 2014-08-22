@@ -357,9 +357,50 @@ class TableProperties extends PropertyBase {
 
     $this->register(array(
           'columns' => new PropertyList('TableColumnProperties'),
+    'cellConditionalFormatters' => new PropertyList('TableCellConditionalFormat'),
     'rowsPerPage' => 10,
     'currentPageNumber' => 0,
     'totalRows' => 0
+    ));
+  }
+  
+}
+
+class TableCellConditionalFormat extends PropertyBase {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+          'conditionalExpression' => new ConditionalExpressionProperties(),
+    'format' => new TableCellFormatProperties(),
+    'column_id' => ""
+    ));
+  }
+  
+}
+
+class ConditionalExpressionProperties extends PropertyBase {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+          'expression' => "",
+    'type' => ""
+    ));
+  }
+  
+}
+
+class TableCellFormatProperties extends PropertyBase {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+          'cellBackgroundColor' => "",
+    'cellTextColor' => ""
     ));
   }
   

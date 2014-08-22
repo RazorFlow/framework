@@ -1,4 +1,4 @@
-define([], function () {
+define(["utils/evalexpression",], function (EvalExpression) {
   var StyleFormatter = function () {
 
     var self = this,
@@ -9,7 +9,9 @@ define([], function () {
         rawHTML = null,
         RIGHT_ALIGN = 'right',
         LEFT_ALIGN = 'left',
-        CENTER_ALIGN = 'center';
+        CENTER_ALIGN = 'center',
+        conditionExpn = {},
+        format = {};
 
     var textBoldString = "rfBold",
         textItalicString = "rfItalic";
@@ -33,11 +35,27 @@ define([], function () {
         rawHTML = config.rawHTML;
       }
 
+      conditionExpn = config.conditionalExpression;
+      format = config.format;
     };
 
     self.formatColumn = function (data, key) {
       data[key]['style'] = addStyles();
       return data;
+    };
+
+    self.formatCell = function (data, key) {
+      var value = null;
+      var cellStyle = {};
+      cellStyle[key]= [];
+      for(var i=0; i<data.length; i++) {
+        cellStyle[key][i] = {};
+        if(EvalExpression(conditionExpn.expression, +data[i][key])) {
+          cellStyle[key][i]["cellBackgroundColor"] = format.cellBackgroundColor;
+          cellStyle[key][i]["cellTextColor"] = format.cellTextColor;
+        }
+      }
+      return cellStyle;
     };
 
     self.filterHTML = function(data, key){

@@ -359,12 +359,53 @@ function TableProperties() {
 
   this.register({
         'columns':new PropertyList(TableColumnProperties),
+    'cellConditionalFormatters':new PropertyList(TableCellConditionalFormat),
     'rowsPerPage':10,
     'currentPageNumber':0,
     'totalRows':0
   });
 }
 exports.TableProperties = TableProperties;
+
+
+
+
+function TableCellConditionalFormat() {
+  PropertyBase.call(this);
+
+  this.register({
+        'conditionalExpression':new ConditionalExpressionProperties(),
+    'format':new TableCellFormatProperties(),
+    'column_id':""
+  });
+}
+exports.TableCellConditionalFormat = TableCellConditionalFormat;
+
+
+
+
+function ConditionalExpressionProperties() {
+  PropertyBase.call(this);
+
+  this.register({
+        'expression':"",
+    'type':""
+  });
+}
+exports.ConditionalExpressionProperties = ConditionalExpressionProperties;
+
+
+
+
+function TableCellFormatProperties() {
+  PropertyBase.call(this);
+
+  this.register({
+        'cellBackgroundColor':"",
+    'cellTextColor':""
+  });
+}
+exports.TableCellFormatProperties = TableCellFormatProperties;
 
 
 
