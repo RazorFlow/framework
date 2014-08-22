@@ -111,7 +111,8 @@ define(['vendor/lodash'], function(_) {
                         var params = {
                             seriesIndex: series[i].seriesIndex,
                             labelIndex: j,
-                            value: data[j]
+                            value: data[j],
+                            label: labels[j]
                         };
                         circle.click(createClickCallback(params));
                         circle.mouseover(createOverCallback(params, circle));

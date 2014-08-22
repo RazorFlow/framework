@@ -1,10 +1,10 @@
 {
     "stable": {
-        "versionNumber": "1.0.2",
-        "versionString": "1.0.2"
+        "versionNumber": "1.0.3",
+        "versionString": "1.0.3"
     },
     "beta": {
-        "versionNumber": "1.0.2",
-        "versionString": "1.0.2-beta.0"
+        "versionNumber": "1.0.3",
+        "versionString": "1.0.3-beta.0"
     }
 }
