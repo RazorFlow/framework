@@ -89,8 +89,7 @@ define(['razorcharts/renderers/bar',
             xAxis = new Axis();
             xAxis.config(_.extend(options.xAxis || {}, {
                 scale: xScale,
-                type: 'bottom',
-                showLabelFlag: true
+                type: 'bottom'
             }));
 
             grid = new Grid();

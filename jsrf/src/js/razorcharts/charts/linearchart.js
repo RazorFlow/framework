@@ -161,8 +161,7 @@ define(['razorcharts/renderers/column',
                         scale: yScale['left'],
                         type: 'left',
                         forceDomain: true,
-                        domain: domains.lDomain,
-                        showLabelFlag: true
+                        domain: domains.lDomain
                     }));
                 }
                 yAxis['right'] = new Axis();
@@ -171,8 +170,7 @@ define(['razorcharts/renderers/column',
                         scale: yScale['right'],
                         type: 'right',
                         forceDomain: true,
-                        domain: domains.rDomain,
-                        showLabelFlag: true
+                        domain: domains.rDomain
                     }));
                 }
                 // if(_.min(dataByAxisType['right']) < 0 && _.min(dataByAxisType['left']) >= 0) {
@@ -217,8 +215,7 @@ define(['razorcharts/renderers/column',
                 yAxis = new Axis();
                 yAxis.config(_.extend(options.yAxis || {}, {
                     scale: yScale,
-                    type: 'left',
-                    showLabelFlag: true
+                    type: 'left'
                 }));
             }
             

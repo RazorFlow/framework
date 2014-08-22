@@ -336,9 +336,9 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
 
             var tempHolder = [];
             var showLabelFlag = shouldLabelBeShown();
-            if(options.showLabelFlag === 'undefined' || options.showLabelFlag === true) {
+            if(showLabelFlag) {
             for(var i=-1; ++i<_tickValues.length;) {
-                var tickLabel = (options.showLabelFlag === 'undefined') ? tickLabels[i] : (options.showLabelFlag ? tickLabels[i] : '');
+                var tickLabel = showLabelFlag ? tickLabels[i] : '';
                 var g = paper.group('tick-' + (i+1), tickContainer),
                     _ticks = paper.text(0 , 0, '' + tickLabel, g),
                     line = null;
@@ -645,7 +645,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
 
         var shouldLabelBeShown = function() {
 
-            if(options.showLabelFlag === 'undefined'){
+            if(typeof options.showLabelFlag === 'undefined'){
                 return true;
             }
             else {
