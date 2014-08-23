@@ -208,6 +208,20 @@ module.exports = function(grunt) {
                 },
                 templatePath: "tools/grunt-tasks/templates/genprops" 
             }
+        },
+        extGrunt: {
+            docs: {
+                options: {
+                    cwd:"docs",
+                    task: "build:website"
+                }
+            },
+            website: {
+                options: {
+                    cwd:"website/src/static/",
+                    task: "build"
+                }
+            },
         }
     };
 
@@ -310,6 +324,20 @@ module.exports = function(grunt) {
         addPackageWithLicense(version, "corporate_devdirect");
     };
 
+    grunt.registerMultiTask("extGrunt", "Call an external grunt", function() {
+        var options = this.options({});
+        var done = this.async();
+
+        grunt.util.spawn({
+            grunt: true,
+            opts: {
+                cwd: options.cwd,
+                stdio: 'inherit'
+            },
+            args: [options.task]
+        }, done)
+    })
+
     createPackagesForVersion(opts.versionString);
 
     grunt.registerTask("makePackage", ["exec:php_readme_gen", "packman"])
@@ -318,8 +346,9 @@ module.exports = function(grunt) {
     grunt.registerTask("build:examples", ["copyto:examples"]);
     grunt.registerTask("build:phprf", ["packman:php_build"]);
     grunt.registerTask("build:code", ["build:jsrf", "build:phprf"]);
-    grunt.registerTask("build:website", ["build:code", "copyto:website"])
-    grunt.registerTask("build", ["build:code", "build:website"]);
+    grunt.registerTask("build:website", ["copyto:website", "squashDemos", "extGrunt:website"]);
+    grunt.registerTask("build:docs", ["extGrunt:docs"]);
+    grunt.registerTask("build", ["build:code", "build:website", "build:examples", "build:website", "build:docs"]);
     grunt.registerTask("package", ["clean:build", "build", "makePackage", "versionWriter"]);
     grunt.registerTask("upload", ["s3:upload_package"]);
 
@@ -328,6 +357,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-copy-to');
     grunt.loadNpmTasks('grunt-file-append');

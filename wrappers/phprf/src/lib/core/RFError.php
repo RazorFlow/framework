@@ -2,7 +2,7 @@
 
 class RFError {
     public static function error ($error_number, $error_string, $error_file, $error_line) {
-      http_response_code(500);
+      header('HTTP/1.1 500 Internal Server Error', true, 500);
       $trace = debug_backtrace();
       $backtrace = '';
       for($i=0; $i<count($trace); $i++) {
