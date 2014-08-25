@@ -2,10 +2,14 @@
     var paths = {
         kendo: 'vendor/kendo',
         Raphael: 'vendor/redraphael',
+        jsep: 'vendor/jsep'
     };
     var shim = {
         Raphael: {
             exports: 'Raphael'
+        },
+        jsep: {
+            exports: 'jsep'
         }
     };
     

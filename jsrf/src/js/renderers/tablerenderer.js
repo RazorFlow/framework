@@ -62,7 +62,8 @@ define([
       tBody.html(JST.table_body({
         columns: self.props.table.columns,
         data: formattedData,
-        styleClass: formatColumnStyle(formattedData)
+        styleClass: formatColumnStyle(formattedData),
+        cellStyle: formatCellStyle(d)
       }));
 
       renderSparkline(formattedData);
@@ -132,6 +133,7 @@ define([
      */
     var formatColumnStyle = function(data){
       var columnProps = _.cloneDeep(self.props.table.columns);
+      var cellProps = _.cloneDeep(self.props.table.cellConditionalFormatters);
       var formattedStyle = null;
       for(var key in columnProps){
         if(columnProps.hasOwnProperty(key)){
@@ -141,9 +143,21 @@ define([
           formatter.filterHTML(data, key);
         }
       }
-
       return formattedStyle;
     };
+
+    var formatCellStyle = function (data) {
+      var cellProps = _.cloneDeep(self.props.table.cellConditionalFormatters);
+      var formattedStyle = {};
+      for(var key in cellProps){
+        if(cellProps.hasOwnProperty(key)) {
+          var formatter = new StyleFormatter();
+          formatter.setConfig(cellProps[key]);
+          formattedStyle[key] = formatter.formatCell(data, key);
+        }
+      }
+      return formattedStyle;
+    }
 
     var addListeners = function () {
       self.pagination.addDomListeners();

@@ -637,6 +637,11 @@
                 "class": "TableColumnProperties",
                 "shortDesc" : "Contains a list of all the columns in the table."
             },
+            "cellConditionalFormatters": {
+                "type": "PropertyList",
+                "class": "TableCellConditionalFormat",
+                "shortDesc": "Formatter for table cell"
+            },
             "rowsPerPage" : {
                 "type": "number",
                 "default": 10,
@@ -647,11 +652,64 @@
                 "default": 0,
                 "shortDesc" : "The current page number"
             },
-      "totalRows" : {
-        "type": "number",
-        "default": 0,
-        "shortDesc": "Total number of rows for the entire table."
-      }
+            "totalRows" : {
+                "type": "number",
+                "default": 0,
+                "shortDesc": "Total number of rows for the entire table."
+            }
+        }
+    },
+    "TableCellConditionalFormat": {
+        "base": "PropertyBase",
+        "shortDesc": "Formatter for table cell",
+        "properties": {
+            "conditionalExpression": {
+                "type": "PropertyBase",
+                "class": "ConditionalExpressionProperties",
+                "shortDesc": "information about the expression"
+            },
+            "format": {
+                "type": "PropertyBase",
+                "class": "TableCellFormatProperties",
+                "shortDesc": "information about the format"
+            },
+            "column_id": {
+                "type": "string",
+                "default": "",
+                "shortDesc" : "id information of the table"
+            }
+        }
+    },
+    "ConditionalExpressionProperties": {
+        "base": "PropertyBase",
+        "shortDesc": "information about the expression",
+        "properties": {
+            "expression" : {
+                "type": "string",
+                "default": "",
+                "shortDesc" : "expression string"
+            },
+            "type" : {
+                "type": "string",
+                "default": "",
+                "shortDesc" : "type of expression"
+            }
+        }
+    },
+    "TableCellFormatProperties": {
+        "base": "PropertyBase",
+        "shortDesc": "information about the format",
+        "properties": {
+            "cellBackgroundColor": {
+                "type": "string",
+                "default": "auto",
+                "shortDesc" : "cell background color"
+            },
+            "cellTextColor": {
+                "type": "string",
+                "default": "auto",
+                "shortDesc" : "cell text color"
+            }
         }
     },
     "TableColumnProperties": {
