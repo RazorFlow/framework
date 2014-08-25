@@ -9,6 +9,9 @@ abstract class StandaloneDashboard extends Dashboard {
         if(!$this->shouldRenderDashboard()) {
             return;
         }
+        if($this->shouldRefreshDashboard()) {
+            return;
+        }
         echo $this->getStandaloneHTML();
     }
 
@@ -26,7 +29,9 @@ abstract class StandaloneDashboard extends Dashboard {
             'staticRoot' => $this->getStaticRoot(),
             'dbAsJson' => $dbAsJson,
             'rfDev' => false,
-            'rfDebug' => $this->getDebugMode()
+            'rfDebug' => $this->getDebugMode(),
+            'rfRefreshDelay' => $this->getRefreshDelay(),
+            'rfAutoRefresh' => $this->autoRefresh
         );
         ob_start();
         require RF_FOLDER_ROOT."/lib/templates/standalone_template.php";

@@ -5,7 +5,8 @@ define([
   var rf = {
     globals: {
       media: "md",
-      dbRegistry: dbRegistry
+      dbRegistry: dbRegistry,
+      builder: null
     },
     hooks: new HookManager ()
   };

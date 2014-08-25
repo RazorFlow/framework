@@ -18,9 +18,13 @@ define([
 	var StandaloneBuilder = function () {
 		var self = this;
 
+    self.db = null;
+    self.refreshURL = null;
+
 		self.buildDashboardFromObject = function (obj) {
       // displayLogs(obj);
 			StandaloneDashboard (function (db) {
+        self.db = db;
 				var components = obj['components'];
         var comps = [];
 
@@ -38,6 +42,11 @@ define([
 				if(obj['properties']['dashboardTitle']) {
 					db.setDashboardTitle (obj['properties']['dashboardTitle']);
 				}
+
+        if(obj['properties']['dashboardDelay']) {
+          self.refreshURL = obj['properties']['autoRefreshURL'];
+          refreshDashboard();
+        }
 
         addLogs(db, obj);
 			});

@@ -244,6 +244,18 @@ define([
 
       dispose: function () {
         disableResizeWatcher = true;
+      },
+
+      hide: function() {
+        $containerDiv.hide();
+      },
+
+      show: function() {
+        $containerDiv.fadeIn();
+      },
+
+      getResizeWatchDelay: function() {
+        return resizeWatchDelay;
       }
     };
 
