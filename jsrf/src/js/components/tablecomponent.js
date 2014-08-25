@@ -98,7 +98,7 @@ define([
         options = {};
         options.column_id = id;
         options.conditionalExpression = _.isString(formatRule) ? {"type": "valueComparator", "expression": formatRule } : formatRule;
-        options.format = _.isString(appliedStyle) ? {"cellBackgroundColor" : appliedStyle, "cellTextColor" : null} : appliedStyle;
+        options.format = _.isString(appliedStyle) ? {"cellBackgroundColor" : appliedStyle} : appliedStyle;
 
         pro.pb.addItemToList("table.cellConditionalFormatters", id, options);
       }

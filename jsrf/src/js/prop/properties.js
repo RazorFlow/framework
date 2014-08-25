@@ -401,8 +401,8 @@ function TableCellFormatProperties() {
   PropertyBase.call(this);
 
   this.register({
-        'cellBackgroundColor':"",
-    'cellTextColor':""
+        'cellBackgroundColor':"inherit",
+    'cellTextColor':"inherit"
   });
 }
 exports.TableCellFormatProperties = TableCellFormatProperties;

@@ -10,6 +10,6 @@ StandaloneDashboard(function (db) {
 		{zone: "South", name: "Southern Stores", sale: 4500},
 	];
 	table.addMultipleRows (data);
-	table.cellConditionalFormat("sale", "value==4000", {"cellBackgroundColor": "#000", "cellTextColor": "#fff"});
+	table.cellConditionalFormat("sale", "value>4000 && value<5000", {"cellBackgroundColor":"#000", "cellTextColor": "#fff"});
 	db.addComponent(table);
 });
