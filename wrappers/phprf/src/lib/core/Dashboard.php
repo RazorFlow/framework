@@ -20,6 +20,7 @@ abstract class Dashboard {
       }
 
       $this->debugMode = false;
+      $this->autoRefresh = false;
     }
 
     public function setID ($id) {
@@ -67,6 +68,12 @@ abstract class Dashboard {
 
     public function setActive () {
       $this->properties['active'] = true;
+    }
+
+    public function setDashboardRefreshDelay($milliseconds) {
+      $this->autoRefresh = true;
+      $this->properties['autoRefreshURL'] = $this->buildURL();
+      $this->properties['dashboardDelay'] = $milliseconds;
     }
 
     public function getComponentByID ($id) {
@@ -245,6 +252,22 @@ abstract class Dashboard {
         return true;
     }
 
+    protected function shouldRefreshDashboard () {
+
+        if(isset($_GET['rfRefresh'])) {
+            if($_GET['rfRefresh']) {
+                $this->buildDashboard();
+                header ('Content-Type: application/json');
+                echo json_encode($this->getAsObject());
+                exit();
+            }
+
+            return false;
+        }
+
+        return false;
+    }
+
     protected function getDispatchObject () {
         $resp = array(
             'patches' => array()
@@ -284,6 +307,14 @@ abstract class Dashboard {
         $this->debugMode = true;
     }
 
+    protected function getRefreshDelay() {
+        if(isset($this->properties['dashboardDelay'])) {
+            return $this->properties['dashboardDelay'];
+        }
+
+        return null;
+    }
+
     private function isXHR() {
         $action = $this->extractAction();
         if($action === "triggerAction" || $action === "getData") {
@@ -293,7 +324,22 @@ abstract class Dashboard {
         return false;
     }
 
+    private function buildURL() {
+        $url = $this->getBasepath();
+        $parsed = parse_url($url);
+
+        if(isset($parsed['query'])) {
+            $url .= "&rfRefresh=true";
+        }
+        else {
+            $url .= "?rfRefresh=true";
+        }
+
+        return $url;
+    }
+
     private $debugMode;
+    protected $autoRefresh;
     protected $id;
     protected $staticRoot = "";
     protected $components = array();

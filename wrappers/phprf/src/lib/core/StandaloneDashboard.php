@@ -9,6 +9,9 @@ abstract class StandaloneDashboard extends Dashboard {
         if(!$this->shouldRenderDashboard()) {
             return;
         }
+        if($this->shouldRefreshDashboard()) {
+            return;
+        }
         echo $this->getStandaloneHTML();
     }
 

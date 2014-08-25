@@ -3,6 +3,7 @@ global $rfTemplateData;
 $staticRoot = $rfTemplateData['staticRoot'];
 $dashboardData = $rfTemplateData['dbAsJson'];
 $debugMode = $rfTemplateData['rfDebug'];
+$refreshDelay = 2000;//$rfTemplateData['rfRefreshDelay'];
 
 ?>
 <!doctype html>
@@ -10,11 +11,31 @@ $debugMode = $rfTemplateData['rfDebug'];
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <script type="text/javascript">
-    var renderDashboard = function () {
-        var builder = new rf.StandaloneBuilder();
-        var dbAsJson = <?php echo $dashboardData; ?>;
-        builder.buildDashboardFromObject (dbAsJson);
+    var renderDashboard = function (_data) {
+        var dbAsJson = typeof _data === 'undefined' ? <?php echo $dashboardData ?> : _data;
+        rf.builder = new rf.StandaloneBuilder();
+        // var dbAsJson = <?php echo $dashboardData; ?>;
+        rf.builder.buildDashboardFromObject (dbAsJson);
     };
+
+    var refreshDashboard = function() {
+        setTimeout(function() {
+            $.ajax({
+                url: rf.builder.refreshURL,
+                success: function(data) {
+                    rf.builder.db.pro.hide()
+                    rf.builder.db.pro.dispose();
+
+                  setTimeout(function() {
+                    renderDashboard(data);
+                    rf.builder.db.pro.show()
+                  }, rf.builder.db.pro.getResizeWatchDelay())
+
+                }
+            });
+        }, <?php echo $refreshDelay ?>);
+    }
+
     </script>
 
 

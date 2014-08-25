@@ -6,6 +6,7 @@ define([
 	], function(StandaloneBuilder, RFNotification, RFLogger, rf) {
 	var main = function () {
 		window.rf.StandaloneBuilder = StandaloneBuilder;
+    window.rf.builder = null;
     window.rf.logger = RFLogger;
 
     window.onerror = function(msg, link, lineno, colno, exception) {
