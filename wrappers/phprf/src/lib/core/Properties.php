@@ -399,8 +399,8 @@ class TableCellFormatProperties extends PropertyBase {
     parent::init();
 
     $this->register(array(
-          'cellBackgroundColor' => "inherit",
-    'cellTextColor' => "inherit"
+          'cellBackgroundColor' => "auto",
+    'cellTextColor' => "auto"
     ));
   }
   

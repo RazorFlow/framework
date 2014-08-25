@@ -697,12 +697,12 @@
         "properties": {
             "cellBackgroundColor": {
                 "type": "string",
-                "default": "inherit",
+                "default": "auto",
                 "shortDesc" : "cell background color"
             },
             "cellTextColor": {
                 "type": "string",
-                "default": "inherit",
+                "default": "auto",
                 "shortDesc" : "cell text color"
             }
         }
