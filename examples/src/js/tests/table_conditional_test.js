@@ -209,6 +209,21 @@ describe ("Table Tests", function () {
 		  .finish();
 	});
 
+	it("Multiple Conditional Format", function (done) {
+		db = new Dashboard ();
+		var table = createTable();
+		table.cellConditionalFormat("foo", "value > 3", {"cellBackgroundColor":"#000", "cellTextColor": "#fff"});
+		table.cellConditionalFormat("foo", "value == 2", {"cellBackgroundColor":"#000", "cellTextColor": "#fff"});
+		db.addComponent(table);
+		db.embedTo ("dbTarget");
+		var th = new TestHelper ();
+		th.start(done)
+		  .wait(200)
+		  .setContext(table.pro.renderer.$core)
+		  .drillContext("tbody")
+		  .finish();
+	});
+
 
 
 });

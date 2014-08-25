@@ -147,17 +147,38 @@ define([
     };
 
     var formatCellStyle = function (data) {
-      var cellProps = _.cloneDeep(self.props.table.cellConditionalFormatters);
-      var formattedStyle = {};
-      for(var key in cellProps){
-        if(cellProps.hasOwnProperty(key)) {
-          var formatter = new StyleFormatter();
-          formatter.setConfig(cellProps[key]);
+      var cellProps = _.cloneDeep(self.props.table.cellConditionalFormatters),
+          formattedStyle = {},
+          key,
+          formatter,
+          prevStyle;
+
+      for(var i=0; i< cellProps.length; i++) {
+        formatter = new StyleFormatter();
+        key = cellProps[i].column_id;
+        formatter.setConfig(cellProps[i]);
+        if(formattedStyle.hasOwnProperty(key)) {
+          formattedStyle[key] = compactObject(formattedStyle[key], formatter.formatCell(data, key));
+        } else {
           formattedStyle[key] = formatter.formatCell(data, key);
         }
       }
       return formattedStyle;
-    }
+    };
+
+    var compactObject = function (oldArr, newArr) {
+      _.map(newArr, function(value, key, newArr) {
+          if (_.isNull(value) || 
+              _.isUndefined(value) || 
+              _.keys(value).length === 0 || 
+              (_.isString(value) && _.trim(value).length === 0) || 
+              (_.isBoolean(value) && value === false))
+          {
+              newArr[key] = oldArr[key];
+          }
+      });
+      return newArr;
+    };
 
     var addListeners = function () {
       self.pagination.addDomListeners();

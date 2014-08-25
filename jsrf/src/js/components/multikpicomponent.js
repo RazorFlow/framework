@@ -72,16 +72,6 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
             },
 
             valueConditionalFormat: function (formatRule, appliedStyle) {
-                // var kpis = pro.pb.getObjectAtPath("kpis");
-                // for(var key in kpis) {
-                //     if(kpis.hasOwnProperty(key)) {
-                //         var value = pro.pb.getValue("kpis[" + key + "].value");
-                //         if (evalExpression(formatRule, value)) {
-                //             this.setKPIValueColor(key, appliedStyle);
-                //         }
-                //     }
-                // }
-
                 pro.conditionalParam.push({
                   "expression" : formatRule,
                   "valueColor" : appliedStyle
