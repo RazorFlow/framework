@@ -312,7 +312,7 @@ abstract class Dashboard {
             return $this->properties['dashboardDelay'];
         }
 
-        return null;
+        return 0;
     }
 
     private function isXHR() {

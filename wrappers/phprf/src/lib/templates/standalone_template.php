@@ -3,7 +3,7 @@ global $rfTemplateData;
 $staticRoot = $rfTemplateData['staticRoot'];
 $dashboardData = $rfTemplateData['dbAsJson'];
 $debugMode = $rfTemplateData['rfDebug'];
-$refreshDelay = 2000;//$rfTemplateData['rfRefreshDelay'];
+$refreshDelay = $rfTemplateData['rfRefreshDelay'];
 
 ?>
 <!doctype html>
