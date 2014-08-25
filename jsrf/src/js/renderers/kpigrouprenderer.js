@@ -1,4 +1,5 @@
-define(["generated/templates", 'renderers/componentrenderer', 'graphics/minikpi', 'utils/numberformatter', 'vendor/lodash'], function(JST, ComponentRenderer, MiniKPI, NumberFormatter, _) {
+define(["generated/templates", 'renderers/componentrenderer', 'graphics/minikpi', 'utils/numberformatter', "utils/evalexpression", 'vendor/lodash'],
+function(JST, ComponentRenderer, MiniKPI, NumberFormatter, evalExpression, _) {
     function KPIGroupRenderer() {
         ComponentRenderer.call(this);
         var self = this,
@@ -17,8 +18,8 @@ define(["generated/templates", 'renderers/componentrenderer', 'graphics/minikpi'
             dispose: function() {
 
             },
-            setConfig: function() {
-
+            setConfig: function(config) {
+                conditionalParam = config.conditionalParam;
             },
             updateValue: function(id, value) {
                 var numberFormatter = new NumberFormatter(),
@@ -45,17 +46,21 @@ define(["generated/templates", 'renderers/componentrenderer', 'graphics/minikpi'
                 for(var key in kpis) {
                     if(kpis.hasOwnProperty(key)) {
                         var kpi = kpis[key],
+                            valueColor = kpi.valuecolor,
                             numberFormatter = new NumberFormatter();
                         numberFormatter.setConfig(_.extend(kpi, {
                             dataType: 'number'
                         }));
+                        if(conditionalParam.expression && evalExpression(conditionalParam.expression, kpi.value)) {
+                            valueColor = conditionalParam.valueColor;
+                        }
                         kpiContainers[key] = self.$core.find('.rfMiniKPIContainer#' + key);
                         kpiobjs[key] = new MiniKPI();
                         kpiobjs[key].config({
                             caption: kpi.caption,
                             value: numberFormatter.formatValue(kpi.value),
                             captionColor: kpi.captioncolor,
-                            valueColor: kpi.valuecolor,
+                            valueColor: valueColor,
                             icon: kpi.icon,
                             iconProps: JSON.parse(kpi.iconprops),
                             captionFontScale: 0.4,

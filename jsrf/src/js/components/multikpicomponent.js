@@ -1,4 +1,4 @@
-define(['components/component', 'prop/properties', 'renderers/kpitablerenderer', "utils/evalexpression"], function(Component, Properties, KPITableRenderer, evalExpression) {
+define(['components/component', 'prop/properties', 'renderers/kpitablerenderer'], function(Component, Properties, KPITableRenderer) {
   /**
    * MultiKPI Class containing functions shared across KPI Table and KPI Group.
    *
@@ -72,14 +72,19 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer',
             },
 
             valueConditionalFormat: function (formatRule, appliedStyle) {
-                var kpis = pro.pb.getObjectAtPath("kpis");
-                for(var key in kpis) {
-                    if(kpis.hasOwnProperty(key)) {
-                        var value = pro.pb.getValue("kpis[" + key + "].value");
-                        if (evalExpression(formatRule, value)) {
-                            this.setKPIValueColor(key, appliedStyle);
-                        }
-                    }
+                // var kpis = pro.pb.getObjectAtPath("kpis");
+                // for(var key in kpis) {
+                //     if(kpis.hasOwnProperty(key)) {
+                //         var value = pro.pb.getValue("kpis[" + key + "].value");
+                //         if (evalExpression(formatRule, value)) {
+                //             this.setKPIValueColor(key, appliedStyle);
+                //         }
+                //     }
+                // }
+
+                pro.conditionalParam = {
+                  "expression" : formatRule,
+                  "valueColor" : appliedStyle
                 }
             },
 
@@ -95,11 +100,11 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer',
             },
             createRenderer: function () {
                 pro.renderer = new KPITableRenderer();
-                pro.renderer.setConfig({
-
+                pro.renderer.setConfig({    
                 });
                 pro.onRendererCreate();
             },
+            conditionalParam: {},
             renderCore: function () {
                 pro.renderer.renderCore();
             },

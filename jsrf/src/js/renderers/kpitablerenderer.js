@@ -1,4 +1,5 @@
-define(["generated/templates", 'renderers/componentrenderer', "utils/numberformatter", 'utils/iconutils', 'vendor/lodash'], function(JST, ComponentRenderer, NumberFormatter, iconUtils, _) {
+define(["generated/templates", 'renderers/componentrenderer', "utils/numberformatter", 'utils/iconutils', "utils/evalexpression", 'vendor/lodash'],
+    function(JST, ComponentRenderer, NumberFormatter, iconUtils, evalExpression, _) {
     function KPITableRenderer() {
         ComponentRenderer.call(this);
         var self = this,
@@ -11,14 +12,15 @@ define(["generated/templates", 'renderers/componentrenderer', "utils/numberforma
 
         var kpiobjs = {},
             kpiContainers = {},
-            numKPIs = null;
+            numKPIs = null,
+            conditionalParam = {};
 
         Public = {
             dispose: function() {
 
             },
-            setConfig: function() {
-
+            setConfig: function(config) {
+                conditionalParam = config.conditionalParam;
             },
             renderCore: function() {
                 var kpis = self.props.kpis,
@@ -51,18 +53,22 @@ define(["generated/templates", 'renderers/componentrenderer', "utils/numberforma
                 for(i=-1; ++i<numKPIs;) {
                     key = keys[i];
                     kpi = kpis[key];
-                    
+
                     var $caption = self.$core.find('#' + key + ' > .rfKPICaption'),
-                        $value = self.$core.find('#' + key + ' > .rfKPIValue');
+                        $value = self.$core.find('#' + key + ' > .rfKPIValue'),
+                        valueColor = kpi.valuecolor ? kpi.valuecolor : "auto";
 
                     if(kpi.captioncolor) {
                         $caption.css({
                             color: kpi.captioncolor
                         });
                     }
-                    if(kpi.valuecolor) {
+                    if(conditionalParam.expression && evalExpression(conditionalParam.expression, kpi.value)) {
+                        valueColor = conditionalParam.valueColor;
+                    }
+                    if(valueColor !== "auto") {
                         $value.css({
-                            color: kpi.valuecolor
+                            color: valueColor
                         });
                     }
                     if(kpi.icon) {

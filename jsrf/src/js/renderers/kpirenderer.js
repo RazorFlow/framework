@@ -1,8 +1,9 @@
 define([
   "renderers/componentrenderer",
   "graphics/rfkpi",
-  "utils/numberformatter"
-], function (ComponentRenderer, RFKPI, NumberFormatter) {
+  "utils/numberformatter",
+  "utils/evalexpression"
+], function (ComponentRenderer, RFKPI, NumberFormatter, evalExpression) {
   function KPIRenderer() {
     ComponentRenderer.call(this);
 
@@ -21,7 +22,9 @@ define([
         sparkLabels,
         sparkValues,
         limits,
-        gaugeFlag;
+        gaugeFlag,
+        valueTextColor,
+        conditionalParam = {};
 
     Public = {
       dispose: function () {
@@ -32,6 +35,7 @@ define([
         sparkValues = cfg.values;
         limits = cfg.limits;
         gaugeFlag = !!cfg.gaugeFlag;
+        conditionalParam = cfg.conditionalParam;
       },
       renderCore: function () {
         var dimension = self.getDimensionProperties(),
@@ -48,6 +52,15 @@ define([
             mode = 'mobile';
           }
         }
+
+        valueTextColor = self.props.kpi.display.valueTextColor;
+
+        if(conditionalParam.expression) {
+          if(evalExpression(conditionalParam.expression, self.props.kpi.display.value)) {
+            valueTextColor = conditionalParam.valueColor;
+          }
+        }
+        
         kpi = new RFKPI();
         config = {
           valueString: applyNumberFormatting(self.props.kpi.display.value),
@@ -61,7 +74,7 @@ define([
           limits: limits,
           icon: self.props.kpi.display.icon,
           iconProps: JSON.parse(self.props.kpi.display.iconprops),
-          valueTextColor: self.props.kpi.display.valueTextColor
+          valueTextColor: valueTextColor
         };
         if (self.props.kpi.display.sparkFlag) {
           config.sparkFlag = true;

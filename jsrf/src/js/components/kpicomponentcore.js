@@ -2,9 +2,8 @@ define([
   "components/component",
   "renderers/kpirenderer",
   "prop/properties",
-  "utils/evalexpression",
   'vendor/lodash'
-], function (Component, KPIRenderer, Properties, evalExpression, _) {
+], function (Component, KPIRenderer, Properties, _) {
   /**
    * This is the base class for all the kpi components
    * @class KPIComponentCore
@@ -38,9 +37,9 @@ define([
       },
 
       valueConditionalFormat: function (formatRule, appliedStyle) {
-        var value = pro.pb.getValue("kpi.display.value");
-        if (evalExpression(formatRule, value)) {
-          pro.pb.setValue("kpi.display.valueTextColor", appliedStyle);
+        pro.conditionalParam = {
+          "expression" : formatRule,
+          "valueColor" : appliedStyle
         }
       }
     };
@@ -63,7 +62,8 @@ define([
           w: 3,
           h: 3
         }
-      }
+      },
+      conditionalParam: {}
     };
 
     /**
