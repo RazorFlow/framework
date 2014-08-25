@@ -24,7 +24,7 @@ define([
         limits,
         gaugeFlag,
         valueTextColor,
-        conditionalParam = {};
+        conditionalParam = [];
 
     Public = {
       dispose: function () {

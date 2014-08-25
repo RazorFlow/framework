@@ -25,7 +25,6 @@ $autoRefresh = $rfTemplateData['rfAutoRefresh'];
             $.ajax({
                 url: rf.globals.builder.refreshURL,
                 success: function(data) {
-                    console.log(data);
                     rf.globals.builder.db.pro.hide()
                     rf.globals.builder.db.pro.dispose();
 
