@@ -8,11 +8,19 @@ class RFUtil {
 		// NOTE: this will not work if the URL already has any GET Params
 
 		$getParts = array();
+
+		// TODO: @swaroopsm
+		// Is this a security Risk? If so, find a better solution.
+		foreach ($_GET as $key => $value) {
+			$getParams[$key] = $value;
+		}
+
+		$url = parse_url($baseUrl, PHP_URL_PATH);
 		foreach ($getParams as $key => $value) {
 			$getParts []= $key."=".$value; // TODO http encode this, which looks like a=2
 		}
-
-		$baseUrl = $baseUrl . "?" . implode("&", $getParts);
+		
+		$baseUrl = $url . "?" . implode("&", $getParts);
 
 		return $baseUrl;
 	}

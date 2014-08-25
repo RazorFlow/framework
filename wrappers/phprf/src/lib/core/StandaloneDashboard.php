@@ -30,7 +30,8 @@ abstract class StandaloneDashboard extends Dashboard {
             'dbAsJson' => $dbAsJson,
             'rfDev' => false,
             'rfDebug' => $this->getDebugMode(),
-            'rfRefreshDelay' => $this->getRefreshDelay()
+            'rfRefreshDelay' => $this->getRefreshDelay(),
+            'rfAutoRefresh' => $this->autoRefresh
         );
         ob_start();
         require RF_FOLDER_ROOT."/lib/templates/standalone_template.php";

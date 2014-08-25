@@ -4,6 +4,7 @@ $staticRoot = $rfTemplateData['staticRoot'];
 $dashboardData = $rfTemplateData['dbAsJson'];
 $debugMode = $rfTemplateData['rfDebug'];
 $refreshDelay = $rfTemplateData['rfRefreshDelay'];
+$autoRefresh = $rfTemplateData['rfAutoRefresh'];
 
 ?>
 <!doctype html>
@@ -13,28 +14,31 @@ $refreshDelay = $rfTemplateData['rfRefreshDelay'];
     <script type="text/javascript">
     var renderDashboard = function (_data) {
         var dbAsJson = typeof _data === 'undefined' ? <?php echo $dashboardData ?> : _data;
-        rf.builder = new rf.StandaloneBuilder();
+        rf.globals.builder = new rf.StandaloneBuilder();
         // var dbAsJson = <?php echo $dashboardData; ?>;
-        rf.builder.buildDashboardFromObject (dbAsJson);
+        rf.globals.builder.buildDashboardFromObject (dbAsJson);
     };
 
+    <?php if($autoRefresh){ ?>
     var refreshDashboard = function() {
         setTimeout(function() {
             $.ajax({
-                url: rf.builder.refreshURL,
+                url: rf.globals.builder.refreshURL,
                 success: function(data) {
-                    rf.builder.db.pro.hide()
-                    rf.builder.db.pro.dispose();
+                    console.log(data);
+                    rf.globals.builder.db.pro.hide()
+                    rf.globals.builder.db.pro.dispose();
 
                   setTimeout(function() {
                     renderDashboard(data);
-                    rf.builder.db.pro.show()
-                  }, rf.builder.db.pro.getResizeWatchDelay())
+                    rf.globals.builder.db.pro.show()
+                  }, rf.globals.builder.db.pro.getResizeWatchDelay())
 
                 }
             });
         }, <?php echo $refreshDelay ?>);
     }
+    <?php } ?>
 
     </script>
 

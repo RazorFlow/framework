@@ -72,7 +72,7 @@ abstract class Dashboard {
 
     public function setDashboardRefreshDelay($milliseconds) {
       $this->autoRefresh = true;
-      $this->properties['autoRefreshURL'] = $this->buildURL();
+      $this->properties['autoRefreshURL'] = $this->buildRefreshURL();
       $this->properties['dashboardDelay'] = $milliseconds;
     }
 
@@ -324,17 +324,8 @@ abstract class Dashboard {
         return false;
     }
 
-    private function buildURL() {
-        $url = $this->getBasepath();
-        $parsed = parse_url($url);
-
-        if(isset($parsed['query'])) {
-            $url .= "&rfRefresh=true";
-        }
-        else {
-            $url .= "?rfRefresh=true";
-        }
-
+    private function buildRefreshURL() {
+        $url = RFUtil::buildURL($this->getBasePath (), array('rfRefresh' => true)); 
         return $url;
     }
 
