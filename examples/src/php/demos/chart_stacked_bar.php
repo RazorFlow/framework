@@ -5,7 +5,7 @@ class SampleDashboard extends StandaloneDashboard {
     $chart = new ChartComponent("Monthly Sales Summary Comparision");
     $chart->setCaption("Sales - 2013 v 2012");
     $chart->setDimensions (8, 6);
-    $chart->setLabels (["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]);
+    $chart->setLabels (["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     $chart->addSeries ("sales2013", "2013", [22400, 24800, 21800, 21800, 24600, 27600, 26800, 27700, 23700, 25900, 26800, 24800], array(
         "seriesStacked"=> true,
         "seriesDisplayType"=> "bar"

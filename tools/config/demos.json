@@ -62,7 +62,7 @@
                 },
                 {
                     "id": "chart_combined",
-                    "title": "Combining Chart",
+                    "title": "Combined Chart Types",
                     "desc": "Different compatible chart types can be combined in RazorFlow. This allows you to show information in a concise manner with the appropriate data visualization.",
                     "js": "chart_combined",
                     "php": "chart_combined",
@@ -117,7 +117,7 @@
                 {
                     "id": "component_kpi",
                     "title": "Component KPIs",
-                    "desc": "RazorFlow Dashboard Framework includes the unique KPI Grouped Component.",
+                    "desc": "The Component KPIs are smaller indicators and metrics associated with a component, and are shown below it. This enables you to see related metrics in a quick and easy manner.",
                     "js": "kpi_component_kpi",
                     "php": "kpi_component_kpi",
                     "doc": "/docs/dashboard/js/guide/components/common/component_kpis.php"
