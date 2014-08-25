@@ -37,10 +37,10 @@ define([
       },
 
       valueConditionalFormat: function (formatRule, appliedStyle) {
-        pro.conditionalParam = {
+        pro.conditionalParam.push({
           "expression" : formatRule,
           "valueColor" : appliedStyle
-        }
+        });
       }
     };
 
@@ -63,7 +63,7 @@ define([
           h: 3
         }
       },
-      conditionalParam: {}
+      conditionalParam: []
     };
 
     /**

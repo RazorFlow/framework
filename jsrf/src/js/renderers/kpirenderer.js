@@ -55,9 +55,9 @@ define([
 
         valueTextColor = self.props.kpi.display.valueTextColor;
 
-        if(conditionalParam.expression) {
-          if(evalExpression(conditionalParam.expression, self.props.kpi.display.value)) {
-            valueTextColor = conditionalParam.valueColor;
+        for(var i=0; i < conditionalParam.length; i++) {
+          if(evalExpression(conditionalParam[i].expression, self.props.kpi.display.value)) {
+            valueTextColor = conditionalParam[i].valueColor;
           }
         }
         

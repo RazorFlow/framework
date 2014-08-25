@@ -82,10 +82,10 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
                 //     }
                 // }
 
-                pro.conditionalParam = {
+                pro.conditionalParam.push({
                   "expression" : formatRule,
                   "valueColor" : appliedStyle
-                }
+                });
             },
 
             setValueIcon: function(id, iconID, props) {
@@ -104,7 +104,8 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
                 });
                 pro.onRendererCreate();
             },
-            conditionalParam: {},
+            conditionalParam: [],
+
             renderCore: function () {
                 pro.renderer.renderCore();
             },

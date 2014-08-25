@@ -63,8 +63,10 @@ define(["generated/templates", 'renderers/componentrenderer', "utils/numberforma
                             color: kpi.captioncolor
                         });
                     }
-                    if(conditionalParam.expression && evalExpression(conditionalParam.expression, kpi.value)) {
-                        valueColor = conditionalParam.valueColor;
+                    for(var j=0; j < conditionalParam.length; j++) {
+                        if(evalExpression(conditionalParam[j].expression, kpi.value)) {
+                            valueColor = conditionalParam[j].valueColor;
+                        }
                     }
                     if(valueColor !== "auto") {
                         $value.css({

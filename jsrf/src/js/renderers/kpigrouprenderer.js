@@ -51,8 +51,10 @@ function(JST, ComponentRenderer, MiniKPI, NumberFormatter, evalExpression, _) {
                         numberFormatter.setConfig(_.extend(kpi, {
                             dataType: 'number'
                         }));
-                        if(conditionalParam.expression && evalExpression(conditionalParam.expression, kpi.value)) {
-                            valueColor = conditionalParam.valueColor;
+                        for(var i=0; i < conditionalParam.length; i++) {
+                            if(evalExpression(conditionalParam[i].expression, kpi.value)) {
+                                valueColor = conditionalParam[i].valueColor;
+                            }
                         }
                         kpiContainers[key] = self.$core.find('.rfMiniKPIContainer#' + key);
                         kpiobjs[key] = new MiniKPI();
