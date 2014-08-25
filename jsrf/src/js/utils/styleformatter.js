@@ -46,13 +46,12 @@ define(["utils/evalexpression",], function (EvalExpression) {
 
     self.formatCell = function (data, key) {
       var value = null;
-      var cellStyle = {};
-      cellStyle[key]= [];
+      var cellStyle = [];
       for(var i=0; i<data.length; i++) {
-        cellStyle[key][i] = {};
+        cellStyle[i] = {};
         if(EvalExpression(conditionExpn.expression, +data[i][key])) {
-          cellStyle[key][i]["cellBackgroundColor"] = format.cellBackgroundColor;
-          cellStyle[key][i]["cellTextColor"] = format.cellTextColor;
+          cellStyle[i]["cellBackgroundColor"] = format.cellBackgroundColor;
+          cellStyle[i]["cellTextColor"] = format.cellTextColor;
         }
       }
       return cellStyle;

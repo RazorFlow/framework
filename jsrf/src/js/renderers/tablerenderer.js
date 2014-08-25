@@ -153,7 +153,7 @@ define([
         if(cellProps.hasOwnProperty(key)) {
           var formatter = new StyleFormatter();
           formatter.setConfig(cellProps[key]);
-          formattedStyle = formatter.formatCell(data, key);
+          formattedStyle[key] = formatter.formatCell(data, key);
         }
       }
       return formattedStyle;
