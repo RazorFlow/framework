@@ -376,6 +376,8 @@ define([
           pro.pb.setValue ("chart.showLegendFlag", value);
         } else if(key === "showPieValues") {
           pro.pb.setValue("chart.showPieValues", value);
+        } else if(key === "showLabelFlag") {
+          pro.pb.setValue("chart.showLabelFlag", value);
         }
       }
     };

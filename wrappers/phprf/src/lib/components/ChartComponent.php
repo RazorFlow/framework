@@ -163,6 +163,10 @@ class ChartComponent extends RFComponent {
             $this->props->setValue ("chart.showPieValues", $value);
             return true;
         }
+        else if($key === "showLabelFlag") {
+            $this->props->setValue ("chart.showLabelFlag", $value);
+            return true;
+        }
         return false;
     }
 

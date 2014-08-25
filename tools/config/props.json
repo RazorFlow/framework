@@ -496,6 +496,11 @@
                 "type": "boolean",
                 "default": true,
                 "shortDesc": "When set to false, pie labels will be hidden."
+            },
+            "showLabelFlag": {
+                "type": "boolean",
+                "default": true,
+                "shortDesc": "When set to false, chart labels will be hidden"
             }
         }
     },
