@@ -1,6 +1,6 @@
 define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], function (RFLogger, RFNotification, DebugConstants) {
 
-  // window.__rfVersion = {channel: "stable", version: "0.0.9"};
+  window.__rfVersion = {channel: "stable", version: "0.0.9"};
 
   var currentVersion;
   var betaVersionRunning;
@@ -8,6 +8,7 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
   var updateURL = DebugConstants.checkScriptURL;;
   var defaultLicense = "dev";
   var callbackMethod = "rf.jsonp.versionCheckCallback";
+  var disableUpdateChecker = false;
 
 
   var versionChecker = {
@@ -19,22 +20,32 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
     versionCallback: function(data) {
       currentVersion = data;
       check();
+    },
+
+    disable: function() {
+      disableUpdateChecker = true;
     }
 
   };
 
   var check = function() {
+    window.localStorage.setItem('__rf_update_last_checked', new Date());
+    window.localStorage.setItem('__rf_update_user_id', currentVersion.user_id);
     if(olderVersion()) {
-      window.localStorage.setItem('__rf_update_last_checked', new Date());
-      window.localStorage.setItem('__rf_update_user_id', currentVersion.user_id);
-      var upgrade_url = getUpgradeURL();
-      RFNotification.create("<a href='" + upgrade_url + "' target='_BLANK' style='color: #FFF;'>You are using an older version of RazorFlow. Click here to update.</a>", null, null, true);
-      rf.logger.log('You are using an older version of RazorFlow!');
+      window.localStorage.setItem('__rf_latest_version', false);
+      showNotice();
     }
     else {
+      window.localStorage.setItem('__rf_latest_version', true);
       return;
     }
   };
+
+  var showNotice = function() {
+    var upgrade_url = getUpgradeURL();
+    RFNotification.create("<a href='" + upgrade_url + "' target='_BLANK' style='color: #FFF;'>You are using an older version of RazorFlow. Click here to update.</a>", null, null, true);
+    rf.logger.log('You are using an older version of RazorFlow!');
+  }
 
   var getVersion = function() {
     if(isVersionCheckable()) {
@@ -53,22 +64,41 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
   };
 
   var isVersionCheckable = function() {
-    if(window.localStorage) {
-      var last_checked = window.localStorage.getItem('__rf_update_last_checked')
+    if(disableUpdateChecker) {
+      return false;
+    }
+    else {
+      if(window.localStorage) {
+        var last_checked = window.localStorage.getItem('__rf_update_last_checked');
+        var status = window.localStorage.getItem('__rf_latest_version');
 
-      if(last_checked === null) {
+        if(status === null) {
+          return true;
+        }
+        else {
+          status = JSON.parse(status);
+          if(!status) {
+            showNotice();
+            return false;
+          }
+          else {
+            if(last_checked === null) {
+              return true;
+            }
+            else {
+              var d1 = new Date();
+              var d2 = new Date(last_checked);
+
+              if((d1-d2) < 60*60*1000) {
+                return false;
+              }
+            }
+          }
+
+        }
+
         return true;
       }
-      else {
-        var d1 = new Date();
-        var d2 = new Date(last_checked);
-
-        if((d1-d2) < 60*60*1000) {
-          return false;
-        }
-      }
-
-      return true;
     }
   };
 

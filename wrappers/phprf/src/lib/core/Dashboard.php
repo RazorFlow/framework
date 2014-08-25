@@ -10,7 +10,7 @@ abstract class Dashboard {
           $GLOBALS["__rf_dashboard_autoid"] = 0;
         }
         $GLOBALS["__rf_dashboard_autoid"] ++;
-        $id = "dashboard_".$GLOBALS["__rf_dashboard_autoid"];
+        $id = "dashboard_   ".$GLOBALS["__rf_dashboard_autoid"];
       }
 
       $this->setID($id);
@@ -19,6 +19,7 @@ abstract class Dashboard {
         $this->staticRoot = $_rfConfig['staticRoot'];
       }
 
+      $this->disableUpdateChecker = false;
       $this->debugMode = false;
       $this->autoRefresh = false;
     }
@@ -287,6 +288,10 @@ abstract class Dashboard {
         return json_encode ($this->getDispatchObject(), JSON_PRETTY_PRINT);
     }
 
+    public function disableUpdateChecker () {
+        $this->disableUpdateChecker = true;
+    }
+
     protected function initialize () {
 
     }
@@ -330,6 +335,7 @@ abstract class Dashboard {
     }
 
     private $debugMode;
+    protected $disableUpdateChecker;
     protected $autoRefresh;
     protected $id;
     protected $staticRoot = "";

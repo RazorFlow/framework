@@ -7,6 +7,9 @@ define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker'], funct
     RFLogger.init();
 
     if(window.__rfVersion) {
+        rf.disableUpdateChecker = function() {
+            RFVersionChecker.disable();
+        };
         RFVersionChecker.init();
     }
     
