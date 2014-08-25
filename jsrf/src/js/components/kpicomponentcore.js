@@ -2,8 +2,9 @@ define([
   "components/component",
   "renderers/kpirenderer",
   "prop/properties",
+  "utils/evalexpression",
   'vendor/lodash'
-], function (Component, KPIRenderer, Properties, _) {
+], function (Component, KPIRenderer, Properties, evalExpression, _) {
   /**
    * This is the base class for all the kpi components
    * @class KPIComponentCore
@@ -34,6 +35,13 @@ define([
         var _opts = _.extend(pro.pb.getObjectAtPath('kpi.display'), opts);
         _opts.value = numberValue;
         pro.pb.setObjectAtPath("kpi.display", _opts);
+      },
+
+      valueConditionalFormat: function (formatRule, appliedStyle) {
+        var value = pro.pb.getValue("kpi.display.value");
+        if (evalExpression(formatRule, value)) {
+          pro.pb.setValue("kpi.display.valueTextColor", appliedStyle);
+        }
       }
     };
 

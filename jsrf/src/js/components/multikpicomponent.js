@@ -1,4 +1,4 @@
-define(['components/component', 'prop/properties', 'renderers/kpitablerenderer'], function(Component, Properties, KPITableRenderer) {
+define(['components/component', 'prop/properties', 'renderers/kpitablerenderer', "utils/evalexpression"], function(Component, Properties, KPITableRenderer, evalExpression) {
   /**
    * MultiKPI Class containing functions shared across KPI Table and KPI Group.
    *
@@ -69,6 +69,18 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
              */
             setKPIValueColor: function(id, color) {
                 pro.pb.setValue('kpis[' + id + '].valuecolor', color);   
+            },
+
+            valueConditionalFormat: function (formatRule, appliedStyle) {
+                var kpis = pro.pb.getObjectAtPath("kpis");
+                for(var key in kpis) {
+                    if(kpis.hasOwnProperty(key)) {
+                        var value = pro.pb.getValue("kpis[" + key + "].value");
+                        if (evalExpression(formatRule, value)) {
+                            this.setKPIValueColor(key, appliedStyle);
+                        }
+                    }
+                }
             },
 
             setValueIcon: function(id, iconID, props) {
