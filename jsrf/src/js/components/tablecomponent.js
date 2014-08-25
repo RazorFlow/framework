@@ -100,7 +100,7 @@ define([
         options.conditionalExpression = _.isString(formatRule) ? {"type": "valueComparator", "expression": formatRule } : formatRule;
         options.format = _.isString(appliedStyle) ? {"cellBackgroundColor" : appliedStyle} : appliedStyle;
 
-        pro.pb.addItemToList("table.cellConditionalFormatters", id, options);
+        pro.pb.pushItemToList("table.cellConditionalFormatters", options);
       }
     };
 

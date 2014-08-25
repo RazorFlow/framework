@@ -34,6 +34,13 @@ define([
         var _opts = _.extend(pro.pb.getObjectAtPath('kpi.display'), opts);
         _opts.value = numberValue;
         pro.pb.setObjectAtPath("kpi.display", _opts);
+      },
+
+      valueConditionalFormat: function (formatRule, appliedStyle) {
+        pro.conditionalParam.push({
+          "expression" : formatRule,
+          "valueColor" : appliedStyle
+        });
       }
     };
 
@@ -55,7 +62,8 @@ define([
           w: 3,
           h: 3
         }
-      }
+      },
+      conditionalParam: []
     };
 
     /**

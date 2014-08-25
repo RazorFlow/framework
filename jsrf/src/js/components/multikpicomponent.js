@@ -71,6 +71,13 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
                 pro.pb.setValue('kpis[' + id + '].valuecolor', color);   
             },
 
+            valueConditionalFormat: function (formatRule, appliedStyle) {
+                pro.conditionalParam.push({
+                  "expression" : formatRule,
+                  "valueColor" : appliedStyle
+                });
+            },
+
             setValueIcon: function(id, iconID, props) {
                 pro.pb.setValue('kpis[' + id + '].icon', iconID);
                 pro.pb.setValue('kpis[' + id + '].iconprops', JSON.stringify(props || {}));
@@ -83,11 +90,12 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
             },
             createRenderer: function () {
                 pro.renderer = new KPITableRenderer();
-                pro.renderer.setConfig({
-
+                pro.renderer.setConfig({    
                 });
                 pro.onRendererCreate();
             },
+            conditionalParam: [],
+
             renderCore: function () {
                 pro.renderer.renderCore();
             },
