@@ -31,8 +31,7 @@ abstract class StandaloneDashboard extends Dashboard {
             'rfDev' => false,
             'rfDebug' => $this->getDebugMode(),
             'rfRefreshDelay' => $this->getRefreshDelay(),
-            'rfAutoRefresh' => $this->autoRefresh,
-            'disableUpdateChecker' => $this->disableUpdateChecker
+            'rfAutoRefresh' => $this->autoRefresh
         );
         ob_start();
         require RF_FOLDER_ROOT."/lib/templates/standalone_template.php";

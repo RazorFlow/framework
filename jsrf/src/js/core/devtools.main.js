@@ -10,7 +10,11 @@ define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker'], funct
         rf.disableUpdateChecker = function() {
             RFVersionChecker.disable();
         };
-        RFVersionChecker.init();
+
+        // Timeout since if the user sets disable update checker.
+        setTimeout(function() {
+            RFVersionChecker.init();
+        }, 5000);
     }
     
     window.onerror = function(msg, link, lineno, colno, exception) {

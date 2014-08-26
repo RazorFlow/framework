@@ -2,8 +2,7 @@ define([
 	"wrapperhelpers/standalonebuilder",
   'utils/rfnotification',
   'utils/rfloggerstub',
-  'core/globals',
-  'core/devtools.main'
+  'core/globals'
 	], function(StandaloneBuilder, RFNotification, RFLogger, rf) {
 	var main = function () {
 		window.rf.StandaloneBuilder = StandaloneBuilder;

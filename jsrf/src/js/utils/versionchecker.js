@@ -1,6 +1,6 @@
 define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], function (RFLogger, RFNotification, DebugConstants) {
 
-  window.__rfVersion = {channel: "stable", version: "0.0.9"};
+  // window.__rfVersion = {channel: "stable", version: "0.0.9"};
 
   var currentVersion;
   var betaVersionRunning;
@@ -14,6 +14,10 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
   var versionChecker = {
 
     init: function() {
+      if(disableUpdateChecker) {
+        return;
+      }
+
       getVersion();
     },
 
@@ -43,7 +47,7 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
 
   var showNotice = function() {
     var upgrade_url = getUpgradeURL();
-    RFNotification.create("<a href='" + upgrade_url + "' target='_BLANK' style='color: #FFF;'>You are using an older version of RazorFlow. Click here to update.</a>", null, null, true);
+    RFNotification.create("<a href='" + upgrade_url + "' target='_BLANK' style='color: #FFF;'>You are using an older version of RazorFlow. Click here to update.</a>", null, null, false);
     rf.logger.log('You are using an older version of RazorFlow!');
   }
 
@@ -77,11 +81,8 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
         }
         else {
           status = JSON.parse(status);
-          if(!status) {
-            showNotice();
-            return false;
-          }
-          else {
+
+          if(status) {
             if(last_checked === null) {
               return true;
             }
@@ -93,6 +94,9 @@ define (['utils/rflogger', 'utils/rfnotification', 'constants/debugconstants'], 
                 return false;
               }
             }
+          }
+          else {
+            return true;
           }
 
         }

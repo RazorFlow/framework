@@ -61,10 +61,6 @@ $autoRefresh = $rfTemplateData['rfAutoRefresh'];
 </body>
 <?php if(function_exists('_rf_alternate_body')) { _rf_alternate_body(); } else { ?>
   <script type="text/javascript">
-    <?php if($disableUpdateChecker){ ?>
-        rf.disableUpdateChecker();
-    <?php } ?>
-    
     renderDashboard();
   </script>
 <?php } ?>
