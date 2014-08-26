@@ -21,26 +21,31 @@ module.exports = function(grunt) {
     var jsDemoFiles = grunt.file.expand(options.demoPaths.js);
     var phpDemoFiles = grunt.file.expand(options.demoPaths.php);
     var demoCode = 'rfDemoCode = {';
-    for(var i=-1; ++i<demosObject.length;) {
-      var section = demosObject[i];
-      var demos = section.demos;
-      
-      
-      for(var j=-1; ++j<demos.length;) {
-        var demo = demos[j];
-        var jsFileName = _.filter(jsDemoFiles, function(fn) { return fn.match(demo.js); })[0];
-        var phpFileName = _.filter(phpDemoFiles, function(fn) { return fn.match(demo.php); })[0];
 
-        var jsContent = jsFileName ? grunt.file.read(jsFileName) : '';
-        var phpContent = phpFileName ? grunt.file.read(phpFileName) : '';
+    var getObj = function (demos) {
+      for(var i=-1; ++i<demos.length;) {
+        if(demos[i].file) {
+          var demo = demos[i];
+          var jsFileName = _.filter(jsDemoFiles, function(fn) { return fn.match(demo.js); })[0];
+          var phpFileName = _.filter(phpDemoFiles, function(fn) { return fn.match(demo.php); })[0];
 
-        jsContent = jsContent.replace(/'/g, '"');
+          var jsContent = jsFileName ? grunt.file.read(jsFileName) : '';
+          var phpContent = phpFileName ? grunt.file.read(phpFileName) : '';
 
-        demoCode += '\n"' + demo.id + '": function() {' + jsContent +'},';
-        demosObject[i].demos[j].jsContent = jsContent;
-        demosObject[i].demos[j].phpContent = phpContent;
+          jsContent = jsContent.replace(/'/g, '"');
+
+          demoCode += '\n"' + demo.id + '": function() {' + jsContent +'},';
+
+          demos[i].jsContent = jsContent;
+          demos[i].phpContent = phpContent;
+        } else {
+          getObj(demos[i].demos);
+        }
       }
-    }
+      return demos;
+    };
+    
+    demosObject = getObj(demosObject);
 
     var demosJson = JSON.stringify(demosObject, null, '\n');
     demoCode += '};';
