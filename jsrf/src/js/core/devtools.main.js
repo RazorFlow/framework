@@ -7,7 +7,14 @@ define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker'], funct
     RFLogger.init();
 
     if(window.__rfVersion) {
-        RFVersionChecker.init();
+        rf.disableUpdateChecker = function() {
+            RFVersionChecker.disable();
+        };
+
+        // Timeout since if the user sets disable update checker.
+        setTimeout(function() {
+            RFVersionChecker.init();
+        }, 5000);
     }
     
     window.onerror = function(msg, link, lineno, colno, exception) {

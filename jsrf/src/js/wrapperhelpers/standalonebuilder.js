@@ -49,6 +49,7 @@ define([
         }
 
         addLogs(db, obj);
+        disableUpdateChecker(obj['properties']);
 			});
 		};
 
@@ -56,6 +57,7 @@ define([
       var tabbed = new TabbedDashboard();
       var tabbedComponents = obj['tabbedComponents'];
 
+      disableUpdateChecker(obj['properties']);
       tabbed.setTabbedDashboardTitle(obj['tabbedDashboardTitle']);
 
       for(var i=0; i<tabbedComponents.length; i++){
@@ -75,6 +77,7 @@ define([
 		self.embedDashboardFromObject = function (obj, id) {
 			var db = new Dashboard ();
 
+      disableUpdateChecker(obj['properties']);
 			configureDashboard (obj, db);
 			setDashboardWidthHeight(obj, db);
 			db.embedTo (id);
@@ -82,6 +85,7 @@ define([
 		};
 
     self.buildTabbedDashboardFromObject = function(obj) {
+      disableUpdateChecker(obj['properties']);
 			StandaloneDashboard (function (tdb) {
         tdb.setTabbedDashboardTitle(obj['tabbedDashboardTitle']);
         // tdb.pro.isTabbed = true;
@@ -213,6 +217,14 @@ define([
         rf.logger.log(message, {
           'source': 'server'
         });
+      }
+    }
+  };
+
+  var disableUpdateChecker = function(props) {
+    if(props['disableUpdateChecker']) {
+      if(typeof rf.disableUpdateChecker !== 'undefined') {
+        rf.disableUpdateChecker();
       }
     }
   };

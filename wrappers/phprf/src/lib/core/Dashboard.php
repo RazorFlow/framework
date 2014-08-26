@@ -287,6 +287,10 @@ abstract class Dashboard {
         return json_encode ($this->getDispatchObject(), JSON_PRETTY_PRINT);
     }
 
+    public function disableUpdateChecker () {
+        $this->properties['disableUpdateChecker'] = true;
+    }
+
     protected function initialize () {
 
     }

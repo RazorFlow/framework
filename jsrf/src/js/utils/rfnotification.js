@@ -1,6 +1,7 @@
 define(["kendo/kendo.notification", "generated/templates"], function(KNotification, JST) {
     var RFNotification = {
-        create: function(msg, exception, id) {
+        create: function(msg, exception, id, _handleClick) {
+            var handleClickFlag = typeof _handleClick === 'undefined' ? true : _handleClick;
             var $notification = $("<div/>").addClass("rfNotification");
             $("body").append($notification);
 
@@ -17,7 +18,9 @@ define(["kendo/kendo.notification", "generated/templates"], function(KNotificati
                 right: 30
                },
               handleClick: function() {
-                rf.logger.showLogs(id);
+                if(handleClickFlag) {
+                  rf.logger.showLogs(id);
+                }
               }
             }).data('kendoNotification');
 
