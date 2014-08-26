@@ -284,7 +284,7 @@ abstract class Dashboard {
     }
 
     public function RenderUpdates () {
-        return json_encode ($this->getDispatchObject(), JSON_PRETTY_PRINT);
+        return json_encode ($this->getDispatchObject());
     }
 
     public function disableUpdateChecker () {
