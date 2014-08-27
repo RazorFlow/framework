@@ -106,6 +106,16 @@ module.exports = function(grunt) {
                 ]
             }
         },
+        replace: {
+            removeAMD: {
+                src: ["build/assets/js/razorflow.min.js", "build/assets/js/razorflow.devtools.min.js", "build/assets/js/razorflow.wrapper.min.js"],
+                overwrite: true,
+                replacements: [
+                    {from: /\bdefine\b/g, to: "_dfn"},
+                    {from: /\brequire\b/g, to: "_rqr"}
+                ]
+            }
+        },
         packman: {
 
         },
@@ -345,7 +355,7 @@ module.exports = function(grunt) {
     grunt.registerTask("build:jsrf", ["clean:jsrf", "jst:jsrf", "requirejs", "file_append:jsrf_version", "themegen:jsrf", "less:jsrf", "cssmin:jsrf", "copyto:jsrf_img", "packman:js_build"]);
     grunt.registerTask("build:examples", ["copyto:examples"]);
     grunt.registerTask("build:phprf", ["packman:php_build"]);
-    grunt.registerTask("build:code", ["build:jsrf", "build:phprf"]);
+    grunt.registerTask("build:code", ["build:jsrf", "build:phprf", "replace:removeAMD"]);
     grunt.registerTask("build:website", ["copyto:website", "squashDemos", "extGrunt:website"]);
     grunt.registerTask("build:docs", ["extGrunt:docs"]);
     grunt.registerTask("build", ["build:code", "build:website", "build:examples", "build:website", "build:docs"]);
@@ -363,6 +373,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-file-append');
     grunt.loadNpmTasks('grunt-s3');
     grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadTasks ('./tools/grunt-tasks/');
     grunt.initConfig (JSRF_Tasks);
 };

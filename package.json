@@ -22,5 +22,8 @@
     "underscore": "^1.6.0",
     "url-to-screenshot": "^0.4.1",
     "ejs": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt-text-replace": "~0.3.12"
   }
 }
