@@ -246,16 +246,11 @@ define([
         disableResizeWatcher = true;
       },
 
-      hide: function() {
-        $containerDiv.hide();
-      },
-
-      show: function() {
-        $containerDiv.fadeIn();
-      },
-
-      getResizeWatchDelay: function() {
-        return resizeWatchDelay;
+      // Locks all the components in the dashboard.
+      lock: function() {
+        for(var i=0; i<components.length; i++) {
+          components[i].lock();
+        }
       }
     };
 

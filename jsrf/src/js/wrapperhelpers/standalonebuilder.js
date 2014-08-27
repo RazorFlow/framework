@@ -12,14 +12,18 @@ define([
   "components/gaugecomponent",
   "components/kpitablecomponent",
   "components/kpigroupcomponent",
+  "utils/ajaxwrapper",
   "vendor/lodash"
-	], function(Dashboard, StandaloneDashboard, TabbedDashboard , LoggingHelper, KPIComponent, TableComponent, ChartComponent, FormComponent, GaugeComponent, KPITableComponent, KPIGroupComponent, _ ) {
+	], function(Dashboard, StandaloneDashboard, TabbedDashboard , LoggingHelper, KPIComponent, TableComponent, ChartComponent, FormComponent, GaugeComponent, KPITableComponent, KPIGroupComponent, AjaxWrapper, _ ) {
 		// TODO: Rename to DashboardBuilder
 	var StandaloneBuilder = function () {
 		var self = this;
 
     self.db = null;
+
     self.refreshURL = null;
+
+    self.ajaxRequest = new AjaxWrapper();
 
 		self.buildDashboardFromObject = function (obj) {
       // displayLogs(obj);

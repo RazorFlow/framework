@@ -254,8 +254,8 @@ abstract class Dashboard {
 
     protected function shouldRefreshDashboard () {
 
-        if(isset($_GET['rfRefresh'])) {
-            if($_GET['rfRefresh']) {
+        if(isset($_GET['getDashboardAsJSON'])) {
+            if($_GET['getDashboardAsJSON']) {
                 $this->buildDashboard();
                 header ('Content-Type: application/json');
                 echo json_encode($this->getAsObject());
@@ -329,7 +329,7 @@ abstract class Dashboard {
     }
 
     private function buildRefreshURL() {
-        $url = RFUtil::buildURL($this->getBasePath (), array('rfRefresh' => true)); 
+        $url = RFUtil::buildURL($this->getBasePath (), array('getDashboardAsJSON' => true)); 
         return $url;
     }
 

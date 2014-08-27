@@ -15,24 +15,18 @@ $autoRefresh = $rfTemplateData['rfAutoRefresh'];
     var renderDashboard = function (_data) {
         var dbAsJson = typeof _data === 'undefined' ? <?php echo $dashboardData ?> : _data;
         rf.globals.builder = new rf.StandaloneBuilder();
-        // var dbAsJson = <?php echo $dashboardData; ?>;
         rf.globals.builder.buildDashboardFromObject (dbAsJson);
     };
 
     <?php if($autoRefresh){ ?>
     var refreshDashboard = function() {
         setTimeout(function() {
-            $.ajax({
+            rf.globals.builder.db.pro.lock();
+            rf.globals.builder.ajaxRequest.ajax({
                 url: rf.globals.builder.refreshURL,
                 success: function(data) {
-                    rf.globals.builder.db.pro.hide()
                     rf.globals.builder.db.pro.dispose();
-
-                  setTimeout(function() {
                     renderDashboard(data);
-                    rf.globals.builder.db.pro.show()
-                  }, rf.globals.builder.db.pro.getResizeWatchDelay())
-
                 }
             });
         }, <?php echo $refreshDelay ?>);
