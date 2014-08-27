@@ -149,6 +149,11 @@ define([
           $containerDiv.width(pro.embeddedWidth);
         }
       },
+      ready: function(cb) {
+        if(components.length !== 0) {
+          cb();
+        }
+      },
       setHeight: function(_height) {
         pro.embeddedHeight = _height;
 
@@ -244,6 +249,9 @@ define([
 
       dispose: function () {
         disableResizeWatcher = true;
+        while(components.length) {
+          self.removeComponent(components[0]);
+        }
       },
 
       // Locks all the components in the dashboard.
