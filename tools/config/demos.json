@@ -183,6 +183,7 @@
                     "title": "Real Time",
                     "desc": "",
                     "js": "real_time",
+                    "php": "real_time",
                     "doc": "/docs/dashboard/js/guide/components/chart/chart_update.php",
                     "file": true
                 }
