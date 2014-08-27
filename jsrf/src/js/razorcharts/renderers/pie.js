@@ -3,6 +3,7 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
         var PADDING = 0.2;
         var ARROW_RADIUS_PADDING = 90;
         var MIN_CHART_WIDTH = 30;
+        var TOP_PADDING = 20;
         var self = this,
             options = null,
             paper = null,
@@ -21,7 +22,7 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
 
         var extraFuncs = {
             hasLabels: function() {
-                findPieRadius((_.min([width, height]) / 2), labelSizes, options.series.data);
+                findPieRadius(width / 2 - TOP_PADDING - ARROW_RADIUS_PADDING, labelSizes, options.series.data);
                 return !noLabels;
             }
         };
@@ -90,7 +91,9 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
             width = w;
             height = h;
             findWidths(options.labels,options.series.data);
-            pieRadius = findPieRadius((_.min([width, height]) / 2), labelSizes, options.series.data);
+            var r = width / 2 - TOP_PADDING - ARROW_RADIUS_PADDING;
+            pieRadius = findPieRadius(r, labelSizes, options.series.data);
+            if(pieRadius * 2 > height) pieRadius = findPieRadius(r - (pieRadius * 2 - height) / 2, labelSizes, options.series.data);
             if(noLabels || !options.showPieLabels) {
                 hideAllLabels();
             } else {
@@ -154,7 +157,7 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
                         slice = null,
                         path = '';
                     endAngle = startAngle + (datum / total) * 360;
-                    if(!noLabels || !options.showPieLabels) {
+                    if(!noLabels || options.showPieLabels) {
                         drawLabel(create, animate, cx, cy, (startAngle + endAngle) / 2, r, r + ARROW_RADIUS_PADDING, options.labels[i], i);    
                     }
                     if(create) {
@@ -365,11 +368,11 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
                 
                 placements[i] = placement;
                 startAngle = endAngle;
+                // The below comment is to visualize the label positions don't delete
                 // paper.rect(placement.x, placement.y, placement.width, placement.height, core);
             }
             var maxWidth = _.max(_.pluck(placements, 'xtra'));
             return adjustEverything(maxRadius, maxWidth);
-            // return maxRadius - maxWidth - ARROW_RADIUS_PADDING;
         };
 
         var findArrowRadius = function(maxRadius) {
@@ -379,12 +382,8 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
         var adjustEverything = function(maxRadius, maxLabelWidth) {
             var actualRadius = maxRadius - maxLabelWidth - ARROW_RADIUS_PADDING;
             if(actualRadius < MIN_CHART_WIDTH) {
-                findArrowRadius(MIN_CHART_WIDTH);
-                if(MIN_CHART_WIDTH / 2 + ARROW_RADIUS_PADDING + maxLabelWidth > width / 2) {
-                    noLabels = true;
-                    // console.log(!noLabels);
-                }
-                return MIN_CHART_WIDTH;
+                noLabels = true;
+                return;
             } else {
                 return actualRadius;
             }
