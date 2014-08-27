@@ -146,7 +146,6 @@ define([
         firstDraw = false;
         if(coreChartType === 'pie') {
           tLegendVisible = !pro.chart.callFunction('hasLabels');
-          console.log('Legend Visble : ' + tLegendVisible);
           if(tLegendVisible !== legendVisible) {
             // debugger
             legendVisible = tLegendVisible;
