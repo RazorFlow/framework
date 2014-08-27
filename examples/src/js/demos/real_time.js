@@ -16,14 +16,12 @@ rf.StandaloneDashboard(function(db){
 	chart.setYAxis('', {numberPrefix: '$', numberHumanize: true});
 	db.addComponent (chart);
 
-	setInterval(function () {
-		db.ready(function () {
-			kpi.setValue(Math.floor((Math.random() * 100)));
-	        var data = [];
-	        for(var i = 0; i < 12; i++) {
-	            data.push(Math.random() * 100000);
-	        }
-	        chart.updateSeries ("sales2013", data);
-		});
+	db.setInterval(function () {
+		kpi.setValue(Math.floor((Math.random() * 100)));
+        var data = [];
+        for(var i = 0; i < 12; i++) {
+            data.push(Math.random() * 100000);
+        }
+        chart.updateSeries ("sales2013", data);
     }, 1500);
 });

@@ -149,10 +149,14 @@ define([
           $containerDiv.width(pro.embeddedWidth);
         }
       },
-      ready: function(cb) {
-        if(components.length !== 0) {
-          cb();
-        }
+      setInterval: function(cb, delay) {
+        var interval = setInterval(function () {
+          if(!disableResizeWatcher) {
+            cb();
+          } else {
+            clearInterval(interval);
+          }
+        }, delay);
       },
       setHeight: function(_height) {
         pro.embeddedHeight = _height;
@@ -249,7 +253,8 @@ define([
 
       dispose: function () {
         disableResizeWatcher = true;
-        while(components.length) {
+        var componentLength = components.length;
+        while(componentLength--) {
           self.removeComponent(components[0]);
         }
       },
