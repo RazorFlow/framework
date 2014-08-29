@@ -121,7 +121,7 @@ module.exports = function(grunt) {
         },
         exec: {
           casperphp: {
-            cmd: "casperjs test tools/wrappertester/app.js --testspath=tools/wrappertester/tests --baseurl=http://localhost:8080/dev/php/testcases"
+            cmd: "casperjs test tools/wrappertester/app.js --testspath=tools/wrappertester/tests --baseurl=http://localhost:8080/dev/php/testcases --verbose"
           }
         },
         clean: {

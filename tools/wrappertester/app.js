@@ -1,4 +1,5 @@
 /**
+ *  Wrapper Tester
  *  A simple module for running integration tests on RazorFlow Wrappers
  *
  *  Requirements:
@@ -9,20 +10,26 @@
  *  - baseurl => THe base url of the testcase
  */
 
-var _ = require('underscore');
-var fs = require('fs');
-var mod;
+var _ = require('underscore'),
+    fs = require('fs'),
+    timeout = 2000,
+    testspath = null,
+    baseurl = null,
+    mod = null,
+    data = null,
+    helper = null,
+    fullpath = null,
+    tests = [],
+    dataKeys = [],
+    totalTests = 0;
 
+var raiseException = function(msg) {
+  casper.log(msg, 'error');
+  casper.exit();
+};
 
-var testspath = casper.cli.options.testspath;
-var host = casper.cli.options.baseurl;
-var timeout = 2000;
-var data;
-var helper;
-var fullpath;
-var tests;
-var dataKeys;
-var totalTests;
+testspath = typeof casper.cli.options.testspath === 'undefined' ? raiseException('Tests path not provided') : casper.cli.options.testspath;
+baseurl = typeof casper.cli.options.baseurl === 'undefined' ? raiseException('Base url is not provided') : casper.cli.options.baseurl;
 
 _.each(fs.list(testspath), function(file) {
   fullpath = fs.workingDirectory + fs.separator + testspath + fs.separator + file;
@@ -44,11 +51,10 @@ _.each(fs.list(testspath), function(file) {
 
     totalTests = tests.length;
 
-    casper.test.comment(mod.desc);
+    casper.test.comment("Testcase File: " + fs.basename(fullpath));
+    casper.test.begin('Running ' + mod.desc, totalTests, function(test) {
 
-    casper.test.begin('Starting...', totalTests, function(test) {
-
-      casper.start(host + mod.url, function() {
+      casper.start(baseurl + mod.url, function() {
         timeout = mod.timeout ? mod.timeout : timeout;
         this.wait(timeout, function() {
           _.each(tests, function(key) {
@@ -85,5 +91,4 @@ function TestHelper(obj) {
     test();
   };
 
-}
-
+};
