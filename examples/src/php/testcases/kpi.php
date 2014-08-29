@@ -8,7 +8,13 @@ class SampleDashboard extends StandaloneDashboard {
     $kpi->setCaption('Downloads');
     $kpi->setValue(42);
 
+    $kpi->bindToEvent ("kpiClick", array($kpi), "handleKPIClick", $this);
+
     $this->addComponent($kpi);
+  }
+
+  public function handleKPIClick($source, $targets, $params) {
+    $source->setValue(100);
   }
 
 }
