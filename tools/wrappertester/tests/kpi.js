@@ -36,11 +36,11 @@ module.exports = {
   },
 
   captionEquals: function() {
-    this.test.assertSelectorHasText(".rfComponentContainer:first-child .rfKPICaption", "Downloads", "KPI caption should be Downloads");
+    this.test.assertSelectorTextEquals(".rfKPICaption", "Downloads", "KPI caption should be Downloads");
   },
 
   valueEquals: function() {
-    this.test.assertSelectorHasText(".rfComponentContainer:first-child .rfKPIValue", "42", "KPI value should be 42");
+    this.test.assertSelectorTextEquals('.rfKPIValue', "42", "KPI value should be 42");
   },
 
   clickTest: function() {
@@ -51,7 +51,7 @@ module.exports = {
 
     this.casper.then(function() {
       this.wait(3000, function() {
-        self.test.assertSelectorHasText('.rfKPIValue', '100', 'KPI value after click should be 100');
+        self.test.assertSelectorTextEquals('.rfKPIValue', "100");
       });
     });
   }

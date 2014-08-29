@@ -69,7 +69,7 @@ _.each(fs.list(testspath), function(file) {
       }); 
 
       casper.run(function() {
-        test.done();
+        this.test.done();
       });
 
     });
@@ -81,6 +81,20 @@ function TestHelper(obj) {
   var self = this;
 
   self.test = obj.test;
+
+  self.test.assertSelectorTextEquals = function(selector, expected, message) {
+    var text = casper.fetchText(selector);
+
+    return self.test.assert(text === expected, message, {
+      type: "assertTextInSelectorEquals",
+        standard: f('Found %s within the selector %s', this.colorize(text, 'COMMENT'), this.colorize(selector, 'COMMENT')),
+        values: {
+          selector: selector,
+          actual: text,
+          expected: expected
+        }
+    });
+  };
 
   self.casper = obj.casper;
 
