@@ -4,7 +4,7 @@ class SampleDashboard extends StandaloneDashboard {
     $form = new FormComponent ('form');
     $form->setDimensions (8, 6);
     $form->setCaption ('Form items in stock');
-    $form->addSelectField ('category', 'Select Catagory', ['No Selection', 'Beverages', 'Condiments', 'Confections', 'Dairy Products', 'Grains/Cereal', 'Meat/Poultry', 'Produce', 'Seafood']);
+    $form->addSelectField ('category', 'Select Category', ['No Selection', 'Beverages', 'Condiments', 'Confections', 'Dairy Products', 'Grains/Cereal', 'Meat/Poultry', 'Produce', 'Seafood']);
     $form->addTextField ('contains', 'Product Name Contains');
     $form->addNumericRangeField('stock', 'Units In Stock', array(10, 100));
     $form->addCheckboxField('discontinued', 'Exclude Discontinued Items', false);
