@@ -12,7 +12,7 @@
 
 var _ = require('underscore'),
     fs = require('fs'),
-    timeout = 2000,
+    timeout = 4000,
     testspath = null,
     baseurl = null,
     mod = null,
