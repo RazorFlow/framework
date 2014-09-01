@@ -120,7 +120,9 @@ module.exports = function(grunt) {
 
         },
         exec: {
-
+          casperphp: {
+            cmd: "casperjs test tools/wrappertester/app.js --testspath=tools/wrappertester/tests --baseurl=http://localhost:8080/dev/php/testcases --verbose"
+          }
         },
         clean: {
             build: "build",
@@ -361,6 +363,7 @@ module.exports = function(grunt) {
     grunt.registerTask("build", ["build:code", "build:website", "build:examples", "build:website", "build:docs"]);
     grunt.registerTask("package", ["clean:build", "build", "makePackage", "versionWriter"]);
     grunt.registerTask("upload", ["s3:upload_package"]);
+    grunt.registerTask("test:wrappers", ["exec:casperphp"]);
 
 
     grunt.loadNpmTasks('grunt-contrib-clean');
