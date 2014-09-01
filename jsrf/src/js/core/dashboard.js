@@ -253,10 +253,10 @@ define([
 
       dispose: function () {
         disableResizeWatcher = true;
-        var componentLength = components.length;
-        while(componentLength--) {
-          self.removeComponent(components[0]);
-        }
+        // var componentLength = components.length;
+        // while(componentLength--) {
+        //   self.removeComponent(components[0]);
+        // }
       },
 
       // Locks all the components in the dashboard.
