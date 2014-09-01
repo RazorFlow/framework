@@ -41,8 +41,8 @@ describe ("Table Tests", function () {
 		  .setContext(table.pro.renderer.$core)
 		  .drillContext("tbody")
 		  .assertText ("tr:eq(6) > td > p:eq(0)", "6")
-		  .assertCSS ("tr:eq(7) > td > p:eq(0)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(7) > td > p:eq(0)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(7) > td:eq(0)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(7) > td:eq(0)", "color", "rgb(255, 255, 255)")
 		  .finish();
 	});
 
@@ -58,8 +58,8 @@ describe ("Table Tests", function () {
 		  .setContext(table.pro.renderer.$core)
 		  .drillContext("tbody")
 		  .assertText ("tr:eq(2) > td > p:eq(1)", "4")
-		  .assertCSS ("tr:eq(2) > td > p:eq(1)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(2) > td > p:eq(1)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(2) > td:eq(1)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(2) > td:eq(1)", "color", "rgb(255, 255, 255)")
 
 		  .finish();
 	});
@@ -77,8 +77,8 @@ describe ("Table Tests", function () {
 		  .drillContext("tbody")
 
 		  .assertText ("tr:eq(2) > td > p:eq(2)", "5")
-		  .assertCSS ("tr:eq(2) > td > p:eq(2)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(2) > td > p:eq(2)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(2) > td:eq(2)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(2) > td:eq(2)", "color", "rgb(255, 255, 255)")
 		  .finish();
 	});
 
@@ -95,8 +95,8 @@ describe ("Table Tests", function () {
 		  .drillContext("tbody")
 
 		  .assertText ("tr:eq(2) > td > p:eq(3)", "6")
-		  .assertCSS ("tr:eq(2) > td > p:eq(3)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(2) > td > p:eq(3)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(2) > td:eq(3)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(2) > td:eq(3)", "color", "rgb(255, 255, 255)")
 
 		  .finish();
 	});
@@ -114,8 +114,8 @@ describe ("Table Tests", function () {
 		  .drillContext("tbody")
 
 		  .assertText ("tr:eq(3) > td > p:eq(4)", "9")
-		  .assertCSS ("tr:eq(3) > td > p:eq(4)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(3) > td > p:eq(4)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(3) > td:eq(4)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(3) > td:eq(4)", "color", "rgb(255, 255, 255)")
 		  .finish();
 	});
 
@@ -132,12 +132,12 @@ describe ("Table Tests", function () {
 		  .drillContext("tbody")
 
 		  .assertText ("tr:eq(3) > td > p:eq(0)", "3")
-		  .assertCSS ("tr:eq(3) > td > p:eq(0)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(3) > td > p:eq(0)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(3) > td:eq(0)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(3) > td:eq(0)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(8) > td > p:eq(0)", "8")
-		  .assertCSS ("tr:eq(8) > td > p:eq(0)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(8) > td > p:eq(0)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(8) > td:eq(0)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(8) > td:eq(0)", "color", "rgb(255, 255, 255)")
 		  .finish();
 	});
 
@@ -154,12 +154,12 @@ describe ("Table Tests", function () {
 		  .drillContext("tbody")
 
 		  .assertText ("tr:eq(3) > td > p:eq(1)", "6")
-		  .assertCSS ("tr:eq(3) > td > p:eq(1)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(3) > td > p:eq(1)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(3) > td:eq(1)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(3) > td:eq(1)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(5) > td > p:eq(1)", "10")
-		  .assertCSS ("tr:eq(5) > td > p:eq(1)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(5) > td > p:eq(1)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(5) > td:eq(1)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(5) > td:eq(1)", "color", "rgb(255, 255, 255)")
 		  .finish();
 	});
 
@@ -180,32 +180,32 @@ describe ("Table Tests", function () {
 		  .drillContext("tbody")
 
 		  .assertText ("tr:eq(3) > td > p:eq(1)", "6")
-		  .assertCSS ("tr:eq(3) > td > p:eq(1)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(3) > td > p:eq(1)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(3) > td:eq(1)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(3) > td:eq(1)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(5) > td > p:eq(1)", "10")
-		  .assertCSS ("tr:eq(5) > td > p:eq(1)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(5) > td > p:eq(1)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(5) > td:eq(1)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(5) > td:eq(1)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(3) > td > p:eq(0)", "3")
-		  .assertCSS ("tr:eq(3) > td > p:eq(0)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(3) > td > p:eq(0)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(3) > td:eq(0)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(3) > td:eq(0)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(8) > td > p:eq(0)", "8")
-		  .assertCSS ("tr:eq(8) > td > p:eq(0)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(8) > td > p:eq(0)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(8) > td:eq(0)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(8) > td:eq(0)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(3) > td > p:eq(4)", "9")
-		  .assertCSS ("tr:eq(3) > td > p:eq(4)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(3) > td > p:eq(4)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(3) > td:eq(4)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(3) > td:eq(4)", "color", "rgb(255, 255, 255)")
 
 		  .assertText ("tr:eq(2) > td > p:eq(3)", "6")
-		  .assertCSS ("tr:eq(2) > td > p:eq(3)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(2) > td > p:eq(3)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(2) > td:eq(3)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(2) > td:eq(3)", "color", "rgb(255, 255, 255)")
 		  
 		  .assertText ("tr:eq(2) > td > p:eq(2)", "5")
-		  .assertCSS ("tr:eq(2) > td > p:eq(2)", "background-color", "rgba(0, 0, 0, 0)")
-		  .assertCSS ("tr:eq(2) > td > p:eq(2)", "color", "rgb(255, 255, 255)")
+		  .assertCSS ("tr:eq(2) > td:eq(2)", "background-color", "rgb(0, 0, 0)")
+		  .assertCSS ("tr:eq(2) > td:eq(2)", "color", "rgb(255, 255, 255)")
 		  .finish();
 	});
 
