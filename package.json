@@ -4,6 +4,7 @@
   "description": "RazorFlow Main Repo",
   "dependencies": {
     "chalk": "^0.5.1",
+    "ejs": "^1.0.0",
     "fs-extra": "^0.11.0",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.5.0",
@@ -18,10 +19,10 @@
     "grunt-file-creator": "^0.1.1",
     "grunt-lib-contrib": "^0.7.1",
     "grunt-s3": "^0.2.0-alpha.3",
+    "grunt-text-replace": "^0.3.12",
     "lodash": "^2.4.1",
     "underscore": "^1.6.0",
-    "url-to-screenshot": "^0.4.1",
-    "ejs": "^1.0.0"
+    "url-to-screenshot": "^0.4.1"
   },
   "devDependencies": {
     "grunt-text-replace": "~0.3.12"
