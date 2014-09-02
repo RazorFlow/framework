@@ -29,7 +29,7 @@
         optimize: "uglify2",
         uglify2: {
             mangle: true
-        }
+        },
         // optimize:"none"
     };
 
@@ -41,6 +41,16 @@
             'endFile': 'jsrf/src/js/buildutils/end.js'
         },
         out: "build/assets/js/razorflow.min.js"
+    });
+
+    global.core_eval = extend(requireDefaults, {
+        include: ['evaluation/eval_main'],
+        insertRequire: ['evaluation/eval_main'],
+        wrap: {
+            'startFile': 'jsrf/src/js/buildutils/start.js',
+            'endFile': 'jsrf/src/js/buildutils/end.js'
+        },
+        out: "build/eval_assets/js/razorflow.min.js"
     });
 
     global.devtools = extend(requireDefaults, {
@@ -61,6 +71,16 @@
             'endFile': 'jsrf/src/js/buildutils/endwrapper.js'
         },
         out: "build/assets/js/razorflow.wrapper.min.js"
+    });
+
+    global.wrapper_eval = extend(requireDefaults, {
+        include: ['evaluation/eval_wrapper_main'],
+        insertRequire: ['evaluation/eval_wrapper_main'],
+        wrap: {
+            'startFile': 'jsrf/src/js/buildutils/start.js',
+            'endFile': 'jsrf/src/js/buildutils/endwrapper.js'
+        },
+        out: "build/eval_assets/js/razorflow.wrapper.min.js"
     })
 
     function resetPaths (obj, basePath) {

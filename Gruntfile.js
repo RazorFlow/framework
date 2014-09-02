@@ -22,7 +22,9 @@ module.exports = function(grunt) {
         requirejs: {
             core: {options:requireConfig.core},
             devtools: {options:requireConfig.devtools},
-            wrapper: {options:requireConfig.wrapper}
+            wrapper: {options:requireConfig.wrapper},
+            core_eval: {options:requireConfig.core_eval},
+            wrapper_eval: {options:requireConfig.wrapper_eval}
         },
         jst: {
             jsrf: {
@@ -108,7 +110,7 @@ module.exports = function(grunt) {
         },
         replace: {
             removeAMD: {
-                src: ["build/assets/js/razorflow.min.js", "build/assets/js/razorflow.devtools.min.js", "build/assets/js/razorflow.wrapper.min.js"],
+                src: ["build/assets/js/razorflow.min.js", "build/assets/js/razorflow.devtools.min.js", "build/assets/js/razorflow.wrapper.min.js", "build/eval_assets/js/razorflow.wrapper.min.js", "build/eval_assets/js/razorflow.min.js"],
                 overwrite: true,
                 replacements: [
                     {from: /\bdefine\b/g, to: "_dfn"},
@@ -126,7 +128,7 @@ module.exports = function(grunt) {
         },
         clean: {
             build: "build",
-            jsrf: ["build/assets"]
+            jsrf: ["build/assets", "build/eval_assets"]
         },
         screenshotGen: {
             jsExamples: {
@@ -237,45 +239,59 @@ module.exports = function(grunt) {
         }
     };
 
-    var js_assets = [
-        {dir: "js", files: [
-            "jsrf/src/vendor/jquery.min.js",
-            "build/assets/js/razorflow.min.js",
-            "build/assets/js/razorflow.devtools.min.js"
-        ]},
-        {dir: "img", src:"build/assets/img/"},
-        {dir: "css", src:"build/assets/css/"}
-    ];
-    var js_files = [
-        {dir:"files", files: js_assets},
-        {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:js_assets}
-    ];
+    var get_filesets = function (evalFlag) {
+        if(typeof(evalFlag) === "undefined") { evalFlag = false; }
+        grunt.log.writeln("The fileset eval flag is: ", evalFlag)
+        var rfCorePath = evalFlag ? "build/eval_assets/js/razorflow.min.js" : "build/assets/js/razorflow.min.js";
+        var rfWrapperPath = evalFlag ? "build/eval_assets/js/razorflow.wrapper.min.js" : "build/assets/js/razorflow.wrapper.min.js";
 
-    var php_files = [
-        {dir:"razorflow_php", src:"wrappers/phprf/src/", files: [
-            {dir:"static", files: [
-                {dir:"rf", files:[
-                    {dir:"js", files: [
-                        "jsrf/src/vendor/jquery.min.js",
-                        "build/assets/js/razorflow.wrapper.min.js",
-                        "build/assets/js/razorflow.devtools.min.js"
-                    ]},
-                    {dir:"img", src:"build/assets/img/"},
-                    {dir:"css", src:"build/assets/css/"}
+        var js_assets = [
+            {dir: "js", files: [
+                "jsrf/src/vendor/jquery.min.js",
+                rfCorePath,
+                "build/assets/js/razorflow.devtools.min.js"
+            ]},
+            {dir: "img", src:"build/assets/img/"},
+            {dir: "css", src:"build/assets/css/"}
+        ];
+        var js_files = [
+            {dir:"files", files: js_assets},
+            {dir:"dashboard_quickstart", src:"jsrf/quickstart/", files:js_assets}
+        ];
+        var php_files = [
+            {dir:"razorflow_php", src:"wrappers/phprf/src/", files: [
+                {dir:"static", files: [
+                    {dir:"rf", files:[
+                        {dir:"js", files: [
+                            "jsrf/src/vendor/jquery.min.js",
+                            rfWrapperPath,
+                            "build/assets/js/razorflow.devtools.min.js"
+                        ]},
+                        {dir:"img", src:"build/assets/img/"},
+                        {dir:"css", src:"build/assets/css/"}
+                    ]}
                 ]}
+            ]},
+            {dir: "dashboard_quickstart", src:"wrappers/phprf/dashboard_quickstart/", files:[
+                {dir:"razorflow_php", copyFromPackage: "../razorflow_php/"}
             ]}
-        ]},
-        {dir: "dashboard_quickstart", src:"wrappers/phprf/dashboard_quickstart/", files:[
-            {dir:"razorflow_php", copyFromPackage: "../razorflow_php/"}
-        ]}
-    ];
+        ];
+        return {
+            php: php_files,
+            js: js_files
+        }
+    };
+
+    var assets_build = get_filesets();
+    var assets_eval = get_filesets(true);
+
 
     JSRF_Tasks.packman.php_build = {
         file_name: "razorflow_php_build",
         container_name: "php",
         noZip: true,
         copyFolderTo: "build/",
-        files: php_files
+        files: assets_build.php
     };
 
     JSRF_Tasks.packman.js_build = {
@@ -283,13 +299,18 @@ module.exports = function(grunt) {
         container_name: "razorflow_js",
         noZip: true,
         copyFolderTo: "build/",
-        files: js_assets
-    };
+        files: assets_build.js
+    }; 
 
     function addPackageWithLicense (version, license) {
         var taskHost = JSRF_Tasks.packman;
         var licensePath = "razorflow_license_" + license;
         var fileName = (license === "developer") ? "-"+version : "_"+license+"-"+version;
+
+        var evalFlag = (license === "developer");
+        grunt.log.writeln("The evaluation flag is:", evalFlag);
+        var js_files = evalFlag ? assets_eval.js : assets_build.js;
+        var php_files = evalFlag ? assets_eval.php : assets_build.php;
 
         taskHost['js_' + license] = {
             file_name: "razorflow_framework_js"+fileName,
@@ -319,7 +340,7 @@ module.exports = function(grunt) {
                 {dir: "razorflow_js", files: js_files},
             ]
         };
-    }
+    };
 
     function createPackagesForVersion (version) {
         JSRF_Tasks.exec.php_readme_gen = {
@@ -328,13 +349,12 @@ module.exports = function(grunt) {
             cwd: "tools/licenses/generator"
         }
         addPackageWithLicense(version, "developer");
-        addPackageWithLicense(version, "oem");
-        addPackageWithLicense(version, "oem_devdirect");
-        addPackageWithLicense(version, "saas");
-        addPackageWithLicense(version, "saas_devdirect");
         addPackageWithLicense(version, "corporate");
-        addPackageWithLicense(version, "corporate_devdirect");
     };
+
+    createPackagesForVersion(opts.versionString);
+
+
 
     grunt.registerMultiTask("extGrunt", "Call an external grunt", function() {
         var options = this.options({});
@@ -350,7 +370,6 @@ module.exports = function(grunt) {
         }, done)
     })
 
-    createPackagesForVersion(opts.versionString);
 
     grunt.registerTask("makePackage", ["exec:php_readme_gen", "packman"])
     grunt.registerTask("jsrf:compile", ["jst:jsrf", "themegen:jsrf", "less:jsrf"]);

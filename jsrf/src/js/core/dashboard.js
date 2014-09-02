@@ -376,11 +376,13 @@ define([
           component.pro.setTargetContainer(componentDiv);
           component.pro.render();
         }
-          rf.hooks.trigger("_internalDashboardRendered", {
-              db: self,
-              coreDiv: $containerDiv
-          });
       }
+      _.defer (function () {
+        rf.hooks.trigger("_internalDashboardRendered", {
+          db: self,
+          coreDiv: $containerDiv
+        });
+      })
     };
 
     var render = function () {
