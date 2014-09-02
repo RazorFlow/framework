@@ -11,15 +11,16 @@ require "razorflow_php/razorflow.php";
 
 class MyDashboard extends StandaloneDashboard {
   public function buildDashboard(){
-  	// Here's a sample component 
-    $chart = new ChartComponent("2014_sales");
-    $chart->setCaption("2014 Sales");
-    $chart->setDimensions (4, 4);
-    $chart->setLabels (array("Beverages", "Vegetables"));
-    $chart->addSeries ("sales", "Sales", array(1343, 7741), array(
-    	'numberPrefix' => "$"
-	  ));
+    $this->setDashboardTitle ("My Dashboard");
 
+    $chart = new ChartComponent('sales');
+    $chart->setCaption("Sales");
+    $chart->setDimensions (6, 6); 
+    $chart->setLabels (array("2013", "2014", "2015"));
+    $chart->addSeries (array(3151, 1121, 4982), array(
+      'numberPrefix' => "$",
+      'seriesDisplayType' => "line"
+    ));
     $this->addComponent ($chart);
   }
 }
