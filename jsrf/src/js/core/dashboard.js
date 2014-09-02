@@ -54,7 +54,6 @@ define([
         title = dashboardTitle;
       },
       renderTo: function ($jqDiv) {
-        // rf.logger.log('Starting to render dashboard');
         var newMedia;
         rf.globals.dbRegistry.setCurrentDashboard(id);
         $containerDiv = $jqDiv;
@@ -75,7 +74,6 @@ define([
         resize();
         resizeWatcher();
         pro.addServerLogButtonListener();
-        // rf.logger.log('Finished to render dashboard');
       },
       embedTo: function(divID, opts) {
         // TODO: Extract common functionality between renderTo and embedTo
@@ -378,6 +376,10 @@ define([
           component.pro.setTargetContainer(componentDiv);
           component.pro.render();
         }
+          rf.hooks.trigger("_internalDashboardRendered", {
+              db: self,
+              coreDiv: $containerDiv
+          });
       }
     };
 
