@@ -147,7 +147,6 @@ define([
         if(coreChartType === 'pie') {
           tLegendVisible = !pro.chart.callFunction('hasLabels');
           if(tLegendVisible !== legendVisible) {
-            // debugger
             legendVisible = tLegendVisible;
             if(!legendVisible && self.props.chart.showPieValues) {
               pro.$legendContainer.hide();
@@ -165,11 +164,9 @@ define([
         }
       },
       realignData: function (originalLabels, labels, seriesData, displayValues) {
-        // debugger
         if (!firstDraw) {
           var realigned = DataFormatter.realignLabels (originalLabels, labels, seriesData, displayValues);
           // pro.chart.updateData(originalLabels, realigned.data, realigned.displayValues);
-          // debugger
           pro.chart.updateSeries(seriesData);
         }
       },
@@ -277,27 +274,44 @@ define([
           };
         }
       }
-      var numberFormatter = new NumberFormatter(),
-          numberFormatter2 =  new NumberFormatter(),
-          numberFormatter3 = new NumberFormatter();
-      numberFormatter.setConfig(self.props.chart.yaxis);
-      numberFormatter2.setConfig(self.props.chart.secondaryYAxis);
-      numberFormatter3.setConfig(self.props.chart.series[series[0].key]);
 
-      var formatFunction = function(item) {
-        return numberFormatter.formatValue(item);
+      var yConfig = self.props.chart.yaxis,
+          syConfig = self.props.chart.secondaryYAxis,
+          seriesConfig = self.props.chart.series[series[0].key];
+
+      var yAxisFormatter = new NumberFormatter(),
+          secondaryYAxisFormatter =  new NumberFormatter(),
+          seriesFormatter = new NumberFormatter();
+
+      yAxisFormatter.setConfig(NumberFormatter.pickFirstValid([
+        yConfig,
+        seriesConfig
+      ]));
+      secondaryYAxisFormatter.setConfig(NumberFormatter.pickFirstValid([
+        syConfig,
+        seriesConfig
+      ]));
+      seriesFormatter.setConfig(NumberFormatter.pickFirstValid([
+        seriesConfig,
+        yConfig
+      ]));
+
+      var yAxisFormatFunc = function(item) {
+        return yAxisFormatter.formatValue(item);
       };
-      var formatFunction2 = function(item) {
-        return numberFormatter2.formatValue(item);
+      var secondaryYFormatFunc= function(item) {
+        return secondaryYAxisFormatter.formatValue(item);
       };
-      var formatFunction3 = function(item) {
-        return numberFormatter3.formatValue(item);
+      var seriesFormatFunc = function(item) {
+        return seriesFormatter.formatValue(item);
       };
+
+
       var yAxisConfig = {
         label: self.props.chart.yaxis.axisName,
         axisLine: false,
         axisTick: false,
-        format: coreChartType === 'linear' ? formatFunction : null
+        format: coreChartType === 'linear' ? yAxisFormatFunc : null
       };
       if(dualY) {
         yAxisConfig = [
@@ -306,14 +320,14 @@ define([
             label: self.props.chart.yaxis.axisName,
             axisLine: false,
             axisTick: false,
-            format: coreChartType === 'linear' ? formatFunction : null    
+            format: coreChartType === 'linear' ? yAxisFormatFunc : null    
           },
           {
             type: 'right',
             label: self.props.chart.secondaryYAxis.axisName,
             axisLine: false,
             axisTick: false,
-            format: coreChartType === 'linear' ? formatFunction2 : null
+            format: coreChartType === 'linear' ? secondaryYFormatFunc : null
           }
         ];
       }
@@ -335,8 +349,14 @@ define([
         yAxis: yAxisConfig,
         tooltip: {
           onShow: function(x, y, data) {
-            var formatFunc = coreChartType === 'pie' ? formatFunction3 : _.where(series, {seriesIndex: data.seriesIndex - 1})[0].yAxis !== 'primary' ? formatFunction2 : formatFunction;
-            data.data[0] = formatFunc(data.data[0]);
+            var seriesIndex = data.seriesIndex[0] - 1;
+            var tooltipFormatter = new NumberFormatter();
+            console.log("The props are", self.props.chart.series[series[seriesIndex].key]);
+            tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
+              self.props.chart.series[series[seriesIndex].key],
+              yConfig
+            ]));
+            data.data[0] = tooltipFormatter.formatValue(data.data[0]);
             tooltip.show(x, y, data);
           },
           onHide: function() {
@@ -355,21 +375,6 @@ define([
         showLabelFlag: showLabelFlag
       });
 
-      // if(coreChartType === 'pie') {
-      //   legendVisible = pro.chart.callFunction('hasLabels');
-      //   debugger
-      // }
-
-      // if (series[0].displayType === 'pie') {
-      //   pro.chart = new RFPieChart();
-      //   pro.chart.setData(labels, data[0], displayValues[0]);
-      // } else {
-      //   pro.chart = new RFChart();
-      //   pro.chart.setData(labels, data, series, displayValues);
-      //   pro.chart.setYAxisProperties(self.props.chart.yaxis);
-      // }
-      // pro.chart.setAnimation(firstAnimation);
-      // pro.chart.linkToDashboard(self.db);
     };
 
     raw._registerClassName("ComponentRenderer");

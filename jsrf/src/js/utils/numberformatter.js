@@ -1,4 +1,4 @@
-define([], function () {
+define(["vendor/lodash"], function (_) {
   var NumberFormatter = function () {
 
     var self = this,
@@ -153,6 +153,33 @@ define([], function () {
 
       return negative ? '-' + result : result;
     };
+  };
+
+  NumberFormatter.pickFirstValid = function (items) {
+    var isValid = function (item) {
+      var defaults = {
+        'numberFormatFlag':true,
+        'numberHumanize':false,
+        'numberPrefix':null,
+        'numberSuffix':null,
+        'numberThousandsSeparator':",",
+        'numberDecimalsSeparator':".",
+        'numberForceDecimals':false,
+        'numberDecimalPoints':2
+      };
+      // FIXME: If any of the defaults are changed this will fail catastrophically.
+      // return true if ANY of the items is not the default value
+      return _.any(item, function (val, key) {
+        return typeof(defaults[key]) !== "undefined" && val !== defaults[key];
+      });
+    };
+
+    // Return the first item that's determined as valid.
+    var result = _.find(items, isValid);
+    if(!result) {
+      return items[0];
+    }
+    return result;
   };
 
   return NumberFormatter;
