@@ -344,7 +344,7 @@ define([
         xAxis: {
           axisLine: true,
           axisTick: false,
-          format: coreChartType === 'bar' ? formatFunction : null
+          format: coreChartType === 'bar' ? yAxisFormatFunc : null
         },
         yAxis: yAxisConfig,
         tooltip: {
