@@ -95,7 +95,7 @@ define(['vendor/lodash'], function(_) {
                         } else {
                             line = plotItemsLine[i][j];
                         }
-                        if(data[j] && data[j+1]) {
+                        if(typeof(data[j] === "number")  && typeof(data[j+1] === "number")) {
                             line.attr('opacity', 1);
                         } else {
                             line.attr('opacity', 0);
@@ -146,7 +146,7 @@ define(['vendor/lodash'], function(_) {
                         circle = plotItemsCircle[i][j];
                         eventCircle = plotItemsEventCircle[i][j];
                     }
-                    if(data[j]) {
+                    if(typeof(data[j]) === "number") {
                         circle.attr('opacity', 1);
                     } else {
                         circle.attr('opacity', 0);
