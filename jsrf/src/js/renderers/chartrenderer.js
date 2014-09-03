@@ -351,7 +351,6 @@ define([
           onShow: function(x, y, data) {
             var seriesIndex = data.seriesIndex[0] - 1;
             var tooltipFormatter = new NumberFormatter();
-            console.log("The props are", self.props.chart.series[series[seriesIndex].key]);
             tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
               self.props.chart.series[series[seriesIndex].key],
               yConfig
