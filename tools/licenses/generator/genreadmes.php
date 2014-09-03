@@ -2,47 +2,29 @@
 ini_set("date.timezone", "Asia/Kolkata");
 	global $licenses;
 $licenses = array (
-	'corporate' => array(
-		'license_name' => "Corporate License",
+	'standard' => array(
+		'license_name' => "Standard License",
 		'purchase' => true,
 		'wsource' => false,
-		'license_id' => 'corporate'
+		'license_id' => 'standard'
 	),
-	'corporate_devdirect' => array (
-		'license_name' => "Corporate DevDirect License",
-		'wsource' => true,
-		'purchase' => true,
-		'license_id' => 'corporate_devdirect'
-	),
-	'saas' => array (
-		'license_name' => "SaaS License",
+	'pro' => array(
+		'license_name' => "Pro License",
 		'purchase' => true,
 		'wsource' => false,
-		'license_id' => 'saas'
+		'license_id' => 'pro'
 	),
-	'saas_devdirect' => array (
-		'license_name' => "SaaS DevDirect License",
-		'purchase' => true,
-		'wsource' => true,
-		'license_id' => 'saas_devdirect'
-	),
-	'oem' => array (
-		'license_name' => "OEM License",
+	'devdirect' => array(
+		'license_name' => "DevDirect License",
 		'purchase' => true,
 		'wsource' => false,
-		'license_id' => 'oem'
+		'license_id' => 'devdirect'
 	),
-	'oem_devdirect' => array (
-		'license_name' => "OEM DevDirect License",
-		'purchase' => true,
-		'wsource' => true,
-		'license_id' => 'oem_devdirect'
-	),
-	'developer' => array(
+	'trial' => array(
 		'verb' => "DOWNLOADING",
-		'license_name' => "Developer License",
+		'license_name' => "Trial Version",
 		'wsource' => false,
-		'license_id' => 'developer',
+		'license_id' => 'trial',
 		'purchase' => false
 	)
 );

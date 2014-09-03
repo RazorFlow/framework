@@ -8,7 +8,7 @@
         "versionString": "1.0.4-beta.0"
     },
     "unstable": {
-        "versionNumber": "1.0.4",
-        "versionString": "1.0.4"
+        "versionNumber": "unstable",
+        "versionString": "unstable"
     }
 }

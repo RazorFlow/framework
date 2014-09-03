@@ -305,9 +305,9 @@ module.exports = function(grunt) {
     function addPackageWithLicense (version, license) {
         var taskHost = JSRF_Tasks.packman;
         var licensePath = "razorflow_license_" + license;
-        var fileName = (license === "developer") ? "-"+version : "_"+license+"-"+version;
+        var fileName = (license === "trial") ? "-"+version : "_"+license+"-"+version;
 
-        var evalFlag = (license === "developer");
+        var evalFlag = (license === "trial");
         grunt.log.writeln("The evaluation flag is:", evalFlag);
         var js_files = evalFlag ? assets_eval.js : assets_build.js;
         var php_files = evalFlag ? assets_eval.php : assets_build.php;
@@ -348,8 +348,10 @@ module.exports = function(grunt) {
             // stdout: true, // Set this to true to debug genreadmes
             cwd: "tools/licenses/generator"
         }
-        addPackageWithLicense(version, "developer");
-        addPackageWithLicense(version, "corporate");
+        addPackageWithLicense(version, "trial");
+        addPackageWithLicense(version, "standard");
+        addPackageWithLicense(version, "pro");
+        addPackageWithLicense(version, "devdirect");
     };
 
     createPackagesForVersion(opts.versionString);
