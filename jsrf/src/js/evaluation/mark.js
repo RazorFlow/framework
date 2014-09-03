@@ -3,6 +3,11 @@ define([
 ], function () {
     // This is the main entry point for evaluation version
     var evalNode = null;
+    var rot13 = function (s) {
+        return s.replace(/[a-zA-Z]/g, function (c) {
+            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+        });
+    }
 
     var makeNode = function (container) {
         if (evalNode && evalNode.remove()) {
@@ -20,7 +25,9 @@ define([
         });
         evalNode.addClass("rf rfDashboardCore");
         container.append(evalNode);
-        evalNode.html("Powered by RazorFlow Dashboard Framework evaluation version. <a href='http://www.razorflow.com/dashboard/buy/'>Purchase Now</a>");
+        // How to edit the error message? 
+        // Put this into any rot13 decoder
+        evalNode.html(rot13("Cbjrerq ol EnmbeSybj Qnfuobneq Senzrjbex rinyhngvba irefvba. <n uers='uggc://jjj.enmbesybj.pbz/qnfuobneq/ohl/'>Chepunfr Abj</n>"));
         evalNode.find ("a").css ({
             'background-color': "#77ba11",
             'color': "#fffffb",
