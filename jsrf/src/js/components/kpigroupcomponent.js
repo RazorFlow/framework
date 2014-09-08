@@ -29,7 +29,6 @@ define(['components/multikpicomponent', 'prop/properties', 'renderers/kpigroupre
                     pro.renderer = new KPIGroupRenderer();    
                 }
                 pro.renderer.setConfig({
-                    conditionalParam: pro.conditionalParam
                 });
                 pro.onRendererCreate();
             },

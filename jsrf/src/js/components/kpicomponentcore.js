@@ -37,10 +37,10 @@ define([
       },
 
       valueConditionalFormat: function (formatRule, appliedStyle) {
-        pro.conditionalParam.push({
-          "expression" : formatRule,
-          "valueColor" : appliedStyle
-        });
+        var opts = {};
+        opts.expression = formatRule;
+        opts.valueColor = appliedStyle;
+        pro.pb.pushItemToList("kpi.valueConditionalFormatters", opts);
       }
     };
 
@@ -62,8 +62,7 @@ define([
           w: 3,
           h: 3
         }
-      },
-      conditionalParam: []
+      }
     };
 
     /**

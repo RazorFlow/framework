@@ -49,8 +49,7 @@ define([
           limits: {
             min: pro.pb.getValue('kpi.display.minimum'),
             max: pro.pb.getValue('kpi.display.maximum')
-          },
-          conditionalParam: pro.conditionalParam
+          }
         });
         pro.onRendererCreate();
       },

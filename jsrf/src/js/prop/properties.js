@@ -63,7 +63,8 @@ function ComponentKPIProperties() {
     'Width':2,
     'activeFlag':true,
     'icon':null,
-    'iconprops':"{}"
+    'iconprops':"{}",
+    'valueConditionalFormatters':new PropertyList(ValueConditionalFormat)
   });
 }
 exports.ComponentKPIProperties = ComponentKPIProperties;
@@ -202,10 +203,24 @@ function KPIProperties() {
   PropertyBase.call(this);
 
   this.register({
-        'display':new KPIDisplayProperties()
+        'display':new KPIDisplayProperties(),
+    'valueConditionalFormatters':new PropertyList(ValueConditionalFormat)
   });
 }
 exports.KPIProperties = KPIProperties;
+
+
+
+
+function ValueConditionalFormat() {
+  PropertyBase.call(this);
+
+  this.register({
+        'expression':"",
+    'valueColor':"auto"
+  });
+}
+exports.ValueConditionalFormat = ValueConditionalFormat;
 
 
 

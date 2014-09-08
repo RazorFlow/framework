@@ -134,6 +134,11 @@
                 "type": "string",
                 "default": "{}",
                 "shortDesc": "properties of the icon"
+            },
+            "valueConditionalFormatters": {
+                "type": "PropertyList",
+                "class": "ValueConditionalFormat",
+                "shortDesc": "Formatter for kpi value"
             }
         }
     },
@@ -331,9 +336,32 @@
                 "type": "PropertyBase",
                 "class": "KPIDisplayProperties",
                 "shortDesc" : "Properties defining the way the KPI is displayed."
+            },
+            "valueConditionalFormatters": {
+                "type": "PropertyList",
+                "class": "ValueConditionalFormat",
+                "shortDesc": "Formatter for kpi value"
             }
         }
     },
+
+    "ValueConditionalFormat": {
+        "base": "PropertyBase",
+        "shortDesc": "Formatter for kpi value",
+        "properties": {
+            "expression" : {
+                "type": "string",
+                "default": "",
+                "shortDesc" : "expression string"
+            },
+            "valueColor" : {
+                "type": "string",
+                "default": "auto",
+                "shortDesc" : "value color"
+            }
+        }
+    },
+
     "KPIDisplayProperties": {
         "base": "DataColumnProperties",
         "properties": {

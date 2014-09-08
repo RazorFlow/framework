@@ -51,8 +51,7 @@ define([
         pro.renderer = new KPIRenderer();
         pro.renderer.setConfig({
           labels: labels,
-          values: values,
-          conditionalParam: pro.conditionalParam
+          values: values
         });
         pro.renderer.pro.bind("click", function (params) {
           pro.handleComponentEvent ("click", params);

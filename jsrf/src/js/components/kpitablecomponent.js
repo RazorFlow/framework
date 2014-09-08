@@ -25,7 +25,6 @@ define(['components/multikpicomponent', 'prop/properties', 'renderers/kpitablere
             createRenderer: function () {
                 pro.renderer = new KPITableRenderer();
                 pro.renderer.setConfig({
-                    conditionalParam: pro.conditionalParam
                 });
                 pro.onRendererCreate();
             },

@@ -85,6 +85,15 @@ class TableComponent extends RFComponent {
         ));
     }
 
+    public function cellConditionalFormat ($id, $formatRule, $appliedStyle) {
+        $opts = [];
+        $opts["column_id"] = $id;
+        $opts["conditionalExpression"] = is_string($formatRule) ? array("type" => "valueComparator", "expression" => $formatRule) : $formatRule;
+        $opts["format"] = is_string($appliedStyle) ? array("cellBackgroundColor" => $appliedStyle) : $appliedStyle;
+
+        $this->props->pushItemToList("table.cellConditionalFormatters", $opts);
+    }
+
     /**
      * Gets the type of this component
      * @method getType

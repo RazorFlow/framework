@@ -13,14 +13,14 @@ define(["generated/templates", 'renderers/componentrenderer', "utils/numberforma
         var kpiobjs = {},
             kpiContainers = {},
             numKPIs = null,
-            conditionalParam = {};
+            conditionalParam = [];
 
         Public = {
             dispose: function() {
 
             },
             setConfig: function(config) {
-                conditionalParam = config.conditionalParam;
+                
             },
             renderCore: function() {
                 var kpis = self.props.kpis,
@@ -56,7 +56,8 @@ define(["generated/templates", 'renderers/componentrenderer', "utils/numberforma
 
                     var $caption = self.$core.find('#' + key + ' > .rfKPICaption'),
                         $value = self.$core.find('#' + key + ' > .rfKPIValue'),
-                        valueColor = kpi.valuecolor ? kpi.valuecolor : "auto";
+                        valueColor = kpi.valuecolor ? kpi.valuecolor : "auto",
+                        conditionalParam = kpi.valueConditionalFormatters;
 
                     if(kpi.captioncolor) {
                         $caption.css({
