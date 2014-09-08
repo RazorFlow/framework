@@ -561,7 +561,7 @@ key: 'seriesDisplayType',
 {
 key: 'seriesColor',
     value:"auto",
-    type: 'string'},
+    type: 'color'},
 {
 key: 'seriesHiddenFlag',
     value:false,

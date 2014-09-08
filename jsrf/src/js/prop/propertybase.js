@@ -199,7 +199,7 @@ define([
                     res[key] = data[key].getRootObject();
                 }
                 else {
-                    res[key] = data[key];
+                    res[key] = rawGetData(key);
                 }
             }
 
@@ -578,6 +578,20 @@ define([
             };
             return obj;
         };
+
+        var rawGetData = function (key) {
+            if(data.hasOwnProperty(key)) {
+                if (types[key] === "color") {
+                    // Make modifications as necessary
+                    return data[key];
+                }
+                return data[key];
+            }
+            else {
+                throw "Unknown key to get data:" + key;
+            }
+            return null;
+        }
 
         self.setParentList = function (proplist, index) {
             parentList = proplist;

@@ -545,7 +545,7 @@
                 "default": "column"
             },
             "seriesColor": {
-                "type": "string",
+                "type": "color",
                 "public": true,
                 "shortDesc": "The color of the series on the chart",
                 "default": "auto"
