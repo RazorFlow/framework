@@ -6,6 +6,7 @@ rf.StandaloneDashboard(function(db){
         numberHumanize: true
     });
     chart.addYAxis('quantity', "Quantity", {
+        numberPrefix: "#"
     });
     chart.setCaption("Car sales and quantity");    
     chart.setLabels (["Jan", "Feb", "Mar"]);

@@ -9,6 +9,7 @@ class SampleDashboard extends StandaloneDashboard {
       "numberHumanize" => true
     ));
     $chart->addYAxis("quantity", "Quantity", array(
+      "numberPrefix" => "#"
     ));
     $chart->setDimensions (4, 4);
     $chart->setLabels (["Jan", "Feb", "Mar"]);
