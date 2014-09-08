@@ -81,6 +81,15 @@ abstract class MultiKPIComponent extends RFComponent {
         return "MultiKPIComponent";
     }
 
+    public function valueConditionalFormat ($formatRule, $appliedStyle) {
+        foreach ($this->props->getObjectAtPath("kpis") as $key => $value) {
+            $this->props->pushItemToList("kpis[". $key ."].valueConditionalFormatters", array(
+                "expression" => $formatRule,
+                "valueColor" => $appliedStyle
+            ));
+        }
+    }
+
     protected function validate () {
         if($this->isHidden()) {
             return;

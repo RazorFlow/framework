@@ -1,4 +1,4 @@
-define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker'], function(RFLogger, RFNotification, RFVersionChecker) {
+define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker', 'utils/errorhandler'], function(RFLogger, RFNotification, RFVersionChecker, ErrorHandler) {
     if(window.rf) {
         rf.logger = RFLogger;
         rf.jsonp = {};
@@ -17,10 +17,6 @@ define(['utils/rflogger', 'utils/rfnotification', 'utils/versionchecker'], funct
         }, 5000);
     }
     
-    window.onerror = function(msg, link, lineno, colno, exception) {
-        var log = rf.logger.error(msg, exception);
-        RFNotification.create(msg, exception, log);
-        return false;
-    };
+    ErrorHandler.init();
 
 });

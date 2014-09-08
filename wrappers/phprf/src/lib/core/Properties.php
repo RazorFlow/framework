@@ -61,7 +61,8 @@ class ComponentKPIProperties extends DataColumnProperties {
     'Width' => 2,
     'activeFlag' => true,
     'icon' => null,
-    'iconprops' => "{}"
+    'iconprops' => "{}",
+    'valueConditionalFormatters' => new PropertyList('ValueConditionalFormat')
     ));
   }
   
@@ -200,7 +201,21 @@ class KPIProperties extends PropertyBase {
     parent::init();
 
     $this->register(array(
-          'display' => new KPIDisplayProperties()
+          'display' => new KPIDisplayProperties(),
+    'valueConditionalFormatters' => new PropertyList('ValueConditionalFormat')
+    ));
+  }
+  
+}
+
+class ValueConditionalFormat extends PropertyBase {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+          'expression' => "",
+    'valueColor' => "auto"
     ));
   }
   

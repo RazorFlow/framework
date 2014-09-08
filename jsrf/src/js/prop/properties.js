@@ -97,6 +97,7 @@ exports.ComponentProperties = ComponentProperties;
 function ComponentKPIProperties() {
   DataColumnProperties.call(this);
 
+<<<<<<< HEAD
   this.register([
     {
 key: 'caption',
@@ -131,6 +132,19 @@ key: 'iconprops',
     value:"{}",
     type: 'string'}
   ]);
+=======
+  this.register({
+        'caption':"",
+    'value':0,
+    'captioncolor':null,
+    'valuecolor':null,
+    'Width':2,
+    'activeFlag':true,
+    'icon':null,
+    'iconprops':"{}",
+    'valueConditionalFormatters':new PropertyList(ValueConditionalFormat)
+  });
+>>>>>>> c8dcd672b06667f7f74e042618bc6807039fcb77
 }
 exports.ComponentKPIProperties = ComponentKPIProperties;
 
@@ -351,14 +365,34 @@ exports.KPIComponentProperties = KPIComponentProperties;
 function KPIProperties() {
   PropertyBase.call(this);
 
+<<<<<<< HEAD
   this.register([
     {
 key: 'display',
     value:new KPIDisplayProperties(),
     type: 'PropertyBase'}
   ]);
+=======
+  this.register({
+        'display':new KPIDisplayProperties(),
+    'valueConditionalFormatters':new PropertyList(ValueConditionalFormat)
+  });
+>>>>>>> c8dcd672b06667f7f74e042618bc6807039fcb77
 }
 exports.KPIProperties = KPIProperties;
+
+
+
+
+function ValueConditionalFormat() {
+  PropertyBase.call(this);
+
+  this.register({
+        'expression':"",
+    'valueColor':"auto"
+  });
+}
+exports.ValueConditionalFormat = ValueConditionalFormat;
 
 
 

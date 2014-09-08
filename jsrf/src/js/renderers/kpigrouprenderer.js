@@ -12,14 +12,15 @@ function(JST, ComponentRenderer, MiniKPI, NumberFormatter, evalExpression, _) {
 
         var kpiobjs = {},
             kpiContainers = {},
-            numKPIs = null;
+            numKPIs = null,
+            conditionalParam = [];
 
         Public = {
             dispose: function() {
 
             },
             setConfig: function(config) {
-                conditionalParam = config.conditionalParam;
+                
             },
             updateValue: function(id, value) {
                 var numberFormatter = new NumberFormatter(),
@@ -47,7 +48,9 @@ function(JST, ComponentRenderer, MiniKPI, NumberFormatter, evalExpression, _) {
                     if(kpis.hasOwnProperty(key)) {
                         var kpi = kpis[key],
                             valueColor = kpi.valuecolor,
+                            conditionalParam = kpi.valueConditionalFormatters;
                             numberFormatter = new NumberFormatter();
+
                         numberFormatter.setConfig(_.extend(kpi, {
                             dataType: 'number'
                         }));

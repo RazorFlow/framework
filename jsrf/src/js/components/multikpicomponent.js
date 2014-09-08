@@ -72,10 +72,13 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
             },
 
             valueConditionalFormat: function (formatRule, appliedStyle) {
-                pro.conditionalParam.push({
-                  "expression" : formatRule,
-                  "valueColor" : appliedStyle
-                });
+                var opts = {
+                  "expression": formatRule,
+                  "valueColor": appliedStyle
+                };
+                for (var kpi in pro.pb.getObjectAtPath("kpis")) {
+                    pro.pb.pushItemToList("kpis[" + kpi + "].valueConditionalFormatters", opts);
+                }
             },
 
             setValueIcon: function(id, iconID, props) {
@@ -94,7 +97,6 @@ define(['components/component', 'prop/properties', 'renderers/kpitablerenderer']
                 });
                 pro.onRendererCreate();
             },
-            conditionalParam: [],
 
             renderCore: function () {
                 pro.renderer.renderCore();

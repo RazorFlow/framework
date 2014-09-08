@@ -52,6 +52,13 @@ class KPIComponent extends RFComponent {
         ));
     }
 
+    public function valueConditionalFormat ($formatRule, $appliedStyle) {
+        $this->props->pushItemToList ("kpi.valueConditionalFormatters", array(
+            "expression" => $formatRule,
+            "valueColor" => $appliedStyle
+        ));
+    }
+
     /**
      * Gets the type of this component
      * @method getType

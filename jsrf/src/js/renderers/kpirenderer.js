@@ -35,7 +35,6 @@ define([
         sparkValues = cfg.values;
         limits = cfg.limits;
         gaugeFlag = !!cfg.gaugeFlag;
-        conditionalParam = cfg.conditionalParam;
       },
       renderCore: function () {
         var dimension = self.getDimensionProperties(),
@@ -55,6 +54,8 @@ define([
 
         valueTextColor = self.props.kpi.display.valueTextColor;
 
+        conditionalParam = self.props.kpi.valueConditionalFormatters;
+        
         for(var i=0; i < conditionalParam.length; i++) {
           if(evalExpression(conditionalParam[i].expression, self.props.kpi.display.value)) {
             valueTextColor = conditionalParam[i].valueColor;
