@@ -1,5 +1,5 @@
 StandaloneDashboard(function (db) {
-
+    var _ = window.rf._;
     // The test uses random values to test the performance of the chart
 
     var aMax = Math.random() * 1000,

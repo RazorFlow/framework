@@ -277,7 +277,10 @@ define([
 
       var yConfig = self.props.chart.yaxis,
           syConfig = self.props.chart.secondaryYAxis,
-          seriesConfig = self.props.chart.series[series[0].key];
+          primarySeries = _.where (series, {yAxis: 'primary'}),
+          secondarySeries = _.difference(series, primarySeries),
+          primarySeriesConfig = primarySeries.length === 1  ? self.props.chart.series[primarySeries[0].key] : {},
+          secondarySeriesConfig = secondarySeries.length === 1 ? self.props.chart.series[secondarySeries[0].key] : {};
 
       var yAxisFormatter = new NumberFormatter(),
           secondaryYAxisFormatter =  new NumberFormatter(),
@@ -285,25 +288,18 @@ define([
 
       yAxisFormatter.setConfig(NumberFormatter.pickFirstValid([
         yConfig,
-        seriesConfig
+        primarySeriesConfig
       ]));
       secondaryYAxisFormatter.setConfig(NumberFormatter.pickFirstValid([
         syConfig,
-        seriesConfig
+        secondarySeriesConfig
       ]));
-      seriesFormatter.setConfig(NumberFormatter.pickFirstValid([
-        seriesConfig,
-        yConfig
-      ]));
-
+    
       var yAxisFormatFunc = function(item) {
         return yAxisFormatter.formatValue(item);
       };
       var secondaryYFormatFunc= function(item) {
         return secondaryYAxisFormatter.formatValue(item);
-      };
-      var seriesFormatFunc = function(item) {
-        return seriesFormatter.formatValue(item);
       };
 
 
@@ -349,13 +345,17 @@ define([
         yAxis: yAxisConfig,
         tooltip: {
           onShow: function(x, y, data) {
-            var seriesIndex = data.seriesIndex[0] - 1;
             var tooltipFormatter = new NumberFormatter();
-            tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
-              self.props.chart.series[series[seriesIndex].key],
-              yConfig
-            ]));
-            data.data[0] = tooltipFormatter.formatValue(data.data[0]);
+            if(coreChartType === 'pie') {
+              tooltipFormatter.setConfig(self.props.chart.series[series[0].key]);
+            } else {
+              var seriesIndex = data.seriesIndex[0] - 1;
+              tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
+                self.props.chart.series[series[seriesIndex].key],
+                self.props.chart.series[series[seriesIndex].key].yAxis !== 'primary' ? syConfig : yConfig
+              ]));
+            }     
+            data.data[0] = tooltipFormatter.formatValue(data.data[0]);       
             tooltip.show(x, y, data);
           },
           onHide: function() {
