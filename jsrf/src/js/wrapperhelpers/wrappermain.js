@@ -2,16 +2,14 @@ define([
 	"wrapperhelpers/standalonebuilder",
   'utils/rfnotification',
   'utils/rfloggerstub',
-  'core/globals'
-	], function(StandaloneBuilder, RFNotification, RFLogger, rf) {
+  'core/globals',
+  'utils/errorhandler'
+	], function(StandaloneBuilder, RFNotification, RFLogger, rf, ErrorHandler) {
 	var main = function () {
 		window.rf.StandaloneBuilder = StandaloneBuilder;
     window.rf.logger = RFLogger;
 
-    window.onerror = function(msg, link, lineno, colno, exception) {
-      RFNotification.create(msg, exception);
-      return false;
-    };
+    ErrorHandler.init();
 
 
     // require('devtools/debug.main');

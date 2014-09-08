@@ -13,9 +13,10 @@ define([
   'components/kpitablecomponent',
   'utils/rfnotification',
   'utils/rfloggerstub',
+  'utils/errorhandler',
   'core/globals',
   'iecompat/main'
-], function (Lodash, Dashboard, StandaloneDashboard, EmbeddedDashboard, TabbedDashboard, KPIComponent, GaugeComponent, TableComponent, ChartComponent, FormComponent, KPIGroupComponent, KPITableComponent, RFNotification, RFLogger) {
+], function (Lodash, Dashboard, StandaloneDashboard, EmbeddedDashboard, TabbedDashboard, KPIComponent, GaugeComponent, TableComponent, ChartComponent, FormComponent, KPIGroupComponent, KPITableComponent, RFNotification, RFLogger, ErrorHandler) {
   window.StandaloneDashboard = StandaloneDashboard;
   window.EmbeddedDashboard = EmbeddedDashboard;
   window.TabbedDashboard = TabbedDashboard;
@@ -33,11 +34,7 @@ define([
 
   window.rf.logger = RFLogger;
 
-  window.onerror = function(msg, link, lineno, colno, exception) {
-    var log = rf.logger.error(msg, exception);
-    RFNotification.create(msg, exception, log);
-    return false;
-  };
+  ErrorHandler.init();
 
   // require('devtools/debug.main');
   window.rf._ = Lodash;
