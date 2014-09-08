@@ -7,9 +7,9 @@ define([
 function NullProperties() {
   PropertyBase.call(this);
 
-  this.register({
+  this.register([
     
-  });
+  ]);
 }
 exports.NullProperties = NullProperties;
 
@@ -19,17 +19,44 @@ exports.NullProperties = NullProperties;
 function DataColumnProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'dataType':"auto",
-    'numberFormatFlag':true,
-    'numberHumanize':false,
-    'numberPrefix':null,
-    'numberSuffix':null,
-    'numberThousandsSeparator':",",
-    'numberDecimalsSeparator':".",
-    'numberForceDecimals':false,
-    'numberDecimalPoints':2
-  });
+  this.register([
+    {
+key: 'dataType',
+    value:"auto",
+    type: 'string'},
+{
+key: 'numberFormatFlag',
+    value:true,
+    type: 'boolean'},
+{
+key: 'numberHumanize',
+    value:false,
+    type: 'boolean'},
+{
+key: 'numberPrefix',
+    value:null,
+    type: 'string'},
+{
+key: 'numberSuffix',
+    value:null,
+    type: 'string'},
+{
+key: 'numberThousandsSeparator',
+    value:",",
+    type: 'string'},
+{
+key: 'numberDecimalsSeparator',
+    value:".",
+    type: 'string'},
+{
+key: 'numberForceDecimals',
+    value:false,
+    type: 'boolean'},
+{
+key: 'numberDecimalPoints',
+    value:2,
+    type: 'number'}
+  ]);
 }
 exports.DataColumnProperties = DataColumnProperties;
 
@@ -39,13 +66,28 @@ exports.DataColumnProperties = DataColumnProperties;
 function ComponentProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'core':new ComponentCoreProperties(),
-    'events':new PropertyList(ComponentEventProperties),
-    'children':new PropertyList(NullProperties),
-    'data':new ComponentDataProperties(),
-    'kpis':new PropertyList(ComponentKPIProperties)
-  });
+  this.register([
+    {
+key: 'core',
+    value:new ComponentCoreProperties(),
+    type: 'PropertyBase'},
+{
+key: 'events',
+    value:new PropertyList(ComponentEventProperties),
+    type: 'PropertyList'},
+{
+key: 'children',
+    value:new PropertyList(NullProperties),
+    type: 'PropertyList'},
+{
+key: 'data',
+    value:new ComponentDataProperties(),
+    type: 'PropertyBase'},
+{
+key: 'kpis',
+    value:new PropertyList(ComponentKPIProperties),
+    type: 'PropertyList'}
+  ]);
 }
 exports.ComponentProperties = ComponentProperties;
 
@@ -55,16 +97,40 @@ exports.ComponentProperties = ComponentProperties;
 function ComponentKPIProperties() {
   DataColumnProperties.call(this);
 
-  this.register({
-        'caption':"",
-    'value':0,
-    'captioncolor':null,
-    'valuecolor':null,
-    'Width':2,
-    'activeFlag':true,
-    'icon':null,
-    'iconprops':"{}"
-  });
+  this.register([
+    {
+key: 'caption',
+    value:"",
+    type: 'string'},
+{
+key: 'value',
+    value:0,
+    type: 'number'},
+{
+key: 'captioncolor',
+    value:null,
+    type: 'string'},
+{
+key: 'valuecolor',
+    value:null,
+    type: 'string'},
+{
+key: 'Width',
+    value:2,
+    type: 'number'},
+{
+key: 'activeFlag',
+    value:true,
+    type: 'boolean'},
+{
+key: 'icon',
+    value:null,
+    type: 'string'},
+{
+key: 'iconprops',
+    value:"{}",
+    type: 'string'}
+  ]);
 }
 exports.ComponentKPIProperties = ComponentKPIProperties;
 
@@ -74,9 +140,12 @@ exports.ComponentKPIProperties = ComponentKPIProperties;
 function ComponentDataProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'sources':new PropertyList(RemoteDataSourceProperties)
-  });
+  this.register([
+    {
+key: 'sources',
+    value:new PropertyList(RemoteDataSourceProperties),
+    type: 'PropertyList'}
+  ]);
 }
 exports.ComponentDataProperties = ComponentDataProperties;
 
@@ -86,9 +155,12 @@ exports.ComponentDataProperties = ComponentDataProperties;
 function RemoteDataSourceProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'url':null
-  });
+  this.register([
+    {
+key: 'url',
+    value:null,
+    type: 'string'}
+  ]);
 }
 exports.RemoteDataSourceProperties = RemoteDataSourceProperties;
 
@@ -98,12 +170,24 @@ exports.RemoteDataSourceProperties = RemoteDataSourceProperties;
 function ComponentEventProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'type':"",
-    'affectedComponents':new PropertyList(AffectedComponentProperties),
-    'url':"",
-    'context':""
-  });
+  this.register([
+    {
+key: 'type',
+    value:"",
+    type: 'string'},
+{
+key: 'affectedComponents',
+    value:new PropertyList(AffectedComponentProperties),
+    type: 'PropertyList'},
+{
+key: 'url',
+    value:"",
+    type: 'string'},
+{
+key: 'context',
+    value:"",
+    type: 'url'}
+  ]);
 }
 exports.ComponentEventProperties = ComponentEventProperties;
 
@@ -113,9 +197,12 @@ exports.ComponentEventProperties = ComponentEventProperties;
 function AffectedComponentProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'id':null
-  });
+  this.register([
+    {
+key: 'id',
+    value:null,
+    type: 'string'}
+  ]);
 }
 exports.AffectedComponentProperties = AffectedComponentProperties;
 
@@ -125,21 +212,60 @@ exports.AffectedComponentProperties = AffectedComponentProperties;
 function ComponentCoreProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'caption':"",
-    'icon':null,
-    'iconprops':"{}",
-    'absolutePosition':false,
-    'dimensions':new ComponentDimensionProperties(),
-    'isChild':false,
-    'location':new ComponentLocationProperties(),
-    'zoomable':true,
-    'breadCrumbs':new PropertyList(BreadCrumbProperties),
-    'isHidden':false,
-    'showModal':false,
-    'breadcrumbStartString':"Start",
-    'index':99999
-  });
+  this.register([
+    {
+key: 'caption',
+    value:"",
+    type: 'string'},
+{
+key: 'icon',
+    value:null,
+    type: 'string'},
+{
+key: 'iconprops',
+    value:"{}",
+    type: 'string'},
+{
+key: 'absolutePosition',
+    value:false,
+    type: 'boolean'},
+{
+key: 'dimensions',
+    value:new ComponentDimensionProperties(),
+    type: 'PropertyBase'},
+{
+key: 'isChild',
+    value:false,
+    type: 'boolean'},
+{
+key: 'location',
+    value:new ComponentLocationProperties(),
+    type: 'PropertyBase'},
+{
+key: 'zoomable',
+    value:true,
+    type: 'string'},
+{
+key: 'breadCrumbs',
+    value:new PropertyList(BreadCrumbProperties),
+    type: 'PropertyList'},
+{
+key: 'isHidden',
+    value:false,
+    type: 'boolean'},
+{
+key: 'showModal',
+    value:false,
+    type: 'boolean'},
+{
+key: 'breadcrumbStartString',
+    value:"Start",
+    type: 'string'},
+{
+key: 'index',
+    value:99999,
+    type: 'Number'}
+  ]);
 }
 exports.ComponentCoreProperties = ComponentCoreProperties;
 
@@ -149,9 +275,12 @@ exports.ComponentCoreProperties = ComponentCoreProperties;
 function BreadCrumbProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'url':null
-  });
+  this.register([
+    {
+key: 'url',
+    value:null,
+    type: 'string'}
+  ]);
 }
 exports.BreadCrumbProperties = BreadCrumbProperties;
 
@@ -161,10 +290,16 @@ exports.BreadCrumbProperties = BreadCrumbProperties;
 function ComponentDimensionProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'w':null,
-    'h':null
-  });
+  this.register([
+    {
+key: 'w',
+    value:null,
+    type: 'number'},
+{
+key: 'h',
+    value:null,
+    type: 'number'}
+  ]);
 }
 exports.ComponentDimensionProperties = ComponentDimensionProperties;
 
@@ -174,12 +309,24 @@ exports.ComponentDimensionProperties = ComponentDimensionProperties;
 function ComponentLocationProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'x':null,
-    'y':null,
-    'w':null,
-    'h':null
-  });
+  this.register([
+    {
+key: 'x',
+    value:null,
+    type: 'number'},
+{
+key: 'y',
+    value:null,
+    type: 'number'},
+{
+key: 'w',
+    value:null,
+    type: 'number'},
+{
+key: 'h',
+    value:null,
+    type: 'number'}
+  ]);
 }
 exports.ComponentLocationProperties = ComponentLocationProperties;
 
@@ -189,9 +336,12 @@ exports.ComponentLocationProperties = ComponentLocationProperties;
 function KPIComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'kpi':new KPIProperties()
-  });
+  this.register([
+    {
+key: 'kpi',
+    value:new KPIProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.KPIComponentProperties = KPIComponentProperties;
 
@@ -201,9 +351,12 @@ exports.KPIComponentProperties = KPIComponentProperties;
 function KPIProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'display':new KPIDisplayProperties()
-  });
+  this.register([
+    {
+key: 'display',
+    value:new KPIDisplayProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.KPIProperties = KPIProperties;
 
@@ -213,25 +366,76 @@ exports.KPIProperties = KPIProperties;
 function KPIDisplayProperties() {
   DataColumnProperties.call(this);
 
-  this.register({
-        'dataType':"number",
-    'value':0,
-    'indicator':null,
-    'indicatorColor':"green",
-    'caption':"",
-    'subcaption':"",
-    'target':null,
-    'gaugeType':"circular",
-    'gaugeFlag':false,
-    'sparkFlag':false,
-    'ranges':new PropertyList(RFRangeProperties),
-    'maximum':null,
-    'minimum':null,
-    'type':null,
-    'icon':null,
-    'iconprops':"{}",
-    'valueTextColor':"auto"
-  });
+  this.register([
+    {
+key: 'dataType',
+    value:"number",
+    type: 'string'},
+{
+key: 'value',
+    value:0,
+    type: 'number'},
+{
+key: 'indicator',
+    value:null,
+    type: 'string'},
+{
+key: 'indicatorColor',
+    value:"green",
+    type: 'string'},
+{
+key: 'caption',
+    value:"",
+    type: 'string'},
+{
+key: 'subcaption',
+    value:"",
+    type: 'string'},
+{
+key: 'target',
+    value:null,
+    type: 'number'},
+{
+key: 'gaugeType',
+    value:"circular",
+    type: 'string'},
+{
+key: 'gaugeFlag',
+    value:false,
+    type: 'boolean'},
+{
+key: 'sparkFlag',
+    value:false,
+    type: 'boolean'},
+{
+key: 'ranges',
+    value:new PropertyList(RFRangeProperties),
+    type: 'PropertyList'},
+{
+key: 'maximum',
+    value:null,
+    type: 'number'},
+{
+key: 'minimum',
+    value:null,
+    type: 'number'},
+{
+key: 'type',
+    value:null,
+    type: 'string'},
+{
+key: 'icon',
+    value:null,
+    type: 'string'},
+{
+key: 'iconprops',
+    value:"{}",
+    type: 'string'},
+{
+key: 'valueTextColor',
+    value:"auto",
+    type: 'string'}
+  ]);
 }
 exports.KPIDisplayProperties = KPIDisplayProperties;
 
@@ -241,11 +445,20 @@ exports.KPIDisplayProperties = KPIDisplayProperties;
 function RFRangeProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'start':null,
-    'end':null,
-    'color':null
-  });
+  this.register([
+    {
+key: 'start',
+    value:null,
+    type: 'number'},
+{
+key: 'end',
+    value:null,
+    type: 'number'},
+{
+key: 'color',
+    value:null,
+    type: 'string'}
+  ]);
 }
 exports.RFRangeProperties = RFRangeProperties;
 
@@ -255,9 +468,12 @@ exports.RFRangeProperties = RFRangeProperties;
 function ChartComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'chart':new ChartProperties()
-  });
+  this.register([
+    {
+key: 'chart',
+    value:new ChartProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.ChartComponentProperties = ChartComponentProperties;
 
@@ -267,15 +483,36 @@ exports.ChartComponentProperties = ChartComponentProperties;
 function ChartProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'series':new PropertyList(ChartSeriesProperties),
-    'yaxis':new ChartAxisProperties(),
-    'secondaryYAxis':new ChartAxisProperties(),
-    'dualY':false,
-    'showLegendFlag':true,
-    'showPieValues':true,
-    'showLabelFlag':true
-  });
+  this.register([
+    {
+key: 'series',
+    value:new PropertyList(ChartSeriesProperties),
+    type: 'PropertyList'},
+{
+key: 'yaxis',
+    value:new ChartAxisProperties(),
+    type: 'PropertyBase'},
+{
+key: 'secondaryYAxis',
+    value:new ChartAxisProperties(),
+    type: 'PropertyBase'},
+{
+key: 'dualY',
+    value:false,
+    type: 'boolean'},
+{
+key: 'showLegendFlag',
+    value:true,
+    type: 'boolean'},
+{
+key: 'showPieValues',
+    value:true,
+    type: 'boolean'},
+{
+key: 'showLabelFlag',
+    value:true,
+    type: 'boolean'}
+  ]);
 }
 exports.ChartProperties = ChartProperties;
 
@@ -285,11 +522,20 @@ exports.ChartProperties = ChartProperties;
 function ChartAxisProperties() {
   DataColumnProperties.call(this);
 
-  this.register({
-        'id':"primary",
-    'dataType':"number",
-    'axisName':""
-  });
+  this.register([
+    {
+key: 'id',
+    value:"primary",
+    type: 'string'},
+{
+key: 'dataType',
+    value:"number",
+    type: 'string'},
+{
+key: 'axisName',
+    value:"",
+    type: 'string'}
+  ]);
 }
 exports.ChartAxisProperties = ChartAxisProperties;
 
@@ -299,16 +545,40 @@ exports.ChartAxisProperties = ChartAxisProperties;
 function ChartSeriesProperties() {
   DataColumnProperties.call(this);
 
-  this.register({
-        'dataType':"number",
-    'seriesName':"",
-    'seriesDisplayType':"column",
-    'seriesColor':"auto",
-    'seriesHiddenFlag':false,
-    'includeInLegendFlag':true,
-    'seriesStacked':false,
-    'yAxis':"primary"
-  });
+  this.register([
+    {
+key: 'dataType',
+    value:"number",
+    type: 'string'},
+{
+key: 'seriesName',
+    value:"",
+    type: 'string'},
+{
+key: 'seriesDisplayType',
+    value:"column",
+    type: 'string'},
+{
+key: 'seriesColor',
+    value:"auto",
+    type: 'string'},
+{
+key: 'seriesHiddenFlag',
+    value:false,
+    type: 'boolean'},
+{
+key: 'includeInLegendFlag',
+    value:true,
+    type: 'boolean'},
+{
+key: 'seriesStacked',
+    value:false,
+    type: 'boolean'},
+{
+key: 'yAxis',
+    value:"primary",
+    type: 'string'}
+  ]);
 }
 exports.ChartSeriesProperties = ChartSeriesProperties;
 
@@ -318,9 +588,12 @@ exports.ChartSeriesProperties = ChartSeriesProperties;
 function GaugeComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'gauge':new GaugeProperties()
-  });
+  this.register([
+    {
+key: 'gauge',
+    value:new GaugeProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.GaugeComponentProperties = GaugeComponentProperties;
 
@@ -330,13 +603,28 @@ exports.GaugeComponentProperties = GaugeComponentProperties;
 function GaugeProperties() {
   DataColumnProperties.call(this);
 
-  this.register({
-        'caption':"",
-    'subcaption':"",
-    'min':0,
-    'max':100,
-    'value':50
-  });
+  this.register([
+    {
+key: 'caption',
+    value:"",
+    type: 'string'},
+{
+key: 'subcaption',
+    value:"",
+    type: 'string'},
+{
+key: 'min',
+    value:0,
+    type: 'number'},
+{
+key: 'max',
+    value:100,
+    type: 'number'},
+{
+key: 'value',
+    value:50,
+    type: 'number'}
+  ]);
 }
 exports.GaugeProperties = GaugeProperties;
 
@@ -346,9 +634,12 @@ exports.GaugeProperties = GaugeProperties;
 function TableComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'table':new TableProperties()
-  });
+  this.register([
+    {
+key: 'table',
+    value:new TableProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.TableComponentProperties = TableComponentProperties;
 
@@ -358,13 +649,28 @@ exports.TableComponentProperties = TableComponentProperties;
 function TableProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'columns':new PropertyList(TableColumnProperties),
-    'cellConditionalFormatters':new PropertyList(TableCellConditionalFormat),
-    'rowsPerPage':10,
-    'currentPageNumber':0,
-    'totalRows':0
-  });
+  this.register([
+    {
+key: 'columns',
+    value:new PropertyList(TableColumnProperties),
+    type: 'PropertyList'},
+{
+key: 'cellConditionalFormatters',
+    value:new PropertyList(TableCellConditionalFormat),
+    type: 'PropertyList'},
+{
+key: 'rowsPerPage',
+    value:10,
+    type: 'number'},
+{
+key: 'currentPageNumber',
+    value:0,
+    type: 'number'},
+{
+key: 'totalRows',
+    value:0,
+    type: 'number'}
+  ]);
 }
 exports.TableProperties = TableProperties;
 
@@ -374,11 +680,20 @@ exports.TableProperties = TableProperties;
 function TableCellConditionalFormat() {
   PropertyBase.call(this);
 
-  this.register({
-        'conditionalExpression':new ConditionalExpressionProperties(),
-    'format':new TableCellFormatProperties(),
-    'column_id':""
-  });
+  this.register([
+    {
+key: 'conditionalExpression',
+    value:new ConditionalExpressionProperties(),
+    type: 'PropertyBase'},
+{
+key: 'format',
+    value:new TableCellFormatProperties(),
+    type: 'PropertyBase'},
+{
+key: 'column_id',
+    value:"",
+    type: 'string'}
+  ]);
 }
 exports.TableCellConditionalFormat = TableCellConditionalFormat;
 
@@ -388,10 +703,16 @@ exports.TableCellConditionalFormat = TableCellConditionalFormat;
 function ConditionalExpressionProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'expression':"",
-    'type':""
-  });
+  this.register([
+    {
+key: 'expression',
+    value:"",
+    type: 'string'},
+{
+key: 'type',
+    value:"",
+    type: 'string'}
+  ]);
 }
 exports.ConditionalExpressionProperties = ConditionalExpressionProperties;
 
@@ -401,10 +722,16 @@ exports.ConditionalExpressionProperties = ConditionalExpressionProperties;
 function TableCellFormatProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'cellBackgroundColor':"auto",
-    'cellTextColor':"auto"
-  });
+  this.register([
+    {
+key: 'cellBackgroundColor',
+    value:"auto",
+    type: 'string'},
+{
+key: 'cellTextColor',
+    value:"auto",
+    type: 'string'}
+  ]);
 }
 exports.TableCellFormatProperties = TableCellFormatProperties;
 
@@ -414,18 +741,48 @@ exports.TableCellFormatProperties = TableCellFormatProperties;
 function TableColumnProperties() {
   DataColumnProperties.call(this);
 
-  this.register({
-        'name':"",
-    'columnType':"text",
-    'sortable':false,
-    'columnWidth':null,
-    'textAlign':null,
-    'textBoldFlag':false,
-    'textItalicFlag':false,
-    'rawHTML':false,
-    'subCaption':false,
-    'subCaptionUnits':null
-  });
+  this.register([
+    {
+key: 'name',
+    value:"",
+    type: 'string'},
+{
+key: 'columnType',
+    value:"text",
+    type: 'string'},
+{
+key: 'sortable',
+    value:false,
+    type: 'boolean'},
+{
+key: 'columnWidth',
+    value:null,
+    type: 'number'},
+{
+key: 'textAlign',
+    value:null,
+    type: 'string'},
+{
+key: 'textBoldFlag',
+    value:false,
+    type: 'boolean'},
+{
+key: 'textItalicFlag',
+    value:false,
+    type: 'boolean'},
+{
+key: 'rawHTML',
+    value:false,
+    type: 'boolean'},
+{
+key: 'subCaption',
+    value:false,
+    type: 'boolean'},
+{
+key: 'subCaptionUnits',
+    value:null,
+    type: 'string'}
+  ]);
 }
 exports.TableColumnProperties = TableColumnProperties;
 
@@ -435,9 +792,12 @@ exports.TableColumnProperties = TableColumnProperties;
 function FormComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'form':new FormProperties()
-  });
+  this.register([
+    {
+key: 'form',
+    value:new FormProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.FormComponentProperties = FormComponentProperties;
 
@@ -447,9 +807,12 @@ exports.FormComponentProperties = FormComponentProperties;
 function FormProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'items':new PropertyList(FormItemProperties)
-  });
+  this.register([
+    {
+key: 'items',
+    value:new PropertyList(FormItemProperties),
+    type: 'PropertyList'}
+  ]);
 }
 exports.FormProperties = FormProperties;
 
@@ -459,14 +822,32 @@ exports.FormProperties = FormProperties;
 function FormItemProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'type':"",
-    'label':"",
-    'list':"string",
-    'options':"",
-    'range':"",
-    'value':""
-  });
+  this.register([
+    {
+key: 'type',
+    value:"",
+    type: 'string'},
+{
+key: 'label',
+    value:"",
+    type: 'string'},
+{
+key: 'list',
+    value:"string",
+    type: 'string'},
+{
+key: 'options',
+    value:"",
+    type: 'string'},
+{
+key: 'range',
+    value:"",
+    type: 'string'},
+{
+key: 'value',
+    value:"",
+    type: 'string'}
+  ]);
 }
 exports.FormItemProperties = FormItemProperties;
 
@@ -476,9 +857,12 @@ exports.FormItemProperties = FormItemProperties;
 function KPITableComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'kpitable':new KPITableProperties()
-  });
+  this.register([
+    {
+key: 'kpitable',
+    value:new KPITableProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.KPITableComponentProperties = KPITableComponentProperties;
 
@@ -488,9 +872,12 @@ exports.KPITableComponentProperties = KPITableComponentProperties;
 function KPITableProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'items':new PropertyList(KPIDisplayProperties)
-  });
+  this.register([
+    {
+key: 'items',
+    value:new PropertyList(KPIDisplayProperties),
+    type: 'PropertyList'}
+  ]);
 }
 exports.KPITableProperties = KPITableProperties;
 
@@ -500,10 +887,16 @@ exports.KPITableProperties = KPITableProperties;
 function KPITableItem() {
   PropertyBase.call(this);
 
-  this.register({
-        'caption':"",
-    'value':""
-  });
+  this.register([
+    {
+key: 'caption',
+    value:"",
+    type: 'string'},
+{
+key: 'value',
+    value:"",
+    type: 'number'}
+  ]);
 }
 exports.KPITableItem = KPITableItem;
 
@@ -513,10 +906,16 @@ exports.KPITableItem = KPITableItem;
 function TabbedComponentProperties() {
   ComponentProperties.call(this);
 
-  this.register({
-        'children':new PropertyList(TabItemProperties),
-    'tabbed':new TabbedCoreProperties()
-  });
+  this.register([
+    {
+key: 'children',
+    value:new PropertyList(TabItemProperties),
+    type: 'PropertyList'},
+{
+key: 'tabbed',
+    value:new TabbedCoreProperties(),
+    type: 'PropertyBase'}
+  ]);
 }
 exports.TabbedComponentProperties = TabbedComponentProperties;
 
@@ -526,9 +925,12 @@ exports.TabbedComponentProperties = TabbedComponentProperties;
 function TabbedCoreProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'activeIndex':0
-  });
+  this.register([
+    {
+key: 'activeIndex',
+    value:0,
+    type: 'number'}
+  ]);
 }
 exports.TabbedCoreProperties = TabbedCoreProperties;
 
@@ -538,10 +940,16 @@ exports.TabbedCoreProperties = TabbedCoreProperties;
 function TabItemProperties() {
   PropertyBase.call(this);
 
-  this.register({
-        'name':"",
-    'componentId':""
-  });
+  this.register([
+    {
+key: 'name',
+    value:"",
+    type: 'string'},
+{
+key: 'componentId',
+    value:"",
+    type: 'string'}
+  ]);
 }
 exports.TabItemProperties = TabItemProperties;
 

@@ -1,9 +1,9 @@
 function <%= name %>() {
   <%= base %>.call(this);
 
-  this.register({
+  this.register([
     <%- propValueStrings %>
-  });
+  ]);
 }
 exports.<%= name %> = <%= name %>;
 

@@ -14,7 +14,8 @@ define([
             parentList = null, listIndex = null,
             basePath = '',
             parentProp = null,
-            modifiedStatus = {};
+            modifiedStatus = {},
+            types = {};
 
         self.isPropBase = true;
 
@@ -288,23 +289,34 @@ define([
         /**
          * Utilities
          */
-        self.register = function (items) {
-            var key, item;
+        self.register = function (properties) {
 
-            for (key in items) {
-                if (items.hasOwnProperty(key)) {
-                    item = items[key];
-                    if (propUtils.isProp(item)) {
-                        item.setParentProp(self);
-                    }
-                    data[key] = item;
-                    defaults[key] = item;
+            _.each(properties, function (property) {
+                var key = property.key;
+                    data[key] = property.value;
+                    defaults[key] = property.value;
                     subscribers [key] = [];
                     modifiedStatus[key] = false;
-                }
+                    types[key] = property.type;
+            })
+            // for (key in items) {
+            //     if (items.hasOwnProperty(key)) {
+            //         item = items[key];
+            //         if (propUtils.isProp(item)) {
+            //             item.setParentProp(self);
+            //         }
+            //         data[key] = item;
+            //         defaults[key] = item;
+            //         subscribers [key] = [];
+            //         modifiedStatus[key] = false;
+            //     }
 
-            }
+            // }
         };
+
+        self.registerTypes = function (items) {
+
+        }
         self.responsiveFilter = function (obj) {
             var media = mediaUtils.getCurrentMedia(),
                 result = null;

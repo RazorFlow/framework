@@ -1,9 +1,13 @@
+{
+key: '<%= key %>',
 <% if(value.isPropertyBase){ -%>
-    '<%= key %>':new <%= value['class'] -%>()
+    value:new <%= value['class'] -%>(),
 <% } else if(value.isPropertyList) { -%>
-    '<%= key %>':new PropertyList(<%= value['class'] -%>)
+    value:new PropertyList(<%= value['class'] -%>),
 <% } else if(value['default'] !== undefined) { -%>
-    '<%= key %>':<%- JSON.stringify(value['default']) -%>
+    value:<%- JSON.stringify(value['default']) -%>,
 <% } else { -%>
-    '<%= key %>':null
+    value:null,
 <% } %>
+    type: '<%= value['type'] -%>'
+}
