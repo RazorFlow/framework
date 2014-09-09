@@ -4,6 +4,8 @@ rf.StandaloneDashboard(function(db){
 	chart.setCaption("Monthly Sales Summary Comparision");	
 	chart.setLabels (["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
 	chart.setYAxis("", {
+		numberPrefix: '$',
+		numberHumanize: true
 	});
 	chart.addSeries ("sales2013", "2013", [22400, 24800, 21800, 21800, 24600, 27600, 26800, 27700, 23700, 25900, 26800, 24800], {
 		seriesStacked: true,

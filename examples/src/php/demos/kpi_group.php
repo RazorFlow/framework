@@ -4,7 +4,7 @@ class SampleDashboard extends StandaloneDashboard {
   public function buildDashboard(){
     $kpi = new KPIGroupComponent ('kpi');
     $kpi->setDimensions (12, 2);
-    $kpi->setCaption('Food Units Available');
+    $kpi->setCaption('Available food items in the warehouse');
 
     $kpi->addKPI('beverages', array(
       'caption' => 'Beverages',

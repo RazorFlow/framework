@@ -7,7 +7,7 @@ rf.StandaloneDashboard(function(db){
 		numberPrefix: "$"
 	});
 	chart.addYAxis("profit", "Profit %", {
-		numberSuffix: "%",
+		numberSuffix: "%"
 	});
 	chart.addSeries ("profit", "Profit %", [25, 5.88, 36.36, 10.52, 30.43], {
 		numberSuffix: "%",

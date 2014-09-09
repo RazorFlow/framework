@@ -6,7 +6,7 @@ rf.StandaloneDashboard(function(db){
         numberHumanize: true
     });
     chart.addYAxis('profit', "Profit %", {
-        numberSuffix: "%",
+        numberSuffix: "%"
     });
     chart.setCaption("Showing monthly sales and profit of a retail company");    
     chart.setLabels (["March", "April", "May", "June", "July"]);
@@ -21,7 +21,7 @@ rf.StandaloneDashboard(function(db){
     chart.addSeries ("profit", "Profit %", [20, 42, 10, 23, 16], {
         numberSuffix: "%",
         seriesDisplayType: 'line',
-        yAxis: "Profit %"
+        yAxis: "profit"
     });
     db.addComponent (chart);
 });

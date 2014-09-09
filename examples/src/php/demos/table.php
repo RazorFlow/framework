@@ -3,7 +3,7 @@ class SampleDashboard extends StandaloneDashboard {
   public function buildDashboard(){
     $table = new TableComponent("table");
     $table->setCaption("IMDB Top 20");
-    $table->setDimensions (12, 8);
+    $table->setDimensions (12, 7);
         $table->addColumn ('rank', 'Rank');
     $table->addColumn ('title', 'Title');
     $table->addColumn ('year', 'Year');
