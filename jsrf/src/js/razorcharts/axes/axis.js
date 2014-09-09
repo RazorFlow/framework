@@ -1,6 +1,7 @@
 define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts/utils/tooltip', 'vendor/lodash'], function(Scale, graphUtils, Tooltip, _) {
     var MAX_AXIS_PERCENT = 0.25;
     var TILTED_TICK_TOP_PADDING = 10;
+    var MIN_TICK_THRESHOLD = 20;
     var Axis = function () {
         var self = this,
             options = {},
@@ -45,7 +46,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             core = _core;
             width = w;
             height = h;
-
+            readjustNumTicks ();
             cachedScaleDomain = scale.domain();
             cachedScaleRange = scale.range();
             core.node.setAttribute('class', 'rc-axis');
@@ -82,6 +83,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                 rangeUnit = null, i, g;
             width = w;
             height = h;
+            readjustNumTicks ();
             cachedScaleDomain = scale.domain();
             cachedScaleRange = scale.range();
             var tilt = false;
@@ -650,6 +652,26 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             }
             else {
                 return options.showLabelFlag;
+            }
+        }
+
+        var readjustNumTicks = function () {
+            var unit = (options.type === 'left' || options.type === 'right') ? height : width;
+
+            if(options.scale.type === 'linear' && unit) {
+                var threshold = unit / tickValues.length;
+                if(threshold < MIN_TICK_THRESHOLD) {
+                    var hasNegative = _.min(tickValues) < 0;
+                    tickValues = [];
+                    options.forceNumTicks = Math.floor(height / MIN_TICK_THRESHOLD) + 1;
+                    options.forceNumTicks = hasNegative ? options.forceNumTicks < 3 ? 3 : options.forceNumTicks : options.forceNumTicks < 2 ? 2 : options.forceNumTicks;
+                    createTickValues ();
+                    for(i=-1; ++i<ticks.length;) {
+                        ticks[i].remove();
+                        ticks[i] = null;
+                    }
+                    ticks = createTicks(tickValues, options.type);
+                }
             }
         }
     };
