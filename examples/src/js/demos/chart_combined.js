@@ -8,16 +8,12 @@ rf.StandaloneDashboard(function(db){
 	});
 	chart.addYAxis("profit", "Profit %", {
 		numberSuffix: "%",
-
 	});
 	chart.addSeries ("profit", "Profit %", [25, 5.88, 36.36, 10.52, 30.43], {
 		numberSuffix: "%",
 		yAxis: "profit",
 		seriesDisplayType: "line"
 	});
-	// chart.addSeries ("avg", "Profits", [40000, 10000, 80000, 20000, 70000], {
-		
-	// });
 
 	chart.setYAxis('Revenue', {numberPrefix: '$', numberHumanize: true});
 	db.addComponent (chart);

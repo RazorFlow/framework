@@ -1,13 +1,14 @@
 rf.StandaloneDashboard(function(db){
     var chart = new ChartComponent();
     chart.setDimensions (8, 6);
-    chart.setYAxis("Revenue", {
+    chart.setYAxis("Sales", {
         numberPrefix: "$ ",
         numberHumanize: true
     });
-    chart.addYAxis('quantity', "Quantity", {
+    chart.addYAxis('profit', "Profit %", {
+        numberSuffix: "%",
     });
-    chart.setCaption("Sales");    
+    chart.setCaption("Showing monthly sales and profit of a retail company");    
     chart.setLabels (["March", "April", "May", "June", "July"]);
     chart.addSeries ("product_A", "Product A", [25601.34, 20148.82, 17372.76, 35407.15, 38105.68], {
         numberPrefix: '$',
@@ -17,10 +18,10 @@ rf.StandaloneDashboard(function(db){
         numberPrefix: '$',
         seriesDisplayType: 'column'
     });
-    chart.addSeries ("total_quantity", "Total Quantity", [45000, 44835, 42835, 77557, 92633], {
-        numberPrefix: '$',
+    chart.addSeries ("profit", "Profit %", [20, 42, 10, 23, 16], {
+        numberSuffix: "%",
         seriesDisplayType: 'line',
-        yAxis: "quantity"
+        yAxis: "Profit %"
     });
     db.addComponent (chart);
 });
