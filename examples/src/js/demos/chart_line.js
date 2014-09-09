@@ -9,6 +9,6 @@ rf.StandaloneDashboard(function(db){
 	chart.addSeries ("sales2012", "2012", [10000, 11500, 12500, 15000, 16000, 17600, 18800, 19700, 21700, 21900, 22900, 20800], {
 		seriesDisplayType: "line"
 	});
-	chart.setYAxis('', {numberPrefix: '$', numberHumanize: true});
+	chart.setYAxis('Sales', {numberPrefix: '$', numberHumanize: true});
 	db.addComponent (chart);
 });

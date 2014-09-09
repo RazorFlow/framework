@@ -5,7 +5,7 @@ rf.StandaloneDashboard(function(db){
     chart.setLabels (['2010', '2011', '2012', '2013']);
     chart.addSeries ('sales', 'Sales', [1160000, 1040000, 1020000, 1160000]);
 
-    chart.setYAxis('', {
+    chart.setYAxis('Sales', {
         numberPrefix: '$',
         numberHumanize: true
     });

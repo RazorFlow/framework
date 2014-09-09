@@ -30,6 +30,6 @@ rf.StandaloneDashboard(function(db){
 	chart1.addSeries ("Predicted_Profit", "Predicted Profit", [4342, 2371, 740, 3487, 2156, 1326], {
 		seriesDisplayType: "line"
 	});
-	chart1.setYAxis('', {numberPrefix: '$', numberHumanize: true});
+	chart1.setYAxis('Sales', {numberPrefix: '$', numberHumanize: true});
 	db.addComponent (chart1);
 });
