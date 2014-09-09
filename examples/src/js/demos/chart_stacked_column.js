@@ -1,10 +1,9 @@
 rf.StandaloneDashboard(function(db){
 	var chart = new ChartComponent();
 	chart.setDimensions (8, 6);
-	chart.setCaption("Visits from search engines");	
+	chart.setCaption("Most useful search engines for website traffic");	
 	chart.setLabels (["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]);
-	chart.setYAxis("", {
-		numberPrefix: "$"
+	chart.setYAxis("no. of unique visits", {
 	});
 	chart.addSeries ("Google", "Google", [3040, 2794, 3026, 3341, 2800, 2507, 3701, 2671, 2980, 2041, 1813, 1691], {
 		seriesStacked: true,
