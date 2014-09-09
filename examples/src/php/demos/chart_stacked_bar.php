@@ -5,7 +5,7 @@ class SampleDashboard extends StandaloneDashboard {
     $chart = new ChartComponent();
     $chart->setCaption("Most spent on activity in a company");
     $chart->setDimensions (8, 6);
-    $chart->setLabels (array("Software Deveplopemt", "Social Networking", "Communication", "Reference", "Utility"));
+    $chart->setLabels (array("Software Development", "Social Networking", "Communication", "Reference", "Utility"));
     $chart->addSeries ("john", "John", array(1.1, 0.3, 1.3, 2.2, 1.6), array(
         "seriesStacked"=> true,
         "seriesDisplayType"=> "bar"

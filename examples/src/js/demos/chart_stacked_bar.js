@@ -2,7 +2,7 @@ rf.StandaloneDashboard(function(db){
 	var chart = new ChartComponent();
 	chart.setDimensions (8, 6);
 	chart.setCaption("Most spent on activity in a company");	
-	chart.setLabels (["Software Deveplopemt", "Social Networking", "Communication", "Reference", "Utility"]);
+	chart.setLabels (["Software Development", "Social Networking", "Communication", "Reference", "Utility"]);
 	chart.setYAxis("", {
 		numberSuffix: 'h'
 	});
