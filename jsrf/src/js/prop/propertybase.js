@@ -582,7 +582,9 @@ define([
         var rawGetData = function (key) {
             if(data.hasOwnProperty(key)) {
                 if (types[key] === "color") {
-                    // Make modifications as necessary
+                    if(data[key] !== 'auto') {
+                        return (data[key].match(/^#/) ? data[key] : '#' + data[key]);
+                    }
                     return data[key];
                 }
                 return data[key];

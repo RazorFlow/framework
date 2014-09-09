@@ -179,8 +179,8 @@ describe ("Basic Chart Tests", function () {
 	it("Should respect series colors everywhere", function (done) {
 		db = new Dashboard ();
 		var chart = createChart({
-			seriesColor: "#a4c9f3"
-		}, { seriesColor: "red"}, {
+			seriesColor: "a4c9f3"
+		}, { seriesColor: "#ff0000"}, {
 		});
 
 		db.addComponent(chart);
