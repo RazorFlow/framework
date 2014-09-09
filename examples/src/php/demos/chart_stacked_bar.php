@@ -3,22 +3,21 @@
 class SampleDashboard extends StandaloneDashboard {
   public function buildDashboard(){
     $chart = new ChartComponent();
-    $chart->setCaption("Monthly Sales Summary Comparision");
+    $chart->setCaption("Most spent on activity in a company");
     $chart->setDimensions (8, 6);
-    $chart->setLabels (array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"));
-    $chart->addSeries ("sales2013", "2013", array(22400, 24800, 21800, 21800, 24600, 27600, 26800, 27700, 23700, 25900, 26800, 24800), array(
+    $chart->setLabels (array("Software Deveplopemt", "Social Networking", "Communication", "Reference", "Utility"));
+    $chart->addSeries ("john", "John", array(1.1, 0.3, 1.3, 2.2, 1.6), array(
         "seriesStacked"=> true,
         "seriesDisplayType"=> "bar"
     ));
-    $chart->addSeries ("sales2012", "2012", array(10000, 11500, 12500, 15000, 16000, 17600, 18800, 19700, 21700, 21900, 22900, 20800), array(
+    $chart->addSeries ("mark", "Mark", array(2.1, 0.6, 1.8, 0.9, 1.4), array(
         "seriesStacked"=> true,
         "seriesDisplayType"=> "bar"
     ));
-    $chart->setYAxis('', array("numberPrefix"=> '$', "numberHumanize"=> true));
+    $chart->setYAxis('', array("numberSuffix"=> 'h'));
     $this->addComponent ($chart);
   }
 }
 
 $db = new SampleDashboard();
 $db->renderStandalone();
-  

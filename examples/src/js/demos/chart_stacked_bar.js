@@ -1,17 +1,16 @@
 rf.StandaloneDashboard(function(db){
 	var chart = new ChartComponent();
 	chart.setDimensions (8, 6);
-	chart.setCaption("Monthly Sales Summary Comparision");	
-	chart.setLabels (["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
+	chart.setCaption("Most spent on activity in a company");	
+	chart.setLabels (["Software Deveplopemt", "Social Networking", "Communication", "Reference", "Utility"]);
 	chart.setYAxis("", {
-		numberPrefix: '$',
-		numberHumanize: true
+		numberSuffix: 'h'
 	});
-	chart.addSeries ("sales2013", "2013", [22400, 24800, 21800, 21800, 24600, 27600, 26800, 27700, 23700, 25900, 26800, 24800], {
+	chart.addSeries ("john", "John", [1.1, 0.3, 1.3, 2.2, 1.6], {
 		seriesStacked: true,
 		seriesDisplayType: "bar"
 	});
-	chart.addSeries ("sales2014", "2014", [10000, 11500, 12500, 15000, 16000, 17600, 18800, 19700, 21700, 21900, 22900, 20800], {
+	chart.addSeries ("mark", "Mark", [2.1, 0.6, 1.8, 0.9, 1.4], {
 		seriesStacked: true,
 		seriesDisplayType: "bar"
 	});
