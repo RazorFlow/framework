@@ -1,7 +1,7 @@
 rf.StandaloneDashboard(function(db){
     var table = new TableComponent ();
     table.setDimensions (12, 8);
-    table.setCaption ('IMDB Top 20');
+    table.setCaption ('Change caption to IMDB Top 20 Movies');
     table.addColumn ('rank', 'Rank');
     table.addColumn ('title', 'Title');
     table.addColumn ('year', 'Year');
