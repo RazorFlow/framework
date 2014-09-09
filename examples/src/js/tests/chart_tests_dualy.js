@@ -198,7 +198,7 @@ describe ("DualY Chart Tests", function () {
         db = new Dashboard ();
         var chart = createChart({
             seriesColor: "#a4c9f3"
-        }, { seriesColor: "red"}, {
+        }, { seriesColor: "#ff0000"}, {
         });
 
         db.addComponent(chart);
@@ -215,6 +215,18 @@ describe ("DualY Chart Tests", function () {
           .exitTempContext("g.rc-series-2")
           .assertCSS(".rfLegendKey:eq(0) > .legendColor", "background-color", "rgb(164, 201, 243)")
           .assertCSS(".rfLegendKey:eq(1) > .legendColor", "background-color", "rgb(255, 0, 0)")
+          .svgTriggerEvent("rect:eq(1)", "mouseover")
+          .wait(200)
+          .enterTempContext($(".rfTooltip:eq(0)"))
+          .assertCSS(".rfTooltipLabel", "color", "rgb(164, 201, 243)")
+          .exitTempContext(".rfTooltip:eq(0)")
+          .svgTriggerEvent("rect:eq(0)", "mouseout")
+          .svgTriggerEvent("rect:eq(2)", "mouseover")
+          .wait(200)
+          .enterTempContext($(".rfTooltip:eq(0)"))
+          .assertCSS(".rfTooltipLabel", "color", "rgb(255, 0, 0)")
+          .exitTempContext(".rfTooltip:eq(0)")
+          .svgTriggerEvent("rect:eq(2)", "mouseout")
           .finish();
     });
 
