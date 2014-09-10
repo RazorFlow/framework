@@ -16,7 +16,7 @@ id: "doc_root"
      <div class="col-md-8">
         <h3>Build dashboards with JavaScript</h3>
         <p>Build immersive, interactive dashboards using JavaScript which gives you fine grained control and works with just about any server technology out there.</p>
-        <a class="btn btn-large btn-primary" href="/docs/dashboard/js/">Get Started</a>
+        <a class="btn btn-large btn-primary" href="/docs/dashboard/js/getting_started.php">Get Started</a>
     </div>
     </div>
     <div class="col-md-8 phpContainer">
