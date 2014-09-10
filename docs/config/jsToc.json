@@ -1,5 +1,8 @@
 [
     {
+        "id": "getting_started"
+    },
+    {
         "id": "js_guide_root",
         "children": [
             {
