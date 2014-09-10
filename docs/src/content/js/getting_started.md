@@ -13,7 +13,7 @@ A dashboard is an easy-to-read collection of visual data showing current metrics
 <h5>Parts of a dashboard</h5>
 <div class="gettingStarted-subContent">
 <p class="no-margin-top">
-In RazorFlow, you build dashboards that are comprised of multiple <a>components</a>.
+In RazorFlow, you build dashboards that are comprised of multiple <a href="/docs/dashboard/js/guide/components/index.php">components</a>.
 </p>
 <div class="row">
 <div class="component-container">
@@ -73,7 +73,7 @@ Components are laid out in a grid layout and RazorFlow automatically adjusts the
 </div>
 </div>
 <div class="row interation-row">
-<div class="col-md-8 browser-container">
+<div class="col-lg-8 col-md-10 col-sm-8 hidden-xs browser-container">
 <div class="desktop front">
 <div class="header"></div>
 <div class="content">
@@ -97,7 +97,7 @@ Components are laid out in a grid layout and RazorFlow automatically adjusts the
 Visit <a href="/download">https://www.razorflow.com/download</a> to download RazorFlow Framework files to your computer. It is a free, fully-functional evaluation version. 
 </p>
 </div>
-<div class="col-lg-5 col-md-6 col-sm-5 pull-right right">
+<div class="col-lg-5 col-md-6 col-sm-5 pull-right right-align">
 <img src="/static/images/getting-started/05_step1.jpg">
 </div>
 </div>
@@ -108,7 +108,7 @@ Visit <a href="/download">https://www.razorflow.com/download</a> to download Raz
 Extract this file, and open the directory that got extracted. You will find the following files.
 </p>
 </div>
-<div class="col-lg-7 col-md-12 col-sm-8 pull-right right">
+<div class="col-lg-7 col-md-12 col-sm-8 pull-right right-align">
 <img src="/static/images/getting-started/06_step2.jpg">
 </div>
 </div>
@@ -116,7 +116,7 @@ Extract this file, and open the directory that got extracted. You will find the 
 <div class="col-md-12">
 <div class="info">
 <p>
-Note: There are many ways to create a dashboard, but when you're getting started, we recommend you use the <strong>dashboard_quickStart</strong> folder, which is described here. All other techniques are described in detail in the <a>documentation</a>.
+Note: There are many ways to create a dashboard, but when you're getting started, we recommend you use the <strong>dashboard_quickStart</strong> folder, which is described here. All other techniques are described in detail in the <a href="/docs">documentation</a>.
 </p>
 </div>
 </div>
@@ -233,10 +233,10 @@ This does things like setting caption, and chart labels and data. Don't worry ab
 <div class="row setRelative no-margin-top sales-row">
 <div class="col-md-6 col-sm-6 col-xs-5 col-middle">
 <p class="arrow">
-With the above few lines of code, you will create a <a>Column Chart</a> component like shown in the figure here:
+With the above few lines of code, you will create a <strong>Column Chart</strong> component like shown in the figure here:
 </p>
 </div>
-<div class="col-md-7 col-sm-7 pull-right right">
+<div class="col-md-7 col-sm-7 pull-right right-align">
 <img src="/static/images/getting-started/11_colCh.jpg">
 </div>
 </div>
@@ -299,10 +299,10 @@ Here, we're setting the  <span class="highlight">numberPrefix</span>  to  <span 
 <div class="row setRelative sales-row">
 <div class="col-md-6 col-sm-6 col-xs-5 col-middle">
 <p class="arrow">
-With the above few lines of code, you will create a <a>Line Chart</a> component like shown in the figure here:
+With the above few lines of code, you will create a <br /><strong>Line Chart</strong> component like shown in the figure here:
 </p>
 </div>
-<div class="col-md-7 col-sm-7 pull-right right">
+<div class="col-md-7 col-sm-7 pull-right right-align">
 <img src="/static/images/getting-started/12_lineCh.jpg">
 </div>
 </div>
@@ -420,18 +420,18 @@ chart.<span class="summarize-highlight">setLabels</span> (["2013", "2014", "2015
 <h5 class="margin-top-80">Next Steps:</h5>
 <div class="row next-steps">
 <div class="col-md-6">
-<p class="finalTitle"><a href="">Get data from a server</a></p>
+<p class="finalTitle"><a href="/docs/dashboard/js/guide/data/dashboard_first.php">Get data from a server</a></p>
 <p class="desc">Use different techniques including AJAX to fetch the right data from your server and display it on your dashboard.</p>
 </div>
 
 <div class="col-md-6">
-<p class="finalTitle"><a href="">Integrate with an existing application</a></p>
+<p class="finalTitle"><a href="/docs/dashboard/js/guide/dashboard/webframework_standalone.php">Integrate with an existing application</a></p>
 <p class="desc">Embed the dashboard and integrate it with your application to make it feel like your existing application.</p>
 </div>
 </div>
 <div class="row next-steps">
 <div class="col-md-6">
-<p class="finalTitle"><a href="">Interactivity</a></p>
+<p class="finalTitle"><a href="/docs/dashboard/js/guide/components/chart/chart_event_click.php">Interactivity</a></p>
 <p class="desc">Make the dashboard interactive and fun for your users to use.</p>
 </div>
 </div>
@@ -440,7 +440,7 @@ chart.<span class="summarize-highlight">setLabels</span> (["2013", "2014", "2015
 $(function() {
 
   var codeBoxes = $('pre');
-
+  var animatingStatus = false;
   codeBoxes.each(function() {
     var code = $(this).text().trim();
     var div = $('<div/>').addClass('codeBox');
@@ -457,10 +457,12 @@ $(function() {
   $(".mobile").on('click', function () {
     var $mobile = $(this);
     var $desktop = $(".desktop");
+    animatingStatus = true;
     if($(this).hasClass("behind")) {
       $mobile.animate({
         right: '-160'
       }, function () {
+        animatingStatus = false;
         $mobile.addClass("front").removeClass("behind");
         $desktop.addClass("behind").removeClass("front");
         $mobile.animate({
@@ -474,10 +476,12 @@ $(function() {
   $(".desktop").on('click', function () {
     var $desktop = $(this);
     var $mobile = $(".mobile");
+    animatingStatus = true;
     if($(this).hasClass("behind")) {
       $mobile.animate({
         right: '-160'
       }, function () {
+        animatingStatus = false;
         $mobile.addClass("behind").removeClass("front");
         $desktop.addClass("front").removeClass("behind");
         $mobile.animate({
@@ -488,19 +492,23 @@ $(function() {
   });
 
   $(".mobile").hover(function () {
-    $(this).stop().animate({
-      "right": "-20"
-    });
-    $(".desktop").css({
-      "left": "-20px"
-    });
+    if (!animatingStatus) {
+      $(this).stop().animate({
+        "right": "-20"
+      });
+      $(".desktop").css({
+        "left": "-20px"
+      });
+    }
   }, function () {
-    $(this).stop().animate({
-      "right": "0px"
-    });
-    $(".desktop").css({
-      "left": "0px"
-    });
+    if (!animatingStatus) {
+      $(this).stop().animate({
+        "right": "0px"
+      });
+      $(".desktop").css({
+        "left": "0px"
+      });
+    }
   });
 
 
