@@ -86,7 +86,7 @@ class TableComponent extends RFComponent {
     }
 
     public function cellConditionalFormat ($id, $formatRule, $appliedStyle) {
-        $opts = [];
+        $opts = array();
         $opts["column_id"] = $id;
         $opts["conditionalExpression"] = is_string($formatRule) ? array("type" => "valueComparator", "expression" => $formatRule) : $formatRule;
         $opts["format"] = is_string($appliedStyle) ? array("cellBackgroundColor" => $appliedStyle) : $appliedStyle;

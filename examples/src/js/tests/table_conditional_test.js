@@ -224,6 +224,20 @@ describe ("Table Tests", function () {
 		  .finish();
 	});
 
+	it("single expression", function (done) {
+		db = new Dashboard ();
+		var table = createTable();
+		table.cellConditionalFormat("foo", "2 < value < 10", {"cellBackgroundColor":"#000", "cellTextColor": "#fff"});
+		db.addComponent(table);
+		db.embedTo ("dbTarget");
+		var th = new TestHelper ();
+		th.start(done)
+		  .wait(200)
+		  .setContext(table.pro.renderer.$core)
+		  .drillContext("tbody")
+		  .finish();
+	});
+
 
 
 });
