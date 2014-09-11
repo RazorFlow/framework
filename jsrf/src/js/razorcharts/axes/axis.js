@@ -148,12 +148,15 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                         tilt = shouldWeTilt(tickValues, rangeUnit);    
                     }
                     for(i=-1; ++i<ticks.length;) {
-                        ticks[i].remove();
-                        ticks[i] = null;
+                        if(ticks[i]) {
+                            ticks[i].remove();
+                            ticks[i] = null;
+                        }
                     }
                     ticks = createTicks(tickValues, options.type);
                     for(i=-1; ++i<tickValues.length;) {
                         g = ticks[i];
+                        if(!g) continue;
                         if(scale.type === 'ordinal') {
                             // Check if label needs breaking
                             if(tilt) {
@@ -217,10 +220,11 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                     }
                     tooltip = new Tooltip();
                     tooltip.config(tooltipConfig);
-                    tooltip.addSeriesItems(1, ticks);
+
+                    tooltip.addSeriesItems(1, _.compact(ticks));
                     tooltip.renderTo(paper, core, width, core.node.getBBox().height, xOffset, yOffset - core.node.getBBox().height);
                 } else {
-                    tooltip.addSeriesItems(1, ticks);
+                    tooltip.addSeriesItems(1, _.compact(ticks));
                     tooltip._init();
                     tooltip.resizeTo(width, core.node.getBBox().height, xOffset, yOffset - core.node.getBBox().height);
                 }
@@ -340,6 +344,13 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             var showLabelFlag = shouldLabelBeShown();
             if(showLabelFlag) {
             for(var i=-1; ++i<_tickValues.length;) {
+                if(options.labelStep && options.labelStep.interval) {
+                    var interval = options.labelStep.interval + 1,
+                        startIndex = options.labelStep.startIndex;
+                    if(i >= startIndex && ((i - startIndex) % interval !== 0)) {
+                        continue;
+                    }
+                }
                 var tickLabel = showLabelFlag ? tickLabels[i] : '';
                 var g = paper.group('tick-' + (i+1), tickContainer),
                     _ticks = paper.text(0 , 0, '' + tickLabel, g),
@@ -387,7 +398,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                         'y': -14
                     });
                 }
-                tempHolder.push(g);
+                tempHolder[i] = g;
                 if(eventManager) {
                   _ticks.click(createLabelActivateCallback({
                     label: tickLabels[i]
@@ -403,7 +414,6 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             var g = paper.group('tick-' + (idx + 1), tickContainer),
                 // _ticks = [],
                 line = null;
-
             for(var i=-1; ++i<words.length;) {
 
                 var _ticks = paper.text(0, 0, '' + words[i], g);

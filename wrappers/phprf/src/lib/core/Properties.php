@@ -287,7 +287,21 @@ class ChartProperties extends PropertyBase {
     'dualY' => false,
     'showLegendFlag' => true,
     'showPieValues' => true,
-    'showLabelFlag' => true
+    'showLabelFlag' => true,
+    'labelStep' => new LabelStepProperties()
+    ));
+  }
+  
+}
+
+class LabelStepProperties extends PropertyBase {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+          'interval' => null,
+    'startIndex' => 0
     ));
   }
   

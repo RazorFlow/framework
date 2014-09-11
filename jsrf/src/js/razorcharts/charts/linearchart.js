@@ -230,7 +230,8 @@ define(['razorcharts/renderers/column',
                 type: 'bottom',
                 eventManager: eventManager,
                 tooltip: options.axesTooltip,
-                showLabelFlag: options.showLabelFlag
+                showLabelFlag: options.showLabelFlag,
+                labelStep: options.labelStep
             }));
 
             grid = new Grid();

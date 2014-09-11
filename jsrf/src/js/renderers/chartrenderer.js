@@ -371,7 +371,8 @@ define([
           }
         },
         series: coreChartType === 'pie' ? _series[0] : _series,
-        showLabelFlag: showLabelFlag
+        showLabelFlag: showLabelFlag,
+        labelStep: self.props.chart.labelStep
       });
 
     };

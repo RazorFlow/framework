@@ -538,10 +538,33 @@ key: 'showPieValues',
 {
 key: 'showLabelFlag',
     value:true,
-    type: 'boolean'}
+    type: 'boolean'},
+{
+key: 'labelStep',
+    value:new LabelStepProperties(),
+    type: 'PropertyBase'}
   ]);
 }
 exports.ChartProperties = ChartProperties;
+
+
+
+
+function LabelStepProperties() {
+  PropertyBase.call(this);
+
+  this.register([
+    {
+key: 'interval',
+    value:null,
+    type: 'number'},
+{
+key: 'startIndex',
+    value:0,
+    type: 'number'}
+  ]);
+}
+exports.LabelStepProperties = LabelStepProperties;
 
 
 

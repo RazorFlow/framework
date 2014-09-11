@@ -196,6 +196,10 @@ define([
 
       stacked: function() {
         pro.pb.setValue('chart.stacked', true);
+      },
+      setLabelStep: function (step, start) {
+        pro.pb.setValue ('chart.labelStep.interval', step || null);
+        pro.pb.setValue ('chart.labelStep.startIndex', start || 0);
       }
     };
 

@@ -149,6 +149,11 @@ class ChartComponent extends RFComponent {
         ));
     }
 
+    public function setLabelStep ($step, $index=0) {
+        $this->props->setValue ("chart.labelStep.interval", $step);
+        $this->props->setValue ("chart.labelStep.startIndex", $index);
+    }
+
     public function __handleContext($context) {
         if($context === "drilldown") {
             $this->clearChart();

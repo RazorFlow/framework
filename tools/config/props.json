@@ -529,6 +529,27 @@
                 "type": "boolean",
                 "default": true,
                 "shortDesc": "When set to false, chart labels will be hidden"
+            },
+            "labelStep": {
+                "type": "PropertyBase",
+                "class": "LabelStepProperties",
+                "shortDesc": "PropertyBase related to the labelStep paramater for charts"
+            }
+        }
+    },
+    "LabelStepProperties": {
+        "base": "PropertyBase",
+        "shortDesc": "Properties related to the labelStep paramater for charts",
+        "properties": {
+            "interval": {
+                "type": "number",
+                "default": null,
+                "shortDesc": "The interval of labels to show"
+            },
+            "startIndex": {
+                "type": "number",
+                "default": 0,
+                "shortDesc": "The index of the label to start the stepping"
             }
         }
     },
