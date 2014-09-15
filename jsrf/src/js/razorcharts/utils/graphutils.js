@@ -6,7 +6,7 @@ define(['vendor/lodash'], function (_) {
      * @param  Number max highest number in the domain
      * @return Object output domain
      */
-    prettyDomain: function (min, max) {
+    prettyDomain: function (min, max, dontExtend) {
 
       if(min < 0 && max === 0) {
         max = -1;
@@ -23,7 +23,7 @@ define(['vendor/lodash'], function (_) {
       }
 
       var newMin = min,
-          newMax = max,
+          newMax = max - min,
           exponent = Math.floor(log10(newMax)),
           magnitude = Math.pow(10, exponent),
           u = [1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10],
@@ -39,9 +39,9 @@ define(['vendor/lodash'], function (_) {
 
       function getNewMax(newMax, m, u) {
         for (i = 0; i < u.length; i++) {
-          if (m < u[i]) {
+          if (m <= u[i]) {
             nu = u[i];
-            if (u[i] - m <= 0.2) {
+            if (u[i] - m <= 0.2 && !dontExtend) {
               var nextU = u[i + 1];
               if (!u[i + 1]) {
                 nextU = u[0] * 10;
@@ -147,7 +147,7 @@ define(['vendor/lodash'], function (_) {
         }
       } else {
         for (i = 0; i < uo.num + 1; i++) {
-          ticks.push(i * uo.unit);
+          ticks.push(min + (i * uo.unit));
         }
       }
       return {

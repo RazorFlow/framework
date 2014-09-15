@@ -520,6 +520,10 @@ key: 'yaxis',
     value:new ChartAxisProperties(),
     type: 'PropertyBase'},
 {
+key: 'xaxis',
+    value:new ChartAxisProperties(),
+    type: 'PropertyBase'},
+{
 key: 'secondaryYAxis',
     value:new ChartAxisProperties(),
     type: 'PropertyBase'},
@@ -584,7 +588,19 @@ key: 'dataType',
 {
 key: 'axisName',
     value:"",
-    type: 'string'}
+    type: 'string'},
+{
+key: 'minValue',
+    value:null,
+    type: 'number'},
+{
+key: 'maxValue',
+    value:null,
+    type: 'number'},
+{
+key: 'numTicks',
+    value:null,
+    type: 'number'}
   ]);
 }
 exports.ChartAxisProperties = ChartAxisProperties;

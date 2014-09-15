@@ -51,6 +51,7 @@ define(['razorcharts/renderers/column',
             // stacked = _.reduce(series, function(item, mem) {
             //     return mem.stacked || item.stacked;
             // });
+            var dataList = _.flatten(_.pluck(series, 'data'));
             chartTypeKeys = _.uniq(_.pluck(series, 'displayType'));
             var seriesIndex = 1;
             for(var c=-1; ++c<chartTypeKeys.length;) {
@@ -113,7 +114,7 @@ define(['razorcharts/renderers/column',
             // }
 
             var max = _.max(allData),
-                min = _.min(allData);
+                min = _.min(dataList);
             
             xScale = new Scale.ordinal();
             xScale.domain(options.labels);
@@ -122,16 +123,32 @@ define(['razorcharts/renderers/column',
                 min = _.min(dataByAxisType['left']);
 
                 yScale['left'] = new Scale.linear();
-                yScale['left'].domain([min < 0 ? min : 0, max]);
+                if(options.yAxis[0].minValue) {
+                    var min = options.yAxis[0].minValue;
+                    yScale['left'].domain([min, max]);
+                } else {
+                    yScale['left'].domain([min < 0 ? min : 0, max]);    
+                }
+                
 
                 max = _.max(dataByAxisType['right']);
                 min = _.min(dataByAxisType['right']);
 
                 yScale['right'] = new Scale.linear();
-                yScale['right'].domain([min < 0 ? min : 0, max]);
+                 if(options.yAxis[1].minValue) {
+                    var min = options.yAxis[1].minValue;
+                    yScale['right'].domain([min, max]);
+                } else {
+                    yScale['right'].domain([min < 0 ? min : 0, max]);    
+                }
             } else {
                 yScale = new Scale.linear();
-                yScale.domain([min < 0 ? min : 0, max]);
+                if(options.yAxis.minValue) {
+                    var min = options.yAxis.minValue;
+                    yScale.domain([min, max]);
+                } else {
+                    yScale.domain([min < 0 ? min : 0, max]);
+                }
             }
                 
 
@@ -155,6 +172,27 @@ define(['razorcharts/renderers/column',
             if(options.dualAxis) {
 
                 var domains = graphUtils.dualAxisDomain([_.min(dataByAxisType['left']), _.max(dataByAxisType['left'])], [_.min(dataByAxisType['right']), _.max(dataByAxisType['right'])]);
+                if(options.yAxis[0].minValue || options.yAxis[0].maxValue || options.yAxis[1].minValue || options.yAxis[1].maxValue) {
+                    if(options.yAxis[0].numTicks !== options.yAxis[1].numTicks) {
+                        throw "numTicks for both axes should be same";
+                    }                    
+
+                    var min = options.yAxis[0].minValue || 0;
+                    var max = options.yAxis[0].maxValue || _.max(dataByAxisType['left']);
+                    var numTicks = options.yAxis[0].numTicks - 1 || 5;
+                    var unit = (max - min) / numTicks;
+                    for(var i=-1; ++i<numTicks + 1;) {
+                        domains['lDomain'].ticks[i] = (min + unit * i);
+                    }
+
+                    min = options.yAxis[1].minValue || 0;
+                    max = options.yAxis[1].maxValue || _.max(dataByAxisType['left']);
+                    numTicks = options.yAxis[1].numTicks - 1 || 5;
+                    unit = (max - min) / numTicks;
+                    for(var i=-1; ++i<numTicks + 1;) {
+                        domains['rDomain'].ticks[i] = (min + unit * i);
+                    }
+                }
                 yAxis['left'] = new Axis();
                 if(dataByAxisType.left.length) {
                     yAxis['left'].config(_.extend(_.where(options.yAxis, {type: 'left'})[0] || {}, {

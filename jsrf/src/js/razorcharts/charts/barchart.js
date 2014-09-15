@@ -67,7 +67,7 @@ define(['razorcharts/renderers/bar',
 
             xScale = new Scale.linear();
             xScale.domain([min < 0 ? min : 0 , max]);
-            
+
             barChart = new Bar();
             barChart.config({
                 xScale: xScale,

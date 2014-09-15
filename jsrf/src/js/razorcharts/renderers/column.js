@@ -88,21 +88,36 @@ define(['razorcharts/utils/colorutils', 'vendor/lodash'], function(colorUtils, _
                     var _x, _y, _w, _h;
                     _x = (options.stacked) ? (seriesWidth * j) + (seriesWidth / 2) - (columnWidth / 2) + padding  : seriesWidth * j + columnWidth * i + ((seriesWidth * SERIES_PADDING / 2) + padding);
                     if(data[j] > 0) {
-                        _y = (options.stacked) ?
-                                    ((i - 1 < 0 ) ? height - yScale.calc(data[j]) : height - yScale.calc(prevIndexTotal(i, j)) - Math.abs(yScale.calc(data[j]) - yScale.calc(0))) :
-                                    height - yScale.calc(data[j]);    
+                        if(options.stacked) {
+                            if(i!==0 && prevIndexTotal(i, j) !== yScale.min()) {
+                                _y = ((i - 1 < 0 ) ? height - yScale.calc(data[j] + yScale.min()) : height - yScale.calc(prevIndexTotal(i, j)) - Math.abs(yScale.calc(data[j] + yScale.min()) - yScale.calc(yScale.min())));
+                            } else {
+                                _y = ((i - 1 < 0 ) ? height - yScale.calc(data[j]) : height - yScale.calc(prevIndexTotal(i, j)) - Math.abs(yScale.calc(data[j]) - yScale.calc(yScale.min())));
+                            }
+                            
+                        } else {
+                            _y = height - yScale.calc(data[j]);    
+                        }
+                        
                     } else {
                         _y = height - yScale.calc(0) + (options.stacked ? Math.abs(yScale.calc(prevIndexTotal(i, j)) - yScale.calc(0)) : 0);
                     }
                     
                     _w = columnWidth - padding * 2;
-                    _h = Math.abs(yScale.calc(data[j]) - yScale.calc(0));
-
+                    var minTick = yScale.min() < 0 ? yScale.calc(0) : yScale.calc(yScale.min());
+                    _h = Math.abs(yScale.calc(data[j]) - minTick);
+                    if(options.stacked) {
+                        if(i!==0 && prevIndexTotal(i, j) !== yScale.min()) {
+                            _h = Math.abs(yScale.calc(data[j] + yScale.min()));
+                        }
+                    }
+                    
+                    // if(options.stacked && i !== 0 && data[j] === 59) debugger;
                     var rect = null,
                         classes = (series[i].color === 'auto' ? ' rc-series-' + series[i].seriesIndex + ' rc-plot-item' : '') + ' ' + (options.plotItemClasses || '');
 
                     if(create) {
-                        rect = paper.rect(_x, height - yScale.calc(0), _w, 0, seriesGroups[i]);
+                        rect = paper.rect(_x, height - yScale.calc(yScale.min()), _w, 0, seriesGroups[i]);
                         seriesPlotItems[i][j] = rect;
                         rect.node.setAttribute('class', (series[i].classed || '') + classes);
                         var params = {

@@ -505,6 +505,11 @@
                 "class": "ChartAxisProperties",
                 "shortDesc" : "Properties pertaining to the chart Y axis."
             },
+            "xaxis": {
+                "type": "PropertyBase",
+                "class": "ChartAxisProperties",
+                "shortDesc" : "Properties pertaining to the chart X axis."
+            },
             "secondaryYAxis": {
                 "type": "PropertyBase",
                 "class": "ChartAxisProperties",
@@ -571,6 +576,21 @@
                 "type": "string",
                 "default": "",
                 "shortDesc"  : "Name of the axis."
+            },
+            "minValue": {
+                "type": "number",
+                "default": null,
+                "shortDesc": "The minimum tick value for the axis"
+            },
+            "maxValue": {
+                "type": "number",
+                "default": null,
+                "shortDesc": "The maximum tick value for the axis"
+            },
+            "numTicks": {
+                "type": "number",
+                "default": null,
+                "shortDesc": "Number of ticks to split the domain by"
             }
         }
     },

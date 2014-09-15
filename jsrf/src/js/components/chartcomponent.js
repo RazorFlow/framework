@@ -125,6 +125,19 @@ define([
       },
 
       /**
+       * Configure the X-Axis of the chart.
+       * @method setXAxis
+       * @param  {String} name The name of the axis
+       * @param  {Object} options An option array. See the guide for available options.
+       */
+      setXAxis: function (name, options) {
+        options = options ? options : {};
+        options['axisName'] = name;
+
+        pro.pb.setObjectAtPath('chart.xaxis', options);
+      },
+
+      /**
        * Add another Y-Axis to the chart.
        * @method addYAxis
        * @param  {String} id The unique id of this axis

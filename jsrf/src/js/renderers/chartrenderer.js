@@ -302,9 +302,11 @@ define([
         return secondaryYAxisFormatter.formatValue(item);
       };
 
-
       var yAxisConfig = {
         label: self.props.chart.yaxis.axisName,
+        minValue: self.props.chart.yaxis.minValue,
+        maxValue: self.props.chart.yaxis.maxValue,
+        numTicks: self.props.chart.yaxis.numTicks,
         axisLine: false,
         axisTick: false,
         format: coreChartType === 'linear' ? yAxisFormatFunc : null
@@ -314,6 +316,9 @@ define([
           {
             type: 'left',
             label: self.props.chart.yaxis.axisName,
+            minValue: self.props.chart.yaxis.minValue,
+            maxValue: self.props.chart.yaxis.maxValue,
+            numTicks: self.props.chart.yaxis.numTicks,
             axisLine: false,
             axisTick: false,
             format: coreChartType === 'linear' ? yAxisFormatFunc : null    
@@ -321,6 +326,9 @@ define([
           {
             type: 'right',
             label: self.props.chart.secondaryYAxis.axisName,
+            minValue: self.props.chart.secondaryYAxis.minValue,
+            maxValue: self.props.chart.secondaryYAxis.maxValue,
+            numTicks: self.props.chart.secondaryYAxis.numTicks,
             axisLine: false,
             axisTick: false,
             format: coreChartType === 'linear' ? secondaryYFormatFunc : null
@@ -340,7 +348,10 @@ define([
         xAxis: {
           axisLine: true,
           axisTick: false,
-          format: coreChartType === 'bar' ? yAxisFormatFunc : null
+          format: coreChartType === 'bar' ? yAxisFormatFunc : null,
+          minValue: self.props.chart.xaxis.minValue,
+          maxValue: self.props.chart.xaxis.maxValue,
+          numTicks: self.props.chart.xaxis.numTicks,
         },
         yAxis: yAxisConfig,
         tooltip: {

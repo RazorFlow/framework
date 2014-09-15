@@ -283,6 +283,7 @@ class ChartProperties extends PropertyBase {
     $this->register(array(
           'series' => new PropertyList('ChartSeriesProperties'),
     'yaxis' => new ChartAxisProperties(),
+    'xaxis' => new ChartAxisProperties(),
     'secondaryYAxis' => new ChartAxisProperties(),
     'dualY' => false,
     'showLegendFlag' => true,
@@ -315,7 +316,10 @@ class ChartAxisProperties extends DataColumnProperties {
     $this->register(array(
           'id' => "primary",
     'dataType' => "number",
-    'axisName' => ""
+    'axisName' => "",
+    'minValue' => null,
+    'maxValue' => null,
+    'numTicks' => null
     ));
   }
   

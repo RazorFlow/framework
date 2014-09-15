@@ -100,6 +100,17 @@ class ChartComponent extends RFComponent {
     }
 
     /**
+     * Configure the X-Axis of the chart
+     * @method setXAxis
+     * @param {String} $name      The name of the x axis
+     * @param {Array}  $options   Options array. See the guide for available options
+     */
+    public function setXAxis ($name, $options = array()) {
+        $options['axisName'] = $name;
+        $this->props->setObjectAtPath('chart.xaxis', $options);
+    }
+
+    /**
      * Configure the Y-Axis of the chart
      * @method addYAxis
      * @param {String} $id        The unique id of this axis  

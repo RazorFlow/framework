@@ -70,13 +70,32 @@ define(['vendor/lodash'], function(_) {
                 for(var j=-1; ++j<data.length;) {
                     var rect;
                     var _x, _y, _w, _h;
+                    var minTick = xScale.min () > 0 ? xScale.calc(xScale.min()) : xScale.calc(0);
                     if(options.stacked) {
-                        _x = data[j] < 0 ? i > 0 ? xScale.calc(prevIndexTotal(i, j) + data[j]) : xScale.calc(data[j]) : xScale.calc(prevIndexTotal(i, j));
+                        if(xScale.min() < 0) {
+                            if(data[j] < 0) {
+                                _x = i > 0 ? xScale.calc(prevIndexTotal(i, j) + data[j]) : xScale.calc(data[j]);
+                            } else {
+                                _x = i > 0 ? xScale.calc(prevIndexTotal(i, j)) : xScale.calc(prevIndexTotal(i, j));
+                            }
+                        } else {
+                            if(data[j] < 0) {
+                                _x = i > 0 ? xScale.calc(prevIndexTotal(i, j) + data[j]) : xScale.calc(data[j]);
+                            } else {
+                                _x = i > 0 ? xScale.calc(prevIndexTotal(i, j)) : xScale.calc(prevIndexTotal(i, j) + xScale.min());
+                            }
+                        }
+                            
                     } else {
-                        _x = data[j] < 0 ? xScale.calc(data[j]) : xScale.calc(0);    
+                        _x = data[j] < 0 ? xScale.calc(data[j]) : minTick;    
                     }
                     _y = seriesFullHeight * j + padding / 2;
-                    _w = xScale.calc(Math.abs(data[j])) - xScale.calc(0);
+                    
+                    
+                    _w = xScale.calc(Math.abs(data[j])) - minTick;
+                    if(xScale.min () > 0 && options.stacked && i > 0 && prevIndexTotal(i, j) !== xScale.min()) {
+                        _w = xScale.calc(Math.abs(data[j] + xScale.min())) - minTick;
+                    }
                     _h = columnHeight;
                     // _h = seriesHeight;
                     

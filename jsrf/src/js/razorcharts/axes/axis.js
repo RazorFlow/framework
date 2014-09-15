@@ -46,7 +46,9 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             core = _core;
             width = w;
             height = h;
-            readjustNumTicks ();
+            if(!options.minValue && !options.maxValue) {
+                readjustNumTicks ();
+            }
             cachedScaleDomain = scale.domain();
             cachedScaleRange = scale.range();
             core.node.setAttribute('class', 'rc-axis');
@@ -83,7 +85,9 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                 rangeUnit = null, i, g;
             width = w;
             height = h;
-            readjustNumTicks ();
+            if(!options.minValue && !options.maxValue) {
+                readjustNumTicks ();
+            }
             cachedScaleDomain = scale.domain();
             cachedScaleRange = scale.range();
             var tilt = false;
@@ -525,7 +529,6 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
         var createTickValues = function() {
             var scale = options.scale,
                 unit = Math.floor(scale.max() / numTicks);
-
             if(scale.type === 'linear') {
                 var domain = graphUtils.prettyDomain(scale.min(), scale.max()),
                     newMin = domain.min,
@@ -573,10 +576,17 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                 } else if(options.forceDomain) {
                     domain = options.domain;
                     tickValues = sanitizePrecision(domain.ticks);
+                } else if (options.minValue !== null || options.maxValue !== null) {
+                    var min = options.minValue === null ?  scale.min() : options.minValue;
+                    var max = options.maxValue === null ? scale.max() : options.maxValue;
+                    var numTicks = options.numTicks - 1 || 5;
+                    var unit = (max - min) / numTicks;
+                    for(var i=-1; ++i<numTicks + 1;) {
+                        tickValues[i] = sanitizePrecision(min + unit * i);
+                    }
                 } else {
                     tickValues = sanitizePrecision(domain.ticks);
                 }
-
                 scale.domain([_.min(tickValues), _.max(tickValues)]);
                 // for(var i=-1; ++i<numTicks+1;) {
                 //     tickValues.push(unit * i);
