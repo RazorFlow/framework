@@ -528,9 +528,9 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
 
         var createTickValues = function() {
             var scale = options.scale,
-                unit = Math.floor(scale.max() / numTicks);
+                unit = Math.floor(options.dataMax / numTicks);
             if(scale.type === 'linear') {
-                var domain = graphUtils.prettyDomain(scale.min(), scale.max()),
+                var domain = graphUtils.prettyDomain(options.dataMin < 0 ? options.dataMin : 0, options.dataMax),
                     newMin = domain.min,
                     newMax = domain.max;
                 if(options.forceNumTicks) {
@@ -679,7 +679,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             var unit = (options.type === 'left' || options.type === 'right') ? height : width;
 
             if(options.scale.type === 'linear' && unit) {
-                var threshold = unit / tickValues.length;
+                var threshold = unit / (tickValues.length - 1);
                 if(threshold < MIN_TICK_THRESHOLD) {
                     var hasNegative = _.min(tickValues) < 0;
                     tickValues = [];

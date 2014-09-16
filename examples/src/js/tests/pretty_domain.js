@@ -10,7 +10,7 @@ describe("Pretty domain related tests", function() {
     });
 
     it("should have a pretty domain", function() {
-        var min = Math.floor(Math.random() * 100),
+        var min = 0,
             max = Math.floor(100 + Math.random() * 1000);
         console.log('Testing prettyness for random domain : ' + min + ' -> ' + max);
         var domain = graphUtils.prettyDomain(min, max);
@@ -61,9 +61,9 @@ describe("pretty domain for dual axes", function() {
     var graphUtils = require('razorcharts/utils/graphutils');
 
     it("should have zero synced when both axes are +ve", function() {
-        var min1 = Math.floor(Math.random() * 100),
+        var min1 = 0,
             max1 = Math.floor(100 + Math.random() * 1000),
-            min2 = Math.floor(Math.random() * 100),
+            min2 = 0,
             max2 = Math.floor(100 + Math.random() * 1000);
         var domains = graphUtils.dualAxisDomain([min1, max1], [min2, max2]);
 
@@ -99,16 +99,16 @@ describe("pretty domain for dual axes", function() {
     it("should have zero synced when data when left is -ve", function() {
         var min1 = - Math.floor(Math.random() * 100),
             max1 = - Math.floor(100 + Math.random() * 1000),
-            min2 = Math.floor(Math.random() * 100),
+            min2 = 0,
             max2 = Math.floor(100 + Math.random() * 1000);
         var domains = graphUtils.dualAxisDomain([min1, max1], [min2, max2]);
-
+        console.log(domains.lDomain.ticks, domains.rDomain.ticks);
         expect(domains.lDomain.min).toBeLessThan(0);
         expect(domains.lDomain.ticks.indexOf(0)).toBe(domains.rDomain.ticks.indexOf(0))
     });
 
     it("should have zero synced when data when right is -ve", function() {
-        var min1 = Math.floor(Math.random() * 100),
+        var min1 = 0,
             max1 = Math.floor(100 + Math.random() * 1000),
             min2 = - Math.floor(Math.random() * 100),
             max2 = - Math.floor(100 + Math.random() * 1000);

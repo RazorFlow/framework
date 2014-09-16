@@ -23,7 +23,7 @@ define(['vendor/lodash'], function (_) {
       }
 
       var newMin = min,
-          newMax = max - min,
+          newMax = max,
           exponent = Math.floor(log10(newMax)),
           magnitude = Math.pow(10, exponent),
           u = [1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10],

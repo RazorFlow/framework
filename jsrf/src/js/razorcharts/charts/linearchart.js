@@ -92,27 +92,7 @@ define(['razorcharts/renderers/column',
 
             dualAxis = options.dualAxis;
             eventManager = options.eventManager;
-
-            // for(var i = -1; ++i<series.length;) {
-            //     var item = series[i];
-            //     if(!chartSeriesByType[item.displayType]) chartSeriesByType[item.displayType] = [];
-            //     item.seriesIndex = (series[i].seriesIndex  || i) + 1;
-            //     chartSeriesByType[item.displayType].push(item);
-            //     if(options.stacked) {
-            //         for(var j=-1;++j<item.data.length;) {
-            //             allData[j] = allData[j] 
-            //                     ? ((allData[j] < 0 && item.data[j] > 0 ) || (allData[j] > 0 && item.data[j] < 0)) ? allData[j] : allData[j] + item.data[j]
-            //                     : item.data[j];
-            //             dataByAxisType[item.yAxis || 'left'][j] = dataByAxisType[item.yAxis || 'left'][j] ? ((dataByAxisType[item.yAxis || 'left'][j] < 0 && item.data[j] > 0 ) || (dataByAxisType[item.yAxis || 'left'][j] > 0 && item.data[j] < 0)) ? dataByAxisType[item.yAxis || 'left'][j] : dataByAxisType[item.yAxis || 'left'][j]+ item.data[j]
-            //                     : item.data[j];
-            //         }
-
-            //     } else {
-            //         dataByAxisType[item.yAxis || 'left'] = dataByAxisType[item.yAxis || 'left'].concat(item.data);
-            //         allData = allData.concat(item.data);    
-            //     }
-            // }
-
+            
             var max = _.max(allData),
                 min = _.min(dataList);
             
@@ -170,8 +150,9 @@ define(['razorcharts/renderers/column',
             }
 
             if(options.dualAxis) {
-
-                var domains = graphUtils.dualAxisDomain([_.min(dataByAxisType['left']), _.max(dataByAxisType['left'])], [_.min(dataByAxisType['right']), _.max(dataByAxisType['right'])]);
+                var lMin = _.min(dataByAxisType['left']) < 0 ? _.min(dataByAxisType['left']) : 0;
+                var rMin = _.min(dataByAxisType['right']) < 0 ? _.min(dataByAxisType['right']) : 0;
+                var domains = graphUtils.dualAxisDomain([lMin, _.max(dataByAxisType['left'])], [rMin, _.max(dataByAxisType['right'])]);
                 if(options.yAxis[0].minValue || options.yAxis[0].maxValue || options.yAxis[1].minValue || options.yAxis[1].maxValue) {
                     if(options.yAxis[0].numTicks !== options.yAxis[1].numTicks) {
                         throw "numTicks for both axes should be same";
@@ -199,7 +180,9 @@ define(['razorcharts/renderers/column',
                         scale: yScale['left'],
                         type: 'left',
                         forceDomain: true,
-                        domain: domains.lDomain
+                        domain: domains.lDomain,
+                        dataMin: min,
+                        dataMax: max
                     }));
                 }
                 yAxis['right'] = new Axis();
@@ -208,59 +191,20 @@ define(['razorcharts/renderers/column',
                         scale: yScale['right'],
                         type: 'right',
                         forceDomain: true,
-                        domain: domains.rDomain
+                        domain: domains.rDomain,
+                        dataMin: min,
+                        dataMax: max
                     }));
                 }
-                // if(_.min(dataByAxisType['right']) < 0 && _.min(dataByAxisType['left']) >= 0) {
-                //     yAxis['right'] = new Axis();
-                //     if(dataByAxisType.left.length)
-                //         yAxis['right'].config(_.extend(_.where(options.yAxis, {type: 'right'})[0] || {}, {
-                //             scale: yScale['right'],
-                //             type: 'right'
-                //         }));
-                //     max = _.max(dataByAxisType['right']);
-                //     min = _.min(dataByAxisType['right']);
-                //     var domain = graphUtils.prettyDomain(min < 0 ? min : 0, max);
-                //     yAxis['left'] = new Axis();
-                //     if(dataByAxisType.left.length)
-                //         yAxis['left'].config(_.extend(_.where(options.yAxis, {type: 'left'})[0] || {}, {
-                //             scale: yScale['left'],
-                //             type: 'left',
-                //             forceNumTicks: domain.numTicks,
-                //             domain: domain
-                //         }));
-                //     // debugger
-                // } else {
-                //     yAxis['left'] = new Axis();
-                //     if(dataByAxisType.left.length)
-                //         yAxis['left'].config(_.extend(_.where(options.yAxis, {type: 'left'})[0] || {}, {
-                //             scale: yScale['left'],
-                //             type: 'left'
-                //         }));
-                //     max = _.max(dataByAxisType['left']);
-                //     min = _.min(dataByAxisType['left']);
-                //     var domain = graphUtils.prettyDomain(min < 0 ? min : 0, max);
-                //     yAxis['right'] = new Axis();
-                //     if(dataByAxisType.right.length)
-                //         yAxis['right'].config(_.extend(_.where(options.yAxis, {type: 'right'})[0] || {}, {
-                //             scale: yScale['right'],
-                //             type: 'right',
-                //             forceNumTicks: domain.numTicks
-                //         }));
-                // }
-                    
             } else {
                 yAxis = new Axis();
                 yAxis.config(_.extend(options.yAxis || {}, {
                     scale: yScale,
-                    type: 'left'
+                    type: 'left',
+                    dataMin: min,
+                    dataMax: max
                 }));
             }
-            
-            // yAxis.config(_.extend(options.yAxis, {
-            //     scale: options.dualAxis ? yScale : yScale[options.yAxis.type || 'left'],
-            //     type: 'left'
-            // }));
 
             xAxis = new Axis();
             xAxis.config(_.extend(options.xAxis || {}, {
