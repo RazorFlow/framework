@@ -535,7 +535,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                     newMax = domain.max;
                 if(options.forceNumTicks) {
                     unit = graphUtils.prettyDomain(0, (domain.max - domain.min) / options.forceNumTicks).max;
-                    if(domain.min < 0) {
+                    if(domain.min < 0 && domain.max > 0) {
                         var minPercent = Math.abs(domain.min) / (domain.max - domain.min),
                             numTicksForMin = Math.floor(options.forceNumTicks * minPercent),
                             numTicksForMax = Math.floor(options.forceNumTicks * (1 - minPercent));
@@ -562,11 +562,13 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                         unit = graphUtils.prettyDomain(0, unit).max;
                         newMin = -Math.round(unit * numTicksForMin);    
                         newMax = Math.round(unit * numTicksForMax);
-                        while(newMin >= domain.min && newMax <= domain.max) {
-                            newMin = -Math.round(unit * numTicksForMin);    
-                            newMax = Math.round(unit * numTicksForMax);
-                            unit ++;
-                            unit = graphUtils.prettyDomain(0, unit).max;
+                        if(Math.abs(domain.min) > Math.abs(domain.max)) {
+                            unit = Math.abs(domain.min / numTicksForMin);
+                            newMax = unit * numTicksForMax;
+                            newMin = -(unit * numTicksForMin);
+                        } else {
+                            unit = domain.max / numTicksForMax;
+                            newMin = -(unit * numTicksForMin);
                         }
                     }
                     for(var i=-1; ++i<options.forceNumTicks;) {
