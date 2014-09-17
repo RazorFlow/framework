@@ -7,8 +7,9 @@
 	<title>RazorCharts Testbed</title>
 	<script type="text/javascript">
 		require.config(window.browserConfig);
-		require(["razorcharts2/rcmain"], function () {
-
+		require(["razorcharts2/core/rcmain"], function (Chart) {
+            var chart = new Chart();
+            chart.config({type: 'linear'});
 		});
 	</script>
 </head>
