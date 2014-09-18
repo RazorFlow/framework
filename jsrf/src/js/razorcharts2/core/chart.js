@@ -2,7 +2,10 @@
  *  The main chart object of razorcharts which accepts options and decides which type of chart to create, and renders them
  */
 
-define(['vendor/lodash', 'razorcharts2/utils/assert'], function (_, Assert) {
+define([
+    'vendor/lodash', 
+    'razorcharts2/utils/assert',
+    'leonardo/leomain'], function (_, Assert, Leonardo) {
     var Chart =  function () {
 
     };
@@ -11,9 +14,10 @@ define(['vendor/lodash', 'razorcharts2/utils/assert'], function (_, Assert) {
         Private properties of the chart object
      */
     var options = {};
-    var wrappers = {};
+    var charts = {};
     // The Chart wrapper object
     var chart = null;
+    var paper = null;
 
     /**
      * Config function for razorcharts
@@ -24,17 +28,17 @@ define(['vendor/lodash', 'razorcharts2/utils/assert'], function (_, Assert) {
         // Override the default options
         options = _.extend(options, _options);
 
-        self.createAndConfigWrapper ();
+        self.createAndConfigChart ();
     };
 
     /**
-     * Registers a wrapper
+     * Registers a Chart type
      * @param  {String} key     The name of the wrapper
-     * @param  {Function} wrapper The wrapper's constructor 
+     * @param  {Function} _chart The chart's constructor 
      */
-    Chart.registerWrapper = function (key, wrapper) {
-        if(typeof wrappers[key] === 'undefined') {
-            wrappers[key] = wrapper;    
+    Chart.registerChart = function (key, _chart) {
+        if(typeof charts[key] === 'undefined') {
+            charts[key] = _chart;    
         } else {
            throw "Trying to register a wrapper which already exists";
         }
@@ -43,10 +47,18 @@ define(['vendor/lodash', 'razorcharts2/utils/assert'], function (_, Assert) {
     /**
      * Finds the correct wrapper based on the options and creates it
      */
-    Chart.prototype.createAndConfigWrapper = function () {
+    Chart.prototype.createAndConfigChart = function () {
         Assert.assertKey(options, 'type', 'string', 'Chart type not specified');
-        Assert.assertKey(wrappers, options.type, 'string', 'No wrapper with type ' + options.type);
-        chart = new (wrappers[options.type])();
+        Assert.assertKey(charts, options.type, 'string', 'No wrapper with type ' + options.type);
+        chart = new (charts[options.type])();
+        chart.config (options);
+    };
+
+    Chart.prototype.renderTo = function (node, w, h) {
+        // canvas = Leonardo.canvas ();
+        paper = Leonardo.paper(node);
+
+        debugger
     };
 
     return Chart;

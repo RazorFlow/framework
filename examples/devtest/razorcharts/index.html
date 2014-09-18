@@ -10,10 +10,11 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({type: 'linear'});
+            chart.renderTo(document.getElementById ('container'), 100, 100);
 		});
 	</script>
 </head>
 <body>
-
+    <div id="container"></div>
 </body>
 </html>

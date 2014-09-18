@@ -3,7 +3,7 @@
  */
 
 define(['razorcharts2/core/chart', 'razorcharts2/charts/linearchart'], function (Chart, LinearChart) {
-    Chart.registerWrapper ('linear', LinearChart);
+    Chart.registerChart ('linear', LinearChart);
 
     return Chart;
 });
