@@ -31,5 +31,9 @@ define([], function () {
         this.__elem.appendChild(elem.__elem);
     }
 
+    ElementRenderer.prototype.text = function (text) {
+        this.__elem.innerHTML = text;
+    };
+
     return ElementRenderer;
 });

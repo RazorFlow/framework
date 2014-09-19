@@ -3,7 +3,6 @@ define(['leonardo/core/element'], function(Element) {
         elem = null;
 
     var G = function () {
-        this.init.apply (this, arguments);
         init (this);
     };
 

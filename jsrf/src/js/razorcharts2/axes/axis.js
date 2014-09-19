@@ -44,6 +44,8 @@ define([], function () {
         for(var i=0; i<ticks.length; ++i) {
             var $tick = paper.g ();
             $tick.attr('id', 'tick-' + (i+1));
+            var $text = paper.text (0, 0, '' + ticks[i]);
+            $tick.append ($text);
         }
     };
 

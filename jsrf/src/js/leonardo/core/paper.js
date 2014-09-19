@@ -15,7 +15,7 @@ define(['leonardo/core/element'], function (Element) {
         init (node, width, height);
 
         for(var key in elements) {
-            this[key] = setPaper (elements[key], this);
+            this[key] = createElement(this, elements[key]);
         }
 
         this.__elem = elem;
@@ -23,7 +23,7 @@ define(['leonardo/core/element'], function (Element) {
 
     Paper.registerElement = function (constructor) {
         constructor.setRenderer (renderers[constructor.id]);
-        elements[constructor.id] = createElement(constructor);
+        elements[constructor.id] = constructor;
     };
 
     Paper.setRenderer = function (_renderer) {
@@ -38,22 +38,18 @@ define(['leonardo/core/element'], function (Element) {
         elem = new renderer(node, width, height);
     };
 
-    function createElement (constructor) {
+    function createElement (self, constructor) {
         function F (args) {
             return constructor.apply(this, args);
         }
         F.prototype = constructor.prototype;
+        F.prototype.paper = self;
         return function () {
-            return (new F(arguments));
+            var f = (new F(arguments)); 
+            f.setPaper (self);
+            return f;
         };
     };
-
-    function setPaper (func, paper) {
-        return  function () {
-            var o = func(paper);
-            return o;    
-        }
-    }
 
     return Paper;
 });

@@ -3,19 +3,18 @@ define([], function () {
         renderer = {};
 
     var Element = function () {
-        this.init.apply(this, arguments);
-    };
-
-    Element.prototype.init = function (paper) {
-        if(paper) {
-            this.setPaper (paper);
-        }
     };
 
     Element.prototype.attr = function (key, value) {
-        console.log('attr function called!!');
-        attrs[key] = value;
-        this.__elem.attr (key, value);
+        if(typeof value === 'undefined') {
+            if(typeof attrs[key] === 'undefined') {
+                attrs[key] = this.__elem.attr (key);
+            }
+            return attrs[key];    
+        } else {
+            attrs[key] = value;
+            this.__elem.attr (key, value);
+        }
     };
 
     Element.prototype.append = function (element) {
