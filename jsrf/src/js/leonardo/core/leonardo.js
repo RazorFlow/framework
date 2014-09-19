@@ -1,26 +1,14 @@
-define([], function () {
+define(['leonardo/core/paper'], function (Paper) {
     var Leonardo = {},
         renderer = null;
 
-
-    Leonardo.registerElement = function (constructor) {
-        constructor.setRenderer (renderer[constructor.id]);
-        Leonardo[constructor.id] = createElement(constructor);
-    };
-
     Leonardo.setRenderer = function (_renderer) {
         renderer = _renderer;
+        Paper.setRenderer (renderer);
     };
 
-
-    function createElement (constructor) {
-        function F (args) {
-            return constructor.apply(this, args);
-        }
-        F.prototype = constructor.prototype;
-        return function () {
-            return (new F(arguments));
-        };
+    Leonardo.paper = function (node, width, height) {
+        return new Paper (node, width, height);
     };
 
     return Leonardo;

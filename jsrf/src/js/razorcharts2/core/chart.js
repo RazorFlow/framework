@@ -54,11 +54,15 @@ define([
         chart.config (options);
     };
 
-    Chart.prototype.renderTo = function (node, w, h) {
-        // canvas = Leonardo.canvas ();
-        paper = Leonardo.paper(node);
-
-        debugger
+    /**
+     * Renders the chart
+     * @param  {HTMLDOMNode} node the DOM node in which the main svg element is to be appended
+     * @param  {Number} w    width of the chart
+     * @param  {Number} h    height of the chart
+     */
+    Chart.prototype.renderTo = function (node, width, height) {
+        paper = Leonardo.paper(node, width, height);
+        chart.renderTo (paper, width, height);
     };
 
     return Chart;

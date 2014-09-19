@@ -9,7 +9,17 @@
 		require.config(window.browserConfig);
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
-            chart.config({type: 'linear'});
+            chart.config({
+                type: 'linear',
+                labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+                series: [
+                    {
+                        seriesIndex: 0,
+                        displayType: 'column',
+                        data: [10, 15, 5, 18, 20]
+                    }
+                ]
+            });
             chart.renderTo(document.getElementById ('container'), 100, 100);
 		});
 	</script>

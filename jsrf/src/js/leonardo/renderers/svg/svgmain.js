@@ -1,5 +1,7 @@
-define(['leonardo/renderers/svg/paperrenderer'], function (PaperRenderer) {
+define(['leonardo/renderers/svg/paperrenderer',
+        'leonardo/renderers/svg/grenderer'], function (PaperRenderer, GRenderer) {
     return  {
-        paper: PaperRenderer
+        paper: PaperRenderer,
+        g: GRenderer
     };
 });

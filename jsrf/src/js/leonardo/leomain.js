@@ -1,9 +1,10 @@
 define([
     'leonardo/core/leonardo',
      'leonardo/core/paper',
-     'leonardo/renderers/svg/svgmain'], function(Leonardo, Paper, SVGRenderer) {
+     'leonardo/renderers/svg/svgmain',
+     'leonardo/elements/g'], function(Leonardo, Paper, SVGRenderer, G) {
         Leonardo.setRenderer (SVGRenderer);
-        Leonardo.registerElement (Paper);
+        Paper.registerElement (G);
 
         return Leonardo;
 });
