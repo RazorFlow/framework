@@ -1,6 +1,5 @@
 define(['leonardo/core/element'], function(Element) {
-    var renderer = null,    
-        elem = null;
+    var renderer = null;
 
     var G = function () {
         init (this);
@@ -16,7 +15,7 @@ define(['leonardo/core/element'], function(Element) {
     G.prototype.constructor = G;
 
     function init (self) {
-        self.__elem = elem = new renderer();
+        self.__elem = new renderer();
     }
 
     return G;

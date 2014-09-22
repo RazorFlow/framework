@@ -1,8 +1,8 @@
 define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
-    var $elem = null,
-        $tspan = null;
-
     var TextRenderer = function (x, y, text) {
+        var $elem,
+            $tpsan;
+
         $elem = this.createElement ('text');
         $tspan = this.createElement ('tspan');
         $elem.appendChild ($tspan);

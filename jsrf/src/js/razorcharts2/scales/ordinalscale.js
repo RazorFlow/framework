@@ -1,33 +1,33 @@
 define(['vendor/lodash'], function(_) {
-    var domain = null,
-        range = null;
     var OrdinalScale = function scale(_domain, _range) {
-        domain = _domain || [],
-        range = _range || [0, 1];
+        this._domain = _domain || [],
+        this._range = _range || [0, 1];
     };
 
     OrdinalScale.prototype.domain = function (val) {
         if(val) {
-            domain = val;
+            this._domain = val;
         }
         else {
-            return domain;
+            return this._domain;
         }
     };
 
     OrdinalScale.prototype.range = function (val) {
         if(val) {
-            range = val;
+            this._range = val;
         }
         else {
-            return range;
+            return this._range;
         }
     };
 
     OrdinalScale.prototype.calc = function(val) {
-        var idx = domain.indexOf(val),
+        var domain = this._domain,
+            range = this._range,
+            idx = domain.indexOf(val),
             length = domain.length;
-
+        
         if(idx === -1) {
             throw new Error('key not present in the domain');
         }

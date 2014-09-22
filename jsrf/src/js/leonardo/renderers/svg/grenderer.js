@@ -1,7 +1,6 @@
 define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
-    var $elem = null;
-
     var GRenderer = function (paper) {
+        var $elem = null;
         $elem = this.createElement ('g');
         this.__elem = $elem;
     }

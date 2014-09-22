@@ -1,19 +1,19 @@
 define(['razorcharts2/axes/axis'], function (Axis) {
-    var BottomAxis = function () {
-        this.registerTransformer (BottomAxisTransformer);
+    var LeftAxis = function () {
+        this.registerTransformer (LeftAxisTransformer);
     };
 
-    BottomAxis.prototype = new Axis ();
-    BottomAxis.prototype.constructor = BottomAxis;
+    LeftAxis.prototype = new Axis ();
+    LeftAxis.prototype.constructor = LeftAxis;
 
-    function BottomAxisTransformer (self) {
+    function LeftAxisTransformer (self) {
         console.log ('Transformer called!');
         var width = self.width,
             $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
             tickWidth = width / ticks.length;
-                
+            
         for(var i=0; i<ticks.length; ++i) {
             var x = scale.calc(ticks[i]) + tickWidth / 2;
             $ticks[i].css ({
@@ -26,5 +26,5 @@ define(['razorcharts2/axes/axis'], function (Axis) {
         self.core.append (line);
     };
 
-    return BottomAxis;
+    return LeftAxis;
 });

@@ -7,18 +7,9 @@ define([
     'razorcharts2/utils/assert',
     'leonardo/leomain'], function (_, Assert, Leonardo) {
     var Chart =  function () {
-
+        this.options = {};
     };
-
-    /*
-        Private properties of the chart object
-     */
-    var options = {};
     var charts = {};
-    // The Chart wrapper object
-    var chart = null;
-    var paper = null;
-
     /**
      * Config function for razorcharts
      */
@@ -26,7 +17,7 @@ define([
         var self = this;
 
         // Override the default options
-        options = _.extend(options, _options);
+        this.options = _.extend(this.options, _options);
 
         self.createAndConfigChart ();
     };
@@ -48,10 +39,11 @@ define([
      * Finds the correct wrapper based on the options and creates it
      */
     Chart.prototype.createAndConfigChart = function () {
+        var options = this.options;
         Assert.assertKey(options, 'type', 'string', 'Chart type not specified');
         Assert.assertKey(charts, options.type, 'string', 'No wrapper with type ' + options.type);
-        chart = new (charts[options.type])();
-        chart.config (options);
+        this.chart = new (charts[options.type])();
+        this.chart.config (options);
     };
 
     /**
@@ -61,8 +53,8 @@ define([
      * @param  {Number} h    height of the chart
      */
     Chart.prototype.renderTo = function (node, width, height) {
-        paper = Leonardo.paper(node, width, height);
-        chart.renderTo (paper, width, height);
+        var paper = this.paper = Leonardo.paper(node, width, height);
+        this.chart.renderTo (paper, width, height);
     };
 
     return Chart;

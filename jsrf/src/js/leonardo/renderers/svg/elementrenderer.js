@@ -1,14 +1,19 @@
-define([], function () {
+define(['vendor/lodash'], function (_) {
     var svgNS = "http://www.w3.org/2000/svg";
     var ElementRenderer = function () {
 
     };
 
     ElementRenderer.prototype.createElement = function (type) {
-        return document.createElementNS (svgNS, type);
+        var elem = document.createElementNS (svgNS, type);
+        elem.setAttribute('stroke', '#000');
+        return elem;
     }
 
     ElementRenderer.prototype.attr = function (obj, value) {
+        if(typeof value === 'undefined' && typeof obj === 'string') {
+            this.__elem.getAttribute (obj);
+        }
         if(typeof obj === 'string') {
             this.__elem.setAttribute (obj, value);
         } else if (typeof obj === 'object') {
@@ -16,7 +21,18 @@ define([], function () {
                 this.__elem.setAttribute (key, obj[key]);
             }
         }
-    }
+    };
+
+    ElementRenderer.prototype.css = function (obj, value) {
+        if(typeof value === 'undefined' && typeof obj === 'string') {
+            return  this.__elem.style[obj];
+        }
+        if(typeof obj === 'string') {
+            this.__elem.style[obj] = value;
+        } else if (typeof obj === 'object') {
+            this.__elem.style = _.extend (this.__elem.style, obj);
+        }
+    };
 
     ElementRenderer.prototype.width = function (value) {
         this.attr ('width', value);
@@ -32,6 +48,10 @@ define([], function () {
 
     ElementRenderer.prototype.text = function (text) {
         this.__elem.innerHTML = text;
+    };
+
+    ElementRenderer.prototype.getBBox = function () {
+        return this.__elem.getBBox();
     };
 
     return ElementRenderer;

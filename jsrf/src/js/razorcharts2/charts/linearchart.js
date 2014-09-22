@@ -5,27 +5,11 @@
 define(['vendor/lodash', 
         'razorcharts2/scales/scale',
         'razorcharts2/axes/bottomaxis',
-        'razorcharts2/utils/graphutils'], function (_, Scale, BottomAxis, GraphUtils) {
+        'razorcharts2/axes/leftaxis',
+        'razorcharts2/utils/graphutils'], function (_, Scale, BottomAxis, LeftAxis, GraphUtils) {
     var LinearChart = function() {
-
+        this.options = {};
     };
-
-    var options = {},
-        paper = null,
-        width = null,
-        height = null,
-        series = null,
-        labels = null,
-        dataMin = null,
-        dataMax = null,
-        xScale = null,
-        yScale = null,
-        xAxis = null,
-        yAxis = null,
-        xAxisOptions = null,
-        yAxisOptions = null,
-        xAxisContainer = null,
-        yAxisContainer = null;
 
     /**
      * Sets the config for the chart
@@ -33,25 +17,25 @@ define(['vendor/lodash',
      */
     LinearChart.prototype.config = function (_options) {
         // Setting the options and a bunch of shared private variables
-        options = _.extend(options, _options);
-        series = options.series;
-        labels = options.labels;
-        xAxisOptions = options.xAxis || {};
-        yAxisOptions = options.yAxis || {};
+        var options = this.options = _.extend(this.options, _options);
+        this.series = options.series;
+        this.labels = options.labels;
+        this.xAxisOptions = options.xAxis || {};
+        this.yAxisOptions = options.yAxis || {};
 
         if(options.stacked) {
-            configureStackedLinearChart ();
+            configureStackedLinearChart (this);
         } else if(options.dualAxis) {
-            configureDualAxisLinearChart ();
+            configureDualAxisLinearChart (this);
         } else {
-            configureLinearChart ();
+            configureLinearChart (this);
         }
     };
 
-    function configureLinearChart () {
-        calcScaleBounds ();
-        configureScales ();
-        configureAxis ();
+    function configureLinearChart (self) {
+        calcScaleBounds (self);
+        configureScales (self);
+        configureAxis (self);
     }
 
     function configureStackedLinearChart () {
@@ -62,45 +46,53 @@ define(['vendor/lodash',
 
     }
 
-    function calcScaleBounds () {
-        var allData = [];
+    function calcScaleBounds (self) {
+        var allData = [],
+            series = self.options.series;
         for(var i=0; i<series.length; ++i) {
-            allData = allData.concat(series[i].data);
+            allData = allData.concat(self.series[i].data);
         }
-        dataMin = _.min (allData);
-        dataMax = _.max (allData);
+        self.dataMin = _.min (allData);
+        self.dataMax = _.max (allData);
     }
 
 
-    function configureScales () {
+    function configureScales (self) {
         // Create an ordinal scale for the x axis
-        xScale = new Scale.ordinal ();
-        xScale.domain (options.labels);
+        self.xScale = new Scale.ordinal ();
+        self.xScale.domain (self.options.labels);
 
-        yScale = new Scale.linear ();
-        var yDomain = yAxisDomain ();
-        yScale.domain ([yDomain.min, yDomain.max]);
+        self.yScale = new Scale.linear ();
+        self.yDomain = yAxisDomain (self);
+        self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
     }
 
-    function configureAxis () {
-        xAxis = new BottomAxis ();
-        xAxis.config ({
+    function configureAxis (self) {
+        self.xAxis = new BottomAxis ();
+        self.xAxis.config ({
             type: 'ordinal',
-            scale: xScale,
-            ticks: labels
+            scale: self.xScale,
+            ticks: self.labels
+        });
+
+        self.yAxis = new LeftAxis ();
+        self.yAxis.config({
+            type: 'linear',
+            scale: self.yScale,
+            ticks: self.yDomain.ticks
         });
     }
 
-    function yAxisDomain () {
-        var min = dataMin < 0 ? dataMin : 0;
-        var max = dataMax;
+    function yAxisDomain (self) {
+        var min = self.dataMin < 0 ? self.dataMin : 0;
+        var max = self.dataMax;
 
-        if(_.isNumber(yAxisOptions.minValue) || _.isNumber(yAxisOptions.maxValue)) {
-            min = yAxisOptions.minValue || min;
-            max = yAxisOptions.maxValue || max;
+        if(_.isNumber(self.yAxisOptions.minValue) || _.isNumber(self.yAxisOptions.maxValue)) {
+            min = self.yAxisOptions.minValue || min;
+            max = self.yAxisOptions.maxValue || max;
         }
 
-        var domain = GraphUtils.prettyDomain (dataMin < 0 ? 0 : dataMin);
+        var domain = GraphUtils.prettyDomain (self.dataMin < 0 ? 0 : self.dataMin);
         return domain;
     }
 
@@ -110,13 +102,18 @@ define(['vendor/lodash',
      * @param  {Number} h height of the chart
      */
     LinearChart.prototype.renderTo = function (paper, w, h) {
+        this.paper = paper;
+        this.xScale.range ([0, w]);
+        this.xAxisContainer = paper.g();
+        this.xAxisContainer.attr ('id', 'rc-xaxis');
+        this.paper.append (this.xAxisContainer);
+        this.xAxis.renderTo (paper, this.xAxisContainer, w, h);
 
-        xScale.range ([0, w]);
-
-        xAxisContainer = paper.g();
-        xAxisContainer.attr ('id', 'rc-xaxis');
-        paper.append (xAxisContainer);
-        xAxis.renderTo (paper, xAxisContainer, w, h);
+        // yScale.range ([0, h - xAxis.height]);
+        // yAxisContainer = paper.g();
+        // yAxisContainer.attr('id', 'rc-yaxis');
+        // paper.append (yAxisContainer);
+        // yAxis.renderTo (paper, yAxisContainer, w, h);
     };
 
     /**
