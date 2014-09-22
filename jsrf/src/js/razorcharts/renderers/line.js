@@ -78,6 +78,7 @@ define(['vendor/lodash'], function(_) {
                     var circle = null,
                         line = null,
                         eventCircle = null;
+
                     if(options.dualAxis) {
                         yScale = options.yScale[series[i].yAxis || 'left'];
                     }
@@ -95,14 +96,16 @@ define(['vendor/lodash'], function(_) {
                         } else {
                             line = plotItemsLine[i][j];
                         }
-                        if(typeof(data[j] === "number")  && typeof(data[j+1] === "number")) {
+                        if(typeof data[j] === "number" && data[j].toString() !== 'NaN'  && typeof data[j+1] === "number" && data[j+1].toString() !== 'NaN') {
                             line.attr('opacity', 1);
                         } else {
                             line.attr('opacity', 0);
                         }
+                        var d = (typeof data[j] === 'number' && data[j].toString() !== 'NaN') ? data[j] : 0;
+                        var d1 = (typeof data[j + 1] === 'number' && data[j + 1].toString() !== 'NaN') ? data[j+1] : 0;
                         line.animate({
-                            path: 'M' + ((seriesWidth * j) + seriesWidth / 2) + ',' + (height - yScale.calc(data[j])) + 
-                                                        'L' +  ((seriesWidth * (j+1)) + seriesWidth / 2) + ',' + (height - yScale.calc(data[j+1]))
+                            path: 'M' + ((seriesWidth * j) + seriesWidth / 2) + ',' + (height - yScale.calc(d)) + 
+                                                        'L' +  ((seriesWidth * (j+1)) + seriesWidth / 2) + ',' + (height - yScale.calc(d1))
                         }, animate ? 500 : 0);
                     }
                     if(create) {
@@ -146,19 +149,22 @@ define(['vendor/lodash'], function(_) {
                         circle = plotItemsCircle[i][j];
                         eventCircle = plotItemsEventCircle[i][j];
                     }
-                    if(typeof(data[j]) === "number") {
+                    if(typeof data[j] === "number" && data[j].toString() !== 'NaN') {
                         circle.attr('opacity', 1);
+                        eventCircle.node.style.pointerEvents = '';
                     } else {
                         circle.attr('opacity', 0);
+                        eventCircle.node.style.pointerEvents = 'none';
                     }
+                    var d = (typeof data[j] === 'number' && data[j].toString() !== 'NaN') ? data[j] : 0;
                     circle.animate({
                         cx: (seriesWidth * j) + seriesWidth / 2,
-                        cy: height - yScale.calc(data[j])
+                        cy: height - yScale.calc(d)
                     }, animate ? 500 : 0);
 
                     eventCircle.attr({
                         cx: (seriesWidth * j) + seriesWidth / 2,
-                        cy: height - yScale.calc(data[j])
+                        cy: height - yScale.calc(d)
                     });
                 }
             }

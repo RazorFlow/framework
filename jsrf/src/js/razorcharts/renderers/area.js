@@ -106,14 +106,14 @@ define(['razorcharts/renderers/line', 'vendor/lodash'], function(Line, _) {
 
                     path += ' L' +  ((seriesWidth * j) + seriesWidth / 2) + ',' + (height - yScale.calc(0));
                     _y = options.stacked ? (height - yScale.calc(prevIndexTotal(i, j) + data[j])) : (height - yScale.calc(data[j]));
-                    if(data[j]) {
+                    if(typeof data[j] === 'number' && data[j].toString() !== 'NaN') {
                         animPath += ' L' +  ((seriesWidth * j) + seriesWidth / 2) + ',' + _y;
                     } else {
                         if(j - 1 >= 0) {
                             animPath += ' L' +  ((seriesWidth * (j - 1)) + seriesWidth / 2) + ',' + height;
                         }
                         if(j + 1 < data.length) {
-                            animPath += ' M' +  ((seriesWidth * (j + 1)) + seriesWidth / 2) + ',' + _y;
+                            animPath += ' M' +  ((seriesWidth * (j + 1)) + seriesWidth / 2) + ',' + height;
                         }
                     }            
                 }
