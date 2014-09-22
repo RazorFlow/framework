@@ -17,7 +17,6 @@ define(['leonardo/core/element'], function(Element) {
 
     function init (self) {
         self.__elem = elem = new renderer();
-        self.paper.append (self);
     }
 
     return G;

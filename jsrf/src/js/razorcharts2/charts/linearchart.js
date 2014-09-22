@@ -23,7 +23,9 @@ define(['vendor/lodash',
         xAxis = null,
         yAxis = null,
         xAxisOptions = null,
-        yAxisOptions = null;
+        yAxisOptions = null,
+        xAxisContainer = null,
+        yAxisContainer = null;
 
     /**
      * Sets the config for the chart
@@ -108,7 +110,13 @@ define(['vendor/lodash',
      * @param  {Number} h height of the chart
      */
     LinearChart.prototype.renderTo = function (paper, w, h) {
-        xAxis.renderTo (paper, w, h);
+
+        xScale.range ([0, w]);
+
+        xAxisContainer = paper.g();
+        xAxisContainer.attr ('id', 'rc-xaxis');
+        paper.append (xAxisContainer);
+        xAxis.renderTo (paper, xAxisContainer, w, h);
     };
 
     /**

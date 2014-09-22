@@ -3,6 +3,7 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
 
     var PaperRenderer = function (node, width, height) {
         $elem = this.createElement ('svg');
+        this.__elem = $elem;
 
         if(typeof node !== 'undefined') {
             if(typeof node === 'object' && typeof node.appendChild !== 'undefined') {
@@ -14,8 +15,6 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
 
         this.width (width);
         this.height (height);
-
-        this.__elem = $elem;
     }
 
     PaperRenderer.prototype = new ElementRenderer  ();

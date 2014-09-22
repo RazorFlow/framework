@@ -1,12 +1,16 @@
 define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
-    var $elem = null;
+    var $elem = null,
+        $tspan = null;
 
     var TextRenderer = function (x, y, text) {
         $elem = this.createElement ('text');
+        $tspan = this.createElement ('tspan');
+        $elem.appendChild ($tspan);
+        $elem.setAttribute ('x', x);
+        $elem.setAttribute ('y', y);
+        $tspan.innerHTML = text;
+
         this.__elem = $elem;
-        this.attr ('x', x);
-        this.attr ('y', y);
-        this.text (text);
     }
 
     TextRenderer.prototype = new ElementRenderer  ();

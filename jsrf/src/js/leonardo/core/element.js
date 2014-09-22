@@ -25,5 +25,9 @@ define([], function () {
         this.paper = _paper;
     };
 
+    Element.prototype.transform = function (transformString) {
+        
+    }
+
     return Element;
 });
