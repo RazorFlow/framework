@@ -1,6 +1,5 @@
 define(['leonardo/core/element'], function(Element) {
-    var renderer = null,    
-        elem = null;
+    var renderer = null;
 
     var Text = function (x, y, text) {
         init (this, x, y, text);
@@ -16,7 +15,7 @@ define(['leonardo/core/element'], function(Element) {
     Text.prototype.constructor = Text;
 
     function init (self, x, y, text) {
-        self.__elem = elem = new renderer(x, y, text);
+        self.__elem = new renderer(x, y, text);
     }
 
     return Text;

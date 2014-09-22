@@ -1,6 +1,5 @@
 define(['leonardo/core/element'], function(Element) {
-    var renderer = null,    
-        elem = null;
+    var renderer = null;
 
     var Line = function (x1, y1, x2, y2) {
         init (this, x1, y1, x2, y2);
@@ -16,7 +15,7 @@ define(['leonardo/core/element'], function(Element) {
     Line.prototype.constructor = Line;
 
     function init (self, x1, y1, x2, y2) {
-        self.__elem = elem = new renderer(x1, y1, x2, y2);
+        self.__elem = new renderer(x1, y1, x2, y2);
     }
 
     return Line;

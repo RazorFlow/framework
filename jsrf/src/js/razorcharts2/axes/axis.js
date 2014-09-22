@@ -12,19 +12,29 @@ define([], function () {
     };
 
     Axis.prototype.renderTo = function (_paper, _core, w, h) {
-        this.paper = paper = _paper;
-        this.core = core = _core;
-        this.width = width = w;
-        this.height = height = h;
+        this.paper = _paper;
+        this.core = _core;
+        this.coreWidth = w;
+        this.coreHeight = h;
 
         this.createTicks (this);
+        this.line = this.paper.line (0, 0, 0, 0);
+        this.core.append (this.line);
         this.transform ();
-
-        this.height = core.getBBox().width;
     };
 
-    Axis.prototype.resizeTo = function () {
+    Axis.prototype.height = function () {
+        return this.core.getBBox().height;
+    };
 
+    Axis.prototype.width = function () {
+        return this.core.getBBox().width;
+    };
+
+    Axis.prototype.resizeTo = function (w, h) {
+        this.coreWidth = w;
+        this.coreHeight = h;
+        this.transform();
     };
 
     Axis.prototype.transform = function () {
@@ -37,11 +47,12 @@ define([], function () {
         this.transformers.push (transformer);
     };
 
-    Axis.prototype.createTicks = function(self) {
+    Axis.prototype.createTicks = function() {
+        var paper = this.paper;
         for(var i=0; i<this.ticks.length; ++i) {
             var $tick = paper.g ();
             $tick.attr('id', 'tick-' + (i+1));
-            var $text = paper.text (0, 14, '' + this.ticks[i]);
+            var $text = paper.text (0, 0, '' + this.ticks[i]);
             $tick.append ($text);
             this.$ticks.push ($tick);
             this.core.append ($tick);

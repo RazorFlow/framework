@@ -6,9 +6,17 @@ define(['vendor/lodash',
         'razorcharts2/scales/scale',
         'razorcharts2/axes/bottomaxis',
         'razorcharts2/axes/leftaxis',
-        'razorcharts2/utils/graphutils'], function (_, Scale, BottomAxis, LeftAxis, GraphUtils) {
+        'razorcharts2/utils/graphutils',
+        'razorcharts2/plots/column'], function (_, Scale, BottomAxis, LeftAxis, GraphUtils, Column) {
+
+    var plots = {
+        'column': Column
+    };
+
+    var plotOrder = ['column', 'area', 'line'];
     var LinearChart = function() {
         this.options = {};
+        this.plots = {};
     };
 
     /**
@@ -36,6 +44,7 @@ define(['vendor/lodash',
         calcScaleBounds (self);
         configureScales (self);
         configureAxis (self);
+        configurePlots (self);
     }
 
     function configureStackedLinearChart () {
@@ -44,6 +53,42 @@ define(['vendor/lodash',
 
     function configureDualAxisLinearChart () {
 
+    }
+
+    function configurePlots (self) {
+        var series = self.options.series;
+        dividePlotsByDisplayType (self);
+        
+        for(var i=0; i<plotOrder.length; i++) {
+            var plotType = plotOrder[i];
+            var plotSeries = self.plotsByDisplayType[plotType];
+            var plot = plots[plotType];
+
+            for(var j=0; j<series.length; j++) {
+                // TODO : for dual axis use this to provide the correct scale
+                series[j].scale = self.yScale;
+            }
+
+            if(plot && plotSeries) {
+                self.plots[plotType] = new plot();
+                self.plots[plotType].config({
+                    series: series
+                });
+            }
+        }
+    }
+
+    function dividePlotsByDisplayType (self) {
+        var series = self.options.series;
+        self.plotsByDisplayType = {};
+
+        for(var i=0; i<series.length; i++) {
+            var displayType = series[i].displayType;
+            if(!_.isArray(self.plotsByDisplayType[displayType])) {
+                self.plotsByDisplayType[displayType] = [];
+            }
+            self.plotsByDisplayType[displayType].push(series[i]);
+        }
     }
 
     function calcScaleBounds (self) {
@@ -92,7 +137,7 @@ define(['vendor/lodash',
             max = self.yAxisOptions.maxValue || max;
         }
 
-        var domain = GraphUtils.prettyDomain (self.dataMin < 0 ? 0 : self.dataMin);
+        var domain = GraphUtils.prettyDomain (self.dataMin < 0 ? self.dataMin : 0, self.dataMax);
         return domain;
     }
 
@@ -106,15 +151,41 @@ define(['vendor/lodash',
         this.xScale.range ([0, w]);
         this.xAxisContainer = paper.g();
         this.xAxisContainer.attr ('id', 'rc-xaxis');
-        this.paper.append (this.xAxisContainer);
+        paper.append (this.xAxisContainer);
         this.xAxis.renderTo (paper, this.xAxisContainer, w, h);
+        
+        this.yScale.range ([0, h - this.xAxis.height()]);
+        this.yAxisContainer = paper.g();
+        this.yAxisContainer.attr('id', 'rc-yaxis');
+        paper.append (this.yAxisContainer);
+        this.yAxis.renderTo (paper, this.yAxisContainer, w, h - this.xAxis.height());
+        this.yAxisContainer.css({
+            'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
+        });
 
-        // yScale.range ([0, h - xAxis.height]);
-        // yAxisContainer = paper.g();
-        // yAxisContainer.attr('id', 'rc-yaxis');
-        // paper.append (yAxisContainer);
-        // yAxis.renderTo (paper, yAxisContainer, w, h);
+        this.xScale.range ([0, w - this.yAxis.width()]);
+        this.xAxis.resizeTo (w - this.yAxis.width(), h);
+        this.xAxisContainer.css({
+            'transform': 'translate(' + this.yAxis.width() + 'px,' + (h - this.xAxis.height()) + 'px)'
+        });
+
+        this.plotContainer = paper.g ();
+        this.plotContainer.attr ('id', 'rc-plotcontainer');
+        paper.append (this.plotContainer);
+
+        renderPlots (this, w - this.yAxis.width(), h - this.xAxis.height());
+
+        this.plotContainer.css({
+            'transform': 'translate(' + this.yAxis.width() + 'px,0px)'
+        });
     };
+
+    function renderPlots (self, w, h) {
+        for(var key in self.plots) {
+            var plot = self.plots[key];
+            plot.renderTo (self.paper, self.plotContainer, w, h);
+        }
+    }
 
     /**
      * Call this function to resize the chart

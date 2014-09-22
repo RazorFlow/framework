@@ -4,10 +4,12 @@ define([
      'leonardo/renderers/svg/svgmain',
      'leonardo/elements/g',
      'leonardo/elements/text',
-     'leonardo/elements/line'], function(Leonardo, Paper, SVGRenderer, G, Text, Line) {
+     'leonardo/elements/line',
+     'leonardo/elements/rect'], function(Leonardo, Paper, SVGRenderer, G, Text, Line, Rect) {
         Leonardo.setRenderer (SVGRenderer);
         Paper.registerElement (G);
         Paper.registerElement (Text);
         Paper.registerElement (Line);
+        Paper.registerElement (Rect);
         return Leonardo;
 });

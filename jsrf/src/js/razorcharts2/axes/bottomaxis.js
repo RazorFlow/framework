@@ -8,22 +8,26 @@ define(['razorcharts2/axes/axis'], function (Axis) {
 
     function BottomAxisTransformer (self) {
         console.log ('Transformer called!');
-        var width = self.width,
+        var width = self.coreWidth,
             $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
             tickWidth = width / ticks.length;
-                
+        
         for(var i=0; i<ticks.length; ++i) {
             var x = scale.calc(ticks[i]) + tickWidth / 2;
             $ticks[i].css ({
-                'transform': 'translate(' + x + 'px,0)',
+                'transform': 'translate(' + x + 'px,14px)',
                 'text-anchor': 'middle'
             });
         }
 
-        var line = self.line = self.paper.line (0, 0, width, 0);
-        self.core.append (line);
+        self.line.attr ({
+            x1: 0,
+            y1: 0,
+            x2: width,
+            y2: 0
+        });
     };
 
     return BottomAxis;
