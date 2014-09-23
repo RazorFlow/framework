@@ -148,37 +148,78 @@ define(['vendor/lodash',
      */
     LinearChart.prototype.renderTo = function (paper, w, h) {
         this.paper = paper;
+        // Create Containers group elemets for the chart inner components
+        createContainers (this);
+
+        // Set the xScale and render xAxis
         this.xScale.range ([0, w]);
-        this.xAxisContainer = paper.g();
-        this.xAxisContainer.attr ('id', 'rc-xaxis');
-        paper.append (this.xAxisContainer);
         this.xAxis.renderTo (paper, this.xAxisContainer, w, h);
         
+        // Set the yScale negating the space taken by the xAxis and render the yAxis
         this.yScale.range ([0, h - this.xAxis.height()]);
-        this.yAxisContainer = paper.g();
-        this.yAxisContainer.attr('id', 'rc-yaxis');
-        paper.append (this.yAxisContainer);
         this.yAxis.renderTo (paper, this.yAxisContainer, w, h - this.xAxis.height());
         this.yAxisContainer.css({
             'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
         });
 
+        // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxis.width()]);
         this.xAxis.resizeTo (w - this.yAxis.width(), h);
         this.xAxisContainer.css({
             'transform': 'translate(' + this.yAxis.width() + 'px,' + (h - this.xAxis.height()) + 'px)'
         });
 
-        this.plotContainer = paper.g ();
-        this.plotContainer.attr ('id', 'rc-plotcontainer');
-        paper.append (this.plotContainer);
-
+        // Render the plots
         renderPlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-
         this.plotContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px,0px)'
+            'transform': 'translate(' + this.yAxis.width() + 'px,0)'
         });
     };
+
+    /**
+     * Call this function to resize the chart
+     * @param  {Number} w width of the chart
+     * @param  {Number} h height of the chart
+     */
+    LinearChart.prototype.resizeTo = function (w, h) {
+        // Set the xScale and render xAxis
+        this.xScale.range ([0, w]);
+        this.xAxis.resizeTo (w, h);
+
+        this.yScale.range ([0, h - this.xAxis.height()]);
+        this.yAxis.resizeTo (w, h - this.xAxis.height());
+        this.yAxisContainer.css({
+            'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
+        });
+
+         // Resize the xAxis since the space taken by yAxis was not considered while rendering
+        this.xScale.range ([0, w - this.yAxis.width()]);
+        this.xAxis.resizeTo (w - this.yAxis.width(), h);
+        this.xAxisContainer.css({
+            'transform': 'translate(' + this.yAxis.width() + 'px,' + (h - this.xAxis.height()) + 'px)'
+        });
+
+        resizePlots (this, w - this.yAxis.width(), h - this.xAxis.height());
+        this.plotContainer.css({
+            'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
+        });
+    }
+
+    function createContainers (self) {
+        var paper = self.paper;
+
+        self.xAxisContainer = paper.g();
+        self.xAxisContainer.attr ('id', 'rc-xaxis');
+        paper.append (self.xAxisContainer);
+
+        self.yAxisContainer = paper.g();
+        self.yAxisContainer.attr('id', 'rc-yaxis');
+        paper.append (self.yAxisContainer);
+
+        self.plotContainer = paper.g ();
+        self.plotContainer.attr ('id', 'rc-plotcontainer');
+        paper.append (self.plotContainer);
+    }
 
     function renderPlots (self, w, h) {
         for(var key in self.plots) {
@@ -187,11 +228,11 @@ define(['vendor/lodash',
         }
     }
 
-    /**
-     * Call this function to resize the chart
-     */
-    LinearChart.prototype.resizeTo = function () {
-
+    function resizePlots (self, w, h) {
+        for(var key in self.plots) {
+            var plot = self.plots[key];
+            plot.resizeTo (w, h);
+        }    
     }
 
     return LinearChart;

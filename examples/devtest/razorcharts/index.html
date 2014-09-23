@@ -30,7 +30,11 @@
                     }
                 ]
             });
-            chart.renderTo(document.getElementById ('container'), 400, 300);
+            chart.renderTo(document.getElementById ('container'), 300, 200);
+
+            document.getElementsByTagName('body')[0].addEventListener('click', function() {
+                chart.resizeTo (600, 400);
+            });
 		});
 	</script>
 </head>

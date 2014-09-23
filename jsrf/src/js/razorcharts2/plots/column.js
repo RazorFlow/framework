@@ -1,5 +1,5 @@
 define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
-    var SERIES_PADDING = 0.2;
+    var SERIES_PADDING = 0.3;
     var Column = function () {
         this.registerTransformer (ColumnTransformer);
     };

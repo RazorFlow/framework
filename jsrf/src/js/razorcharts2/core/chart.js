@@ -49,13 +49,26 @@ define([
     /**
      * Renders the chart
      * @param  {HTMLDOMNode} node the DOM node in which the main svg element is to be appended
-     * @param  {Number} w    width of the chart
-     * @param  {Number} h    height of the chart
+     * @param  {Number} width  width of the chart
+     * @param  {Number} height height of the chart
      */
     Chart.prototype.renderTo = function (node, width, height) {
         var paper = this.paper = Leonardo.paper(node, width, height);
         this.chart.renderTo (paper, width, height);
     };
+
+    /**
+     * Resizes the chart
+     * @param  {Number} width  width of the chart
+     * @param  {Number} height height of the chart
+     */
+    Chart.prototype.resizeTo = function(width, height) {
+        this.paper.attr ({
+            width: width,
+            height: height
+        });
+        this.chart.resizeTo (width, height);
+    }
 
     return Chart;
 });

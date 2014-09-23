@@ -30,7 +30,7 @@ define([], function () {
         this.transform ();
     };
 
-    Rect.prototype.resizeTo = function () {
+    Rect.prototype.resizeTo = function (w, h) {
         this.coreWidth = w;
         this.coreHeight = h;
         this.transform ();
