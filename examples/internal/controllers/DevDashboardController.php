@@ -31,6 +31,7 @@ class DevDashboardController {
 		$examples['js']['examples'] = $this->find('js', 'examples', 'js');
 		$examples['js']['testcases'] = $this->find('js', 'testcases', 'js');
 		$examples['js']['tests'] = $this->find('js', 'tests', 'js');
+		$examples['js']['bench'] = $this->find('js', 'bench', 'js');
 
 		$examples['php']['demos'] = $this->find('php', 'demos', 'php');
 		$examples['php']['examples'] = $this->find('php', 'examples', 'php');
@@ -47,7 +48,6 @@ class DevDashboardController {
 	private function getFileMeta($contents){
 		$re = "/\/\*\&(.*)\*\//s";
 		preg_match_all($re, $contents, $matches);
-
 		if($matches && count($matches[1]) > 0){
 			$meta = $matches[1][0];
 			return json_decode($meta, true);
@@ -81,6 +81,19 @@ class DevDashboardController {
 
 		return $app['twig']->render('dev/jsExample.twig', array(
 			'type' => $type,
+			'id' => $id,
+			'file_contents' => $fileContents
+		));
+	}
+
+	public function devJSBench (Request $request, Application $app, $id) {
+		global $rfExampleConfig;
+		$examples = $this->buildExampleArray ();
+
+		$fileContents = file_get_contents($rfExampleConfig['examplePaths']['js']['bench'].'/'.$id.'.js');
+
+		return $app['twig']->render('dev/jsBench.twig', array(
+			'type' => 'bench',
 			'id' => $id,
 			'file_contents' => $fileContents
 		));

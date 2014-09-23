@@ -24,7 +24,8 @@ $rfExampleConfig = array (
 			'demos' => __DIR__."/../src/js/demos/",
 			'examples' => __DIR__."/../src/js/examples/",
 			'testcases' => __DIR__."/../src/js/testcases/",
-			'tests' => __DIR__."/../src/js/tests/"
+			'tests' => __DIR__."/../src/js/tests/",
+			'bench' => __DIR__."/../src/js/benchmark/"
 		),
 		'php' => array (
 			'demos' => __DIR__."/../src/php/demos/",

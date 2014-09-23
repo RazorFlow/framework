@@ -38,6 +38,7 @@ foreach($rfExampleConfig['mounts'] as $point => $path) {
 // Development routes
 $app->get('/devStatic/{lang}/{fileName}', 'DevStaticController::getDevFile')->assert('fileName', '.+');;
 $app->get('/dev/', 'DevDashboardController::devIndex');
+$app->get('/dev/js/bench/{id}', 'DevDashboardController::devJSBench');
 $app->get('/dev/js/{type}/{id}', 'DevDashboardController::devJSExample');
 $app->match('/dev/php/{type}/{id}', 'DevDashboardController::devPHPExample');
 $app->match('/dev/html/{type}/{id}', 'DevDashboardController::devHTMLExample');

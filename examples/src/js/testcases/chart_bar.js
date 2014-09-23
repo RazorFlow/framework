@@ -13,7 +13,7 @@ StandaloneDashboard(function (db) {
     c2.setLabels(['January', 'February', 'March', 'April', 'May']);
     c2.addSeries("seriesA", "Series A", [1, 3, 5, 1, 9], {seriesDisplayType: 'bar', numberPrefix: '$'});
     c2.addSeries("seriesB", "Series B", [9, 1, 5, 3, 1], {seriesDisplayType: 'bar', numberPrefix: '$'});
-
+    db.pro.benchmarkResize();
     db.addComponent(c2);
 
     var c3 = new ChartComponent();

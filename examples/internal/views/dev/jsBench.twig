@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" href="/mount/tmp/css/razorflow.css" />
+        <script type="text/javascript" src="/static/rf/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/rf/js/razorflow.min.js"></script>
+        <script type="text/javascript" src="/static/rf/js/razorflow.devtools.min.js"></script>
+<script>
+    {{ file_contents|raw }}
+</script>
+<script type="text/javascript" src="/static/benchmark/main.js"></script>
+</head>
+<body>
+<div id="dbTarget" style='position: relative;' class='rf rf-click rf-lg'>
+</div>
+<button class="rfRedrawLink">Redraw</button><p class="redraw-info"></p><br>
+<button class="rfResizeLink">Resize</button><p class="resize-info"></p><br>
+</body>
+</html>
+    

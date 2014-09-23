@@ -44,7 +44,8 @@ define([
         disableResizeWatcher = false,
         logs = null,
         logger = null,
-        MINIKPI_MAX = 6;
+        MINIKPI_MAX = 6,
+        forceResizeFlag = false;
 
     // Register this dashboard as soon as it is created
     rf.globals.dbRegistry.registerDashboard(id, this);
@@ -262,6 +263,14 @@ define([
         for(var i=0; i<components.length; i++) {
           components[i].lock();
         }
+      },
+
+      forceResize: function (_width) {
+        $containerDiv.css({
+          "width" : _width
+        });
+        forceResizeFlag = true;
+        resize();
       }
     };
 
@@ -382,7 +391,8 @@ define([
           db: self,
           coreDiv: $containerDiv
         });
-      })
+        self.trigger("renderFinished");
+      });
     };
 
     var render = function () {
@@ -413,7 +423,7 @@ define([
     };
 
     var resize = function () {
-      if(disableResizeWatcher) {
+      if(disableResizeWatcher && !forceResizeFlag) {
         return;
       }
       var dbWidth = $coreDiv.width(), maxHeight = 0, cssObj = {};
@@ -439,6 +449,9 @@ define([
           $coreDiv.height(maxHeight);
         }
       }
+      _.defer(function () {
+        self.trigger("resizeFinished");
+      });
       // ThemeBuilder.init();
     };
 
