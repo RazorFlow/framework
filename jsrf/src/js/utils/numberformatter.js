@@ -1,98 +1,95 @@
-define(["vendor/lodash"], function (_) {
-  var NumberFormatter = function () {
+define(["vendor/lodash", "vendor/klass"], function (_, klass) {
 
-    var self = this,
-        config,
-        numberPrefix = "",
-        numberSuffix = "",
-        numberHumanize = null,
-        numberThousandsSeparator = null,
-        numberDecimalsSeparator = null,
-        numberForceDecimals = null,
-        numberDecimalPoints = null;
+  var NumberFormatter = klass({
+    numberPrefix: "",
+    numberSuffix: "",
+    numberHumanize: null,
+    numberThousandsSeparator: null,
+    numberDecimalsSeparator: null,
+    numberForceDecimals: null,
+    numberDecimalPoints: null,
 
-    self.setConfig = function (c) {
-      config = c;
-
+    setConfig: function (c) {
+      var config = c;
       if (config.numberFormatFlag === true && config.dataType === "number") {
         if (typeof(config.numberPrefix) === 'string') {
-          numberPrefix = config.numberPrefix;
+          this.numberPrefix = config.numberPrefix;
         }
         if (typeof(config.numberSuffix) === 'string') {
-          numberSuffix = config.numberSuffix;
+          this.numberSuffix = config.numberSuffix;
         }
         if (typeof(config.numberHumanize) === 'boolean') {
-          numberHumanize = config.numberHumanize;
+          this.numberHumanize = config.numberHumanize;
         }
-        if (typeof(config.numberThousandsSeparator) === 'string' && !numberHumanize) {
-          numberThousandsSeparator = config.numberThousandsSeparator;
+        if (typeof(config.numberThousandsSeparator) === 'string' && !this.numberHumanize) {
+          this.numberThousandsSeparator = config.numberThousandsSeparator;
         }
         if (typeof(config.numberDecimalsSeparator) === 'string') {
-          numberDecimalsSeparator = config.numberDecimalsSeparator;
+          this.numberDecimalsSeparator = config.numberDecimalsSeparator;
         }
         if (typeof(config.numberForceDecimals) === 'boolean') {
-          numberForceDecimals = config.numberForceDecimals;
+          this.numberForceDecimals = config.numberForceDecimals;
         }
         if (typeof(config.numberDecimalPoints) === 'number') {
-          numberDecimalPoints = config.numberDecimalPoints;
+          this.numberDecimalPoints = config.numberDecimalPoints;
         }
       }
-    };
+    },
 
-    self.formatValue = function (value) {
+    formatValue: function (value) {
       var decimalZeroes = '';
 
       value = value.toString();
 
-      value = numberThousandsSeparator ? _numberThousandsSeperator(value, numberThousandsSeparator, numberDecimalsSeparator) : value;
-      value = numberHumanize ? _numberHumanize(value) : value;
+      value = this.numberThousandsSeparator ? this._numberThousandsSeperator(value, this.numberThousandsSeparator, this.numberDecimalsSeparator) : value;
+      value = this.numberHumanize ? this._numberHumanize(value) : value;
 
-      for (var i = 0; i < numberDecimalPoints; i++) {
+      for (var i = 0; i < this.numberDecimalPoints; i++) {
         decimalZeroes += '0';
       }
-      if(numberForceDecimals) {
-        if(value.indexOf(numberDecimalsSeparator) < 0) {
-          value = value + numberDecimalsSeparator + decimalZeroes;
+      if(this.numberForceDecimals) {
+        if(value.indexOf(this.numberDecimalsSeparator) < 0) {
+          value = value + this.numberDecimalsSeparator + decimalZeroes;
         } else {
-          var decimalSize = value.split(numberDecimalsSeparator)[1].length;
+          var decimalSize = value.split(this.numberDecimalsSeparator)[1].length;
           
-          if(decimalSize < numberDecimalPoints) {
-            value = value + decimalZeroes.slice(0, numberDecimalPoints - decimalSize);
+          if(decimalSize < this.numberDecimalPoints) {
+            value = value + decimalZeroes.slice(0, this.numberDecimalPoints - decimalSize);
           }
         }
       }
 
-      return numberPrefix + value + numberSuffix;
-    };
+      return this.numberPrefix + value + this.numberSuffix;
+    },
 
-    self.formatArray = function (array) {
+    formatArray: function (array) {
       var result = [];
       var arrayLen = array.length;
       for (var i = 0; i < arrayLen; i++) {
-        result.push(self.formatValue(array[i]));
+        result.push(this.formatValue(array[i]));
       }
 
       return result;
-    };
+    },
 
-    self.formatColumn = function (data, key) {
+    formatColumn: function (data, key) {
       var rowLen = data.length;
       for (var i = 0; i < rowLen; i++) {
-        data[i][key] = self.formatValue(data[i][key]);
+        data[i][key] = this.formatValue(data[i][key]);
       }
 
       return data;
-    };
+    },
 
-    var splitDecimals = function (value) {
+    splitDecimals: function (value) {
       var num = value.split('.')[0],
           decimal = value.split('.')[1],
-          decimalVal = (+decimal) ? ( numberDecimalPoints > 0 ? numberDecimalsSeparator + decimal.split('').slice(0, numberDecimalPoints).join('') : '' )  : '';
+          decimalVal = (+decimal) ? ( this.numberDecimalPoints > 0 ? this.numberDecimalsSeparator + decimal.split('').slice(0, this.numberDecimalPoints).join('') : '' )  : '';
 
       return num + decimalVal;
-    };
+    },
 
-    var _numberHumanize = function (value) {
+    _numberHumanize: function (value) {
       var result = '',
           temp = '',
           negative = value < 0;
@@ -109,22 +106,22 @@ define(["vendor/lodash"], function (_) {
       } else if (value.length < 7) {
         temp = (+value / 1000).toString();
 
-        result = splitDecimals(temp) + 'K';
+        result = this.splitDecimals(temp) + 'K';
 
       } else if (value.length < 10) {
         temp = (+value / 1000000).toString();
 
-        result = splitDecimals(temp) + 'M';
+        result = this.splitDecimals(temp) + 'M';
       } else {
         temp = (+value / 1000000000).toString();
 
-        result = splitDecimals(temp) + 'B';
+        result = this.splitDecimals(temp) + 'B';
       }
 
       return negative ? '-' + result : result;
-    };
+    },
 
-    var _numberThousandsSeperator = function (value, separator, decimalSeparator) {
+    _numberThousandsSeperator: function (value, separator, decimalSeparator) {
       var result = '',
           negative = value < 0,
           temp = (Math.abs(+value)).toString().split('.')[0].split('').reverse().join(''),
@@ -149,38 +146,39 @@ define(["vendor/lodash"], function (_) {
 
       result += temp;
 
-      result = result.split('').reverse().join('') + ((decimal) ? decimalSeparator + decimal.split('').slice(0, numberDecimalPoints).join('') : '');
+      result = result.split('').reverse().join('') + ((decimal) ? decimalSeparator + decimal.split('').slice(0, this.numberDecimalPoints).join('') : '');
 
       return negative ? '-' + result : result;
-    };
-  };
-
-  NumberFormatter.pickFirstValid = function (items) {
-    var isValid = function (item) {
-      var defaults = {
-        'numberFormatFlag':true,
-        'numberHumanize':false,
-        'numberPrefix':null,
-        'numberSuffix':null,
-        'numberThousandsSeparator':",",
-        'numberDecimalsSeparator':".",
-        'numberForceDecimals':false,
-        'numberDecimalPoints':2
-      };
-      // FIXME: If any of the defaults are changed this will fail catastrophically.
-      // return true if ANY of the items is not the default value
-      return _.any(item, function (val, key) {
-        return typeof(defaults[key]) !== "undefined" && val !== defaults[key];
-      });
-    };
-
-    // Return the first item that's determined as valid.
-    var result = _.find(items, isValid);
-    if(!result) {
-      return items[0];
     }
-    return result;
-  };
+  })
+  .statics({
+    pickFirstValid: function (items) {
+      var isValid = function (item) {
+        var defaults = {
+          'numberFormatFlag':true,
+          'numberHumanize':false,
+          'numberPrefix':null,
+          'numberSuffix':null,
+          'numberThousandsSeparator':",",
+          'numberDecimalsSeparator':".",
+          'numberForceDecimals':false,
+          'numberDecimalPoints':2
+        };
+        // FIXME: If any of the defaults are changed this will fail catastrophically.
+        // return true if ANY of the items is not the default value
+        return _.any(item, function (val, key) {
+          return typeof(defaults[key]) !== "undefined" && val !== defaults[key];
+        });
+      };
+
+      // Return the first item that's determined as valid.
+      var result = _.find(items, isValid);
+      if(!result) {
+        return items[0];
+      }
+      return result;
+    }
+  });
 
   return NumberFormatter;
 });

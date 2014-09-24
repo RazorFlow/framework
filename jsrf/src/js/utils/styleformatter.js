@@ -1,94 +1,90 @@
-define(["utils/evalexpression"], function (EvalExpression) {
-  var StyleFormatter = function () {
+define(["utils/evalexpression", "vendor/klass"], function (EvalExpression, klass) {
 
-    var self = this,
-        config,
-        textAlign = "",
-        textBoldFlag = "",
-        textItalicFlag = "",
-        rawHTML = null,
-        RIGHT_ALIGN = 'right',
-        LEFT_ALIGN = 'left',
-        CENTER_ALIGN = 'center',
-        conditionExpn = {},
-        format = {};
+  var StyleFormatter = klass({
+    textAlign: "",
+    textBoldFlag: "",
+    textItalicFlag: "",
+    rawHTML: null,
+    RIGHT_ALIGN: 'right',
+    LEFT_ALIGN: 'left',
+    CENTER_ALIGN: 'center',
+    conditionExpn: {},
+    format: {},
+    textBoldString: "rfBold",
+    textItalicString: "rfItalic",
 
-    var textBoldString = "rfBold",
-        textItalicString = "rfItalic";
-
-    self.setConfig = function (c) {
-      config = c;
-
+    setConfig: function (c) {
+      var config = c;
       if (typeof(config.textAlign) === 'string') {
-        textAlign = config.textAlign;
+        this.textAlign = config.textAlign;
       }
 
       if (typeof(config.textBoldFlag) === 'boolean') {
-        textBoldFlag = config.textBoldFlag;
+        this.textBoldFlag = config.textBoldFlag;
       }
 
       if (typeof(config.textItalicFlag) === 'boolean') {
-        textItalicFlag = config.textItalicFlag;
+        this.textItalicFlag = config.textItalicFlag;
       }
 
       if (typeof(config.rawHTML) === 'boolean') {
-        rawHTML = config.rawHTML;
+        this.rawHTML = config.rawHTML;
       }
 
-      conditionExpn = config.conditionalExpression;
-      format = config.format;
-    };
+      this.conditionExpn = config.conditionalExpression;
+      this.format = config.format;
+    },
 
-    self.formatColumn = function (data, key) {
-      data[key]['style'] = addStyles();
+    formatColumn: function (data, key) {
+      data[key]['style'] = this.addStyles();
       return data;
-    };
+    },
 
-    self.formatCell = function (data, key) {
+    formatCell: function (data, key) {
       var value = null;
       var cellStyle = [];
       for(var i=0; i<data.length; i++) {
         cellStyle[i] = {};
-        if(EvalExpression(conditionExpn.expression, data[i][key])) {
-          cellStyle[i]["cellBackgroundColor"] = format.cellBackgroundColor;
-          cellStyle[i]["cellTextColor"] = format.cellTextColor;
+        if(EvalExpression(this.conditionExpn.expression, data[i][key])) {
+          cellStyle[i]["cellBackgroundColor"] = this.format.cellBackgroundColor;
+          cellStyle[i]["cellTextColor"] = this.format.cellTextColor;
         }
       }
       return cellStyle;
-    };
+    },
 
-    self.filterHTML = function(data, key){
-      if(data && !rawHTML){
+    filterHTML: function(data, key){
+      if(data && !this.rawHTML){
         for(var i=0; i<data.length; i++){
-          data[i][key] = cleanHTML(data[i][key]);
+          data[i][key] = this.cleanHTML(data[i][key]);
         }
       }
 
       return data;
-    };
+    },
 
-    var addStyles = function(){
+    addStyles: function() {
       var styles = [];
 
-      if (textAlign){
-        styles.push(addTextAlign());
+      if (this.textAlign){
+        styles.push(this.addTextAlign());
       }
 
-      if (textBoldFlag) {
-       styles.push(textBoldString);
+      if (this.textBoldFlag) {
+       styles.push(this.textBoldString);
       }
 
-      if (textItalicFlag) {
-        styles.push(textItalicString);
+      if (this.textItalicFlag) {
+        styles.push(this.textItalicString);
       }
 
       return styles.join(" ");
-    };
+    },
 
-    var addTextAlign = function(){
+    addTextAlign: function(){
       var align = "";
 
-      switch(textAlign){
+      switch(this.textAlign){
         case CENTER_ALIGN:
           align = 'rfCenter';
           break;
@@ -101,20 +97,20 @@ define(["utils/evalexpression"], function (EvalExpression) {
       }
 
       return align;
-    };
+    },
 
-    var cleanHTML = function(data){
-      return htmlEntities(data);
-    };
+    cleanHTML: function(data) {
+      return this.htmlEntities(data);
+    },
 
-    var htmlEntities = function(str){
+    htmlEntities: function(str) {
       return String(str).replace(/&/g, '&amp;')
                         .replace(/</g, '&lt;')
                         .replace(/>/g, '&gt;')
                         .replace(/"/g, '&quot;');
-    };
+    }
 
-  };
+  });
 
   return StyleFormatter;
 });
