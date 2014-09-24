@@ -4,6 +4,10 @@ define(['vendor/lodash'], function(_) {
         this._range = _range || [0, 1];
     };
 
+    OrdinalScale.prototype.type = function () {
+        return 'ordinal';
+    }
+
     OrdinalScale.prototype.domain = function (val) {
         if(val) {
             this._domain = val;

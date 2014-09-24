@@ -578,7 +578,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                 } else if(options.forceDomain) {
                     domain = options.domain;
                     tickValues = sanitizePrecision(domain.ticks);
-                } else if (options.minValue !== null || options.maxValue !== null) {
+                } else if ((_.isNumber(options.minValue) && options.minValue.toString() !== 'NaN') || (_.isNumber(options.maxValue) && options.maxValue.toString() != 'NaN')) {
                     var min = options.minValue === null ?  scale.min() : options.minValue;
                     var max = options.maxValue === null ? scale.max() : options.maxValue;
                     var numTicks = options.numTicks - 1 || 5;

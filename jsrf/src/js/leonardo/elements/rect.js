@@ -2,6 +2,7 @@ define(['leonardo/core/element'], function(Element) {
     var renderer = null;
 
     var Rect = function (x, y, width, height) {
+        this.init();
         init (this, x, y, width, height);
     };
 

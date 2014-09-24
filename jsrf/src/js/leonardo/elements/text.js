@@ -2,6 +2,7 @@ define(['leonardo/core/element'], function(Element) {
     var renderer = null;
 
     var Text = function (x, y, text) {
+        this.init ();
         init (this, x, y, text);
     };
 

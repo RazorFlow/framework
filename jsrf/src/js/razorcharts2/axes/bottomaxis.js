@@ -1,6 +1,8 @@
 define(['razorcharts2/axes/axis'], function (Axis) {
     var BottomAxis = function () {
-        this.registerTransformer (BottomAxisTransformer);
+        this.init ();
+        this.registerTransformer ({key: 'render', transform: BottomAxisTransformer});
+        this.registerTransformer ({key: 'resize', transform: BottomAxisTransformer});
     };
 
     BottomAxis.prototype = new Axis ();
@@ -16,8 +18,8 @@ define(['razorcharts2/axes/axis'], function (Axis) {
         
         for(var i=0; i<ticks.length; ++i) {
             var x = scale.calc(ticks[i]) + tickWidth / 2;
-            $ticks[i].css ({
-                'transform': 'translate(' + x + 'px,14px)',
+            $ticks[i].attr ({
+                'transform': 'translate(' + x + ',14)',
                 'text-anchor': 'middle'
             });
         }

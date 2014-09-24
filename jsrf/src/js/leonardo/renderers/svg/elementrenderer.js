@@ -12,7 +12,7 @@ define(['vendor/lodash'], function (_) {
 
     ElementRenderer.prototype.attr = function (obj, value) {
         if(typeof value === 'undefined' && typeof obj === 'string') {
-            this.__elem.getAttribute (obj);
+            return this.__elem.getAttribute (obj);
         }
         if(typeof obj === 'string') {
             this.__elem.setAttribute (obj, value);

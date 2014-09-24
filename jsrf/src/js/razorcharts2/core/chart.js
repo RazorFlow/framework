@@ -70,5 +70,10 @@ define([
         this.chart.resizeTo (width, height);
     }
 
+    Chart.prototype.update = function (options) {
+        this.options = _.extend(this.options, options);
+        this.chart.update(options.series);
+    }
+
     return Chart;
 });

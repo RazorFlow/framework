@@ -2,6 +2,7 @@ define(['leonardo/core/element'], function(Element) {
     var renderer = null;
 
     var Line = function (x1, y1, x2, y2) {
+        this.init ();
         init (this, x1, y1, x2, y2);
     };
 

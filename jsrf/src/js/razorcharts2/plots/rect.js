@@ -1,6 +1,10 @@
-define([], function () {
+define(['vendor/lodash'], function (_) {
 
     var Rect = function () {
+        
+    };
+
+    Rect.prototype.init = function () {
         this.transformers = [];
         this.seriesContainers = [];
         this.rects = [];
@@ -15,9 +19,10 @@ define([], function () {
         this.transformers.push (transformer);
     };
 
-    Rect.prototype.transform = function () {
-        for(var i=0; i<this.transformers.length; ++i) {
-            (this.transformers[i])(this);
+    Rect.prototype.transform = function (key) {
+        var t = _.where (this.transformers, {key: key});
+        for(var i=0; i<t.length; ++i) {
+            (t[i].transform)(this);
         }
     };
 
@@ -27,13 +32,17 @@ define([], function () {
         this.paper = paper;
         this.core = core;
         this.createRects ();
-        this.transform ();
+        this.transform ('render');
     };
 
     Rect.prototype.resizeTo = function (w, h) {
         this.coreWidth = w;
         this.coreHeight = h;
-        this.transform ();
+        this.transform ('resize');
+    };
+
+    Rect.prototype.update = function () {
+        this.transform ('update');
     };
 
     Rect.prototype.createRects = function () {
@@ -46,6 +55,7 @@ define([], function () {
             this.rects [i] = [];
             for(var j=0; j<series[i].data.length; j++) {
                 var rect = paper.rect (0,0,0,0);
+                rect.attr('id', 'rc-series-' + series[i].seriesIndex + '-rect-' + j);
                 seriesContainer.append (rect);
                 this.rects[i].push (rect);
             }

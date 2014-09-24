@@ -148,6 +148,8 @@ define(['vendor/lodash',
      */
     LinearChart.prototype.renderTo = function (paper, w, h) {
         this.paper = paper;
+        this.width = w;
+        this.height = h;
         // Create Containers group elemets for the chart inner components
         createContainers (this);
 
@@ -158,21 +160,21 @@ define(['vendor/lodash',
         // Set the yScale negating the space taken by the xAxis and render the yAxis
         this.yScale.range ([0, h - this.xAxis.height()]);
         this.yAxis.renderTo (paper, this.yAxisContainer, w, h - this.xAxis.height());
-        this.yAxisContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
+        this.yAxisContainer.attr({
+            'transform': 'translate(' + this.yAxis.width() + ', 0)'
         });
 
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxis.width()]);
         this.xAxis.resizeTo (w - this.yAxis.width(), h);
-        this.xAxisContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px,' + (h - this.xAxis.height()) + 'px)'
+        this.xAxisContainer.attr({
+            'transform': 'translate(' + this.yAxis.width() + ',' + (h - this.xAxis.height()) + ')'
         });
 
         // Render the plots
         renderPlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-        this.plotContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px,0)'
+        this.plotContainer.attr({
+            'transform': 'translate(' + this.yAxis.width() + ',0)'
         });
     };
 
@@ -182,27 +184,59 @@ define(['vendor/lodash',
      * @param  {Number} h height of the chart
      */
     LinearChart.prototype.resizeTo = function (w, h) {
+        this.width = w;
+        this.height = h;
+
         // Set the xScale and render xAxis
         this.xScale.range ([0, w]);
         this.xAxis.resizeTo (w, h);
 
         this.yScale.range ([0, h - this.xAxis.height()]);
         this.yAxis.resizeTo (w, h - this.xAxis.height());
-        this.yAxisContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
+        this.yAxisContainer.attr({
+            'transform': 'translate(' + this.yAxis.width() + ', 0)'
         });
 
-         // Resize the xAxis since the space taken by yAxis was not considered while rendering
+        // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxis.width()]);
         this.xAxis.resizeTo (w - this.yAxis.width(), h);
-        this.xAxisContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px,' + (h - this.xAxis.height()) + 'px)'
+        this.xAxisContainer.attr({
+            'transform': 'translate(' + this.yAxis.width() + ',' + (h - this.xAxis.height()) + 'px)'
         });
 
         resizePlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-        this.plotContainer.css({
-            'transform': 'translate(' + this.yAxis.width() + 'px, 0)'
+        this.plotContainer.attr({
+            'transform': 'translate(' + this.yAxis.width() + ', 0)'
         });
+    };
+
+    LinearChart.prototype.update = function (series) {
+        var options = this.options;
+        if(series) {
+            for(var i=0; i<series.length; i++) {
+                var idx = series[i].seriesIndex;
+                var oldSeries = _.where(options.series, {seriesIndex: idx})[0];
+                oldSeries.data = series[i].data;
+            }
+        }
+
+        if(options.stacked) {
+            updateStackedLinearChart (this);
+        } else if(options.dualAxis) {
+            updateDualAxisLinearChart (this);
+        } else {
+            updateLinearChart (this);
+        }
+    };
+
+    function updateLinearChart (self) {
+        calcScaleBounds(self);
+
+        self.yDomain = yAxisDomain (self);
+        self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
+
+        self.yAxis.update ();
+        updatePlots (self);
     }
 
     function createContainers (self) {
@@ -232,6 +266,13 @@ define(['vendor/lodash',
         for(var key in self.plots) {
             var plot = self.plots[key];
             plot.resizeTo (w, h);
+        }    
+    }
+
+    function updatePlots (self) {
+        for(var key in self.plots) {
+            var plot = self.plots[key];
+            plot.update ();
         }    
     }
 

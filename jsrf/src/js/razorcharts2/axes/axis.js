@@ -1,5 +1,9 @@
-define([], function () {
+define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
     var Axis = function () {
+        
+    };
+
+    Axis.prototype.init = function () {
         this.transformers = [];
         this.$ticks = [];
     };
@@ -8,6 +12,8 @@ define([], function () {
         var options = this.options = _options;
         this.type = options.type;
         this.scale = options.scale;
+        this.cachedScale = new Scale[this.scale.type()]();
+        this.cachedScale.domain(this.scale.domain());
         this.ticks = options.ticks;
     };
 
@@ -20,7 +26,7 @@ define([], function () {
         this.createTicks (this);
         this.line = this.paper.line (0, 0, 0, 0);
         this.core.append (this.line);
-        this.transform ();
+        this.transform ('render');
     };
 
     Axis.prototype.height = function () {
@@ -34,12 +40,20 @@ define([], function () {
     Axis.prototype.resizeTo = function (w, h) {
         this.coreWidth = w;
         this.coreHeight = h;
-        this.transform();
+        this.transform('resize');
     };
 
-    Axis.prototype.transform = function () {
-        for(var i=0; i<this.transformers.length; ++i) {
-            (this.transformers[i])(this);
+    Axis.prototype.update = function () {
+        this.$cachedTicks = this.$ticks;
+        this.$ticks = [];
+        this.createTicks ();
+        this.transform('update');
+    };
+
+    Axis.prototype.transform = function (key) {
+        var t = _.where (this.transformers, {key: key});
+        for(var i=0; i<t.length; ++i) {
+            (t[i].transform)(this);
         }
     };
 
@@ -61,4 +75,4 @@ define([], function () {
 
 
     return Axis;
-});
+}); 
