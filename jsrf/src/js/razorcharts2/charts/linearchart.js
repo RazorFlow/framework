@@ -160,22 +160,16 @@ define(['vendor/lodash',
         // Set the yScale negating the space taken by the xAxis and render the yAxis
         this.yScale.range ([0, h - this.xAxis.height()]);
         this.yAxis.renderTo (paper, this.yAxisContainer, w, h - this.xAxis.height());
-        this.yAxisContainer.attr({
-            'transform': 'translate(' + this.yAxis.width() + ', 0)'
-        });
+        this.yAxisContainer.translate (this.yAxis.width(), 0);
 
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxis.width()]);
         this.xAxis.resizeTo (w - this.yAxis.width(), h);
-        this.xAxisContainer.attr({
-            'transform': 'translate(' + this.yAxis.width() + ',' + (h - this.xAxis.height()) + ')'
-        });
+        this.xAxisContainer.translate(this.yAxis.width(), (h - this.xAxis.height()));
 
         // Render the plots
         renderPlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-        this.plotContainer.attr({
-            'transform': 'translate(' + this.yAxis.width() + ',0)'
-        });
+        this.plotContainer.translate (this.yAxis.width(), 0);
     };
 
     /**
@@ -193,21 +187,15 @@ define(['vendor/lodash',
 
         this.yScale.range ([0, h - this.xAxis.height()]);
         this.yAxis.resizeTo (w, h - this.xAxis.height());
-        this.yAxisContainer.attr({
-            'transform': 'translate(' + this.yAxis.width() + ', 0)'
-        });
+        this.yAxisContainer.translate (this.yAxis.width(), 0);
 
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxis.width()]);
         this.xAxis.resizeTo (w - this.yAxis.width(), h);
-        this.xAxisContainer.attr({
-            'transform': 'translate(' + this.yAxis.width() + ',' + (h - this.xAxis.height()) + 'px)'
-        });
+        this.xAxisContainer.translate(this.yAxis.width(), (h - this.xAxis.height()));
 
         resizePlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-        this.plotContainer.attr({
-            'transform': 'translate(' + this.yAxis.width() + ', 0)'
-        });
+        this.plotContainer.translate (this.yAxis.width(), 0);
     };
 
     LinearChart.prototype.update = function (series) {
@@ -234,7 +222,7 @@ define(['vendor/lodash',
 
         self.yDomain = yAxisDomain (self);
         self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
-
+        self.yAxis.setTicks (self.yDomain.ticks);
         self.yAxis.update ();
         updatePlots (self);
     }

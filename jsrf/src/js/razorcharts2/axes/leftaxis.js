@@ -18,8 +18,8 @@ define(['razorcharts2/axes/axis'], function (Axis) {
 
         for(var i=0; i<ticks.length; ++i) {
             var y = height - scale.calc(ticks[i]) + 8;
+            $ticks[i].translate (-10, y);
             $ticks[i].attr ({
-                'transform': 'translate(-10,' + y +')',
                 'text-anchor': 'end'
             });
         }
@@ -28,7 +28,42 @@ define(['razorcharts2/axes/axis'], function (Axis) {
     };
 
     function LeftAxisUpdateTransformer (self) {
+        console.log('LeftAxisUpdateTransformer called!');
+        var $ticks = self.$ticks,
+            $cachedTicks = self.$cachedTicks,
+            ticks = self.ticks,
+            cachedTicks = self.cachedTicks;
+            scale = self.scale,
+            cachedScale = self.cachedScale,
+            height = self.coreHeight;
+        cachedScale.range([0, height]);
+        for(var i=0; i<ticks.length; ++i) {
+            var y = height - scale.calc(ticks[i]) + 8;
+            var oldY = height - cachedScale.calc(ticks[i]) + 8;
+            if($ticks[i].__newTick) {
+                $ticks[i].attr('opacity', 0);
+            }
+            $ticks[i].translate(-10, oldY);
+            $ticks[i].animate({
+                transform: {
+                    translate: [-10, y]
+                },
+                opacity: 1
+            });
+            $ticks[i].attr ({
+                'text-anchor': 'end'
+            });
+        }
 
+        for(var i=0; i<cachedTicks.length; i++) {
+            var y = height - scale.calc(cachedTicks[i]) + 8;
+            $cachedTicks[i].animate({
+                transform: {
+                    translate: [-10, y]
+                },
+                opacity: 1
+            });
+        }
     };
 
     return LeftAxis;

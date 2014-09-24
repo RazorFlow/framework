@@ -1,9 +1,20 @@
-define(['vendor/lodash', 'leonardo/utils/timer'], function (_, Timer) {
+define(['vendor/lodash', 
+        'leonardo/utils/timer', 
+        'leonardo/utils/propertyinterpolators',
+        'leonardo/utils/transformutils'], function (_, Timer, PropertyInterpolators, TransformUtils) {
     var DEFAULT_ANIMATION_DURATION = 500;
     var renderer = {};
-
     var Element = function () {
         
+    };
+
+    var propDefaults = {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        transform: '',
+        opacity: 1
     };
 
     Element.prototype.init = function () {
@@ -55,8 +66,19 @@ define(['vendor/lodash', 'leonardo/utils/timer'], function (_, Timer) {
         }
     };
 
-    Element.prototype.transform = function (transformString) {
-        
+    Element.prototype.transform = function (obj) {
+        var tStr = this.attr ('transform') || '';
+        var transformObject = TransformUtils.parseTransformString (tStr);
+        if(typeof obj === 'object') {
+            transformObject = _.extend (transformObject, obj);
+        }
+        this.attr ('transform', TransformUtils.transformObjectToString (transformObject));
+    };
+
+    Element.prototype.translate = function (x, y) {        
+        this.transform ({
+            translate: [x, y]
+        });
     };
 
     Element.prototype.animate = function (attrs, duration, fin) {
@@ -65,17 +87,30 @@ define(['vendor/lodash', 'leonardo/utils/timer'], function (_, Timer) {
         var oldAttrs = {};
 
         for(var key in attrs) {
-           oldAttrs[key] = +this.attr(key);
+            oldAttrs[key] = this.attr(key);
+            if(oldAttrs[key] === null) {
+                oldAttrs[key] = propDefaults[key];
+            }
         }
-        
+
         Timer(function(d) {
             var newAttrs = {};
             for(var key in attrs) {
                 var dist = attrs[key] - oldAttrs[key];
-                self.__elem.attr(key, oldAttrs[key] + (d / duration) * dist);
+                var lerpFunc = PropertyInterpolators[key];
+                if(!lerpFunc) {
+                    throw "No interpolators defined for property " + key;
+                }
+                self.attr(key, lerpFunc(oldAttrs[key], attrs[key], d / duration));
             }
         }, duration, function() {
-            self.attr (attrs);
+            for(var key in attrs) {
+                var lerpFunc = PropertyInterpolators[key];
+                if(!lerpFunc) {
+                    throw "No interpolators defined for property " + key;
+                }
+                self.attr(key, lerpFunc(oldAttrs[key], attrs[key], 1));
+            }
             if(fin) { fin(); }
         });
     };

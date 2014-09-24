@@ -15,7 +15,12 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         this.cachedScale = new Scale[this.scale.type()]();
         this.cachedScale.domain(this.scale.domain());
         this.ticks = options.ticks;
+        this.cachedTicks = _.cloneDeep (this.ticks);
     };
+
+    Axis.prototype.setTicks = function (ticks) {
+        this.ticks = ticks;
+    }
 
     Axis.prototype.renderTo = function (_paper, _core, w, h) {
         this.paper = _paper;
@@ -44,9 +49,10 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
     };
 
     Axis.prototype.update = function () {
+        // console.log('New Ticks in axis : ', this.ticks);
         this.$cachedTicks = this.$ticks;
         this.$ticks = [];
-        this.createTicks ();
+        this.updateTicks ();
         this.transform('update');
     };
 
@@ -73,6 +79,34 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         }
     };
 
+    Axis.prototype.updateTicks = function () {
+        var sameTicks = [];
+
+        for(var i=0; i<this.ticks.length; i++) {
+            var idx = _.indexOf(this.cachedTicks, this.ticks[i]);
+            if(idx !== -1) {
+                sameTicks[i] = this.$cachedTicks[idx];
+                this.cachedTicks[idx] = undefined;
+                this.$cachedTicks[idx] = undefined;
+            }
+        }
+
+        this.cachedTicks = _.compact(this.cachedTicks);
+        this.$cachedTicks = _.compact(this.$cachedTicks);
+        this.$ticks = sameTicks;
+        
+        for(var i=0; i<this.ticks.length; i++) {
+            if(typeof this.$ticks[i] === 'undefined') {
+                var $tick = this.paper.g ();
+                $tick.attr('id', 'tick-' + (i+1));
+                var $text = this.paper.text (0, 0, '' + this.ticks[i]);
+                $tick.append ($text);
+                this.$ticks[i] = $tick;
+                this.core.append ($tick);
+                $tick.__newTick = true;
+            }
+        }
+    };
 
     return Axis;
 }); 
