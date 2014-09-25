@@ -61,7 +61,7 @@ define(['razorcharts2/axes/axis'], function (Axis) {
                 transform: {
                     translate: [-10, y]
                 },
-                opacity: 1
+                opacity: 0
             });
         }
     };
