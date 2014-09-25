@@ -42,28 +42,35 @@ define(['razorcharts2/axes/axis'], function (Axis) {
             var oldY = height - cachedScale.calc(ticks[i]) + 8;
             if($ticks[i].__newTick) {
                 $ticks[i].attr('opacity', 0);
+                $ticks[i].__newTick = false;
             }
             $ticks[i].translate(-10, oldY);
+            $ticks[i].attr ({
+                'text-anchor': 'end'
+            });
             $ticks[i].animate({
                 transform: {
                     translate: [-10, y]
                 },
                 opacity: 1
             });
-            $ticks[i].attr ({
-                'text-anchor': 'end'
-            });
         }
 
         for(var i=0; i<cachedTicks.length; i++) {
             var y = height - scale.calc(cachedTicks[i]) + 8;
-            $cachedTicks[i].animate({
-                transform: {
-                    translate: [-10, y]
-                },
-                opacity: 0
-            });
+            (function(_i) {
+                $cachedTicks[_i].animate({
+                    transform: {
+                        translate: [-10, y]
+                    },
+                    opacity: 0
+                }, 500, function () {
+                    $cachedTicks[_i].remove();
+                });
+            })(i);
         }
+
+        self.cache ();
     };
 
     return LeftAxis;

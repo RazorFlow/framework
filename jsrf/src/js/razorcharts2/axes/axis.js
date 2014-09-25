@@ -12,9 +12,13 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         var options = this.options = _options;
         this.type = options.type;
         this.scale = options.scale;
+        this.ticks = options.ticks;
+        this.cache ();
+    };
+
+    Axis.prototype.cache = function () {
         this.cachedScale = new Scale[this.scale.type()]();
         this.cachedScale.domain(this.scale.domain());
-        this.ticks = options.ticks;
         this.cachedTicks = _.cloneDeep (this.ticks);
     };
 

@@ -218,13 +218,22 @@ define(['vendor/lodash',
     };
 
     function updateLinearChart (self) {
-        calcScaleBounds(self);
+        var w = self.width,
+            h = self.height;
 
+        calcScaleBounds(self);
         self.yDomain = yAxisDomain (self);
         self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
         self.yAxis.setTicks (self.yDomain.ticks);
         self.yAxis.update ();
+        self.yAxisContainer.translate (self.yAxis.width(), 0);
         updatePlots (self);
+        // Resize the xAxis since the space taken by yAxis was not considered while rendering
+        self.xScale.range ([0, w - self.yAxis.width()]);
+        self.xAxis.resizeTo (w - self.yAxis.width(), h);
+        self.xAxisContainer.translate(self.yAxis.width(), (h - self.xAxis.height()));
+        resizePlots (self, w - self.yAxis.width(), h - self.xAxis.height());
+        self.plotContainer.translate (self.yAxis.width(), 0);
     }
 
     function createContainers (self) {

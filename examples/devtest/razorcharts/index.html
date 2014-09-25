@@ -163,18 +163,18 @@
             // chart10.renderTo(document.getElementById ('container10'), 600, 400);
 
             setTimeout(function() {
-                var arr = [];
-                for(var i=0; i<30; i++) {
-                    arr[i] = Math.floor(Math.random() * 100);
-                }
-                chart.update ({
-                    series: [
-                        {
-                            seriesIndex: 0,
-                            data: arr
-                        }
-                    ]
-                });
+                // var arr = [];
+                // for(var i=0; i<30; i++) {
+                //     arr[i] = Math.floor(Math.random() * 100);
+                // }
+                // chart.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
                 // chart2.update ({
                 //     series: [
                 //         {
@@ -252,17 +252,21 @@
                 // });
             }, 1000);
 
-            // document.getElementsByTagName('body')[0].addEventListener('click', function() {
-            //     // chart.resizeTo (600, 400);
-            //     chart.update ({
-            //         series: [
-            //             {
-            //                 seriesIndex: 0,
-            //                 data: [25, 14, 8, 10, 12]
-            //             }
-            //         ]
-            //     });
-            // });
+            document.getElementsByTagName('body')[0].addEventListener('click', function() {
+                // chart.resizeTo (600, 400);
+                var arr = [];
+                for(var i=0; i<30; i++) {
+                    arr[i] = Math.floor(Math.random() * 100);
+                }
+                chart.update ({
+                    series: [
+                        {
+                            seriesIndex: 0,
+                            data: arr
+                        }
+                    ]
+                });
+            });
 		});
 	</script>
 </head>

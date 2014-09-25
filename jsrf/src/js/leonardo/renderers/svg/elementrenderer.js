@@ -54,5 +54,10 @@ define(['vendor/lodash'], function (_) {
         return this.__elem.getBBox();
     };
 
+    ElementRenderer.prototype.remove = function () {
+        this.__elem.remove ();
+        this.__elem = undefined;
+    }
+
     return ElementRenderer;
 });

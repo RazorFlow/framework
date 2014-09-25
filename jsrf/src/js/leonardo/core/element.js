@@ -20,9 +20,25 @@ define(['vendor/lodash',
     Element.prototype.init = function () {
         this.__attrs = {};
         this.__css = {};
+        this.mutationQueue = [];
     };
 
-    Element.prototype.attr = function (key, value) {
+    Element.prototype.__checkIfBusy = function (key, value) {
+        if(this.isAnimating) {
+            this.mutationQueue.push ({
+                key: key, 
+                value: value
+            });
+        }
+        return this.isAnimating;
+    };
+
+    Element.prototype.attr = function (key, value, force) {
+        if(!force) {
+            if(this.__checkIfBusy(key, value)) {
+                return;    
+            }
+        }
         if(typeof value === 'undefined') {
             if(typeof key === 'string') {
                 if(typeof this.__attrs[key] === 'undefined') {
@@ -86,8 +102,10 @@ define(['vendor/lodash',
         duration = duration || DEFAULT_ANIMATION_DURATION;
         var oldAttrs = {};
 
+        self.isAnimating = true;
+
         for(var key in attrs) {
-            oldAttrs[key] = this.attr(key);
+            oldAttrs[key] = this.attr(key, undefined, true);
             if(oldAttrs[key] === null) {
                 oldAttrs[key] = propDefaults[key];
             }
@@ -101,7 +119,7 @@ define(['vendor/lodash',
                 if(!lerpFunc) {
                     throw "No interpolators defined for property " + key;
                 }
-                self.attr(key, lerpFunc(oldAttrs[key], attrs[key], d / duration));
+                self.attr(key, lerpFunc(oldAttrs[key], attrs[key], d / duration), true);
             }
         }, duration, function() {
             for(var key in attrs) {
@@ -109,10 +127,26 @@ define(['vendor/lodash',
                 if(!lerpFunc) {
                     throw "No interpolators defined for property " + key;
                 }
-                self.attr(key, lerpFunc(oldAttrs[key], attrs[key], 1));
+                self.attr(key, lerpFunc(oldAttrs[key], attrs[key], 1), true);
             }
+            self.isAnimating = false;
+            self.__applyQueuedMutations ();
             if(fin) { fin(); }
         });
+    };
+
+    Element.prototype.__applyQueuedMutations = function () {
+        if(this.mutationQueue.length) {
+            for(var i = 0; i<this.mutationQueue.length; i++) {
+                this.attr (this.mutationQueue[i].key, this.mutationQueue[i].value);
+            }
+            this.mutationQueue = [];
+        }
+    };
+
+    Element.prototype.remove = function () {
+        this.__elem.remove ();
+        this.__elem = undefined;
     };
 
     Element.prototype.getBBox = function () {
