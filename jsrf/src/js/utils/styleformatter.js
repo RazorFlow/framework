@@ -84,14 +84,14 @@ define(["utils/evalexpression", "vendor/klass"], function (EvalExpression, klass
     addTextAlign: function(){
       var align = "";
 
-      switch(this.textAlign){
-        case CENTER_ALIGN:
+      switch(this.textAlign) {
+        case this.CENTER_ALIGN:
           align = 'rfCenter';
           break;
-        case LEFT_ALIGN:
+        case this.LEFT_ALIGN:
           align = 'rfLeft';
           break;
-        case RIGHT_ALIGN:
+        case this.RIGHT_ALIGN:
           align = 'rfRight';
           break;
       }
