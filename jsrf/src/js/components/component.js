@@ -11,8 +11,9 @@ define([
   "utils/ajaxwrapper",
   "helpers/mediahelper",
   "utils/errorutils",
-  "vendor/lodash"
-], function (RFClass, DataSource, MediaUtils, ModalUtils, componentUtils, Assert, positionUtils, ResizeWatcher, AjaxWrapper, MediaHelper, errorUtils, _) {
+  "vendor/lodash",
+  "utils/valueoverrider"
+], function (RFClass, DataSource, MediaUtils, ModalUtils, componentUtils, Assert, positionUtils, ResizeWatcher, AjaxWrapper, MediaHelper, errorUtils, _, ValueOverrider) {
   /**
    * Base Component Class containing functions shared across all components.
    *
@@ -593,6 +594,11 @@ define([
         if(isEventSubscribed) {
           self.isEventSubscribed = true;
         }
+
+        // Value overriding for certain data for wrappers.
+        // May be use this for the js api as well?
+        ValueOverrider.validate(cObj);
+
         pro.pb.setRootObject(cObj.props);
         self.ds.setRawData(cObj.data);
 
