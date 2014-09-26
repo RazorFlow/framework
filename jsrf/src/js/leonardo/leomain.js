@@ -1,3 +1,7 @@
+/**
+ * The main entry point to leonardo
+ */
+
 define([
     'leonardo/core/leonardo',
      'leonardo/core/paper',
@@ -6,7 +10,10 @@ define([
      'leonardo/elements/text',
      'leonardo/elements/line',
      'leonardo/elements/rect'], function(Leonardo, Paper, SVGRenderer, G, Text, Line, Rect) {
+        // Setting the svg renderer as the default
         Leonardo.setRenderer (SVGRenderer);
+
+        // Register elements
         Paper.registerElement (G);
         Paper.registerElement (Text);
         Paper.registerElement (Line);
