@@ -22,24 +22,27 @@
             chart.config({
                 type: 'linear',
                 labels: ['abc', 'def', 'hij', 'klm', 'nop'],
-                dualAxis: true,
-                // stacked: true
+                // dualAxis: true,
+                stacked: true,
                 series: [
                     {
                         seriesIndex: 0,
                         displayType: 'column',
-                        data: [10, 15, -5, 18, 40],
+                        data: [10, 15, 5, 18, 40],
+                        color: 'red'
                     },
                     {
                         seriesIndex: 1,
                         displayType: 'column',
                         data: [23, 5, -15, 8, 32],
-                        yAxis: 'right'
+                        yAxis: 'right',
+                        color: 'green'
                     },
                     {
                         seriesIndex: 2,
                         displayType: 'column',
-                        data: [2, 5, -5, 8, 2]
+                        data: [2, 5, -5, 8, 2],
+                        color: 'blue'
                     },
                 ]
             });

@@ -56,6 +56,7 @@ define(['vendor/lodash'], function (_) {
             for(var j=0; j<series[i].data.length; j++) {
                 var rect = paper.rect (0,0,0,0);
                 rect.attr('id', 'rc-series-' + series[i].seriesIndex + '-rect-' + j);
+                rect.attr ('fill', series[i].color);
                 seriesContainer.append (rect);
                 this.rects[i].push (rect);
             }

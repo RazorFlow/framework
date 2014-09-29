@@ -8,10 +8,15 @@ define(['vendor/lodash',
         'razorcharts2/axes/leftaxis',
         'razorcharts2/axes/rightaxis',
         'razorcharts2/utils/graphutils',
-        'razorcharts2/plots/column'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column) {
+        'razorcharts2/plots/column',
+        'razorcharts2/plots/stackedcolumn'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn) {
 
     var plots = {
         'column': Column
+    };
+
+    var stackedPlots = {
+        'column': StackedColumn
     };
 
     var plotOrder = ['column', 'area', 'line'];
@@ -49,6 +54,10 @@ define(['vendor/lodash',
     }
 
     function configureStackedLinearChart (self) {
+        calcStackedScaleBounds (self);
+        configureScales (self);
+        configureAxis (self);
+        configurePlotsForStacked (self);
     }
 
     function configureDualAxisLinearChart (self) {
@@ -83,7 +92,6 @@ define(['vendor/lodash',
             var plot = plots[plotType];
 
             for(var j=0; j<series.length; j++) {
-                // TODO : for dual axis use this to provide the correct scale
                 if(self.options.dualAxis) {
                     series[j].scale = self.yScale[series[j].yAxis];
                 } else {
@@ -98,7 +106,29 @@ define(['vendor/lodash',
                 });
             }
         }
-    }
+    };
+
+    function configurePlotsForStacked (self) {
+        var series = self.options.series;
+        dividePlotsByDisplayType (self);
+
+        for(var i=0; i<plotOrder.length; i++) {
+            var plotType = plotOrder[i];
+            var plotSeries = self.plotsByDisplayType[plotType];
+            var plot = stackedPlots[plotType];
+
+            for(var j=0; j<series.length; j++) {
+                series[j].scale = self.yScale;
+            }
+
+            if(plot && plotSeries) {
+                self.plots[plotType] = new plot();
+                self.plots[plotType].config({
+                    series: series
+                });
+            }
+        }
+    };
 
     function dividePlotsByDisplayType (self) {
         var series = self.options.series;
@@ -144,6 +174,27 @@ define(['vendor/lodash',
 
         self.dataMin.right = _.min (allData);
         self.dataMax.right = _.max (allData);
+    };
+
+    function calcStackedScaleBounds (self) {
+        var negevData = [],
+            posiData = [],
+            series = self.options.series;
+        for(var i=0; i<series.length; i++) {
+            var data = series[i].data;
+            for(var j=0; j<series[i].data.length; j++) {
+                posiData[j] = typeof posiData[j] === 'undefined' ? 0 : posiData[j];
+                negevData[j] = typeof negevData[j] === 'undefined' ? 0 : negevData[j];
+                if(data[j] >= 0) {
+                    posiData[j] += data[j];
+                } else {
+                    negevData[j] += data[j];
+                }
+            }
+        }
+
+        self.dataMin = _.min (negevData);
+        self.dataMax = _.max (posiData);
     };
 
 
@@ -234,16 +285,6 @@ define(['vendor/lodash',
             left: pd.lDomain,
             right: pd.rDomain
         };
-        // var domain = GraphUtils.prettyDomain (min, max);
-        // domains.left = domain;
-
-        // min = self.dataMin.right < 0 ? self.dataMin.right : 0;
-        // max = self.dataMax.right;
-
-        // domain = GraphUtils.prettyDomain (min, max);
-        // domains.right = domain;
-
-        // return domains;
     }
 
     /**
@@ -405,6 +446,25 @@ define(['vendor/lodash',
         self.xAxisContainer.translate(self.yAxisTranslate, (h - self.xAxis.height()));
         resizePlots (self, w - self.yAxisWidth, h - self.xAxis.height());
         self.plotContainer.translate (self.yAxisTranslate, 0);
+    }
+
+    function updateStackedLinearChart (self) {
+         var w = self.width,
+            h = self.height;
+
+        calcStackedScaleBounds(self);
+        self.yDomain = yAxisDomain (self);
+        self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
+        self.yAxis.setTicks (self.yDomain.ticks);
+        self.yAxis.update ();
+        self.yAxisContainer.translate (self.yAxis.width(), 0);
+        updatePlots (self);
+        // Resize the xAxis since the space taken by yAxis was not considered while rendering
+        self.xScale.range ([0, w - self.yAxis.width()]);
+        self.xAxis.resizeTo (w - self.yAxis.width(), h);
+        self.xAxisContainer.translate(self.yAxis.width(), (h - self.xAxis.height()));
+        resizePlots (self, w - self.yAxis.width(), h - self.xAxis.height());
+        self.plotContainer.translate (self.yAxis.width(), 0);
     }
 
     function createContainers (self) {
