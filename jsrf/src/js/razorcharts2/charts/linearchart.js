@@ -224,20 +224,26 @@ define(['vendor/lodash',
     }
 
     function dualYAxisDomain (self) {
-        var domains = {};
-        var min = self.dataMin.left < 0 ? self.dataMin.left : 0;
-        var max = self.dataMax.left;
+        var minLeft = self.dataMin.left < 0 ? self.dataMin.left : 0;
+        var maxLeft = self.dataMax.left;
+        var minRight = self.dataMin.right < 0 ? self.dataMin.right : 0;
+        var maxRight = self.dataMax.right;
 
-        var domain = GraphUtils.prettyDomain (min, max);
-        domains.left = domain;
+        var pd = GraphUtils.dualAxisDomain ([minLeft, maxLeft], [minRight, maxRight]);
+        return {
+            left: pd.lDomain,
+            right: pd.rDomain
+        };
+        // var domain = GraphUtils.prettyDomain (min, max);
+        // domains.left = domain;
 
-        min = self.dataMin.right < 0 ? self.dataMin.right : 0;
-        max = self.dataMax.right;
+        // min = self.dataMin.right < 0 ? self.dataMin.right : 0;
+        // max = self.dataMax.right;
 
-        domain = GraphUtils.prettyDomain (min, max);
-        domains.right = domain;
+        // domain = GraphUtils.prettyDomain (min, max);
+        // domains.right = domain;
 
-        return domains;
+        // return domains;
     }
 
     /**

@@ -206,6 +206,12 @@ define(['vendor/lodash'], function (_) {
         prettyRDomain.ticks = newRDomain;
         prettyRDomain.numTicks = newRDomain.length;
       }
+      prettyLDomain.min = prettyLDomain.ticks[0];
+      prettyLDomain.max = prettyLDomain.ticks[prettyLDomain.ticks.length - 1];
+      prettyLDomain.numTicks = prettyLDomain.ticks.length;
+      prettyRDomain.min = prettyRDomain.ticks[0];
+      prettyRDomain.max = prettyRDomain.ticks[prettyRDomain.ticks.length - 1];
+      prettyRDomain.numTicks = prettyRDomain.ticks.length;
       return {lDomain: prettyLDomain, rDomain: prettyRDomain};
     }
   };
