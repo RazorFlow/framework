@@ -28,9 +28,9 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             for(var j = 0; j<data.length; j++) {
                 var rect = rects[i][j];
                 var x = (j * seriesWidth) + (seriesPadding / 2) + (columnWidth * i);
-                var y = coreHeight - scale.calc(data[j]);
+                var y = calcY(data[j], coreHeight, scale);
                 var width = columnWidth;
-                var height = scale.calc(data[j]);
+                var height = Math.abs(scale.calc(data[j]) - scale.calc(0));
 
                 rect.attr({
                     x: x,
@@ -39,6 +39,14 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     height: height
                 });
             }
+        }
+    };
+
+    function calcY (data, height, scale) {
+        if(data > 0) {
+            return height - scale.calc (data);    
+        } else {
+            return height - scale.calc (0);
         }
     };
 
@@ -60,9 +68,9 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             for(var j = 0; j<data.length; j++) {
                 var rect = rects[i][j];
                 var x = (j * seriesWidth) + (seriesPadding / 2) + (columnWidth * i);
-                var y = coreHeight - scale.calc(data[j]);
+                var y = calcY (data[j], coreHeight, scale);
                 var width = columnWidth;
-                var height = scale.calc(data[j]);
+                var height = Math.abs(scale.calc(data[j]) - scale.calc(0));
 
                 rect.animate({
                     x: x,
