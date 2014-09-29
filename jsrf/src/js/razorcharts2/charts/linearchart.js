@@ -6,8 +6,9 @@ define(['vendor/lodash',
         'razorcharts2/scales/scale',
         'razorcharts2/axes/bottomaxis',
         'razorcharts2/axes/leftaxis',
+        'razorcharts2/axes/rightaxis',
         'razorcharts2/utils/graphutils',
-        'razorcharts2/plots/column'], function (_, Scale, BottomAxis, LeftAxis, GraphUtils, Column) {
+        'razorcharts2/plots/column'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column) {
 
     var plots = {
         'column': Column
@@ -47,13 +48,30 @@ define(['vendor/lodash',
         configurePlots (self);
     }
 
-    function configureStackedLinearChart () {
-
+    function configureStackedLinearChart (self) {
     }
 
-    function configureDualAxisLinearChart () {
-
+    function configureDualAxisLinearChart (self) {
+        setDualAxisDefaults (self);
+        calcDualAxisScaleBounds (self);
+        configureDualAxisScales (self);
+        configureDualAxis (self);
+        configurePlots (self);
     }
+
+    function setDualAxisDefaults (self) {
+        var series = self.options.series;
+
+        for(var i=0; i<series.length; i++) {
+            series[i].yAxis = series[i].yAxis || 'left';
+        }
+
+        self.dataMin = {};
+        self.dataMax = {};
+        self.yScale = {};
+        self.yDomain = {};
+        self.yAxis = {};
+    };
 
     function configurePlots (self) {
         var series = self.options.series;
@@ -66,7 +84,11 @@ define(['vendor/lodash',
 
             for(var j=0; j<series.length; j++) {
                 // TODO : for dual axis use this to provide the correct scale
-                series[j].scale = self.yScale;
+                if(self.options.dualAxis) {
+                    series[j].scale = self.yScale[series[j].yAxis];
+                } else {
+                    series[j].scale = self.yScale;    
+                }
             }
 
             if(plot && plotSeries) {
@@ -95,11 +117,34 @@ define(['vendor/lodash',
         var allData = [],
             series = self.options.series;
         for(var i=0; i<series.length; ++i) {
-            allData = allData.concat(self.series[i].data);
+            allData = allData.concat(series[i].data);
         }
         self.dataMin = _.min (allData);
         self.dataMax = _.max (allData);
     }
+
+    function calcDualAxisScaleBounds (self) {
+        var allData = [],
+            series = self.options.series,
+            leftSeries = _.where (series, {yAxis: 'left'}),
+            rightSeries = _.where (series, {yAxis: 'right'});
+
+        for(var i=0; i<leftSeries.length; i++) {
+            allData = allData.concat (leftSeries[i].data);
+        }
+        
+        self.dataMin.left = _.min (allData);
+        self.dataMax.left = _.max (allData);
+
+        allData = [];
+
+        for(var i=0; i<rightSeries.length; i++) {
+            allData = allData.concat (rightSeries[i].data);
+        }
+
+        self.dataMin.right = _.min (allData);
+        self.dataMax.right = _.max (allData);
+    };
 
 
     function configureScales (self) {
@@ -110,6 +155,20 @@ define(['vendor/lodash',
         self.yScale = new Scale.linear ();
         self.yDomain = yAxisDomain (self);
         self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
+    }
+
+    function configureDualAxisScales (self) {
+        // Create an ordinal scale for the x axis
+        self.xScale = new Scale.ordinal ();
+        self.xScale.domain (self.options.labels);
+        var domains = dualYAxisDomain (self);
+        self.yScale.left = new Scale.linear ();
+        self.yDomain.left = domains.left;
+        self.yScale.left.domain ([self.yDomain.left.min, self.yDomain.left.max]);
+
+        self.yScale.right = new Scale.linear ();
+        self.yDomain.right = domains.right;
+        self.yScale.right.domain ([self.yDomain.right.min, self.yDomain.right.max]);
     }
 
     function configureAxis (self) {
@@ -128,6 +187,29 @@ define(['vendor/lodash',
         });
     }
 
+    function configureDualAxis (self) {
+        self.xAxis = new BottomAxis ();
+        self.xAxis.config({
+            type: 'ordinal',
+            scale: self.xScale,
+            ticks: self.labels
+        });
+
+        self.yAxis.left = new LeftAxis ();
+        self.yAxis.left.config({
+            type: 'linear',
+            scale: self.yScale.left,
+            ticks: self.yDomain.left.ticks
+        });
+
+        self.yAxis.right = new RightAxis ();
+        self.yAxis.right.config({
+            type: 'linear',
+            scale: self.yScale.right,
+            ticks: self.yDomain.right.ticks
+        });
+    }
+
     function yAxisDomain (self) {
         var min = self.dataMin < 0 ? self.dataMin : 0;
         var max = self.dataMax;
@@ -137,8 +219,25 @@ define(['vendor/lodash',
             max = self.yAxisOptions.maxValue || max;
         }
 
-        var domain = GraphUtils.prettyDomain (self.dataMin < 0 ? self.dataMin : 0, self.dataMax);
+        var domain = GraphUtils.prettyDomain (min, max);
         return domain;
+    }
+
+    function dualYAxisDomain (self) {
+        var domains = {};
+        var min = self.dataMin.left < 0 ? self.dataMin.left : 0;
+        var max = self.dataMax.left;
+
+        var domain = GraphUtils.prettyDomain (min, max);
+        domains.left = domain;
+
+        min = self.dataMin.right < 0 ? self.dataMin.right : 0;
+        max = self.dataMax.right;
+
+        domain = GraphUtils.prettyDomain (min, max);
+        domains.right = domain;
+
+        return domains;
     }
 
     /**
@@ -157,19 +256,38 @@ define(['vendor/lodash',
         this.xScale.range ([0, w]);
         this.xAxis.renderTo (paper, this.xAxisContainer, w, h);
         
-        // Set the yScale negating the space taken by the xAxis and render the yAxis
-        this.yScale.range ([0, h - this.xAxis.height()]);
-        this.yAxis.renderTo (paper, this.yAxisContainer, w, h - this.xAxis.height());
-        this.yAxisContainer.translate (this.yAxis.width(), 0);
-
+        renderYAxis (this);
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
-        this.xScale.range ([0, w - this.yAxis.width()]);
-        this.xAxis.resizeTo (w - this.yAxis.width(), h);
-        this.xAxisContainer.translate(this.yAxis.width(), (h - this.xAxis.height()));
+        this.xScale.range ([0, w - this.yAxisWidth]);
+        this.xAxis.resizeTo (w - this.yAxisWidth, h);
+        this.xAxisContainer.translate(this.yAxisTranslate, (h - this.xAxis.height()));
 
         // Render the plots
-        renderPlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-        this.plotContainer.translate (this.yAxis.width(), 0);
+        renderPlots (this, w - this.yAxisWidth, h - this.xAxis.height());
+        this.plotContainer.translate (this.yAxisTranslate, 0);
+    };
+
+    function renderYAxis (self) {
+        var paper = self.paper;
+        if(self.options.dualAxis) {
+            self.yScale.left.range ([0, self.height - self.xAxis.height()]);
+            self.yAxis.left.renderTo (paper, self.yAxisContainer.left, self.width, self.height - self.xAxis.height ());
+            self.yAxisContainer.left.translate (self.yAxis.left.width(), 0);
+
+            self.yScale.right.range ([0, self.height - self.xAxis.height()]);
+            self.yAxis.right.renderTo (paper, self.yAxisContainer.right, self.width, self.height - self.xAxis.height ());
+            self.yAxisContainer.right.translate (self.width - self.yAxis.right.width(), 0);
+
+            self.yAxisWidth = self.yAxis.left.width () + self.yAxis.right.width ();
+            self.yAxisTranslate = self.yAxis.left.width ();
+        } else {
+            // Set the yScale negating the space taken by the xAxis and render the yAxis
+            self.yScale.range ([0, self.height - self.xAxis.height()]);
+            self.yAxis.renderTo (paper, self.yAxisContainer, self.width, self.height - self.xAxis.height());
+            self.yAxisContainer.translate (self.yAxis.width(), 0);
+            self.yAxisTranslate = self.yAxisWidth = self.yAxis.width ();
+
+        }
     };
 
     /**
@@ -185,17 +303,36 @@ define(['vendor/lodash',
         this.xScale.range ([0, w]);
         this.xAxis.resizeTo (w, h);
 
-        this.yScale.range ([0, h - this.xAxis.height()]);
-        this.yAxis.resizeTo (w, h - this.xAxis.height());
-        this.yAxisContainer.translate (this.yAxis.width(), 0);
-
+        resizeYAxis (this);
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
-        this.xScale.range ([0, w - this.yAxis.width()]);
-        this.xAxis.resizeTo (w - this.yAxis.width(), h);
-        this.xAxisContainer.translate(this.yAxis.width(), (h - this.xAxis.height()));
+        this.xScale.range ([0, w - this.yAxisWidth]);
+        this.xAxis.resizeTo (w - this.yAxisWidth, h);
+        this.xAxisContainer.translate(this.yAxisTranslate, (h - this.xAxis.height()));
 
-        resizePlots (this, w - this.yAxis.width(), h - this.xAxis.height());
-        this.plotContainer.translate (this.yAxis.width(), 0);
+        resizePlots (this, w - this.yAxisWidth, h - this.xAxis.height());
+        this.plotContainer.translate (this.yAxisTranslate, 0);
+    };
+
+    function resizeYAxis (self) {
+        var w = self.width,
+            h = self.height;
+
+        if(self.options.dualAxis) {
+            self.yScale.left.range ([0, h - self.xAxis.height ()]);
+            self.yAxis.left.resizeTo (w, h - self.xAxis.height());
+            self.yAxisContainer.left.translate (self.yAxis.left.width (), 0);
+
+            self.yScale.right.range ([0, h - self.xAxis.height ()]);
+            self.yAxis.right.resizeTo (w, h - self.xAxis.height ());
+            self.yAxisContainer.right.translate (w - self.yAxis.right.width (), 0);
+            self.yAxisWidth = self.yAxis.left.width () + self.yAxis.right.width ();
+            self.yAxisTranslate = self.yAxis.left.width ();
+        } else {
+            self.yScale.range ([0, h - self.xAxis.height()]);
+            self.yAxis.resizeTo (w, h - self.xAxis.height());
+            self.yAxisContainer.translate (self.yAxis.width(), 0);
+            self.yAxisTranslate = self.yAxisWidth = self.yAxis.width ();
+        }
     };
 
     LinearChart.prototype.update = function (series) {
@@ -236,16 +373,56 @@ define(['vendor/lodash',
         self.plotContainer.translate (self.yAxis.width(), 0);
     }
 
+    function updateDualAxisLinearChart (self) {
+        var w = self.width,
+            h = self.height;
+        calcDualAxisScaleBounds (self);
+        var domains = dualYAxisDomain (self);
+
+        self.yDomain.left = domains.left;
+        self.yScale.left.domain ([self.yDomain.left.min, self.yDomain.left.max]);
+        self.yAxis.left.setTicks (self.yDomain.left.ticks);
+        self.yAxis.left.update ();
+        self.yAxisContainer.left.translate (self.yAxis.left.width (), 0);
+
+        self.yDomain.right = domains.right;
+        self.yScale.right.domain ([self.yDomain.right.min, self.yDomain.right.max]);
+        self.yAxis.right.setTicks (self.yDomain.right.ticks);
+        self.yAxis.right.update ();
+        self.yAxisContainer.right.translate (w - self.yAxis.right.width (), 0);
+
+        updatePlots (self);
+
+        // Resize the xAxis since the space taken by yAxis was not considered while rendering
+        self.xScale.range ([0, w - self.yAxisWidth]);
+        self.xAxis.resizeTo (w - self.yAxisWidth, h);
+        self.xAxisContainer.translate(self.yAxisTranslate, (h - self.xAxis.height()));
+        resizePlots (self, w - self.yAxisWidth, h - self.xAxis.height());
+        self.plotContainer.translate (self.yAxisTranslate, 0);
+    }
+
     function createContainers (self) {
         var paper = self.paper;
 
         self.xAxisContainer = paper.g();
         self.xAxisContainer.attr ('id', 'rc-xaxis');
         paper.append (self.xAxisContainer);
+        if(self.options.dualAxis) {
+            self.yAxisContainer = {};
 
-        self.yAxisContainer = paper.g();
-        self.yAxisContainer.attr('id', 'rc-yaxis');
-        paper.append (self.yAxisContainer);
+            self.yAxisContainer.left = paper.g ();
+            self.yAxisContainer.left.attr ('id', 'rc-yaxis');
+            paper.append (self.yAxisContainer.left);
+
+            self.yAxisContainer.right = paper.g ()
+            self.yAxisContainer.right.attr ('id', 'rc-yaxis');
+            paper.append (self.yAxisContainer.right);
+        } else {
+            self.yAxisContainer = paper.g();
+            self.yAxisContainer.attr('id', 'rc-yaxis');
+            paper.append (self.yAxisContainer);
+        }
+            
 
         self.plotContainer = paper.g ();
         self.plotContainer.attr ('id', 'rc-plotcontainer');

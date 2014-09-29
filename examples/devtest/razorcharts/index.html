@@ -22,12 +22,24 @@
             chart.config({
                 type: 'linear',
                 labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+                dualAxis: true,
                 series: [
                     {
                         seriesIndex: 0,
                         displayType: 'column',
-                        data: [10, 15, 5, 18, 40, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 40, 10, 15, 5, 18, 20, 10, 15, 5, 18, 40]
-                    }
+                        data: [10, 15, 5, 18, 40],
+                    },
+                    {
+                        seriesIndex: 1,
+                        displayType: 'column',
+                        data: [23, 5, 15, 8, 32],
+                        yAxis: 'right'
+                    },
+                    {
+                        seriesIndex: 2,
+                        displayType: 'column',
+                        data: [2, 5, 5, 8, 2]
+                    },
                 ]
             });
             chart.renderTo(document.getElementById ('container'), 600, 400);
@@ -253,15 +265,23 @@
             }, 1000);
 
             document.getElementsByTagName('body')[0].addEventListener('click', function() {
-                // chart.resizeTo (600, 400);
+                // chart.resizeTo (400, 300);
                 var arr = [];
-                for(var i=0; i<30; i++) {
+                for(var i=0; i<5; i++) {
                     arr[i] = Math.floor(Math.random() * 100);
                 }
                 chart.update ({
                     series: [
                         {
                             seriesIndex: 0,
+                            data: arr
+                        },
+                        {
+                            seriesIndex: 1,
+                            data: arr
+                        },
+                        {
+                            seriesIndex: 2,
                             data: arr
                         }
                     ]
