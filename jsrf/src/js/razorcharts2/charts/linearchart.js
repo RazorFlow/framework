@@ -10,15 +10,20 @@ define(['vendor/lodash',
         'razorcharts2/utils/graphutils',
         'razorcharts2/plots/column',
         'razorcharts2/plots/stackedcolumn',
-        'razorcharts2/plots/line'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line) {
+        'razorcharts2/plots/line',
+        'razorcharts2/plots/area',
+        'razorcharts2/plots/stackedarea',], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea) {
 
     var plots = {
         'column': Column,
-        'line': Line
+        'line': Line,
+        'area': Area
     };
 
     var stackedPlots = {
-        'column': StackedColumn
+        'column': StackedColumn,
+        'line': Line,
+        'area': StackedArea
     };
 
     var plotOrder = ['column', 'area', 'line'];
@@ -100,7 +105,7 @@ define(['vendor/lodash',
                     plotSeries[j].scale = self.yScale;    
                 }
             }
-            if(plot && plotSeries) {
+            if(plot && plotSeries && plotSeries.length) {
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
                     series: plotSeries
@@ -122,10 +127,10 @@ define(['vendor/lodash',
                 series[j].scale = self.yScale;
             }
 
-            if(plot && plotSeries) {
+            if(plot && plotSeries && plotSeries.length) {
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
-                    series: series
+                    series: plotSeries
                 });
             }
         }

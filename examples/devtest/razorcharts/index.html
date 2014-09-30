@@ -23,25 +23,25 @@
                 type: 'linear',
                 labels: ['abc', 'def', 'hij', 'klm', 'nop'],
                 // dualAxis: true,
-                // stacked: true,
+                stacked: true,
                 series: [
                     {
                         seriesIndex: 0,
-                        displayType: 'column',
+                        displayType: 'area',
                         data: [10, 15, 5, 18, 40],
                         color: 'red'
                     },
                     {
                         seriesIndex: 1,
-                        displayType: 'line',
-                        data: [23, 5, -15, 8, 32],
+                        displayType: 'area',
+                        data: [10, 5, -15, 8, 32],
                         yAxis: 'right',
                         color: 'green'
                     },
                     {
                         seriesIndex: 2,
-                        displayType: 'column',
-                        data: [2, 5, -5, 8, 2],
+                        displayType: 'area',
+                        data: [10, 5, -5, 8, 10],
                         color: 'blue'
                     },
                 ]
