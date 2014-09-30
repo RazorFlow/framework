@@ -1,4 +1,4 @@
-define(['leonardo/utils/transformutils'], function (TransformUtils) {
+define(['leonardo/utils/transformutils', 'leonardo/utils/pathutils'], function (TransformUtils, PathUtils) {
     function lerp (v0, v1, t) {
         return v0 + t * (v1 - v0);
     }
@@ -19,13 +19,25 @@ define(['leonardo/utils/transformutils'], function (TransformUtils) {
         return r;
     }
 
+    function pathLerpHelper (v0, v1, t) {
+        var v0 = PathUtils.toPathObject (v0),
+            v1 = PathUtils.toPathObject (v1),
+            pathLerp = PathUtils.pathObjectLerp (v0, v1, t),
+            pathString = PathUtils.toPathString (pathLerp);
+        return pathString;
+    }
+
     var PropertyInterpolators = {
         x: numberLerpHelper,
         y: numberLerpHelper,
         width: numberLerpHelper,
         height: numberLerpHelper,
         transform: transformLerpHelper,
-        opacity: numberLerpHelper
+        opacity: numberLerpHelper,
+        cx: numberLerpHelper,
+        cy: numberLerpHelper,
+        r: numberLerpHelper,
+        d: pathLerpHelper
     };
 
     return PropertyInterpolators;

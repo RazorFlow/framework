@@ -1,7 +1,7 @@
 define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
     
 
-    var TextRenderer = function (x1, y1, x2, y2) {
+    var LineRenderer = function (x1, y1, x2, y2) {
         var $elem = null;
         $elem = this.createElement ('line');
         this.__elem = $elem;
@@ -13,8 +13,8 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
         });
     }
 
-    TextRenderer.prototype = new ElementRenderer  ();
-    TextRenderer.prototype.constructor = TextRenderer;
+    LineRenderer.prototype = new ElementRenderer  ();
+    LineRenderer.prototype.constructor = LineRenderer;
 
-    return TextRenderer;
+    return LineRenderer;
 });
