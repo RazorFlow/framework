@@ -14,10 +14,17 @@ define(['razorcharts2/axes/axis'], function (Axis) {
         var $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
-            height = self.coreHeight;
+            height = self.coreHeight,
+            tickHeight = height / ticks.length;
 
         for(var i=0; i<ticks.length; ++i) {
-            var y = height - scale.calc(ticks[i]) + 8;
+            var y;
+            if(self.options.type === 'linear') {
+                y = height - scale.calc(ticks[i]) + 8;    
+            } else {
+                y = height - scale.calc(ticks[i]) - tickHeight / 2;
+            }
+            
             $ticks[i].translate (-10, y);
             $ticks[i].attr ({
                 'text-anchor': 'end'
@@ -38,7 +45,12 @@ define(['razorcharts2/axes/axis'], function (Axis) {
             height = self.coreHeight;
         cachedScale.range([0, height]);
         for(var i=0; i<ticks.length; ++i) {
-            var y = height - scale.calc(ticks[i]) + 8;
+            var y;
+            if(self.options.type === 'linear') {
+                y = height - scale.calc(ticks[i]) + 8;    
+            } else {
+                y = height - scale.calc(ticks[i]) - tickHeight / 2;
+            }
             var oldY = height - cachedScale.calc(ticks[i]) + 8;
             if($ticks[i].__newTick) {
                 $ticks[i].attr('opacity', 0);

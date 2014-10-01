@@ -20,14 +20,14 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({
-                type: 'linear',
+                type: 'bar',
                 labels: ['abc', 'def', 'hij', 'klm', 'nop'],
                 // dualAxis: true,
-                stacked: true,
+                // stacked: true,
                 series: [
                     {
                         seriesIndex: 0,
-                        displayType: 'area',
+                        displayType: 'column',
                         data: [10, 15, 5, 18, 40],
                         color: 'red'
                     },
@@ -39,8 +39,15 @@
                         color: 'green'
                     },
                     {
-                        seriesIndex: 2,
+                        seriesIndex: 3,
                         displayType: 'area',
+                        data: [10, 5, -15, 8, 32],
+                        yAxis: 'right',
+                        color: 'yellow'
+                    },
+                    {
+                        seriesIndex: 2,
+                        displayType: 'column',
                         data: [10, 5, -5, 8, 10],
                         color: 'blue'
                     },
@@ -287,6 +294,10 @@
                         },
                         {
                             seriesIndex: 2,
+                            data: arr
+                        },
+                        {
+                            seriesIndex: 3,
                             data: arr
                         }
                     ]
