@@ -23,7 +23,7 @@
                 type: 'bar',
                 labels: ['abc', 'def', 'hij', 'klm', 'nop'],
                 // dualAxis: true,
-                // stacked: true,
+                stacked: true,
                 series: [
                     {
                         seriesIndex: 0,
@@ -38,19 +38,19 @@
                         yAxis: 'right',
                         color: 'green'
                     },
-                    {
-                        seriesIndex: 3,
-                        displayType: 'area',
-                        data: [10, 5, -15, 8, 32],
-                        yAxis: 'right',
-                        color: 'yellow'
-                    },
-                    {
-                        seriesIndex: 2,
-                        displayType: 'column',
-                        data: [10, 5, -5, 8, 10],
-                        color: 'blue'
-                    },
+                    // {
+                    //     seriesIndex: 3,
+                    //     displayType: 'area',
+                    //     data: [10, 5, -15, 8, 32],
+                    //     yAxis: 'right',
+                    //     color: 'yellow'
+                    // },
+                    // {
+                    //     seriesIndex: 2,
+                    //     displayType: 'column',
+                    //     data: [10, 5, -5, 8, 10],
+                    //     color: 'blue'
+                    // },
                 ]
             });
             chart.renderTo(document.getElementById ('container'), 600, 400);
@@ -292,14 +292,14 @@
                             seriesIndex: 1,
                             data: arr
                         },
-                        {
-                            seriesIndex: 2,
-                            data: arr
-                        },
-                        {
-                            seriesIndex: 3,
-                            data: arr
-                        }
+                        // {
+                        //     seriesIndex: 2,
+                        //     data: arr
+                        // },
+                        // {
+                        //     seriesIndex: 3,
+                        //     data: arr
+                        // }
                     ]
                 });
             });

@@ -3,7 +3,8 @@ define(['vendor/lodash',
         'razorcharts2/axes/leftaxis',
         'razorcharts2/axes/bottomaxis',
         'razorcharts2/utils/graphutils',
-        'razorcharts2/plots/bar'], function (_, Scale, LeftAxis, BottomAxis, GraphUtils, Bar) {
+        'razorcharts2/plots/bar',
+        'razorcharts2/plots/stackedbar'], function (_, Scale, LeftAxis, BottomAxis, GraphUtils, Bar, StackedBar) {
     var BarChart = function () {
         this.options = {};
         this.xAxisOptions = {};
@@ -28,7 +29,10 @@ define(['vendor/lodash',
     };
 
     function configureStackedBarChart (self) {
-
+        calcStackedScaleBounds (self);
+        configureScales (self);
+        configureAxes (self);
+        configureStackedPlots (self);
     }
 
     function calcScaleBounds (self) {
@@ -41,6 +45,27 @@ define(['vendor/lodash',
 
         self.dataMin = _.min (allData);
         self.dataMax = _.max (allData);
+    };
+
+    function calcStackedScaleBounds (self) {
+        var negevData = [],
+            posiData = [],
+            series = self.options.series;
+        for(var i=0; i<series.length; i++) {
+            var data = series[i].data;
+            for(var j=0; j<series[i].data.length; j++) {
+                posiData[j] = typeof posiData[j] === 'undefined' ? 0 : posiData[j];
+                negevData[j] = typeof negevData[j] === 'undefined' ? 0 : negevData[j];
+                if(data[j] >= 0) {
+                    posiData[j] += data[j];
+                } else {
+                    negevData[j] += data[j];
+                }
+            }
+        }
+
+        self.dataMin = _.min (negevData);
+        self.dataMax = _.max (posiData);
     };
 
     function configureScales (self) {
@@ -87,6 +112,17 @@ define(['vendor/lodash',
             series[i].scale = self.xScale;
         }
         self.plot = new Bar ();
+        self.plot.config({
+            series: series
+        });
+    };
+
+    function configureStackedPlots (self) {
+        var series = self.options.series;
+        for(var i=0; i<series.length; i++) {
+            series[i].scale = self.xScale;
+        }
+        self.plot = new StackedBar ();
         self.plot.config({
             series: series
         });
@@ -176,6 +212,18 @@ define(['vendor/lodash',
         self.xAxis.setTicks (self.xDomain.ticks);
         self.xAxis.update ();
 
+        self.plot.update ();
+    };
+
+    function updateStackedBarChart (self) {
+        var w = self.width,
+            h = self.height;
+
+        calcStackedScaleBounds (self);
+        self.xDomain = xAxisDomain (self);
+        self.xScale.domain ([self.xDomain.min, self.xDomain.max]);
+        self.xAxis.setTicks (self.xDomain.ticks);
+        self.xAxis.update ();
         self.plot.update ();
     };
 
