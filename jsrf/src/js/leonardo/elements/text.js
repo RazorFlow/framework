@@ -19,5 +19,9 @@ define(['leonardo/core/element'], function(Element) {
         self.__elem = new renderer(x, y, text);
     }
 
+    Text.prototype.addLine = function (x, y, text) {
+        this.__elem.addLine (x, y, text);
+    };
+
     return Text;
 });

@@ -1,9 +1,12 @@
-define(['razorcharts2/axes/axis'], function (Axis) {
+define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
+    var MAX_HEIGHT = 0.25;
     var BottomAxis = function () {
         this.init ();
         this.registerTransformer ({key: 'render', transform: BottomAxisTransformer});
         this.registerTransformer ({key: 'resize', transform: BottomAxisTransformer});
         this.registerTransformer ({key: 'update', transform: BottomAxisUpdateTransformer});
+        this.registerTransformer ({key: 'render', transform: BottomAxisSmartLabelTransform});
+        this.registerTransformer ({key: 'resize', transform: BottomAxisSmartLabelTransform});
     };
 
     BottomAxis.prototype = new Axis ();
@@ -85,5 +88,90 @@ define(['razorcharts2/axes/axis'], function (Axis) {
         self.cache ();
     };
 
+    function BottomAxisSmartLabelTransform (self) {
+        if(self.options.type !== 'ordinal') return;
+        var $ticks = self.$ticks,
+            $tickTexts = self.$tickTexts,
+            ticks = self.ticks,
+            width = self.coreWidth,
+            height = self.coreHeight,
+            tickWidth = width / $ticks.length,
+            labelWidths = self.labelWidths,
+            scale = self.options.scale;
+        if(shouldWeTilt(self, tickWidth)) {
+            for(var i=0; i<$ticks.length; i++) {
+                if(labelWidths[i] > height * MAX_HEIGHT) {
+                    var diff = (labelWidths[i] - height * MAX_HEIGHT);
+                    var l = labelWidths[i] / ticks[i].length;
+                    var newLabel = ticks[i].slice (0, Math.floor(diff / l) - 3);
+                    $tickTexts[i].text (newLabel + '...');
+                }
+                $ticks[i].attr('text-anchor', 'end');
+                $ticks[i].rotate (-45);
+            }
+        } else {
+            for(var i=0; i<$ticks.length; i++) {
+                if(labelWidths[i] > tickWidth * 0.8) {
+                    var lines = getLines (self.wordWidths, ticks[i], tickWidth * 0.8);
+                    var numLines = lines.numLines;
+                    var words = lines.words;
+                    var $tick = self.paper.g ();
+                    var x;
+                    if(self.options.type === 'ordinal') {
+                        x = scale.calc(ticks[i]) + tickWidth / 2;
+                    } else {
+                        x = scale.calc (ticks[i]);
+                    }
+                    $tick.attr ({
+                        'transform': 'translate(' + x + ',14)',
+                        'text-anchor': 'middle'
+                    });
+                    for(var j=0; j<words.length; j++) {
+                        var $newTickText = self.paper.text (0, 18 * j, words[j]);
+                        $tick.append ($newTickText);
+                    }
+                    $ticks[i].remove ();
+                    $ticks[i] = $tick;
+                    self.core.append ($tick);
+                }
+            }
+        }
+    };
+
+    var getLines = function(wordWidths, label, width) {
+        // TODO: Fix a bug with the line becoming one worded later
+        var words = label.split(' ');
+
+        var lengths = _.values(_.pick(wordWidths, words));
+        var lines = 1;
+        var wordsLine = [''];
+        var sum = 0;
+        for (var i = 0; i < words.length; i++) {
+            if (sum + lengths[i] < width) {
+              sum += lengths[i];
+              wordsLine[lines - 1] += (' ' + words[i]);
+            } else {
+              lines++;
+              wordsLine[lines - 1] = ' ' + words[i];
+              sum = lengths[i];
+            }
+        }
+
+        return {
+            numLines: lines,
+            words: wordsLine
+        };
+    };
+
+    function shouldWeTilt (self, tickWidth) {
+        var tilt = false;
+        for(var key in self.wordWidths) {
+            if(self.wordWidths[key] > tickWidth) {
+                tilt = true;
+                break;
+            }
+        }
+        return tilt;
+    };
     return BottomAxis;
 });

@@ -151,6 +151,12 @@ define(['vendor/lodash',
         });
     };
 
+    Element.prototype.rotate = function (a, x, y) {
+        this.transform({
+            rotate: [a, x || 0, y || 0]
+        });
+    }
+
     /**
      * Animates the attributes of this element using the animation props provided
      * @param  {Object} attrs    The attributes which are to be animated and their final values
@@ -218,8 +224,10 @@ define(['vendor/lodash',
      * Removes the element and deletes it
      */
     Element.prototype.remove = function () {
-        this.__elem.remove ();
-        this.__elem = undefined;
+        if(this.__elem) {
+            this.__elem.remove ();
+            this.__elem = undefined;
+        }
     };
 
     /**
@@ -228,6 +236,10 @@ define(['vendor/lodash',
      */
     Element.prototype.getBBox = function () {
         return this.__elem.getBBox();
+    };
+
+    Element.prototype.text = function (text) {
+        this.__elem.text (text);
     };
 
     return Element;

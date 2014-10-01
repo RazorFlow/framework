@@ -20,8 +20,8 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({
-                type: 'bar',
-                labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+                type: 'linear',
+                labels: ['This is a fucking long label', 'This label should be longer the previous label', 'hijdef def def', 'klm', 'nop'],
                 // dualAxis: true,
                 stacked: true,
                 series: [
@@ -33,7 +33,7 @@
                     },
                     {
                         seriesIndex: 1,
-                        displayType: 'area',
+                        displayType: 'column',
                         data: [10, 5, -15, 8, 32],
                         yAxis: 'right',
                         color: 'green'

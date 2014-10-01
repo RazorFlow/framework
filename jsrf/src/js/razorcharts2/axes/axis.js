@@ -6,6 +6,9 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
     Axis.prototype.init = function () {
         this.transformers = [];
         this.$ticks = [];
+        this.$tickTexts = [];
+        this.labelWidths = [];
+        this.wordWidths = {};
     };
 
     Axis.prototype.config = function (_options) {
@@ -77,9 +80,34 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
             var $tick = paper.g ();
             $tick.attr('id', 'tick-' + (i+1));
             var $text = paper.text (0, 0, '' + this.ticks[i]);
+            this.$tickTexts.push ($text);
             $tick.append ($text);
             this.$ticks.push ($tick);
             this.core.append ($tick);
+        }
+        if(this.options.type === 'ordinal') {
+            calculateLabelWidths (this);
+            findWordWidths (this);
+        }
+    };
+
+    function findWordWidths (self) {
+        var labelWidths = self.labelWidths,
+            ticks = self.ticks;
+
+        for(var i=0; i<ticks.length; i++) {
+            var words = ticks[i].split(' ');
+            for(var j=0; j<words.length; j++) {
+                var word = words[j];
+                self.wordWidths[word] = word.length * (labelWidths[i] / ticks[i].length);
+            }
+        }
+    }
+
+    function calculateLabelWidths (self) {
+        var $ticks = self.$ticks;
+        for(var i=0; i<$ticks.length; i++) {
+            self.labelWidths[i] = $ticks[i].getBBox().width;
         }
     };
 
@@ -104,6 +132,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
                 var $tick = this.paper.g ();
                 $tick.attr('id', 'tick-' + (i+1));
                 var $text = this.paper.text (0, 0, '' + this.ticks[i]);
+                this.$tickTexts[i] = $text;
                 $tick.append ($text);
                 this.$ticks[i] = $tick;
                 this.core.append ($tick);
