@@ -315,6 +315,9 @@ define(['vendor/lodash',
         this.xAxis.resizeTo (w - this.yAxisWidth, h);
         this.xAxisContainer.translate(this.yAxisTranslate, (h - this.xAxis.height()));
 
+        // Resize yAxis again since the xaxis labels might have been broken down into lines or tilted
+        resizeYAxis (this);
+
         // Render the plots
         renderPlots (this, w - this.yAxisWidth, h - this.xAxis.height());
         this.plotContainer.translate (this.yAxisTranslate, 0);
