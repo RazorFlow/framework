@@ -21,7 +21,7 @@
             var chart = new Chart();
             chart.config({
                 type: 'pie',
-                labels: ['This is a fucking long label', 'This label should be longer than the previous label', 'hijdef def def', 'klm', 'nop'],
+                labels: ['abc is a long label', 'def', 'hij', 'klm', 'nop'],
                 // dualAxis: true,
                 // stacked: true,
                 // series: [
@@ -281,11 +281,11 @@
             }, 1000);
 
             document.getElementsByTagName('body')[0].addEventListener('click', function() {
-                // chart.resizeTo (400, 300);
-                var arr = [];
-                for(var i=0; i<5; i++) {
-                    arr[i] = Math.floor(Math.random() * 100);
-                }
+                chart.resizeTo (400, 300);
+                // var arr = [];
+                // for(var i=0; i<5; i++) {
+                //     arr[i] = Math.floor(Math.random() * 100);
+                // }
                 // arr[3] = -Math.floor(Math.random() * 100);
                 // chart.update ({
                 //     series: [
@@ -307,11 +307,11 @@
                 //         // }
                 //     ]
                 // });
-                chart.update({
-                    series: {
-                        data: arr
-                    }
-                });
+                // chart.update({
+                //     series: {
+                //         data: arr
+                //     }
+                // });
             });
 		});
 	</script>
