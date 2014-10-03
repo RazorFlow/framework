@@ -208,6 +208,13 @@ define(['vendor/lodash',
         });
     };
 
+    Element.prototype.animateWith = function (cb, duration) {
+        var self = this;
+        Timer (function(d) {
+            cb(self, d / duration);
+        }, duration);
+    }
+
     /**
      * Applies all the queued mutations when the element finishes the animation
      */

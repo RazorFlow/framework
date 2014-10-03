@@ -43,8 +43,12 @@ define(['leonardo/core/element'], function(Element) {
         this.attr ('d', this.pathString);
     };
 
-    Path.prototype.animatePath = function () {
-        this.animate ({'d': this.pathString});
+    Path.prototype.animatePath = function (pathString) {
+        this.animate ({'d': pathString || this.pathString});
+    };
+
+    Path.prototype.setPath = function (pathString) {
+        this.attr ('d', pathString);
     };
 
     return Path;
