@@ -69,8 +69,8 @@ define(['vendor/lodash'], function (_) {
         this.width = w;
         this.height = h;
         this.r = calcRadius (this);
-        setSlicePaths (this);
         updateLabels (this);
+        setSlicePaths (this);
     };
 
     Pie.prototype.update = function (_series) {

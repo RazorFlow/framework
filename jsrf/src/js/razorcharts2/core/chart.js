@@ -72,7 +72,7 @@ define([
 
     Chart.prototype.update = function (options) {
         this.options = _.extend(this.options, options);
-        this.chart.update(options.series);
+        this.chart.update(options);
     }
 
     return Chart;

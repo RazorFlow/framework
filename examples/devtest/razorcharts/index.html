@@ -20,8 +20,11 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({
-                type: 'pie',
-                labels: ['abc is a long label', 'def', 'hij', 'klm', 'nop'],
+                type: 'gauge',
+                min: 0,
+                max: 100,
+                value: 40
+                // labels: ['abcdsabhkfdjsbfkjsdg', 'def', 'hij', 'klm', 'nop'],
                 // dualAxis: true,
                 // stacked: true,
                 // series: [
@@ -52,11 +55,11 @@
                 //     //     color: 'blue'
                 //     // },
                 // ]
-                series: {
-                    displayType: 'pie',
-                    data: [20, 10, 30, 15, 25],
-                    colors: ['red', 'green', 'yellow', 'blue', 'magenta']
-                }
+                // series: {
+                //     displayType: 'pie',
+                //     data: [20, 10, 30, 15, 25],
+                //     colors: ['red', 'green', 'yellow', 'blue', 'magenta']
+                // }
             });
             chart.renderTo(document.getElementById ('container'), 600, 400);
 
@@ -281,7 +284,8 @@
             }, 1000);
 
             document.getElementsByTagName('body')[0].addEventListener('click', function() {
-                chart.resizeTo (400, 300);
+                chart.update({value: Math.floor(Math.random() * 100)});
+                // chart.resizeTo (80, 70);
                 // var arr = [];
                 // for(var i=0; i<5; i++) {
                 //     arr[i] = Math.floor(Math.random() * 100);

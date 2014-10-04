@@ -12,8 +12,12 @@ define(['leonardo/utils/transformutils', 'leonardo/utils/pathutils'], function (
         if(v1.translate) {
             var newTranslate = [lerp(v0.translate[0], v1.translate[0], t), lerp(v0.translate[1], v1.translate[1], t)]
         }
+        if(v1.rotate) {
+            var newRotate = [lerp(v0.rotate[0], v1.rotate[0], t), v1.rotate[1], v1.rotate[2]]
+        }
         var r = TransformUtils.transformObjectToString ({
-            translate: newTranslate
+            translate: newTranslate,
+            rotate: newRotate
         });
 
         return r;
