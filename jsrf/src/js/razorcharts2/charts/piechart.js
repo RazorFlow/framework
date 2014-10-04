@@ -28,9 +28,9 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         this.plot.resizeTo (w, h);
     };
 
-    PieChart.prototype.update = function (series) {
-        this.options.series = _.extend(this.options.series, series);
-        this.plot.update (series);
+    PieChart.prototype.update = function (_options) {
+        this.options = _.extend (this.options, _options);
+        this.plot.update (_options);
     };
 
     return PieChart;

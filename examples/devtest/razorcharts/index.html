@@ -20,11 +20,11 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({
-                type: 'gauge',
-                min: 0,
-                max: 100,
-                value: 40
-                // labels: ['abcdsabhkfdjsbfkjsdg', 'def', 'hij', 'klm', 'nop'],
+                type: 'pie',
+                // min: 0,
+                // max: 100,
+                // value: 40
+                labels: ['abcdsabhkfdjsbfkjsdg', 'def', 'hij', 'klm', 'nop'],
                 // dualAxis: true,
                 // stacked: true,
                 // series: [
@@ -55,11 +55,11 @@
                 //     //     color: 'blue'
                 //     // },
                 // ]
-                // series: {
-                //     displayType: 'pie',
-                //     data: [20, 10, 30, 15, 25],
-                //     colors: ['red', 'green', 'yellow', 'blue', 'magenta']
-                // }
+                series: {
+                    displayType: 'pie',
+                    data: [20, 10, 30, 15, 25],
+                    colors: ['red', 'green', 'yellow', 'blue', 'magenta']
+                }
             });
             chart.renderTo(document.getElementById ('container'), 600, 400);
 
@@ -284,12 +284,12 @@
             }, 1000);
 
             document.getElementsByTagName('body')[0].addEventListener('click', function() {
-                chart.update({value: Math.floor(Math.random() * 100)});
+                // chart.update({value: Math.floor(Math.random() * 100)});
                 // chart.resizeTo (80, 70);
-                // var arr = [];
-                // for(var i=0; i<5; i++) {
-                //     arr[i] = Math.floor(Math.random() * 100);
-                // }
+                var arr = [];
+                for(var i=0; i<5; i++) {
+                    arr[i] = Math.floor(Math.random() * 100);
+                }
                 // arr[3] = -Math.floor(Math.random() * 100);
                 // chart.update ({
                 //     series: [
@@ -311,11 +311,11 @@
                 //         // }
                 //     ]
                 // });
-                // chart.update({
-                //     series: {
-                //         data: arr
-                //     }
-                // });
+                chart.update({
+                    series: {
+                        data: arr
+                    }
+                });
             });
 		});
 	</script>

@@ -73,10 +73,10 @@ define(['vendor/lodash'], function (_) {
         setSlicePaths (this);
     };
 
-    Pie.prototype.update = function (_series) {
+    Pie.prototype.update = function (_options) {
         var slices = this.slices;
         var series = this.options.series,
-            data = _series.data,
+            data = _options.series.data,
             w = this.width,
             h = this.height,
             cx = w / 2,
@@ -88,7 +88,7 @@ define(['vendor/lodash'], function (_) {
             oldTotal = _.reduce (oldData, function(mem, num) { return mem + num; }, 0),
             oldTAngle = 0;
 
-        this.options.series = _.extend(this.options.series, _series);
+        this.options = _.extend(this.options, _options);
         for(var i=0; i<slices.length; i++) {
             var currAngle = data[i] / total * 360;
             var oldCurrAngle = oldData[i] / oldTotal * 360;
