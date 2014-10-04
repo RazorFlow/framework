@@ -23,6 +23,12 @@ define(['vendor/lodash'], function (_) {
         this.core.append (this.filler)
         this.arrow = paper.path ();
         this.core.append (this.arrow);
+        this.minText = paper.text (0, 0, this.options.min);
+        this.core.append (this.minText);
+        this.maxText = paper.text (0, 0, this.options.max);
+        this.core.append (this.maxText);
+        this.valueText = paper.text (0, 0, this.options.value);
+        this.core.append (this.valueText);
         paper.append (this.core);
 
         this.back.attr ({
@@ -59,7 +65,11 @@ define(['vendor/lodash'], function (_) {
             min = self.options.min,
             max = self.options.max,
             valP = (value - min) / (max - min),
-            oldValP = (oldValue - oldMin) / (oldMax - oldMin);
+            oldValP = (oldValue - oldMin) / (oldMax - oldMin),
+            minText = self.minText,
+            maxText = self.maxText,
+            valueText = self.valueText,
+            MAX_FONT_SIZE = 28;
 
         var backPath = slicePath (cx, cy, -240, 60, r * 0.8, r);
 
@@ -70,6 +80,24 @@ define(['vendor/lodash'], function (_) {
         var arrowPath = slicePath (cx, cy, -230, 110, r * 0.6, r * 0.6, true, r * 0.7, 10);
         var endAngle = 300  * valP;
         var startAngle = 300 * oldValP; 
+        var minTextPos = calculateTextPos(cx, cy, -240, r);
+        var maxTextPos = calculateTextPos(cx, cy, 60, r);
+        minText.attr({
+            x: minTextPos.x,
+            y: minTextPos.y + minText.getBBox().height,
+            'text-anchor': 'middle'
+        });
+        maxText.attr({
+            x: maxTextPos.x,
+            y: maxTextPos.y + maxText.getBBox().height,
+            'text-anchor': 'middle'
+        });
+        valueText.attr({
+            x: cx,
+            y: cy,
+            'text-anchor': 'middle',
+            'font-size': MAX_FONT_SIZE
+        });
         if(animate) {
             filler.animateWith (function (el, dt) {
                 var currAngle = (endAngle - startAngle) * dt;
@@ -133,6 +161,16 @@ define(['vendor/lodash'], function (_) {
         }
 
         return pathString;
+    };
+
+    var calculateTextPos = function(cx, cy, angle, radius) {
+        var x = cx + radius * Math.cos(Math.PI * angle / 180);
+        var y = cy + radius * Math.sin(Math.PI * angle / 180);
+
+        return {
+            x: x,
+            y: y
+        };
     };
 
     return GaugeChart;
