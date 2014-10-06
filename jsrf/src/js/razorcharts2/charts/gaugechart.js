@@ -1,4 +1,4 @@
-define(['vendor/lodash'], function (_) {
+define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants) {
     var GaugeChart = function () {
         this.options = {};
         this.cachedOptions = {
@@ -27,7 +27,7 @@ define(['vendor/lodash'], function (_) {
         this.core.append (this.minText);
         this.maxText = paper.text (0, 0, this.options.max);
         this.core.append (this.maxText);
-        this.valueText = paper.text (0, 0, this.options.value);
+        this.valueText = paper.text (0, 0, this.options.max);
         this.core.append (this.valueText);
         paper.append (this.core);
 
@@ -53,7 +53,7 @@ define(['vendor/lodash'], function (_) {
             h = self.height,
             cx = w / 2,
             cy = h / 2,
-            r = _.min ([cx, cy]),
+            r = _.min ([cx, cy]) - Constants.gauge.radius_adjust,
             back = self.back,
             filler = self.filler,
             core = self.core,
@@ -69,53 +69,115 @@ define(['vendor/lodash'], function (_) {
             minText = self.minText,
             maxText = self.maxText,
             valueText = self.valueText,
-            MAX_FONT_SIZE = 28;
+            gaugeStartAngle = Constants.gauge.startAngle,
+            gaugeEndAngle = Constants.gauge.endAngle,
+            arrowStartAngle = Constants.gauge.arrowStartAngle,
+            arrowEndAngle = Constants.gauge.arrowEndAngle,
+            MAX_FONT_SIZE = Constants.gauge.max_font_size;
 
-        var backPath = slicePath (cx, cy, -240, 60, r * 0.8, r);
+        var backPath = slicePath (cx, cy, gaugeStartAngle, gaugeEndAngle, r * 0.8, r);
 
         back.setPath (backPath);
         
 
-        var fillerPath = slicePath (cx, cy, -240, 300 * valP - 240, r * 0.8, r);
-        var arrowPath = slicePath (cx, cy, -230, 110, r * 0.6, r * 0.6, true, r * 0.7, 10);
+        var fillerPath = slicePath (cx, cy, gaugeStartAngle, 300 * valP - 240, r * 0.8, r);
+        var arrowPath = slicePath (cx, cy, arrowStartAngle, arrowEndAngle, r * 0.6, r * 0.6, true, r * 0.7, 10);
         var endAngle = 300  * valP;
         var startAngle = 300 * oldValP; 
-        var minTextPos = calculateTextPos(cx, cy, -240, r);
-        var maxTextPos = calculateTextPos(cx, cy, 60, r);
+        var minTextPos = calculateTextPos(cx, cy, gaugeStartAngle, r);
+        var maxTextPos = calculateTextPos(cx, cy, gaugeEndAngle, r);
+        var innerRadius = r - r * 0.5;
+
+
         minText.attr({
             x: minTextPos.x,
             y: minTextPos.y + minText.getBBox().height,
             'text-anchor': 'middle'
         });
+
         maxText.attr({
             x: maxTextPos.x,
             y: maxTextPos.y + maxText.getBBox().height,
             'text-anchor': 'middle'
         });
+
+        valueText.text(self.options.value);
+
         valueText.attr({
             x: cx,
             y: cy,
             'text-anchor': 'middle',
             'font-size': MAX_FONT_SIZE
         });
+        valueText.attr({
+            y: cy + valueText.getBBox().height / 4
+        });
+
+        var valueTextWidth = valueText.getBBox().width;
+
+        if(self.cachedOptions.maxFontSize) {
+            var newFontSize = self.cachedOptions.maxFontSize;
+            valueText.attr({
+                'font-size': newFontSize,
+            });
+        }
+        else {
+            if(innerRadius < valueTextWidth) {
+                var newFontSize = innerRadius / valueTextWidth * MAX_FONT_SIZE;
+                self.options.maxFontSize = newFontSize;
+                valueText.attr({
+                    'font-size': newFontSize,
+                });
+                minText.attr({
+                    'font-size': newFontSize * 0.5,
+                     x: minTextPos.x,
+                });
+                minText.attr({
+                     y: minTextPos.y + minText.getBBox().height,
+                });
+                maxText.attr({
+                    'font-size': newFontSize * 0.5,
+                     x: maxTextPos.x,
+                });
+                maxText.attr({
+                     y: maxTextPos.y + maxText.getBBox().height,
+                });
+            }
+        }
+
+
         if(animate) {
             filler.animateWith (function (el, dt) {
                 var currAngle = (endAngle - startAngle) * dt;
-                var fillerPath = slicePath (cx, cy, -240, -240 + startAngle + currAngle, r * 0.8, r);
+                var fillerPath = slicePath (cx, cy, gaugeStartAngle, gaugeStartAngle + startAngle + currAngle, r * 0.8, r);
                 filler.setPath (fillerPath);    
+
             }, 500);
+
+            var previousValue = self.cachedOptions.value;
+
+            valueText.animateWith(function(el, dt) {
+                if(self.options.value > previousValue) {
+                    el.text(Math.floor((self.options.value - previousValue) * dt) + previousValue);
+                }
+                else {
+                    el.text(Math.floor(previousValue - (previousValue - self.options.value ) * dt));
+                }
+            }, 500);
+
+
             arrow.animate({
                 transform: {
                     rotate: [endAngle, cx, cy]
                 }
             }, 500);
+
         } else {
             filler.setPath (fillerPath);
             arrow.setPath (arrowPath);
             arrow.rotate (endAngle, cx, cy);
         }
         
-
 
 
         self.cachedOptions = _.cloneDeep (self.options);
