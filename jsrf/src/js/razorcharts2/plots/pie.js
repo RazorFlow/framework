@@ -1,8 +1,9 @@
 define(['vendor/lodash'], function (_) {
-    var LABEL_FONT_SIZE = 14;
-    MIN_LABEL_RADIUS = 60;
-    ARROW_WIDTH = 60;
-    MIN_PIE_RADIUS = 30;
+    var LABEL_FONT_SIZE = 14,
+        MIN_LABEL_RADIUS = 60,
+        ARROW_WIDTH = 60,
+        MIN_PIE_RADIUS = 30,
+        T_ANGLE = 0;
     var Pie = function () {
         this.options = {};
         this.slices = [];
@@ -21,18 +22,34 @@ define(['vendor/lodash'], function (_) {
         this.core = core;
         this.width = w;
         this.height = h;
-        this.r = calcRadius (this);
+        this.r = getRadius (this);
         createSlices (this);
         drawLabels (this);
         setSlicePaths (this);
     };
+
+    function getRadius (self) {
+        var radiusObj = {};
+        var iterations = 8;
+        while (iterations--) {
+            radiusObj[T_ANGLE] = calcRadius(self);
+            T_ANGLE +=45;
+        }
+        var maxRadius = _.max(_.values(radiusObj));
+        for (var key in radiusObj) {
+            if (radiusObj[key] === maxRadius) {
+                T_ANGLE = +key;
+                break;
+            }
+        }
+        return maxRadius;
+    }
 
     function createSlices (self) {
         var paper = self.paper,
             core = self.core,
             series = self.options.series,
             data = series.data;
-        
         for(var i=0; i<data.length; i++) {
             var slice = paper.path ();
             slice.attr ('fill', series.colors[i]);
@@ -50,7 +67,7 @@ define(['vendor/lodash'], function (_) {
             cy = h / 2,
             r = self.r,
             total = _.reduce (data, function(mem, num) { return mem + num; }, 0),
-            tAngle = 0;
+            tAngle = T_ANGLE;
 
         for(var i=0; i<self.slices.length; i++) {
             var currAngle = data[i] / total * 360;
@@ -59,7 +76,6 @@ define(['vendor/lodash'], function (_) {
                 self.slices[i].animatePath (pathString);
             } else {
                 self.slices[i].setPath (pathString);
-                
             }
             tAngle += currAngle;
         }
@@ -83,10 +99,10 @@ define(['vendor/lodash'], function (_) {
             cy = h / 2,
             r = this.r = calcRadius (this),
             total = _.reduce (data, function(mem, num) { return mem + num; }, 0),
-            tAngle = 0,
+            tAngle = T_ANGLE,
             oldData = this.cachedData,
             oldTotal = _.reduce (oldData, function(mem, num) { return mem + num; }, 0),
-            oldTAngle = 0;
+            oldTAngle = T_ANGLE;
 
         this.options = _.extend(this.options, _options);
         for(var i=0; i<slices.length; i++) {
@@ -164,7 +180,7 @@ define(['vendor/lodash'], function (_) {
             cx = w / 2,
             cy = h / 2,
             total = _.reduce (data, function(mem, num) { return mem + num; }, 0),
-            tAngle = 0;
+            tAngle = T_ANGLE;
 
         findWidths (self);
         var labelBBoxes = _.cloneDeep (self.labelSizes);
@@ -218,7 +234,7 @@ define(['vendor/lodash'], function (_) {
             cy = h / 2,
             r = self.r,
             total = _.reduce (data, function(mem, num) { return mem + num; }, 0),
-            tAngle = 0;
+            tAngle = T_ANGLE;
         for(var i=0; i<labels.length; i++) {
             var startAngle = tAngle;
             var endAngle = tAngle + data[i] / total * 360;
@@ -260,13 +276,14 @@ define(['vendor/lodash'], function (_) {
             cy = h / 2,
             r = self.r,
             total = _.reduce (data, function(mem, num) { return mem + num; }, 0),
-            tAngle = 0;
+            tAngle = T_ANGLE;
         for(var i=0; i<labels.length; i++) {
             var startAngle = tAngle;
             var endAngle = tAngle + data[i] / total * 360;
             var pos = angleToPoint (cx, cy, r + MIN_LABEL_RADIUS, (startAngle + endAngle) / 2);
             var circlePos = angleToPoint (cx, cy, r, (startAngle + endAngle) / 2);
             var label = self.labelParts[i].label;
+            label.text(data[i] + ' ' + labels[i]);
             label.attr ({
                 x: pos.x < cx ? 10 : -10
             });
