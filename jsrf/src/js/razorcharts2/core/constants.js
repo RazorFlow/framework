@@ -1,7 +1,6 @@
 define ([], function () {
   return {
     gauge: {
-      limit_font_size: 10,
       radius_adjust: 15,
       startAngle: -240,
       endAngle: 60,

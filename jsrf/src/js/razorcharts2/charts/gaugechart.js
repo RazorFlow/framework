@@ -23,11 +23,11 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         this.core.append (this.filler)
         this.arrow = paper.path ();
         this.core.append (this.arrow);
-        this.minText = paper.text (0, 0, this.options.min);
+        this.minText = paper.text (0, 0);
         this.core.append (this.minText);
-        this.maxText = paper.text (0, 0, this.options.max);
+        this.maxText = paper.text (0, 0);
         this.core.append (this.maxText);
-        this.valueText = paper.text (0, 0, this.options.max);
+        this.valueText = paper.text (0, 0);
         this.core.append (this.valueText);
         paper.append (this.core);
 
@@ -89,12 +89,14 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         var innerRadius = r - r * 0.5;
 
 
+        minText.text(self.options.min);
         minText.attr({
             x: minTextPos.x,
             y: minTextPos.y + minText.getBBox().height,
             'text-anchor': 'middle'
         });
 
+        maxText.text(self.options.max);
         maxText.attr({
             x: maxTextPos.x,
             y: maxTextPos.y + maxText.getBBox().height,
@@ -102,10 +104,8 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         });
 
         valueText.text(self.options.value);
-
         valueText.attr({
             x: cx,
-            y: cy,
             'text-anchor': 'middle',
             'font-size': MAX_FONT_SIZE
         });
