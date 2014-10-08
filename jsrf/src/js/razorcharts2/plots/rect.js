@@ -47,7 +47,8 @@ define(['vendor/lodash'], function (_) {
 
     Rect.prototype.createRects = function () {
         var paper = this.paper,
-            series = this.options.series;
+            series = this.options.series,
+            eventManager = this.options.eventManager;
 
         for(var i=0; i<series.length; i++) {
             var seriesContainer = paper.g ();
@@ -57,12 +58,23 @@ define(['vendor/lodash'], function (_) {
                 var rect = paper.rect (0,0,0,0);
                 rect.attr('id', 'rc-series-' + series[i].seriesIndex + '-rect-' + j);
                 rect.attr ('fill', series[i].color);
+                !function (seriesIndex, labelIndex, value, label) {
+                    rect.click(function () {
+                        eventManager.trigger ('plotItemActivate', {
+                            seriesIndex: seriesIndex,
+                            labelIndex: labelIndex,
+                            value: value,
+                            label: label
+                        });
+                    });
+                } (i, j, series[i].data[j], this.options.labels[j]);
+                    
                 seriesContainer.append (rect);
                 this.rects[i].push (rect);
             }
             this.seriesContainers.push (seriesContainer);
             this.core.append (seriesContainer);
-        }            
+        }
     };
 
     return Rect;

@@ -33,5 +33,11 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         this.plot.update (_options);
     };
 
+    PieChart.prototype.callFunction = function (funcName, argsObject) {
+        if(funcName === 'hasLabels') {
+            return this.plot.hasLabels ();
+        }
+    };
+
     return PieChart;
 });

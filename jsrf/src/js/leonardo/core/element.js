@@ -249,5 +249,13 @@ define(['vendor/lodash',
         this.__elem.text (text);
     };
 
+    Element.prototype.on = function (key, cb) {
+        this.__elem.on (key, cb);
+    };
+
+    Element.prototype.click = function (cb) {
+        this.__elem.on ('click', cb);
+    };
+
     return Element;
 });

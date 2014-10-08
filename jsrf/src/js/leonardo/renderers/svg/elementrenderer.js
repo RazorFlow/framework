@@ -57,7 +57,11 @@ define(['vendor/lodash'], function (_) {
     ElementRenderer.prototype.remove = function () {
         this.__elem.remove ();
         this.__elem = undefined;
-    }
+    };
+
+    ElementRenderer.prototype.on = function (key, cb) {
+        this.__elem.addEventListener (key, cb);
+    };
 
     return ElementRenderer;
 });

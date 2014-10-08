@@ -137,7 +137,9 @@ define(['vendor/lodash',
         }
         self.plot = new Bar ();
         self.plot.config({
-            series: series
+            series: series,
+            eventManager: self.options.eventManager,
+            labels: self.options.labels
         });
     };
 

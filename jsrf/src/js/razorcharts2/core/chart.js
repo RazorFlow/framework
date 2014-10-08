@@ -6,10 +6,10 @@ define([
     'vendor/lodash', 
     'razorcharts2/utils/assert',
     'leonardo/leomain',
-    'razorcharts/utils/eventmanager'], function (_, Assert, Leonardo, EventManager) {
+    'razorcharts2/utils/eventmanager'], function (_, Assert, Leonardo, EventManager) {
     var Chart =  function () {
         this.options = {};
-        this.eventManager = new EventManager();
+        this.options.eventManager = new EventManager();
     };
     var charts = {};
     /**
@@ -78,7 +78,11 @@ define([
     }
 
     Chart.prototype.on = function(eventName, cb) {
-        this.eventManager.bind(eventName, cb);
+        this.options.eventManager.bind(eventName, cb);
+    };
+
+    Chart.prototype.callFunction = function (funcName, argsObject) {
+        return this.chart.callFunction (funcName, argsObject);
     };
 
     return Chart;

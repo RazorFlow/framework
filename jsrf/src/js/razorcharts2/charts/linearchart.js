@@ -112,7 +112,8 @@ define(['vendor/lodash',
                 self.plots[plotType].config({
                     series: plotSeries,
                     minValue: self.yAxisOptions.minValue,
-                    maxValue: self.yAxisOptions.maxValue
+                    maxValue: self.yAxisOptions.maxValue,
+                    eventManager: this.options.eventManager
                 });
             }
         }
