@@ -75,13 +75,14 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             arrowEndAngle = Constants.gauge.arrowEndAngle,
             MAX_FONT_SIZE = Constants.gauge.max_font_size;
 
-        var backPath = slicePath (cx, cy, gaugeStartAngle, gaugeEndAngle, r * 0.8, r);
+        r = r*Constants.gauge.padding;
+        var backPath = slicePath (cx, cy, gaugeStartAngle, gaugeEndAngle, r * 0.9, r * 0.95);
 
         back.setPath (backPath);
         
 
-        var fillerPath = slicePath (cx, cy, gaugeStartAngle, 300 * valP - 240, r * 0.8, r);
-        var arrowPath = slicePath (cx, cy, arrowStartAngle, arrowEndAngle, r * 0.6, r * 0.6, true, r * 0.7, 10);
+        var fillerPath = slicePath (cx, cy, gaugeStartAngle, 300 * valP - 240, r * 0.9, r * 0.95);
+        var arrowPath = slicePath (cx, cy, arrowStartAngle, arrowEndAngle, r * 0.5, r * 0.5, true, r * 0.6, 10);
         var endAngle = 300  * valP;
         var startAngle = 300 * oldValP; 
         var minTextPos = calculateTextPos(cx, cy, gaugeStartAngle, r);
@@ -149,7 +150,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         if(animate) {
             filler.animateWith (function (el, dt) {
                 var currAngle = (endAngle - startAngle) * dt;
-                var fillerPath = slicePath (cx, cy, gaugeStartAngle, gaugeStartAngle + startAngle + currAngle, r * 0.8, r);
+                var fillerPath = slicePath (cx, cy, gaugeStartAngle, gaugeStartAngle + startAngle + currAngle, r * 0.9, r * 0.95);
                 filler.setPath (fillerPath);    
 
             }, 500);
