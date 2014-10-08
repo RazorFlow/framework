@@ -4,7 +4,7 @@ define([
   "renderers/componentrenderer",
   "utils/dataformatter",
   "utils/numberformatter",
-  "razorcharts/core/chart",
+  "razorcharts2/core/rcmain",
   "utils/tooltip",
   'vendor/lodash'
 ], function (JST, ComponentRenderer, DataFormatter, NumberFormatter, RazorChart, Tooltip, _) {
@@ -260,7 +260,7 @@ define([
             id: series[i].key,
             data: data[i],
             colors: coreChartType === 'pie' ? chartBaseColors : null,
-            color: series[i].seriesColor,
+            color: chartBaseColors[i],
             caption: series[i].seriesName,
             stacked: series[i].seriesStacked,
             yAxis: series[i].yAxis === 'primary' ? 'left' : 'right',
@@ -274,7 +274,7 @@ define([
           };
         }
       }
-
+      
       var yConfig = self.props.chart.yaxis,
           syConfig = self.props.chart.secondaryYAxis,
           primarySeries = _.where (series, {yAxis: 'primary'}),
