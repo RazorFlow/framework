@@ -10,6 +10,7 @@ define(['vendor/lodash'], function (_) {
         this.cachedData = [];
         this.labelSizes = [];
         this.labelParts = [];
+        this.showLabels = true;
     };
 
     Pie.prototype.config = function (_options) {
@@ -26,6 +27,10 @@ define(['vendor/lodash'], function (_) {
         createSlices (this);
         drawLabels (this);
         setSlicePaths (this);
+    };
+
+    Pie.prototype.hasLabels = function () {
+        return this.showLabels;
     };
 
     function getRadius (self) {
@@ -224,8 +229,18 @@ define(['vendor/lodash'], function (_) {
         var xMax = _.max (xDiffs);
         var yMax = _.max (yDiffs);
         var r = _.max([xMax, yMax]);
+
         optimizeLabel(maxR);
-        return maxR - r - MIN_LABEL_RADIUS;
+
+        var pieRadius = maxR - r - MIN_LABEL_RADIUS;
+
+        if (pieRadius <= MIN_PIE_RADIUS) {
+            pieRadius = maxR;
+            self.showLabels = false;
+        } else {
+            self.showLabels = true;
+        }
+        return pieRadius;
     };
 
     function optimizeLabel(maxR) {
@@ -284,6 +299,41 @@ define(['vendor/lodash'], function (_) {
             self.core.append (line1);
             self.core.append (line2);
         }
+        if(!self.showLabels) {
+            hideLabels(self);
+        } else {
+            showLabels(self);
+        }
+    };
+
+    function hideLabels (self) {
+        var labelParts = self.labelParts;
+        for (var i=0; i< labelParts.length; i++) {
+            labelParts[i].line1.css({
+                "display" : "none"
+            });
+            labelParts[i].line2.css({
+                "display" : "none"
+            });
+            labelParts[i].label.css({
+                "display" : "none"
+            });
+        }
+    };
+
+    function showLabels (self) {
+        var labelParts = self.labelParts;
+        for (var i=0; i< labelParts.length; i++) {
+            labelParts[i].line1.css({
+                "display" : "initial"
+            });
+            labelParts[i].line2.css({
+                "display" : "initial"
+            });
+            labelParts[i].label.css({
+                "display" : "initial"
+            });
+        }
     };
 
     function updateLabels (self) {
@@ -333,6 +383,11 @@ define(['vendor/lodash'], function (_) {
             });
             tAngle = endAngle;
             label.translate (x, y);
+        }
+        if(!self.showLabels) {
+            hideLabels(self);
+        } else {
+            showLabels(self);
         }
     };
 

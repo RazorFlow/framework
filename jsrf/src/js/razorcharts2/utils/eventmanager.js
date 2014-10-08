@@ -8,7 +8,7 @@ define([], function () {
             this.events[key] = [];
         }
 
-        this.events[type].push (cb);
+        this.events[key].push (cb);
     };
 
     EventManager.prototype.trigger = function (key, data) {
