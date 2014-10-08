@@ -66,7 +66,7 @@
                 //     colors: ['red', 'green', 'yellow', 'blue', 'magenta']
                 // }
             });
-            chart.renderTo(document.getElementById ('container'), 600, 400);
+            chart.renderTo(document.getElementById ('container'), 800, 600);
 
             // var chart2 = new Chart();
             // chart2.config({
@@ -290,32 +290,32 @@
 
             document.getElementsByTagName('body')[0].addEventListener('click', function() {
                 // chart.update({value: Math.floor(Math.random() * 100)});
-                // chart.resizeTo (80, 70);
-                var arr = [];
-                for(var i=0; i<5; i++) {
-                    arr[i] = Math.floor(Math.random() * 100);
-                }
-                // arr[3] = -Math.floor(Math.random() * 100);
-                chart.update ({
-                    series: [
-                        {
-                            seriesIndex: 0,
-                            data: arr
-                        },
-                        {
-                            seriesIndex: 1,
-                            data: arr
-                        },
-                        // {
-                        //     seriesIndex: 2,
-                        //     data: arr
-                        // },
-                        // {
-                        //     seriesIndex: 3,
-                        //     data: arr
-                        // }
-                    ]
-                });
+                chart.resizeTo (400, 300);
+                // var arr = [];
+                // for(var i=0; i<5; i++) {
+                //     arr[i] = Math.floor(Math.random() * 100);
+                // }
+                // // arr[3] = -Math.floor(Math.random() * 100);
+                // chart.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         },
+                //         {
+                //             seriesIndex: 1,
+                //             data: arr
+                //         },
+                //         // {
+                //         //     seriesIndex: 2,
+                //         //     data: arr
+                //         // },
+                //         // {
+                //         //     seriesIndex: 3,
+                //         //     data: arr
+                //         // }
+                //     ]
+                // });
                 // chart.update({
                 //     series: {
                 //         data: arr

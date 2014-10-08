@@ -49,7 +49,9 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
     };
 
     Grid.prototype.resizeTo = function (w, h) {
-
+        this.width = w;
+        this.height = h;        
+        this.transform ('resize');
     };
 
     Grid.prototype.update = function () {
