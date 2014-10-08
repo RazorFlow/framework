@@ -12,7 +12,8 @@ define(['vendor/lodash',
         'razorcharts2/plots/stackedcolumn',
         'razorcharts2/plots/line',
         'razorcharts2/plots/area',
-        'razorcharts2/plots/stackedarea',], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea) {
+        'razorcharts2/plots/stackedarea',
+        'razorcharts2/axes/ygrid'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea, YGrid) {
 
     var plots = {
         'column': Column,
@@ -87,6 +88,7 @@ define(['vendor/lodash',
         self.yScale = {};
         self.yDomain = {};
         self.yAxis = {};
+        self.yGrid = {};
     };
 
     function configurePlots (self) {
@@ -244,6 +246,13 @@ define(['vendor/lodash',
             scale: self.yScale,
             ticks: self.yDomain.ticks
         });
+
+        self.yGrid = new YGrid ();
+        self.yGrid.config ({
+            type: 'linear',
+            scale: self.yScale,
+            ticks: self.yDomain.ticks
+        });
     }
 
     function configureDualAxis (self) {
@@ -266,6 +275,13 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale.right,
             ticks: self.yDomain.right.ticks
+        });
+
+        self.yGrid = new YGrid ();
+        self.yGrid.config ({
+            type: 'linear',
+            scale: self.yScale.left,
+            ticks: self.yDomain.left.ticks
         });
     }
 
@@ -359,8 +375,8 @@ define(['vendor/lodash',
             self.yAxis.renderTo (paper, self.yAxisContainer, self.width, self.height - self.xAxis.height());
             self.yAxisContainer.translate (self.yAxis.width(), 0);
             self.yAxisTranslate = self.yAxisWidth = self.yAxis.width ();
-
         }
+        self.yGrid.renderTo (paper, self.gridContainer, self.width - self.yAxisWidth, self.height - self.xAxis.height ());
     };
 
     /**
@@ -406,6 +422,8 @@ define(['vendor/lodash',
             self.yAxisContainer.translate (self.yAxis.width(), 0);
             self.yAxisTranslate = self.yAxisWidth = self.yAxis.width ();
         }
+
+        self.yGrid.resizeTo (self.width - self.yAxisWidth, self.height - self.xAxis.height ());
     };
 
     LinearChart.prototype.update = function (_options) {
@@ -437,6 +455,8 @@ define(['vendor/lodash',
         self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
         self.yAxis.setTicks (self.yDomain.ticks);
         self.yAxis.update ();
+        self.yGrid.setTicks (self.yDomain.ticks);
+        self.yGrid.update ();
         self.yAxisContainer.translate (self.yAxis.width(), 0);
         updatePlots (self);
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
@@ -458,7 +478,8 @@ define(['vendor/lodash',
         self.yAxis.left.setTicks (self.yDomain.left.ticks);
         self.yAxis.left.update ();
         self.yAxisContainer.left.translate (self.yAxis.left.width (), 0);
-
+        self.yGrid.setTicks (self.yDomain.left.ticks);
+        self.yGrid.update ();
         self.yDomain.right = domains.right;
         self.yScale.right.domain ([self.yDomain.right.min, self.yDomain.right.max]);
         self.yAxis.right.setTicks (self.yDomain.right.ticks);
@@ -484,6 +505,8 @@ define(['vendor/lodash',
         self.yScale.domain ([self.yDomain.min, self.yDomain.max]);
         self.yAxis.setTicks (self.yDomain.ticks);
         self.yAxis.update ();
+        self.yGrid.setTicks (self.yDomain.ticks);
+        self.yGrid.update ();
         self.yAxisContainer.translate (self.yAxis.width(), 0);
         updatePlots (self);
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
@@ -519,6 +542,11 @@ define(['vendor/lodash',
 
         self.plotContainer = paper.g ();
         self.plotContainer.attr ('id', 'rc-plotcontainer');
+
+        self.gridContainer = paper.g ();
+        self.gridContainer.attr ('id', 'rc-gridcontainer');
+        self.plotContainer.append (self.gridContainer);
+
         paper.append (self.plotContainer);
     }
 

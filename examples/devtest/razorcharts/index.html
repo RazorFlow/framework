@@ -20,13 +20,13 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({
-                type: 'bar',
+                type: 'linear',
                 // min: 0,
                 // max: 100,
                 // value: 40
                 labels: ['abcfsdfsdfsdfsdfsdfsdf', 'deffsdfsdfsfdsdfs', 'hij', 'klmsfsdfsdfsfsf', 'nop'],
                 // dualAxis: true,
-                // stacked: true,
+                stacked: true,
                 xAxis: {
                     minValue: 10,
                     maxValue: 60,
@@ -35,13 +35,13 @@
                 series: [
                     {
                         seriesIndex: 0,
-                        displayType: 'area',
+                        displayType: 'column',
                         data: [10, 15, 5, 18, 40],
                         color: 'red'
                     },
                     {
                         seriesIndex: 1,
-                        displayType: 'area',
+                        displayType: 'column',
                         data: [10, 5, -15, 8, 60],
                         yAxis: 'right',
                         color: 'green'

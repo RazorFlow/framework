@@ -41,7 +41,11 @@ define(['leonardo/utils/transformutils', 'leonardo/utils/pathutils'], function (
         cx: numberLerpHelper,
         cy: numberLerpHelper,
         r: numberLerpHelper,
-        d: pathLerpHelper
+        d: pathLerpHelper,
+        x1: numberLerpHelper,
+        x2: numberLerpHelper,
+        y1: numberLerpHelper,
+        y2: numberLerpHelper
     };
 
     return PropertyInterpolators;
