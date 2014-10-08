@@ -20,46 +20,51 @@
 		require(["razorcharts2/core/rcmain"], function (Chart) {
             var chart = new Chart();
             chart.config({
-                type: 'pie',
+                type: 'bar',
                 // min: 0,
                 // max: 100,
                 // value: 40
                 labels: ['abcfsdfsdfsdfsdfsdfsdf', 'deffsdfsdfsfdsdfs', 'hij', 'klmsfsdfsdfsfsf', 'nop'],
                 // dualAxis: true,
                 // stacked: true,
-                // series: [
-                //     {
-                //         seriesIndex: 0,
-                //         displayType: 'column',
-                //         data: [10, 15, 5, 18, 40],
-                //         color: 'red'
-                //     },
-                //     {
-                //         seriesIndex: 1,
-                //         displayType: 'column',
-                //         data: [10, 5, -15, 8, 32],
-                //         yAxis: 'right',
-                //         color: 'green'
-                //     },
-                //     // {
-                //     //     seriesIndex: 3,
-                //     //     displayType: 'area',
-                //     //     data: [10, 5, -15, 8, 32],
-                //     //     yAxis: 'right',
-                //     //     color: 'yellow'
-                //     // },
-                //     // {
-                //     //     seriesIndex: 2,
-                //     //     displayType: 'column',
-                //     //     data: [10, 5, -5, 8, 10],
-                //     //     color: 'blue'
-                //     // },
-                // ]
-                series: {
-                    displayType: 'pie',
-                    data: [20, 10, 30, 15, 25],
-                    colors: ['red', 'green', 'yellow', 'blue', 'magenta']
-                }
+                xAxis: {
+                    minValue: 10,
+                    maxValue: 60,
+                    numTicks: 5
+                },
+                series: [
+                    {
+                        seriesIndex: 0,
+                        displayType: 'area',
+                        data: [10, 15, 5, 18, 40],
+                        color: 'red'
+                    },
+                    {
+                        seriesIndex: 1,
+                        displayType: 'area',
+                        data: [10, 5, -15, 8, 60],
+                        yAxis: 'right',
+                        color: 'green'
+                    },
+                    // {
+                    //     seriesIndex: 3,
+                    //     displayType: 'area',
+                    //     data: [10, 5, -15, 8, 32],
+                    //     yAxis: 'right',
+                    //     color: 'yellow'
+                    // },
+                    // {
+                    //     seriesIndex: 2,
+                    //     displayType: 'column',
+                    //     data: [10, 5, -5, 8, 10],
+                    //     color: 'blue'
+                    // },
+                ]
+                // series: {
+                //     displayType: 'pie',
+                //     data: [20, 10, 30, 15, 25],
+                //     colors: ['red', 'green', 'yellow', 'blue', 'magenta']
+                // }
             });
             chart.renderTo(document.getElementById ('container'), 600, 400);
 
@@ -291,31 +296,31 @@
                     arr[i] = Math.floor(Math.random() * 100);
                 }
                 // arr[3] = -Math.floor(Math.random() * 100);
-                // chart.update ({
-                //     series: [
-                //         {
-                //             seriesIndex: 0,
-                //             data: arr
-                //         },
-                //         {
-                //             seriesIndex: 1,
-                //             data: arr
-                //         },
-                //         // {
-                //         //     seriesIndex: 2,
-                //         //     data: arr
-                //         // },
-                //         // {
-                //         //     seriesIndex: 3,
-                //         //     data: arr
-                //         // }
-                //     ]
-                // });
-                chart.update({
-                    series: {
-                        data: arr
-                    }
+                chart.update ({
+                    series: [
+                        {
+                            seriesIndex: 0,
+                            data: arr
+                        },
+                        {
+                            seriesIndex: 1,
+                            data: arr
+                        },
+                        // {
+                        //     seriesIndex: 2,
+                        //     data: arr
+                        // },
+                        // {
+                        //     seriesIndex: 3,
+                        //     data: arr
+                        // }
+                    ]
                 });
+                // chart.update({
+                //     series: {
+                //         data: arr
+                //     }
+                // });
             });
 		});
 	</script>

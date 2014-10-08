@@ -207,7 +207,7 @@ define(['vendor/lodash'], function (_) {
     function pickNumber (string) {
         var str = '';
         var num = peek (string);
-        while(num !== '' && num !== ' ' && (num === '.' || (_.isNumber(+num) && !_.isNaN(+num)))) {
+        while(num !== '' && num !== ' ' && (num === '.' || num === '-' || (_.isNumber(+num) && !_.isNaN(+num)))) {
             str += num;
             string = pick (string);
             num = peek (string);

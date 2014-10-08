@@ -14,6 +14,8 @@ define(['vendor/lodash',
 
     BarChart.prototype.config = function (_options) {
         var options = this.options = _.extend(this.options, _options);
+        this.xAxisOptions = options.xAxis || {};
+        this.yAxisOptions = options.yAxis || {};
         if(options.stacked) {
             configureStackedBarChart (this);
         } else {
@@ -96,13 +98,27 @@ define(['vendor/lodash',
     function xAxisDomain (self) {
         var min = self.dataMin < 0 ? self.dataMin : 0,
             max = self.dataMax;
-
+        var domain;
         if(_.isNumber(self.xAxisOptions.minValue) || _.isNumber(self.xAxisOptions.maxValue)) {
+            var numTicks = 5;
             min = self.xAxisOptions.minValue || min;
             max = self.xAxisOptions.maxValue || max;
+            numTicks = self.yAxisOptions.numTicks || numTicks;
+            var ticks = [],
+                unit = (max - min) / numTicks;
+            for(var i=0; i<numTicks + 1; i++) {
+                ticks[i] = min + unit * i;
+            }
+            domain = {
+                min: min,
+                max: max,
+                numTicks: numTicks,
+                unit: unit,
+                ticks: ticks
+            };
+        } else {
+            domain = GraphUtils.prettyDomain (min, max);
         }
-
-        var domain = GraphUtils.prettyDomain (min, max);
         return domain;
     };
 
@@ -185,8 +201,9 @@ define(['vendor/lodash',
 
     };
 
-    BarChart.prototype.update = function (series) {
+    BarChart.prototype.update = function (_options) {
         var options = this.options;
+        var series = _options.series;
         if(series) {
             for(var i=0; i<series.length; i++) {
                 var idx = series[i].seriesIndex;

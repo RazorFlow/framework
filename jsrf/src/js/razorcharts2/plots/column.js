@@ -20,7 +20,8 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             coreHeight = self.coreHeight,
             seriesWidth = (coreWidth / self.options.series[0].data.length),
             seriesPadding = seriesWidth * SERIES_PADDING,
-            columnWidth = (seriesWidth - seriesPadding) / numSeries;
+            columnWidth = (seriesWidth - seriesPadding) / numSeries,
+            minValue = self.options.minValue || 0;
         
         for(var i = 0; i<series.length; i++) {
             var scale = series[i].scale;
@@ -30,7 +31,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                 var x = (j * seriesWidth) + (seriesPadding / 2) + (columnWidth * i);
                 var y = calcY(data[j], coreHeight, scale);
                 var width = columnWidth;
-                var height = Math.abs(scale.calc(data[j]) - scale.calc(0));
+                var height = data[j] > minValue ? Math.abs(scale.calc(data[j]) - scale.calc(minValue)) : 0;
 
                 rect.attr({
                     x: x,
@@ -60,7 +61,8 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             coreHeight = self.coreHeight,
             seriesWidth = (coreWidth / self.options.series[0].data.length),
             seriesPadding = seriesWidth * SERIES_PADDING,
-            columnWidth = (seriesWidth - seriesPadding) / numSeries;
+            columnWidth = (seriesWidth - seriesPadding) / numSeries,
+            minValue = self.options.minValue || 0;
         
         for(var i = 0; i<series.length; i++) {
             var scale = series[i].scale;
@@ -70,7 +72,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                 var x = (j * seriesWidth) + (seriesPadding / 2) + (columnWidth * i);
                 var y = calcY (data[j], coreHeight, scale);
                 var width = columnWidth;
-                var height = Math.abs(scale.calc(data[j]) - scale.calc(0));
+                var height = data[j] > minValue ? Math.abs(scale.calc(data[j]) - scale.calc(minValue)) : 0;
 
                 rect.animate({
                     x: x,

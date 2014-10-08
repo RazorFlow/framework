@@ -108,7 +108,9 @@ define(['vendor/lodash',
             if(plot && plotSeries && plotSeries.length) {
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
-                    series: plotSeries
+                    series: plotSeries,
+                    minValue: self.yAxisOptions.minValue,
+                    maxValue: self.yAxisOptions.maxValue
                 });
             }
         }
@@ -270,13 +272,28 @@ define(['vendor/lodash',
     function yAxisDomain (self) {
         var min = self.dataMin < 0 ? self.dataMin : 0;
         var max = self.dataMax;
-
+        
+        var domain;
         if(_.isNumber(self.yAxisOptions.minValue) || _.isNumber(self.yAxisOptions.maxValue)) {
+            var numTicks = 5;
             min = self.yAxisOptions.minValue || min;
             max = self.yAxisOptions.maxValue || max;
+            numTicks = self.yAxisOptions.numTicks || numTicks;
+            var ticks = [],
+                unit = (max - min) / numTicks;
+            for(var i=0; i<numTicks + 1; i++) {
+                ticks[i] = min + unit * i;
+            }
+            domain = {
+                min: min,
+                max: max,
+                numTicks: numTicks,
+                unit: unit,
+                ticks: ticks
+            };
+        } else {
+            domain = GraphUtils.prettyDomain (min, max);
         }
-
-        var domain = GraphUtils.prettyDomain (min, max);
         return domain;
     }
 
@@ -391,8 +408,9 @@ define(['vendor/lodash',
         }
     };
 
-    LinearChart.prototype.update = function (series) {
+    LinearChart.prototype.update = function (_options) {
         var options = this.options;
+        var series = _options.series;
         if(series) {
             for(var i=0; i<series.length; i++) {
                 var idx = series[i].seriesIndex;
