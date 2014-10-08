@@ -16,6 +16,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         this.type = options.type;
         this.scale = options.scale;
         this.ticks = options.ticks;
+        this.tickLabels = options.tickLabels;
         this.cache ();
     };
 
@@ -79,7 +80,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         for(var i=0; i<this.ticks.length; ++i) {
             var $tick = paper.g ();
             $tick.attr('id', 'tick-' + (i+1));
-            var $text = paper.text (0, 0, '' + this.ticks[i]);
+            var $text = paper.text (0, 0, this.tickLabels[i]) ;
             $text.css({
                 "fill": "#666",
                 "stroke": "none",

@@ -239,14 +239,16 @@ define(['vendor/lodash',
         self.xAxis.config ({
             type: 'ordinal',
             scale: self.xScale,
-            ticks: self.labels
+            ticks: self.labels,
+            tickLabels: self.labels
         });
 
         self.yAxis = new LeftAxis ();
         self.yAxis.config({
             type: 'linear',
             scale: self.yScale,
-            ticks: self.yDomain.ticks
+            ticks: self.yDomain.ticks,
+            tickLabels: _.map(self.yDomain.ticks, self.options.yAxis.format)
         });
 
         self.yGrid = new YGrid ();
