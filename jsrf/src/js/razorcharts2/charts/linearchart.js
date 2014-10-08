@@ -111,9 +111,10 @@ define(['vendor/lodash',
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
                     series: plotSeries,
+                    labels: self.options.labels,
                     minValue: self.yAxisOptions.minValue,
                     maxValue: self.yAxisOptions.maxValue,
-                    eventManager: this.options.eventManager
+                    eventManager: self.options.eventManager
                 });
             }
         }
