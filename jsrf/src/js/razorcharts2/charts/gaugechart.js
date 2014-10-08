@@ -32,16 +32,16 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         paper.append (this.core);
 
         this.back.attr ({
-            fill: '#888',
+            fill: '#EEE',
             stroke: 'none'
         });
         this.filler.attr ({
-            fill: 'green',
+            fill: '#67ADDA',
             stroke: 'none'
         });
         this.arrow.attr({
-            fill: 'none',
-            stroke: '#33A'
+            fill: '#F9F9F9',
+            stroke: '#67ADDA'
         });
 
         draw (this);
@@ -94,21 +94,27 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         minText.attr({
             x: minTextPos.x,
             y: minTextPos.y + minText.getBBox().height,
-            'text-anchor': 'middle'
+            'text-anchor': 'middle',
+            "stroke" : "none"
         });
 
         maxText.text(self.options.max);
         maxText.attr({
             x: maxTextPos.x,
             y: maxTextPos.y + maxText.getBBox().height,
-            'text-anchor': 'middle'
+            'text-anchor': 'middle',
+            "stroke" : "none"
         });
 
         valueText.text(self.options.value);
         valueText.attr({
             x: cx,
             'text-anchor': 'middle',
-            'font-size': MAX_FONT_SIZE
+            'font-size': MAX_FONT_SIZE,
+            "stroke": "none"
+        });
+        valueText.css({
+            "fill" : "#333"
         });
         valueText.attr({
             y: cy + valueText.getBBox().height / 4

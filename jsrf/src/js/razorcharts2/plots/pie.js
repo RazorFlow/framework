@@ -1,7 +1,7 @@
 define(['vendor/lodash'], function (_) {
     var LABEL_FONT_SIZE = 14,
         MIN_LABEL_RADIUS = 60,
-        ARROW_WIDTH = 60,
+        ARROW_WIDTH = 30,
         MIN_PIE_RADIUS = 30,
         T_ANGLE = 0;
     var Pie = function () {
@@ -77,6 +77,9 @@ define(['vendor/lodash'], function (_) {
             } else {
                 self.slices[i].setPath (pathString);
             }
+            self.slices[i].attr({
+                "stroke" : "none"
+            });
             tAngle += currAngle;
         }
     };
@@ -221,8 +224,13 @@ define(['vendor/lodash'], function (_) {
         var xMax = _.max (xDiffs);
         var yMax = _.max (yDiffs);
         var r = _.max([xMax, yMax]);
+        optimizeLabel(maxR);
         return maxR - r - MIN_LABEL_RADIUS;
     };
+
+    function optimizeLabel(maxR) {
+        MIN_LABEL_RADIUS = maxR * 0.2;
+    }
 
     function drawLabels (self) {
         var paper = self.paper,
@@ -258,6 +266,18 @@ define(['vendor/lodash'], function (_) {
                 line1: line1,
                 line2: line2
             };
+            line1.css({
+                "stroke" : "#666",
+                "stroke-width" : 1
+            });
+            line2.css({
+                "stroke" : "#666",
+                "stroke-width" : 1
+            });
+            label.css({
+                "fill" : "#666",
+                "font-size" : "10px"
+            });
             tAngle = endAngle;
             label.translate (x, y);
             self.core.append (label);
@@ -287,6 +307,7 @@ define(['vendor/lodash'], function (_) {
             label.attr ({
                 x: pos.x < cx ? 10 : -10
             });
+
             var x, y;
             if(pos.x < cx) {
                 x = pos.x - ARROW_WIDTH;

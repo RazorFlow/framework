@@ -23,6 +23,11 @@ define(['razorcharts2/axes/grid'], function (Grid) {
                 x2: coreWidth,
                 y2: coreHeight - scale.calc (ticks[i])
             });
+
+            $ticks[i].css({
+                "stroke": "#ccc",
+                "stroke-dasharray": "2,2"
+            });
         }
     };
 
@@ -57,6 +62,7 @@ define(['razorcharts2/axes/grid'], function (Grid) {
                 y2: y,
                 opacity: 1
             });
+
         }
 
         for(var i=0; i<cachedTicks.length; i++) {

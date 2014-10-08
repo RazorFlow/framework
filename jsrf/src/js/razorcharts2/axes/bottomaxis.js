@@ -45,6 +45,12 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             "stroke": "#979797",
             "stroke-dasharray": "none"
         });
+
+        if(self.options.type === 'linear') {
+            self.line.css({
+                "stroke": "none"
+            });
+        }
     };
 
     function BottomAxisUpdateTransformer (self) {
