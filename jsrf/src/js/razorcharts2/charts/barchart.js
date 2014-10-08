@@ -4,7 +4,8 @@ define(['vendor/lodash',
         'razorcharts2/axes/bottomaxis',
         'razorcharts2/utils/graphutils',
         'razorcharts2/plots/bar',
-        'razorcharts2/plots/stackedbar'], function (_, Scale, LeftAxis, BottomAxis, GraphUtils, Bar, StackedBar) {
+        'razorcharts2/plots/stackedbar',
+        'razorcharts2/axes/xgrid'], function (_, Scale, LeftAxis, BottomAxis, GraphUtils, Bar, StackedBar, XGrid) {
     var BarChart = function () {
         this.options = {};
         this.xAxisOptions = {};
@@ -93,6 +94,13 @@ define(['vendor/lodash',
             scale: self.xScale,
             ticks: self.xDomain.ticks
         });
+
+        self.xGrid = new XGrid ();
+        self.xGrid.config ({
+            type: 'linear',
+            scale: self.xScale,
+            ticks: self.xDomain.ticks
+        });
     };
 
     function xAxisDomain (self) {
@@ -161,6 +169,8 @@ define(['vendor/lodash',
         this.xAxisContainer.translate (this.yAxis.width(), h - this.xAxis.height());
         this.yAxisContainer.translate (this.yAxis.width(), 0);
 
+        this.xGrid.renderTo (paper, this.gridContainer, w - this.yAxis.width(), h - this.xAxis.height ());
+
         this.plot.renderTo (paper, this.plotContainer, w - this.yAxis.width(), h - this.xAxis.height());
         this.plotContainer.translate (this.yAxis.width(), 0);
     };
@@ -177,6 +187,12 @@ define(['vendor/lodash',
 
         self.plotContainer = paper.g ();
         self.plotContainer.attr ('id', 'rc-plot-container');
+
+        self.gridContainer = paper.g ();
+        self.gridContainer.attr ('id', 'rc-grid-container');
+
+        self.plotContainer.append (self.gridContainer);
+
         paper.append (self.plotContainer);
     }
 
@@ -195,6 +211,8 @@ define(['vendor/lodash',
 
         this.xAxisContainer.translate (this.yAxis.width(), h - this.xAxis.height());
         this.yAxisContainer.translate (this.yAxis.width(), 0);
+
+        this.xGrid.resizeTo (w - this.yAxis.width (), h - this.xAxis.height ());
 
         this.plot.resizeTo (w - this.yAxis.width(), h - this.xAxis.height());
         this.plotContainer.translate (this.yAxis.width(), 0);
@@ -228,6 +246,8 @@ define(['vendor/lodash',
         self.xScale.domain ([self.xDomain.min, self.xDomain.max]);
         self.xAxis.setTicks (self.xDomain.ticks);
         self.xAxis.update ();
+        self.xGrid.setTicks (self.xDomain.ticks);
+        self.xGrid.update ();
 
         self.plot.update ();
     };
@@ -241,6 +261,8 @@ define(['vendor/lodash',
         self.xScale.domain ([self.xDomain.min, self.xDomain.max]);
         self.xAxis.setTicks (self.xDomain.ticks);
         self.xAxis.update ();
+        self.xGrid.setTicks (self.xDomain.ticks);
+        self.xGrid.update ();
         self.plot.update ();
     };
 
