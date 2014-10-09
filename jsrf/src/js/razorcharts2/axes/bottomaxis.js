@@ -187,10 +187,9 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
               sum = lengths[i];
             }
         }
-
         return {
             numLines: lines,
-            words: wordsLine
+            words: _.compact(wordsLine)
         };
     };
 
