@@ -1,0 +1,23 @@
+{
+    "name": "deskpro/deskpro-api-php",
+    "type": "library",
+    "description": "Library for using the DeskPRO API with PHP",
+    "license": "Apache",
+    "homepage": "http://support.deskpro.com/",
+    "authors": [
+        {
+            "name": "Christopher Nadeau",
+            "email": "chris.nadeau@deskpro.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DeskPRO\\": "src/"
+        }
+    },
+
+    "require-dev": {
+        "ext-curl": "*",
+        "phpunit/phpunit": "4.*"
+    }
+}

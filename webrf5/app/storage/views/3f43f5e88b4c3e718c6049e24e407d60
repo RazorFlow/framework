@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><?php echo LayoutHelper::getTitle($title); ?></title>
+  <?php echo LayoutHelper::stylesheet('main'); ?>
+
+  <?php echo $__env->yieldContent('css'); ?>
+  <?php echo LayoutHelper::javascript('header'); ?>
+
+  <?php echo $__env->yieldContent('js'); ?>
+</head>
+<body>
+  <div class="page-wrap">
+    <?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <?php echo $__env->yieldContent('content'); ?>
+  </div>
+  <div class='auth-bottom'>
+  <?php if(Auth::check()): ?>
+  You are logged in as <?php echo Auth::user()->name; ?>! <br> 
+  <div class="text-center">
+    <?php echo link_to_route('home.logout', 'Logout'); ?>
+
+  </div>
+  <?php else: ?>
+  <div class="text-center">
+    <?php echo link_to_route('home.login', 'Login'); ?> | <?php echo link_to_route('users.new', 'Register'); ?>
+
+  </div>
+  <?php endif; ?>
+  </div>
+  <?php echo $__env->make('layouts.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</body>
+</html>

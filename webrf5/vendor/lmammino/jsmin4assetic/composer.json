@@ -1,0 +1,26 @@
+{
+	"name":       "lmammino/jsmin4assetic",
+	"type":       "library",
+	"description":"Library for minifying JavaScript files using jsmin with assetic and composer",
+	"license":    "MIT",
+	"authors":    [
+		{
+			"name":    "Douglas Crockford",
+			"homepage":"http://www.crockford.com"
+		},
+		{
+			"name": "Bogdan Yurov",
+			"email":"bogdan@yurov.me"
+		},
+		{
+			"name": "Luciano Mammino",
+			"email":"lmammino@oryzone.com"
+		}
+	],
+	"require":    {
+		"php":">=5.3"
+	},
+	"autoload":   {
+		"classmap": ["src/"]
+	}
+}

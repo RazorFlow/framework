@@ -1,0 +1,10 @@
+<?php echo Form::open(array('route' => 'home.search', null, 'id' => 'docs_search', 'method' => 'GET')); ?>
+
+  <div class="input-group search-box">
+      <span class="input-group-addon"><span class="glyphicon glyphicon glyphicon-search"></span></span>
+      <?php echo Form::input('search', 'q', Input::get('q'), array('id' => 'form1_q', 'class' => 'form-control', 'placeholder' => 'SEARCH DOCUMENTATION', 'type' => 'search')); ?>
+
+      <?php echo Form::hidden('start', 1); ?>
+
+  </div>
+<?php echo Form::close(); ?>

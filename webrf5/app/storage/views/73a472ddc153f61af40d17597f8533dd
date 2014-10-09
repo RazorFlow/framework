@@ -1,0 +1,24 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="container">
+ 
+  <?php echo Form::open(array('route' => 'users.processChangePassword')); ?>
+
+    <h3>Rest your password</h3>
+
+    <p>
+      <?php echo Form::label('password', 'Password'); ?>
+
+      <?php echo Form::password('password'); ?>
+
+    </p>
+
+    <p><?php echo Form::submit('Submit'); ?></p>
+  <?php echo Form::close(); ?>
+
+
+</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

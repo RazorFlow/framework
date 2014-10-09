@@ -1,0 +1,377 @@
+<?php $__env->startSection('js'); ?>
+<?php echo LayoutHelper::javascript('jscharts'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <div class="col-md-12 rfJSChartsHeader" id="top">
+  <div class="container">
+    <div class="col-xs-12 topBarTitle">
+      <h2>MORE THAN JUST JAVASCRIPT CHARTS</h2>
+    </div>
+  </div>
+</div>
+  <div class="row docTopBarExtraSpace"></div>
+  <div class="container">
+    <div class="row">
+          <div class="col-md-3 hidden-sm hidden-xs">
+            <nav id="affix-nav" class="sidebar">
+              <ul class="nav sidenav" data-spy="affix" data-offset-top="104" data-offet-bottom="400">
+                <li class="active"><a href="#top">STOP BUILDING CHARTS. START BUILDING DASHBOARDS.</a></li>
+                <li><a href="#part-2">GO BEYOND JUST CHARTS</a></li>
+                <li><a href="#part-3">NOT JUST RESPONSIVE DESIGN… RESPONSIBLE DESIGN</a></li>
+                <li><a href="#part-4">INTUITIVE INTERACTIVITY THAT WORKS EVERYWHERE</a></li>
+                <li><a href="#part-5">AN API BUILT BY DEVELOPERS, FOR DEVELOPERS</a></li>
+                <li><a href="#part-6">MEANINGFUL ERRORS THAT SOLVE YOUR PROBLEM</a></li>
+                <li><a href="#part-7">DESIGN CENTERED AROUND DATA</a></li>
+                <li><a href="#part-8">THRICE THE SPEED</a></li>
+                <li><a href="#part-9">GET STARTED FASTER</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-9 section-container">
+            <div class="section" id="part-1">
+              <h3 class="visible-sm visible-xs">STOP BUILDING CHARTS. START BUILDING DASHBOARDS.</h3>
+              <p>
+                Let’s start with an analogy. Say, you feel like eating steak today.
+              </p>
+              <p>
+                You can either cook it at home, for which you need to know recipe, assemble ingredients from different sources, and then cook it as per your taste. Or, you can go to a nearby gourmet steak house that serves the best steaks in the neighborhood. Both work equally well.
+              </p>
+              <p class="sub-text">
+                In the former, you need both time and willingness to cook, and the output hugely depends on your culinary skills and available ingredients. In the latter, you are able to savour a lip-smacking steak just by instructing the chef on how you want your steak done. <span class="sub-highlight">And while that happens, you can do things that matter to you!</span>
+              </p>
+              <i class="rf-icon rf_chef"></i>
+              <p class="sub-title">
+                RazorFlow Dashboard Framework is just this - gourmet dashboards for all your data!
+              </p>
+              <p class="sub-small-text">
+                To build a dashboard today, you have to manually stitch charts, grids, tables and KPI components. On top of that, you need to put in additional effort to ensure a coherent design, consistent interaction model, feature parity and optimal performance across various browsers and devices. This is painful and time consuming. Why do this when you could spend this time on making your applications better in various other aspects? 
+              </p>
+              <p class="sub-small-text">
+                With RazorFlow Dashboard framework, this becomes a thing of the past. Building HTML5 dashboards doesn't have to be painful any more.
+              </p>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+            <div class="section" id="part-2">
+            <h3 class="visible-sm visible-xs">GO BEYOND JUST CHARTS</h3>
+              <p>
+                When manually building dashboards, you have to collate JavaScript charts, UI elements, DOM manipulation libraries and data abstraction libraries from different vendors.
+              </p>
+              <i class="rf-icon rf_sadface"></i>
+              <p class="sub-title">
+                This can create a myriad of problems
+              </p>
+              <div class="row padding-left-20 first-row">
+                <div class="col-xs-4">
+                  <p class="sub-small-text">
+                    You need to learn the APIs and functionality of each component separately.
+                  </p>
+                </div>
+
+                <div class="col-xs-4">
+                  <p class="sub-small-text">
+                    A lot of effort goes into making them work uniformly, with a consistent behavior and design.
+                  </p>
+                </div>
+
+                <div class="col-xs-4">
+                  <p class="sub-small-text">
+                    Includes different workarounds, since each component is architected differently.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row padding-left-20 margin-top-50 second-row">
+                <div class="col-xs-4">
+                  <p class="sub-small-text">
+                    You need to procure licenses from each vendor separately, and based on licensing terms, it can affect your scaling needs.
+                  </p>
+                </div>
+
+                <div class="col-xs-4">
+                  <p class="sub-small-text">
+                    Upgrading a particular component can cause confllicts with other components.
+                  </p>
+                </div>
+
+                <div class="col-xs-4">
+                  <p class="sub-small-text">
+                    You need to track upgrades of each component separately for fixing known issues.
+                  </p>
+                </div>
+              </div>
+              
+              <i class="rf-icon rf_battery"></i>
+              <p class="sub-title battSub">
+                RazorFlow Dashboard framework abstracts you from all this pain, as it comes with batteries included!
+              </p>
+              <p class="sub-small-text">
+                You get a clean and consistent API and design to build your entire dashboards. Plus, it offers you all the components required to build a dashboard, be it <a class="highlight" href="/docs/dashboard/js/guide/components/chart/index.php">charts</a>, <a class="highlight" href="/docs/dashboard/js/guide/components/gauge/index.php">gauges</a>, <a class="highlight" href="/docs/dashboard/js/guide/components/table/index.php">tables</a> or even <a class="highlight" href="/docs/dashboard/js/guide/components/form/index.php">form elements</a>. These components work together coherently, out of the box, without any further effort. 
+              </p>
+              <p class="sub-small-text">
+                You no longer need to work with different vendors and libraries to build a dashboard.
+              </p>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+            
+            <div class="section" id="part-3">
+              <h3 class="visible-sm visible-xs">
+              NOT JUST RESPONSIVE DESIGN… RESPONSIBLE DESIGN
+              </h3>
+              <p>
+                At RazorFlow, to make a dashboard work across browsers and devices, we think beyond responsive design - what we call as responsible design. Responsive design only takes the screen size of device in consideration, whereas while doing responsible design, we also consider the experience of data consumption and capabilities of the device.
+              </p>
+              <i class="rf-icon rf_devices"></i>
+              <p class="sub-title">
+                Each device, a smartphone, tablet or desktop, has a different paradigm and specific use-case. This forms our decision tree that helps us decide things like:
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    What data should be consumed on this device? Is a chart better suited on a small screen, or can we convert that to a KPI? How should we show multiple columns of data on a table on a mobile?
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    What interaction model is best suited for the device? How do we ensure that every link or component on smartphone is touch friendly? How do we indicate that a chart supports drill-down? For the same touch action, how to show tool-tips and also enable drill-downs effectively?
+                  </p>
+                </div>
+              </div>
+
+              <div class="row margin-tb-10">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    How should information be structured based on the form factor of the device? Vertical layout vs horizontal layout? Pagination and scrolling within tables on mobile?
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    What UI elements would feel known to a user of the device? Tabs on desktops vs scrollable views on smartphones?
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    How to make any dashboard look and behave consistent across any medium, regardless of browser size so that users get a similar experience, without awkward blank spaces, and haphazard arrangements?
+                  </p>
+                </div>
+              </div>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+
+
+            <div class="section" id="part-4">
+              <h3 class="visible-sm visible-xs">INTUITIVE INTERACTIVITY THAT WORKS EVERYWHERE</h3>
+              <p>
+                We believe that a dashboard should be able converse with its user. They are not meant to be static display of information.
+              </p>
+              <p>
+                RazorFlow Dashboard framework enables it by providing meaningful interactions like <span class="sub-highlight">drill-downs, tool-tips, dynamic series selection through legend, tabbed dashboards</span> and more. This lets your users be in control and filter the relevant information for himself on the dashboard.
+              </p>
+              <i class="rf-icon rf_divider"></i>
+              <p class="sub-title">
+                Each feature has been designed to ease your development process
+              </p>
+              <p class="sub-small-text">
+                We ensure that they work consistently across devices. For example, when you define <a class="highlight" href="/docs/dashboard/js/guide/components/chart/chart_drilldown.php">drill-downs on charts</a>, we automatically add breadcrumbs for navigating to parent charts, without you having to take extra effort. When you define <a class="highlight" href="/docs/dashboard/js/guide/dashboard/tabbed_dashboard.php">tabbed dashboards</a>, we automatically convert it to scrollable horizontal views on smartphones. 
+              </p>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+
+            <div class="section" id="part-5">
+              <h3 class="visible-sm visible-xs">AN API BUILT BY DEVELOPERS, FOR DEVELOPERS</h3>
+              <p>
+                In the post server-side processing era, where most applications are built using JavaScript, building the dashboard at server-side and then passing multiple XML or JSON data, one for each component in the dashboard, hurts your application performance and user experience.
+              </p>
+              <i class="rf-icon rf_api_"></i>
+              <p class="sub-title">
+                RazorFlow Dashboard framework allows you to build the entire dashboard, including business-logic in JavaScript itself, using our well-designed APIs.
+              </p>
+              <p class="sub-small-text">
+                These APIs are built ground-up, to provide a consistent and coherent experience for all the components in a dashboard. Unlike a chart component, where the API just lets you control the chart and then you need to write additional code to manage interactions across various components, RazorFlow dashboard framework is aware of all the components on a page and manages them automatically. In addition, the theming engine lets you style the dashboard centrally, which you match to your brand’s look and feel.
+              </p>
+              <p class="sub-small-text">
+                For example, if you need a tabular display of 10 KPIs using any charting library, you will need to create 10 instances of such component, provide data to each one separately, create a table, and then manually place each component in a cell. RazorFlow dashboard framework allows you to easily create these using components like KPI tables and groups, which are better suited for dashboards.
+              </p>
+              <p class="sub-small-text">
+                Best part, if you a backend developer, and do not want to dabble in JavaScript, our server-side wrappers abstract the full functionality of the JavaScript framework in a language of your choice - PHP, Java or .NET (coming soon).
+              </p>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+
+            <div class="section" id="part-6">
+              <h3 class="visible-sm visible-xs">MEANINGFUL ERRORS THAT SOLVE YOUR PROBLEM</h3>
+              <p>
+                We understand how tricky it can be to identify and solve client-server issues, more so in a cross-browser and cross-device world.
+              </p>
+              <i class="rf-icon rf_lifesaver"></i>
+              <p class="sub-title">
+                To help you solve these errors efficiently, RazorFlow dashboard framework does two things really well:
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    We abstract all client-side and server-side log data into one uniform interface. If an error occurs on server, we inform you and provide a stack trace, even for an AJAX call. 
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    We’ve built a powerful error detection system that optimally suggests corrections for over 40 common mistakes in usage of our API or parameters.
+                  </p>
+                </div>
+              </div>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+
+            <div class="section" id="part-7">
+              <h3 class="visible-sm visible-xs">DESIGN CENTERED AROUND DATA</h3>
+              <p>
+                Many modern dashboards have a lot of glitz and glamour, but fall short on the real purpose.
+              </p>
+              <i class="rf_brain"></i>
+              <p class="sub-title">
+                The purpose of a dashboard is to bring out the best in your data, and not your artistic skills
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    At RazorFlow, we have made some fundamental choices for you. No chart junk, no unwanted gradients, and no 3D charts. Because, none of these add value to your data. Our design provides an experience that centers around your data.
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    We have built an interaction model for drill-downs,  tool-tips and tabbed dashboards that work intuitively across devices. 
+                  </p>
+                </div>
+              </div>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+
+            <div class="section" id="part-8">
+              <h3 class="visible-sm visible-xs">THRICE THE SPEED</h3>
+              <p>
+                We have built a high performance dashboard framework that works on all modern browsers and devices. 
+              </p>
+              <i class="rf-icon rf_fast"></i>
+              <p class="sub-title">
+                In the process, we had to make some trade-offs like:
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    Support only modern browsers that support SVG, thereby eliminating older versions of IE (6/7/8).
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    Keep lightweight components with great defaults to focus more on the experience of data, as opposed to providing lots of customization options for each one of them.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    Not bloat the framework with features that are used by far and few, to keep the library footprint (file size) small, for it to load quickly on mobile even on cellular data plans. 
+                  </p>
+                </div>
+              </div>
+
+              <p class="sub-small-text">
+                Doing these, along with some other things, helped us created a framework that runs at thrice the speed of other common charting components, and the entire footprint is less than 200KB - for the entire dashboard framework, encompassing all charts, gauges, KPIs, tables, grids, cross-device support, all gluing code etc. Go, beat that!
+              </p>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+            </div>
+
+            <div class="section" id="part-9">
+              <h3 class="visible-sm visible-xs">GET STARTED FASTER</h3>
+              <p>
+                We believe that you should be able to build your full cross-platform cross-device dashboard in under an hour.
+              </p>
+              
+              <i class="rf-icon rf_dollar"></i>
+              <p class="sub-title">
+                To enable this, we have great resources for you to get started
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    Exhaustive <a class="highlight" href="/docs">documentation</a> for both the <a class="highlight" href="/docs/dashboard/js/getting_started.php">JavaScript</a> and <a class="highlight" href="/docs/dashboard/php/">PHP version</a>, including a detailed <a class="highlight" href="/docs/dashboard/php/api/Component.php">API reference</a>.
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    <a class="highlight" href="/features">Feature gallery</a> that showcases each component of a dashboard, live in action, both in web and mobile avataar, along with the code behind it.
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    Ready <a class="highlight" href="/features">business dashboards</a> to serve as inspiration, which you can download and modify as per your use.
+                  </p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="sub-small-text">
+                    Personalize <a class="highlight" href="/contact/support.php">support</a> available from our developers directly.
+                  </p>
+                </div>
+              </div>
+
+              <p class="footer-links">
+                <a href="/features">View all features live</a>
+                <a href="/docs">Read documentation</a>
+              </p>
+
+              <a class="inspire-btn" href="/tour">
+                
+              </a>
+            </div>
+          </div>
+    </div>
+  </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

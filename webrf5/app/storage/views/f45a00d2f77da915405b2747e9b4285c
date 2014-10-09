@@ -1,0 +1,606 @@
+<?php $__env->startSection('css'); ?>
+<?php echo LayoutHelper::stylesheet('pricingpage'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+<?php echo LayoutHelper::javascript('pricing'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 license-select-text" id="license-select-text">
+            <h5 class="log">You’re one step away from making awesome HTML5 dashboards. Please select a license that suits your requirements. If you need help in choosing, contact our 
+                <a href="/support/sales.php">sales team</a>.
+            </h5>
+        </div>
+    </div>
+    <div class="row most-popular-row hidden-sm hidden-xs">
+        <div class="col-lg-3 col-lg-offset-6 visible-lg">
+            <div class="most-popular text-center">MOST POPULAR</div>
+        </div>
+        <div class="col-md-4 col-md-offset-4 visible-md">
+            <div class="most-popular text-center">MOST POPULAR</div>
+        </div>
+    </div>
+    <!-- Pricing title for large and medium screens -->
+    <div class="row pricing-row visible-lg">
+        <div class="col-lg-offset-3 col-lg-3">
+            <div class="standard pricing-block text-center">
+                <h2>Standard License</h2>
+                <div class="price">149</div>
+                <span class="rate">per developer, one-time</span>
+                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $standardID)); ?>">Buy Now</a>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="pro pricing-block text-center">
+                <h2>Pro License</h2>
+                <div class="price">399</div>
+                <span class="rate">per developer, one-time</span>
+                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $proID)); ?>">Buy Now</a>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="devdirect pricing-block text-center">
+                <h2>DevDirect License</h2>
+                <div class="price">999</div>
+                <span class="rate">per developer, one-time</span>
+                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $devDirectID)); ?>">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="row pricing-row visible-md">
+        <div class="col-md-4">
+            <div class="standard pricing-block text-center">
+                <h2>Standard License</h2>
+                <div class="price">149</div>
+                <span class="rate">per developer, one-time</span>
+                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $standardID)); ?>">Buy Now</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="pro pricing-block text-center">
+                <h2>Pro License</h2>
+                <div class="price">399</div>
+                <span class="rate">per developer, one-time</span>
+                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $proID)); ?>">Buy Now</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="devdirect pricing-block text-center">
+                 <h2>DevDirect License</h2>
+                 <div class="price">999</div>
+                 <span class="rate">per developer, one-time</span>
+                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $devDirectID)); ?>">Buy Now</a>
+             </div>
+         </div>
+    </div>
+    <!-- Pricing title for small screens -->
+    <!-- <div class="row pricing-row visible-sm visible-xs">
+        <div class="col-sm-12 col-xs-12">
+            <div class="standard pricing-block-small">
+                <h2>Standard License</h2>
+                <div class="price">149</div>
+                <span class="rate">/per developer, one-time</span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xs-12">
+            <div class="pro pricing-block-small">
+                <h2>Pro License</h2>
+                <div class="price">399</div>
+                <span class="rate">/per developer, one-time</span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xs-12">
+            <div class="devdirect pricing-block-small">
+                <h2>DevDirect License</h2>
+                <div class="price">999</div>
+                <span class="rate">/per developer, one-time</span>
+            </div>
+        </div>
+    </div> -->
+     <!-- Pricing details for large screens -->
+    <div class="row pricing-table visible-lg">
+        <div class="col-lg-12">
+            <table class="table hidden-xs hidden-sm">
+                <tbody>
+                    <tr id="whatsIncluded" class="subTitle">
+                        <td>
+                            <i class="rf-icon rf_arrow_down"></i>
+                            <span>What's included</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="pricingContent whatsIncluded">
+                        <td>
+                            <ul>
+                                <li>Complete RazorFlow Framework</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent whatsIncluded">
+                        <td>
+                            <ul>
+                                <li>Server-side wrappers</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent whatsIncluded">
+                        <td>
+                            <ul>
+                                <li>Source code of RazorFlow Framework</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_cross"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr id="usage" class="subTitle">
+                        <td>
+                            <i class="rf-icon rf_arrow_down"></i>
+                            <span>Usage allowance</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="pricingContent usage">
+                        <td>
+                            <ul>
+                                <li>Unlimited internal applications, corporate websites, personal blogs and projects</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent usage">
+                        <td>
+                            <ul>
+                                <li>Unlimited SaaS websites or web applications</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent usage">
+                        <td>
+                            <ul>
+                                <li>Unlimited royalty-free distribution with on-premise products, open-source or commercial</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent usage">
+                        <td>
+                            <ul>
+                                <li>Unlimited production, development, or test servers</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr id="support" class="subTitle">
+                        <td>
+                            <i class="rf-icon rf_arrow_down"></i>
+                            <span>Support &amp; upgrades</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="pricingContent support">
+                        <td>
+                            <ul>
+                                <li>Email response time</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">72 working hours</td>
+                        <td class="text-center">48 working hours</td>
+                        <td class="text-center">24 working hours</td>
+                    </tr>
+                    <tr class="pricingContent support">
+                        <td>
+                            <ul>
+                                <li>Direct support from developers</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent support">
+                        <td>
+                            <ul>
+                                <li>Number of support tickets allowed</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">10</td>
+                        <td class="text-center">Unlimited</td>
+                    </tr>
+                    <tr class="pricingContent support">
+                        <td>
+                            <ul>
+                                <li>Phone support provided <span class="operating-times" data-toggle="tooltip" data-original-title="9 AM to 11:30 PM (GMT+05:30) (Indian Standard Time)">(operating times)</span></li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_cross"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_cross"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent support">
+                        <td>
+                            <ul>
+                                <li>Live chat support <span class="operating-times" data-toggle="tooltip" data-original-title="9 AM to 11:30 PM (GMT+05:30) (Indian Standard Time)">(operating times)</span></li>
+                            </ul>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_cross"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_cross"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="rf-icon rf_tick"></i>
+                        </td>
+                    </tr>
+                    <tr class="pricingContent support">
+                        <td>
+                            <ul>
+                                <li>Free major and minor version upgrades</li>
+                            </ul>
+                        </td>
+                        <td class="text-center">6 months</td>
+                        <td class="text-center">12 months</td>
+                        <td class="text-center">12 months</td>
+                    </tr>
+                    <tr class="license-select-row">
+                        <td>
+                            <span class="license-select">Select your license</span>
+                            <span class="arrow"></span>
+                        </td>
+                        <td>
+                            <div class="price-container-bottom">
+                                <span class="price">$149</span>
+                                <span>/developer, one-time</span>
+                                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $standardID)); ?>">Buy Now</a>
+                            </div>
+                            
+                        </td>
+                        <td>
+                            <div class="price-container-bottom">
+                                <span class="price">$399</span>
+                                <span>/developer, one-time</span>
+                                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $proID)); ?>">Buy Now</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="price-container-bottom">
+                                <span class="price">$999</span>
+                                <span>/developer, one-time</span>
+                                <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $devDirectID)); ?>">Buy Now</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row eula-row visible-lg">
+        <div class="col-lg-3 text-center col-lg-offset-3">
+            <a data-toggle="modal" href="/dashboard/eula/standard" data-target="#rfModal">Read EULA</a>
+        </div>
+        <div class="col-lg-3 text-center">
+            <a data-toggle="modal" href="/dashboard/eula/pro" data-target="#rfModal">Read EULA</a>
+        </div>
+        <div class="col-lg-3 text-center">
+            <a data-toggle="modal" href="/dashboard/eula/devdirect" data-target="#rfModal">Read EULA</a>
+        </div>
+    </div>
+
+    <div class="row pricing-md hidden-lg">
+        <div class="col-md-12 visible-sm visible-xs smallPlanLink" data-link="standardPlan" id="StandardPlanLink">
+            <div class="standard pricing-block-small">
+                <h2>Standard License</h2>
+                <div class="price">149</div>
+                <span class="rate">/per developer, one-time</span>
+            </div>
+        </div>
+        <div class="col-md-4" id="standardPlan">
+
+            <ul class="pricing-content-container">
+                <li>
+                    <span class="title">What’s included</span>
+                    <ul>
+                        <li>Complete RazorFlow Framework</li>
+                        <li>Server-side wrappers</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="title">Usage allowance</span>
+                    <ul>
+                        <li>Unlimited internal applications, corporate websites, personal blogs and projects</li>
+                        <li>Unlimited SaaS websites or web applications</li>
+                        <li>Unlimited royalty-free distribution with on-premise products, open-source or commercial</li>
+                        <li>Unlimited production, development, or test-servers</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="title">Support &amp; upgrades</span>
+                    <ul>
+                        <li>72 working hours of Email response time</li>
+                        <li>5 support tickets allowed</li>
+                        <li>6 months of free minor and major version upgrades</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="price-container-bottom">
+                <div class="price-inner">
+                    <span class="price">$149</span>
+                    <span>/developer, one-time</span>
+                    <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $standardID)); ?>">Buy Now</a>
+                </div>
+            </div>
+            <div class="eula-block text-center">
+                <a data-toggle="modal" href="/dashboard/eula/standard.html" data-target="#rfModal">Read EULA</a>
+            </div>
+        </div>
+        <div class="col-md-12 visible-sm visible-xs smallPlanLink" data-link="proPlan" id="ProPlanLink">
+            <div class="pro pricing-block-small">
+                <div class="most-popular text-center">MOST POPULAR</div>
+                <h2>Pro License</h2>
+                <div class="price">399</div>
+                <span class="rate">/per developer, one-time</span>
+            </div>
+        </div>
+        <div class="col-md-4" id="proPlan">
+            <ul class="pricing-content-container">
+                <li>
+                    <span class="title">What’s included</span>
+                    <ul>
+                        <li>Complete RazorFlow Framework</li>
+                        <li>Server-side wrappers</li>
+                        <li>Complete code of RazorFlow Framework</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="title">Usage allowance</span>
+                    <ul>
+                        <li>Unlimited internal applications, corporate websites, personal blogs and projects</li>
+                        <li>Unlimited SaaS websites or web applications</li>
+                        <li>Unlimited royalty-free distribution with on-premise products, open-source or commercial</li>
+                        <li>Unlimited production, development, or test-servers</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="title">Support &amp; upgrades</span>
+                    <ul>
+                        <li>48 working hours of Email response time</li>
+                        <li>Direct support from developers</li>
+                        <li>10 support tickets allowed</li>
+                        <li>12 months of free minor and major version upgrades</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="price-container-bottom">
+                <div class="price-inner">
+                    <span class="price">$399</span>
+                    <span>/developer, one-time</span>
+                    <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $proID)); ?>">Buy Now</a>
+                </div>
+            </div>
+            <div class="eula-block text-center">
+                <a data-toggle="modal" href="/dashboard/eula/pro.html" data-target="#rfModal">Read EULA</a>
+            </div>
+        </div>
+        <div class="col-md-12 visible-sm visible-xs smallPlanLink" data-link="devdirectPlan" id="DevdirectPlanLink">
+            <div class="devdirect pricing-block-small">
+                <h2>DevDirect License</h2>
+                <div class="price">999</div>
+                <span class="rate">/per developer, one-time</span>
+            </div>
+        </div>
+        <div class="col-md-4" id="devdirectPlan">
+            <ul class="pricing-content-container">
+                <li>
+                    <span class="title">What’s included</span>
+                    <ul>
+                        <li>Complete RazorFlow Framework</li>
+                        <li>Server-side wrappers</li>
+                        <li>Complete code of RazorFlow Framework</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="title">Usage allowance</span>
+                    <ul>
+                        <li>Unlimited internal applications, corporate websites, personal blogs and projects</li>
+                        <li>Unlimited SaaS websites or web applications</li>
+                        <li>Unlimited royalty-free distribution with on-premise products, open-source or commercial</li>
+                        <li>Unlimited production, development, or test-servers</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="title">Support &amp; upgrades</span>
+                    <ul>
+                        <li>24 working hours of Email response time</li>
+                        <li>Direct support from developers</li>
+                        <li>Unlimited support tickets allowed</li>
+                        <li>Phone support provided</li>
+                        <li>Live chat support</li>
+                        <li>12 months of free minor and major version upgrades</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="price-container-bottom">
+                <div class="price-inner">
+                    <span class="price">$999</span>
+                    <span>/developer, one-time</span>
+                    <a class="btn btn-secondary buy-now-btn" href="<?php echo route('buy.dashboard', array('id' => $devDirectID)); ?>">Buy Now</a>
+                </div>
+            </div>
+            <div class="eula-block text-center">
+                <a data-toggle="modal" href="/dashboard/eula/devdirect.html" data-target="#rfModal">Read EULA</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row bottom-help-text-row">
+        <div class="col-lg-9 col-lg-offset-3 visible-lg">
+            <ul class="bottom-help-text">
+                <li>You can <strong>select the number of licenses</strong> after clicking Buy Now</li>
+                <li>If you have a <strong>coupon code</strong>, you can enter it after clicking Buy Now</li>
+                <li>Payment will be securely processed by our partner, Avangate</li>
+                <li><strong>30-day money back guarantee</strong></li>
+            </ul>
+        </div>
+        <div class="col-md-12 visible-md text-center">
+            <ul class="bottom-help-text">
+                <li>You can <strong>select the number of licenses</strong> after clicking Buy Now</li>
+                <li>If you have a <strong>coupon code</strong>, you can enter it after clicking Buy Now</li>
+                <li>Payment will be securely processed by our partner, Avangate</li>
+                <li><strong>30-day money back guarantee</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FAQ begins -->
+    <div class="faqs-wrapper">
+        <h2 class="faqs">FAQs</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6 qa-container" id="faq-1">
+            <p class="question">How do you define a developer?</p>
+            <p>“Developer” is a person who is building a dashboard using the APIs or functionality provided by RazorFlow Dashboard Framework. Each person who directly or indirectly builds the dashboard, or a part thereof, is considered a developer. The developers can be affiliated to your organization, or another organization that is fully-owned, partly-owned, or contracted by your organization for development and testing.</p>
+        </div>
+
+        <div class="col-md-6 qa-container" id="faq-2">
+            <p class="question">What happens if the named developer leaves the organization?</p>
+            <p>
+                 If a developer for whom the license was purchased is no longer employed by your organization or affiliates, you may reassign the license to another developer.
+            </p>
+         </div>
+    </div>
+        
+    <div class="row">
+        <div class="col-md-6 qa-container" id="faq-3">
+            <p class="question">Is the developer license a floating license?</p>
+            <p>No. The license is a per named developer license, and not a floating license. It is NOT transferable to another developer when you are not using it.</p>
+        </div>
+
+        <div class="col-md-6 qa-container" id="faq-4">
+           <p class="question">How long does it take you to send the activation keys after I have made the purchase?</p>
+            <p>
+                 Our products are pre-activated and do not require a a key. As soon as you make the purchase, you will get a link to download the software and you can start using it right away.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 qa-container" id="faq-5">
+            <p class="question">I would like to purchase your products but I cannot make the purchase online. What other methods of payment do you have?</p>
+            <p>
+                 We take payments via bank wire, purchase orders and checks as well. <a href="/contact/sales.php">Contact sales</a> with details of the license you want to purchase and we will process the order for you.
+            </p>
+        </div>
+
+        <div class="col-md-6 qa-container" id="faq-6">
+            <p class="question">Can I use the evaluation license to show demos of the dashboard to my managers, clients, or associates?</p>
+            <p>
+                 Yes, you can build demo dashboards using RazorFlow trial for showcase. But this cannot be hosted on any production servers. You are only allowed to use it from your machine, or test and development servers.
+            </p>
+         </div>
+     </div>
+
+    <div class="row view-all-faq-wrap">
+        <a href="/faq/">View All FAQs</a>
+    </div>
+    <!-- FAQ ends -->
+    
+</div>
+
+<!-- Modal -->
+<div class="modal fade eulaModal" id="rfModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
