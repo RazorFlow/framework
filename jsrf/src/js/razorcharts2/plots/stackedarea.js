@@ -24,10 +24,14 @@ define(['razorcharts2/plots/plot', 'vendor/lodash'], function (Plot, _) {
             path.attr ('fill', series[i].color);
             path.attr ('stroke', series[i].color);
             path.attr ('stroke-width', 2);
-            path.attr ('opacity', 0.5);
+            path.attr ('opacity', 0.8);
             var circles = [];
             for(var j=0; j<series[i].data.length; j++) {
                 var circle = paper.circle (0,0,0);
+                circle.attr({
+                    "stroke" : "none",
+                    "fill" : series[i].color
+                });
                 circles.push (circle);
                 seriesContainer.append (circle);
             }
