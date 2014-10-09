@@ -5,6 +5,7 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
 
         $elem = this.createElement ('text');
         $tspan = this.createElement ('tspan');
+        $tspan.setAttribute ("stroke", "none");
         $elem.appendChild ($tspan);
         $elem.setAttribute ('x', x);
         $elem.setAttribute ('y', y);

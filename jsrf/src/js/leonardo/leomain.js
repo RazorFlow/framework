@@ -11,7 +11,8 @@ define([
      'leonardo/elements/line',
      'leonardo/elements/rect',
      'leonardo/elements/path',
-     'leonardo/elements/circle'], function(Leonardo, Paper, SVGRenderer, G, Text, Line, Rect, Path, Circle) {
+     'leonardo/elements/circle',
+     'leonardo/elements/tspan'], function(Leonardo, Paper, SVGRenderer, G, Text, Line, Rect, Path, Circle, Tspan) {
         // Setting the svg renderer as the default
         Leonardo.setRenderer (SVGRenderer);
 
@@ -22,5 +23,6 @@ define([
         Paper.registerElement (Rect);
         Paper.registerElement (Path);
         Paper.registerElement (Circle);
+        Paper.registerElement (Tspan);
         return Leonardo;
 });

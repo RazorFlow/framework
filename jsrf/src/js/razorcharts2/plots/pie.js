@@ -1,5 +1,6 @@
 define(['vendor/lodash'], function (_) {
-    var LABEL_FONT_SIZE = 14,
+    var LABEL_VALUE_FONT_SIZE = 14,
+        LABEL_FONT_SIZE = 10,
         MIN_LABEL_RADIUS = 60,
         ARROW_WIDTH = 30,
         MIN_PIE_RADIUS = 30,
@@ -35,10 +36,10 @@ define(['vendor/lodash'], function (_) {
 
     function getRadius (self) {
         var radiusObj = {};
-        var iterations = 8;
+        var iterations = 6;
         while (iterations--) {
             radiusObj[T_ANGLE] = calcRadius(self);
-            T_ANGLE +=45;
+            T_ANGLE +=60;
         }
         var maxRadius = _.max(_.values(radiusObj));
         for (var key in radiusObj) {
@@ -278,8 +279,17 @@ define(['vendor/lodash'], function (_) {
             var endAngle = tAngle + data[i] / total * 360;
             var pos = angleToPoint (cx, cy, r + MIN_LABEL_RADIUS, (startAngle + endAngle) / 2);
             var circlePos = angleToPoint (cx, cy, r, (startAngle + endAngle) / 2);
-            var label = paper.text (pos.x < cx ? 10 : -10, 5, valueLabels[i] + ' ' + labels[i]);
-            label.attr('font-size', LABEL_FONT_SIZE);
+            var label = paper.text (pos.x < cx ? 10 : -10, 5, "");
+            var tspanValue = paper.tspan(valueLabels[i]);
+            var tspanLabel = paper.tspan(" " + labels[i]);
+            tspanValue.attr({
+                'fill' : '#000',
+                'font-size': LABEL_VALUE_FONT_SIZE,
+                'font-weight': 700
+            });
+            tspanLabel.attr('font-size', LABEL_FONT_SIZE);
+            label.append(tspanValue);
+            label.append(tspanLabel);
             var x, y;
             if(pos.x < cx) {
                 x = pos.x - ARROW_WIDTH;
@@ -294,7 +304,9 @@ define(['vendor/lodash'], function (_) {
             self.labelParts[i] = {
                 label: label,
                 line1: line1,
-                line2: line2
+                line2: line2,
+                tspanValue: tspanValue,
+                tspanLabel: tspanLabel
             };
             line1.css({
                 "stroke" : "#666",
@@ -369,7 +381,11 @@ define(['vendor/lodash'], function (_) {
             var pos = angleToPoint (cx, cy, r + MIN_LABEL_RADIUS, (startAngle + endAngle) / 2);
             var circlePos = angleToPoint (cx, cy, r, (startAngle + endAngle) / 2);
             var label = self.labelParts[i].label;
-            label.text(valueLabels[i] + ' ' + labels[i]);
+            var tspanLabel = self.labelParts[i].tspanLabel;
+            var tspanValue = self.labelParts[i].tspanValue;
+
+            tspanValue.text(valueLabels[i]);
+            tspanLabel.text(" " + labels[i]);
             label.attr ({
                 x: pos.x < cx ? 10 : -10
             });

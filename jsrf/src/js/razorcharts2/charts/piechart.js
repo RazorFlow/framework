@@ -21,7 +21,7 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         });
     };
 
-    PieChart.prototype.renderTo = function (paper, w, h) {
+    PieChart.prototype.renderTo = function (paper, core, w, h) {
         this.paper = paper;
         this.width = w;
         this.height = h;
@@ -30,6 +30,7 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         this.plotContainer.attr ('id', 'rc-plot-container');
         paper.append (this.plotContainer);
         this.plot.renderTo (paper, this.plotContainer, w, h);
+        this.plotContainer.translate(0,15);
     };
 
     PieChart.prototype.resizeTo = function (w, h) {

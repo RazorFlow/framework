@@ -4,7 +4,8 @@ define(['leonardo/renderers/svg/paperrenderer',
         'leonardo/renderers/svg/linerenderer',
         'leonardo/renderers/svg/rectrenderer',
         'leonardo/renderers/svg/pathrenderer',
-        'leonardo/renderers/svg/circlerenderer'], function (PaperRenderer, GRenderer, TextRenderer, LineRenderer, RectRenderer, PathRenderer, CircleRenderer) {
+        'leonardo/renderers/svg/circlerenderer',
+        'leonardo/renderers/svg/tspanrenderer'], function (PaperRenderer, GRenderer, TextRenderer, LineRenderer, RectRenderer, PathRenderer, CircleRenderer, TspanRenderer) {
     return  {
         paper: PaperRenderer,
         g: GRenderer,
@@ -12,6 +13,7 @@ define(['leonardo/renderers/svg/paperrenderer',
         line: LineRenderer,
         rect: RectRenderer,
         path: PathRenderer,
-        circle: CircleRenderer
+        circle: CircleRenderer,
+        tspan: TspanRenderer
     };
 });
