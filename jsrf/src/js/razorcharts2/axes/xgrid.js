@@ -23,6 +23,11 @@ define(['razorcharts2/axes/grid'], function (Grid) {
                 x2: scale.calc (ticks[i]),
                 y2: coreHeight
             });
+
+            $ticks[i].css({
+                "stroke": "#ccc",
+                "stroke-dasharray": "2,2"
+            });
         }
     };
 
