@@ -59,12 +59,20 @@
                     //     data: [10, 5, -5, 8, 10],
                     //     color: 'blue'
                     // },
-                ]
+                ],
                 // series: {
                 //     displayType: 'pie',
                 //     data: [20, 10, 30, 15, 25],
                 //     colors: ['red', 'green', 'yellow', 'blue', 'magenta']
                 // }
+                tooltip: {
+                    onShow: function (x, y) {
+                        debugger
+                    },
+                    onHide: function () {
+
+                    }
+                }
             });
             chart.renderTo(document.getElementById ('container'), 800, 600);
 

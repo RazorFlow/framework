@@ -29,7 +29,16 @@ define(['vendor/lodash',
 
     var plotOrder = ['column', 'area', 'line'];
     var LinearChart = function() {
-        this.options = {};
+        this.options = {
+            tooltip: {
+                onShow: function () {
+                    debugger
+                },
+                onHide: function () {
+
+                }
+            }
+        };
         this.plots = {};
     };
 
@@ -44,7 +53,7 @@ define(['vendor/lodash',
         this.labels = options.labels;
         this.xAxisOptions = options.xAxis || {};
         this.yAxisOptions = options.yAxis || {};
-
+        configureEvents (this);
         if(options.stacked) {
             configureStackedLinearChart (this);
         } else if(options.dualAxis) {
@@ -52,6 +61,13 @@ define(['vendor/lodash',
         } else {
             configureLinearChart (this);
         }
+    };
+
+    function configureEvents (self) {
+        var eventManager = self.options.eventManager;
+        eventManager.bind('tooltip', function (obj) {
+            self.options.tooltip.onShow (obj.position.x, obj.position.y, obj);
+        });
     };
 
     function configureLinearChart (self) {

@@ -31,7 +31,8 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             path.attr ('opacity', 0.5);
             var circles = [];
             for(var j=0; j<series[i].data.length; j++) {
-                var circle = paper.circle (0,0,0);
+                var circle = paper.circle (0,0,4);
+                var eventCircle = paper.circle (0,0,10);
                 circles.push (circle);
                 seriesContainer.append (circle);
             }
@@ -62,16 +63,14 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                 .lineTo (seriesWidth / 2, coreHeight - scale.calc(series[i].data[0]));
             circles[0].attr ({
                cx: seriesWidth / 2,
-               cy: coreHeight - scale.calc(series[i].data[0]),
-               r: 4
+               cy: coreHeight - scale.calc(series[i].data[0])
             });
             for(var j=1; j<series[i].data.length; j++) {
                 var d = series[i].data[j]
                 path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
                 circles[j].attr ({
                    cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j]),
-                   r: 4
+                   cy: coreHeight - scale.calc(series[i].data[j])
                 });
             }
 
@@ -98,16 +97,14 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                 .lineTo (seriesWidth / 2, coreHeight - scale.calc(series[i].data[0]));
             circles[0].animate ({
                cx: seriesWidth / 2,
-               cy: coreHeight - scale.calc(series[i].data[0]),
-               r: 4
+               cy: coreHeight - scale.calc(series[i].data[0])
             });
             for(var j=1; j<series[i].data.length; j++) {
                 var d = series[i].data[j]
                 path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
                 circles[j].animate ({
                    cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j]),
-                   r: 4
+                   cy: coreHeight - scale.calc(series[i].data[j])
                 });
             }
             path.lineTo (seriesWidth / 2 + seriesWidth * (dataSize - 1), coreHeight - scale.calc(0));

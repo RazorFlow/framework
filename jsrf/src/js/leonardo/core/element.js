@@ -257,5 +257,9 @@ define(['vendor/lodash',
         this.__elem.on ('click', cb);
     };
 
+    Element.prototype.hover = function (cb) {
+        this.__elem.on ('mouseover', cb);
+    };
+
     return Element;
 });

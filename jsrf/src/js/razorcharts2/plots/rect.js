@@ -58,16 +58,28 @@ define(['vendor/lodash'], function (_) {
                 var rect = paper.rect (0,0,0,0);
                 rect.attr('id', 'rc-series-' + series[i].seriesIndex + '-rect-' + j);
                 rect.attr ('fill', series[i].color);
-                !function (seriesIndex, labelIndex, value, label) {
-                    rect.click(function () {
-                        eventManager.trigger ('plotItemActivate', {
-                            seriesIndex: seriesIndex,
-                            labelIndex: labelIndex,
-                            value: value,
-                            label: label
-                        });
+                !function (obj) {
+                    rect.click(function (me) {
+                        eventManager.trigger ('plotItemActivate',obj);
                     });
-                } (i, j, series[i].data[j], this.options.labels[j]);
+
+                    rect.hover (function (me) {
+                        var clientRect = this.getBoundingClientRect ();
+                        eventManager.trigger('tooltip', _.extend(obj, {
+                            position: {
+                                x: clientRect.left + clientRect.width / 2,
+                                y: clientRect.top
+                            }
+                        }));
+                    });
+                } ({
+                    seriesIndex: i, 
+                    labelIndex: j, 
+                    value: series[i].data[j], 
+                    label: this.options.labels[j], 
+                    seriesLabel: series[i].caption,
+                    color: series[i].color
+                });
                     
                 seriesContainer.append (rect);
                 this.rects[i].push (rect);

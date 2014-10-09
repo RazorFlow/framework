@@ -18,6 +18,8 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
         console.log('Creating lines!');
         var paper = this.paper;
         var series = this.options.series;
+        var eventManager = this.options.eventManager;
+
         for(var i=0; i<series.length; i++) {
             var seriesContainer = paper.g ();
             seriesContainer.attr ('id', 'rc-series-' + series[i].seriesIndex);
@@ -28,14 +30,46 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             path.attr ('fill', 'none');
             path.attr ('stroke-width', 2);
             var circles = [];
+            var eventCircles = [];
             for(var j=0; j<series[i].data.length; j++) {
-                var circle = paper.circle (0,0,0);
+                var circle = paper.circle (0,0,4);
+                var eventCircle = paper.circle (0,0,10);
+                eventCircle.attr ({
+                    opacity: 0
+                });
+
+                !function (obj) {
+                    eventCircle.click(function (me) {
+                        eventManager.trigger ('plotItemActivate',obj);
+                    });
+
+                    eventCircle.hover (function (me) {
+                        var clientRect = this.getBoundingClientRect ();
+                        eventManager.trigger('tooltip', _.extend(obj, {
+                            position: {
+                                x: clientRect.left + clientRect.width / 2,
+                                y: clientRect.top
+                            }
+                        }));
+                    });
+                } ({
+                    seriesIndex: i, 
+                    labelIndex: j, 
+                    value: series[i].data[j], 
+                    label: this.options.labels[j], 
+                    seriesLabel: series[i].caption,
+                    color: series[i].color
+                });
+
                 circles.push (circle);
+                eventCircles.push (eventCircle);
                 seriesContainer.append (circle);
+                seriesContainer.append (eventCircle);
             }
             this.plots[i] = {
                 path: path,
-                circles: circles
+                circles: circles,
+                eventCircles: eventCircles
             };
             seriesContainer.append (path);
             this.core.append (seriesContainer);
@@ -54,19 +88,26 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             var scale = series[i].scale;
             var path = plots[i].path;
             var circles = plots[i].circles;
+            var eventCircles = plots[i].eventCircles;
             path.startPath ().moveTo (seriesWidth / 2, coreHeight - scale.calc(series[i].data[0]));
             circles[0].attr ({
                cx: seriesWidth / 2,
-               cy: coreHeight - scale.calc(series[i].data[0]),
-               r: 4
+               cy: coreHeight - scale.calc(series[i].data[0])
+            });
+            eventCircles[0].attr ({
+               cx: seriesWidth / 2,
+               cy: coreHeight - scale.calc(series[i].data[0])
             });
             for(var j=1; j<series[i].data.length; j++) {
                 var d = series[i].data[j]
                 path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
                 circles[j].attr ({
                    cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j]),
-                   r: 4
+                   cy: coreHeight - scale.calc(series[i].data[j])
+                });
+                eventCircles[j].attr ({
+                   cx: seriesWidth / 2 + seriesWidth * j,
+                   cy: coreHeight - scale.calc(series[i].data[j])
                 });
             }
             path.endPath ();
@@ -85,19 +126,26 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             var scale = series[i].scale;
             var path = plots[i].path;
             var circles = plots[i].circles;
+            var eventCircles = plots[i].eventCircles;
             path.startPath ().moveTo (seriesWidth / 2, coreHeight - scale.calc(series[i].data[0]));
             circles[0].animate ({
                cx: seriesWidth / 2,
-               cy: coreHeight - scale.calc(series[i].data[0]),
-               r: 4
+               cy: coreHeight - scale.calc(series[i].data[0])
+            });
+            eventCircles[0].animate ({
+               cx: seriesWidth / 2,
+               cy: coreHeight - scale.calc(series[i].data[0])
             });
             for(var j=1; j<series[i].data.length; j++) {
                 var d = series[i].data[j]
                 path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
                 circles[j].animate ({
                    cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j]),
-                   r: 4
+                   cy: coreHeight - scale.calc(series[i].data[j])
+                });
+                eventCircles[j].animate ({
+                   cx: seriesWidth / 2 + seriesWidth * j,
+                   cy: coreHeight - scale.calc(series[i].data[j])
                 });
             }
             path.animatePath ();

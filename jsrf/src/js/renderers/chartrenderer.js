@@ -355,18 +355,19 @@ define([
         },
         yAxis: yAxisConfig,
         tooltip: {
-          onShow: function(x, y, data) {
+          onShow: function(x, y, _data) {
+            var data = _.cloneDeep (_data);
             var tooltipFormatter = new NumberFormatter();
             if(coreChartType === 'pie') {
               tooltipFormatter.setConfig(self.props.chart.series[series[0].key]);
             } else {
-              var seriesIndex = data.seriesIndex[0] - 1;
+              var seriesIndex = data.seriesIndex;
               tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
                 self.props.chart.series[series[seriesIndex].key],
                 self.props.chart.series[series[seriesIndex].key].yAxis !== 'primary' ? syConfig : yConfig
               ]));
             }     
-            data.data[0] = tooltipFormatter.formatValue(data.data[0]);       
+            data.value = tooltipFormatter.formatValue(data.value);       
             tooltip.show(x, y, data);
           },
           onHide: function() {
