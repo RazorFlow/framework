@@ -60,6 +60,19 @@ define(['vendor/lodash'], function (_) {
             slice.attr ('fill', series.colors[i]);
             self.slices[i] = slice;
             core.append (slice);
+            !function (idx) {
+                self.slices[idx].mousemove(function (me) {
+                    self.options.eventManager.trigger ('tooltip', {
+                        seriesLabel: self.options.labels[idx],
+                        value: 42,
+                        color: series.colors[idx],
+                        position: {
+                            x: me.clientX,
+                            y: me.clientY
+                        },
+                    });
+                });
+            } (i);
         }
     };
 

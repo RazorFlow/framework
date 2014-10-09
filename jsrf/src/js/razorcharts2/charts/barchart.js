@@ -25,10 +25,18 @@ define(['vendor/lodash',
     };
 
     function configureBarChart (self) {
+        configureEvents (self);
         calcScaleBounds (self);
         configureScales (self);
         configureAxes (self);
         configurePlots (self);
+    };
+
+    function configureEvents (self) {
+        var eventManager = self.options.eventManager;
+        eventManager.bind('tooltip', function (obj) {
+            self.options.tooltip.onShow (obj.position.x, obj.position.y, obj);
+        });
     };
 
     function configureStackedBarChart (self) {

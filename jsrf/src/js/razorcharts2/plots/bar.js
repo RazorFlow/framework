@@ -3,12 +3,44 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     var Bar = function () {
         this.init ();
         this.registerTransformer ({key: 'render', transform: BarTransformer});
+        this.registerTransformer ({key: 'render', transform: TooltipTransformer});
         this.registerTransformer ({key: 'resize', transform: BarTransformer});
         this.registerTransformer ({key: 'update', transform: BarUpdateTransformer});
     };
 
     Bar.prototype = new Rect();
     Bar.prototype.constructor = Bar;
+
+    function TooltipTransformer (self) {
+        var series = self.options.series,
+            rects = self.rects,
+            eventManager = self.options.eventManager;
+
+        for(var i=0; i<series.length; i++) {
+            var data = series[i].data;
+            for(var j=0; j<data.length; j++) {
+                !function (obj) {
+                    var rect = rects[i][j];
+                    rect.hover (function (me) {
+                        var clientRect = this.getBoundingClientRect ();
+                        eventManager.trigger('tooltip', _.extend(obj, {
+                            position: {
+                                x: clientRect.left + clientRect.width,
+                                y: clientRect.top + clientRect.height / 2
+                            }
+                        }));
+                    });
+                } ({
+                    seriesIndex: i, 
+                    labelIndex: j, 
+                    value: series[i].data[j], 
+                    label: self.options.labels[j], 
+                    seriesLabel: series[i].caption,
+                    color: series[i].color
+                });
+            }
+        }
+    };
 
     function BarTransformer (self) {
         console.log('BarTransformer called!');

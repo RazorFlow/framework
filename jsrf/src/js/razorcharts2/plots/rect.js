@@ -63,15 +63,16 @@ define(['vendor/lodash'], function (_) {
                         eventManager.trigger ('plotItemActivate',obj);
                     });
 
-                    rect.hover (function (me) {
-                        var clientRect = this.getBoundingClientRect ();
-                        eventManager.trigger('tooltip', _.extend(obj, {
-                            position: {
-                                x: clientRect.left + clientRect.width / 2,
-                                y: clientRect.top
-                            }
-                        }));
-                    });
+                    // rect.hover (function (me) {
+                    //     debugger
+                    //     var clientRect = this.getBoundingClientRect ();
+                    //     eventManager.trigger('tooltip', _.extend(obj, {
+                    //         position: {
+                    //             x: clientRect.left + clientRect.width / 2,
+                    //             y: clientRect.top
+                    //         }
+                    //     }));
+                    // });
                 } ({
                     seriesIndex: i, 
                     labelIndex: j, 

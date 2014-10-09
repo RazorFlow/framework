@@ -10,7 +10,14 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         this.plot.config({
             series: this.options.series,
             labels: this.options.labels,
-            valueLabels: _.map(this.options.series.data, this.options.series.format)
+            valueLabels: _.map(this.options.series.data, this.options.series.format),
+            eventManager: this.options.eventManager
+        });
+
+        var eventManager = this.options.eventManager;
+        var self = this;
+        eventManager.bind('tooltip', function (obj) {
+            self.options.tooltip.onShow (obj.position.x, obj.position.y, obj);
         });
     };
 

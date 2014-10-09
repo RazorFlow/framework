@@ -3,12 +3,44 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     var Column = function () {
         this.init ();
         this.registerTransformer ({key: 'render', transform: ColumnTransformer});
+        this.registerTransformer ({key: 'render', transform: TooltipTransformer});
         this.registerTransformer ({key: 'resize', transform: ColumnTransformer});
         this.registerTransformer ({key: 'update', transform: ColumnUpdateTransformer});
     };
 
     Column.prototype = new Rect();
     Column.prototype.constructor = Column;
+
+    function TooltipTransformer (self) {
+        var series = self.options.series,
+            rects = self.rects,
+            eventManager = self.options.eventManager;
+
+        for(var i=0; i<series.length; i++) {
+            var data = series[i].data;
+            for(var j=0; j<data.length; j++) {
+                !function (obj) {
+                    var rect = rects[i][j];
+                    rect.hover (function (me) {
+                        var clientRect = this.getBoundingClientRect ();
+                        eventManager.trigger('tooltip', _.extend(obj, {
+                            position: {
+                                x: clientRect.left + clientRect.width / 2,
+                                y: clientRect.top
+                            }
+                        }));
+                    });
+                } ({
+                    seriesIndex: i, 
+                    labelIndex: j, 
+                    value: series[i].data[j], 
+                    label: self.options.labels[j], 
+                    seriesLabel: series[i].caption,
+                    color: series[i].color
+                });
+            }
+        }
+    };
 
     function ColumnTransformer (self) {
         console.log('ColumnTransformer called!');
