@@ -258,7 +258,8 @@ define(['vendor/lodash',
             type: 'ordinal',
             scale: self.xScale,
             ticks: self.labels,
-            tickLabels: self.labels
+            tickLabels: self.labels,
+            labelStep: self.options.labelStep
         });
 
         self.yAxis = new LeftAxis ();

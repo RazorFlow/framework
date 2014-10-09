@@ -18,7 +18,8 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
-            tickWidth = width / ticks.length;
+            tickWidth = width / ticks.length,
+            labelStep = self.options.labelStep;
         
         for(var i=0; i<ticks.length; ++i) {
             var x;
@@ -32,6 +33,12 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
                 'transform': 'translate(' + x + ',14)',
                 'text-anchor': 'middle'
             });
+
+            if(labelStep && labelStep.interval) {
+                if(i > labelStep.startIndex && i % labelStep.interval !== 0) {
+                    $ticks[i].attr ('opacity', 0);
+                }
+            }
         }
 
         self.line.attr ({
