@@ -84,7 +84,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
             var $tick = paper.g ();
             $tick.attr('id', 'tick-' + (i+1));
             var $text = paper.text (0, 0, this.tickLabels[i]) ;
-            $text.css({
+            $text.attr({
                 "fill": "#666",
                 "stroke": "none",
                 "font-size": "12px"
@@ -157,9 +157,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
              var $label = paper.text (0, 0);
              var axisHeight = paper.text (0, 0, label);
              $label.attr({
-                class: 'rc-axis-label',
-             });
-             $label.css({
+                'class': 'rc-axis-label',
                 'font-size': '12px'
              });
 

@@ -308,15 +308,15 @@ define(['vendor/lodash'], function (_) {
                 tspanValue: tspanValue,
                 tspanLabel: tspanLabel
             };
-            line1.css({
+            line1.attr({
                 "stroke" : "#666",
                 "stroke-width" : 1
             });
-            line2.css({
+            line2.attr({
                 "stroke" : "#666",
                 "stroke-width" : 1
             });
-            label.css({
+            label.attr({
                 "fill" : "#666",
                 "font-size" : "10px"
             });

@@ -67,10 +67,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     x: x,
                     y: y,
                     width: width,
-                    height: height
-                });
-
-                rect.css({
+                    height: height,
                     stroke: "none"
                 });
             }

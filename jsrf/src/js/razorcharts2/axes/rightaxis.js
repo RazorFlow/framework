@@ -25,11 +25,7 @@ define(['razorcharts2/axes/axis'], function (Axis) {
             });
         }
 
-        self.line.attr({x1: 0, y1: 0, x2: 0, y2: height});
-
-        self.line.css({
-            "stroke": "none"
-        });
+        self.line.attr({x1: 0, y1: 0, x2: 0, y2: height, stroke: "none"});
 
         if(self.hasLabel()) {
             self.$label.text(self.label);

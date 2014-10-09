@@ -114,9 +114,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             x: cx,
             'text-anchor': 'middle',
             'font-size': MAX_FONT_SIZE,
-            "stroke": "none"
-        });
-        valueText.css({
+            "stroke": "none",
             "fill" : "#333"
         });
         valueText.attr({

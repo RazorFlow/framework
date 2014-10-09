@@ -47,16 +47,13 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             x1: 0,
             y1: 0,
             x2: width,
-            y2: 0
-        });
-
-        self.line.css({
+            y2: 0,
             "stroke": "#979797",
             "stroke-dasharray": "none"
         });
 
         if(self.options.type === 'linear') {
-            self.line.css({
+            self.line.attr({
                 "stroke": "none"
             });
         }
@@ -157,7 +154,7 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
                     });
                     for(var j=0; j<words.length; j++) {
                         var $newTickText = self.paper.text (0, 18 * j, words[j]);
-                        $newTickText.css({
+                        $newTickText.attr({
                             "fill": "#666",
                             "stroke": "none",
                             "font-size": "12px"
