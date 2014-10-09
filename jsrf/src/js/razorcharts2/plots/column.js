@@ -63,7 +63,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                 var x = (j * seriesWidth) + (seriesPadding / 2) + (columnWidth * i);
                 var y = calcY(data[j], coreHeight, scale);
                 var width = columnWidth;
-                var height = data[j] > minValue ? Math.abs(scale.calc(data[j]) - scale.calc(minValue)) : 0;
+                var height = Math.abs(scale.calc(data[j]) - scale.calc(minValue));
 
                 rect.attr({
                     x: x,

@@ -52,7 +52,11 @@ define(['vendor/lodash',
         this.series = options.series;
         this.labels = options.labels;
         this.xAxisOptions = options.xAxis || {};
-        this.yAxisOptions = options.yAxis || {};
+        this.yAxisOptions = options.yAxis || {
+            format: function (val) {
+                return val;
+            }
+        };
         configureEvents (this);
         if(options.stacked) {
             configureStackedLinearChart (this);
