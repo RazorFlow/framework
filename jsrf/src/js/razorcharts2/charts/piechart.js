@@ -9,7 +9,8 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         this.plot = new Pie ();
         this.plot.config({
             series: this.options.series,
-            labels: this.options.labels
+            labels: this.options.labels,
+            valueLabels: _.map(this.options.series.data, this.options.series.format)
         });
     };
 

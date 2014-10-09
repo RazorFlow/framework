@@ -101,6 +101,7 @@ define(['vendor/lodash'], function (_) {
         var slices = this.slices;
         var series = this.options.series,
             data = _options.series.data,
+            valueLabels = self.options.valueLabels,
             w = this.width,
             h = this.height,
             cx = w / 2,
@@ -253,6 +254,7 @@ define(['vendor/lodash'], function (_) {
             h = self.height,
             labels = self.options.labels,
             data = self.options.series.data,
+            valueLabels = self.options.valueLabels,
             cx = w / 2,
             cy = h / 2,
             r = self.r,
@@ -263,7 +265,7 @@ define(['vendor/lodash'], function (_) {
             var endAngle = tAngle + data[i] / total * 360;
             var pos = angleToPoint (cx, cy, r + MIN_LABEL_RADIUS, (startAngle + endAngle) / 2);
             var circlePos = angleToPoint (cx, cy, r, (startAngle + endAngle) / 2);
-            var label = paper.text (pos.x < cx ? 10 : -10, 5, data[i] + ' ' + labels[i]);
+            var label = paper.text (pos.x < cx ? 10 : -10, 5, valueLabels[i] + ' ' + labels[i]);
             label.attr('font-size', LABEL_FONT_SIZE);
             var x, y;
             if(pos.x < cx) {
@@ -342,6 +344,7 @@ define(['vendor/lodash'], function (_) {
             h = self.height,
             labels = self.options.labels,
             data = self.options.series.data,
+            valueLabels = self.options.valueLabels,
             cx = w / 2,
             cy = h / 2,
             r = self.r,
@@ -353,7 +356,7 @@ define(['vendor/lodash'], function (_) {
             var pos = angleToPoint (cx, cy, r + MIN_LABEL_RADIUS, (startAngle + endAngle) / 2);
             var circlePos = angleToPoint (cx, cy, r, (startAngle + endAngle) / 2);
             var label = self.labelParts[i].label;
-            label.text(data[i] + ' ' + labels[i]);
+            label.text(valueLabels[i] + ' ' + labels[i]);
             label.attr ({
                 x: pos.x < cx ? 10 : -10
             });
