@@ -141,6 +141,11 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
                 var $tick = this.paper.g ();
                 $tick.attr('id', 'tick-' + (i+1));
                 var $text = this.paper.text (0, 0, '' + this.ticks[i]);
+                $text.attr({
+                   "fill": "#666",
+                   "stroke": "none",
+                   "font-size": "12px"
+                });
                 this.$tickTexts[i] = $text;
                 $tick.append ($text);
                 this.$ticks[i] = $tick;

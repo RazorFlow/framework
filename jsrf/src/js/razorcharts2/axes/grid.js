@@ -65,6 +65,10 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         var paper = self.paper;
         for(var i=0; i<self.ticks.length; i++) {
             self.$ticks[i] = paper.line (0,0,0,0);
+            self.$ticks[i].attr({
+                stroke: "#ccc",
+                "stroke-dasharray": "2,2"
+            });
             self.core.append (self.$ticks[i]);
         }
     };
@@ -88,6 +92,10 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         for(var i=0; i<this.ticks.length; i++) {
             if(typeof this.$ticks[i] === 'undefined') {
                 var $tick = this.paper.line (0,0,0,0);
+                $tick.attr({
+                    stroke: "#ccc",
+                    "stroke-dasharray": "2,2"
+                });
                 this.$ticks[i] = $tick;
                 this.core.append ($tick);
                 $tick.__newTick = true;

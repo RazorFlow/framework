@@ -21,9 +21,7 @@ define(['razorcharts2/axes/grid'], function (Grid) {
                 x1: scale.calc (ticks[i]),
                 y1: 0,
                 x2: scale.calc (ticks[i]),
-                y2: coreHeight,
-                stroke: "#ccc",
-                "stroke-dasharray": "2,2"
+                y2: coreHeight
             });
         }
     };

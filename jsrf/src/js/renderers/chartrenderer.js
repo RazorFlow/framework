@@ -166,11 +166,11 @@ define([
           }
         }
       },
-      realignData: function (originalLabels, labels, seriesData, displayValues) {
+      realignData: function (originalLabels, labels, seriesData, displayValues, series) {
         if (!firstDraw) {
           var realigned = DataFormatter.realignLabels (originalLabels, labels, seriesData, displayValues);
           // pro.chart.updateData(originalLabels, realigned.data, realigned.displayValues);
-          pro.chart.updateSeries(seriesData);
+          pro.chart.update({series:series});
         }
       },
       dispose: function () {

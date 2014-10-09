@@ -315,7 +315,7 @@ define([
           }
         }
         originalLabels = labels;
-        pro.renderer.realignData (originalLabels, labels, pro.seriesData(series, data), pro.displayValues(series, data));
+        pro.renderer.realignData (originalLabels, labels, pro.seriesData(series, data), pro.displayValues(series, data), pro.seriesIndexed(series, data));
       },
 
 
@@ -339,6 +339,15 @@ define([
       seriesData: function (series, data) {
         return _.map(series, function (val, key) {
           return _.map(_.pluck (data, key), parseFloat);
+        });
+      },
+
+      seriesIndexed: function (series, data) {
+        return _.map(series, function (val, key) {
+          return {
+            seriesIndex: val.seriesIndex,
+            data: _.map(_.pluck (data, key), parseFloat)
+          };
         });
       },
 

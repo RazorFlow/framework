@@ -99,7 +99,7 @@ define([
         //     return applyNumberFormatting(newValue, item);
         //   }
         // });
-        gauge.updateSeries({value: newValue.value});
+        gauge.update({value: newValue.value});
       } else {
         var $value = $core.find('.rfKPIValue');
         timer(function(d) {

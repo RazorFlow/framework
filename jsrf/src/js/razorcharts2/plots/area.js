@@ -65,11 +65,6 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                     seriesLabel: series[i].caption,
                     color: series[i].color
                 });
-                circle.attr({
-                    stroke : series[i].color,
-                    fill : "#FFF",
-                    "stroke-width" : 2
-                });
                 circles.push (circle);
                 eventCircles.push (eventCircle);
                 seriesContainer.append (circle);
