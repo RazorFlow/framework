@@ -264,21 +264,24 @@ define(['vendor/lodash',
         self.xAxis.config({
             type: 'ordinal',
             scale: self.xScale,
-            ticks: self.labels
+            ticks: self.labels,
+            tickLabels: self.labels
         });
 
         self.yAxis.left = new LeftAxis ();
         self.yAxis.left.config({
             type: 'linear',
             scale: self.yScale.left,
-            ticks: self.yDomain.left.ticks
+            ticks: self.yDomain.left.ticks,
+            tickLabels: _.map(self.yDomain.left.ticks, self.options.yAxis[0].format)
         });
 
         self.yAxis.right = new RightAxis ();
         self.yAxis.right.config({
             type: 'linear',
             scale: self.yScale.right,
-            ticks: self.yDomain.right.ticks
+            ticks: self.yDomain.right.ticks,
+            tickLabels: _.map(self.yDomain.right.ticks, self.options.yAxis[1].format)
         });
 
         self.yGrid = new YGrid ();
