@@ -120,7 +120,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             "fill" : "#333"
         });
         valueText.attr({
-            y: cy + valueText.getBBox().height / 4
+            y: cy
         });
 
         var valueTextWidth = valueText.getBBox().width;
@@ -139,14 +139,14 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
                     'font-size': newFontSize,
                 });
                 minText.attr({
-                    'font-size': newFontSize * 0.5,
+                    'font-size': newFontSize * 0.8,
                      x: minTextPos.x,
                 });
                 minText.attr({
                      y: minTextPos.y + minText.getBBox().height,
                 });
                 maxText.attr({
-                    'font-size': newFontSize * 0.5,
+                    'font-size': newFontSize * 0.8,
                      x: maxTextPos.x,
                 });
                 maxText.attr({

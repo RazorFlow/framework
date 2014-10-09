@@ -6,8 +6,8 @@ define ([], function () {
       endAngle: 60,
       arrowStartAngle: -230,
       arrowEndAngle: 110,
-      max_font_size: 28,
-      padding: 0.7
+      max_font_size: 24,
+      padding: 0.9
     }
   };
 });
