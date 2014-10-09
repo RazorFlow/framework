@@ -322,7 +322,6 @@ define([
       seriesConfig: function (series) {
 
         var color = 1;
-
         return _.map(series, function (val, key, idx) {
           return {
             color: 'chart-color-' + color++,

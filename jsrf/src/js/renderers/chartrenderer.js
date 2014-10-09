@@ -106,6 +106,9 @@ define([
             tData.push(data[i]);
             tDisplayValues.push(displayValues[i]);
           }
+          if(series[i].seriesColor !== "auto") {
+            chartBaseColors[i] = series[i].seriesColor;
+          }
         }
 
         selectAndCreateChart(labels, tData, tSeries, tDisplayValues);
