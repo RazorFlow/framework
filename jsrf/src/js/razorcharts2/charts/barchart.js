@@ -167,10 +167,11 @@ define(['vendor/lodash',
         });
     };
 
-    BarChart.prototype.renderTo = function (paper, w, h) {
+    BarChart.prototype.renderTo = function (paper, core, w, h) {
         this.paper = paper;
-        this.width = w;
-        this.height = h;
+        this.width = w - 20;
+        this.height = h - 30;
+        this.core = core;
         createContainers (this);
         this.xScale.range ([0, w]);
         this.xAxis.renderTo (paper, this.xAxisContainer, w, h);
@@ -188,17 +189,19 @@ define(['vendor/lodash',
 
         this.plot.renderTo (paper, this.plotContainer, w - this.yAxis.width(), h - this.xAxis.height());
         this.plotContainer.translate (this.yAxis.width(), 0);
+        this.core.translate(0,15);
     };
 
     function createContainers (self) {
         var paper = self.paper;
+        var core = self.core;
         self.xAxisContainer = paper.g ();
         self.xAxisContainer.attr ('id', 'rc-axis-container');
-        paper.append (self.xAxisContainer);
+        core.append (self.xAxisContainer);
 
         self.yAxisContainer = paper.g ();
         self.yAxisContainer.attr ('id', 'rc-axis-container');
-        paper.append (self.yAxisContainer);
+        core.append (self.yAxisContainer);
 
         self.plotContainer = paper.g ();
         self.plotContainer.attr ('id', 'rc-plot-container');
@@ -208,7 +211,7 @@ define(['vendor/lodash',
 
         self.plotContainer.append (self.gridContainer);
 
-        paper.append (self.plotContainer);
+        core.append (self.plotContainer);
     }
 
     BarChart.prototype.resizeTo = function (w, h) {

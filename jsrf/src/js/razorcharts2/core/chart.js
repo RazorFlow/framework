@@ -7,6 +7,8 @@ define([
     'razorcharts2/utils/assert',
     'leonardo/leomain',
     'razorcharts2/utils/eventmanager'], function (_, Assert, Leonardo, EventManager) {
+    var xPadding = 20,
+        yPadding = 30;
     var Chart =  function () {
         this.options = {};
         this.options.eventManager = new EventManager();
@@ -56,7 +58,10 @@ define([
      */
     Chart.prototype.renderTo = function (node, width, height) {
         var paper = this.paper = Leonardo.paper(node, width, height);
-        this.chart.renderTo (paper, width, height);
+        var core = this.core = paper.g();
+        core.attr ('id', 'rc-chart-core');
+        paper.append(core);
+        this.chart.renderTo (paper, core, width - xPadding, height -yPadding);
     };
 
     /**
@@ -69,7 +74,7 @@ define([
             width: width,
             height: height
         });
-        this.chart.resizeTo (width, height);
+        this.chart.resizeTo (width - xPadding, height - yPadding);
     }
 
     Chart.prototype.update = function (options) {

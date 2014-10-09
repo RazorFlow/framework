@@ -12,7 +12,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         this.options = _.extend (this.options, _options);
     };
 
-    GaugeChart.prototype.renderTo = function (paper, w, h) {
+    GaugeChart.prototype.renderTo = function (paper, core, w, h) {
         this.paper = paper;
         this.width = w;
         this.height = h;

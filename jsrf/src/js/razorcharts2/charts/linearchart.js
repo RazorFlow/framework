@@ -364,10 +364,11 @@ define(['vendor/lodash',
      * @param  {Number} w width of the chart
      * @param  {Number} h height of the chart
      */
-    LinearChart.prototype.renderTo = function (paper, w, h) {
+    LinearChart.prototype.renderTo = function (paper, core, w, h) {
         this.paper = paper;
         this.width = w;
         this.height = h;
+        this.core = core;
         // Create Containers group elemets for the chart inner components
         createContainers (this);
 
@@ -387,6 +388,8 @@ define(['vendor/lodash',
         // Render the plots
         renderPlots (this, w - this.yAxisWidth, h - this.xAxis.height());
         this.plotContainer.translate (this.yAxisTranslate, 0);
+
+        this.core.translate(10,15);
     };
 
     function renderYAxis (self) {
@@ -552,24 +555,25 @@ define(['vendor/lodash',
 
     function createContainers (self) {
         var paper = self.paper;
+        var core = self.core;
 
         self.xAxisContainer = paper.g();
         self.xAxisContainer.attr ('id', 'rc-xaxis');
-        paper.append (self.xAxisContainer);
+        core.append (self.xAxisContainer);
         if(self.options.dualAxis) {
             self.yAxisContainer = {};
 
             self.yAxisContainer.left = paper.g ();
             self.yAxisContainer.left.attr ('id', 'rc-yaxis');
-            paper.append (self.yAxisContainer.left);
+            core.append (self.yAxisContainer.left);
 
             self.yAxisContainer.right = paper.g ()
             self.yAxisContainer.right.attr ('id', 'rc-yaxis');
-            paper.append (self.yAxisContainer.right);
+            core.append (self.yAxisContainer.right);
         } else {
             self.yAxisContainer = paper.g();
             self.yAxisContainer.attr('id', 'rc-yaxis');
-            paper.append (self.yAxisContainer);
+            core.append (self.yAxisContainer);
         }
             
 
@@ -580,7 +584,7 @@ define(['vendor/lodash',
         self.gridContainer.attr ('id', 'rc-gridcontainer');
         self.plotContainer.append (self.gridContainer);
 
-        paper.append (self.plotContainer);
+        core.append (self.plotContainer);
     }
 
     function renderPlots (self, w, h) {
