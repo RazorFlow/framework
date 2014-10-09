@@ -17,6 +17,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         this.scale = options.scale;
         this.ticks = options.ticks;
         this.tickLabels = options.tickLabels;
+        this.label = options.label;
         this.cache ();
     };
 
@@ -39,6 +40,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         this.createTicks (this);
         this.line = this.paper.line (0, 0, 0, 0);
         this.core.append (this.line);
+        this.createLabel();
         this.transform ('render');
     };
 
@@ -51,6 +53,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
     };
 
     Axis.prototype.resizeTo = function (w, h) {
+        console.log(h)
         this.coreWidth = w;
         this.coreHeight = h;
         this.transform('resize');
@@ -145,6 +148,40 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
                 $tick.__newTick = true;
             }
         }
+    };
+
+    Axis.prototype.createLabel = function() {
+        var paper = this.paper,
+            label = this.label;
+        if(label) {
+             var $label = paper.text (0, 0);
+             var axisHeight = paper.text (0, 0, label);
+             $label.attr({
+                class: 'rc-axis-label',
+             });
+             $label.css({
+                'font-size': '12px'
+             });
+
+             this.$label = $label;
+             this.core.append($label);
+        }
+    };
+
+    Axis.prototype.hasLabel = function() {
+        if(this.label) {
+            return true;
+        }
+
+        return false;
+    };
+
+    Axis.prototype.getMaxTickWidth = function($ticks) {
+        return _.max(_.map($ticks, function(t) { return t.getBBox().width }))
+    };
+
+    Axis.prototype.getMaxTickHeight = function($ticks) {
+        return _.max(_.map($ticks, function(t) { return t.getBBox().height }))
     };
 
     return Axis;

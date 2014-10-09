@@ -20,6 +20,8 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             scale = self.scale,
             tickWidth = width / ticks.length,
             labelStep = self.options.labelStep;
+            width = self.coreWidth,
+            maxTickHeight;
         
         for(var i=0; i<ticks.length; ++i) {
             var x;
@@ -57,6 +59,15 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             self.line.css({
                 "stroke": "none"
             });
+        }
+
+        if(self.hasLabel()) {
+            self.$label.text(self.label);
+            self.$label.attr({
+                'text-anchor': 'middle'
+            });
+            maxTickHeight =  self.getMaxTickHeight($ticks);
+            self.$label.translate(width / 2, maxTickHeight + self.$label.getBBox().height + 8);
         }
     };
 

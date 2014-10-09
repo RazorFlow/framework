@@ -15,7 +15,8 @@ define(['razorcharts2/axes/axis'], function (Axis) {
             ticks = self.ticks,
             scale = self.scale,
             height = self.coreHeight,
-            tickHeight = height / ticks.length;
+            tickHeight = height / ticks.length,
+            maxTickWidth;
 
         for(var i=0; i<ticks.length; ++i) {
             var y;
@@ -42,6 +43,16 @@ define(['razorcharts2/axes/axis'], function (Axis) {
             self.line.css({
                 "stroke": "none"
             });
+        }
+
+        if(self.hasLabel()) {
+            self.$label.text(self.label);
+            self.$label.attr({
+                'text-anchor': 'middle'
+            });
+            maxTickWidth =  self.getMaxTickWidth($ticks);
+            self.$label.translate(0 - maxTickWidth - self.$label.getBBox().height * 2, height / 2);
+            self.$label.rotate(-90);
         }
     };
 

@@ -102,7 +102,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.xScale,
             ticks: self.xDomain.ticks,
-            tickLabels: _.map(self.xDomain.ticks, self.options.xAxis.format)
+            tickLabels: _.map(self.xDomain.ticks, self.options.xAxis.format),
+            label: self.options.yAxis.label
         });
 
         self.xGrid = new XGrid ();

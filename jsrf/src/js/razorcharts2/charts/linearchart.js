@@ -267,7 +267,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale,
             ticks: self.yDomain.ticks,
-            tickLabels: _.map(self.yDomain.ticks, self.options.yAxis.format)
+            tickLabels: _.map(self.yDomain.ticks, self.options.yAxis.format),
+            label: self.options.yAxis.label
         });
 
         self.yGrid = new YGrid ();
@@ -292,7 +293,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale.left,
             ticks: self.yDomain.left.ticks,
-            tickLabels: _.map(self.yDomain.left.ticks, self.options.yAxis[0].format)
+            tickLabels: _.map(self.yDomain.left.ticks, self.options.yAxis[0].format),
+            label: self.options.yAxis[0].label
         });
 
         self.yAxis.right = new RightAxis ();
@@ -300,7 +302,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale.right,
             ticks: self.yDomain.right.ticks,
-            tickLabels: _.map(self.yDomain.right.ticks, self.options.yAxis[1].format)
+            tickLabels: _.map(self.yDomain.right.ticks, self.options.yAxis[1].format),
+            label: self.options.yAxis[1].label
         });
 
         self.yGrid = new YGrid ();

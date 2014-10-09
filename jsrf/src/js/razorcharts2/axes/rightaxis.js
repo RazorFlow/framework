@@ -14,7 +14,8 @@ define(['razorcharts2/axes/axis'], function (Axis) {
         var $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
-            height = self.coreHeight;
+            height = self.coreHeight,
+            maxTickWidth;
 
         for(var i=0; i<ticks.length; ++i) {
             var y = height - scale.calc(ticks[i]) + 8;
@@ -29,6 +30,16 @@ define(['razorcharts2/axes/axis'], function (Axis) {
         self.line.css({
             "stroke": "none"
         });
+
+        if(self.hasLabel()) {
+            self.$label.text(self.label);
+            self.$label.attr({
+                'text-anchor': 'middle'
+            });
+            maxTickWidth =  self.getMaxTickWidth($ticks);
+            self.$label.translate(maxTickWidth + 8 + self.$label.getBBox().height * 2, height / 2);
+            self.$label.rotate(-90);
+        }
     };
 
     function RightAxisUpdateTransformer (self) {
