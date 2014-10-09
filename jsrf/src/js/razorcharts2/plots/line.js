@@ -43,6 +43,7 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                 !function (obj) {
                     eventCircle.click(function (me) {
                         eventManager.trigger ('plotItemActivate',obj);
+                        eventManager.trigger ('plotItemClick',obj);
                     });
 
                     eventCircle.hover (function (me) {

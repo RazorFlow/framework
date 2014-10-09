@@ -60,6 +60,7 @@ define(['vendor/lodash'], function (_) {
                 rect.attr ('fill', series[i].color);
                 !function (obj) {
                     rect.click(function (me) {
+                        eventManager.trigger ('plotItemClick', obj);
                         eventManager.trigger ('plotItemActivate',obj);
                     });
 

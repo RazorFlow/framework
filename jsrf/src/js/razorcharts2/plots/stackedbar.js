@@ -3,12 +3,45 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     var StackedBar = function () {
         this.init ();
         this.registerTransformer ({key: 'render', transform: StackedBarTransformer});
+        this.registerTransformer ({key: 'render', transform: TooltipTransformer});
         this.registerTransformer ({key: 'resize', transform: StackedBarTransformer});
         this.registerTransformer ({key: 'update', transform: StackedBarUpdateTransformer});
     };
 
     StackedBar.prototype = new Rect();
     StackedBar.prototype.constructor = StackedBar;
+
+    function TooltipTransformer (self) {
+        var series = self.options.series,
+            rects = self.rects,
+            labels = self.options.labels.reverse(),
+            eventManager = self.options.eventManager;
+
+        for(var i=0; i<series.length; i++) {
+            var data = series[i].data;
+            for(var j=0; j<data.length; j++) {
+                var rect = rects[i][j];
+                !function (obj) {
+                    rect.hover (function (me) {
+                        var clientRect = this.getBoundingClientRect ();
+                        eventManager.trigger('tooltip', _.extend(obj, {
+                            position: {
+                                x: clientRect.left + clientRect.width,
+                                y: clientRect.top + (clientRect.height / 2)
+                            }
+                        }));
+                    });
+                } ({
+                    seriesIndex: i, 
+                    labelIndex: j, 
+                    value: series[i].data[j], 
+                    label:  labels[j], 
+                    seriesLabel: series[i].caption,
+                    color: series[i].color
+                });
+            }
+        }
+    };
 
     function StackedBarTransformer (self) {
         console.log('StackedBarTransformer called!');
@@ -19,7 +52,8 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             numSeries = series.length,
             seriesHeight = (coreHeight / self.options.series[0].data.length),
             seriesPadding = seriesHeight * SERIES_PADDING,
-            columnHeight = (seriesHeight - seriesPadding) / numSeries;
+            columnHeight = (seriesHeight - seriesPadding) / numSeries,
+            eventManager = self.options.eventManager;
 
         for(var i=0; i<series.length; i++) {
             var scale = series[i].scale;

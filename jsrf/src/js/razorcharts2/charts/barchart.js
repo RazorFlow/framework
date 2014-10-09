@@ -40,6 +40,7 @@ define(['vendor/lodash',
     };
 
     function configureStackedBarChart (self) {
+        configureEvents (self);
         calcStackedScaleBounds (self);
         configureScales (self);
         configureAxes (self);

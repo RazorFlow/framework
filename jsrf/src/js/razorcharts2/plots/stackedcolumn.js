@@ -13,6 +13,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     function StackedColumnTransformer (self) {
         console.log('StackedColumnTransformer called!');
         var series = self.options.series,
+            labels = self.options.labels,
             seriesContainers = self.seriesContainers,
             rects = self.rects,
             numSeries = series.length,
@@ -20,8 +21,9 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             coreHeight = self.coreHeight,
             seriesWidth = (coreWidth / self.options.series[0].data.length),
             seriesPadding = seriesWidth * SERIES_PADDING,
-            columnWidth = (seriesWidth - seriesPadding) / numSeries;
-        
+            columnWidth = (seriesWidth - seriesPadding) / numSeries,
+            eventManager = self.options.eventManager;
+
         for(var i = 0; i<series.length; i++) {
             var scale = series[i].scale;
             var data = series[i].data;
@@ -38,6 +40,25 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     width: width,
                     height: height,
                     stroke: "none"
+                });
+
+                !function (obj) {
+                    rect.hover (function (me) {
+                        var clientRect = this.getBoundingClientRect ();
+                        eventManager.trigger('tooltip', _.extend(obj, {
+                            position: {
+                                x: clientRect.left + clientRect.width / 2,
+                                y: clientRect.top
+                            }
+                        }));
+                    });
+                } ({
+                    seriesIndex: i, 
+                    labelIndex: j, 
+                    value: series[i].data[j], 
+                    label: labels[j], 
+                    seriesLabel: series[i].caption,
+                    color: series[i].color
                 });
             }
         }
