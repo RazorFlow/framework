@@ -1,1 +1,0 @@
-$(function(){$(".qa-container:nth-child(odd)").each(function(){$(this).css({"height":$(this).height()});});if(location.hash.indexOf("faq")>=0){$(".rfDesktopMenu").removeClass('slideDown').addClass('slideUp');}});
