@@ -85,14 +85,16 @@ define(['vendor/lodash',
         self.yAxis.config({
             type: 'ordinal',
             scale: self.yScale,
-            ticks: self.options.labels.reverse()
+            ticks: self.options.labels.reverse(),
+            tickLabels: self.options.labels.reverse()
         });
 
         self.xAxis = new BottomAxis ();
         self.xAxis.config({
             type: 'linear',
             scale: self.xScale,
-            ticks: self.xDomain.ticks
+            ticks: self.xDomain.ticks,
+            tickLabels: _.map(self.xDomain.ticks, self.options.xAxis.format)
         });
 
         self.xGrid = new XGrid ();
