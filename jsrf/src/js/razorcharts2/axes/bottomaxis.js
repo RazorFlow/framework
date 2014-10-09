@@ -19,7 +19,7 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             ticks = self.ticks,
             scale = self.scale,
             tickWidth = width / ticks.length,
-            labelStep = self.options.labelStep;
+            labelStep = self.options.labelStep,
             width = self.coreWidth,
             maxTickHeight;
         
