@@ -28,7 +28,9 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
 
             var path = paper.path ();
             path.attr ('fill', 'none');
+            path.attr ('stroke', series[i].color);
             path.attr ('stroke-width', 2);
+            seriesContainer.append (path);
             var circles = [];
             var eventCircles = [];
             for(var j=0; j<series[i].data.length; j++) {
@@ -60,7 +62,11 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                     seriesLabel: series[i].caption,
                     color: series[i].color
                 });
-
+                circle.attr({
+                    stroke : series[i].color,
+                    fill : "#FFF",
+                    "stroke-width" : 2
+                });
                 circles.push (circle);
                 eventCircles.push (eventCircle);
                 seriesContainer.append (circle);
@@ -71,7 +77,6 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                 circles: circles,
                 eventCircles: eventCircles
             };
-            seriesContainer.append (path);
             this.core.append (seriesContainer);
         }
     };

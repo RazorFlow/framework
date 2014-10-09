@@ -139,6 +139,11 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
                     });
                     for(var j=0; j<words.length; j++) {
                         var $newTickText = self.paper.text (0, 18 * j, words[j]);
+                        $newTickText.css({
+                            "fill": "#666",
+                            "stroke": "none",
+                            "font-size": "12px"
+                        });
                         $tick.append ($newTickText);
                     }
                     $ticks[i].remove ();

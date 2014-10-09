@@ -152,7 +152,9 @@ define(['vendor/lodash',
         }
         self.plot = new StackedBar ();
         self.plot.config({
-            series: series
+            series: series,
+            eventManager: self.options.eventManager,
+            labels: self.options.labels
         });
     };
 

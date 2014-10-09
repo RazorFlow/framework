@@ -152,7 +152,9 @@ define(['vendor/lodash',
             if(plot && plotSeries && plotSeries.length) {
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
-                    series: plotSeries
+                    series: plotSeries,
+                    labels: self.options.labels,
+                    eventManager: self.options.eventManager
                 });
             }
         }

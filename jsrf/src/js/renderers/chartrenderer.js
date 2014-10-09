@@ -336,11 +336,22 @@ define([
         ];
       }
 
+      var stackedFlag = false;
+      for (var i=0; i<_series.length; i++) {
+        if (_series[i].stacked) {
+          stackedFlag = true;
+        } else {
+          stackedFlag = false;
+          break;
+        }
+      }
+
       pro.chart = new RazorChart();
       pro.chart.config({
         labels: labels,
         type: coreChartType,
         grid: true,
+        stacked: stackedFlag,
         animateOnRender: false,
         dualAxis: dualY,
         showPieLabels: self.props.chart.showPieValues,

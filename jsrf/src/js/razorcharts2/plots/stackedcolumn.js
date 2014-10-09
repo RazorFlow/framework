@@ -38,6 +38,10 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     width: width,
                     height: height
                 });
+
+                rect.css({
+                    stroke: "none"
+                });
             }
         }
     };
