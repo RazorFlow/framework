@@ -73,7 +73,10 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             gaugeEndAngle = Constants.gauge.endAngle,
             arrowStartAngle = Constants.gauge.arrowStartAngle,
             arrowEndAngle = Constants.gauge.arrowEndAngle,
-            MAX_FONT_SIZE = Constants.gauge.max_font_size;
+            MAX_FONT_SIZE = Constants.gauge.max_font_size,
+            formattedValueText = self.options.format(self.options.value);
+            formattedMinValueText = self.options.format(self.options.min);
+            formattedMaxValueText = self.options.format(self.options.max);
 
         r = r*Constants.gauge.padding;
         var backPath = slicePath (cx, cy, gaugeStartAngle, gaugeEndAngle, r * 0.9, r * 0.95);
@@ -90,7 +93,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         var innerRadius = r - r * 0.5;
 
 
-        minText.text(self.options.min);
+        minText.text(formattedMinValueText);
         minText.attr({
             x: minTextPos.x,
             y: minTextPos.y + minText.getBBox().height,
@@ -98,7 +101,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             "stroke" : "none"
         });
 
-        maxText.text(self.options.max);
+        maxText.text(formattedMaxValueText);
         maxText.attr({
             x: maxTextPos.x,
             y: maxTextPos.y + maxText.getBBox().height,
@@ -106,7 +109,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             "stroke" : "none"
         });
 
-        valueText.text(self.options.value);
+        valueText.text(formattedValueText);
         valueText.attr({
             x: cx,
             'text-anchor': 'middle',
