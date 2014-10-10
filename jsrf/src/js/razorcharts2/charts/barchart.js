@@ -201,10 +201,12 @@ define(['vendor/lodash',
         var core = self.core;
         self.xAxisContainer = paper.g ();
         self.xAxisContainer.attr ('id', 'rc-axis-container');
+        self.xAxisContainer.attr ('class', 'rc-axis');
         core.append (self.xAxisContainer);
 
         self.yAxisContainer = paper.g ();
         self.yAxisContainer.attr ('id', 'rc-axis-container');
+        self.yAxisContainer.attr ('class', 'rc-axis');
         core.append (self.yAxisContainer);
 
         self.plotContainer = paper.g ();

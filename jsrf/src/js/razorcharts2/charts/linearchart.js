@@ -570,20 +570,24 @@ define(['vendor/lodash',
 
         self.xAxisContainer = paper.g();
         self.xAxisContainer.attr ('id', 'rc-xaxis');
+        self.xAxisContainer.attr ('class', 'rc-axis');
         core.append (self.xAxisContainer);
         if(self.options.dualAxis) {
             self.yAxisContainer = {};
 
             self.yAxisContainer.left = paper.g ();
             self.yAxisContainer.left.attr ('id', 'rc-yaxis');
+            self.yAxisContainer.left.attr ('class', 'rc-axis');
             core.append (self.yAxisContainer.left);
 
             self.yAxisContainer.right = paper.g ()
             self.yAxisContainer.right.attr ('id', 'rc-yaxis');
+            self.yAxisContainer.right.attr ('class', 'rc-axis');
             core.append (self.yAxisContainer.right);
         } else {
             self.yAxisContainer = paper.g();
             self.yAxisContainer.attr('id', 'rc-yaxis');
+            self.yAxisContainer.attr('class', 'rc-axis');
             core.append (self.yAxisContainer);
         }
             
