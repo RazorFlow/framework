@@ -1,4 +1,5 @@
-define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
+define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimizeticks'], function (_, Scale, OptimizeTicks) {
+    var MIN_TICK_HEIGHT = 12;
     var Axis = function () {
         
     };
@@ -16,7 +17,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         this.type = options.type;
         this.scale = options.scale;
         this.ticks = options.ticks;
-        this.tickLabels = options.tickLabels;
+        this.format = options.format;
         this.label = options.label;
         this.cache ();
     };
@@ -53,14 +54,14 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
     };
 
     Axis.prototype.resizeTo = function (w, h) {
-        console.log(h)
         this.coreWidth = w;
         this.coreHeight = h;
+        resizeTicks(this);
         this.transform('resize');
+        
     };
 
     Axis.prototype.update = function () {
-        // console.log('New Ticks in axis : ', this.ticks);
         this.$cachedTicks = this.$ticks;
         this.$ticks = [];
         this.updateTicks ();
@@ -80,6 +81,7 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
 
     Axis.prototype.createTicks = function() {
         var paper = this.paper;
+        this.tickLabels = _.map(this.ticks, this.format);
         for(var i=0; i<this.ticks.length; ++i) {
             var $tick = paper.g ();
             $tick.attr('id', 'tick-' + (i+1));
@@ -97,6 +99,13 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
         if(this.options.type === 'ordinal') {
             calculateLabelWidths (this);
             findWordWidths (this);
+        }
+    };
+
+    function resizeTicks (self) {
+        if(OptimizeTicks.axis(self)) {
+            self.createTicks();
+            self.transform ('render');
         }
     };
 
@@ -122,7 +131,6 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
 
     Axis.prototype.updateTicks = function () {
         var sameTicks = [];
-
         for(var i=0; i<this.ticks.length; i++) {
             var idx = _.indexOf(this.cachedTicks, this.ticks[i]);
             if(idx !== -1) {

@@ -274,7 +274,7 @@ define(['vendor/lodash',
             type: 'ordinal',
             scale: self.xScale,
             ticks: self.labels,
-            tickLabels: self.labels,
+            format: self.options.xAxis.format,
             labelStep: self.options.labelStep
         });
 
@@ -283,8 +283,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale,
             ticks: self.yDomain.ticks,
-            tickLabels: _.map(self.yDomain.ticks, self.options.yAxis.format),
-            label: self.options.yAxis.label
+            label: self.options.yAxis.label,
+            format: self.options.yAxis.format
         });
 
         self.yGrid = new YGrid ();
@@ -301,7 +301,7 @@ define(['vendor/lodash',
             type: 'ordinal',
             scale: self.xScale,
             ticks: self.labels,
-            tickLabels: self.labels
+            format: self.options.xAxis.format
         });
 
         self.yAxis.left = new LeftAxis ();
@@ -309,8 +309,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale.left,
             ticks: self.hideLeftAxis ? []: self.yDomain.left.ticks,
-            tickLabels: self.hideLeftAxis ? []: _.map(self.yDomain.left.ticks, self.options.yAxis[0].format),
-            label: self.hideLeftAxis ? '' : self.options.yAxis[0].label
+            label: self.hideLeftAxis ? '' : self.options.yAxis[0].label,
+            format: self.options.yAxis.format
         });
 
         self.yAxis.right = new RightAxis ();
@@ -318,8 +318,8 @@ define(['vendor/lodash',
             type: 'linear',
             scale: self.yScale.right,
             ticks: self.hideRightAxis ? [] : self.yDomain.right.ticks,
-            tickLabels: self.hideRightAxis ? [] : _.map(self.yDomain.right.ticks, self.options.yAxis[1].format),
-            label: self.hideRightAxis ? '' : self.options.yAxis[1].label
+            label: self.hideRightAxis ? '' : self.options.yAxis[1].label,
+            format: self.options.yAxis.format
         });
 
         self.yGrid = new YGrid ();

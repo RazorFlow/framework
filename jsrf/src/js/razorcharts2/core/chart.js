@@ -18,7 +18,7 @@ define([
      * Config function for razorcharts
      */
     Chart.prototype.config = function (_options) {
-        var self = this;
+        var self = this;    
 
         // Override the default options
         this.options = _.extend(this.options, _options);

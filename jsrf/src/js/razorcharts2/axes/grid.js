@@ -1,4 +1,4 @@
-define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
+define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimizeticks'], function (_, Scale, OptimizeTicks) {
     var Grid = function () {
         
     };
@@ -50,7 +50,8 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
 
     Grid.prototype.resizeTo = function (w, h) {
         this.width = w;
-        this.height = h;        
+        this.height = h;
+        resizeTicks(this);
         this.transform ('resize');
     };
 
@@ -70,6 +71,13 @@ define(['vendor/lodash', 'razorcharts2/scales/scale'], function (_, Scale) {
                 "stroke-dasharray": "2,2"
             });
             self.core.append (self.$ticks[i]);
+        }
+    };
+
+    function resizeTicks (self) {
+        if(OptimizeTicks.grid(self)) {
+            createTicks(self);
+            self.transform ('render');
         }
     };
 
