@@ -92,6 +92,15 @@ define(['vendor/lodash',
     }
 
     function configureDualAxisLinearChart (self) {
+        var series = self.options.series;
+        var leftSeries = _.where(series, {yAxis: 'left'});
+        var rightSeries = _.where(series, {yAxis: 'right'});
+        if(!leftSeries.length) {
+            self.hideLeftAxis = true;
+        }
+        if(!rightSeries.length) {
+            self.hideRightAxis = true;
+        }
         setDualAxisDefaults (self);
         calcDualAxisScaleBounds (self);
         configureDualAxisScales (self);
@@ -299,25 +308,25 @@ define(['vendor/lodash',
         self.yAxis.left.config({
             type: 'linear',
             scale: self.yScale.left,
-            ticks: self.yDomain.left.ticks,
-            tickLabels: _.map(self.yDomain.left.ticks, self.options.yAxis[0].format),
-            label: self.options.yAxis[0].label
+            ticks: self.hideLeftAxis ? []: self.yDomain.left.ticks,
+            tickLabels: self.hideLeftAxis ? []: _.map(self.yDomain.left.ticks, self.options.yAxis[0].format),
+            label: self.hideLeftAxis ? '' : self.options.yAxis[0].label
         });
 
         self.yAxis.right = new RightAxis ();
         self.yAxis.right.config({
             type: 'linear',
             scale: self.yScale.right,
-            ticks: self.yDomain.right.ticks,
-            tickLabels: _.map(self.yDomain.right.ticks, self.options.yAxis[1].format),
-            label: self.options.yAxis[1].label
+            ticks: self.hideRightAxis ? [] : self.yDomain.right.ticks,
+            tickLabels: self.hideRightAxis ? [] : _.map(self.yDomain.right.ticks, self.options.yAxis[1].format),
+            label: self.hideRightAxis ? '' : self.options.yAxis[1].label
         });
 
         self.yGrid = new YGrid ();
         self.yGrid.config ({
             type: 'linear',
-            scale: self.yScale.left,
-            ticks: self.yDomain.left.ticks
+            scale: self.hideLeftAxis ? self.yScale.right : self.yScale.left,
+            ticks: self.hideLeftAxis ? self.yDomain.right.ticks : self.yDomain.left.ticks
         });
     }
 
@@ -511,7 +520,6 @@ define(['vendor/lodash',
             h = self.height;
         calcDualAxisScaleBounds (self);
         var domains = dualYAxisDomain (self);
-
         self.yDomain.left = domains.left;
         self.yScale.left.domain ([self.yDomain.left.min, self.yDomain.left.max]);
         self.yAxis.left.setTicks (self.yDomain.left.ticks);
