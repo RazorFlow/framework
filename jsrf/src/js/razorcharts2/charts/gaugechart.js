@@ -121,34 +121,26 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
 
         var valueTextWidth = valueText.getBBox().width;
 
-        if(self.cachedOptions.maxFontSize) {
-            var newFontSize = self.cachedOptions.maxFontSize;
+        if(innerRadius < valueTextWidth) {
+            var newFontSize = innerRadius / valueTextWidth * MAX_FONT_SIZE;
+            self.options.maxFontSize = newFontSize;
             valueText.attr({
-                'font-size': newFontSize
+                'font-size': newFontSize,
             });
-        }
-        else {
-            if(innerRadius < valueTextWidth) {
-                var newFontSize = innerRadius / valueTextWidth * MAX_FONT_SIZE;
-                self.options.maxFontSize = newFontSize;
-                valueText.attr({
-                    'font-size': newFontSize,
-                });
-                minText.attr({
-                    'font-size': newFontSize * 0.8,
-                     x: minTextPos.x,
-                });
-                minText.attr({
-                     y: minTextPos.y + minText.getBBox().height,
-                });
-                maxText.attr({
-                    'font-size': newFontSize * 0.8,
-                     x: maxTextPos.x,
-                });
-                maxText.attr({
-                     y: maxTextPos.y + maxText.getBBox().height,
-                });
-            }
+            minText.attr({
+                'font-size': newFontSize * 0.8,
+                 x: minTextPos.x,
+            });
+            minText.attr({
+                 y: minTextPos.y + minText.getBBox().height,
+            });
+            maxText.attr({
+                'font-size': newFontSize * 0.8,
+                 x: maxTextPos.x,
+            });
+            maxText.attr({
+                 y: maxTextPos.y + maxText.getBBox().height,
+            });
         }
 
         valueText.attr({
