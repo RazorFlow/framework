@@ -166,11 +166,11 @@ define([
           }
         }
       },
-      realignData: function (originalLabels, labels, seriesData, displayValues, series) {
+      realignData: function (originalLabels, labels, seriesData, displayValues) {
         if (!firstDraw) {
           var realigned = DataFormatter.realignLabels (originalLabels, labels, seriesData, displayValues);
           // pro.chart.updateData(originalLabels, realigned.data, realigned.displayValues);
-          pro.chart.update({series:series});
+          pro.chart.updateSeries(seriesData);
         }
       },
       dispose: function () {
@@ -349,6 +349,9 @@ define([
         }
       }
 
+      var tooltipTimeOut = 1000;
+      var tooltipTimer;
+
       pro.chart = new RazorChart();
       pro.chart.config({
         labels: labels,
@@ -370,6 +373,7 @@ define([
         yAxis: yAxisConfig,
         tooltip: {
           onShow: function(x, y, _data) {
+            clearTimeout(tooltipTimer);
             var data = _.cloneDeep (_data);
             var tooltipFormatter = new NumberFormatter();
             if(coreChartType === 'pie') {
@@ -386,6 +390,12 @@ define([
           },
           onHide: function() {
             tooltip.hide();
+          },
+          onMouseOut: function() {
+            clearTimeout(tooltipTimer);
+            tooltipTimer = setTimeout(function() {
+              tooltip.hide();
+            }, tooltipTimeOut);   
           }
         },
         axesTooltip: {

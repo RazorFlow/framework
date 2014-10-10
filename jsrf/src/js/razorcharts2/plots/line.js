@@ -55,6 +55,9 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                             }
                         }));
                     });
+                    eventCircle.mouseout (function (me) {
+                        eventManager.trigger('tooltip.mouseout');
+                    });
                 } ({
                     seriesIndex: i, 
                     labelIndex: j, 

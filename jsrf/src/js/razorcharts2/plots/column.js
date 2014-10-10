@@ -30,6 +30,9 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                             }
                         }));
                     });
+                    rect.mouseout (function (me) {
+                        eventManager.trigger('tooltip.mouseout');
+                    });
                 } ({
                     seriesIndex: i, 
                     labelIndex: j, 

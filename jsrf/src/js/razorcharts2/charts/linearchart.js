@@ -32,7 +32,7 @@ define(['vendor/lodash',
         this.options = {
             tooltip: {
                 onShow: function () {
-                    debugger
+
                 },
                 onHide: function () {
 
@@ -71,6 +71,9 @@ define(['vendor/lodash',
         var eventManager = self.options.eventManager;
         eventManager.bind('tooltip', function (obj) {
             self.options.tooltip.onShow (obj.position.x, obj.position.y, obj);
+        });
+        eventManager.bind('tooltip.mouseout', function (obj) {
+            self.options.tooltip.onMouseOut ();
         });
     };
 

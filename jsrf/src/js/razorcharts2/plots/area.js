@@ -30,6 +30,7 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             path.attr ('stroke', series[i].color);
             path.attr ('stroke-width', 2);
             path.attr ('opacity', 0.8);
+            path.attr ('pointer-events', 'none');
             var circles = [];
             var eventCircles = [];
             for(var j=0; j<series[i].data.length; j++) {
@@ -56,6 +57,10 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                                 y: clientRect.top
                             }
                         }));
+                    });
+
+                    eventCircle.mouseout (function (me) {
+                        eventManager.trigger('tooltip.mouseout');
                     });
                 } ({
                     seriesIndex: i, 

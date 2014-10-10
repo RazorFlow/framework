@@ -37,6 +37,9 @@ define(['vendor/lodash',
         eventManager.bind('tooltip', function (obj) {
             self.options.tooltip.onShow (obj.position.x, obj.position.y, obj);
         });
+        eventManager.bind('tooltip.mouseout', function (obj) {
+            self.options.tooltip.onMouseOut ();
+        });
     };
 
     function configureStackedBarChart (self) {

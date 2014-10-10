@@ -73,6 +73,10 @@ define(['vendor/lodash'], function (_) {
                         },
                     });
                 });
+
+                self.slices[idx].mouseout(function (me) {
+                    self.options.eventManager.trigger ('tooltip.mouseout');
+                });
             } (i);
         }
     };

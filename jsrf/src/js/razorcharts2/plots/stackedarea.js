@@ -64,10 +64,14 @@ define(['razorcharts2/plots/plot', 'vendor/lodash'], function (Plot, _) {
                         color: series[i].color
                     });
                 
-                circle.attr({
-                    stroke : series[i].color,
-                    fill : "#FFF",
-                    "stroke-width" : 2
+                // circle.attr({
+                //     stroke : series[i].color,
+                //     fill : "#FFF",
+                //     "stroke-width" : 2
+                // });
+
+                 eventCircle.mouseout (function (me) {
+                    eventManager.trigger('tooltip.mouseout');
                 });
 
                 circles.push (circle);

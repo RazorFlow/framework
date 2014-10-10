@@ -19,6 +19,9 @@ define(['vendor/lodash', 'razorcharts2/plots/pie'], function (_, Pie) {
         eventManager.bind('tooltip', function (obj) {
             self.options.tooltip.onShow (obj.position.x, obj.position.y, obj);
         });
+        eventManager.bind('tooltip.mouseout', function (obj) {
+            self.options.tooltip.onMouseOut ();
+        });
     };
 
     PieChart.prototype.renderTo = function (paper, core, w, h) {

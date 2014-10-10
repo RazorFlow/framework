@@ -60,6 +60,10 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     seriesLabel: series[i].caption,
                     color: series[i].color
                 });
+
+                 rect.mouseout (function (me) {
+                    eventManager.trigger('tooltip.mouseout');
+                });
             }
         }
     };

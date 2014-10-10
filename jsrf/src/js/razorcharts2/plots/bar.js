@@ -14,6 +14,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     function TooltipTransformer (self) {
         var series = self.options.series,
             rects = self.rects,
+            labels = self.options.labels.reverse();
             eventManager = self.options.eventManager;
 
         for(var i=0; i<series.length; i++) {
@@ -30,11 +31,14 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                             }
                         }));
                     });
+                    rect.mouseout (function (me) {
+                        eventManager.trigger('tooltip.mouseout');
+                    });
                 } ({
                     seriesIndex: i, 
                     labelIndex: j, 
                     value: series[i].data[j], 
-                    label: self.options.labels[j], 
+                    label: labels[j], 
                     seriesLabel: series[i].caption,
                     color: series[i].color
                 });
