@@ -13,6 +13,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
     };
 
     GaugeChart.prototype.renderTo = function (paper, core, w, h) {
+        // debugger
         this.paper = paper;
         this.width = w;
         this.height = h;
@@ -53,7 +54,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             h = self.height,
             cx = w / 2,
             cy = h / 2,
-            r = _.min ([cx, cy]) - Constants.gauge.radius_adjust,
+            r = _.min ([cx, cy]),
             back = self.back,
             filler = self.filler,
             core = self.core,
@@ -117,16 +118,13 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             "stroke": "none",
             "fill" : "#333"
         });
-        valueText.attr({
-            y: cy
-        });
 
         var valueTextWidth = valueText.getBBox().width;
 
         if(self.cachedOptions.maxFontSize) {
             var newFontSize = self.cachedOptions.maxFontSize;
             valueText.attr({
-                'font-size': newFontSize,
+                'font-size': newFontSize
             });
         }
         else {
@@ -153,6 +151,9 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             }
         }
 
+        valueText.attr({
+            y: cy + (valueText.getBBox().height / 4)
+        });
 
         if(animate) {
             filler.animateWith (function (el, dt) {
@@ -166,10 +167,10 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
 
             valueText.animateWith(function(el, dt) {
                 if(self.options.value > previousValue) {
-                    el.text(Math.floor((self.options.value - previousValue) * dt) + previousValue);
+                    el.text(self.options.format(Math.floor((self.options.value - previousValue) * dt) + previousValue));
                 }
                 else {
-                    el.text(Math.floor(previousValue - (previousValue - self.options.value ) * dt));
+                    el.text(self.options.format(Math.floor(previousValue - (previousValue - self.options.value ) * dt)));
                 }
             }, 500);
 
@@ -194,6 +195,7 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
     GaugeChart.prototype.resizeTo = function (w, h) {
         this.width = w;
         this.height = h;
+        console.log(h);
         draw (this);
     };
 
