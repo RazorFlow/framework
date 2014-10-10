@@ -72,7 +72,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     x: x,
                     y: y,
                     width: width,
-                    height: height,
+                    height: height.toString() === 'NaN' ? 0 : height,
                     stroke: "none"
                 });
             }
@@ -114,7 +114,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     x: x,
                     y: y,
                     width: width,
-                    height: height
+                    height: height.toString() === 'NaN' ? 0 : height
                 });
             }
         }

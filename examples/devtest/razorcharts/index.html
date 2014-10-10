@@ -32,17 +32,22 @@
                     // maxValue: 60,
                     // numTicks: 5
                 },
+                yAxis: {
+                    format: function (val) {
+                        return val;
+                    }
+                },
                 series: [
                     {
                         seriesIndex: 0,
                         displayType: 'column',
-                        data: [10, 15, 5, 18, 40],
+                        data: [10, 15, null, 18, 40],
                         color: 'red'
                     },
                     {
                         seriesIndex: 1,
                         displayType: 'column',
-                        data: [10, 5, -15, 8, 60],
+                        data: [10, 5, -15, 20, null],
                         yAxis: 'right',
                         color: 'green'
                     },
@@ -67,9 +72,12 @@
                 // }
                 tooltip: {
                     onShow: function (x, y) {
-                        debugger
+                        // debugger
                     },
                     onHide: function () {
+
+                    },
+                    onMouseOut: function () {
 
                     }
                 }
@@ -298,32 +306,32 @@
 
             document.getElementsByTagName('body')[0].addEventListener('click', function() {
                 // chart.update({value: Math.floor(Math.random() * 100)});
-                chart.resizeTo (400, 300);
-                // var arr = [];
-                // for(var i=0; i<5; i++) {
-                //     arr[i] = Math.floor(Math.random() * 100);
-                // }
-                // // arr[3] = -Math.floor(Math.random() * 100);
-                // chart.update ({
-                //     series: [
-                //         {
-                //             seriesIndex: 0,
-                //             data: arr
-                //         },
-                //         {
-                //             seriesIndex: 1,
-                //             data: arr
-                //         },
-                //         // {
-                //         //     seriesIndex: 2,
-                //         //     data: arr
-                //         // },
-                //         // {
-                //         //     seriesIndex: 3,
-                //         //     data: arr
-                //         // }
-                //     ]
-                // });
+                // chart.resizeTo (400, 300);
+                var arr = [];
+                for(var i=0; i<5; i++) {
+                    arr[i] = Math.floor(Math.random() * 100);
+                }
+                arr[3] = null;
+                chart.update ({
+                    series: [
+                        {
+                            seriesIndex: 0,
+                            data: arr
+                        },
+                        {
+                            seriesIndex: 1,
+                            data: arr
+                        },
+                        // {
+                        //     seriesIndex: 2,
+                        //     data: arr
+                        // },
+                        // {
+                        //     seriesIndex: 3,
+                        //     data: arr
+                        // }
+                    ]
+                });
                 // chart.update({
                 //     series: {
                 //         data: arr

@@ -99,25 +99,45 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             var circles = plots[i].circles;
             var eventCircles = plots[i].eventCircles;
             path.startPath ().moveTo (seriesWidth / 2, coreHeight - scale.calc(series[i].data[0]));
+            var d = series[i].data[0];
             circles[0].attr ({
-               cx: seriesWidth / 2,
+               cx: d === undefined || d === null ? -10000 : seriesWidth / 2,
                cy: coreHeight - scale.calc(series[i].data[0])
             });
             eventCircles[0].attr ({
-               cx: seriesWidth / 2,
+               cx: d === undefined || d === null ? -10000 : seriesWidth / 2,
                cy: coreHeight - scale.calc(series[i].data[0])
             });
             for(var j=1; j<series[i].data.length; j++) {
-                var d = series[i].data[j]
-                path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
-                circles[j].attr ({
-                   cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j])
-                });
-                eventCircles[j].attr ({
-                   cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j])
-                });
+                var d = series[i].data[j];
+                var d_ = series[i].data[j-1];
+
+                if(d === undefined || d === null || d.toString() === 'NaN') {
+                    if(j+1 < series[i].data.length) {
+                        path.moveTo (seriesWidth / 2 + seriesWidth * (j+1), coreHeight - scale.calc(series[i].data[j+1]));    
+                    }
+                } else {
+                    path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));    
+                }
+                
+                if(d !== undefined && d !== null && d.toString() !== 'NaN') {
+                    circles[j].attr ({
+                       cx: seriesWidth / 2 + seriesWidth * j,
+                       cy: coreHeight - scale.calc(series[i].data[j]),
+                       opacity: 1
+                    });
+                    eventCircles[j].attr ({
+                       cx: seriesWidth / 2 + seriesWidth * j,
+                       cy: coreHeight - scale.calc(series[i].data[j]),
+                    });
+                } else {
+                    circles[j].attr ({
+                       cx: -10000
+                    });
+                    eventCircles[j].attr ({
+                       cx: -10000
+                    });
+                }
             }
             path.endPath ();
         }
@@ -137,25 +157,43 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             var circles = plots[i].circles;
             var eventCircles = plots[i].eventCircles;
             path.startPath ().moveTo (seriesWidth / 2, coreHeight - scale.calc(series[i].data[0]));
+            var d = series[i].data[0];
             circles[0].animate ({
-               cx: seriesWidth / 2,
+               cx: d === undefined || d === null ? -10000 : seriesWidth / 2,
                cy: coreHeight - scale.calc(series[i].data[0])
             });
             eventCircles[0].animate ({
-               cx: seriesWidth / 2,
+               cx: d === undefined || d === null ? -10000 : seriesWidth / 2,
                cy: coreHeight - scale.calc(series[i].data[0])
             });
             for(var j=1; j<series[i].data.length; j++) {
-                var d = series[i].data[j]
-                path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
-                circles[j].animate ({
-                   cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j])
-                });
-                eventCircles[j].animate ({
-                   cx: seriesWidth / 2 + seriesWidth * j,
-                   cy: coreHeight - scale.calc(series[i].data[j])
-                });
+
+                var d = series[i].data[j];
+                var d_ = series[i].data[j-1];
+                if(d === undefined || d === null || d.toString() === 'NaN') {
+                    path.moveTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));
+                } else {
+                    path.lineTo (seriesWidth / 2 + seriesWidth * j, coreHeight - scale.calc(series[i].data[j]));    
+                }
+                
+                if(d !== undefined && d !== null && d_.toString() !== 'NaN') {
+                    circles[j].animate ({
+                       cx: seriesWidth / 2 + seriesWidth * j,
+                       cy: coreHeight - scale.calc(series[i].data[j]),
+                       opacity: 1
+                    });
+                    eventCircles[j].animate ({
+                       cx: seriesWidth / 2 + seriesWidth * j,
+                       cy: coreHeight - scale.calc(series[i].data[j]),
+                    });
+                } else {
+                    circles[j].animate ({
+                       cx: -1000
+                    });
+                    eventCircles[j].animate ({
+                       cx: -1000
+                    });
+                }
             }
             path.animatePath ();
         }

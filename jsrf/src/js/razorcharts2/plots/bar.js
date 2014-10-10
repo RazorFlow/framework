@@ -70,7 +70,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                 rect.attr ({
                     x: x,
                     y: y,
-                    width: width,
+                    width: width.toString() === 'NaN' ? 0 : width,
                     height: height,
                     stroke: "none"
                 });
@@ -102,7 +102,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                 rect.animate ({
                     x: x,
                     y: y,
-                    width: width,
+                    width: width.toString() === 'NaN' ? 0 : width,
                     height: height
                 });
             }
