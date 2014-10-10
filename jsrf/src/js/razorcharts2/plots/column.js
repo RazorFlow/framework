@@ -46,7 +46,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function ColumnTransformer (self) {
-        console.log('ColumnTransformer called!');
         var series = self.options.series,
             seriesContainers = self.seriesContainers,
             rects = self.rects,
@@ -88,7 +87,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function ColumnUpdateTransformer (self) {
-        console.log('ColumnTransformer called!');
         var series = self.options.series,
             seriesContainers = self.seriesContainers,
             rects = self.rects,

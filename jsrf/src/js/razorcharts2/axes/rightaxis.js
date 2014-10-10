@@ -10,7 +10,6 @@ define(['razorcharts2/axes/axis'], function (Axis) {
     RightAxis.prototype.constructor = RightAxis;
 
     function RightAxisTransformer (self) {
-        console.log ('Transformer called!');
         var $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,

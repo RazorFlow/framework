@@ -13,7 +13,6 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
     BottomAxis.prototype.constructor = BottomAxis;
 
     function BottomAxisTransformer (self) {
-        console.log ('Transformer called!');
         var width = self.coreWidth,
             $ticks = self.$ticks,
             ticks = self.ticks,
@@ -69,7 +68,6 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
     };
 
     function BottomAxisUpdateTransformer (self) {
-        console.log('BottomAxisUpdateTransformer called!');
         var $ticks = self.$ticks,
             $cachedTicks = self.$cachedTicks,
             ticks = self.ticks,

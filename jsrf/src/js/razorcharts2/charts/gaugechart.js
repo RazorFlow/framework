@@ -187,7 +187,6 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
     GaugeChart.prototype.resizeTo = function (w, h) {
         this.width = w;
         this.height = h;
-        console.log(h);
         draw (this);
     };
 

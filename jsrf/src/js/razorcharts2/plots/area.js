@@ -15,7 +15,6 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
     }
 
     Area.prototype.createPlots = function () {
-        console.log('Creating lines!');
         var paper = this.paper;
         var series = this.options.series;
         var eventManager = this.options.eventManager;
@@ -86,7 +85,6 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
     };
 
     function AreaTransformer (self) {
-        console.log ('Line Transformer called!');
         var series = self.options.series,
             coreWidth = self.coreWidth,
             coreHeight = self.coreHeight,
@@ -170,7 +168,6 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
     };
 
     function AreaUpdateTransformer (self) {
-        console.log('LineUpdateTransformer called!');
          var series = self.options.series,
             coreWidth = self.coreWidth,
             coreHeight = self.coreHeight,

@@ -11,7 +11,6 @@ define(['razorcharts2/plots/plot', 'vendor/lodash'], function (Plot, _) {
     StackedArea.prototype.constructor = StackedArea;
 
     StackedArea.prototype.createPlots = function () {
-        console.log('Creating lines!');
         var paper = this.paper;
         var series = this.options.series;
         var eventManager = this.options.eventManager;
@@ -91,7 +90,6 @@ define(['razorcharts2/plots/plot', 'vendor/lodash'], function (Plot, _) {
     };
 
     function StackedAreaTransformer (self) {
-        console.log('StackedAreaTransformer called!');
          var series = self.options.series,
             coreWidth = self.coreWidth,
             coreHeight = self.coreHeight,
@@ -151,7 +149,6 @@ define(['razorcharts2/plots/plot', 'vendor/lodash'], function (Plot, _) {
     };
 
     function StackedAreaUpdateTransformer (self) {
-        console.log('StackedAreaTransformer called!');
         var series = self.options.series,
             coreWidth = self.coreWidth,
             coreHeight = self.coreHeight,

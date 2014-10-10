@@ -48,7 +48,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function StackedBarTransformer (self) {
-        console.log('StackedBarTransformer called!');
         var series = self.options.series,
             rects = self.rects,
             coreWidth = self.coreWidth,
@@ -99,7 +98,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function StackedBarUpdateTransformer (self) {
-        console.log('StackedBarTransformer called!');
          var series = self.options.series,
             rects = self.rects,
             coreWidth = self.coreWidth,

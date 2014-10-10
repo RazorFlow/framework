@@ -47,7 +47,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function BarTransformer (self) {
-        console.log('BarTransformer called!');
         var series = self.options.series,
             rects = self.rects,
             coreWidth = self.coreWidth,
@@ -79,7 +78,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function BarUpdateTransformer (self) {
-        console.log('BarTransformer called!');
          var series = self.options.series,
             rects = self.rects,
             coreWidth = self.coreWidth,

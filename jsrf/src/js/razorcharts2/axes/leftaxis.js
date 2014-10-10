@@ -10,7 +10,6 @@ define(['razorcharts2/axes/axis'], function (Axis) {
     LeftAxis.prototype.constructor = LeftAxis;
 
     function LeftAxisTransformer (self) {
-        console.log ('Transformer called!');
         var $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
@@ -59,7 +58,6 @@ define(['razorcharts2/axes/axis'], function (Axis) {
     };
 
     function LeftAxisUpdateTransformer (self) {
-        console.log('LeftAxisUpdateTransformer called!');
         var $ticks = self.$ticks,
             $cachedTicks = self.$cachedTicks,
             ticks = self.ticks,

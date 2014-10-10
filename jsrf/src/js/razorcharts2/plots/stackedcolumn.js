@@ -11,7 +11,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     StackedColumn.prototype.constructor = StackedColumn;
 
     function StackedColumnTransformer (self) {
-        console.log('StackedColumnTransformer called!');
         var series = self.options.series,
             labels = self.options.labels,
             seriesContainers = self.seriesContainers,
@@ -95,7 +94,6 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
     };
 
     function StackedColumnUpdateTransformer (self) {
-        console.log('StackedColumnTransformer called!');
         var series = self.options.series,
             seriesContainers = self.seriesContainers,
             rects = self.rects,
