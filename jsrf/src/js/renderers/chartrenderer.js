@@ -263,7 +263,7 @@ define([
             id: series[i].key,
             data: data[i],
             colors: coreChartType === 'pie' ? chartBaseColors : null,
-            color: chartBaseColors[i],
+            color: chartBaseColors[series[i].seriesIndex],
             caption: series[i].seriesName,
             stacked: series[i].seriesStacked,
             yAxis: series[i].yAxis === 'primary' ? 'left' : 'right',
