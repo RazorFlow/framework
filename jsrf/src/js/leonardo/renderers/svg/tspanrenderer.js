@@ -5,7 +5,7 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
         $tspan = this.createElement ('tspan');
 
         $tspan.setAttribute ('stroke', 'none');
-        $tspan.innerHTML = text;
+        $tspan.textContent = text;
 
         this.__elem = $tspan;
     }
@@ -14,7 +14,7 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
     TspanRenderer.prototype.constructor = TspanRenderer;
 
     TspanRenderer.prototype.text = function (text) {
-        this.__elem.innerHTML = text;
+        this.__elem.textContent = text;
     };
 
     return TspanRenderer;

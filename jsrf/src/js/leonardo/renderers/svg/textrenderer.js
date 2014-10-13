@@ -9,7 +9,7 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
         $elem.appendChild ($tspan);
         $elem.setAttribute ('x', x);
         $elem.setAttribute ('y', y);
-        $tspan.innerHTML = text;
+        $tspan.textContent = text;
 
         this.__elem = $elem;
         this.__tspan = $tspan;
@@ -19,7 +19,7 @@ define(['leonardo/renderers/svg/elementrenderer'], function (ElementRenderer) {
     TextRenderer.prototype.constructor = TextRenderer;
 
     TextRenderer.prototype.text = function (text) {
-        this.__tspan.innerHTML = text;
+        this.__tspan.textContent = text;
     };
 
     TextRenderer.prototype.addLine = function (dx, dy, text) {
