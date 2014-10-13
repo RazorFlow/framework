@@ -36,11 +36,11 @@ define([
         axesTooltip = new Tooltip(),
         hasItemClickSubscribed = false;
 
-    for(var i=-1; ++i<numBaseColors;) {
-      var color = Raphael.color(chartBaseColors[i]);
-      chartBaseColors[9 + i] = Raphael.hsl(color.h, color.s, color.l * 0.8);
-      chartBaseColors[18 + i] = Raphael.hsl(color.h, color.s, color.l * 1.2);
-    }
+    // for(var i=-1; ++i<numBaseColors;) {
+    //   var color = Raphael.color(chartBaseColors[i]);
+    //   chartBaseColors[9 + i] = Raphael.hsl(color.h, color.s, color.l * 0.8);
+    //   chartBaseColors[18 + i] = Raphael.hsl(color.h, color.s, color.l * 1.2);
+    // }
     Public = {
       setAnimation: function(b) {
         firstAnimation = b;

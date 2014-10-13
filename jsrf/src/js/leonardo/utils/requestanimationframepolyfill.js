@@ -22,6 +22,5 @@ define([], function () {
             window.cancelAnimationFrame = function(id) {
                 clearTimeout(id);
             };
-        console.log ('requestanimationframepolyfill');
     }());
 });

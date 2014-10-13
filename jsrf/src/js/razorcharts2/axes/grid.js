@@ -24,7 +24,6 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.options = _.extend(this.options, _options);
         this.scale = _options.scale;
         this.ticks = _options.ticks;
-
         this.cache ();
     };
 

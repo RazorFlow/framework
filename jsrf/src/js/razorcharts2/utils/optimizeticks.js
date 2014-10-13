@@ -25,12 +25,11 @@ define(['vendor/lodash', 'razorcharts2/utils/graphutils'], function (_, graphUti
         },
 
         grid: function (self) {
-            if(OptimizeTicks.ticks.length > 0 && OptimizeTicks.ticks.length !== self.ticks) {
+            if(OptimizeTicks.ticks.length > 0 && OptimizeTicks.ticks.length !== self.ticks.length) {
                 _.each(self.$ticks, function (obj) {
                     obj.remove();
                 });
                 self.$ticks = [];
-                self.ticks = OptimizeTicks.ticks;
                 return true;
             }
             return false;
