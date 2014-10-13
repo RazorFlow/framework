@@ -445,6 +445,8 @@ define(['vendor/lodash',
         this.xScale.range ([0, w - this.yAxisWidth]);
         this.xAxis.resizeTo (w - this.yAxisWidth, h);
         this.xAxisContainer.translate(this.yAxisTranslate, (h - this.xAxis.height()));
+        // Resize yAxis again since the xaxis labels might have been broken down into lines or tilted
+        resizeYAxis (this);
 
         resizePlots (this, w - this.yAxisWidth, h - this.xAxis.height());
         this.plotContainer.translate (this.yAxisTranslate, 0);
