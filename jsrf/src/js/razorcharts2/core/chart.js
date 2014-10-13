@@ -7,7 +7,9 @@ define([
     'razorcharts2/utils/assert',
     'leonardo/leomain',
     'razorcharts2/utils/eventmanager'], function (_, Assert, Leonardo, EventManager) {
-    var xPadding = 20,
+    var defaultXPadding = 0,
+        defaultYPadding = 10,
+        xPadding = 20,
         yPadding = 30;
     var Chart =  function () {
         this.options = {};
@@ -59,9 +61,17 @@ define([
     Chart.prototype.renderTo = function (node, width, height) {
         var paper = this.paper = Leonardo.paper(node, width, height);
         var core = this.core = paper.g();
+        var paddingX = 0,
+            paddingY = 10;
+
+        if(this.options.type !== 'gauge') {
+            defaultXPadding = xPadding;
+            defaultYPadding = xPadding;
+        }
+
         core.attr ('id', 'rc-chart-core');
         paper.append(core);
-        this.chart.renderTo (paper, core, width - xPadding, height -yPadding);
+        this.chart.renderTo (paper, core, width - defaultXPadding, height -defaultYPadding);
     };
 
     /**
@@ -74,7 +84,13 @@ define([
             width: width,
             height: height
         });
-        this.chart.resizeTo (width - xPadding, height - yPadding);
+
+        if(this.options.type !== 'gauge') {
+            defaultXPadding = xPadding;
+            defaultYPadding = xPadding;
+        }
+
+        this.chart.resizeTo (width - defaultXPadding, height - defaultYPadding);
     }
 
     Chart.prototype.update = function (options) {
