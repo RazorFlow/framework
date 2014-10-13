@@ -39,8 +39,6 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.coreHeight = h;
 
         this.createTicks (this);
-        this.line = this.paper.line (0, 0, 0, 0);
-        this.core.append (this.line);
         this.createLabel();
         this.transform ('render');
     };

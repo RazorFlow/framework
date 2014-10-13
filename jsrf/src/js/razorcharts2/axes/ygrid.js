@@ -23,6 +23,11 @@ define(['razorcharts2/axes/grid'], function (Grid) {
                 x2: coreWidth,
                 y2: coreHeight - scale.calc (ticks[i])
             });
+            if(ticks[i] === 0) {
+                $ticks[i].attr ({
+                    'stroke-dasharray': 'none'
+                });
+            }
         }
     };
 
