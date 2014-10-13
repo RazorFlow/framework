@@ -7,8 +7,8 @@ define([
     'razorcharts2/utils/assert',
     'leonardo/leomain',
     'razorcharts2/utils/eventmanager'], function (_, Assert, Leonardo, EventManager) {
-    var defaultXPadding = 0,
-        defaultYPadding = 10,
+    var gaugeXPadding = 0,
+        gaugeYPadding = 10,
         xPadding = 20,
         yPadding = 30;
     var Chart =  function () {
@@ -61,17 +61,21 @@ define([
     Chart.prototype.renderTo = function (node, width, height) {
         var paper = this.paper = Leonardo.paper(node, width, height);
         var core = this.core = paper.g();
-        var paddingX = 0,
-            paddingY = 10;
+        var paddingX,
+            paddingY;
 
-        if(this.options.type !== 'gauge') {
-            defaultXPadding = xPadding;
-            defaultYPadding = xPadding;
+        if(this.options.type === 'gauge') {
+            paddingX = gaugeXPadding;
+            paddingY = gaugeYPadding;
+        }
+        else {
+            paddingX = xPadding;
+            paddingY = yPadding;
         }
 
         core.attr ('id', 'rc-chart-core');
         paper.append(core);
-        this.chart.renderTo (paper, core, width - defaultXPadding, height -defaultYPadding);
+        this.chart.renderTo (paper, core, width - paddingX, height - paddingY);
     };
 
     /**
@@ -80,17 +84,24 @@ define([
      * @param  {Number} height height of the chart
      */
     Chart.prototype.resizeTo = function(width, height) {
+        var paddingX,
+            paddingY;
+
         this.paper.attr ({
             width: width,
             height: height
         });
 
-        if(this.options.type !== 'gauge') {
-            defaultXPadding = xPadding;
-            defaultYPadding = xPadding;
+        if(this.options.type === 'gauge') {
+            paddingX = gaugeXPadding;
+            paddingY = gaugeYPadding;
+        }
+        else {
+            paddingX = xPadding;
+            paddingY = yPadding;
         }
 
-        this.chart.resizeTo (width - defaultXPadding, height - defaultYPadding);
+        this.chart.resizeTo (width - paddingX, height - paddingY);
     }
 
     Chart.prototype.update = function (options) {
