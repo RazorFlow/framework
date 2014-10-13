@@ -1,5 +1,5 @@
 define(['vendor/lodash', 'razorcharts2/utils/graphutils'], function (_, graphUtils) {
-    var MIN_TICK_HEIGHT = 12;
+    var MIN_TICK_HEIGHT = 15;
     var OptimizeTicks = {
         ticks : [],
         axis: function (self) {
@@ -8,7 +8,8 @@ define(['vendor/lodash', 'razorcharts2/utils/graphutils'], function (_, graphUti
                 var tickHeight = height / self.ticks.length;
                 OptimizeTicks.ticks = self.ticks.slice(0);
                 if (tickHeight <= MIN_TICK_HEIGHT) {
-                    self.ticks = OptimizeTicks.getTicks(self.ticks.slice(0), height);
+                    self.ticks = OptimizeTicks.getTicks(self.originalTicks.slice(0), height);
+                    self.scale.domain([self.ticks[0], self.ticks[self.ticks.length-1]]);
                     _.each(self.$ticks, function (obj) {
                         obj.remove();
                     });
@@ -36,15 +37,15 @@ define(['vendor/lodash', 'razorcharts2/utils/graphutils'], function (_, graphUti
         },
 
         getTicks: function (ticks, height) {
-            var ticksToBeKeep = Math.floor(height/MIN_TICK_HEIGHT);
+            var ticksToBeKeep = Math.round(height/MIN_TICK_HEIGHT);
             if (ticksToBeKeep < 2) ticksToBeKeep=2;
-            var unit = (ticks[ticks.length-1] - ticks[0]) / (ticksToBeKeep -1);
-            var prettyDomain = graphUtils.prettyDomain(ticks[0], unit, true);
+            var unit = (ticks[ticks.length-1] - ticks[0]) / (ticksToBeKeep - 1);
+            var prettyDomain = graphUtils.prettyDomain(0, unit, true);
             var value = ticks[0];
-            OptimizeTicks.ticks = [];
-            for(var i = 0; i < ticksToBeKeep; i++) {
-                OptimizeTicks.ticks[i] = value;
+            OptimizeTicks.ticks = [value];
+            for(var i = 1; i < ticksToBeKeep; i++) {
                 value += prettyDomain.max;
+                OptimizeTicks.ticks[i] = value;
             }
             return OptimizeTicks.ticks;
         },

@@ -19,6 +19,9 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.ticks = options.ticks;
         this.format = options.format;
         this.label = options.label;
+        if (this.type==="linear") {
+            this.originalTicks = this.ticks;
+        }
         this.cache ();
     };
 

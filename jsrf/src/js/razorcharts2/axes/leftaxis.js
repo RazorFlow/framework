@@ -10,14 +10,12 @@ define(['razorcharts2/axes/axis'], function (Axis) {
     LeftAxis.prototype.constructor = LeftAxis;
 
     function LeftAxisTransformer (self) {
-        console.log ('Transformer called!');
         var $ticks = self.$ticks,
             ticks = self.ticks,
             scale = self.scale,
             height = self.coreHeight,
             tickHeight = height / ticks.length,
             maxTickWidth;
-
         for(var i=0; i<ticks.length; ++i) {
             var y;
             if(self.options.type === 'linear') {
