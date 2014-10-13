@@ -4,6 +4,7 @@
 
 define([
     'leonardo/core/leonardo',
+    'leonardo/utils/requestanimationframepolyfill',
      'leonardo/core/paper',
      'leonardo/renderers/svg/svgmain',
      'leonardo/elements/g',
@@ -12,7 +13,7 @@ define([
      'leonardo/elements/rect',
      'leonardo/elements/path',
      'leonardo/elements/circle',
-     'leonardo/elements/tspan'], function(Leonardo, Paper, SVGRenderer, G, Text, Line, Rect, Path, Circle, Tspan) {
+     'leonardo/elements/tspan'], function(Leonardo, RAFPolyfill, Paper, SVGRenderer, G, Text, Line, Rect, Path, Circle, Tspan) {
         // Setting the svg renderer as the default
         Leonardo.setRenderer (SVGRenderer);
 
