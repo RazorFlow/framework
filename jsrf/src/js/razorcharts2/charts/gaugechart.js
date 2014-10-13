@@ -13,7 +13,6 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
     };
 
     GaugeChart.prototype.renderTo = function (paper, core, w, h) {
-        // debugger
         this.paper = paper;
         this.width = w;
         this.height = h;
@@ -49,6 +48,15 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
     };
 
     function draw (self, animate) {
+        if(self.options.value < self.options.min) {
+            self.options.value = self.options.min;
+            console.error('Value below minimum.');
+        }
+        if(self.options.value > self.options.max) {
+            self.options.value = self.options.max;
+            console.error('Value above maximum');
+        }
+
         var paper = self.paper,
             w = self.width,
             h = self.height,
@@ -65,8 +73,8 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
             oldMax = self.cachedOptions.max,
             min = self.options.min,
             max = self.options.max,
-            valP = (value - min) / (max - min),
-            oldValP = (oldValue - oldMin) / (oldMax - oldMin),
+            valP = _.isNaN((value - min) / (max - min)) ? 0 : (value - min) / (max - min),
+            oldValP = _.isNaN((oldValue - oldMin) / (oldMax - oldMin))  ? 0 : (oldValue - oldMin) / (oldMax - oldMin),
             minText = self.minText,
             maxText = self.maxText,
             valueText = self.valueText,
@@ -92,7 +100,6 @@ define(['vendor/lodash', 'razorcharts2/core/constants'], function (_, Constants)
         var minTextPos = calculateTextPos(cx, cy, gaugeStartAngle, r);
         var maxTextPos = calculateTextPos(cx, cy, gaugeEndAngle, r);
         var innerRadius = r - r * 0.5;
-
 
         minText.text(formattedMinValueText);
         minText.attr({
