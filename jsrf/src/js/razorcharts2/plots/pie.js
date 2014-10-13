@@ -65,7 +65,7 @@ define(['vendor/lodash'], function (_) {
                 self.slices[idx].mousemove(function (me) {
                     self.options.eventManager.trigger ('tooltip', {
                         seriesLabel: self.options.labels[idx],
-                        value: 42,
+                        value: data[idx],
                         color: series.colors[idx],
                         position: {
                             x: me.clientX + $('body').scrollLeft(),
