@@ -6,6 +6,7 @@ define(['vendor/lodash', 'razorcharts2/utils/graphutils'], function (_, graphUti
             if(self.options.type === "linear") {
                 var height = _.isNumber(self.coreHeight) ? self.coreHeight : self.height;
                 var tickHeight = height / self.ticks.length;
+                OptimizeTicks.ticks = self.ticks.slice(0);
                 if (tickHeight <= MIN_TICK_HEIGHT) {
                     self.ticks = OptimizeTicks.getTicks(self.ticks.slice(0), height);
                     _.each(self.$ticks, function (obj) {
@@ -37,16 +38,19 @@ define(['vendor/lodash', 'razorcharts2/utils/graphutils'], function (_, graphUti
         getTicks: function (ticks, height) {
             var ticksToBeKeep = Math.floor(height/MIN_TICK_HEIGHT);
             if (ticksToBeKeep < 2) ticksToBeKeep=2;
-            var unit = ticks[ticks.length-1] / (ticksToBeKeep - 1);
+            var unit = (ticks[ticks.length-1] - ticks[0]) / (ticksToBeKeep -1);
             var prettyDomain = graphUtils.prettyDomain(ticks[0], unit, true);
-            var value = 0;
+            var value = ticks[0];
             OptimizeTicks.ticks = [];
-            OptimizeTicks.ticks[0] = 0;
-            for(var i = 1; i < ticksToBeKeep; i++) {
-                value += prettyDomain.max;
+            for(var i = 0; i < ticksToBeKeep; i++) {
                 OptimizeTicks.ticks[i] = value;
+                value += prettyDomain.max;
             }
             return OptimizeTicks.ticks;
+        },
+
+        setTicks: function (ticks) {
+            OptimizeTicks.ticks = ticks;
         }
     };
 
