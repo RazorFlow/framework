@@ -42,6 +42,15 @@ define(['razorcharts2/axes/axis', 'vendor/lodash'], function (Axis, _) {
             }
         }
 
+        self.line.attr ({
+            x1: 0,
+            y1: 0,
+            x2: width,
+            y2: 0,
+            "stroke": "none",
+            "fill": "none"
+        });
+
         if(self.hasLabel()) {
             self.$label.text(self.label);
             self.$label.attr({
