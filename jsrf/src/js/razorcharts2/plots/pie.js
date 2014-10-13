@@ -68,8 +68,8 @@ define(['vendor/lodash'], function (_) {
                         value: 42,
                         color: series.colors[idx],
                         position: {
-                            x: me.clientX,
-                            y: me.clientY
+                            x: me.clientX + $('body').scrollLeft(),
+                            y: me.clientY + $('body').scrollTop()
                         },
                     });
                 });
