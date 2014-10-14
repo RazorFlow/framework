@@ -2,7 +2,8 @@
  * Wrapper for LinearChart
  */
 
-define(['vendor/lodash', 
+define(['vendor/lodash',
+        'leonardo/leomain', 
         'razorcharts2/scales/scale',
         'razorcharts2/axes/bottomaxis',
         'razorcharts2/axes/leftaxis',
@@ -14,7 +15,7 @@ define(['vendor/lodash',
         'razorcharts2/plots/area',
         'razorcharts2/plots/stackedarea',
         'razorcharts2/axes/ygrid',
-        'razorcharts2/utils/optimizeticks'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea, YGrid, OptimizeTicks) {
+        'razorcharts2/utils/optimizeticks'], function (_, Leonardo, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea, YGrid, OptimizeTicks) {
 
     var plots = {
         'column': Column,
@@ -75,6 +76,16 @@ define(['vendor/lodash',
         });
         eventManager.bind('tooltip.mouseout', function (obj) {
             self.options.tooltip.onMouseOut ();
+        });
+        eventManager.bind('highlight.highlight', function (obj) {
+            obj.plot.attr ({
+                fill: Leonardo.color(obj.color).darken(0.2).toHex()
+            });
+        });
+        eventManager.bind('highlight.normal', function (obj) {
+            obj.plot.attr ({
+                fill: obj.color
+            });
         });
     };
 

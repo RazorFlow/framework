@@ -22,7 +22,8 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
             for(var j=0; j<data.length; j++) {
                 var rect = rects[i][j];
                 !function (obj) {
-                    rect.hover (function (me) {
+                    var _rect = rects[obj.seriesIndex][obj.labelIndex];
+                    _rect.hover (function (me) {
                         var clientRect = this.getBoundingClientRect ();
                         eventManager.trigger('tooltip', _.extend(obj, {
                             position: {
@@ -30,6 +31,17 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                                 y: clientRect.top + (clientRect.height / 2)
                             }
                         }));
+                        eventManager.trigger ('highlight.highlight', {
+                            plot: _rect, 
+                            color: series[obj.seriesIndex].color
+                        });
+                    });
+                    _rect.mouseout (function (me) {
+                        eventManager.trigger('tooltip.mouseout');
+                        eventManager.trigger ('highlight.normal', {
+                            plot: _rect, 
+                            color: series[obj.seriesIndex].color
+                        });
                     });
                 } ({
                     seriesIndex: i, 
@@ -40,9 +52,7 @@ define(['razorcharts2/plots/rect', 'vendor/lodash'], function (Rect, _) {
                     color: series[i].color
                 });
 
-                 rect.mouseout (function (me) {
-                    eventManager.trigger('tooltip.mouseout');
-                });
+                    
             }
         }
     };

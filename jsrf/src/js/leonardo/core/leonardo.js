@@ -1,4 +1,4 @@
-define(['leonardo/core/paper'], function (Paper) {
+define(['leonardo/core/paper', 'leonardo/core/color'], function (Paper, Color) {
     var Leonardo = {},
         renderer = null;
 
@@ -21,6 +21,10 @@ define(['leonardo/core/paper'], function (Paper) {
     Leonardo.paper = function (node, width, height) {
         return new Paper (node, width, height);
     };
+
+    Leonardo.color = function (color) {
+        return new Color (color);
+    }
 
     return Leonardo;
 });

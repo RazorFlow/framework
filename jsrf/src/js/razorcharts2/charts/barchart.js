@@ -1,11 +1,12 @@
 define(['vendor/lodash',
+        'leonardo/leomain',
         'razorcharts2/scales/scale',
         'razorcharts2/axes/leftaxis',
         'razorcharts2/axes/bottomaxis',
         'razorcharts2/utils/graphutils',
         'razorcharts2/plots/bar',
         'razorcharts2/plots/stackedbar',
-        'razorcharts2/axes/xgrid'], function (_, Scale, LeftAxis, BottomAxis, GraphUtils, Bar, StackedBar, XGrid) {
+        'razorcharts2/axes/xgrid'], function (_, Leonardo, Scale, LeftAxis, BottomAxis, GraphUtils, Bar, StackedBar, XGrid) {
     var BarChart = function () {
         this.options = {};
         this.xAxisOptions = {};
@@ -39,6 +40,16 @@ define(['vendor/lodash',
         });
         eventManager.bind('tooltip.mouseout', function (obj) {
             self.options.tooltip.onMouseOut ();
+        });
+        eventManager.bind('highlight.highlight', function (obj) {
+            obj.plot.attr ({
+                fill: Leonardo.color(obj.color).darken(0.2).toHex()
+            });
+        });
+        eventManager.bind('highlight.normal', function (obj) {
+            obj.plot.attr ({
+                fill: obj.color
+            });
         });
     };
 
