@@ -154,6 +154,7 @@ define(['vendor/lodash',
             if(plot && plotSeries && plotSeries.length) {
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
+                    plotItemHoverPointer: self.options.plotItemHoverPointer,
                     series: plotSeries,
                     labels: self.options.labels,
                     minValue: self.yAxisOptions.minValue,
@@ -180,6 +181,7 @@ define(['vendor/lodash',
             if(plot && plotSeries && plotSeries.length) {
                 self.plots[plotType] = new plot();
                 self.plots[plotType].config({
+                    plotItemHoverPointer: self.options.plotItemHoverPointer,
                     series: plotSeries,
                     labels: self.options.labels,
                     eventManager: self.options.eventManager

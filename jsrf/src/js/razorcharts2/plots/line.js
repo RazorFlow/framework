@@ -38,7 +38,10 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                 eventCircle.attr ({
                     opacity: 0
                 });
-
+                if(this.options.plotItemHoverPointer) {
+                    circle.attr ('cursor', 'pointer');
+                    eventCircle.attr ('cursor', 'pointer');
+                }
                 !function (obj) {
                     eventCircle.click(function (me) {
                         eventManager.trigger ('plotItemActivate',obj);

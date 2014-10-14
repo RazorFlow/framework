@@ -35,7 +35,7 @@ define([
         tooltip = new Tooltip(),
         axesTooltip = new Tooltip(),
         hasItemClickSubscribed = false;
-        
+
     Public = {
       setAnimation: function(b) {
         firstAnimation = b;
@@ -349,6 +349,7 @@ define([
 
       pro.chart = new RazorChart();
       pro.chart.config({
+        plotItemHoverPointer: hasItemClickSubscribed,
         labels: labels,
         type: coreChartType,
         grid: true,

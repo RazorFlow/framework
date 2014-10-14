@@ -35,6 +35,11 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
             for(var j=0; j<series[i].data.length; j++) {
                 var circle = paper.circle (0,0,4);
                 var eventCircle = paper.circle (0,0,10);
+
+                if(this.options.plotItemHoverPointer) {
+                    circle.attr ('cursor', 'pointer');
+                    eventCircle.attr ('cursor', 'pointer');
+                }
                 circle.attr ({
                     stroke: "none",
                     fill: series[i].color

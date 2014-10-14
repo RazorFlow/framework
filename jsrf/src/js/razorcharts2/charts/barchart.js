@@ -163,6 +163,7 @@ define(['vendor/lodash',
         }
         self.plot = new Bar ();
         self.plot.config({
+            plotItemHoverPointer: self.options.plotItemHoverPointer,
             series: series,
             eventManager: self.options.eventManager,
             labels: self.options.labels

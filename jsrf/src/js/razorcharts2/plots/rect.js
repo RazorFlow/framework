@@ -58,6 +58,9 @@ define(['vendor/lodash'], function (_) {
                 var rect = paper.rect (0,0,0,0);
                 rect.attr('id', 'rc-series-' + series[i].seriesIndex + '-rect-' + j);
                 rect.attr ('fill', series[i].color);
+                if(this.options.plotItemHoverPointer) {
+                    rect.attr ('cursor', 'pointer');
+                }
                 !function (obj) {
                     rect.click(function (me) {
                         eventManager.trigger ('plotItemClick', obj);
