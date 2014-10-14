@@ -35,6 +35,10 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.ticks = ticks;
     }
 
+    Axis.prototype.getTicks = function () {
+        return this.ticks;
+    }
+
     Axis.prototype.renderTo = function (_paper, _core, w, h) {
         this.paper = _paper;
         this.core = _core;
@@ -48,6 +52,19 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.transform ('render');
     };
 
+    Axis.prototype.reRender = function (paper, core, w, h) {
+        if(this.$ticks.length) {
+            for(var i=0; i<this.$ticks.length; i++) {
+                this.$ticks[i].remove ();
+            }
+            this.$ticks = [];
+            this.$tickTexts = [];
+            this.$label.remove ();
+            this.$label = undefined;
+        }
+        this.renderTo (paper, core, w, h);
+    };
+
     Axis.prototype.height = function () {
         return this.core.getBBox().height;
     };
@@ -57,11 +74,11 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
     };
 
     Axis.prototype.resizeTo = function (w, h) {
-        this.coreWidth = w;
-        this.coreHeight = h;
-        resizeTicks(this);
-        this.transform('resize');
-        
+        if(this.coreWidth !== w || this.coreHeight !== h) {
+            this.coreWidth = w;
+            this.coreHeight = h;
+            this.transform('resize');
+        }
     };
 
     Axis.prototype.update = function () {
@@ -102,13 +119,6 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         if(this.options.type === 'ordinal') {
             calculateLabelWidths (this);
             findWordWidths (this);
-        }
-    };
-
-    function resizeTicks (self) {
-        if(OptimizeTicks.axis(self)) {
-            self.createTicks();
-            self.transform ('render');
         }
     };
 

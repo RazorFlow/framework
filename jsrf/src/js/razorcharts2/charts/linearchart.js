@@ -13,7 +13,8 @@ define(['vendor/lodash',
         'razorcharts2/plots/line',
         'razorcharts2/plots/area',
         'razorcharts2/plots/stackedarea',
-        'razorcharts2/axes/ygrid'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea, YGrid) {
+        'razorcharts2/axes/ygrid',
+        'razorcharts2/utils/optimizeticks'], function (_, Scale, BottomAxis, LeftAxis, RightAxis, GraphUtils, Column, StackedColumn, Line, Area, StackedArea, YGrid, OptimizeTicks) {
 
     var plots = {
         'column': Column,
@@ -387,7 +388,7 @@ define(['vendor/lodash',
         // Set the xScale and render xAxis
         this.xScale.range ([0, w]);
         this.xAxis.renderTo (paper, this.xAxisContainer, w, h);
-        
+        OptimizeAxisTicks (this);
         renderYAxis (this);
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxisWidth]);
@@ -439,7 +440,7 @@ define(['vendor/lodash',
         // Set the xScale and render xAxis
         this.xScale.range ([0, w]);
         this.xAxis.resizeTo (w, h);
-
+        OptimizeAxisTicks (this);
         resizeYAxis (this);
         // Resize the xAxis since the space taken by yAxis was not considered while rendering
         this.xScale.range ([0, w - this.yAxisWidth]);
@@ -623,6 +624,45 @@ define(['vendor/lodash',
             var plot = self.plots[key];
             plot.update ();
         }    
+    }
+
+    function OptimizeAxisTicks (self) {
+        var h = self.height,
+            ticks = null;
+        if(self.options.dualAxis) {
+            if(!self.hideLeftAxis) {
+                ticks = self.yDomain.left.ticks;
+                var newTicks = OptimizeTicks.optimizeTicks (ticks, h);
+                if(newTicks.optimized) {
+                    self.yScale.left.domain ([newTicks.ticks[0], newTicks.ticks[newTicks.ticks.length - 1]]);
+                    self.yAxis.left.setTicks (newTicks.ticks);
+                    self.yAxis.left.reRender (self.paper, self.yAxisContainer.left, self.width, self.height);
+                } 
+            }
+            if(!self.hideRightAxis) {
+                ticks = self.yDomain.right.ticks;
+                var newTicks = OptimizeTicks.optimizeTicks (ticks, h);
+                if(newTicks.optimized) {
+                    self.yScale.right.domain ([newTicks.ticks[0], newTicks.ticks[newTicks.ticks.length - 1]]);
+                    self.yAxis.right.setTicks (newTicks.ticks);
+                    self.yAxis.right.reRender (self.paper, self.yAxisContainer.right, self.width, self.height);
+                } 
+            }
+            ticks = self.hideLeftAxis ? self.yAxis.right.getTicks () : self.yAxis.left.getTicks ();
+            self.yGrid.setTicks (ticks);
+            self.yGrid.reRender (self.paper, self.gridContainer, self.width, self.height); 
+        } else {
+            ticks = self.yDomain.ticks;
+            var newTicks = OptimizeTicks.optimizeTicks (ticks, h);
+            if(newTicks.optimized) {
+                self.yAxis.setTicks (newTicks.ticks);
+                self.yScale.domain ([newTicks.ticks[0], newTicks.ticks[newTicks.ticks.length - 1]]);
+                self.yAxis.reRender (self.paper, self.yAxisContainer, self.width, self.height);
+                self.yGrid.setTicks (newTicks.ticks);
+                self.yGrid.reRender (self.paper, self.gridContainer, self.width, self.height);
+            }
+        }
+            
     }
 
     return LinearChart;

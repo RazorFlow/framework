@@ -47,11 +47,22 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.transform ('render');
     };
 
+    Grid.prototype.reRender = function (paper, core, w, h) {
+        if(this.$ticks.length) {
+            for(var i=0; i<this.$ticks.length; i++) {
+                this.$ticks[i].remove ();
+            }
+            this.$ticks = [];
+        }
+        this.renderTo (paper, core, w, h);
+    }
+
     Grid.prototype.resizeTo = function (w, h) {
-        this.width = w;
-        this.height = h;
-        resizeTicks(this);
-        this.transform ('resize');
+        if(this.width !== w || this.height !== h) {
+            this.width = w;
+            this.height = h;
+            this.transform ('resize');
+        }
     };
 
     Grid.prototype.update = function () {
@@ -70,13 +81,6 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
                 "stroke-dasharray": "2,2"
             });
             self.core.append (self.$ticks[i]);
-        }
-    };
-
-    function resizeTicks (self) {
-        if(OptimizeTicks.grid(self)) {
-            createTicks(self);
-            self.transform ('render');
         }
     };
 
