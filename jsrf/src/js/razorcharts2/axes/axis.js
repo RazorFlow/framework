@@ -17,6 +17,9 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
         this.type = options.type;
         this.scale = options.scale;
         this.ticks = options.ticks;
+        if(this.type === 'linear') {
+            this.ticks = sanitizePrecision (options.ticks);    
+        }
         this.format = options.format;
         this.label = options.label;
         if (this.type==="linear") {
@@ -207,6 +210,17 @@ define(['vendor/lodash', 'razorcharts2/scales/scale', 'razorcharts2/utils/optimi
     Axis.prototype.getMaxTickHeight = function($ticks) {
         return _.max(_.map($ticks, function(t) { return t.getBBox().height }))
     };
+
+    function sanitizePrecision (num) {
+        if(_.isNumber(num)) {
+            return parseFloat (num.toPrecision(2));
+        } else if(_.isArray(num)) {
+            for(var i=0; i<num.length; i++) {
+                num[i] = sanitizePrecision (num[i]);
+            }
+            return num;
+        }
+    }
 
     return Axis;
 }); 
