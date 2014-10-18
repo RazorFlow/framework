@@ -70,6 +70,7 @@ define([
        * @param {Object} options The options object
        */
       addMultiSelectField: function (id, label, list, options) {
+        options = options || {};
         var _options = _.extend(options, {
               defaultSelectedOptions: options.defaultSelectedOptions || []
             }),
@@ -180,6 +181,10 @@ define([
        */
       getInputValue: function(id) {
         return pro.renderer.getInputValue(id);
+      },
+
+      isFieldSet: function (id) {
+        return pro.renderer.isFieldSet(id);
       }
     };
 

@@ -33,6 +33,7 @@ define([
     Public = {
       setConfig: function (cfg) {
         currentVals = cfg.defaultValues || {};
+
       },
 
       dispose: function () {
@@ -113,6 +114,51 @@ define([
           return [+$itemContainer.find('[data-key=' + item.id + '].rangeStart').val(),
             +$itemContainer.find('[data-key=' + item.id + '].rangeEnd').val()];
         } else if (item.type === 'checkbox') {
+          return $itemContainer.find('[data-key=' + item.id + ']').is(':checked');
+        }
+      },
+      isFieldSet: function (id) {
+        var item = self.props.form.items[id];
+        var $itemContainer = self.$core.find('.formItems');
+        if (!item) {
+          console.error('Form field with id ' + id + ' was not found!');
+          return;
+        }
+
+        if (item.type === 'text') {
+          return $itemContainer.find('[data-key=' + item.id + ']').val() !== "";
+        } else if (item.type === 'select') {
+          var index = $itemContainer.find('[data-key=' + item.id + ']')[0].selectedIndex;
+          return index> 0;
+        } else if (item.type === 'multiSelect') {
+          var options = $itemContainer.find('[data-key=' + item.id + '] option');
+          var indices = [], texts = [];
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+              indices.push(i);
+              texts.push(item.list[i]);
+            }
+          }
+          return indices.length > 0;
+        } else if (item.type === 'date') {
+          // TODO
+          return true;
+
+        } else if (item.type === 'dateRange') {
+          return true; // TODO
+          return [new Date($itemContainer.find('[data-key=' + item.id + '].rangeStart').val()),
+            new Date($itemContainer.find('[data-key=' + item.id + '].rangeEnd').val())];
+        } else if (item.type === 'numericRange') {
+          return true; // TODO
+
+          if(!Modernizr.touch){
+            return item.numberSlider.getRangeValues();
+          }
+
+          return [+$itemContainer.find('[data-key=' + item.id + '].rangeStart').val(),
+            +$itemContainer.find('[data-key=' + item.id + '].rangeEnd').val()];
+        } else if (item.type === 'checkbox') {
+          return true; // TODO
           return $itemContainer.find('[data-key=' + item.id + ']').is(':checked');
         }
       },

@@ -1,14 +1,16 @@
 define([
   'core/dbregistry',
   'core/hookmanager',
-  'Raphael'], function(dbRegistry, HookManager) {
+  'vendor/lodash',
+  'Raphael'], function(dbRegistry, HookManager, _) {
   var rf = {
     globals: {
       media: "md",
       dbRegistry: dbRegistry,
       builder: null
     },
-    hooks: new HookManager ()
+    hooks: new HookManager (),
+    _: _
   };
 
   window.rf = rf;
