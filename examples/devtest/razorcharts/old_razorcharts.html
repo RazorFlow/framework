@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript" src="/mount/jsrf/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="/mount/jsrf/vendor/redraphael.js"></script>
+    <script type="text/javascript" src="/mount/jsrf/vendor/require.min.js"></script>
+
+    <script type="text/javascript" src="/mount/jsrf/js/requireConfig.js"></script>
+
+    <title>RazorCharts Testbed</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            margin: 300px;
+        }
+    </style>
+    <script type="text/javascript">
+        require.config(window.browserConfig);
+        require(["razorcharts/core/chart"], function (Chart) {
+            var chart = new Chart();
+            chart.config({
+                type: 'linear',
+                labels: ['abc', 'def', 'hij', 'klm', 'nop', 'abc', 'def', 'hij', 'klm', 'nop', 'abc', 'def', 'hij', 'klm', 'nop', 'abc', 'def', 'hij', 'klm', 'nop', 'abc', 'def', 'hij', 'klm', 'nop', 'abc', 'def', 'hij', 'klm', 'nop'],
+                yAxis: [
+                    {
+                        axisLine: false,
+                        axisTick: false,
+                        format: function(el) {return el;},
+                        type: 'left'
+                    }
+                ],
+                xAxis: {},
+                series: [
+                    {
+                        id: 'apples',
+                        seriesIndex: 0,
+                        color: 'black',
+                        displayType: 'column',
+                        yAxis: 'left',
+                        data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+                    }
+                ]
+            });
+            chart.renderTo(document.getElementById ('container'), 600, 400);
+
+            //             var chart2 = new Chart();
+            // chart2.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     yAxis: [
+            //         {
+            //             axisLine: false,
+            //             axisTick: false,
+            //             format: function(el) {return el;},
+            //             type: 'left'
+            //         }
+            //     ],
+            //     xAxis: {},
+            //     series: [
+            //         {
+            //             id: 'apples',
+            //             seriesIndex: 0,
+            //             color: 'black',
+            //             displayType: 'column',
+            //             yAxis: 'left',
+            //             data: [10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart2.renderTo(document.getElementById ('container2'), 600, 400);
+
+            // var chart3 = new Chart();
+            // chart3.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     yAxis: [
+            //         {
+            //             axisLine: false,
+            //             axisTick: false,
+            //             format: function(el) {return el;},
+            //             type: 'left'
+            //         }
+            //     ],
+            //     xAxis: {},
+            //     series: [
+            //         {
+            //             id: 'apples',
+            //             seriesIndex: 0,
+            //             color: 'black',
+            //             displayType: 'column',
+            //             yAxis: 'left',
+            //             data: [10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart3.renderTo(document.getElementById ('container3'), 600, 400);
+
+            // var chart4 = new Chart();
+            // chart4.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     yAxis: [
+            //         {
+            //             axisLine: false,
+            //             axisTick: false,
+            //             format: function(el) {return el;},
+            //             type: 'left'
+            //         }
+            //     ],
+            //     xAxis: {},
+            //     series: [
+            //         {
+            //             id: 'apples',
+            //             seriesIndex: 0,
+            //             color: 'black',
+            //             displayType: 'column',
+            //             yAxis: 'left',
+            //             data: [10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart4.renderTo(document.getElementById ('container4'), 600, 400);
+
+
+            setTimeout(function() {
+                var arr = [];
+                for(var i=0; i<100; i++) {
+                    arr[i] = Math.floor(Math.random() * 30);
+                }
+                chart.updateSeries ([
+                        {
+                            id: 'apples',
+                            seriesIndex: 0,
+                            data: arr
+                        }
+                    ]);
+                    //             chart2.updateSeries ([
+                    //     {
+                    //         id: 'apples',
+                    //         seriesIndex: 0,
+                    //         data: arr
+                    //     }
+                    // ]);
+                    //             chart3.updateSeries ([
+                    //     {
+                    //         id: 'apples',
+                    //         seriesIndex: 0,
+                    //         data: arr
+                    //     }
+                    // ]);
+                    //             chart4.updateSeries ([
+                    //     {
+                    //         id: 'apples',
+                    //         seriesIndex: 0,
+                    //         data: arr
+                    //     }
+                    // ]);
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <div id="container"></div>
+        <div id="container2"></div>
+        <div id="container3"></div>
+        <div id="container4"></div>
+
+</body>
+</html>

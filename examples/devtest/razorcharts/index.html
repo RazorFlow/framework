@@ -5,14 +5,353 @@
 	<script type="text/javascript" src="/mount/jsrf/vendor/require.min.js"></script>
 	<script type="text/javascript" src="/mount/jsrf/js/requireConfig.js"></script>
 	<title>RazorCharts Testbed</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            margin: 300px;
+        }
+    </style>
 	<script type="text/javascript">
 		require.config(window.browserConfig);
-		require(["razorcharts2/rcmain"], function () {
+		require(["razorcharts2/core/rcmain"], function (Chart) {
+            var chart = new Chart();
+            chart.config({
+                type: 'linear',
+                // min: 0,
+                // max: 100,
+                // value: 40
+                labels: ['abcfsdfsdfsdfsdfsdfsdf', 'deffsdfsdfsfdsdfs', 'hij', 'klmsfsdfsdfsfsf', 'nop'],
+                // dualAxis: true,
+                // stacked: true,
+                xAxis: {
+                    // minValue: 10,
+                    // maxValue: 60,
+                    // numTicks: 5
+                },
+                yAxis: {
+                    format: function (val) {
+                        return val;
+                    }
+                },
+                series: [
+                    {
+                        seriesIndex: 0,
+                        displayType: 'column',
+                        data: [10, 15, null, 18, 40],
+                        color: 'red'
+                    },
+                    {
+                        seriesIndex: 1,
+                        displayType: 'column',
+                        data: [10, 5, -15, 20, null],
+                        yAxis: 'right',
+                        color: 'green'
+                    },
+                    // {
+                    //     seriesIndex: 3,
+                    //     displayType: 'area',
+                    //     data: [10, 5, -15, 8, 32],
+                    //     yAxis: 'right',
+                    //     color: 'yellow'
+                    // },
+                    // {
+                    //     seriesIndex: 2,
+                    //     displayType: 'column',
+                    //     data: [10, 5, -5, 8, 10],
+                    //     color: 'blue'
+                    // },
+                ],
+                // series: {
+                //     displayType: 'pie',
+                //     data: [20, 10, 30, 15, 25],
+                //     colors: ['red', 'green', 'yellow', 'blue', 'magenta']
+                // }
+                tooltip: {
+                    onShow: function (x, y) {
+                        // debugger
+                    },
+                    onHide: function () {
 
+                    },
+                    onMouseOut: function () {
+
+                    }
+                }
+            });
+            chart.renderTo(document.getElementById ('container'), 800, 600);
+
+            // var chart2 = new Chart();
+            // chart2.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart2.renderTo(document.getElementById ('container2'), 600, 400);
+
+
+            // var chart3 = new Chart();
+            // chart3.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart3.renderTo(document.getElementById ('container3'), 600, 400);
+
+            // var chart4 = new Chart();
+            // chart4.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart4.renderTo(document.getElementById ('container4'), 600, 400);
+
+
+            // var chart5 = new Chart();
+            // chart5.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart5.renderTo(document.getElementById ('container5'), 600, 400);
+
+            // var chart6 = new Chart();
+            // chart6.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart6.renderTo(document.getElementById ('container6'), 600, 400);
+
+            // var chart7 = new Chart();
+            // chart7.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart7.renderTo(document.getElementById ('container7'), 600, 400);
+
+            // var chart8 = new Chart();
+            // chart8.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart8.renderTo(document.getElementById ('container8'), 600, 400);
+
+            // var chart9 = new Chart();
+            // chart9.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+
+            // chart9.renderTo(document.getElementById ('container9'), 600, 400);
+
+            // var chart10 = new Chart();
+
+            // chart10.config({
+            //     type: 'linear',
+            //     labels: ['abc', 'def', 'hij', 'klm', 'nop'],
+            //     series: [
+            //         {
+            //             seriesIndex: 0,
+            //             displayType: 'column',
+            //             data: [10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20, 10, 15, 5, 18, 20]
+            //         }
+            //     ]
+            // });
+            // chart10.renderTo(document.getElementById ('container10'), 600, 400);
+
+            setTimeout(function() {
+                // var arr = [];
+                // for(var i=0; i<30; i++) {
+                //     arr[i] = Math.floor(Math.random() * 100);
+                // }
+                // chart.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+                // chart2.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+
+                // chart3.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+
+                //  chart4.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+                // chart5.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+
+                //  chart6.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+                //   chart7.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+                //    chart8.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+                //     chart9.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+                //      chart10.update ({
+                //     series: [
+                //         {
+                //             seriesIndex: 0,
+                //             data: arr
+                //         }
+                //     ]
+                // });
+            }, 1000);
+
+            document.getElementsByTagName('body')[0].addEventListener('click', function() {
+                // chart.update({value: Math.floor(Math.random() * 100)});
+                // chart.resizeTo (400, 300);
+                var arr = [];
+                for(var i=0; i<5; i++) {
+                    arr[i] = Math.floor(Math.random() * 100);
+                }
+                arr[3] = null;
+                chart.update ({
+                    series: [
+                        {
+                            seriesIndex: 0,
+                            data: arr
+                        },
+                        {
+                            seriesIndex: 1,
+                            data: arr
+                        },
+                        // {
+                        //     seriesIndex: 2,
+                        //     data: arr
+                        // },
+                        // {
+                        //     seriesIndex: 3,
+                        //     data: arr
+                        // }
+                    ]
+                });
+                // chart.update({
+                //     series: {
+                //         data: arr
+                //     }
+                // });
+            });
 		});
 	</script>
 </head>
 <body>
+    <div id="container"></div>
+    <div id="container2"></div>
+    <div id="container3"></div>
+    <div id="container4"></div>
+    <div id="container5"></div>
+    <div id="container6"></div>
+    <div id="container7"></div>
+    <div id="container8"></div>
+    <div id="container9"></div>
+    <div id="container10"></div>
 
 </body>
 </html>

@@ -42,14 +42,14 @@ define(['generated/templates'], function(JST) {
                 });
             }
             
-            label.text(data.seriesLabels[0]);
-            value.text(data.data[0]);
+            label.text(data.seriesLabel);
+            value.text(data.value);
             removeAllChartColorClasses(label);
             if(data.color === 'auto') {
                 label.css({
                     color: 'none'
                 });
-                label.addClass('chart-color-' + data.seriesIndex[0]);    
+                label.addClass('chart-color-' + data.seriesIndex);
             } else {
                 label.css({
                     color: data.color

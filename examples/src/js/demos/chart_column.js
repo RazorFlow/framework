@@ -1,6 +1,6 @@
 rf.StandaloneDashboard(function(db){
 	var chart = new ChartComponent('sales');
-	chart.setDimensions (8, 6);
+	chart.setDimensions (8, 2);
 	chart.setCaption("Sales - 2013 vs 2012");
 	chart.setLabels (["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]);
 	chart.addSeries ("sales2013", "2013", [22400, 24800, 21800, 21800, 24600, 27600, 26800, 27700, 23700, 25900, 26800, 24800]);
