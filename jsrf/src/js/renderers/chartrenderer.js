@@ -4,7 +4,7 @@ define([
   "renderers/componentrenderer",
   "utils/dataformatter",
   "utils/numberformatter",
-  "razorcharts2/core/rcmain",
+  "razorcharts/core/chart",
   "utils/tooltip",
   'vendor/lodash'
 ], function (JST, ComponentRenderer, DataFormatter, NumberFormatter, RazorChart, Tooltip, _) {
@@ -36,6 +36,11 @@ define([
         axesTooltip = new Tooltip(),
         hasItemClickSubscribed = false;
 
+    for(var i=-1; ++i<numBaseColors;) {
+      var color = Raphael.color(chartBaseColors[i]);
+      chartBaseColors[9 + i] = Raphael.hsl(color.h, color.s, color.l * 0.8);
+      chartBaseColors[18 + i] = Raphael.hsl(color.h, color.s, color.l * 1.2);
+    }
     Public = {
       setAnimation: function(b) {
         firstAnimation = b;
@@ -101,9 +106,6 @@ define([
             tData.push(data[i]);
             tDisplayValues.push(displayValues[i]);
           }
-          if(series[i].seriesColor !== "auto") {
-            chartBaseColors[i] = series[i].seriesColor;
-          }
         }
 
         selectAndCreateChart(labels, tData, tSeries, tDisplayValues);
@@ -161,11 +163,11 @@ define([
           }
         }
       },
-      realignData: function (originalLabels, labels, seriesData, displayValues, series) {
+      realignData: function (originalLabels, labels, seriesData, displayValues) {
         if (!firstDraw) {
           var realigned = DataFormatter.realignLabels (originalLabels, labels, seriesData, displayValues);
           // pro.chart.updateData(originalLabels, realigned.data, realigned.displayValues);
-          pro.chart.update({series:series});
+          pro.chart.updateSeries(seriesData);
         }
       },
       dispose: function () {
@@ -258,7 +260,7 @@ define([
             id: series[i].key,
             data: data[i],
             colors: coreChartType === 'pie' ? chartBaseColors : null,
-            color: chartBaseColors[series[i].seriesIndex],
+            color: series[i].seriesColor,
             caption: series[i].seriesName,
             stacked: series[i].seriesStacked,
             yAxis: series[i].yAxis === 'primary' ? 'left' : 'right',
@@ -272,7 +274,7 @@ define([
           };
         }
       }
-      
+
       var yConfig = self.props.chart.yaxis,
           syConfig = self.props.chart.secondaryYAxis,
           primarySeries = _.where (series, {yAxis: 'primary'}),
@@ -334,26 +336,11 @@ define([
         ];
       }
 
-      var stackedFlag = false;
-      for (var i=0; i<_series.length; i++) {
-        if (_series[i].stacked) {
-          stackedFlag = true;
-        } else {
-          stackedFlag = false;
-          break;
-        }
-      }
-
-      var tooltipTimeOut = 1000;
-      var tooltipTimer;
-
       pro.chart = new RazorChart();
       pro.chart.config({
-        plotItemHoverPointer: hasItemClickSubscribed,
         labels: labels,
         type: coreChartType,
         grid: true,
-        stacked: stackedFlag,
         animateOnRender: false,
         dualAxis: dualY,
         showPieLabels: self.props.chart.showPieValues,
@@ -368,30 +355,22 @@ define([
         },
         yAxis: yAxisConfig,
         tooltip: {
-          onShow: function(x, y, _data) {
-            clearTimeout(tooltipTimer);
-            var data = _.cloneDeep (_data);
+          onShow: function(x, y, data) {
             var tooltipFormatter = new NumberFormatter();
             if(coreChartType === 'pie') {
               tooltipFormatter.setConfig(self.props.chart.series[series[0].key]);
             } else {
-              var seriesIndex = data.seriesIndex;
+              var seriesIndex = data.seriesIndex[0] - 1;
               tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
                 self.props.chart.series[series[seriesIndex].key],
                 self.props.chart.series[series[seriesIndex].key].yAxis !== 'primary' ? syConfig : yConfig
               ]));
             }     
-            data.value = tooltipFormatter.formatValue(data.value);       
+            data.data[0] = tooltipFormatter.formatValue(data.data[0]);       
             tooltip.show(x, y, data);
           },
           onHide: function() {
             tooltip.hide();
-          },
-          onMouseOut: function() {
-            clearTimeout(tooltipTimer);
-            tooltipTimer = setTimeout(function() {
-              tooltip.hide();
-            }, tooltipTimeOut);   
           }
         },
         axesTooltip: {

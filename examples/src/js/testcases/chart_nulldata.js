@@ -28,7 +28,7 @@ StandaloneDashboard(function (db) {
     c4.setCaption("Chart Negative Area");
     c4.setDimensions(4, 4);
     c4.setLabels(['January', 'February', 'March', 'April', 'May']);
-    c4.addSeries("seriesA", "Series A", [null, 5, 5, 1, 9], {seriesDisplayType: 'area', numberPrefix: '$'});
+    c4.addSeries("seriesA", "Series A", [1, null, 5, 1, 9], {seriesDisplayType: 'area', numberPrefix: '$'});
     c4.addSeries("seriesB", "Series B", [9, 1, 5, null, 1], {seriesDisplayType: 'area', numberPrefix: '$'});
     db.addComponent(c4);
 
@@ -41,7 +41,14 @@ StandaloneDashboard(function (db) {
     c5.addSeries("seriesB", "Series B", [9, 1, 5, null, 1], {seriesDisplayType: 'area', numberPrefix: '$'});
     db.addComponent(c5);
 
-   
+    var c6 = new ChartComponent();
+    c6.setCaption("Chart Negative Bar");
+    c6.setDimensions(4, 4);
+    c6.setLabels(['January', 'February', 'March', 'April', 'May']);
+    c6.addSeries("seriesA", "Series A", [1, null, 5, 1, 9], {seriesDisplayType: 'bar', numberPrefix: '$'});
+    c6.addSeries("seriesB", "Series B", [9, 1, 5, null, 1], {seriesDisplayType: 'bar', numberPrefix: '$'});
+    db.addComponent(c6);
+
     var c7 = new ChartComponent();
     c7.setCaption("Chart Negative Bar Stacked");
     c7.setDimensions(4, 4);

@@ -2,7 +2,7 @@ define([
   "utils/internallayoutmanager",
   "constants/kpilayoutconstants",
   "utils/numberformatter",
-  "razorcharts2/core/rcmain",
+  "razorcharts/core/chart",
   "utils/iconutils",
   "graphics/rfsparkline",
   'vendor/lodash'
@@ -99,7 +99,7 @@ define([
         //     return applyNumberFormatting(newValue, item);
         //   }
         // });
-        gauge.update({value: newValue.value});
+        gauge.updateSeries({value: newValue.value});
       } else {
         var $value = $core.find('.rfKPIValue');
         timer(function(d) {
