@@ -28,6 +28,7 @@ StandaloneDashboard(function(db){
       numberPrefix: ' $',
       numberHumanize: true
   });
+  db.addComponent (quarterlySales);
 
   var quarterlyData = {
     'Q1': {
@@ -76,12 +77,14 @@ StandaloneDashboard(function(db){
   numTickets.setDimensions (3, 3);
   numTickets.setCaption ("Open Support Tickets");
   numTickets.setValue (42);
+  db.addComponent (numTickets);
 
   var satisfactionGauge = new GaugeComponent();
   satisfactionGauge.setDimensions(3 ,3);
   satisfactionGauge.setCaption('Customer Satisfaction');
   satisfactionGauge.setValue(8);
   satisfactionGauge.setLimits(0, 10);
+  db.addComponent(satisfactionGauge);
 
   var ticketPriorities = new KPIGroupComponent ();
   ticketPriorities.setDimensions (6, 3);
@@ -94,6 +97,7 @@ StandaloneDashboard(function(db){
       caption: 'Normal Priority',
       value: 36,
   });
+  db.addComponent (ticketPriorities);
 
   var tableData = [
   {name: "Broccoli", category: "Vegetables", price: 14},
@@ -115,6 +119,7 @@ StandaloneDashboard(function(db){
     numberForceDecimals: true
   });
   productsTable.addMultipleRows (tableData);
+  db.addComponent(productsTable);
 
   var productFilterForm = new FormComponent ();
   productFilterForm.setDimensions (6, 6);
@@ -122,6 +127,7 @@ StandaloneDashboard(function(db){
   productFilterForm.addMultiSelectField ('category', 'Select Category', ['Vegetables', 'Diary', 'Beverages']);
   productFilterForm.addTextField ('name', 'Product Name Contains');
   productFilterForm.addNumericRangeField('price', 'Price', [5, 20]);
+  db.addComponent(productFilterForm);
 
 
   productFilterForm.onApplyClick(function() {
@@ -152,26 +158,5 @@ StandaloneDashboard(function(db){
     
     productsTable.clearRows ();
     productsTable.addMultipleRows (filteredValues);
-
   });
-
-  var sales_dashboard = new Dashboard ();
-  var inventory_dashboard = new Dashboard ();
-
-  sales_dashboard.addComponent (quarterlySales);
-  sales_dashboard.addComponent (numTickets);
-  sales_dashboard.addComponent (satisfactionGauge);
-  sales_dashboard.addComponent (ticketPriorities);
-
-  inventory_dashboard.addComponent (productsTable);
-  inventory_dashboard.addComponent (productFilterForm);
-
-  db.setTabbedDashboardTitle ("RazorFlow Tutorial Dashboard");
-  db.addDashboardTab (sales_dashboard, {
-    title: "Sales Dashboard",
-    active: true
-  });
-  db.addDashboardTab (inventory_dashboard, {
-    title: "Inventory Dashboard"
-  });
-}, {tabbed: true});
+});

@@ -64,7 +64,7 @@ define([
         var submit = self.$core.find('#submit');
 
         submit.on('click', function () {
-          obj = self.getAllInputValues();
+          obj = self.getAllInputValues(true);
           pro.trigger('submit', obj);
         });
 
@@ -163,11 +163,13 @@ define([
         }
       },
 
-      getAllInputValues: function () {
+      getAllInputValues: function (onlySet) {
+        onlySet = onlySet || false;
         var items = self.props.form.items;
         var obj = {};
         for (var key in items) {
-          if(items.hasOwnProperty(key)){
+          var isSet = self.isFieldSet(key);
+          if(items.hasOwnProperty(key) && (!onlySet || isSet)){
             obj[key] = self.getInputValue(key);
           }
         }

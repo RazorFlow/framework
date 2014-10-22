@@ -1,7 +1,8 @@
 define([
   'core/dbregistry',
   'core/hookmanager',
-  ], function(dbRegistry, HookManager) {
+  'vendor/lodash'
+  ], function(dbRegistry, HookManager, _) {
   var rf = {
     globals: {
       media: "md",

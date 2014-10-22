@@ -797,18 +797,469 @@ To filter the category we use another underscore.js function, which is [undersco
 
 # Drill Downs
 
-### Breadcrumb Drill-down
+Sometimes, the best way to provide the right data, is to allow your users to explore the data. For example, in our Quarterly Sales Chart (which we built in part 1) - while quarterly view might be useful for most people, some people might want to see monthly data. A drill down is the perfect way to allow your users to explore their data in this regard.
 
-### Drilling down into a modal window
+Here are some other cases where drill downs are great for exploring data:
 
-### Drilling into another chart
+1. You've got a category of products, and clicking a category drills down into the actual products.
+2. You've got country-wise data, and clicking on the country drills down into the individual states of that country.
+
+## Breadcrumb Drill-down
+
+The first kind of drill down is the breadcrumb drill down. Here, the new data replaces the old data and a bread crumb is displayed on the top of the component so that the user can go back to the previous data set to explore further.
+
+There can be multiple levels of drill down in the bread-crumb drill down. Meaning you can drill from "Continent > Country > State > City > Neighbourhood" (and any more levels you can think of).
+
+RazorFlow Framework helps you build breadcrumb drill downs faster than ever. Here's how:
+
+1. RazorFlow Framework automatically keeps a breadcrumb trail for your users to go back. It also takes care of preserving old data, so they can go back to higher levels.
+2. There's a convenient API to add new breadcrumb levels. One important thing to note is that the breadcrumb API also supports asynchronous loading quite easily allowing you to poll and request new data from the server.
+
+#### Adding a drill down to quarterly chart
+
+We are going to add a drill down to the quarterly sales which will show monthly sales in each quarter when the quarter is clicked.
+
+To do this, we will call an extra function on the `quarterlySales` component object, called `addDrillStep`. Let's jump right into the code that we're going to add:
+
+```
+  var quarterlyData = {
+    'Q1': {
+      labels: ["Jan", "Feb", "March"],
+      data: {
+        quantity: [19, 46, 56],
+        sales: [3747, 3318, 6057]
+      }
+    },
+    'Q2': {
+      labels: ["April", "May", "June"],
+      data: {
+        sales: [11857, 17435, 12020],
+        quantity: [82, 163, 147]
+      }
+    },
+    'Q3': {
+      labels: ["July", "Aug", "Sep"],
+      data: {
+        sales: [12714, 15418, 18000],
+        quantity: [102, 156, 162]
+      }
+    },
+    'Q4': {
+      labels: ["Oct", "Nov", "Dec"],
+      data: {
+        sales: [14342, 21721, 15072],
+        quantity: [145, 207, 137]
+      }
+    }
+  };
+
+  quarterlySales.addDrillStep (function (done, params) {
+    var drillData = quarterlyData[params.label];
+    quarterlySales.setLabels (drillData.labels);
+    quarterlySales.addSeries('sales', "Sales", drillData.data.sales, {
+      numberPrefix: "$ "
+    });
+    quarterlySales.addSeries('quantity', "Quantity", drillData.data.quantity, {
+      yAxis: 'quantity'
+    });
+    done();
+  });
+```
+
+Ok, so there's a large chunk of code added to the dashboard at one go. But no worries, it's all quite straightforward and we'll break it down. First, let's examine the `quarterlyData` variable.
+
+```
+var quarterlyData = {
+    'Q1': {
+      labels: ["Jan", "Feb", "March"],
+      data: {
+        quantity: [19, 46, 56],
+        sales: [3747, 3318, 6057]
+      }
+    }
+    // 3 more labels similar to this [...]
+  };
+```
+
+This object doesn't have any RazorFlow Framework specific API or functionality. In fact, it's just a regular JavaScript object. However, we've kept it here to make it easy to look up the updated data. In a real world use case you'd probably query a database or another similar internal function to get the resulted drill down data.
+
+As always, in RazorFlow Framework - how you get the data isn't as important as what you do with it. But let's take a look at the following facets of `quarterlyData`:
+
+* `quarterlyData['Q1'].labels` - contains the labels for the months of Quarter 1. (Usually the first quarter of the year)
+* `quarterlyData['Q1'].data['quantity']` and `quarterlyData['Q1'].data['sales'] - contains a series of data with quantities and sales corresponding to the months/labels discussed earlier.
+
+So it's quite clear that `quarterlyData` is just an object to enable the user to access information about the filtered data in an easier manner.
+
+Now let's look at the function that's actually performing the drill down:
+
+```
+  quarterlySales.addDrillStep (function (done, params) {
+    var drillData = quarterlyData[params.label];
+    quarterlySales.setLabels (drillData.labels);
+    quarterlySales.addSeries('sales', "Sales", drillData.data.sales, {
+      numberPrefix: "$ "
+    });
+    quarterlySales.addSeries('quantity', "Quantity", drillData.data.quantity, {
+      yAxis: 'quantity'
+    });
+    done();
+  });
+```
+
+And break it down bit by bit
+
+```
+  quarterlySales.addDrillStep (function (done, params) {
+```
+
+On the component object, we call a function called `addDrillStep` which accepts a function. This anonymous function is called whenever the user starts the drill down by clicking on an item in the chart.
+
+The function contains two arguments passed to it:
+
+* `done` - The `done()` function should be called when the drill down process is complete. This enables you to perform AJAX requests and update the chart asynchronously. We will be discussing more detail about this parameter.
+* `params` - the parameters about the item that has been clicked.
+
+```
+    var drillData = quarterlyData[params.label];
+```
+
+`params.label` contains the label of the item that was just clicked. So for example if the user clicked `"Q1"`, then, `quarterlyData['Q1']` will be selected.
+
+```
+    quarterlySales.setLabels (drillData.labels);
+    quarterlySales.addSeries('sales', "Sales", drillData.data.sales, {
+      numberPrefix: "$ "
+    });
+    quarterlySales.addSeries('quantity', "Quantity", drillData.data.quantity, {
+      yAxis: 'quantity'
+    });
+```
+
+We re-configure the chart by setting the labels and adding 2 series exactly how we did it in the first part of this tutorial. Except this time we add the new data for the chart. 
+
+Interestingly, you can also change the series completely, or even a different chart type. This gives you full freedom to show the kind of data that is most appropriate. In our current scenario, we wish to only show the same series because it's relavant to the data.
+
+```
+    done();
+  });
+```
+
+Now we finally come to the `done()` function. Note that you **must** call the `done()` function at the end, otherwise the drill down will not work. 
+
+Why is this necessary? Because of AJAX requests. Let's assume that `done()` didn't exist. Let's say for example, you have to make an AJAX Query, and update the chart with the new values. You would do something like:
+
+```
+  quarterlySales.addDrillStep (function (done, params) {
+    $.ajax({
+      method: "GET",
+      url: "/path/to/endpoint?label=" + params.label,
+      success: function () {
+        // The data might be updated asynchronously.
+        // But RazorFlow isn't expecting new data here.
+        quarterlySales.addSeries ();
+      }
+    });
+
+    // By the time the "drilldown" functionality is finished, 
+    // RazorFlow has no idea what to do next, because there's no updated data,
+    // and the user interface needs to be updated.
+  });
+```
+
+Instead, by calling `done()` you're telling RazorFlow Framework "Ok, I've updated the data on my drill down and I'm ready to display it to the user"
+```
+  quarterlySales.addDrillStep (function (done, params) {
+    $.ajax({
+      method: "GET",
+      url: "/path/to/endpoint?label=" + params.label,
+      success: function () {
+        // RazorFlow is still expecting new data here, since it knows
+        // that the drill down isn't over until you say it's over
+        quarterlySales.addSeries ();
+
+        // Call `done` after everything is finished. This tells RazorFlow
+        // that the drill down is ready to be displayed to the user.
+        done ();
+      }
+    });
+    // When the code reaches here, the `done` function hasn't been called yet.
+    // RazorFlow knows now the drill hasn't completed yet, so it avoids trying 
+    // to update the UI
+  });
+```
 
 # Tabbed Dashboards
 
-### Add another tab in the dashboard
+Sometimes your dashboards have multiple parts which need not all be displayed in the same part. For example in our current dashboard that we have built, we have 2 different categories of components - sales related components, and inventory related components. What if we could show them as 2 separate tabs. That's what we can do with tabbed dashboards.
 
-# Real time updating of components
+Before we modify our dashboard and make it tabbed, let's examine how tabbed dashboards work. 
 
-### Updating charts
+To make a tabbed dashboard, you have to supply `{tabbed:true}` to the `StandaloneDashboard` function. Roughly your dashboard skeleton will look like this.
+
+```
+StandaloneDashboard (function (db) {
+  var tab1 = new Dashboard ();
+  var tab2 = new Dashboard ();
+
+  // Add components to tab1:
+  tab1.addComponent (foo);
+  tab1.addComponent (bar);
+
+  // Add components to tab2:
+  tab2.addComponent (foo);
+  tab2.addComponent (bar);
+
+  // Now actually add the dashboards to the main dashboard.
+  db.addDashboardTab (tab1, {
+    title: "Tab 1 Title",
+    active: true // this tab should be active by default.
+  });
+  db.addDashboardTab (tab2, {
+    title: "Tab 2 Title"
+  });
+}, {tabbed:true});
+```
+
+**Before we begin modifying our existing dashboard, you will have to remove all existing references to `db.addComponent`**.
+
+Towards the end of your dashboard, you will create 2 new dashboard objects, and add the components to those dashboards:
+
+```
+  var sales_dashboard = new Dashboard ();
+  var inventory_dashboard = new Dashboard ();
+
+  sales_dashboard.addComponent (quarterlySales);
+  sales_dashboard.addComponent (numTickets);
+  sales_dashboard.addComponent (satisfactionGauge);
+  sales_dashboard.addComponent (ticketPriorities);
+
+  inventory_dashboard.addComponent (productsTable);
+  inventory_dashboard.addComponent (productFilterForm);
+
+  db.setTabbedDashboardTitle ("RazorFlow Tutorial Dashboard");
+  db.addDashboardTab (sales_dashboard, {
+    title: "Sales Dashboard",
+    active: true
+  });
+  db.addDashboardTab (inventory_dashboard, {
+    title: "Inventory Dashboard"
+  });
+}, {tabbed: true});
+```
+
+Here we are doing multiple things:
+
+1. We are creating new dashboard objects using the `new Dashboard` statements for the sales and inventory dashboards.
+2. We add all the components to the corresponding dashboards using the `addComponent` function
+3. We set the title of the tabbed dashboard.
+4. We use `addDashboardTab` to make sure that the tab is added to the primary dashboard, thus ensuring all the components are displayed.
+
+## Real time updating of components
+
+#### Updating charts
+
+To update a chart in real time, simply use `updateSeries` on the chart:
+
+```
+chart.updateSeries ('series_id', [data, goes, here]);
+```
 
 ### Updating KPIs and other components
+
+For most other components, simply calling a function should work as expected. For example, if you want to set a new value to a KPI, call:
+
+```
+kpi.setValue (newValue);
+```
+
+If you want to set a new caption: 
+
+```
+kpi.setCaption (newCaption);
+```
+
+Similar functionality works across all charts, tables and most other components. Calling a function on a component should automatically update the component and make sure that the final result is as expected.
+
+# Recap: Full dashboard
+
+After we've built the entire different components of the dashboards one by one this is what the code should finally look like when finished:
+
+```
+StandaloneDashboard(function(db){
+  var quarterlySales = new ChartComponent();
+  quarterlySales.setDimensions (6, 6);
+  quarterlySales.setCaption("Quarterly Sales");
+  quarterlySales.setLabels (["Q1", "Q2", "Q3", "Q4"]);
+  quarterlySales.addYAxis('quantity', "Quantity");
+  quarterlySales.addSeries('sales', "Sales", [13122, 41312, 46132, 51135], {
+    numberPrefix: "$ "
+  });
+  quarterlySales.addSeries('quantity', "Quantity", [121, 392, 420, 489], {
+    yAxis: 'quantity'
+  });
+  quarterlySales.addComponentKPI ('beverage', {
+      caption: 'Beverages',
+      value: 22900,
+      numberPrefix: ' $',
+      numberHumanize: true
+  });
+  quarterlySales.addComponentKPI('vegetable', {
+      caption: 'Vegetables',
+      value: 10401,
+      numberPrefix: ' $',
+      numberHumanize: true
+  });
+  quarterlySales.addComponentKPI('dairy', {
+      caption: 'Dairy',
+      value: 27700,
+      numberPrefix: ' $',
+      numberHumanize: true
+  });
+
+  var quarterlyData = {
+    'Q1': {
+      labels: ["Jan", "Feb", "March"],
+      data: {
+        quantity: [19, 46, 56],
+        sales: [3747, 3318, 6057]
+      }
+    },
+    'Q2': {
+      labels: ["April", "May", "June"],
+      data: {
+        sales: [11857, 17435, 12020],
+        quantity: [82, 163, 147]
+      }
+    },
+    'Q3': {
+      labels: ["July", "Aug", "Sep"],
+      data: {
+        sales: [12714, 15418, 18000],
+        quantity: [102, 156, 162]
+      }
+    },
+    'Q4': {
+      labels: ["Oct", "Nov", "Dec"],
+      data: {
+        sales: [14342, 21721, 15072],
+        quantity: [145, 207, 137]
+      }
+    }
+  }
+  quarterlySales.addDrillStep (function (done, params) {
+    var drillData = quarterlyData[params.label];
+    quarterlySales.setLabels (drillData.labels);
+    quarterlySales.addSeries('sales', "Sales", drillData.data.sales, {
+      numberPrefix: "$ "
+    });
+    quarterlySales.addSeries('quantity', "Quantity", drillData.data.quantity, {
+      yAxis: 'quantity'
+    });
+    done();
+  });
+
+
+  var numTickets = new KPIComponent ();
+  numTickets.setDimensions (3, 3);
+  numTickets.setCaption ("Open Support Tickets");
+  numTickets.setValue (42);
+
+  var satisfactionGauge = new GaugeComponent();
+  satisfactionGauge.setDimensions(3 ,3);
+  satisfactionGauge.setCaption('Customer Satisfaction');
+  satisfactionGauge.setValue(8);
+  satisfactionGauge.setLimits(0, 10);
+
+  var ticketPriorities = new KPIGroupComponent ();
+  ticketPriorities.setDimensions (6, 3);
+  ticketPriorities.setCaption('Ticket Priorities');
+  ticketPriorities.addKPI('high', {
+      caption: 'High Priority',
+      value: 6,
+  });
+  ticketPriorities.addKPI('normal', {
+      caption: 'Normal Priority',
+      value: 36,
+  });
+
+  var tableData = [
+  {name: "Broccoli", category: "Vegetables", price: 14},
+  {name: "Cheese", category: "Dairy", price: 18},
+  {name: "Tomatoes", category: "Vegetables", price: 8},
+  {name: "Orange Juice", category: "Beverages", price: 12},
+  {name: "Root Beer", category: "Beverages", price: 13},
+  ];
+
+  var productsTable = new TableComponent ();
+  productsTable.setDimensions (6, 6);
+  productsTable.setCaption ('Products');
+  productsTable.addColumn ('name', 'Name');
+  productsTable.addColumn ('category', 'Category');
+  productsTable.addColumn ('price', 'Price', {
+    dataType: "number",
+    numberPrefix: "$",
+    textAlign: "right",
+    numberForceDecimals: true
+  });
+  productsTable.addMultipleRows (tableData);
+
+  var productFilterForm = new FormComponent ();
+  productFilterForm.setDimensions (6, 6);
+  productFilterForm.setCaption ('Filter Products');
+  productFilterForm.addMultiSelectField ('category', 'Select Category', ['Vegetables', 'Diary', 'Beverages']);
+  productFilterForm.addTextField ('name', 'Product Name Contains');
+  productFilterForm.addNumericRangeField('price', 'Price', [5, 20]);
+
+
+  productFilterForm.onApplyClick(function() {
+    var inputValues = productFilterForm.getAllInputValues();
+    // Create a fresh copy of the products table data
+    var filteredValues = tableData;
+
+    // Filter the rows which contain product name requested
+    if(productFilterForm.isFieldSet ('name')) {
+      filteredValues = rf._.filter(filteredValues, function (row) {
+        return row['name'].search(inputValues['name']) !== -1;
+      })
+    }
+
+    // Filter rows which fall between a range of prices
+    if(productFilterForm.isFieldSet ('price')) {
+      filteredValues = rf._.filter(filteredValues, function (row) {
+        return row['price'] >= inputValues['price'][0] && row['price'] <= inputValues['price'][1]
+      })
+    }
+
+    // Filter only valid categories
+    if(productFilterForm.isFieldSet ('category')) {
+      filteredValues = rf._.filter(filteredValues, function (row) {
+        return rf._.contains(inputValues['category']['text'], row['category'])
+      })
+    }
+    
+    productsTable.clearRows ();
+    productsTable.addMultipleRows (filteredValues);
+
+  });
+
+  var sales_dashboard = new Dashboard ();
+  var inventory_dashboard = new Dashboard ();
+
+  sales_dashboard.addComponent (quarterlySales);
+  sales_dashboard.addComponent (numTickets);
+  sales_dashboard.addComponent (satisfactionGauge);
+  sales_dashboard.addComponent (ticketPriorities);
+
+  inventory_dashboard.addComponent (productsTable);
+  inventory_dashboard.addComponent (productFilterForm);
+
+  db.setTabbedDashboardTitle ("RazorFlow Tutorial Dashboard");
+  db.addDashboardTab (sales_dashboard, {
+    title: "Sales Dashboard",
+    active: true
+  });
+  db.addDashboardTab (inventory_dashboard, {
+    title: "Inventory Dashboard"
+  });
+}, {tabbed: true});
+```
