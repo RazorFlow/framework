@@ -61,7 +61,7 @@ define(['vendor/lodash', 'razorcharts2/plots/plot'], function (_, Plot) {
                         eventManager.trigger('tooltip.mouseout');
                     });
                 } ({
-                    seriesIndex: i, 
+                    seriesIndex: series[i].seriesIndex, 
                     labelIndex: j, 
                     value: series[i].data[j], 
                     label: this.options.labels[j], 

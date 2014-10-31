@@ -55,7 +55,7 @@ define(['razorcharts2/plots/plot', 'vendor/lodash'], function (Plot, _) {
                             }));
                         });
                     } ({
-                        seriesIndex: i, 
+                        seriesIndex: series[i].seriesIndex, 
                         labelIndex: j, 
                         value: series[i].data[j], 
                         label: this.options.labels[j], 
