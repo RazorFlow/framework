@@ -52,7 +52,7 @@ define([
          */
         self.setRootObject = function (object) {
             var key;
-
+            data = _.clone(defaults);
             object = self.flipMedia(object);
 
             for (key in object) {

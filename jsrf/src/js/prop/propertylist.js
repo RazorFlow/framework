@@ -22,6 +22,8 @@ define([
         self.setRootObject = function (object) {
           var key,
               i;
+          dataArr = [];
+          dataObj = [];
           if (typeof(object[0]) === "undefined") {
             objMode = true;
           }
