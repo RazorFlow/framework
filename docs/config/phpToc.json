@@ -1,5 +1,11 @@
 [
     {
+        "id": "getting_started_php"
+    },
+    {
+        "id": "tutorial_php"
+    },
+    {
         "id": "php_guide_index",
         "children": [
             {

@@ -3,6 +3,9 @@
         "id": "getting_started"
     },
     {
+        "id": "tutorial_js"
+    },
+    {
         "id": "js_guide_root",
         "children": [
             {
