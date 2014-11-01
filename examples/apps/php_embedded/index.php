@@ -12,6 +12,7 @@ require "salesdashboard.php";
 		<?php
 		$db = new SalesDashboard ();
 		$db->setActionPath("action.php");
+		$db->setWidth("400px");
 		$db->renderEmbedded();
 		?>
 	</body>

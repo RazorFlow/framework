@@ -1,7 +1,7 @@
 <?php
 
 // Change this to the path to razorflow.php which you have extracted
-require "../../lib/phprf/razorflow.php";
+require "../../lib/razorflow_php/razorflow.php";
 
 class SalesDashboard extends EmbeddedDashboard {
   public function buildDashboard(){
