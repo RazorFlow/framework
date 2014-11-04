@@ -85,7 +85,7 @@ module.exports = function(grunt) {
             },
             examples: {
                 files: [
-                    {cwd: "build/razorflow_js/", src:"**/*", dest: "examples/static/rf/"},
+                    {cwd: "build/razorflow_js/files/", src:"**/*", dest: "examples/static/rf/"},
                     {cwd: "build/php/razorflow_php/", src:"**/*", dest: "examples/lib/razorflow_php/"}
                 ]
                 .concat(_.map([
