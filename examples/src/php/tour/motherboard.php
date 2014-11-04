@@ -21,6 +21,7 @@ class SalesDashboard extends Dashboard {
   );
 
   public function initialize () {
+    // $this->pdo = new PDO("sqlite:/Users/anirudh/rf/website/src/static/fixtures/Northwind.sqlite");
     $this->pdo = new PDO("sqlite:".$_SERVER['DOCUMENT_ROOT']."/static/fixtures/Northwind.sqlite");
   }
 
@@ -74,6 +75,7 @@ class SalesDashboard extends Dashboard {
       'numberPrefix' => "$"
     ));
     $totalSalesArr = ArrayUtils::pluck($categoryData, "total_amount");
+    $totalSalesArr = array_map('intval', $totalSalesArr);
     $category->addSeries ("sales", "Sales", $totalSalesArr, array(
       'numberPrefix' => "$"
     ));
@@ -81,6 +83,7 @@ class SalesDashboard extends Dashboard {
     $category->addYAxis('unitsAx', "Units in Inventory", array());
 
     $totalUnitsArr = ArrayUtils::pluck($quantityData, "total_quantity");
+    $totalUnitsArr = array_map('intval', $totalUnitsArr);
     $category->addSeries ("units", "Units in Inventory", $totalUnitsArr, array(
       "seriesDisplayType" => "line",
       "yAxis" => 'unitsAx'
@@ -133,7 +136,9 @@ class SalesDashboard extends Dashboard {
 
     $goodsSoldData = $this->get_goodsSold();
     foreach ($goodsSoldData as $key => $value) {
-      $goods->addSeries ($key, $key, ArrayUtils::pluck($value, "total_amount"), array(
+      $amountArr = ArrayUtils::pluck($value, "total_amount");
+      $amountArr = array_map('intval', $amountArr);
+      $goods->addSeries ($key, $key, $amountArr, array(
         'numberPrefix' => "$",
         'seriesStacked' => true
       ));  
