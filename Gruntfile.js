@@ -90,6 +90,7 @@ module.exports = function(grunt) {
                 ]
                 .concat(_.map([
                     'php_mvc/cakephp/app/vendor/razorflow_php/',
+                    'php_embedded/razorflow_php/',
                     'distributable/php_database_sample/razorflow_php/'
                 ], function(val){ return {cwd:"build/php/razorflow_php", src:"**/*", dest:"examples/apps/"+val};  })).concat(_.map([
                     'html_embedded/razorflow_js/',
