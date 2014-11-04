@@ -70,6 +70,7 @@ define([
        * @param {Object} options The options object
        */
       addMultiSelectField: function (id, label, list, options) {
+        options = options || {};
         var _options = _.extend(options, {
               defaultSelectedOptions: options.defaultSelectedOptions || []
             }),
@@ -171,6 +172,16 @@ define([
        */
       getAllInputValues: function() {
         return pro.renderer.getAllInputValues();
+      },
+
+      /**
+       * Check if the field of the form component has been set.
+       * 
+       * @param {String} id The id of a specific field
+       * @method 
+       */
+      isFieldSet: function(id) {
+        return pro.renderer.isFieldSet(id);
       },
 
       /**

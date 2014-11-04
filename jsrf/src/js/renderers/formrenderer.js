@@ -71,6 +71,54 @@ define([
       resizeCore: function (width, height) {
 
       },
+      isFieldSet: function (id) {
+        var item = self.props.form.items[id];
+        var $itemContainer = self.$core.find('.formItems');
+        if (!item) {
+          return false;
+        }
+
+        if (item.type === 'text') {
+          return $itemContainer.find('[data-key=' + item.id + ']').val() !== "";
+        } else if (item.type === 'select') {
+          var index = $itemContainer.find('[data-key=' + item.id + ']')[0].selectedIndex;
+          return {
+            text: item.list[index],
+            index: index
+          };
+        } else if (item.type === 'multiSelect') {
+          var options = $itemContainer.find('[data-key=' + item.id + '] option');
+          var indices = [], texts = [];
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+              indices.push(i);
+              texts.push(item.list[i]);
+            }
+          }
+          return texts.length > 0;
+        } else if (item.type === 'date') {
+          // Always process since a value will be set by default
+          return true;
+        } else if (item.type === 'dateRange') {
+          // Always process since a value will be set by default
+          return true;
+        } else if (item.type === 'numericRange') {
+          // if(!Modernizr.touch){
+          //   return item.numberSlider.getRangeValues();
+          // }
+
+          // return [+$itemContainer.find('[data-key=' + item.id + '].rangeStart').val(),
+          //   +$itemContainer.find('[data-key=' + item.id + '].rangeEnd').val()];
+          // Always process since a value will be set by default
+          return true;
+        } else if (item.type === 'checkbox') {
+          // return $itemContainer.find('[data-key=' + item.id + ']').is(':checked');
+          // Always process since a value will be set by default
+          return true;
+        }
+
+        return false;
+      },
       getInputValue: function (id) {
         var item = self.props.form.items[id];
         var $itemContainer = self.$core.find('.formItems');
