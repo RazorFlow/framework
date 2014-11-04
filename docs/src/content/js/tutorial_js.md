@@ -146,24 +146,8 @@ A dashboard will usually contain more than one component, and so will the dashbo
 
 To recap, this is the final code that we've built so far:
 
-```
-StandaloneDashboard(function(db){
-  var quarterlySales = new ChartComponent();
-  quarterlySales.setDimensions (6, 6);
-  quarterlySales.setCaption("Quarterly Sales");
-  quarterlySales.setLabels (["Q1", "Q2", "Q3", "Q4"]);
-  quarterlySales.addYAxis('quantity', "Quantity");
-  quarterlySales.addSeries('sales', "Sales", [13122, 41312, 46132, 51135], {
-    numberPrefix: "$ "
-  });
-  quarterlySales.addSeries('quantity', "Quantity", [121, 392, 420, 489], {
-    yAxis: 'quantity'
-  });
-  db.addComponent (quarterlySales);
 
-  // ====== New components will come here ========
-});
-```
+<%- embedExample ('js', 'tutorial0') %>
 
 # KPI Components
 
@@ -364,6 +348,10 @@ As you may already have noticed, the function `addComponentKPI` is very similar 
    * `numberPrefix` - Since the sales are currency we can pass the `numberPrefix` configuration parameter and the number will be prefixed with a "$" sign.
    * `numberHumanize` - This is a configuration parameter available in many other places. What this does is make the number more "human". Instead of `1321421`, it will display it as `1.32M`, which makes it vastly more readable and takes up less space.
 
+After adding the KPI component this is what you should have:
+
+<%- embedExample ('js', 'tutorial1') %>
+
 # Table Components
 
 Tables are quite useful for displaying large quantities of Data, and RazorFlow framework includes native default support for tables along with useful functionality like pagination and conditional formatting.
@@ -466,95 +454,9 @@ Setting these two parameters ensure that 2 decimal places are always shown. So a
 
 # The full dashboard
 
-Congratulations you built your first full dashboard! It includes several but not all components of the RazorFlow framework. To recap, this is how the code should be looking like after building the entire dashboard.
-
-```
-StandaloneDashboard(function(db){
-  var quarterlySales = new ChartComponent();
-  quarterlySales.setDimensions (6, 6);
-  quarterlySales.setCaption("Quarterly Sales");
-  quarterlySales.setLabels (["Q1", "Q2", "Q3", "Q4"]);
-  quarterlySales.addYAxis('quantity', "Quantity");
-  quarterlySales.addSeries('sales', "Sales", [13122, 41312, 46132, 51135], {
-    numberPrefix: "$ "
-  });
-  quarterlySales.addSeries('quantity', "Quantity", [121, 392, 420, 489], {
-    yAxis: 'quantity'
-  });
-  quarterlySales.addComponentKPI ('beverage', {
-      caption: 'Beverages',
-      value: 22900,
-      numberPrefix: ' $',
-      numberHumanize: true
-  });
-  quarterlySales.addComponentKPI('vegetable', {
-      caption: 'Vegetables',
-      value: 10401,
-      numberPrefix: ' $',
-      numberHumanize: true
-  });
-  quarterlySales.addComponentKPI('dairy', {
-      caption: 'Dairy',
-      value: 27700,
-      numberPrefix: ' $',
-      numberHumanize: true
-  });
-  db.addComponent (quarterlySales);
-
-  var numTickets = new KPIComponent ();
-  numTickets.setDimensions (3, 3);
-  numTickets.setCaption ("Open Support Tickets");
-  numTickets.setValue (42);
-  db.addComponent (numTickets);
-
-  var satisfactionGauge = new GaugeComponent();
-  satisfactionGauge.setDimensions(3 ,3);
-  satisfactionGauge.setCaption('Customer Satisfaction');
-  satisfactionGauge.setValue(8);
-  satisfactionGauge.setLimits(0, 10);
-  db.addComponent(satisfactionGauge);
-
-  var ticketPriorities = new KPIGroupComponent ();
-  ticketPriorities.setDimensions (6, 3);
-  ticketPriorities.setCaption('Ticket Priorities');
-  ticketPriorities.addKPI('high', {
-      caption: 'High Priority',
-      value: 6,
-  });
-  ticketPriorities.addKPI('normal', {
-      caption: 'Normal Priority',
-      value: 36,
-  });
-  db.addComponent (ticketPriorities);
-
-  var tableData = [
-  {name: "Broccoli", category: "Vegetables", price: 14},
-  {name: "Cheese", category: "Dairy", price: 18},
-  {name: "Tomatoes", category: "Vegetables", price: 8},
-  {name: "Orange Juice", category: "Beverages", price: 12},
-  {name: "Root Beer", category: "Beverages", price: 13},
-  ];
-
-  var productsTable = new TableComponent ();
-  productsTable.setDimensions (6, 6);
-  productsTable.setCaption ('Products');
-  productsTable.addColumn ('name', 'Name');
-  productsTable.addColumn ('category', 'Category');
-  productsTable.addColumn ('price', 'Price', {
-    dataType: "number",
-    numberPrefix: "$",
-    textAlign: "right",
-    numberDecimalPlaces: 2,
-    numberForceDecimals: true
-  });
-  productsTable.addMultipleRows (tableData);
-  db.addComponent(productsTable);
-});
-```
+Congratulations you built your first full dashboard! It includes several but not all components of the RazorFlow framework.
 
 Note that even as we go forward we'll be building on top of the same dashboard which will enable us to explore the functionality of RazorFlow Framework but also see it in a real-world use-case context.
-
-### View on mobile devices
 
 # Add form for filtering data
 
@@ -800,6 +702,10 @@ Similar to how we filtered out the name we use `rf._.filter` to filter out the p
 ```
 
 To filter the category we use another underscore.js function, which is [underscore.contains](http://underscorejs.org/#contains). We simply check whether the list of categories selected by the user contains the original category that is along with the data.
+
+This is the full code of the dashboard so far:
+
+<%- embedExample ('js', 'tutorial2') %>
 
 # Drill Downs
 
@@ -1090,182 +996,4 @@ Similar functionality works across all charts, tables and most other components.
 
 After we've built the entire different components of the dashboards one by one this is what the code should finally look like when finished:
 
-```
-StandaloneDashboard(function(db){
-  var quarterlySales = new ChartComponent();
-  quarterlySales.setDimensions (6, 6);
-  quarterlySales.setCaption("Quarterly Sales");
-  quarterlySales.setLabels (["Q1", "Q2", "Q3", "Q4"]);
-  quarterlySales.addYAxis('quantity', "Quantity");
-  quarterlySales.addSeries('sales', "Sales", [13122, 41312, 46132, 51135], {
-    numberPrefix: "$ "
-  });
-  quarterlySales.addSeries('quantity', "Quantity", [121, 392, 420, 489], {
-    yAxis: 'quantity'
-  });
-  quarterlySales.addComponentKPI ('beverage', {
-      caption: 'Beverages',
-      value: 22900,
-      numberPrefix: ' $',
-      numberHumanize: true
-  });
-  quarterlySales.addComponentKPI('vegetable', {
-      caption: 'Vegetables',
-      value: 10401,
-      numberPrefix: ' $',
-      numberHumanize: true
-  });
-  quarterlySales.addComponentKPI('dairy', {
-      caption: 'Dairy',
-      value: 27700,
-      numberPrefix: ' $',
-      numberHumanize: true
-  });
-
-  var quarterlyData = {
-    'Q1': {
-      labels: ["Jan", "Feb", "March"],
-      data: {
-        quantity: [19, 46, 56],
-        sales: [3747, 3318, 6057]
-      }
-    },
-    'Q2': {
-      labels: ["April", "May", "June"],
-      data: {
-        sales: [11857, 17435, 12020],
-        quantity: [82, 163, 147]
-      }
-    },
-    'Q3': {
-      labels: ["July", "Aug", "Sep"],
-      data: {
-        sales: [12714, 15418, 18000],
-        quantity: [102, 156, 162]
-      }
-    },
-    'Q4': {
-      labels: ["Oct", "Nov", "Dec"],
-      data: {
-        sales: [14342, 21721, 15072],
-        quantity: [145, 207, 137]
-      }
-    }
-  }
-  quarterlySales.addDrillStep (function (done, params) {
-    var drillData = quarterlyData[params.label];
-    quarterlySales.setLabels (drillData.labels);
-    quarterlySales.addSeries('sales', "Sales", drillData.data.sales, {
-      numberPrefix: "$ "
-    });
-    quarterlySales.addSeries('quantity', "Quantity", drillData.data.quantity, {
-      yAxis: 'quantity'
-    });
-    done();
-  });
-
-
-  var numTickets = new KPIComponent ();
-  numTickets.setDimensions (3, 3);
-  numTickets.setCaption ("Open Support Tickets");
-  numTickets.setValue (42);
-
-  var satisfactionGauge = new GaugeComponent();
-  satisfactionGauge.setDimensions(3 ,3);
-  satisfactionGauge.setCaption('Customer Satisfaction');
-  satisfactionGauge.setValue(8);
-  satisfactionGauge.setLimits(0, 10);
-
-  var ticketPriorities = new KPIGroupComponent ();
-  ticketPriorities.setDimensions (6, 3);
-  ticketPriorities.setCaption('Ticket Priorities');
-  ticketPriorities.addKPI('high', {
-      caption: 'High Priority',
-      value: 6,
-  });
-  ticketPriorities.addKPI('normal', {
-      caption: 'Normal Priority',
-      value: 36,
-  });
-
-  var tableData = [
-  {name: "Broccoli", category: "Vegetables", price: 14},
-  {name: "Cheese", category: "Dairy", price: 18},
-  {name: "Tomatoes", category: "Vegetables", price: 8},
-  {name: "Orange Juice", category: "Beverages", price: 12},
-  {name: "Root Beer", category: "Beverages", price: 13},
-  ];
-
-  var productsTable = new TableComponent ();
-  productsTable.setDimensions (6, 6);
-  productsTable.setCaption ('Products');
-  productsTable.addColumn ('name', 'Name');
-  productsTable.addColumn ('category', 'Category');
-  productsTable.addColumn ('price', 'Price', {
-    dataType: "number",
-    numberPrefix: "$",
-    textAlign: "right",
-    numberForceDecimals: true
-  });
-  productsTable.addMultipleRows (tableData);
-
-  var productFilterForm = new FormComponent ();
-  productFilterForm.setDimensions (6, 6);
-  productFilterForm.setCaption ('Filter Products');
-  productFilterForm.addMultiSelectField ('category', 'Select Category', ['Vegetables', 'Diary', 'Beverages']);
-  productFilterForm.addTextField ('name', 'Product Name Contains');
-  productFilterForm.addNumericRangeField('price', 'Price', [5, 20]);
-
-
-  productFilterForm.onApplyClick(function() {
-    var inputValues = productFilterForm.getAllInputValues();
-    // Create a fresh copy of the products table data
-    var filteredValues = tableData;
-
-    // Filter the rows which contain product name requested
-    if(productFilterForm.isFieldSet ('name')) {
-      filteredValues = rf._.filter(filteredValues, function (row) {
-        return row['name'].search(inputValues['name']) !== -1;
-      })
-    }
-
-    // Filter rows which fall between a range of prices
-    if(productFilterForm.isFieldSet ('price')) {
-      filteredValues = rf._.filter(filteredValues, function (row) {
-        return row['price'] >= inputValues['price'][0] && row['price'] <= inputValues['price'][1]
-      })
-    }
-
-    // Filter only valid categories
-    if(productFilterForm.isFieldSet ('category')) {
-      filteredValues = rf._.filter(filteredValues, function (row) {
-        return rf._.contains(inputValues['category']['text'], row['category'])
-      })
-    }
-    
-    productsTable.clearRows ();
-    productsTable.addMultipleRows (filteredValues);
-
-  });
-
-  var sales_dashboard = new Dashboard ();
-  var inventory_dashboard = new Dashboard ();
-
-  sales_dashboard.addComponent (quarterlySales);
-  sales_dashboard.addComponent (numTickets);
-  sales_dashboard.addComponent (satisfactionGauge);
-  sales_dashboard.addComponent (ticketPriorities);
-
-  inventory_dashboard.addComponent (productsTable);
-  inventory_dashboard.addComponent (productFilterForm);
-
-  db.setTabbedDashboardTitle ("RazorFlow Tutorial Dashboard");
-  db.addDashboardTab (sales_dashboard, {
-    title: "Sales Dashboard",
-    active: true
-  });
-  db.addDashboardTab (inventory_dashboard, {
-    title: "Inventory Dashboard"
-  });
-}, {tabbed: true});
-```
+<%- embedExample ('js', 'tutorial3') %>

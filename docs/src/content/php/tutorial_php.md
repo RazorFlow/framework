@@ -145,24 +145,7 @@ A dashboard will usually contain more than one component, and so will the dashbo
 
 To recap, this is the final code that we've built so far:
 
-```
-  public function buildDashboard(){
-    $quarterlySales = new ChartComponent('quarterlySales');
-    $quarterlySales->setDimensions (6, 6);
-    $quarterlySales->setCaption("Quarterly Sales");
-    $quarterlySales->setLabels (array("Q1", "Q2", "Q3", "Q4"));
-    $quarterlySales->addYAxis('quantity', "Quantity");
-    $quarterlySales->addSeries('sales', "Sales", array(13122, 41312, 46132, 51135), array(
-      'numberPrefix' => "$"
-      ));
-    $quarterlySales->addSeries('quantity', "Quantity", array(121, 392, 420, 489), array(
-      'yAxis' => 'quantity'
-      ));
-    $this->addComponent ($quarterlySales);
-
-    // ====== New components will come here ========
-  }
-```
+<%- embedExample ('php', 'tutorial0') %>
 
 # KPI Components
 
@@ -359,6 +342,10 @@ As you may already have noticed, the function `addComponentKPI` is very similar 
    * `value` - the number that will be displayed for the KPI
    * `numberPrefix` - Since the sales are currency we can pass the `numberPrefix` configuration parameter and the number will be prefixed with a "$" sign.
    * `numberHumanize` - This is a configuration parameter available in many other places. What this does is make the number more "human". Instead of `1321421`, it will display it as `1.32M`, which makes it vastly more readable and takes up less space.
+
+This is the dashboard so far:
+
+<%- embedExample ('php', 'tutorial1') %>
 
 # Table Components
 
@@ -829,6 +816,8 @@ public function handleApplyClick ($source, $targets, $params) {
 }
 ```
 
+<%- embedExample ('php', 'tutorial2') %>
+
 # Drill Downs
 
 Sometimes, the best way to provide the right data, is to allow your users to explore the data. For example, in our Quarterly Sales Chart (which we built in part 1) - while quarterly view might be useful for most people, some people might want to see monthly data. A drill down is the perfect way to allow your users to explore their data in this regard.
@@ -1000,6 +989,8 @@ kpi.setCaption (newCaption);
 Similar functionality works across all charts, tables and most other components. Calling a function on a component should automatically update the component and make sure that the final result is as expected.
 
 # Recap: Full dashboard
+
+<%- embedExample ('php', 'tutorial3') %>
 
 After we've built the entire different components of the dashboards one by one this is what the code should finally look like when finished:
 

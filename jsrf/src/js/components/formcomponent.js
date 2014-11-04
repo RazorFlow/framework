@@ -178,7 +178,7 @@ define([
        * Check if the field of the form component has been set.
        * 
        * @param {String} id The id of a specific field
-       * @method 
+       * @method isFieldSet
        */
       isFieldSet: function(id) {
         return pro.renderer.isFieldSet(id);
