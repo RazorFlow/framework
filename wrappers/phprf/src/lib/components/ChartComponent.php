@@ -28,6 +28,7 @@ class ChartComponent extends RFComponent {
      */
     public function addSeries ($id, $name="", $seriesData = array(), $opts = array())
     {
+
         if(is_array($id)) {
             if(is_string($name)) {
                 $name = array();
@@ -39,6 +40,7 @@ class ChartComponent extends RFComponent {
             $this->addSeries ("series_0", "", $id, $name);
             return;
         }
+        $seriesData = array_map('floatval', $seriesData);
         $this->provide('series');
         $opts['seriesName'] = $name;
         $this->props->addItemToList('chart.series', $id, $opts);
