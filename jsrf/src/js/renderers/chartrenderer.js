@@ -344,6 +344,7 @@ define([
         animateOnRender: false,
         dualAxis: dualY,
         showPieLabels: self.props.chart.showPieValues,
+        stackedTotalDisplay: self.props.chart.stackedTotalDisplay,
         plotItemClasses: hasItemClickSubscribed ? 'activate' : '',
         xAxis: {
           axisLine: true,

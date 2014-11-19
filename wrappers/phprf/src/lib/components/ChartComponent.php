@@ -180,9 +180,11 @@ class ChartComponent extends RFComponent {
         } else if($key === "showPieValues") {
             $this->props->setValue ("chart.showPieValues", $value);
             return true;
-        }
-        else if($key === "showLabelFlag") {
+        } else if($key === "showLabelFlag") {
             $this->props->setValue ("chart.showLabelFlag", $value);
+            return true;
+        } else if($key === "stackedTotalDisplay") {
+            $this->props->setValue ("chart.stackedTotalDisplay", $value);
             return true;
         }
         return false;

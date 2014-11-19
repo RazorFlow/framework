@@ -546,7 +546,11 @@ key: 'showLabelFlag',
 {
 key: 'labelStep',
     value:new LabelStepProperties(),
-    type: 'PropertyBase'}
+    type: 'PropertyBase'},
+{
+key: 'stackedTotalDisplay',
+    value:false,
+    type: 'boolean'}
   ]);
 }
 exports.ChartProperties = ChartProperties;

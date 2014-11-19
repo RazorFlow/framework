@@ -22,6 +22,7 @@ define(['razorcharts/utils/colorutils', 'vendor/lodash'], function(colorUtils, _
                 }
             ],
             seriesPlotItems = [],
+            totalLabels = [],
             width = null,
             height = null,
             eventManager = null;
@@ -152,6 +153,25 @@ define(['razorcharts/utils/colorutils', 'vendor/lodash'], function(colorUtils, _
                     }, animate ? 500 : 0);
                 }
             }
+            if(options.stacked && options.stackedTotalDisplay) {
+                for(i=0; i<dataLength; i++) {
+                    var totalData = indexTotal(i);
+                    var labelPadding = totalData.value > 0 ? -10 : 10;
+                    var label;
+                    _x = (seriesWidth * i) + (seriesWidth / 2);
+                    _y = height - yScale.calc(totalData.value) + labelPadding;
+                    if(create) {
+                        label = paper.text (_x, height, totalData.label, columnCore);
+                        totalLabels[i] = label;
+                    } else {
+                        label = totalLabels[i];
+                    }
+                    label.animate({
+                        x: _x,
+                        y: _y
+                    }, animate ? 500 : 0);
+                }
+            }
         };
 
         var createClickCallback = function (params, $el) {
@@ -198,6 +218,31 @@ define(['razorcharts/utils/colorutils', 'vendor/lodash'], function(colorUtils, _
                 num += negative ? (val < 0) ? val : 0 : (val > 0) ? val : 0;
             }
             return num;
+        };
+
+        var indexTotal = function (dataIndex) {
+            var series = options.series;
+            var sum = 0, neg = 0, pos = 0;
+            for(var i=0; i<series.length; i++) {
+                var data = series[i].data[dataIndex];
+                sum += data;
+                if(data >= 0) {
+                    pos += data;
+                } else {
+                    neg += data; 
+                }
+            }
+            if(pos === 0) {
+                return { 
+                    value: neg,
+                    label: neg
+                };
+            } else {
+                return {
+                    value: pos,
+                    label: sum
+                }
+            }
         };
     };
 

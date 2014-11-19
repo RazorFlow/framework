@@ -395,6 +395,8 @@ define([
           pro.pb.setValue("chart.showPieValues", value);
         } else if(key === "showLabelFlag") {
           pro.pb.setValue("chart.showLabelFlag", value);
+        } else if(key === "stackedTotalDisplay") {
+          pro.pb.setValue("chart.stackedTotalDisplay", value);
         }
       }
     };

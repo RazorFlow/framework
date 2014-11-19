@@ -289,7 +289,8 @@ class ChartProperties extends PropertyBase {
     'showLegendFlag' => true,
     'showPieValues' => true,
     'showLabelFlag' => true,
-    'labelStep' => new LabelStepProperties()
+    'labelStep' => new LabelStepProperties(),
+    'stackedTotalDisplay' => false
     ));
   }
   

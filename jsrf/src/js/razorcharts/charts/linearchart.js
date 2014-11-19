@@ -58,9 +58,15 @@ define(['razorcharts/renderers/column',
                 var chartType = chartTypeKeys[c];
                 var _series = _.where(series, {displayType: chartType});
                 // debugger
-                stackedByChartType[chartType] = _.reduce(_series, function(item, mem) {
-                    return mem.stacked || (item && item.stacked);
-                });
+                if(_series.length > 1) {
+                    stackedByChartType[chartType] = _.reduce(_series, function(item, mem) {
+                        return mem.stacked || (item && item.stacked);
+                    });
+                } else {
+                    stackedByChartType[chartType] = series[0].stacked;
+                }
+                    
+
                 chartSeriesByType[chartType] = _series;
                 var _data = [];
                 if(stackedByChartType[chartType]) {
@@ -138,6 +144,7 @@ define(['razorcharts/renderers/column',
                     charts[key].config({
                         yScale: yScale,
                         stacked: stackedByChartType[key],
+                        stackedTotalDisplay: options.stackedTotalDisplay,
                         series: chartSeriesByType[key],
                         dualAxis: !!options.dualAxis,
                         animateOnRender: !!options.animateOnRender,

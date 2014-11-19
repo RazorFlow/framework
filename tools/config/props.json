@@ -539,6 +539,11 @@
                 "type": "PropertyBase",
                 "class": "LabelStepProperties",
                 "shortDesc": "PropertyBase related to the labelStep paramater for charts"
+            },
+            "stackedTotalDisplay": {
+                "type": "boolean",
+                "default": false,
+                "shortDesc": "When set to true, Stacked Column charts will display a total label"
             }
         }
     },
