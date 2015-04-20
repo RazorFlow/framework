@@ -386,6 +386,7 @@ module.exports = function(grunt) {
     grunt.registerTask("package", ["clean:build", "build", "makePackage", "versionWriter"]);
     grunt.registerTask("upload", ["s3:upload_package"]);
     grunt.registerTask("test:wrappers", ["exec:casperphp"]);
+    grunt.registerTask("quickbuild", ["clean:build", "build:code", "makePackage", "versionWriter"])
 
 
     grunt.loadNpmTasks('grunt-contrib-clean');
