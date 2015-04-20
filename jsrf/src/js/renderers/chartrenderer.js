@@ -384,7 +384,8 @@ define([
         },
         series: coreChartType === 'pie' ? _series[0] : _series,
         showLabelFlag: showLabelFlag,
-        labelStep: self.props.chart.labelStep
+        labelStep: self.props.chart.labelStep,
+        trendline: self.props.chart.trendline
       });
 
     };

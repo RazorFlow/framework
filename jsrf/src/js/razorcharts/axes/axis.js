@@ -24,7 +24,8 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             eventManager = null,
             tooltip = null,
             xOffset = 0,
-            yOffset = 0;
+            yOffset = 0,
+            trendLabel = null;
 
         self.config = function(_options) {
             options = _options;
@@ -58,6 +59,7 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
             }
             tickContainer = paper.group('tickContainer', core);
             ticks = createTicks(tickValues, options.type);
+            createTrendLine ();
             if(options.axisLine) {
                 if(options.type === 'left') {
                     axisLine = paper.path('m0,0 l0' + ',' + h, tickContainer);
@@ -106,6 +108,10 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                         g.transform('t0,' + (h - scale.calc(tickValues[i])));
                     }
                 }
+                if(options.trendline.enabled) {
+                    trendLabel.transform('t0,' + (h - scale.calc(options.trendline.value)));
+                }
+
                 if(options.axisLine) {
                     axisLine.attr('path', 'm0,0 l0' + ',' + h);
                 }
@@ -118,6 +124,8 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
                     });
                     axisLabelHeight += 14;
                 }
+                // drawTrendLine(h, 14000, "Hello");
+
                 tickContainer.transform('t' + (tickContainer.node.getBBox().width + axisLabelHeight) + ',0');             
             } else if(options.type === 'right') {
                 rangeUnit = h / (tickValues.length);
@@ -340,6 +348,20 @@ define(['razorcharts/scales/scale', 'razorcharts/utils/graphutils', 'razorcharts
           return function () {
             eventManager.trigger('labelActivate', params);
           };
+        };
+
+        var createTrendLine = function () {
+            if(options.trendline && options.trendline.enabled) {
+                var g = paper.group('trendline', tickContainer);
+                trendLabel = paper.text(0, 0, options.trendline.label, g);
+                trendLabel.attr({
+                    x: -14,
+                    'text-anchor': 'end',
+                    'fill': options.trendline.color
+                });
+                trendLabel.node.setAttribute('class', 'rc-trendlabel');
+
+            }
         };
 
         var createTicks = function(_tickValues, orientation) {

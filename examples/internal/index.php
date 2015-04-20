@@ -13,6 +13,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 global $rfExampleConfig;
 // mounts
+// var_dump($rfExampleConfig['mounts']);
+// die("Internal");
 foreach($rfExampleConfig['mounts'] as $point => $path) {
 	$app->get("/mount/$point/{fileName}", function ($fileName) use ($app, $path) {
 		$filePath = $path.$fileName;

@@ -548,12 +548,43 @@ key: 'labelStep',
     value:new LabelStepProperties(),
     type: 'PropertyBase'},
 {
+key: 'trendline',
+    value:new TrendLineProperties(),
+    type: 'PropertyBase'},
+{
 key: 'stackedTotalDisplay',
     value:false,
     type: 'boolean'}
   ]);
 }
 exports.ChartProperties = ChartProperties;
+
+
+
+
+function TrendLineProperties() {
+  PropertyBase.call(this);
+
+  this.register([
+    {
+key: 'value',
+    value:null,
+    type: 'number'},
+{
+key: 'label',
+    value:"",
+    type: 'string'},
+{
+key: 'color',
+    value:"#000000",
+    type: 'string'},
+{
+key: 'enabled',
+    value:false,
+    type: 'boolean'}
+  ]);
+}
+exports.TrendLineProperties = TrendLineProperties;
 
 
 

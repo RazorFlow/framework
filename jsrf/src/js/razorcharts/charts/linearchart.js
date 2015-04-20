@@ -209,7 +209,8 @@ define(['razorcharts/renderers/column',
                     scale: yScale,
                     type: 'left',
                     dataMin: min,
-                    dataMax: max
+                    dataMax: max,
+                    trendline: options.trendline
                 }));
             }
 
@@ -227,7 +228,8 @@ define(['razorcharts/renderers/column',
             grid.config({
                 yScale: options.dualAxis ? yScale['left'] : yScale,
                 yAxis: options.dualAxis ? yAxis['left'] : yAxis,
-                type: 'y'
+                type: 'y',
+                trendline: options.trendline
             });
             if(options.tooltip) {
                 tooltip.config({

@@ -290,7 +290,23 @@ class ChartProperties extends PropertyBase {
     'showPieValues' => true,
     'showLabelFlag' => true,
     'labelStep' => new LabelStepProperties(),
+    'trendline' => new TrendLineProperties(),
     'stackedTotalDisplay' => false
+    ));
+  }
+  
+}
+
+class TrendLineProperties extends PropertyBase {
+
+  public function init() {
+    parent::init();
+
+    $this->register(array(
+          'value' => null,
+    'label' => "",
+    'color' => "#000000",
+    'enabled' => false
     ));
   }
   

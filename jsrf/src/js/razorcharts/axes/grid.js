@@ -12,7 +12,8 @@ define(['razorcharts/utils/graphutils', 'razorcharts/utils/pathgen', 'razorchart
             oldXScale = null,
             gridContainer = null,
             oldYTicks = null,
-            oldXTicks = null;
+            oldXTicks = null,
+            trendLineElement;
 
         self.config = function(_options) {
             options = _options;
@@ -140,6 +141,27 @@ define(['razorcharts/utils/graphutils', 'razorcharts/utils/pathgen', 'razorchart
                         opacity: 1
                     }, animate ? 500: 0);
                 }
+
+                if(options.trendline && options.trendline.enabled) {
+                    // Handle trendLinePath
+                    var val = options.trendline.value;
+                    var trendLinePath = new PathGen().moveTo(0, height - scale.calc(val)).lineTo(width, height - scale.calc(val)).path();
+
+                    if(create) {
+                        trendLineElement = paper.path(trendLinePath, gridContainer);
+                        trendLineElement.attr({
+                            opacity: 1,
+                        });
+                        trendLineElement.node.setAttribute("class", "rc-trendlabel");
+                    }
+                    else {
+                        trendLineElement.attr({
+                            path: trendLinePath
+                        })
+                    }
+                }
+
+
             }
             if(options.type.indexOf('x') !== -1) {
                 for(i=-1; ++i<xTicks.length;) {
@@ -150,7 +172,6 @@ define(['razorcharts/utils/graphutils', 'razorcharts/utils/pathgen', 'razorchart
                     scale = update ? oldXScale : xScale;
                     path = pathGen.moveTo(scale.calc(tick), 0).lineTo(scale.calc(tick), height).path();
                     if(create) {
-
                         gridLine = xGridLines[i] = paper.path(path, gridContainer);
                         gridLine.node.setAttribute('class', 'rc-grid-line ' + (tick === 0 ? 'rc-grid-line-base' : ''));
                         gridLine.attr({
@@ -172,7 +193,6 @@ define(['razorcharts/utils/graphutils', 'razorcharts/utils/pathgen', 'razorchart
             }
 
             gridContainer.toBack();
-
             cacheScales();
         };
 

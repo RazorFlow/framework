@@ -540,12 +540,44 @@
                 "class": "LabelStepProperties",
                 "shortDesc": "PropertyBase related to the labelStep paramater for charts"
             },
+            "trendline": {
+                "type": "PropertyBase",
+                "class": "TrendLineProperties",
+                "shortDesc": "PropertyBase related to the trendline paramater for charts"
+            },
             "stackedTotalDisplay": {
                 "type": "boolean",
                 "default": false,
                 "shortDesc": "When set to true, Stacked Column charts will display a total label"
             }
         }
+    },
+    "TrendLineProperties": {
+        "base": "PropertyBase",
+        "shortDesc":"Trend line properties",
+        "properties": {
+            "value": {
+                "type": "number",
+                "default": null,
+                "shortDesc": "Place to show trend line"
+            },
+            "label": {
+                "type": "string",
+                "default": "",
+                "shortDesc": "The label to display on the axis"
+            },
+            "color": {
+                "type": "string",
+                "default": "#000000",
+                "shortDesc": "Hex code of color starting with #"
+            },
+            "enabled": {
+                "type": "boolean",
+                "default": false,
+                "shortDesc": "Is the trend line enabled"
+            }
+        }
+
     },
     "LabelStepProperties": {
         "base": "PropertyBase",

@@ -162,6 +162,21 @@ class ChartComponent extends RFComponent {
         ));
     }
 
+    /**
+     * Adds a trend line to the chart
+     * @param {Number} number value at which to display trend line
+     * @param {String} label the label to display
+     * @param {String} the color of the trend line
+     */
+    public function addTrendLine ($value, $label) {
+        $this->props->setObjectAtPath ("chart.trendline", array(
+            'enabled' => true,
+            'value' => $value,
+            'label' => $label,
+            'color' => 'auto'
+        ));
+    }
+
     public function setLabelStep ($step, $index=0) {
         $this->props->setValue ("chart.labelStep.interval", $step);
         $this->props->setValue ("chart.labelStep.startIndex", $index);
