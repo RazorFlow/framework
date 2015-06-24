@@ -1,4 +1,4 @@
-define(['razorcharts/utils/colorutils', 'vendor/lodash'], function(colorUtils, _) {
+define(['razorcharts/utils/colorUtils', 'vendor/lodash'], function(colorUtils, _) {
     var ColumnChart = function() {
         // Constants
         var SERIES_PADDING = 0.4,

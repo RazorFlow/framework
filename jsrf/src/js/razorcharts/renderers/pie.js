@@ -390,6 +390,9 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
         };
 
         var slicePath = function(cx, cy, startAngle, endAngle, innerRadius, outerRadius){
+            // full circle angle is impossible in SVG
+            if (endAngle % 360 == 0)
+                endAngle -= 0.01;
             var cut = Math.abs(startAngle - endAngle) > 180 ? 1 : 0;
             var startX  = cx + innerRadius * Math.cos(Math.PI * startAngle / 180),
                 startY = cy + innerRadius * Math.sin(Math.PI * startAngle / 180),
