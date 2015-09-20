@@ -362,10 +362,13 @@ define([
               tooltipFormatter.setConfig(self.props.chart.series[series[0].key]);
             } else {
               var seriesIndex = data.seriesIndex[0] - 1;
-              tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
-                self.props.chart.series[series[seriesIndex].key],
-                self.props.chart.series[series[seriesIndex].key].yAxis !== 'primary' ? syConfig : yConfig
-              ]));
+                //This is a quick fix to resolve error that occurs when hovering over a series and a series between the first and the last is hidden 
+              if (typeof self.props.chart.series[series[seriesIndex]] !== 'undefined') {
+                  tooltipFormatter.setConfig(NumberFormatter.pickFirstValid([
+                    self.props.chart.series[series[seriesIndex].key],
+                    self.props.chart.series[series[seriesIndex].key].yAxis !== 'primary' ? syConfig : yConfig
+                  ]));
+              }
             }     
             data.data[0] = tooltipFormatter.formatValue(data.data[0]);       
             tooltip.show(x, y, data);
