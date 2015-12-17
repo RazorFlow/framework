@@ -18,7 +18,8 @@ define(['razorcharts/utils/timer', 'razorcharts/utils/pathgen', 'razorcharts/uti
             labelObjects = [],
             tooltip = new Tooltip(),
             sliceBBoxes = [],
-            noLabels = false;
+            noLabels = false,
+            eventManager = null;
 
         var extraFuncs = {
             hasLabels: function() {
