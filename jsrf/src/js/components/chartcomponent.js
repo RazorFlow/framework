@@ -186,7 +186,10 @@ define([
         pro.requestRedraw();
         pro.aspect.revoke('series');
       },
-
+      resetBreadCrumbs: function() { 
+        drillLabelList = []; 
+        currentDrillDownStep = 0; 
+      },
       addDrillStep: function(cb) {
         pro.isDrillDownable = true;
         drillDownSteps.push(cb);
