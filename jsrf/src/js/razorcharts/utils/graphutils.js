@@ -7,7 +7,15 @@ define(['vendor/lodash'], function (_) {
      * @return Object output domain
      */
     prettyDomain: function (min, max, dontExtend) {
-
+      var minBoundaryAbs = 0.11;
+      var minAbs = Math.abs(min);
+      var maxAbs = Math.abs(max);
+      if (maxAbs >= minAbs && maxAbs < minBoundaryAbs) {
+        max = minBoundaryAbs;
+      }
+      if (minAbs >= maxAbs && minAbs < minBoundaryAbs) {
+        min = -minBoundaryAbs;
+      }
       if(min < 0 && max === 0) {
         max = -1;
       }
