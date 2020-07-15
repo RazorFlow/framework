@@ -20,7 +20,7 @@
     "grunt-lib-contrib": "^0.7.1",
     "grunt-s3": "^0.2.0-alpha.3",
     "grunt-text-replace": "^0.3.12",
-    "lodash": "^2.4.1",
+    "lodash": "^4.17.19",
     "underscore": "^1.6.0",
     "url-to-screenshot": "^0.4.1"
   },
